@@ -8,7 +8,7 @@ If you get stuck on any step, contact the support channel listed in your invitat
 
 ## 1. AI coding tools
 
-If you do not have an AI coding tool licence, one will be allocated to you on the day. You do not need to arrange this in advance. The event is tool-agnostic: GitHub Copilot, Amazon Q Developer, Gemini Code Assist, and others are all equally valid.
+If you do not have an AI coding tool licence, one will be allocated to you on the day. You do not need to arrange this in advance. The event is tool-agnostic: GitHub Copilot, Amazon Kiro, Gemini Code Assist, and others are all equally valid.
 
 If you already have a working AI coding tool, verify it is active before the day:
 
