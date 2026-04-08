@@ -86,7 +86,7 @@ If your team is likely to use GitHub for submission, the person who will create 
 1. Confirm you have a GitHub account. If not, create one at https://github.com/signup — it takes about two minutes.
 2. Confirm you can access github.com from your device. Some corporate networks block it.
 3. Know how to create a new public repository. From your GitHub homepage, select New, give the repository a name, set visibility to Public, and select Create repository.
-4. Know how to share the repository URL. It will be in the format `https://github.com/your-username/your-repo-name`. Send this URL to your FDE before 15:00 on the day.
+4. Know how to share the repository URL. It will be in the format `https://github.com/your-username/your-repo-name`. Send this URL to your FDE before 15:30 on the day.
 
 You do not need to create the repository before the event. This step is about making sure you are not doing it for the first time under time pressure.
 

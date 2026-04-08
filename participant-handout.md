@@ -9,25 +9,29 @@ Keep this open throughout the day.
 | Time | What happens |
 |------|--------------|
 | 08:30 | Arrive, register, breakfast, meet your pre-assigned team |
-| 09:00 | Welcome and kick-off — challenges walked through, FDE role clarified |
-| 09:30 | Pick your challenge, plan with your team, FDE helps with setup |
-| 10:15 | Lightning talk 1 |
-| 10:30 | Morning break |
-| 10:45 | Build phase begins |
-| 12:30 | Lunch (optional informal check-in) |
-| 13:30 | Lightning talk 2 |
-| 13:45 | Build phase resumes |
-| 15:00 | Build phase closes — prepare your summary, push your work |
-| 15:15 | Afternoon break |
-| 15:30 | Judge pairs visit every team |
-| 16:15 | Prize giving and close |
-| 16:30 | Hard finish |
+| 09:00 | Welcome and kick-off |
+| 09:15 | Pick your challenge, plan with your team, FDE helps with setup |
+| 09:45 | Lightning talk: Version 1 (theme TBC) |
+| 09:55 | Build phase |
+| 11:00 | Morning break |
+| 11:30 | Lightning talk: AWS (theme TBC) |
+| 11:40 | Build phase (continued) |
+| 12:30 | Lunch break (optional working break) |
+| 13:45 | Lightning talk: Anthropic (theme TBC) |
+| 13:55 | Build phase (resumed) |
+| 14:30 | Afternoon break |
+| 14:45 | Lightning talk: Google (theme TBC) |
+| 14:55 | Build phase (final stretch) |
+| 15:30 | Final review — judges return to your team |
+| 16:15 | Lightning talk: Microsoft (theme TBC; during results tabulation) |
+| 16:30 | Winners announced and wrap-up |
+| 16:40 | Hard finish |
 
 ---
 
 ## The challenges
 
-Choose one of the four challenges below, or propose an open brief during the morning session. Open brief teams must pitch to a facilitator for approval by 10:00.
+Choose one of the four challenges below, or propose an open brief during the morning session. Open brief teams must pitch to a facilitator for approval before the build phase begins (09:55).
 
 You are using AI coding tools to build your prototype. The event does not provide access to AI models for use within your application. If you have your own model access or want to mock AI capabilities, that is fine.
 
@@ -47,7 +51,7 @@ You may change your challenge before 11:00. Speak to your FDE.
 
 Scoring runs throughout the day via a live dashboard. Your team earns points for reaching milestones during the build phase, such as setting up your repository, producing a first working prototype, and demonstrating a complete user journey.
 
-After the build phase closes, judge pairs visit every team at your table. Each pair asks a consistent set of questions about what you built, how you used AI tools, and what you would do next. They score against a simple rubric.
+When the final build stretch ends at 15:30, judges return to their assigned teams for final review until 16:15. Each pair asks a consistent set of questions about what you built, how you used AI tools, and what you would do next. They score against a simple rubric.
 
 Your final score combines your milestone points with the judge review. There are no stage presentations. Judges want honesty. A clear explanation of what you tried and what failed scores better than a polished story that glosses over the hard parts.
 
@@ -100,11 +104,11 @@ Your assigned FDE checks in with your team regularly throughout the day. There i
 
 ---
 
-## Build phase closes at 15:00
+## Build phase closes at 15:30
 
-At 15:00, stop building. Share your work with your FDE — send a zip file by email or Microsoft Teams, or share a GitHub repository URL if you have access to github.com. GitHub access is not required. Prepare a brief summary of what you have built.
+At 15:30, stop building. Share your work with your FDE — send a zip file by email or Microsoft Teams, or share a GitHub repository URL if you have access to github.com. GitHub access is not required. Prepare a brief summary of what you have built.
 
-You will not be able to update your submission after 15:00. Judge pairs begin visiting teams at 15:30.
+You will not be able to update your submission after 15:30. Final review with judges begins at 15:30.
 
 ---
 

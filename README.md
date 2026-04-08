@@ -69,7 +69,7 @@ Starting points: synthetic HR and resource allocation data will be provided on t
 
 Scoring runs throughout the day, not just at the end. Your team earns points for reaching milestones during the build phase, tracked on a live dashboard visible to the room. Milestones include things like setting up your repository, producing a first working prototype, and demonstrating a complete user journey.
 
-At the end of the build phase, judge pairs visit every team at their tables. Each pair asks a consistent set of questions about what you built, how you used AI tools, and what you would do next. They score against a simple rubric.
+When the final build stretch ends at 15:30, judges return to their assigned teams for final review and rubric scoring until 16:15. Each pair asks a consistent set of questions about what you built, how you used AI tools, and what you would do next. A Microsoft lightning talk runs from 16:15 while results are tabulated, then winners are announced and the event wraps up from 16:30.
 
 Your final score combines your milestone points with the judge review. There are no stage presentations.
 
@@ -77,20 +77,24 @@ Your final score combines your milestone points with the judge review. There are
 
 | Time | Activity |
 |------|----------|
-| 08:30 | Arrival, registration, breakfast |
-| 09:00 | Welcome and kick-off — challenges walked through, rules, FDE role clarified |
-| 09:30 | Problem selection and team planning |
-| 10:15 | Lightning talk 1 |
-| 10:30 | Morning break |
-| 10:45 | Build phase begins |
-| 12:30 | Lunch (optional informal check-in to surface blockers) |
-| 13:30 | Lightning talk 2 |
-| 13:45 | Build phase resumes |
-| 15:00 | Build phase closes — prepare your summary and push your work |
-| 15:15 | Afternoon break |
-| 15:30 | Judge pairs visit every team |
-| 16:15 | Prize giving and close |
-| 16:30 | Hard finish |
+| 08:30 | Arrival, registration and breakfast |
+| 09:00 | Welcome and kick-off |
+| 09:15 | Problem selection and team planning |
+| 09:45 | Lightning talk: Version 1 (theme TBC) |
+| 09:55 | Build phase |
+| 11:00 | Morning break |
+| 11:30 | Lightning talk: AWS (theme TBC) |
+| 11:40 | Build phase (continued) |
+| 12:30 | Lunch break (optional working break) |
+| 13:45 | Lightning talk: Anthropic (theme TBC) |
+| 13:55 | Build phase (resumed) |
+| 14:30 | Afternoon break |
+| 14:45 | Lightning talk: Google (theme TBC) |
+| 14:55 | Build phase (final stretch) |
+| 15:30 | Final review — judges return to teams for rubric scoring |
+| 16:15 | Lightning talk: Microsoft (theme TBC; during results tabulation) |
+| 16:30 | Winners announced and wrap-up |
+| 16:40 | Hard finish |
 
 The agenda may shift by 15 to 30 minutes depending on the number of teams. Your event lead will communicate any changes on the day.
 
