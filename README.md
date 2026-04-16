@@ -123,6 +123,7 @@ This workshop includes:
 - `challenge-1/FORM-LIC-001-licence-application.pdf` — sample licence application PDF for challenge 1
 - `challenge-02-unlocking-the-dark-data.md` — detailed brief, data, and prompts for challenge 2
 - `challenge-2/` — starter data for challenge 2: `structured_files/` (text-based documents) and `unstructured_files/` (binary-format documents)
+- `challenge-2/wiki/demonstration-guide.md` — end-to-end Challenge 2 demo route covering source construction, Obsidian validation, the workbench, browser AI export, evaluation, and audit/FOI tracking
 - `challenge-2/wiki/evaluation-benchmark.md` — 100-question source-backed benchmark for evaluating how AI coding agents use the Challenge 2 wiki
 - `challenge-2/tools/run_wiki_eval.py` and `challenge-2/tools/wiki_eval_mcp.py` — Challenge 2 evaluation harness and auditable MCP layer
 - `challenge-03-supporting-casework-decisions.md` — detailed brief, data, and prompts for challenge 3

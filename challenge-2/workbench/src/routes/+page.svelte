@@ -32,6 +32,7 @@
   let highlightedIds = new Set<string>();
   let activeSourceId = corpus.sources[0]?.sourceId ?? '';
   let savedContexts: SavedContext[] = [];
+  let userQuestion = '';
   let contextName = '';
   let exportStatus = '';
   let savedQueryId = SAVED_QUERIES[0].id;
@@ -48,6 +49,7 @@
     selectedIds,
     highlightedIds,
     filters,
+    question: userQuestion,
     query,
     mode: aiMode,
   });
@@ -152,6 +154,7 @@
   const runQuery = (id: string) => {
     savedQueryId = id;
     savedQueryResults = runSavedQuery(corpus, id);
+    userQuestion = SAVED_QUERIES.find((saved) => saved.id === id)?.question ?? userQuestion;
     highlightedIds = new Set(savedQueryResults.map((source) => source.sourceId));
     viewMode = 'queries';
   };
@@ -245,6 +248,21 @@
     </aside>
 
     <section class="main-stage" aria-label="Workbench results">
+      <section class="question-box" aria-label="Question box">
+        <div>
+          <label for="workbench-question">Question</label>
+          <p>{selectedIds.size ? `${selectedIds.size} selected sources in context` : `${visibleSources.length} visible sources available`}</p>
+        </div>
+        <textarea
+          id="workbench-question"
+          bind:value={userQuestion}
+          rows="3"
+          placeholder="Ask the question this evidence set should answer"
+          aria-label="Question to answer"
+        ></textarea>
+        <button type="button" class="secondary" on:click={() => (userQuestion = '')} disabled={!userQuestion.trim()}>Clear</button>
+      </section>
+
       <div class="stage-toolbar">
         <div>
           <h2>{visibleSources.length} visible sources</h2>

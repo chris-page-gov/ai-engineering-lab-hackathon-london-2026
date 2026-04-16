@@ -8,6 +8,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
+- Added `challenge-2/wiki/demonstration-guide.md`, an end-to-end Challenge 2 demo route covering source construction, Obsidian validation, SeeLinks-style workbench flows, Browser AI export, the evaluation matrix/harness, and audit/FOI tracking.
+- Added a Dark Data Workbench question box that carries the user's question into Browser AI JSON, copied prompts, Markdown evidence bundles, and saved-check flows.
 - Added Dark Data Workbench, a SvelteKit browser UI under `challenge-2/workbench/` for filtering the Challenge 2 wiki corpus, building context sets, browsing evidence, and exporting optional AI/MCP context.
 - Added `challenge-2/tools/workbench_mcp.py` to expose Dark Data Workbench search, source read, and context-building flows to local MCP clients.
 - Added unit, component, Playwright, and MCP tests for Dark Data Workbench, with optional coverage enforcement via `pnpm test:coverage`.
@@ -30,6 +32,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Documentation
 
+- Linked the Challenge 2 demonstration guide from the wiki index, README, and Challenge 2 brief.
 - Linked the new tracking files from `README.md`.
 - Linked the Challenge 2 benchmark into the wiki index and documented the evaluation harness in the Challenge 2 brief and README.
 

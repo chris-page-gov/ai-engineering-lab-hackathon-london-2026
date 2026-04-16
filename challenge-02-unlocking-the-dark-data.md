@@ -158,6 +158,16 @@ Keyword matching is fine for a demo.
 
 By the end of the day, you should be able to show: a set of documents whose content has been extracted and structured, a way to query or search that content, and a clear explanation of who benefits and how. If you can also show what the output schema would enable — the chat interface, the search page, the service that stays up to date when policy changes — that is a strong demo.
 
+## Demonstration guide
+
+The repository includes an end-to-end Challenge 2 demonstration page at `challenge-2/wiki/demonstration-guide.md`. It covers:
+
+- the source corpus used to build the wiki, with links to structured files, unstructured files, source notes, and the machine-readable source register
+- opening the generated knowledge base in Obsidian for topic selection, source validation, search, graph, and backlink review
+- using the SeeLinks-style Dark Data Workbench for search, facets, saved checks, source inspection, context building, Browser AI export, and MCP setup
+- the 100-question evaluation matrix, gold-answer/rubric design, comparative harness, scoring sheet, leaderboard, and audit/FOI record
+- how the implementation maps back to the `Unlocking_Dark_Data.pdf` slide deck and scoring-guide image
+
 ## Challenge 2 wiki evaluation harness
 
 The repository also includes an evaluator for the generated Challenge 2 wiki. It is intended for comparing how Codex, Gemini CLI, and Claude Code answer the same source-backed questions when instructed to use only the local wiki.

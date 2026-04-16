@@ -44,6 +44,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `challenge-2/tools/summarise_wiki_eval.py`: leaderboard summariser for scored harness runs.
 - `challenge-2/tools/workbench_mcp.py`: stdio MCP server for Dark Data Workbench source search, source read, and context export.
 - `challenge-2/wiki/index.md`: Obsidian knowledge-base entry point.
+- `challenge-2/wiki/demonstration-guide.md`: end-to-end Challenge 2 demo route covering source construction, Obsidian validation, workbench usage, Browser AI export, evaluation, and audit/FOI tracking.
 - `challenge-2/wiki/workbench.md`: Obsidian entry point for running and explaining Dark Data Workbench.
 - `challenge-2/wiki/architecture.md`: plain-English architecture explanation with Mermaid diagrams.
 - `challenge-2/wiki/evaluation-benchmark.md`: 100-question Challenge 2 wiki benchmark with gold answers, rubrics, and scoring regime.
@@ -51,7 +52,9 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `challenge-2/wiki/data/source-register.json`: machine-readable source register.
 - `challenge-2/workbench/`: SvelteKit Dark Data Workbench app and its unit, component, Playwright, and optional coverage tests.
 
-Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context.
+Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context. The workbench also carries a user-entered question through Browser AI JSON, copied prompts, and Markdown evidence bundles so exported evidence remains tied to the question it is meant to answer.
+
+The Challenge 2 demonstration guide is the recommended walkthrough for showing the complete prototype. It ties the source corpus, Obsidian wiki, SeeLinks-style workbench, Browser AI export, evaluation benchmark, harness outputs, and audit/FOI record back to the `Unlocking_Dark_Data.pdf` slide narrative and benchmark scoring guide.
 
 Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are local session state, not shared vault configuration. They are ignored and left on disk locally so using Obsidian does not repeatedly create repository changes.
 

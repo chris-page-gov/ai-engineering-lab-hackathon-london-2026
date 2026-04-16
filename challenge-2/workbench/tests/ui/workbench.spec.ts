@@ -28,6 +28,9 @@ test.describe('Dark Data Workbench', () => {
     await expect(page.getByText('43', { exact: true }).first()).toBeVisible();
     await expect(page.locator('.source-card')).toHaveCount(43);
 
+    await page.getByLabel('Question to answer').fill('Which DHP guidance should an adviser cite?');
+    await expect(page.getByLabel('Question to answer')).toHaveValue('Which DHP guidance should an adviser cite?');
+
     await page.getByRole('searchbox', { name: /Search sources/i }).fill('DOC-HB-002');
 
     await expect(page.locator('.source-card')).toHaveCount(1);
@@ -100,12 +103,14 @@ test.describe('Dark Data Workbench', () => {
     }
 
     await pressButton(page.getByRole('button', { name: 'Current CTR guidance' }));
+    await expect(page.getByLabel('Question to answer')).toHaveValue('Which Council Tax Reduction guidance is current?');
     await expect(page.locator('.query-results')).toContainText('DOC-HB-009');
     await expect(page.locator('.query-results')).not.toContainText('DOC-HB-003');
   });
 
   test('exports browser AI context and renders MCP setup', async ({ page }) => {
     await page.getByRole('searchbox', { name: /Search sources/i }).fill('DOC-HB-002');
+    await page.getByLabel('Question to answer').fill('What are the gateway conditions for Discretionary Housing Payments?');
     await expect(page.locator('.source-card')).toHaveCount(1);
     await page.locator('.source-card').getByRole('button', { name: 'Add' }).click();
     await page.getByRole('button', { name: 'Browser AI' }).click();
@@ -119,6 +124,7 @@ test.describe('Dark Data Workbench', () => {
     expect(path).toBeTruthy();
     const json = JSON.parse(await (await import('node:fs/promises')).readFile(path!, 'utf-8'));
     expect(json.sources[0].source_id).toBe('DOC-HB-002');
+    expect(json.view.question).toBe('What are the gateway conditions for Discretionary Housing Payments?');
     expect(json.instructions.synthetic_data_notice).toContain('synthetic');
 
     await page.getByRole('button', { name: 'MCP' }).click();

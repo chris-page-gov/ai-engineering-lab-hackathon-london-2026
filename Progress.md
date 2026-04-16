@@ -6,6 +6,10 @@ The Challenge 2 Obsidian knowledge-base prototype is implemented and merged into
 
 The current local working branch also contains the Challenge 2 wiki evaluation benchmark, CLI harness, MCP-compatible audit layer, and scoring-sheet/leaderboard tooling for comparing Codex, Gemini CLI, and Claude Code against the generated wiki.
 
+The current local working branch now also includes an end-to-end Challenge 2 demonstration guide that links the source corpus, Obsidian validation, SeeLinks-style workbench, Browser AI export, evaluation matrix/harness, and audit/FOI tracking into one walkthrough.
+
+Dark Data Workbench now includes a question box so saved checks and Browser AI exports preserve the user question alongside the selected evidence.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -28,6 +32,8 @@ The current local working branch also contains the Challenge 2 wiki evaluation b
 - Added Dark Data Workbench unit, component, Playwright, MCP, and optional coverage test paths.
 - Hardened Dark Data Workbench Playwright control interactions after the PR check exposed CI-only click/state flakiness.
 - Removed Obsidian workspace session state from Git tracking while preserving useful vault configuration files.
+- Added `challenge-2/wiki/demonstration-guide.md` and linked it from the wiki index, README, and Challenge 2 brief.
+- Added the Dark Data Workbench question box and included question text in Browser AI JSON, copied prompts, Markdown evidence bundles, and saved-check setup.
 
 ## Validation
 
@@ -52,11 +58,14 @@ The current local working branch also contains the Challenge 2 wiki evaluation b
   - `cd challenge-2/workbench && pnpm build`
   - `cd challenge-2/workbench && pnpm test:ui`
   - `python3 -m unittest tests/test_challenge2_workbench_mcp.py`
+- Current documentation validation for the Challenge 2 demonstration guide passed locally:
+  - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
 
 ## Open Items
 
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
-- Add a concise judging evidence page covering user need, prototype scope, AI-tool usage, validation, limitations, and next steps.
 - Run the full 100-question benchmark through the available Codex, Gemini CLI, and Claude Code installations, then fill the scoring sheet and publish the generated leaderboard.
 
 ## Next Recommended Steps

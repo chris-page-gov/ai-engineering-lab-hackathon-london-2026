@@ -265,6 +265,7 @@ export const buildContextExport = ({
   selectedIds,
   highlightedIds,
   filters,
+  question,
   query,
   mode,
 }: {
@@ -273,6 +274,7 @@ export const buildContextExport = ({
   selectedIds: Set<string>;
   highlightedIds: Set<string>;
   filters: FilterState;
+  question?: string;
   query: string;
   mode: ContextExport['mode'];
 }): ContextExport => {
@@ -289,6 +291,7 @@ export const buildContextExport = ({
       synthetic_data_notice: corpus.syntheticDataNotice,
     },
     view: {
+      question: question?.trim() ?? '',
       query,
       filters,
       selected_source_ids: Array.from(selectedIds).sort((a, b) => a.localeCompare(b)),
@@ -327,6 +330,8 @@ Rules:
 - If the context does not contain enough evidence, say what is missing.
 - The corpus is synthetic hackathon fixture data. Do not redact synthetic names, emails, roles, or contact-like values.
 
+Question: ${context.view.question || 'Use the question supplied by the user alongside this prompt.'}
+
 Current context contains ${context.sources.length} source(s): ${context.sources.map((source) => source.source_id).join(', ')}.`;
 
 export const buildEvidenceMarkdown = (context: ContextExport) => {
@@ -335,6 +340,7 @@ export const buildEvidenceMarkdown = (context: ContextExport) => {
     '',
     `Exported: ${context.exported_at}`,
     `Sources: ${context.sources.length}`,
+    `Question: ${context.view.question || 'Not specified'}`,
     '',
     '## Instructions',
     '',

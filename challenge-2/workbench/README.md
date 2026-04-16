@@ -1,6 +1,6 @@
 # Dark Data Workbench
 
-Browser interface for the Challenge 2 Obsidian/wiki corpus. It loads `../wiki/data/source-register.json` plus generated source notes, then lets users filter documents, build a context set, inspect evidence, and optionally export that same context for browser AI or MCP clients.
+Browser interface for the Challenge 2 Obsidian/wiki corpus. It loads `../wiki/data/source-register.json` plus generated source notes, then lets users enter the question they need to answer, filter documents, build a context set, inspect evidence, and optionally export that same context for browser AI or MCP clients.
 
 ## Commands
 
@@ -19,5 +19,5 @@ pnpm test:coverage
 ## AI Modes
 
 - **No AI:** deterministic search, facets, saved checks, reader, graph, workbook table view, and evidence bundles.
-- **Browser AI:** copy/download JSON context, copy a browser prompt, or download Markdown evidence.
+- **Browser AI:** copy/download JSON context, copy a browser prompt, or download Markdown evidence. Exports include the current question box text.
 - **MCP:** run `python3 ../tools/workbench_mcp.py` from this directory or `python3 challenge-2/tools/workbench_mcp.py` from the repository root.

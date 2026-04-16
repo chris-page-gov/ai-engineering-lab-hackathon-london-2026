@@ -15,7 +15,7 @@ updated: "2026-04-16"
 
 Dark Data Workbench is the browser interface for the Challenge 2 knowledge base. It sits alongside the Obsidian vault and uses the generated source register and wiki notes as its data source.
 
-The workbench is designed around the same useful pattern as SeeLinks: filter the visible material, explicitly build a context set, inspect the evidence, and then choose whether to use AI.
+The workbench is designed around the same useful pattern as SeeLinks: state the question, filter the visible material, explicitly build a context set, inspect the evidence, and then choose whether to use AI.
 
 ## How To Run
 
@@ -31,9 +31,13 @@ Open the local URL printed by Vite. The default Playwright/dev port is `5174`.
 
 ## Main Modes
 
-- **No AI:** use search, facets, source cards, reader view, graph view, workbook table view, saved context sets, and deterministic demo checks.
-- **Browser AI:** copy or download the current context as JSON, copy a browser-AI prompt, or download a Markdown evidence bundle.
+- **No AI:** use the question box, search, facets, source cards, reader view, graph view, workbook table view, saved context sets, and deterministic demo checks.
+- **Browser AI:** copy or download the current context as JSON, copy a browser-AI prompt, or download a Markdown evidence bundle. The export includes the current question.
 - **MCP:** run `python3 challenge-2/tools/workbench_mcp.py` so desktop AI clients can search, read, and build context from the same source set.
+
+## Question Box
+
+The question box records the user need before source selection. Typed questions are included in Browser AI JSON, browser prompts, and Markdown evidence bundles. Running a saved check fills the question box with that check's demo question so the exported context shows both the evidence and the question it was assembled to answer.
 
 ## What It Uses
 

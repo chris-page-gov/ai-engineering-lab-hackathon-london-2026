@@ -138,6 +138,7 @@ export type ContextExport = {
     synthetic_data_notice: string;
   };
   view: {
+    question: string;
     query: string;
     filters: FilterState;
     selected_source_ids: string[];

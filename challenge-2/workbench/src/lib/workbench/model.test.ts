@@ -215,10 +215,12 @@ describe('workbench corpus model', () => {
       selectedIds,
       highlightedIds: new Set(['UF-STAFF-DIRECTORY-EXTRACT-Q4-2023']),
       filters: EMPTY_FILTERS,
+      question: 'Who is listed in the staff directory?',
       query: 'staff',
       mode: 'browser-ai',
     });
 
+    expect(context.view.question).toBe('Who is listed in the staff directory?');
     expect(context.sources).toHaveLength(1);
     expect(context.instructions.synthetic_data_notice).toBe(SYNTHETIC_DATA_NOTICE);
     expect(JSON.stringify(context)).toContain('synthetic');
@@ -228,9 +230,11 @@ describe('workbench corpus model', () => {
     const prompt = buildBrowserPrompt(context);
     expect(prompt).toContain('Cite source_id');
     expect(prompt).toContain('Do not redact synthetic');
+    expect(prompt).toContain('Who is listed in the staff directory?');
 
     const markdown = buildEvidenceMarkdown(context);
     expect(markdown).toContain('UF-STAFF-DIRECTORY-EXTRACT-Q4-2023');
+    expect(markdown).toContain('Question: Who is listed in the staff directory?');
     expect(markdown).toContain('Synthetic');
   });
 
@@ -254,11 +258,13 @@ describe('workbench corpus model', () => {
       selectedIds: new Set(),
       highlightedIds: new Set(),
       filters: EMPTY_FILTERS,
+      question: '  ',
       query: '',
       mode: 'no-ai',
     });
 
     expect(context.sources).toHaveLength(1);
+    expect(context.view.question).toBe('');
     expect(context.sources[0].selected).toBe(false);
     expect(buildEvidenceMarkdown(context)).not.toContain('Flags:');
 
