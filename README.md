@@ -113,6 +113,10 @@ Teams are three to five people, pre-assigned before arrival. When you walk in, y
 This workshop includes:
 
 - `README.md` (this file) — overview and day structure
+- `Changelog.md` — dated change history for repository additions, changes, fixes and documentation updates
+- `Context.md` — project context, architecture assumptions, data policy and operating constraints
+- `Progress.md` — current implementation status, validation, blockers and next steps
+- `AGENTS.md` — repo-wide operating rules, including the documentation lockstep policy
 - `SETUP-GUIDE.md` — what to do before the event
 - `open-brief.md` — guidance for teams bringing their own problem, including prompts to frame and scope it
 - `challenge-01-from-pdf-to-digital-service.md` — detailed brief, data, and prompts for challenge 1
