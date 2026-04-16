@@ -38,12 +38,14 @@ tags:
   - "allocation"
   - "housing-benefit"
   - "homelessness-and-social-housing"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-html"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -71,6 +73,9 @@ sensitivity:
 | Last updated | 2025-08-10 |
 | Audience | Citizens |
 | Topics | social-housing, housing, council-housing, allocation, housing-benefit, homelessness-and-social-housing |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | e6ceb90ddb47499be1262d09df88ed2571880ac80cb26383b3c27a2a9de7e621 |
 
 ## Related Sources
@@ -89,7 +94,7 @@ sensitivity:
 
 <div class="govuk-breadcrumbs" style="margin-bottom: 20px; font-size: 0.9em;">
 
-[Home](/) \> [Housing](/housing) \> [Social housing](/social-housing)
+Home \> Housing \> Social housing
 
 </div>
 
@@ -235,8 +240,8 @@ Your landlord must provide you with a written tenancy agreement setting out both
 
 ## Related guidance
 
-- [Housing Benefit: Check if you're eligible ([DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md))]([DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md)-housing-benefit-eligibility.html)
-- [Homelessness prevention and relief: local authority duties ([DOC-HB-005](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md))]([DOC-HB-005](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md)-homelessness-prevention.txt)
+- [Housing Benefit: Check if you're eligible (DOC-HB-001)](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md)
+- [Homelessness prevention and relief: local authority duties (DOC-HB-005)](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md)
 
 </div>
 
@@ -254,12 +259,9 @@ Your landlord must provide you with a written tenancy agreement setting out both
 | exif_Author | Department for Levelling Up, Housing and Communities (DLUHC) |
 | exif_Department | DLUHC |
 | exif_Description | Common questions about applying for social housing, council housing waiting lists, allocation policies, and your rights as a social housing tenant. |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_DocumentId | DOC-HB-004 |
 | exif_DocumentType | FAQ |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-HB-004-social-housing-faq.html |
 | exif_FilePermissions | -rw-r--r-- |

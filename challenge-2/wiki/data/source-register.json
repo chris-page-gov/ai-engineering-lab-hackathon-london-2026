@@ -42,14 +42,18 @@
       "DOC-SB-006"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-html",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -71,11 +75,8 @@
       "title": "Housing Benefit: Check if you're eligible - GOV.UK",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-001-housing-benefit-eligibility.html",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "8.1 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "HTML",
       "exif_FileTypeExtension": "html",
@@ -136,14 +137,18 @@
       "DOC-HB-008"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "markdown-frontmatter",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -172,11 +177,8 @@
       ],
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-002-discretionary-housing-payments.md",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "7.9 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -225,14 +227,18 @@
     "flags": [
       "stale/conflicted: DOC-HB-009 says it replaces the March 2024 version"
     ],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "plain-text-regex",
       "quality": "medium",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -247,11 +253,8 @@
       "audience": "Local authority revenues and benefits officers",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-003-council-tax-reduction-regulations.txt",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "7.3 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -299,14 +302,18 @@
       "DOC-HB-001"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-html",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -327,11 +334,8 @@
       "title": "Social Housing: Frequently Asked Questions - GOV.UK",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-004-social-housing-faq.html",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "11 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "HTML",
       "exif_FileTypeExtension": "html",
@@ -388,14 +392,18 @@
       "DOC-SB-008"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "plain-text-regex",
       "quality": "medium",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -407,11 +415,8 @@
       "published": "January 2025",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-005-homelessness-prevention.txt",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "7.3 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -463,14 +468,18 @@
       "superseded",
       "points readers to DOC-HB-006a"
     ],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "markdown-frontmatter",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -487,11 +496,8 @@
       "publication_date": "2024-01-15",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-006-housing-benefit-claim-form-instructions.md",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "4.5 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -534,14 +540,18 @@
       "DOC-HB-001"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-html",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL"
     },
     "technical_metadata": {
@@ -559,11 +569,8 @@
       "title": "Housing Benefit Caseload Statistics: Quarter 3 2025/26",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-007-housing-benefit-statistics-q3.html",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "8.8 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "HTML",
       "exif_FileTypeExtension": "html",
@@ -610,14 +617,18 @@
       "DOC-HB-002"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "plain-text-regex",
       "quality": "medium",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -628,11 +639,8 @@
       "published": "15/11/2025",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-008-dhp-consultation-responses.txt",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "5.6 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -675,14 +683,18 @@
       "DOC-HB-001"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "plain-text-regex",
       "quality": "medium",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -694,11 +706,8 @@
       "status": "Current",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-009-council-tax-reduction-updated.txt",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "5.2 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -742,14 +751,18 @@
       "DOC-HB-004"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "markdown-frontmatter",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -767,11 +780,8 @@
       "audience": "Tenants and social landlords",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-HB-010-right-to-buy.md",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "6.5 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -820,14 +830,18 @@
       "DOC-SB-006"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-html",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -848,11 +862,8 @@
       "title": "Starting a Business in the UK: Step by Step",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-001-starting-a-business.html",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "6.4 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "HTML",
       "exif_FileTypeExtension": "html",
@@ -905,14 +916,18 @@
       "DOC-SB-006"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "markdown-frontmatter",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -934,11 +949,8 @@
       ],
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-002-registering-self-employed.md",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "4.5 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -991,14 +1003,18 @@
       "DOC-SB-005"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-html",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1019,11 +1035,8 @@
       "title": "National Minimum Wage and National Living Wage: Employer Guidance",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-003-national-minimum-wage.html",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "8.1 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "HTML",
       "exif_FileTypeExtension": "html",
@@ -1071,14 +1084,18 @@
       "DOC-SB-003"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "plain-text-regex",
       "quality": "medium",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1092,11 +1109,8 @@
       "status": "Current",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-004-workplace-pensions.txt",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "8.3 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -1146,14 +1160,18 @@
       "DOC-SB-009"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "markdown-frontmatter",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1176,11 +1194,8 @@
       ],
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-005-employment-rights-era-1996.md",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "6.0 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -1226,14 +1241,18 @@
       "DOC-SB-002"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "markdown-frontmatter",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1251,11 +1270,8 @@
       "audience": "Self-employed Housing Benefit claimants and local authority assessors",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-006-self-employment-housing-benefit.md",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "4.7 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -1302,14 +1318,18 @@
       "DOC-SB-005"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-html",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1327,11 +1347,8 @@
       "audience": "Employers",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-007-statutory-sick-pay.html",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "8.2 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "HTML",
       "exif_FileTypeExtension": "html",
@@ -1387,14 +1404,18 @@
       "DOC-SB-005"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-html",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1411,11 +1432,8 @@
       "audience": "Employers and employees",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-008-employer-duties-homelessness.html",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "7.0 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "HTML",
       "exif_FileTypeExtension": "html",
@@ -1460,14 +1478,18 @@
       "DOC-SB-005"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "markdown-frontmatter",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1484,11 +1506,8 @@
       "audience": "Employees and employers",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-009-flexible-working.md",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "5.2 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "TXT",
       "exif_FileTypeExtension": "txt",
@@ -1529,14 +1548,18 @@
       "DOC-SB-003"
     ],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-html",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1554,11 +1577,8 @@
       "audience": "Policy officials, business support organisations, researchers",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "DOC-SB-010-small-business-survey-2025.html",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
       "exif_FileSize": "12 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "HTML",
       "exif_FileTypeExtension": "html",
@@ -1600,14 +1620,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pdftotext-layout",
       "quality": "medium",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL"
     },
     "technical_metadata": {
@@ -1639,11 +1663,8 @@
       "PDF version": "1.4",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Acceptable_Use_Policy_IT_Systems.pdf",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "6.7 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:13:59+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "PDF",
       "exif_FileTypeExtension": "pdf",
@@ -1687,14 +1708,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1709,11 +1734,8 @@
       "modified": "2026-04-14T09:02:53.793Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Annual_Leave_Policy.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "10 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -1762,14 +1784,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pdftotext-layout",
       "quality": "medium",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL-SENSITIVE"
     },
     "technical_metadata": {
@@ -1801,11 +1827,8 @@
       "PDF version": "1.4",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Data Protection Guidance for Staff - March 2024.pdf",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "6.4 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:01+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "PDF",
       "exif_FileTypeExtension": "pdf",
@@ -1850,14 +1873,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -1872,11 +1899,8 @@
       "modified": "2026-04-14T09:02:53.695Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Eligibility_Criteria_Housing_Benefit.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "11 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -1922,14 +1946,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pdftotext-layout",
       "quality": "medium",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL"
     },
     "technical_metadata": {
@@ -1961,11 +1989,8 @@
       "PDF version": "1.4",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Equality_Impact_Assessment_UC_Migration.pdf",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "5.5 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:32:24+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "PDF",
       "exif_FileTypeExtension": "pdf",
@@ -2012,14 +2037,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -2034,11 +2063,8 @@
       "modified": "2026-04-14T09:02:53.809Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "FOI_Response_Template.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "9.7 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -2083,14 +2109,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -2105,11 +2135,8 @@
       "modified": "2026-04-14T09:02:53.725Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Grievance_Policy_2024.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "10 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -2138,7 +2165,7 @@
     "document_type": "policy",
     "department": "DWP",
     "status": "draft",
-    "version": "0.8",
+    "version": "0.8 — DRAFT \\| February 2024",
     "publication_date": null,
     "last_updated": null,
     "audience": [],
@@ -2160,14 +2187,18 @@
     "flags": [
       "draft"
     ],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL-SENSITIVE"
     },
     "technical_metadata": {
@@ -2182,11 +2213,8 @@
       "modified": "2026-04-14T09:02:53.618Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Information Security Policy - DRAFT v0.8.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "10 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -2204,7 +2232,7 @@
       "exif_RevisionNumber": 1,
       "exif_CreateDate": "2026:04:14 09:02:53.618Z",
       "exif_ModifyDate": "2026:04:14 09:02:53.618Z",
-      "version": "0.8"
+      "version": "0.8 — DRAFT \\| February 2024"
     }
   },
   {
@@ -2232,14 +2260,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pdftotext-layout",
       "quality": "medium",
       "warnings": [],
-      "table_count": 1
+      "table_count": 1,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL-SENSITIVE"
     },
     "technical_metadata": {
@@ -2271,11 +2303,8 @@
       "PDF version": "1.4",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Ministers_Questions_Briefing_Pack_12March.pdf",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "4.3 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:02+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "PDF",
       "exif_FileTypeExtension": "pdf",
@@ -2323,14 +2352,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "openpyxl-workbook",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -2343,11 +2376,8 @@
       "modified": "2026-04-14T08:54:51",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Overpayment_Recovery_Procedures_v2.3.xlsx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "10 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "XLSX",
       "exif_FileTypeExtension": "xlsx",
@@ -2395,14 +2425,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -2417,11 +2451,8 @@
       "modified": "2026-04-14T09:02:53.821Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Performance_Management_Framework_2024-25.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "12 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -2467,14 +2498,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "openpyxl-workbook",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -2487,11 +2522,8 @@
       "modified": "2026-04-14T08:54:51",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Procurement Thresholds 2024-25.xlsx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "7.1 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "XLSX",
       "exif_FileTypeExtension": "xlsx",
@@ -2541,14 +2573,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -2563,11 +2599,8 @@
       "modified": "2026-04-14T09:02:53.917Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Programme Board Minutes 14 Feb 2024.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "11 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -2620,14 +2653,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -2642,11 +2679,8 @@
       "modified": "2026-04-14T09:02:53.894Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Raising Concerns (Whistleblowing) Guidance.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "11 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -2695,14 +2729,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pdftotext-layout",
       "quality": "medium",
       "warnings": [],
-      "table_count": 4
+      "table_count": 4,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL"
     },
     "technical_metadata": {
@@ -2734,11 +2772,8 @@
       "PDF version": "1.4",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Recruitment_and_Selection_Policy.pdf",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "6.9 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:04+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "PDF",
       "exif_FileTypeExtension": "pdf",
@@ -2782,14 +2817,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL-SENSITIVE"
     },
     "technical_metadata": {
@@ -2804,11 +2843,8 @@
       "modified": "2026-04-14T09:02:53.842Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "SOCIAL MEDIA GUIDANCE FOR STAFF.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "11 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -2860,14 +2896,24 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pdftotext-layout",
       "quality": "medium",
       "warnings": [],
-      "table_count": 1
+      "table_count": 1,
+      "links": [
+        {
+          "label": "HMT Green Book",
+          "url": "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government",
+          "note": "Corrected from extracted PDF line break/typo; raw extracted text is preserved below."
+        }
+      ]
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL"
     },
     "technical_metadata": {
@@ -2899,11 +2945,8 @@
       "PDF version": "1.4",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Spending_Controls_Guidance.pdf",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "4.6 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:05+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "PDF",
       "exif_FileTypeExtension": "pdf",
@@ -2947,16 +2990,20 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [
-      "personal-data-like content"
+      "synthetic staff-directory fixture"
     ],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "openpyxl-workbook",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": true,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": true,
       "classification": null
     },
     "technical_metadata": {
@@ -2969,11 +3016,8 @@
       "modified": "2026-04-14T08:54:51",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Staff_Directory_Extract_Q4_2023.xlsx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "7.0 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "XLSX",
       "exif_FileTypeExtension": "xlsx",
@@ -3020,14 +3064,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pdftotext-layout",
       "quality": "medium",
       "warnings": [],
-      "table_count": 2
+      "table_count": 2,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL"
     },
     "technical_metadata": {
@@ -3059,11 +3107,8 @@
       "PDF version": "1.4",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "Welsh_Language_Standards_Compliance_Report_2023.pdf",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "7.2 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:06+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "PDF",
       "exif_FileTypeExtension": "pdf",
@@ -3108,14 +3153,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pdftotext-layout",
       "quality": "medium",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL"
     },
     "technical_metadata": {
@@ -3147,11 +3196,8 @@
       "PDF version": "1.4",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "flexible-working-policy.pdf",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "4.2 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:06+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "PDF",
       "exif_FileTypeExtension": "pdf",
@@ -3179,7 +3225,7 @@
     "document_type": "report",
     "department": "DWP",
     "status": "unknown",
-    "version": "1.0",
+    "version": "1.0 \\| January 2023",
     "publication_date": null,
     "last_updated": null,
     "audience": [],
@@ -3195,14 +3241,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": null
     },
     "technical_metadata": {
@@ -3217,11 +3267,8 @@
       "modified": "2026-04-14T09:02:53.596Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "incident-reporting-v1.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "10 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",
@@ -3239,7 +3286,7 @@
       "exif_RevisionNumber": 1,
       "exif_CreateDate": "2026:04:14 09:02:53.596Z",
       "exif_ModifyDate": "2026:04:14 09:02:53.596Z",
-      "version": "1.0"
+      "version": "1.0 \\| January 2023"
     }
   },
   {
@@ -3251,7 +3298,7 @@
     "document_type": "guidance",
     "department": null,
     "status": "unknown",
-    "version": "March",
+    "version": "March 2018",
     "publication_date": null,
     "last_updated": null,
     "audience": [],
@@ -3265,14 +3312,18 @@
     "supersedes": [],
     "related_sources": [],
     "flags": [],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pdftotext-layout",
       "quality": "medium",
       "warnings": [],
-      "table_count": 1
+      "table_count": 1,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL"
     },
     "technical_metadata": {
@@ -3304,11 +3355,8 @@
       "PDF version": "1.4",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "social_fund_budgeting_loans_guidance_chapter12.pdf",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "5.7 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 10:14:07+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "PDF",
       "exif_FileTypeExtension": "pdf",
@@ -3325,7 +3373,7 @@
       "exif_Trapped": false,
       "exif_PageMode": "UseNone",
       "exif_PageCount": 3,
-      "version": "March"
+      "version": "March 2018"
     }
   },
   {
@@ -3356,14 +3404,18 @@
     "flags": [
       "past review: next review was April 2022"
     ],
+    "data_origin": "synthetic_fixture",
+    "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
     "extraction": {
       "method": "pandoc-docx",
       "quality": "high",
       "warnings": [],
-      "table_count": 0
+      "table_count": 0,
+      "links": []
     },
     "sensitivity": {
-      "contains_personal_data": false,
+      "contains_real_personal_data": false,
+      "contains_synthetic_identifiers": false,
       "classification": "OFFICIAL"
     },
     "technical_metadata": {
@@ -3378,11 +3430,8 @@
       "modified": "2026-04-14T09:02:53.440Z",
       "exif_ExifToolVersion": 13.5,
       "exif_FileName": "travel-and-subsistence-policy-v2.0.docx",
-      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
       "exif_FileSize": "9.8 kB",
       "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
-      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
-      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
       "exif_FilePermissions": "-rw-r--r--",
       "exif_FileType": "DOCX",
       "exif_FileTypeExtension": "docx",

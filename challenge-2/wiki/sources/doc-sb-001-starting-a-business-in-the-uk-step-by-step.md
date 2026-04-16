@@ -38,12 +38,14 @@ tags:
   - "registration"
   - "small-business-and-self-employment"
   - "employment-rights-and-flexible-working"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-html"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -71,6 +73,9 @@ sensitivity:
 | Last updated | 2026-01-10 |
 | Audience | Citizens starting a business |
 | Topics | business, self-employment, registration, small-business-and-self-employment, employment-rights-and-flexible-working |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 324a50acdfc4e09208909da81dcb21ca045d72cbbb67ecda41de6b7c37de8810 |
 
 ## Related Sources
@@ -135,10 +140,10 @@ The table below summarises the key differences between the most common legal str
 
 ## Related guidance
 
-- [Registering as self-employed with HMRC ([DOC-SB-002](doc-sb-002-registering-as-self-employed-with-hmrc.md))]([DOC-SB-002](doc-sb-002-registering-as-self-employed-with-hmrc.md)-registering-self-employed.md)
-- [National Minimum Wage rates and employer guidance ([DOC-SB-003](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md))]([DOC-SB-003](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md)-national-minimum-wage.html)
-- [Workplace pensions and auto-enrolment duties ([DOC-SB-004](doc-sb-004-workplace-pensions-auto-enrolment-duties-for-employers.md))]([DOC-SB-004](doc-sb-004-workplace-pensions-auto-enrolment-duties-for-employers.md)-workplace-pensions.txt)
-- [Understanding business rates ([DOC-SB-006](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md))]([DOC-SB-006](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md)-business-rates.html)
+- [Registering as self-employed with HMRC (DOC-SB-002)](doc-sb-002-registering-as-self-employed-with-hmrc.md)
+- [National Minimum Wage rates and employer guidance (DOC-SB-003)](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md)
+- [Workplace pensions and auto-enrolment duties (DOC-SB-004)](doc-sb-004-workplace-pensions-auto-enrolment-duties-for-employers.md)
+- [Understanding business rates (DOC-SB-006)](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md)
 
 </div>
 
@@ -154,12 +159,9 @@ The table below summarises the key differences between the most common legal str
 | exif_Audience | Citizens starting a business |
 | exif_Author | Department for Business and Trade |
 | exif_Description | A step-by-step guide to starting a business in the UK, covering registration, legal structures, tax obligations, and employer duties. |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_DocumentId | DOC-SB-001 |
 | exif_DocumentType | guidance |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-001-starting-a-business.html |
 | exif_FilePermissions | -rw-r--r-- |

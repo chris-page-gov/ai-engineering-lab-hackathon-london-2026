@@ -33,12 +33,14 @@ tags:
   - "housing-benefit"
   - "small-business-and-self-employment"
   - "employment-rights-and-flexible-working"
+data_origin: "synthetic_fixture"
 extraction:
   method: "markdown-frontmatter"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -66,6 +68,9 @@ sensitivity:
 | Last updated | 2025-12-01 |
 | Audience | Self-employed Housing Benefit claimants and local authority assessors |
 | Topics | housing-benefit, small-business-and-self-employment, employment-rights-and-flexible-working |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | aad7693fce18aa98f87a56fd143c7394b3f4bb94085f0e5910498b2573801dc6 |
 
 ## Related Sources
@@ -146,9 +151,9 @@ Local authorities may request additional evidence where the information provided
 
 ## Related guidance
 
-- [[DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md): Housing Benefit eligibility and rates](/guidance/[DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md)) -- for general eligibility criteria and current benefit rates
-- [[DOC-SB-001](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md): Starting a small business in the UK](/guidance/[DOC-SB-001](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md)) -- for guidance on business registration and record-keeping obligations
-- [[DOC-SB-002](doc-sb-002-registering-as-self-employed-with-hmrc.md): Tax obligations for the self-employed](/guidance/[DOC-SB-002](doc-sb-002-registering-as-self-employed-with-hmrc.md)) -- for information on self-assessment, National Insurance, and VAT thresholds
+- [DOC-HB-001: Housing Benefit eligibility and rates](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md) -- for general eligibility criteria and current benefit rates
+- [DOC-SB-001: Starting a small business in the UK](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md) -- for guidance on business registration and record-keeping obligations
+- [DOC-SB-002: Tax obligations for the self-employed](doc-sb-002-registering-as-self-employed-with-hmrc.md) -- for information on self-assessment, National Insurance, and VAT thresholds
 
 ## Raw Metadata
 
@@ -158,10 +163,7 @@ Local authorities may request additional evidence where the information provided
 | department | Department for Levelling Up, Housing and Communities |
 | document_id | DOC-SB-006 |
 | exif_ByteOrderMark | No |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:32:23+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-006-self-employment-housing-benefit.md |
 | exif_FilePermissions | -rw-r--r-- |

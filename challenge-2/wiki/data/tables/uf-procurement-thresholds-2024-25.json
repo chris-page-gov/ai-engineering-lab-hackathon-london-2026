@@ -2,6 +2,10 @@
   "source_id": "UF-PROCUREMENT-THRESHOLDS-2024-25",
   "title": "Procurement Thresholds 2024-25",
   "source_path": "unstructured_files/Procurement Thresholds 2024-25.xlsx",
+  "data_origin": "synthetic_fixture",
+  "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
+  "contains_real_personal_data": false,
+  "contains_synthetic_identifiers": false,
   "worksheets": [
     {
       "name": "Thresholds",

@@ -27,12 +27,14 @@ tags:
   - "unknown"
   - "data-protection-and-information-security"
   - "incident-risk-and-assurance"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pdftotext-layout"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL"
 ---
 
@@ -60,6 +62,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | data-protection-and-information-security, incident-risk-and-assurance |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | c431316f64374a172e39e9616a5d37669f930edc5cc87a56d04d4429ffe265f4 |
 
 ## Navigation
@@ -246,10 +251,7 @@ Last review: June 2022 | Next review: June 2024
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:13:59+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Acceptable_Use_Policy_IT_Systems.pdf |
 | exif_FilePermissions | -rw-r--r-- |

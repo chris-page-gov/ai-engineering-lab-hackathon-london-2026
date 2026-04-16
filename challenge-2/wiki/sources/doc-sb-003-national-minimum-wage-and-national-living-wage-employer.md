@@ -42,12 +42,14 @@ tags:
   - "employment-rights-and-flexible-working"
   - "people-policies"
   - "incident-risk-and-assurance"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-html"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -75,6 +77,9 @@ sensitivity:
 | Last updated | 2025-04-01 |
 | Audience | Employers |
 | Topics | employment, wages, national-minimum-wage, national-living-wage, small-business-and-self-employment, employment-rights-and-flexible-working, people-policies, incident-risk-and-assurance |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 5f92cb8c95b6407b7d59e1c7bb2e406a4d839119a5a48e2204f13e85b93d40c4 |
 
 ## Related Sources
@@ -158,8 +163,8 @@ HMRC enforces minimum wage legislation. If you are found to have underpaid worke
 
 ## Related guidance
 
-- [Starting a Business in the UK: Step by Step ([DOC-SB-001](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md))]([DOC-SB-001](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md)-starting-a-business.html)
-- [Employment Rights Act 1996: Plain-English Summary ([DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md))]([DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md)-employment-rights-era-1996.md)
+- [Starting a Business in the UK: Step by Step (DOC-SB-001)](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md)
+- [Employment Rights Act 1996: Plain-English Summary (DOC-SB-005)](doc-sb-005-employment-rights-act-1996-plain-english-summary.md)
 
 </div>
 
@@ -175,12 +180,9 @@ HMRC enforces minimum wage legislation. If you are found to have underpaid worke
 | exif_Audience | Employers |
 | exif_Author | Department for Business and Trade |
 | exif_Description | Current National Minimum Wage and National Living Wage rates, employer obligations, and common errors in calculating pay. |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_DocumentId | DOC-SB-003 |
 | exif_DocumentType | guidance |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-003-national-minimum-wage.html |
 | exif_FilePermissions | -rw-r--r-- |

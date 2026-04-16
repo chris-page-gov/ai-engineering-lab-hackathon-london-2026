@@ -28,12 +28,14 @@ tags:
   - "html"
   - "current"
   - "small-business-and-self-employment"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-html"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -61,6 +63,9 @@ sensitivity:
 | Last updated | 2026-02-15 |
 | Audience | Policy officials, business support organisations, researchers |
 | Topics | small-business-and-self-employment |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 3a0296a2c4ccf38f47e5116fc4629e7a7d309210dcc78907f4bd8f2bcacb4008 |
 
 ## Related Sources
@@ -168,8 +173,8 @@ For further information on the methodology and data quality, contact the DBT Sma
 
 ## Related publications
 
-- [[DOC-SB-001](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md): Starting a small business in the UK](/guidance/[DOC-SB-001](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md))
-- [[DOC-SB-003](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md): Access to finance for small businesses](/guidance/[DOC-SB-003](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md))
+- [DOC-SB-001: Starting a small business in the UK](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md)
+- [DOC-SB-003: Access to finance for small businesses](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md)
 
 </div>
 
@@ -182,11 +187,8 @@ For further information on the methodology and data quality, contact the DBT Sma
 | document-id | DOC-SB-010 |
 | exif_Audience | Policy officials, business support organisations, researchers |
 | exif_Department | Department for Business and Trade |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_DocumentId | DOC-SB-010 |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-010-small-business-survey-2025.html |
 | exif_FilePermissions | -rw-r--r-- |

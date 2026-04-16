@@ -11,7 +11,7 @@ document_type: "policy"
 department: "DWP"
 owner: null
 status: "draft"
-version: "0.8"
+version: "0.8 — DRAFT \\| February 2024"
 publication_date: null
 last_updated: null
 audience: []
@@ -28,12 +28,14 @@ tags:
   - "draft"
   - "data-protection-and-information-security"
   - "incident-risk-and-assurance"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-docx"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL-SENSITIVE"
 ---
 
@@ -57,11 +59,14 @@ sensitivity:
 | Department | DWP |
 | Owner |  |
 | Status | draft |
-| Version | 0.8 |
+| Version | 0.8 — DRAFT \\| February 2024 |
 | Publication date |  |
 | Last updated |  |
 | Audience |  |
 | Topics | data-protection-and-information-security, incident-risk-and-assurance |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 944fff5377415f4ec113e6893d455d2fa9c547561d9bfe1fba05333715912f76 |
 
 ## Navigation
@@ -160,10 +165,7 @@ All staff must complete Responsible for Information (RfI) training annually. Sta
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.618Z |
 | exif_Creator | Un-named |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Information Security Policy - DRAFT v0.8.docx |
 | exif_FilePermissions | -rw-r--r-- |
@@ -185,7 +187,7 @@ All staff must complete Responsible for Information (RfI) training annually. Sta
 | lastModifiedBy | Un-named |
 | modified | 2026-04-14T09:02:53.618Z |
 | revision | 1 |
-| version | 0.8 |
+| version | 0.8 — DRAFT \\| February 2024 |
 
 ## Related Notes
 

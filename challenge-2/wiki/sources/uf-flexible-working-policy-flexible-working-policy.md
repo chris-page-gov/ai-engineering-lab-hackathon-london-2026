@@ -25,12 +25,14 @@ tags:
   - "pdf"
   - "unknown"
   - "employment-rights-and-flexible-working"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pdftotext-layout"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL"
 ---
 
@@ -58,6 +60,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | employment-rights-and-flexible-working |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | da0f80cd632026a87da0fdec8c2afe4342b04935fe106832f42e4db95bf01f21 |
 
 ## Navigation
@@ -192,10 +197,7 @@ Contact: flexible.working@dwp.gov.uk
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:06+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | flexible-working-policy.pdf |
 | exif_FilePermissions | -rw-r--r-- |

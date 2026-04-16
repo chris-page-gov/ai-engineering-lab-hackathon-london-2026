@@ -24,12 +24,14 @@ tags:
   - "docx"
   - "unknown"
   - "data-protection-and-information-security"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-docx"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL-SENSITIVE"
 ---
 
@@ -57,6 +59,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | data-protection-and-information-security |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 4b3c9380769a5b5ce121251e90374a70dd8d5239fcb6b97091fa0542fe253031 |
 
 ## Navigation
@@ -165,10 +170,7 @@ This guidance was last updated in September 2021. Social media platforms and the
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.842Z |
 | exif_Creator | Un-named |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | SOCIAL MEDIA GUIDANCE FOR STAFF.docx |
 | exif_FilePermissions | -rw-r--r-- |

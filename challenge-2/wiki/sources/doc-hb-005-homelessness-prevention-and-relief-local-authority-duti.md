@@ -35,12 +35,14 @@ tags:
   - "discretionary-housing-payments"
   - "homelessness-and-social-housing"
   - "incident-risk-and-assurance"
+data_origin: "synthetic_fixture"
 extraction:
   method: "plain-text-regex"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -68,6 +70,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | housing-benefit, discretionary-housing-payments, homelessness-and-social-housing, incident-risk-and-assurance |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 91fd209b81329038a636e437b621796a6c480e9b8229c0a87bd6b7c90ad14ea3 |
 
 ## Related Sources
@@ -111,10 +116,7 @@ If the relief duty comes to an end without the applicant having secured accommod
 | Field | Value |
 | --- | --- |
 | document_id | DOC-HB-005 |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:09+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-HB-005-homelessness-prevention.txt |
 | exif_FilePermissions | -rw-r--r-- |

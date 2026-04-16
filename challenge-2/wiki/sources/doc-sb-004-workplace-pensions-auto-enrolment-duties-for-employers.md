@@ -31,12 +31,14 @@ tags:
   - "small-business-and-self-employment"
   - "employment-rights-and-flexible-working"
   - "incident-risk-and-assurance"
+data_origin: "synthetic_fixture"
 extraction:
   method: "plain-text-regex"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -64,6 +66,9 @@ sensitivity:
 | Last updated | 2025-11-20 |
 | Audience |  |
 | Topics | small-business-and-self-employment, employment-rights-and-flexible-working, incident-risk-and-assurance |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 185f2931c5d540d0df5f4d9ba64ac278982db533ae608ccba18d236451fc3816 |
 
 ## Related Sources
@@ -300,10 +305,7 @@ Published by: The Pensions Regulator
 | Field | Value |
 | --- | --- |
 | document_id | DOC-SB-004 |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:09+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-004-workplace-pensions.txt |
 | exif_FilePermissions | -rw-r--r-- |

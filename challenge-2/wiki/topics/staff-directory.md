@@ -14,13 +14,13 @@ updated: "2026-04-16"
 
 # Staff Directory
 
-This topic page compiles 1 source documents whose extracted content or metadata mentions this area.
+This topic page compiles 1 source document whose extracted content or metadata mentions this area.
 
 ## Source Coverage
 
 | Source | Status | Format | Department | Flags |
 | --- | --- | --- | --- | --- |
-| [UF-STAFF-DIRECTORY-EXTRACT-Q4-2023](../sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md) | unknown | xlsx | DWP | personal-data-like content |
+| [UF-STAFF-DIRECTORY-EXTRACT-Q4-2023](../sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md) | unknown | xlsx | DWP | synthetic staff-directory fixture |
 
 ## Key Source Signals
 

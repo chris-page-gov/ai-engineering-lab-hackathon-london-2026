@@ -29,12 +29,14 @@ tags:
   - "current"
   - "employment-rights-and-flexible-working"
   - "people-policies"
+data_origin: "synthetic_fixture"
 extraction:
   method: "markdown-frontmatter"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -62,6 +64,9 @@ sensitivity:
 | Last updated |  |
 | Audience | Employees and employers |
 | Topics | employment-rights-and-flexible-working, people-policies |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | eae06e471d5183ba1586f08224aa9bfd4655f8b46ce01ae04e964b49e831b998 |
 
 ## Related Sources
@@ -156,7 +161,7 @@ Yes. You may withdraw a statutory flexible working request at any time before th
 
 **Q10. My employer has agreed to my request. Can they change their mind later?**
 
-Once an employer has agreed to a flexible working request, the change becomes a permanent variation to the employee's contract of employment, unless both parties have agreed that the change will be for a trial period or a fixed duration. The employer cannot unilaterally reverse the change without the employee's agreement. Any attempt to do so may amount to a breach of contract or constructive dismissal. For wider information on employer duties, see [[DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md): Employer obligations overview](/guidance/[DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md)).
+Once an employer has agreed to a flexible working request, the change becomes a permanent variation to the employee's contract of employment, unless both parties have agreed that the change will be for a trial period or a fixed duration. The employer cannot unilaterally reverse the change without the employee's agreement. Any attempt to do so may amount to a breach of contract or constructive dismissal. For wider information on employer duties, see [DOC-SB-005: Employer obligations overview](doc-sb-005-employment-rights-act-1996-plain-english-summary.md).
 
 ## Raw Metadata
 
@@ -165,10 +170,7 @@ Once an employer has agreed to a flexible working request, the change becomes a 
 | audience | Employees and employers |
 | department | Department for Business and Trade |
 | document_id | DOC-SB-009 |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:32:23+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-009-flexible-working.md |
 | exif_FilePermissions | -rw-r--r-- |

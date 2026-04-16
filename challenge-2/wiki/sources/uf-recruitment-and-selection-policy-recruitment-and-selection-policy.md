@@ -27,12 +27,14 @@ tags:
   - "unknown"
   - "procurement-and-spending-controls"
   - "people-policies"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pdftotext-layout"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL"
 ---
 
@@ -60,6 +62,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | procurement-and-spending-controls, people-policies |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 5b18bfd8df2e6b375880b6bced4b29d95bca7a41b4a7bff56f50bdcde379fce3 |
 
 ## Navigation
@@ -265,10 +270,7 @@ Civil Service Commission: https://civilservicecommission.independent.gov.uk
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:04+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Recruitment_and_Selection_Policy.pdf |
 | exif_FilePermissions | -rw-r--r-- |

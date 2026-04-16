@@ -25,12 +25,14 @@ tags:
   - "docx"
   - "unknown"
   - "people-policies"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-docx"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -58,6 +60,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | people-policies |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 523010df292cc605773f567b7b240d49f0efb9fdcc7ac72af79b72836ed2e8a8 |
 
 ## Navigation
@@ -139,10 +144,7 @@ The Employee Relations team produces quarterly reports on grievance volumes, out
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.725Z |
 | exif_Creator | Un-named |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Grievance_Policy_2024.docx |
 | exif_FilePermissions | -rw-r--r-- |

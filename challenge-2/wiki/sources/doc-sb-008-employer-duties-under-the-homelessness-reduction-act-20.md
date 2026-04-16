@@ -36,12 +36,14 @@ tags:
   - "foi-and-transparency"
   - "people-policies"
   - "incident-risk-and-assurance"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-html"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -69,6 +71,9 @@ sensitivity:
 | Last updated |  |
 | Audience | Employers and employees |
 | Topics | homelessness-and-social-housing, employment-rights-and-flexible-working, foi-and-transparency, people-policies, incident-risk-and-assurance |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 3da9e2d659fe8dff9a03c6ee4c2893c2a1f75372f4158934ff6b4d33ee13b837 |
 
 ## Related Sources
@@ -118,7 +123,7 @@ This guidance explains when and how employers should make referrals, what suppor
 
 **For employees:** Your employer can only make a referral to the local housing authority with your consent. You have the right to refuse a referral at any time. If you prefer, you can contact the local authority's housing options team directly. You can find the housing team for your area by visiting your local council's website or by calling the national housing advice line.
 
-When a referral is received, the local authority has a duty to assess the individual's housing needs within a reasonable period and to work with them to develop a personalised housing plan. For further information on the assessment process and available support, see [[DOC-HB-005](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md): Homelessness prevention and relief](/guidance/[DOC-HB-005](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md)).
+When a referral is received, the local authority has a duty to assess the individual's housing needs within a reasonable period and to work with them to develop a personalised housing plan. For further information on the assessment process and available support, see [DOC-HB-005: Homelessness prevention and relief](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md).
 
 </div>
 
@@ -128,7 +133,7 @@ When a referral is received, the local authority has a duty to assess the indivi
 
 **For employers:** Beyond making referrals, employers can take practical steps to support employees facing housing instability. These include offering flexible working arrangements to accommodate temporary accommodation locations, providing access to employee assistance programmes, allowing use of workplace addresses for correspondence, and considering discretionary advances on pay where appropriate. You should review your existing employment policies to ensure they do not inadvertently disadvantage employees who are homeless or in temporary accommodation.
 
-**For employees:** You may be entitled to request flexible working arrangements under the statutory right to request flexible working (see [[DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md): Employer obligations overview](/guidance/[DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md))). If you are placed in temporary accommodation that is far from your usual workplace, speak to your manager or HR department about whether adjustments can be made to your working pattern or location. Your employer should treat any request sympathetically and in confidence.
+**For employees:** You may be entitled to request flexible working arrangements under the statutory right to request flexible working (see [DOC-SB-005: Employer obligations overview](doc-sb-005-employment-rights-act-1996-plain-english-summary.md)). If you are placed in temporary accommodation that is far from your usual workplace, speak to your manager or HR department about whether adjustments can be made to your working pattern or location. Your employer should treat any request sympathetically and in confidence.
 
 </div>
 
@@ -146,8 +151,8 @@ Dismissing an employee or subjecting them to a detriment because they are homele
 
 ## Related guidance
 
-- [[DOC-HB-005](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md): Homelessness prevention and relief](/guidance/[DOC-HB-005](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md))
-- [[DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md): Employer obligations overview](/guidance/[DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md))
+- [DOC-HB-005: Homelessness prevention and relief](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md)
+- [DOC-SB-005: Employer obligations overview](doc-sb-005-employment-rights-act-1996-plain-english-summary.md)
 
 </div>
 
@@ -160,11 +165,8 @@ Dismissing an employee or subjecting them to a detriment because they are homele
 | document-id | DOC-SB-008 |
 | exif_Audience | Employers and employees |
 | exif_Department | DLUHC / DBT |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_DocumentId | DOC-SB-008 |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-008-employer-duties-homelessness.html |
 | exif_FilePermissions | -rw-r--r-- |

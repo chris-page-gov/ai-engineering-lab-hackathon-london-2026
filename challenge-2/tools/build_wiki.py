@@ -182,6 +182,11 @@ MAP_DEFS = [
     },
 ]
 
+DOC_ID_RE = re.compile(r"\bDOC-[A-Z]{2}-\d{3}[A-Za-z]?\b")
+MARKDOWN_LINK_RE = re.compile(r"\[([^\]\n]+)\]\(([^)\n]+)\)")
+SYNTHETIC_DATA_NOTICE = "Challenge 2 corpus data is synthetic hackathon fixture data."
+GREEN_BOOK_URL = "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government"
+
 
 @dataclass
 class SourceRecord:
@@ -206,10 +211,11 @@ class SourceRecord:
     extraction_method: str = "unknown"
     extraction_quality: str = "medium"
     extraction_warnings: list[str] = field(default_factory=list)
-    sensitivity_contains_personal_data: bool = False
+    contains_synthetic_identifiers: bool = False
     sensitivity_classification: str | None = None
     extracted_markdown: str = ""
     extracted_tables: list[dict[str, Any]] = field(default_factory=list)
+    extracted_links: list[dict[str, str]] = field(default_factory=list)
     worksheets: list[dict[str, Any]] = field(default_factory=list)
     sha256: str = ""
     size_bytes: int = 0
@@ -414,7 +420,7 @@ def extract_key_values(text: str) -> dict[str, str]:
         "department": r"^\s*Department\s*:\s*([^\n]+)",
         "status": r"^\s*Status\s*:\s*([^\n]+)",
         "audience": r"^\s*Audience\s*:\s*([^\n]+)",
-        "version": r"^\s*Version\s*[: ]\s*([A-Za-z0-9.\-]+)",
+        "version": r"^\s*Version\s*[: ]\s*([^\n]+)",
         "owner": r"^\s*Owner\s*:\s*([^\n]+)",
     }
     for key, pattern in patterns.items():
@@ -499,7 +505,7 @@ def infer_topics(text: str, meta: dict[str, Any]) -> list[str]:
 
 
 def find_related_sources(text: str, own_id: str | None = None) -> list[str]:
-    ids = re.findall(r"\bDOC-[A-Z]{2}-\d{3}[A-Za-z]?\b", text)
+    ids = DOC_ID_RE.findall(text)
     return [i for i in unique(ids) if i != own_id]
 
 
@@ -525,10 +531,10 @@ def source_id_from_path(path: Path, meta: dict[str, Any], text: str) -> str:
         value = meta.get(key)
         if value:
             return str(value).strip()
-    filename_match = re.search(r"\bDOC-[A-Z]{2}-\d{3}[A-Za-z]?\b", path.stem, flags=re.IGNORECASE)
+    filename_match = DOC_ID_RE.search(path.stem.upper())
     if filename_match:
         return filename_match.group(0).upper()
-    match = re.search(r"\bDOC-[A-Z]{2}-\d{3}[A-Za-z]?\b", text[:3000])
+    match = DOC_ID_RE.search(text[:3000].upper())
     if match:
         return match.group(0)
     return "UF-" + slugify(path.stem, 70).upper().replace("-", "-")
@@ -551,7 +557,8 @@ def exif_metadata(path: Path) -> dict[str, Any]:
     if not data:
         return {}
     result = dict(data[0])
-    result.pop("SourceFile", None)
+    for key in ["SourceFile", "Directory", "FileAccessDate", "FileInodeChangeDate"]:
+        result.pop(key, None)
     return result
 
 
@@ -637,6 +644,18 @@ def detect_fixed_width_tables(text: str) -> list[dict[str, Any]]:
             flush()
     flush()
     return tables
+
+
+def detect_extracted_links(text: str) -> list[dict[str, str]]:
+    links: list[dict[str, str]] = []
+    lower = text.lower()
+    if "the-green-book-appraisal-and-evaluation" in lower and ("governent" in lower or "green book" in lower):
+        links.append({
+            "label": "HMT Green Book",
+            "url": GREEN_BOOK_URL,
+            "note": "Corrected from extracted PDF line break/typo; raw extracted text is preserved below.",
+        })
+    return links
 
 
 def extract_xlsx(path: Path) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[str]]:
@@ -757,7 +776,10 @@ def extract_source(path: Path) -> SourceRecord:
     topics = infer_topics(text + " " + title, raw_metadata)
     related_sources = find_related_sources(text, source_id)
     supersedes = find_supersedes(raw_metadata, text)
-    contains_personal = "staff directory" in path.stem.lower() or bool(re.search(r"\b(email|telephone|phone|line manager)\b", text[:2000], re.I) and "directory" in text[:2000].lower())
+    contains_synthetic_identifiers = "staff directory" in path.stem.lower() or bool(
+        re.search(r"\b(email|telephone|phone|line manager)\b", text[:2000], re.I)
+        and "directory" in text[:2000].lower()
+    )
     if re.search(r"OFFICIAL\s*[-—]\s*SENSITIVE", text[:2000], re.I):
         classification = "OFFICIAL-SENSITIVE"
     elif re.search(r"\bOFFICIAL\b", text[:2000], re.I):
@@ -788,10 +810,11 @@ def extract_source(path: Path) -> SourceRecord:
         extraction_method=method,
         extraction_quality=quality,
         extraction_warnings=warnings,
-        sensitivity_contains_personal_data=contains_personal,
+        contains_synthetic_identifiers=contains_synthetic_identifiers,
         sensitivity_classification=classification,
         extracted_markdown=text.strip() + "\n",
         extracted_tables=detect_fixed_width_tables(text) if suffix == "pdf" else [],
+        extracted_links=detect_extracted_links(text),
         worksheets=worksheets,
         sha256=sha256(path),
         size_bytes=path.stat().st_size,
@@ -815,8 +838,8 @@ def infer_flags(record: SourceRecord) -> list[str]:
         flags.append("past review: next review was April 2022")
     if "draft v0.8" in blob:
         flags.append("draft")
-    if record.sensitivity_contains_personal_data:
-        flags.append("personal-data-like content")
+    if record.contains_synthetic_identifiers:
+        flags.append("synthetic staff-directory fixture")
     if record.extraction_quality == "low":
         flags.append("low extraction quality")
     return unique(flags)
@@ -855,13 +878,15 @@ def source_frontmatter(record: SourceRecord) -> dict[str, Any]:
         "supersedes": record.supersedes,
         "related_sources": record.related_sources,
         "tags": tags,
+        "data_origin": "synthetic_fixture",
         "extraction": {
             "method": record.extraction_method,
             "quality": record.extraction_quality,
             "warnings": record.extraction_warnings,
         },
         "sensitivity": {
-            "contains_personal_data": record.sensitivity_contains_personal_data,
+            "contains_real_personal_data": False,
+            "contains_synthetic_identifiers": record.contains_synthetic_identifiers,
             "classification": record.sensitivity_classification,
         },
     }
@@ -875,14 +900,60 @@ def truncate_sentences(text: str, max_chars: int = 650) -> str:
     return clean[:max_chars].rsplit(" ", 1)[0] + "..."
 
 
+def clean_doc_link_label(label: str) -> str:
+    label = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", label)
+    return re.sub(r"\s+", " ", label).strip()
+
+
+def doc_link(doc_id: str, record: SourceRecord, by_id: dict[str, SourceRecord], label: str | None = None) -> str:
+    doc_id = doc_id.upper()
+    target = by_id.get(doc_id)
+    label = clean_doc_link_label(label or doc_id)
+    if not target or target.source_id == record.source_id:
+        return label
+    return rel_link(record.note_path, target.note_path, label)
+
+
+def normalise_markdown_doc_links(text: str, record: SourceRecord, by_id: dict[str, SourceRecord]) -> str:
+    def repl(match: re.Match[str]) -> str:
+        label, target = match.group(1), match.group(2)
+        doc_match = DOC_ID_RE.search(f"{label} {target}".upper())
+        if not doc_match:
+            return match.group(0)
+        return doc_link(doc_match.group(0), record, by_id, label)
+
+    return MARKDOWN_LINK_RE.sub(repl, text)
+
+
+def normalise_absolute_local_links(text: str) -> str:
+    def repl(match: re.Match[str]) -> str:
+        label, target = match.group(1), match.group(2)
+        if target.startswith("/"):
+            return clean_doc_link_label(label)
+        return match.group(0)
+
+    return MARKDOWN_LINK_RE.sub(repl, text)
+
+
 def linkify(text: str, record: SourceRecord, by_id: dict[str, SourceRecord]) -> str:
     def repl(match: re.Match[str]) -> str:
-        doc_id = match.group(0)
-        target = by_id.get(doc_id)
-        if not target or target.source_id == record.source_id:
-            return doc_id
-        return rel_link(record.note_path, target.note_path, doc_id)
-    return re.sub(r"\bDOC-[A-Z]{2}-\d{3}[A-Za-z]?\b", repl, text)
+        return doc_link(match.group(0), record, by_id)
+
+    def guidance_repl(match: re.Match[str]) -> str:
+        return doc_link(match.group(1), record, by_id)
+
+    text = normalise_markdown_doc_links(text, record, by_id)
+    text = re.sub(r"/guidance/(DOC-[A-Z]{2}-\d{3}[A-Za-z]?)\b", guidance_repl, text)
+    text = normalise_absolute_local_links(text)
+
+    parts: list[str] = []
+    last = 0
+    for match in MARKDOWN_LINK_RE.finditer(text):
+        parts.append(DOC_ID_RE.sub(repl, text[last:match.start()]))
+        parts.append(match.group(0))
+        last = match.end()
+    parts.append(DOC_ID_RE.sub(repl, text[last:]))
+    return "".join(parts)
 
 
 def metadata_table(record: SourceRecord) -> str:
@@ -900,6 +971,9 @@ def metadata_table(record: SourceRecord) -> str:
         ("Last updated", record.last_updated),
         ("Audience", ", ".join(record.audience)),
         ("Topics", ", ".join(record.topics)),
+        ("Data origin", SYNTHETIC_DATA_NOTICE),
+        ("Contains real personal data", "false"),
+        ("Contains synthetic identifiers", str(record.contains_synthetic_identifiers).lower()),
         ("SHA-256", record.sha256),
     ]
     return "\n".join(f"| {k} | {str(v or '').replace('|', '\\|')} |" for k, v in [("Field", "Value"), ("---", "---")] + rows)
@@ -965,6 +1039,16 @@ def write_source_note(record: SourceRecord, by_id: dict[str, SourceRecord]) -> N
             bits.append(f"### Table {index}\n\n")
             bits.append(markdown_table(table["rows"]) + "\n")
 
+    if record.extracted_links:
+        bits.append("## Extracted Links\n\n")
+        bits.append("| Label | URL | Note |\n| --- | --- | --- |\n")
+        for link in record.extracted_links:
+            label = link["label"].replace("|", "\\|")
+            url = link["url"]
+            note = link["note"].replace("|", "\\|")
+            bits.append(f"| {label} | [{url}]({url}) | {note} |\n")
+        bits.append("\n")
+
     bits.append("## Extracted Content\n\n")
     bits.append(linkify(record.extracted_markdown, record, by_id).strip() + "\n\n")
 
@@ -1001,7 +1085,8 @@ def write_topic_notes(records: list[SourceRecord]) -> None:
             "updated": TODAY,
         }
         bits = [frontmatter(fm), f"# {topic['title']}\n\n"]
-        bits.append(f"This topic page compiles {len(matched)} source documents whose extracted content or metadata mentions this area.\n\n")
+        noun = "source document" if len(matched) == 1 else "source documents"
+        bits.append(f"This topic page compiles {len(matched)} {noun} whose extracted content or metadata mentions this area.\n\n")
         if matched:
             bits.append("## Source Coverage\n\n")
             bits.append(source_table(matched, note) + "\n")
@@ -1078,6 +1163,16 @@ def write_maps(records: list[SourceRecord]) -> None:
 def write_data(records: list[SourceRecord]) -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
+    tables_readme = frontmatter({
+        "title": "Generated Table Exports",
+        "note_type": "data-readme",
+        "tags": ["data", "challenge-2", "synthetic-fixtures"],
+        "updated": TODAY,
+    })
+    tables_readme += "# Generated Table Exports\n\n"
+    tables_readme += f"{SYNTHETIC_DATA_NOTICE} Names, email-like values, phone-like values, and job titles in these generated exports are synthetic identifiers retained for the Challenge 2 demo.\n\n"
+    tables_readme += "Do still treat real secrets, local filesystem paths, and data from outside the Challenge 2 synthetic corpus as review issues.\n"
+    (TABLES_DIR / "README.md").write_text(tables_readme, encoding="utf-8")
     register: list[dict[str, Any]] = []
     for r in records:
         register.append({
@@ -1099,14 +1194,18 @@ def write_data(records: list[SourceRecord]) -> None:
             "supersedes": r.supersedes,
             "related_sources": r.related_sources,
             "flags": r.flags,
+            "data_origin": "synthetic_fixture",
+            "synthetic_data_notice": SYNTHETIC_DATA_NOTICE,
             "extraction": {
                 "method": r.extraction_method,
                 "quality": r.extraction_quality,
                 "warnings": r.extraction_warnings,
                 "table_count": len(r.extracted_tables),
+                "links": r.extracted_links,
             },
             "sensitivity": {
-                "contains_personal_data": r.sensitivity_contains_personal_data,
+                "contains_real_personal_data": False,
+                "contains_synthetic_identifiers": r.contains_synthetic_identifiers,
                 "classification": r.sensitivity_classification,
             },
             "technical_metadata": r.technical_metadata,
@@ -1117,6 +1216,10 @@ def write_data(records: list[SourceRecord]) -> None:
                 "source_id": r.source_id,
                 "title": r.title,
                 "source_path": os.path.relpath(r.source_path, ROOT),
+                "data_origin": "synthetic_fixture",
+                "synthetic_data_notice": SYNTHETIC_DATA_NOTICE,
+                "contains_real_personal_data": False,
+                "contains_synthetic_identifiers": r.contains_synthetic_identifiers,
                 "worksheets": r.worksheets,
             }
             (TABLES_DIR / f"{slugify(r.source_id)}.json").write_text(json.dumps(workbook_json, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
@@ -1200,7 +1303,7 @@ def write_architecture_page(records: list[SourceRecord]) -> None:
     bits.append(f"- `{len(ENTITY_DEFS)}` entity pages: departments, forms, laws, and named teams/programmes.\n")
     bits.append(f"- `{len(MAP_DEFS)}` maps of content: guided entry points for browsing related material.\n")
     bits.append(f"- `{len(xlsx_sources)}` workbook exports: each spreadsheet is preserved as Markdown tables, JSON, and CSV.\n")
-    bits.append(f"- `{len(flagged)}` flagged sources: stale, draft, superseded, personal-data-like, or past-review records.\n\n")
+    bits.append(f"- `{len(flagged)}` flagged sources: stale, draft, superseded, synthetic fixture identifiers, or past-review records.\n\n")
 
     bits.append("## Corpus Coverage\n\n")
     bits.append("| Format | Sources |\n| --- | ---: |\n")
@@ -1220,7 +1323,8 @@ def write_architecture_page(records: list[SourceRecord]) -> None:
     bits.append("- **Traceability:** every generated note links back to its raw source file.\n")
     bits.append("- **Repeatability:** the builder can regenerate the wiki from the source corpus.\n")
     bits.append("- **Findability:** maps, topics, entities, tags, and backlinks give multiple routes through the same material.\n")
-    bits.append("- **Safety:** stale, superseded, draft, and sensitive records are highlighted instead of hidden.\n")
+    bits.append("- **Safety:** stale, superseded, draft, synthetic fixture identifiers, and sensitive classifications are highlighted instead of hidden.\n")
+    bits.append("- **Synthetic fixtures:** all Challenge 2 raw and generated data is synthetic. Synthetic names and contact-like values are retained for demo fidelity; real secrets and local environment leaks remain review issues.\n")
     bits.append("- **Portability:** the output is plain Markdown and JSON, so it works in Obsidian, GitHub, VS Code, and simple scripts.\n\n")
 
     bits.append("## Glossary\n\n")
@@ -1240,6 +1344,7 @@ def write_architecture_page(records: list[SourceRecord]) -> None:
         ("Raw source", "The original source document. In this architecture, raw sources are not edited."),
         ("Source note", "A generated Markdown note that represents one raw source file, including extracted text, metadata, links, and provenance."),
         ("Source register", "The machine-readable JSON inventory of every source file, extraction method, metadata fields, flags, and generated note path."),
+        ("Synthetic fixture data", "Artificial data created for the Challenge 2 demo. It may look like staff or contact data, but it is not real personal data."),
         ("Topic page", "A generated synthesis note that groups sources around a recurring policy or operational theme."),
     ]
     for term, meaning in glossary:
@@ -1339,7 +1444,7 @@ def link_target_exists(source: Path, target: str) -> bool:
     if re.match(r"^[a-z]+://", target) or target.startswith("#") or target.startswith("mailto:"):
         return True
     if target.startswith("/"):
-        return True
+        return False
     target = target.split("#", 1)[0]
     if not target:
         return True

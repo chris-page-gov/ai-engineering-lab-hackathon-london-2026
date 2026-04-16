@@ -78,7 +78,7 @@ flowchart TB
 - `14` entity pages: departments, forms, laws, and named teams/programmes.
 - `5` maps of content: guided entry points for browsing related material.
 - `3` workbook exports: each spreadsheet is preserved as Markdown tables, JSON, and CSV.
-- `5` flagged sources: stale, draft, superseded, personal-data-like, or past-review records.
+- `5` flagged sources: stale, draft, superseded, synthetic fixture identifiers, or past-review records.
 
 ## Corpus Coverage
 
@@ -105,7 +105,8 @@ flowchart TB
 - **Traceability:** every generated note links back to its raw source file.
 - **Repeatability:** the builder can regenerate the wiki from the source corpus.
 - **Findability:** maps, topics, entities, tags, and backlinks give multiple routes through the same material.
-- **Safety:** stale, superseded, draft, and sensitive records are highlighted instead of hidden.
+- **Safety:** stale, superseded, draft, synthetic fixture identifiers, and sensitive classifications are highlighted instead of hidden.
+- **Synthetic fixtures:** all Challenge 2 raw and generated data is synthetic. Synthetic names and contact-like values are retained for demo fidelity; real secrets and local environment leaks remain review issues.
 - **Portability:** the output is plain Markdown and JSON, so it works in Obsidian, GitHub, VS Code, and simple scripts.
 
 ## Glossary
@@ -126,6 +127,7 @@ flowchart TB
 | Raw source | The original source document. In this architecture, raw sources are not edited. |
 | Source note | A generated Markdown note that represents one raw source file, including extracted text, metadata, links, and provenance. |
 | Source register | The machine-readable JSON inventory of every source file, extraction method, metadata fields, flags, and generated note path. |
+| Synthetic fixture data | Artificial data created for the Challenge 2 demo. It may look like staff or contact data, but it is not real personal data. |
 | Topic page | A generated synthesis note that groups sources around a recurring policy or operational theme. |
 
 ## Related Notes

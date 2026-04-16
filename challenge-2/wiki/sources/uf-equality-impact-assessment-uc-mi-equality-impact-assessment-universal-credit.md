@@ -27,12 +27,14 @@ tags:
   - "unknown"
   - "housing-benefit"
   - "incident-risk-and-assurance"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pdftotext-layout"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL"
 ---
 
@@ -60,6 +62,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | housing-benefit, incident-risk-and-assurance |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | fb86210f2a14bf493c02bb7dd3efc39b7cd50fd409930abdc7b2b546d17aa09f |
 
 ## Navigation
@@ -208,10 +213,7 @@ Distribution: Programme Board, Equality and Diversity Committee, Public
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:32:24+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Equality_Impact_Assessment_UC_Migration.pdf |
 | exif_FilePermissions | -rw-r--r-- |

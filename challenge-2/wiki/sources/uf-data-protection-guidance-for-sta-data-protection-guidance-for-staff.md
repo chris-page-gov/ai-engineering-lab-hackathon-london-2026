@@ -29,12 +29,14 @@ tags:
   - "council-tax-reduction"
   - "data-protection-and-information-security"
   - "foi-and-transparency"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pdftotext-layout"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL-SENSITIVE"
 ---
 
@@ -62,6 +64,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | council-tax-reduction, data-protection-and-information-security, foi-and-transparency |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 632fde214d1d3ab614bcb5f28c0cd08010c6d7267cf4601ac11ac3ca748ee068 |
 
 ## Navigation
@@ -243,10 +248,7 @@ Annex B — Decision flowchart
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:01+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Data Protection Guidance for Staff - March 2024.pdf |
 | exif_FilePermissions | -rw-r--r-- |

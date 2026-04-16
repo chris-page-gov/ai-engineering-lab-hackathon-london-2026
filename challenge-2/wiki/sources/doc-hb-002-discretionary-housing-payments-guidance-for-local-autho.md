@@ -39,12 +39,14 @@ tags:
   - "homelessness-and-social-housing"
   - "incident-risk-and-assurance"
   - "welsh-language-standards"
+data_origin: "synthetic_fixture"
 extraction:
   method: "markdown-frontmatter"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -72,6 +74,9 @@ sensitivity:
 | Last updated | 2025-09-15 |
 | Audience | Local authority housing officers |
 | Topics | housing-benefit, discretionary-housing-payments, local-authority-administration, homelessness-and-social-housing, incident-risk-and-assurance, welsh-language-standards |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 836e9499bfbc6e0700ffb2e83f01cd2b125270fddd4c75f03e15789bf2d46efa |
 
 ## Related Sources
@@ -180,10 +185,7 @@ Where a DHP application is refused or where the DHP alone is insufficient, offic
 | audience | Local authority housing officers |
 | department | DLUHC |
 | document_id | DOC-HB-002 |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:32:23+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-HB-002-discretionary-housing-payments.md |
 | exif_FilePermissions | -rw-r--r-- |

@@ -34,7 +34,7 @@ This entity appears in 20 source documents.
 | [UF-RECRUITMENT-AND-SELECTION-POLICY](../sources/uf-recruitment-and-selection-policy-recruitment-and-selection-policy.md) | unknown | pdf | DWP |  |
 | [UF-SOCIAL-MEDIA-GUIDANCE-FOR-STAFF](../sources/uf-social-media-guidance-for-staff-social-media-guidance-for-staff.md) | unknown | docx | DWP |  |
 | [UF-SPENDING-CONTROLS-GUIDANCE](../sources/uf-spending-controls-guidance-dwp-spending-controls-guidance.md) | unknown | pdf | DWP |  |
-| [UF-STAFF-DIRECTORY-EXTRACT-Q4-2023](../sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md) | unknown | xlsx | DWP | personal-data-like content |
+| [UF-STAFF-DIRECTORY-EXTRACT-Q4-2023](../sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md) | unknown | xlsx | DWP | synthetic staff-directory fixture |
 | [UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0](../sources/uf-travel-and-subsistence-policy-v2-travel-and-subsistence-policy.md) | unknown | docx | DWP | past review: next review was April 2022 |
 | [UF-WELSH-LANGUAGE-STANDARDS-COMPLIANCE-REPORT-2023](../sources/uf-welsh-language-standards-complia-adroddiad-cydymffurfiaeth-safonau-r-gymraeg.md) | unknown | pdf | DWP |  |
 

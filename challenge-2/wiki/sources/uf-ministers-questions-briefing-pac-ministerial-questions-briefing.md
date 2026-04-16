@@ -25,12 +25,14 @@ tags:
   - "pdf"
   - "unknown"
   - "foi-and-transparency"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pdftotext-layout"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL-SENSITIVE"
 ---
 
@@ -58,6 +60,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | foi-and-transparency |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | c6eb10f9db4945b7cd6b1ae307222b498dacf5660b3d039b8b4a40342cc66a69 |
 
 ## Navigation
@@ -194,10 +199,7 @@ QUESTION 2: PIP Assessment Wait Times
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:02+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Ministers_Questions_Briefing_Pack_12March.pdf |
 | exif_FilePermissions | -rw-r--r-- |

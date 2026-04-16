@@ -29,12 +29,14 @@ tags:
   - "current"
   - "housing-benefit"
   - "council-tax-reduction"
+data_origin: "synthetic_fixture"
 extraction:
   method: "plain-text-regex"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -62,6 +64,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | housing-benefit, council-tax-reduction |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 805dfca0463139735c0badf4fcbb9b32e2cb9e22d78ab00dec1f124f60b73205 |
 
 ## Related Sources
@@ -158,10 +163,7 @@ For the overarching regulatory framework governing Housing Benefit and related l
 | Field | Value |
 | --- | --- |
 | exif_ByteOrderMark | No |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:09+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-HB-009-council-tax-reduction-updated.txt |
 | exif_FilePermissions | -rw-r--r-- |

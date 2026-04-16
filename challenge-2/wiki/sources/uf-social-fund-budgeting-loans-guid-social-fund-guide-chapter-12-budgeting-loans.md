@@ -11,7 +11,7 @@ document_type: "guidance"
 department: null
 owner: null
 status: "unknown"
-version: "March"
+version: "March 2018"
 publication_date: null
 last_updated: null
 audience: []
@@ -25,12 +25,14 @@ tags:
   - "pdf"
   - "unknown"
   - "people-policies"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pdftotext-layout"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL"
 ---
 
@@ -53,11 +55,14 @@ sensitivity:
 | Department |  |
 | Owner |  |
 | Status | unknown |
-| Version | March |
+| Version | March 2018 |
 | Publication date |  |
 | Last updated |  |
 | Audience |  |
 | Topics | people-policies |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | de6a2d4b7a2f6d47536507d7ad90d2511610c81f11c5122fa7967af5e12dd1d1 |
 
 ## Navigation
@@ -225,10 +230,7 @@ review within 28 days of the decision.
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:07+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | social_fund_budgeting_loans_guidance_chapter12.pdf |
 | exif_FilePermissions | -rw-r--r-- |
@@ -245,7 +247,7 @@ review within 28 days of the decision.
 | exif_Subject | (unspecified) |
 | exif_Title | (anonymous) |
 | exif_Trapped | False |
-| version | March |
+| version | March 2018 |
 
 ## Related Notes
 

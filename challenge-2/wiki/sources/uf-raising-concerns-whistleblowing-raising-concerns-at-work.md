@@ -33,12 +33,14 @@ tags:
   - "people-policies"
   - "overpayment-recovery"
   - "welsh-language-standards"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-docx"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -66,6 +68,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | data-protection-and-information-security, foi-and-transparency, people-policies, overpayment-recovery, welsh-language-standards |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 4780b27b109f60fe469c29616c49ab4f29c4f4adbb77865bd7aef3d42d35e491 |
 
 ## Navigation
@@ -209,10 +214,7 @@ Contact: raising.concerns@dwp.gov.uk
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.894Z |
 | exif_Creator | Un-named |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Raising Concerns (Whistleblowing) Guidance.docx |
 | exif_FilePermissions | -rw-r--r-- |

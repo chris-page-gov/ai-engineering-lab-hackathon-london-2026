@@ -35,12 +35,12 @@ updated: "2026-04-16"
 | [UF-RECRUITMENT-AND-SELECTION-POLICY](../sources/uf-recruitment-and-selection-policy-recruitment-and-selection-policy.md) | unknown | pdf | DWP |  |
 | [UF-SOCIAL-MEDIA-GUIDANCE-FOR-STAFF](../sources/uf-social-media-guidance-for-staff-social-media-guidance-for-staff.md) | unknown | docx | DWP |  |
 | [UF-SPENDING-CONTROLS-GUIDANCE](../sources/uf-spending-controls-guidance-dwp-spending-controls-guidance.md) | unknown | pdf | DWP |  |
-| [UF-STAFF-DIRECTORY-EXTRACT-Q4-2023](../sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md) | unknown | xlsx | DWP | personal-data-like content |
+| [UF-STAFF-DIRECTORY-EXTRACT-Q4-2023](../sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md) | unknown | xlsx | DWP | synthetic staff-directory fixture |
 
 ## Review Flags
 
 - [UF-INFORMATION-SECURITY-POLICY-DRAFT-V0-8](../sources/uf-information-security-policy-draf-draft-not-for-distribution.md): draft
-- [UF-STAFF-DIRECTORY-EXTRACT-Q4-2023](../sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md): personal-data-like content
+- [UF-STAFF-DIRECTORY-EXTRACT-Q4-2023](../sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md): synthetic staff-directory fixture
 
 ## Related Notes
 

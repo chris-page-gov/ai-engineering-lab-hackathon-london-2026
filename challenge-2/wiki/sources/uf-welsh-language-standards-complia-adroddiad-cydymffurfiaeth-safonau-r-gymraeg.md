@@ -27,12 +27,14 @@ tags:
   - "unknown"
   - "incident-risk-and-assurance"
   - "welsh-language-standards"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pdftotext-layout"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL"
 ---
 
@@ -60,6 +62,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | incident-risk-and-assurance, welsh-language-standards |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 0e9fb9e5bf31517f74ceba88c73f23c47f8448569cfd87f2b84f4764a80deb21 |
 
 ## Navigation
@@ -277,10 +282,7 @@ www.comisiynyddygymraeg.cymru / www.welshlanguagecommissioner.wales
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:06+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Welsh_Language_Standards_Compliance_Report_2023.pdf |
 | exif_FilePermissions | -rw-r--r-- |

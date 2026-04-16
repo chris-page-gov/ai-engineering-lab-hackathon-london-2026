@@ -25,13 +25,15 @@ tags:
   - "xlsx"
   - "unknown"
   - "staff-directory"
-  - "personal-data-like content"
+  - "synthetic staff-directory fixture"
+data_origin: "synthetic_fixture"
 extraction:
   method: "openpyxl-workbook"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: true
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: true
   classification: null
 ---
 
@@ -40,7 +42,7 @@ sensitivity:
 
 - Source: [Staff_Directory_Extract_Q4_2023.xlsx](../../unstructured_files/Staff_Directory_Extract_Q4_2023.xlsx)
 - Extraction: `openpyxl-workbook` with `high` quality.
-- Flags: personal-data-like content.
+- Flags: synthetic staff-directory fixture.
 - Extract: Worksheet: Directory Staff Directory — Q4 2023 Extract --- --- --- --- --- --- --- Name Grade Directorate Location Email Phone Role Smith, J HEO Digital Leeds j.smith@dwp.gov.uk 0113 XXX 1234 Product Manager Patel, A SEO Digital Sheffield a.patel@dwp.gov.uk Senior Developer O'Brien, K Grade 7 HR London k.obrien@dwp.gov.uk 020 XXXX 5678 Head of Reward Williams, S EO Operations Manchester 0161 XXX 9012 Caseworker Chen, L G6 Finance Leeds l.chen@dwp.gov.uk 0113 XXX 3456 Deputy Director, Financial Control McDonald, R AO Operations Glasgow r.mcdonald@dwp.gov.uk 0141 XXX 7890 Administrative Officer SEO Policy London m.johnson@dwp.gov.uk 020 XXXX...
 
 ## Metadata
@@ -60,6 +62,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | staff-directory |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | true |
 | SHA-256 | c2b7ee733fa1da090cacba7aa97cf6628af4144bffdb4b4b14bdf4fe51bf03b9 |
 
 ## Navigation
@@ -109,10 +114,7 @@ sensitivity:
 | exif_Application | Microsoft Excel Compatible / Openpyxl 3.1.5 |
 | exif_CreateDate | 2026:04:14 08:54:51Z |
 | exif_Creator | openpyxl |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Staff_Directory_Extract_Q4_2023.xlsx |
 | exif_FilePermissions | -rw-r--r-- |

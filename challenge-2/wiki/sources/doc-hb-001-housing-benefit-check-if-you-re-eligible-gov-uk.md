@@ -42,12 +42,14 @@ tags:
   - "council-tax-reduction"
   - "homelessness-and-social-housing"
   - "overpayment-recovery"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-html"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -75,6 +77,9 @@ sensitivity:
 | Last updated | 2025-11-20 |
 | Audience | Citizens |
 | Topics | housing-benefit, benefits, eligibility, discretionary-housing-payments, council-tax-reduction, homelessness-and-social-housing, overpayment-recovery |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | fab4f4b3a0e2672b2dc5023fef0f23c8836a4dad9d2a488329b5b4d4f6275372 |
 
 ## Related Sources
@@ -98,7 +103,7 @@ sensitivity:
 
 <div class="govuk-breadcrumbs">
 
-[Home](/) \> [Benefits](/benefits) \> [Housing Benefit](/housing-benefit)
+Home \> Benefits \> Housing Benefit
 
 </div>
 
@@ -157,10 +162,10 @@ If your circumstances change after you have made a claim, such as a change in in
 
 ## Related guidance
 
-- [Discretionary Housing Payments: guidance for local authorities ([DOC-HB-002](doc-hb-002-discretionary-housing-payments-guidance-for-local-autho.md))]([DOC-HB-002](doc-hb-002-discretionary-housing-payments-guidance-for-local-autho.md)-discretionary-housing-payments.md)
-- [Council Tax Reduction Schemes: regulatory framework ([DOC-HB-003](doc-hb-003-council-tax-reduction-schemes-regulatory-framework-and.md))]([DOC-HB-003](doc-hb-003-council-tax-reduction-schemes-regulatory-framework-and.md)-council-tax-reduction-regulations.txt)
-- [Homelessness prevention and relief: local authority duties ([DOC-HB-005](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md))]([DOC-HB-005](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md)-homelessness-prevention.txt)
-- [State Pension age benefits overview ([DOC-SB-006](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md))](#)
+- [Discretionary Housing Payments: guidance for local authorities (DOC-HB-002)](doc-hb-002-discretionary-housing-payments-guidance-for-local-autho.md)
+- [Council Tax Reduction Schemes: regulatory framework (DOC-HB-003)](doc-hb-003-council-tax-reduction-schemes-regulatory-framework-and.md)
+- [Homelessness prevention and relief: local authority duties (DOC-HB-005)](doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md)
+- [State Pension age benefits overview (DOC-SB-006)](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md)
 
 </div>
 
@@ -178,12 +183,9 @@ If your circumstances change after you have made a claim, such as a change in in
 | exif_Author | Department for Levelling Up, Housing and Communities (DLUHC) |
 | exif_Department | DLUHC |
 | exif_Description | Find out if you can get Housing Benefit to help pay your rent. Includes eligibility criteria, income thresholds, and how to apply through your local council. |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_DocumentId | DOC-HB-001 |
 | exif_DocumentType | guidance |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-HB-001-housing-benefit-eligibility.html |
 | exif_FilePermissions | -rw-r--r-- |

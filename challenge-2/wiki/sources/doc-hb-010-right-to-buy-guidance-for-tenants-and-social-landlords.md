@@ -29,12 +29,14 @@ tags:
   - "current"
   - "housing-benefit"
   - "homelessness-and-social-housing"
+data_origin: "synthetic_fixture"
 extraction:
   method: "markdown-frontmatter"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -62,6 +64,9 @@ sensitivity:
 | Last updated | 2025-10-15 |
 | Audience | Tenants and social landlords |
 | Topics | housing-benefit, homelessness-and-social-housing |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 98c28f0d11ea7a8230d6e9df3c91d68de611fb9aab08389ca222f51349095029 |
 
 ## Related Sources
@@ -173,10 +178,7 @@ These changes are intended to support the retention of social housing stock and 
 | audience | Tenants and social landlords |
 | department | DLUHC |
 | document_id | DOC-HB-010 |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:32:23+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-HB-010-right-to-buy.md |
 | exif_FilePermissions | -rw-r--r-- |

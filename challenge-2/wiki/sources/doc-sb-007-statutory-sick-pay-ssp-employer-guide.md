@@ -32,12 +32,14 @@ tags:
   - "housing-benefit"
   - "council-tax-reduction"
   - "employment-rights-and-flexible-working"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-html"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -65,6 +67,9 @@ sensitivity:
 | Last updated | 2025-09-01 |
 | Audience | Employers |
 | Topics | housing-benefit, council-tax-reduction, employment-rights-and-flexible-working |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | f456e630e694f1dad36875166b1a2d124b856840a93d910155ced7ddf088c2b3 |
 
 ## Related Sources
@@ -120,7 +125,7 @@ Employees are responsible for notifying their employer of their incapacity in a 
 
 For absences lasting more than 7 days, the employee should provide a "fit note" (Statement of Fitness for Work) from a doctor, registered nurse, pharmacist, physiotherapist, or occupational therapist. For absences of 7 days or fewer, the employer may accept self-certification.
 
-Where the employee is also claiming other state benefits, they should inform both their employer and the relevant benefit office of the period of sickness. This is particularly important for employees receiving Housing Benefit, as periods of sickness absence may affect their income-based benefit calculations (see [[DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md): Housing Benefit eligibility and rates](/guidance/[DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md))).
+Where the employee is also claiming other state benefits, they should inform both their employer and the relevant benefit office of the period of sickness. This is particularly important for employees receiving Housing Benefit, as periods of sickness absence may affect their income-based benefit calculations (see [DOC-HB-001: Housing Benefit eligibility and rates](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md)).
 
 </div>
 
@@ -165,7 +170,7 @@ If the OSP scheme pays less than the SSP rate, the employer must "top up" the pa
 
 ## What if your employee is also claiming benefits?
 
-Employees who are receiving Statutory Sick Pay may also be entitled to means-tested benefits such as Housing Benefit or Council Tax Reduction. SSP counts as earned income for the purposes of calculating these benefits. The local authority will take the employee's SSP into account when assessing their Housing Benefit entitlement under the standard means test. For further details on how income from employment affects Housing Benefit, see [[DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md): Housing Benefit eligibility and rates](/guidance/[DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md)).
+Employees who are receiving Statutory Sick Pay may also be entitled to means-tested benefits such as Housing Benefit or Council Tax Reduction. SSP counts as earned income for the purposes of calculating these benefits. The local authority will take the employee's SSP into account when assessing their Housing Benefit entitlement under the standard means test. For further details on how income from employment affects Housing Benefit, see [DOC-HB-001: Housing Benefit eligibility and rates](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md).
 
 Employers are not required to notify the local authority that an employee is receiving SSP, but should be prepared to provide confirmation of SSP payments if requested by the employee or the local authority for benefit assessment purposes.
 
@@ -175,7 +180,7 @@ Employers are not required to notify the local authority that an employee is rec
 
 ## Related guidance
 
-- [[DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md): Employer obligations overview](/guidance/[DOC-SB-005](doc-sb-005-employment-rights-act-1996-plain-english-summary.md))
+- [DOC-SB-005: Employer obligations overview](doc-sb-005-employment-rights-act-1996-plain-english-summary.md)
 
 </div>
 
@@ -188,11 +193,8 @@ Employers are not required to notify the local authority that an employee is rec
 | document-id | DOC-SB-007 |
 | exif_Audience | Employers |
 | exif_Department | HM Revenue and Customs |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_DocumentId | DOC-SB-007 |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-007-statutory-sick-pay.html |
 | exif_FilePermissions | -rw-r--r-- |

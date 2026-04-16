@@ -28,12 +28,14 @@ tags:
   - "current"
   - "housing-benefit"
   - "council-tax-reduction"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-html"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: "OFFICIAL"
 ---
 
@@ -61,6 +63,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | housing-benefit, council-tax-reduction |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | d14cc57b535a88c1d441db8c9f2dbe10509efb57db74931c739ad8ecb170429b |
 
 ## Related Sources
@@ -205,11 +210,8 @@ Related publications: Housing Benefit Regulations Overview ([DOC-HB-001](doc-hb-
 | document-id | DOC-HB-007 |
 | exif_DatePublished | 2026-01-28 |
 | exif_Department | DLUHC |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_DocumentId | DOC-HB-007 |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-HB-007-housing-benefit-statistics-q3.html |
 | exif_FilePermissions | -rw-r--r-- |

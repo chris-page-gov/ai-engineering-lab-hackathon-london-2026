@@ -34,12 +34,14 @@ tags:
   - "incident-risk-and-assurance"
   - "overpayment-recovery"
   - "stale/conflicted: DOC-HB-009 says it replaces the March 2024 version"
+data_origin: "synthetic_fixture"
 extraction:
   method: "plain-text-regex"
   quality: "medium"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -68,6 +70,9 @@ sensitivity:
 | Last updated |  |
 | Audience | Local authority revenues and benefits officers |
 | Topics | housing-benefit, council-tax-reduction, incident-risk-and-assurance, overpayment-recovery |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 655e48b3b3c15d211ed285ace9fab16145ab789a0bf0a7e2334ac4b53a55413c |
 
 ## Related Sources
@@ -147,10 +152,7 @@ Audience: Local authority revenues and benefits officers
 | audience | Local authority revenues and benefits officers |
 | department | Department for Levelling Up, Housing and Communities |
 | document_id | DOC-HB-003 |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 10:14:09+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-HB-003-council-tax-reduction-regulations.txt |
 | exif_FilePermissions | -rw-r--r-- |

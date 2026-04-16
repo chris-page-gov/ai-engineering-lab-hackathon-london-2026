@@ -36,12 +36,14 @@ tags:
   - "small-business-and-self-employment"
   - "employment-rights-and-flexible-working"
   - "points readers to DOC-HB-006a"
+data_origin: "synthetic_fixture"
 extraction:
   method: "markdown-frontmatter"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -70,6 +72,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | housing-benefit, council-tax-reduction, homelessness-and-social-housing, small-business-and-self-employment, employment-rights-and-flexible-working |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 724336d5e55b0af2845c07c698b6e134f1377b1db1d819750114a55194097968 |
 
 ## Related Sources
@@ -94,7 +99,7 @@ sensitivity:
 
 **Version 2.3 — Published 15 January 2024**
 
-> Note: These instructions apply to form HB1 version 2.3. For the current version 3.0 instructions, see DOC-HB-006a.
+> Note: These instructions apply to form HB1 version 2.3. For the current version 3.0 instructions, see DOC-HB-006A.
 
 These instructions guide claimants through the process of completing the Housing Benefit claim form (HB1). Read all instructions carefully before beginning. Incomplete or incorrectly completed forms will delay your claim. For background on Housing Benefit eligibility and rates, refer to the Housing Benefit Regulations Overview ([DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md)).
 
@@ -164,10 +169,7 @@ For general guidance on Housing Benefit entitlement and payment schedules, see t
 | department | DLUHC |
 | document_id | DOC-HB-006 |
 | exif_ByteOrderMark | No |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:32:23+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-HB-006-housing-benefit-claim-form-instructions.md |
 | exif_FilePermissions | -rw-r--r-- |

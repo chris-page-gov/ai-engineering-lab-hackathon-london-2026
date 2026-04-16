@@ -9,6 +9,13 @@ This folder is an Obsidian vault for Challenge 2. It follows the Karpathy LLM Wi
 - Every generated claim must remain traceable to a source note and raw source path.
 - Keep raw metadata exactly as found. Add normalised metadata separately for navigation and filtering.
 
+## Synthetic Fixture Data
+
+- All Challenge 2 raw and generated data is synthetic hackathon fixture data.
+- Do not redact names, email-like values, phone-like values, roles, departments, or staff-directory entries solely because they resemble personal data.
+- Preserve synthetic identifiers in generated notes, tables, CSV, and JSON so the demo remains navigable and auditable.
+- Continue to flag real secrets, credentials, local filesystem paths, malformed links, bad provenance, and any data copied from outside the Challenge 2 synthetic corpus.
+
 ## Generated Wiki Contract
 
 - Generated notes live under `wiki/`.
@@ -43,12 +50,14 @@ topics: ["housing-benefit", "discretionary-housing-payments"]
 supersedes: ["DOC-HB-002 v1.4"]
 related_sources: ["DOC-HB-001", "DOC-HB-008"]
 tags: ["source", "challenge-2", "housing-benefit"]
+data_origin: "synthetic_fixture"
 extraction:
   method: "markdown-frontmatter"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ```
 
@@ -66,3 +75,4 @@ sensitivity:
 - Link source IDs, departments, legislation, forms, policies, and named programmes.
 - Long notes should end with a "Related Notes" section.
 - Flag stale, draft, superseded, contradictory, and low-confidence records rather than hiding them.
+- Flag synthetic fixture identifiers as synthetic fixtures, not as real personal data.

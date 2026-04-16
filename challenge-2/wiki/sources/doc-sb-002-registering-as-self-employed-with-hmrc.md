@@ -36,12 +36,14 @@ tags:
   - "hmrc"
   - "council-tax-reduction"
   - "small-business-and-self-employment"
+data_origin: "synthetic_fixture"
 extraction:
   method: "markdown-frontmatter"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -69,6 +71,9 @@ sensitivity:
 | Last updated |  |
 | Audience | Self-employed individuals |
 | Topics | self-employment, tax-registration, hmrc, council-tax-reduction, small-business-and-self-employment |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | 939f1ed1d2b3bf5ef15617528d52f7700e116c7d0a09bb758d11634336fcf004 |
 
 ## Related Sources
@@ -135,8 +140,8 @@ Keep records of all your income and expenses for at least five years after the 3
 
 ## Related documents
 
-- [Starting a Business in the UK: Step by Step ([DOC-SB-001](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md))]([DOC-SB-001](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md)-starting-a-business.html)
-- [Understanding your tax obligations as an employer ([DOC-SB-006](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md))]([DOC-SB-006](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md)-business-rates.html)
+- [Starting a Business in the UK: Step by Step (DOC-SB-001)](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md)
+- [Understanding your tax obligations as an employer (DOC-SB-006)](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md)
 
 ## Raw Metadata
 
@@ -146,10 +151,7 @@ Keep records of all your income and expenses for at least five years after the 3
 | department | HM Revenue and Customs |
 | document_id | DOC-SB-002 |
 | exif_ByteOrderMark | No |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:32:23+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-002-registering-self-employed.md |
 | exif_FilePermissions | -rw-r--r-- |

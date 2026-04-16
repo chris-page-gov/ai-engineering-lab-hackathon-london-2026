@@ -42,12 +42,14 @@ tags:
   - "employment-rights-and-flexible-working"
   - "foi-and-transparency"
   - "people-policies"
+data_origin: "synthetic_fixture"
 extraction:
   method: "markdown-frontmatter"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -75,6 +77,9 @@ sensitivity:
 | Last updated |  |
 | Audience |  |
 | Topics | employment-law, employee-rights, unfair-dismissal, redundancy, small-business-and-self-employment, employment-rights-and-flexible-working, foi-and-transparency, people-policies |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | ca50ee08d426b38d8f4b61012603499b88e186ead40a8a8fc6cd200fb182980a |
 
 ## Related Sources
@@ -147,9 +152,9 @@ Under Section 1 of the Act, an employer must provide every employee and worker w
 
 ## Related documents
 
-- [National Minimum Wage and National Living Wage: Employer Guidance ([DOC-SB-003](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md))]([DOC-SB-003](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md)-national-minimum-wage.html)
-- [Health and Safety Obligations for Small Businesses ([DOC-SB-007](doc-sb-007-statutory-sick-pay-ssp-employer-guide.md))]([DOC-SB-007](doc-sb-007-statutory-sick-pay-ssp-employer-guide.md)-health-and-safety.html)
-- [Maternity and Parental Leave Entitlements ([DOC-SB-009](doc-sb-009-right-to-request-flexible-working-frequently-asked-ques.md))]([DOC-SB-009](doc-sb-009-right-to-request-flexible-working-frequently-asked-ques.md)-maternity-parental-leave.html)
+- [National Minimum Wage and National Living Wage: Employer Guidance (DOC-SB-003)](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md)
+- [Health and Safety Obligations for Small Businesses (DOC-SB-007)](doc-sb-007-statutory-sick-pay-ssp-employer-guide.md)
+- [Maternity and Parental Leave Entitlements (DOC-SB-009)](doc-sb-009-right-to-request-flexible-working-frequently-asked-ques.md)
 
 ## Raw Metadata
 
@@ -157,10 +162,7 @@ Under Section 1 of the Act, an employer must provide every employee and worker w
 | --- | --- |
 | department | Department for Business and Trade |
 | document_id | DOC-SB-005 |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:32:23+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | DOC-SB-005-employment-rights-era-1996.md |
 | exif_FilePermissions | -rw-r--r-- |

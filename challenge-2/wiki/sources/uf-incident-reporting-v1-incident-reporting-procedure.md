@@ -11,7 +11,7 @@ document_type: "report"
 department: "DWP"
 owner: null
 status: "unknown"
-version: "1.0"
+version: "1.0 \\| January 2023"
 publication_date: null
 last_updated: null
 audience: []
@@ -25,12 +25,14 @@ tags:
   - "docx"
   - "unknown"
   - "incident-risk-and-assurance"
+data_origin: "synthetic_fixture"
 extraction:
   method: "pandoc-docx"
   quality: "high"
   warnings: []
 sensitivity:
-  contains_personal_data: false
+  contains_real_personal_data: false
+  contains_synthetic_identifiers: false
   classification: null
 ---
 
@@ -53,11 +55,14 @@ sensitivity:
 | Department | DWP |
 | Owner |  |
 | Status | unknown |
-| Version | 1.0 |
+| Version | 1.0 \\| January 2023 |
 | Publication date |  |
 | Last updated |  |
 | Audience |  |
 | Topics | incident-risk-and-assurance |
+| Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
+| Contains real personal data | false |
+| Contains synthetic identifiers | false |
 | SHA-256 | c9684718f41c4d1a77aa89620793c59a85f00eee4787ba05f88c473a917baf26 |
 
 ## Navigation
@@ -131,10 +136,7 @@ DWP Security Control Room: 0800 XXX XXXX (24/7)
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.596Z |
 | exif_Creator | Un-named |
-| exif_Directory | /Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files |
 | exif_ExifToolVersion | 13.5 |
-| exif_FileAccessDate | 2026:04:16 03:33:03+01:00 |
-| exif_FileInodeChangeDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | incident-reporting-v1.docx |
 | exif_FilePermissions | -rw-r--r-- |
@@ -156,7 +158,7 @@ DWP Security Control Room: 0800 XXX XXXX (24/7)
 | lastModifiedBy | Un-named |
 | modified | 2026-04-14T09:02:53.596Z |
 | revision | 1 |
-| version | 1.0 |
+| version | 1.0 \\| January 2023 |
 
 ## Related Notes
 
