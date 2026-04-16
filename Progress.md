@@ -27,6 +27,7 @@ The current local working branch also contains the Challenge 2 wiki evaluation b
 - Added `challenge-2/tools/workbench_mcp.py` for local MCP source search/read/context export.
 - Added Dark Data Workbench unit, component, Playwright, MCP, and optional coverage test paths.
 - Hardened Dark Data Workbench Playwright control interactions after the PR check exposed CI-only click/state flakiness.
+- Removed Obsidian workspace session state from Git tracking while preserving useful vault configuration files.
 
 ## Validation
 
@@ -57,7 +58,6 @@ The current local working branch also contains the Challenge 2 wiki evaluation b
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
 - Add a concise judging evidence page covering user need, prototype scope, AI-tool usage, validation, limitations, and next steps.
 - Run the full 100-question benchmark through the available Codex, Gemini CLI, and Claude Code installations, then fill the scoring sheet and publish the generated leaderboard.
-- Decide whether to commit or discard local Obsidian workspace state changes in `challenge-2/.obsidian/workspace.json`.
 
 ## Next Recommended Steps
 

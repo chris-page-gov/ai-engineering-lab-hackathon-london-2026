@@ -53,6 +53,8 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 
 Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context.
 
+Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are local session state, not shared vault configuration. They are ignored and left on disk locally so using Obsidian does not repeatedly create repository changes.
+
 ## Evaluation And Audit Assumptions
 
 - The Challenge 2 benchmark Markdown is the scoring source of truth for questions, gold answers, and rubrics.
