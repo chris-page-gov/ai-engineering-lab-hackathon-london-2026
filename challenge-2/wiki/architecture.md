@@ -44,15 +44,15 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  Scan["1. Scan corpus\nfind all source files"] --> Fingerprint["2. Fingerprint\nsize and SHA-256"]
-  Fingerprint --> Extract["3. Extract content\nPandoc, pdftotext, ExifTool, openpyxl"]
-  Extract --> Normalize["4. Normalize metadata\ntitle, status, dates, department, topics"]
-  Normalize --> SourceNotes["5. Write source notes\nfrontmatter, raw metadata, provenance"]
-  Normalize --> Tables["6. Export tables\nMarkdown, CSV, and JSON"]
-  SourceNotes --> Link["7. Cross-link\nsource IDs, topics, entities, maps"]
+  Scan["Step 1: Scan corpus\nfind all source files"] --> Fingerprint["Step 2: Fingerprint\nsize and SHA-256"]
+  Fingerprint --> Extract["Step 3: Extract content\nPandoc, pdftotext, ExifTool, openpyxl"]
+  Extract --> Normalize["Step 4: Normalize metadata\ntitle, status, dates, department, topics"]
+  Normalize --> SourceNotes["Step 5: Write source notes\nfrontmatter, raw metadata, provenance"]
+  Normalize --> Tables["Step 6: Export tables\nMarkdown, CSV, and JSON"]
+  SourceNotes --> Link["Step 7: Cross-link\nsource IDs, topics, entities, maps"]
   Tables --> Link
-  Link --> LintStep["8. Lint\ncoverage, broken links, known challenge flags"]
-  LintStep --> Demo["9. Demo-ready vault\nindex, maps, source register, lint report"]
+  Link --> LintStep["Step 8: Lint\ncoverage, broken links, known challenge flags"]
+  LintStep --> Demo["Step 9: Demo-ready vault\nindex, maps, source register, lint report"]
 ```
 
 ## Knowledge Model

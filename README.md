@@ -113,12 +113,18 @@ Teams are three to five people, pre-assigned before arrival. When you walk in, y
 This workshop includes:
 
 - `README.md` (this file) — overview and day structure
+- `Changelog.md` — dated change history for repository additions, changes, fixes and documentation updates
+- `Context.md` — project context, architecture assumptions, data policy and operating constraints
+- `Progress.md` — current implementation status, validation, blockers and next steps
+- `AGENTS.md` — repo-wide operating rules, including the documentation lockstep policy
 - `SETUP-GUIDE.md` — what to do before the event
 - `open-brief.md` — guidance for teams bringing their own problem, including prompts to frame and scope it
 - `challenge-01-from-pdf-to-digital-service.md` — detailed brief, data, and prompts for challenge 1
 - `challenge-1/FORM-LIC-001-licence-application.pdf` — sample licence application PDF for challenge 1
 - `challenge-02-unlocking-the-dark-data.md` — detailed brief, data, and prompts for challenge 2
 - `challenge-2/` — starter data for challenge 2: `structured_files/` (text-based documents) and `unstructured_files/` (binary-format documents)
+- `challenge-2/wiki/evaluation-benchmark.md` — 100-question source-backed benchmark for evaluating how AI coding agents use the Challenge 2 wiki
+- `challenge-2/tools/run_wiki_eval.py` and `challenge-2/tools/wiki_eval_mcp.py` — Challenge 2 evaluation harness and auditable MCP layer
 - `challenge-03-supporting-casework-decisions.md` — detailed brief, data, and prompts for challenge 3
 - `challenge-04-knowing-your-own-organisation.md` — detailed brief, data, and prompts for challenge 4
 
