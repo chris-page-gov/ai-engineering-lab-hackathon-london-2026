@@ -23,6 +23,10 @@ The current local working branch also contains the Challenge 2 wiki evaluation b
 - Added a CLI evaluation harness that builds wiki-only prompts, captures client outputs, and emits DSAP-shaped audit packs.
 - Added a stdio MCP-compatible layer for audited Challenge 2 wiki search/read, public question retrieval, answer recording, and run finalisation.
 - Added scoring-sheet and leaderboard tooling for competitive evaluation once per-answer scores are entered.
+- Added Dark Data Workbench under `challenge-2/workbench/` with source filtering, context-set building, source reader, graph/table/check views, browser-AI context export, and MCP setup guidance.
+- Added `challenge-2/tools/workbench_mcp.py` for local MCP source search/read/context export.
+- Added Dark Data Workbench unit, component, Playwright, MCP, and optional coverage test paths.
+- Hardened Dark Data Workbench Playwright control interactions after the PR check exposed CI-only click/state flakiness.
 
 ## Validation
 
@@ -41,10 +45,15 @@ The current local working branch also contains the Challenge 2 wiki evaluation b
   - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients codex --questions Q001 --output-root /tmp/challenge2-wiki-eval-test --run-id smoke`
   - `python3 challenge-2/tools/summarise_wiki_eval.py /tmp/challenge2-wiki-eval-test/smoke`
   - stdio JSON-RPC smoke test for `challenge-2/tools/wiki_eval_mcp.py`
+- Current Dark Data Workbench validation passed locally:
+  - `cd challenge-2/workbench && pnpm check`
+  - `cd challenge-2/workbench && pnpm test`
+  - `cd challenge-2/workbench && pnpm build`
+  - `cd challenge-2/workbench && pnpm test:ui`
+  - `python3 -m unittest tests/test_challenge2_workbench_mcp.py`
 
 ## Open Items
 
-- Add a visible search or query UI over the generated knowledge base.
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
 - Add a concise judging evidence page covering user need, prototype scope, AI-tool usage, validation, limitations, and next steps.
 - Run the full 100-question benchmark through the available Codex, Gemini CLI, and Claude Code installations, then fill the scoring sheet and publish the generated leaderboard.
@@ -55,4 +64,4 @@ The current local working branch also contains the Challenge 2 wiki evaluation b
 1. Run the full benchmark against Codex, Gemini CLI, and Claude Code using `challenge-2/tools/run_wiki_eval.py`.
 2. Score `generated/scoring-sheet.csv` and generate `generated/leaderboard.md`.
 3. Add source-backed demo answers for the five Challenge 2 demo questions.
-4. Add a visible search or query UI over the generated knowledge base.
+4. Use Dark Data Workbench during the demo to show search, context export, and source-backed checks over the generated knowledge base.

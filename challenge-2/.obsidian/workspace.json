@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/index.md",
+                "file": "wiki/evaluation-benchmark.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "evaluation-benchmark"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "evaluation questions",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "wiki/index.md",
+                "file": "wiki/evaluation-benchmark.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for index"
+              "title": "Backlinks for evaluation-benchmark"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "wiki/index.md",
+                "file": "wiki/evaluation-benchmark.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from index"
+              "title": "Outgoing links from evaluation-benchmark"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/index.md",
+                "file": "wiki/evaluation-benchmark.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of index"
+              "title": "Outline of evaluation-benchmark"
             }
           }
         ]
@@ -185,41 +185,51 @@
   },
   "active": "01cb286802682118",
   "lastOpenFiles": [
-    "wiki/data/lint-report.json",
+    "wiki/topics/housing-benefit.md",
+    "wiki/index.md",
+    "workbench/README.md",
+    "wiki/evaluation-benchmark.md",
     "wiki/architecture.md",
-    "wiki/data/source-register.json",
-    "wiki/data/tables/uf-staff-directory-extract-q4-2023-notes.csv",
-    "wiki/data/tables/uf-staff-directory-extract-q4-2023-directory.csv",
-    "wiki/data/tables/uf-staff-directory-extract-q4-2023.json",
-    "wiki/data/tables/uf-procurement-thresholds-2024-25-notes.csv",
-    "wiki/data/tables/uf-procurement-thresholds-2024-25-approval-matrix.csv",
-    "wiki/data/tables/uf-procurement-thresholds-2024-25-thresholds.csv",
-    "wiki/data/tables/uf-procurement-thresholds-2024-25.json",
-    "wiki/data/tables/uf-overpayment-recovery-procedures-v2-3-contact.csv",
-    "wiki/data/tables/uf-overpayment-recovery-procedures-v2-3-payment-methods.csv",
+    "Unlocking_Dark_Data.pdf",
+    "wiki/sources/doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md",
+    "tools/__pycache__/workbench_mcp.cpython-314.pyc",
+    "tools/__pycache__",
+    "workbench/test-results",
+    "workbench/test-results/workbench-Dark-Data-Workbe-bcaa3-ph-and-workbook-table-views-chromium/error-context.md",
+    "workbench/test-results/workbench-Dark-Data-Workbe-bcaa3-ph-and-workbook-table-views-chromium/video.webm",
+    "workbench/test-results/workbench-Dark-Data-Workbe-bcaa3-ph-and-workbook-table-views-chromium/test-failed-1.png",
+    "workbench/test-results/workbench-Dark-Data-Workbe-bcaa3-ph-and-workbook-table-views-chromium",
+    "workbench/build/_app/immutable/nodes/1.Dv1IxOQb.js",
+    "workbench/build/_app/immutable/entry/start.CWttuLlr.js",
+    "workbench/build/_app/immutable/entry/app.Bywfp1OU.js",
+    "workbench/build/_app/immutable/chunks/DeIGbx1R.js",
+    "workbench/coverage/sort-arrow-sprite.png",
+    "workbench/coverage/favicon.png",
+    "wiki/workbench.md",
+    "workbench/test-results/workbench-Dark-Data-Workbe-98865-s-and-reopens-a-context-set-chromium/error-context.md",
+    "workbench/test-results/workbench-Dark-Data-Workbe-98865-s-and-reopens-a-context-set-chromium/test-failed-1.png",
+    "workbench/test-results/workbench-Dark-Data-Workbe-2472d--with-source-backed-results-chromium/error-context.md",
+    "workbench/test-results/workbench-Dark-Data-Workbe-2472d--with-source-backed-results-chromium/test-failed-1.png",
+    "workbench/test-results/workbench-Dark-Data-Workbe-621f1-status-topic-and-department-chromium/error-context.md",
+    "workbench/test-results/workbench-Dark-Data-Workbe-621f1-status-topic-and-department-chromium/test-failed-1.png",
+    "workbench/test-results/workbench-Dark-Data-Workbe-d076e-tadata-and-provenance-links-chromium/error-context.md",
+    "workbench/test-results/workbench-Dark-Data-Workbe-d076e-tadata-and-provenance-links-chromium/test-failed-1.png",
+    "workbench/test-results/mobile-Dark-Data-Workbench-b0e6d-without-horizontal-overflow-chromium/error-context.md",
+    "workbench/test-results/mobile-Dark-Data-Workbench-b0e6d-without-horizontal-overflow-chromium/test-failed-1.png",
+    "workbench/test-results/workbench-Dark-Data-Workbe-64360-ntext-and-renders-MCP-setup-chromium/error-context.md",
+    "workbench/test-results/workbench-Dark-Data-Workbe-64360-ntext-and-renders-MCP-setup-chromium/test-failed-1.png",
+    "workbench/test-results/workbench-Dark-Data-Workbe-5f3b6--corpus-and-supports-search-chromium/error-context.md",
+    "workbench/test-results/workbench-Dark-Data-Workbe-5f3b6--corpus-and-supports-search-chromium/test-failed-1.png",
+    "workbench/test-results/mobile-Dark-Data-Workbench-b0e6d-without-horizontal-overflow-mobile-chromium/error-context.md",
+    "evaluation/README.md",
+    "evaluation-benchmark.md",
+    "wiki/sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md",
+    "wiki/topics/staff-directory.md",
+    "wiki/data/tables/README.md",
     "wiki/maps/risk-assurance-and-compliance.md",
     "wiki/maps/people-policies.md",
     "wiki/maps/corporate-operations.md",
     "wiki/maps/small-business-and-employment.md",
-    "wiki/maps/housing-and-benefits.md",
-    "wiki/entities/people-services.md",
-    "wiki/entities/finance-directorate.md",
-    "wiki/entities/cabinet-office.md",
-    "wiki/entities/universal-credit-migration.md",
-    "wiki/entities/rtb1-form.md",
-    "wiki/entities/hb1-form.md",
-    "wiki/entities/employment-rights-act-1996.md",
-    "wiki/entities/homelessness-reduction-act-2017.md",
-    "wiki/entities/housing-act-1996.md",
-    "wiki/entities/local-authorities.md",
-    "wiki/entities/hmrc.md",
-    "wiki/entities/dbt.md",
-    "wiki/entities/dwp.md",
-    "wiki/entities/dluhc.md",
-    "wiki/topics/staff-directory.md",
-    "wiki/topics/welsh-language-standards.md",
-    "wiki/topics/overpayment-recovery.md",
-    "wiki/topics/incident-risk-and-assurance.md",
-    "wiki/topics/people-policies.md"
+    "wiki/maps/housing-and-benefits.md"
   ]
 }

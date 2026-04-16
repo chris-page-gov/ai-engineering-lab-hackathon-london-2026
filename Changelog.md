@@ -8,6 +8,10 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
+- Added Dark Data Workbench, a SvelteKit browser UI under `challenge-2/workbench/` for filtering the Challenge 2 wiki corpus, building context sets, browsing evidence, and exporting optional AI/MCP context.
+- Added `challenge-2/tools/workbench_mcp.py` to expose Dark Data Workbench search, source read, and context-building flows to local MCP clients.
+- Added unit, component, Playwright, and MCP tests for Dark Data Workbench, with optional coverage enforcement via `pnpm test:coverage`.
+- Added a GitHub Actions workflow for Dark Data Workbench typecheck, tests, build, Playwright, and MCP validation.
 - Added repo-wide tracking files: `Changelog.md`, `Context.md`, and `Progress.md`.
 - Added repo-wide operating rules in `AGENTS.md` requiring documentation updates in lockstep with implementation changes.
 - Added a GitHub pull request template with explicit documentation lockstep checks.
@@ -21,6 +25,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 - Updated the Challenge 2 architecture Mermaid labels from `1.`, `2.`, etc. to `Step 1:`, `Step 2:`, etc. so Obsidian does not render them as unsupported Markdown lists.
 - Fixed the documentation lockstep check so it fails if required tracking files are deleted, even when their deleted paths appear in the diff.
+- Hardened Dark Data Workbench Playwright interactions for facet and view controls, and exposed explicit pressed-state metadata for those controls.
 
 ### Documentation
 

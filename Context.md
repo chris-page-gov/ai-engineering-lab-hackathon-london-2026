@@ -19,6 +19,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - JSON and table exports provide machine-readable interfaces.
 - Lint output checks coverage, metadata, links, and known challenge flags.
 - The evaluation harness tests whether AI coding agents can answer source-backed questions using only the generated wiki, while producing DSAP-shaped audit artifacts for later scoring, FOI-style disclosure, and reconstruction.
+- Dark Data Workbench provides a browser UI over the generated wiki so users can filter sources, build explicit context sets, inspect evidence without AI, or export the same context to browser AI and MCP clients.
 
 ## Data Assumptions
 
@@ -41,11 +42,16 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `challenge-2/tools/run_wiki_eval.py`: CLI harness for sending benchmark questions to Codex, Gemini CLI, and Claude Code.
 - `challenge-2/tools/wiki_eval_mcp.py`: stdio MCP-compatible audit layer for controlled wiki read/search and answer recording.
 - `challenge-2/tools/summarise_wiki_eval.py`: leaderboard summariser for scored harness runs.
+- `challenge-2/tools/workbench_mcp.py`: stdio MCP server for Dark Data Workbench source search, source read, and context export.
 - `challenge-2/wiki/index.md`: Obsidian knowledge-base entry point.
+- `challenge-2/wiki/workbench.md`: Obsidian entry point for running and explaining Dark Data Workbench.
 - `challenge-2/wiki/architecture.md`: plain-English architecture explanation with Mermaid diagrams.
 - `challenge-2/wiki/evaluation-benchmark.md`: 100-question Challenge 2 wiki benchmark with gold answers, rubrics, and scoring regime.
 - `challenge-2/wiki/lint-report.md`: generated quality report.
 - `challenge-2/wiki/data/source-register.json`: machine-readable source register.
+- `challenge-2/workbench/`: SvelteKit Dark Data Workbench app and its unit, component, Playwright, and optional coverage tests.
+
+Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context.
 
 ## Evaluation And Audit Assumptions
 
