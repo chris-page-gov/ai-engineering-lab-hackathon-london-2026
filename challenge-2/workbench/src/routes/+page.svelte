@@ -231,6 +231,7 @@
                   type="button"
                   class:active={filterActive(facet.id, value.value)}
                   class="facet-chip"
+                  aria-pressed={filterActive(facet.id, value.value) ? 'true' : 'false'}
                   on:click={() => (filters = toggleFilterValue(filters, facet.id, value.value))}
                 >
                   <span>{value.value}</span>
@@ -250,11 +251,11 @@
           <p>{selectedIds.size} in context, {highlightedIds.size} marked</p>
         </div>
         <div class="segmented" aria-label="View mode">
-          <button type="button" class:active={viewMode === 'grid'} on:click={() => (viewMode = 'grid')}>Grid</button>
-          <button type="button" class:active={viewMode === 'reader'} on:click={() => (viewMode = 'reader')}>Reader</button>
-          <button type="button" class:active={viewMode === 'graph'} on:click={() => (viewMode = 'graph')}>Graph</button>
-          <button type="button" class:active={viewMode === 'table'} on:click={() => (viewMode = 'table')}>Table</button>
-          <button type="button" class:active={viewMode === 'queries'} on:click={() => (viewMode = 'queries')}>Checks</button>
+          <button type="button" class:active={viewMode === 'grid'} aria-pressed={viewMode === 'grid' ? 'true' : 'false'} on:click={() => (viewMode = 'grid')}>Grid</button>
+          <button type="button" class:active={viewMode === 'reader'} aria-pressed={viewMode === 'reader' ? 'true' : 'false'} on:click={() => (viewMode = 'reader')}>Reader</button>
+          <button type="button" class:active={viewMode === 'graph'} aria-pressed={viewMode === 'graph' ? 'true' : 'false'} on:click={() => (viewMode = 'graph')}>Graph</button>
+          <button type="button" class:active={viewMode === 'table'} aria-pressed={viewMode === 'table' ? 'true' : 'false'} on:click={() => (viewMode = 'table')}>Table</button>
+          <button type="button" class:active={viewMode === 'queries'} aria-pressed={viewMode === 'queries' ? 'true' : 'false'} on:click={() => (viewMode = 'queries')}>Checks</button>
         </div>
       </div>
 
@@ -373,7 +374,7 @@
               <p class="muted">These checks use deterministic filters and source text, then surface evidence for review.</p>
               <div class="query-list">
                 {#each SAVED_QUERIES as saved}
-                  <button type="button" class:active={savedQueryId === saved.id} on:click={() => runQuery(saved.id)}>
+                  <button type="button" class:active={savedQueryId === saved.id} aria-pressed={savedQueryId === saved.id ? 'true' : 'false'} on:click={() => runQuery(saved.id)}>
                     <strong>{saved.label}</strong>
                     <span>{saved.question}</span>
                   </button>

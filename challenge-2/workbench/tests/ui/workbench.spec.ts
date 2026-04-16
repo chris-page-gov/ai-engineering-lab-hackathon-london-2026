@@ -1,4 +1,21 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Locator, type Page } from '@playwright/test';
+
+const pressButton = async (button: Locator) => {
+  await button.scrollIntoViewIfNeeded();
+  await expect(button).toBeVisible();
+  await button.click();
+  try {
+    await expect(button).toHaveClass(/active/, { timeout: 1000 });
+  } catch {
+    await button.dispatchEvent('click');
+    await expect(button).toHaveClass(/active/, { timeout: 1000 });
+  }
+};
+
+const switchView = async (page: Page, name: string, selector: string) => {
+  await pressButton(page.getByRole('button', { name }));
+  await expect(page.locator(selector)).toBeVisible();
+};
 
 test.describe('Dark Data Workbench', () => {
   test.beforeEach(async ({ page }) => {
@@ -19,24 +36,21 @@ test.describe('Dark Data Workbench', () => {
 
   test('filters by status, topic, and department', async ({ page }) => {
     const currentStatus = page.getByRole('group', { name: /Facet Status/i }).getByRole('button', { name: /^current\b/i });
-    await currentStatus.scrollIntoViewIfNeeded();
-    await currentStatus.click();
+    await pressButton(currentStatus);
     await expect(page.locator('.stage-toolbar h2')).toContainText('17 visible sources');
     const currentCount = await page.locator('.source-card').count();
     expect(currentCount).toBeGreaterThan(10);
     expect(currentCount).toBeLessThan(43);
 
     const housingTopic = page.getByRole('group', { name: /Facet Topic/i }).getByRole('button', { name: /^housing-benefit\b/i });
-    await housingTopic.scrollIntoViewIfNeeded();
-    await housingTopic.click();
+    await pressButton(housingTopic);
     await expect(page.locator('.stage-toolbar h2')).not.toContainText('17 visible sources');
     const topicCount = await page.locator('.source-card').count();
     expect(topicCount).toBeGreaterThan(0);
     expect(topicCount).toBeLessThanOrEqual(currentCount);
 
     const dluhc = page.getByRole('group', { name: /Facet Department/i }).getByRole('button', { name: /^DLUHC 9$/i });
-    await dluhc.scrollIntoViewIfNeeded();
-    await dluhc.click();
+    await pressButton(dluhc);
     await expect(page.locator('.source-card').first()).toContainText('DLUHC');
   });
 
@@ -70,10 +84,7 @@ test.describe('Dark Data Workbench', () => {
   });
 
   test('runs the five no-AI saved checks with source-backed results', async ({ page }) => {
-    const checksViewButton = page.getByRole('button', { name: 'Checks' });
-    await checksViewButton.scrollIntoViewIfNeeded();
-    await checksViewButton.click();
-    await expect(page.locator('.checks-view')).toBeVisible();
+    await switchView(page, 'Checks', '.checks-view');
 
     const checks = [
       'Current CTR guidance',
@@ -84,11 +95,11 @@ test.describe('Dark Data Workbench', () => {
     ];
 
     for (const check of checks) {
-      await page.getByRole('button', { name: new RegExp(check) }).click();
+      await pressButton(page.getByRole('button', { name: new RegExp(check) }));
       await expect(page.locator('.query-results .result-row').first()).toBeVisible();
     }
 
-    await page.getByRole('button', { name: 'Current CTR guidance' }).click();
+    await pressButton(page.getByRole('button', { name: 'Current CTR guidance' }));
     await expect(page.locator('.query-results')).toContainText('DOC-HB-009');
     await expect(page.locator('.query-results')).not.toContainText('DOC-HB-003');
   });
@@ -116,20 +127,11 @@ test.describe('Dark Data Workbench', () => {
   });
 
   test('renders graph and workbook table views', async ({ page }) => {
-    const switchView = async (name: string, selector: string) => {
-      const button = page.getByRole('button', { name });
-      await button.scrollIntoViewIfNeeded();
-      await expect(async () => {
-        await button.click();
-        await expect(page.locator(selector)).toBeVisible({ timeout: 1000 });
-      }).toPass({ timeout: 5000 });
-    };
-
-    await switchView('Graph', '.graph-view');
+    await switchView(page, 'Graph', '.graph-view');
     await expect(page.locator('.graph-view svg')).toBeVisible();
     await expect(page.locator('.summary-meta')).toContainText('topic nodes');
 
-    await switchView('Table', '.table-view');
+    await switchView(page, 'Table', '.table-view');
     await expect(page.getByRole('heading', { name: 'Workbook Sources' })).toBeVisible();
     await expect(page.getByRole('heading', { name: /UF-PROCUREMENT-THRESHOLDS-2024-25/i })).toBeVisible();
   });

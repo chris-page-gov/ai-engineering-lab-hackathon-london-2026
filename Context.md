@@ -51,6 +51,8 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `challenge-2/wiki/data/source-register.json`: machine-readable source register.
 - `challenge-2/workbench/`: SvelteKit Dark Data Workbench app and its unit, component, Playwright, and optional coverage tests.
 
+Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context.
+
 ## Evaluation And Audit Assumptions
 
 - The Challenge 2 benchmark Markdown is the scoring source of truth for questions, gold answers, and rubrics.

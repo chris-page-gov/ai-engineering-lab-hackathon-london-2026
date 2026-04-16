@@ -26,6 +26,7 @@ The current local working branch also contains the Challenge 2 wiki evaluation b
 - Added Dark Data Workbench under `challenge-2/workbench/` with source filtering, context-set building, source reader, graph/table/check views, browser-AI context export, and MCP setup guidance.
 - Added `challenge-2/tools/workbench_mcp.py` for local MCP source search/read/context export.
 - Added Dark Data Workbench unit, component, Playwright, MCP, and optional coverage test paths.
+- Hardened Dark Data Workbench Playwright control interactions after the PR check exposed CI-only click/state flakiness.
 
 ## Validation
 
@@ -44,8 +45,7 @@ The current local working branch also contains the Challenge 2 wiki evaluation b
   - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients codex --questions Q001 --output-root /tmp/challenge2-wiki-eval-test --run-id smoke`
   - `python3 challenge-2/tools/summarise_wiki_eval.py /tmp/challenge2-wiki-eval-test/smoke`
   - stdio JSON-RPC smoke test for `challenge-2/tools/wiki_eval_mcp.py`
-- Pending validation for Dark Data Workbench:
-  - `cd challenge-2/workbench && pnpm install`
+- Current Dark Data Workbench validation passed locally:
   - `cd challenge-2/workbench && pnpm check`
   - `cd challenge-2/workbench && pnpm test`
   - `cd challenge-2/workbench && pnpm build`
