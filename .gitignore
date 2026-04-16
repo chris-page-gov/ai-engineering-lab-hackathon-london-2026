@@ -1,0 +1,6 @@
+# macOS local metadata
+.DS_Store
+
+# Obsidian session state changes on every local browsing session.
+challenge-2/.obsidian/workspace.json
+challenge-2/.obsidian/workspace-mobile.json

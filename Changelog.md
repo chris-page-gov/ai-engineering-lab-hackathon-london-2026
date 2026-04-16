@@ -26,6 +26,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Updated the Challenge 2 architecture Mermaid labels from `1.`, `2.`, etc. to `Step 1:`, `Step 2:`, etc. so Obsidian does not render them as unsupported Markdown lists.
 - Fixed the documentation lockstep check so it fails if required tracking files are deleted, even when their deleted paths appear in the diff.
 - Hardened Dark Data Workbench Playwright interactions for facet and view controls, and exposed explicit pressed-state metadata for those controls.
+- Stopped tracking Obsidian workspace session state so local vault browsing no longer dirties the repository.
 
 ### Documentation
 
