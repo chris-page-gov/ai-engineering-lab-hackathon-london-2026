@@ -1,0 +1,147 @@
+{
+  "source_id": "UF-PROCUREMENT-THRESHOLDS-2024-25",
+  "title": "Procurement Thresholds 2024-25",
+  "source_path": "unstructured_files/Procurement Thresholds 2024-25.xlsx",
+  "data_origin": "synthetic_fixture",
+  "synthetic_data_notice": "Challenge 2 corpus data is synthetic hackathon fixture data.",
+  "contains_real_personal_data": false,
+  "contains_synthetic_identifiers": false,
+  "worksheets": [
+    {
+      "name": "Thresholds",
+      "max_row": 9,
+      "max_column": 4,
+      "populated_rows": 8,
+      "rows": [
+        [
+          "Procurement Thresholds 2024-25",
+          null,
+          null,
+          null
+        ],
+        [
+          "Category",
+          "Below threshold",
+          "Above threshold",
+          "Notes"
+        ],
+        [
+          "Goods",
+          "Under £10,000 — single quote",
+          "£10,000 to £50,000 — 3 written quotes",
+          null
+        ],
+        [
+          "Services",
+          "Under £10,000 — single quote",
+          "£10,000 to £50,000 — 3 written quotes",
+          "Includes consultancy"
+        ],
+        [
+          "Works",
+          "Under £25,000 — single quote",
+          "£25,000 to £100,000 — 3 written quotes",
+          "Capital works only"
+        ],
+        [
+          "ICT",
+          "Under £10,000 — single quote",
+          "£10,000 to £50,000 — Technology Assessment required",
+          "Must involve CDDO for cloud"
+        ],
+        [
+          null,
+          null,
+          "£50,000 to FTS threshold — formal tender",
+          "FTS threshold = £139,688 (2024-25)"
+        ],
+        [
+          null,
+          null,
+          "Above FTS threshold — full OJEU/FTS process",
+          null
+        ]
+      ]
+    },
+    {
+      "name": "Approval Matrix",
+      "max_row": 9,
+      "max_column": 3,
+      "populated_rows": 8,
+      "rows": [
+        [
+          "Approval Matrix",
+          null,
+          null
+        ],
+        [
+          "Value",
+          "Approver",
+          "Additional requirements"
+        ],
+        [
+          "£0 - £10,000",
+          "Budget holder",
+          "None"
+        ],
+        [
+          "£10,001 - £50,000",
+          "Grade 6",
+          "Business case required"
+        ],
+        [
+          "£50,001 - £100,000",
+          "SCS1",
+          "Business case + Commercial review"
+        ],
+        [
+          "£100,001 - £250,000",
+          "SCS2",
+          "Full business case + Commercial approval"
+        ],
+        [
+          "£250,001 - £1,000,000",
+          "Finance Director",
+          "Investment committee"
+        ],
+        [
+          "Over £1,000,000",
+          "Accounting Officer",
+          "HMT approval may be required"
+        ]
+      ]
+    },
+    {
+      "name": "Notes",
+      "max_row": 9,
+      "max_column": 1,
+      "populated_rows": 8,
+      "rows": [
+        [
+          "Note 1: All values exclude VAT"
+        ],
+        [
+          "Note 2: FTS thresholds are updated every two years by the Cabinet Office"
+        ],
+        [
+          "Note 3: For framework call-offs, follow the framework's own competition rules"
+        ],
+        [
+          "Note 4: Emergency procurements — contact the Commercial Helpdesk immediately"
+        ],
+        [
+          "Note 5: These thresholds replace the 2023-24 thresholds (FTS was £138,760)"
+        ],
+        [
+          "Last updated: 1 April 2024"
+        ],
+        [
+          "Next review: 1 April 2025"
+        ],
+        [
+          "Owner: Head of Commercial Policy"
+        ]
+      ]
+    }
+  ]
+}
