@@ -1128,6 +1128,129 @@ def write_data(records: list[SourceRecord]) -> None:
     (DATA_DIR / "source-register.json").write_text(json.dumps(register, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
 
 
+def write_architecture_page(records: list[SourceRecord]) -> None:
+    note = WIKI_DIR / "architecture.md"
+    formats: dict[str, int] = {}
+    for record in records:
+        formats[record.source_format] = formats.get(record.source_format, 0) + 1
+    flagged = [record for record in records if record.flags]
+    xlsx_sources = [record for record in records if record.source_format == "xlsx"]
+    fm = {
+        "title": "Challenge 2 Architecture",
+        "aliases": ["Architecture Overview", "How The Challenge 2 Wiki Works", "LLM Wiki Architecture"],
+        "note_type": "architecture",
+        "tags": ["architecture", "challenge-2", "llm-wiki", "start-here"],
+        "source_count": len(records),
+        "updated": TODAY,
+    }
+    bits = [frontmatter(fm), "# Challenge 2 Architecture\n\n"]
+    bits.append("This page explains the knowledge-base architecture for someone seeing it for the first time. The short version: the original documents stay untouched, a repeatable builder reads them, and the generated wiki turns them into linked notes that are easy to browse, search, review, and demo.\n\n")
+
+    bits.append("## What This Is\n\n")
+    bits.append("Challenge 2 starts with a messy document collection: HTML, Markdown, text files, PDFs, Word documents, and spreadsheets. The architecture translates those documents into an Obsidian-friendly knowledge base without changing the source files. The result is a wiki with source notes, topic pages, entity pages, maps of content, a source register, and a lint report.\n\n")
+    bits.append("The design follows the LLM Wiki pattern: raw sources are the source of truth, generated Markdown is the navigable knowledge layer, and explicit operating rules tell future agents how to maintain it.\n\n")
+
+    bits.append("## System At A Glance\n\n")
+    bits.append("```mermaid\n")
+    bits.append("flowchart LR\n")
+    bits.append("  Raw[\"Raw Challenge 2 documents\\nstructured_files and unstructured_files\"] --> Builder[\"build_wiki.py\\nrepeatable extractor and generator\"]\n")
+    bits.append("  Builder --> Notes[\"Source notes\\none Markdown page per document\"]\n")
+    bits.append("  Builder --> Data[\"Machine-readable data\\nsource register and table exports\"]\n")
+    bits.append("  Builder --> Synthesis[\"Synthesis layer\\ntopics, entities, and maps\"]\n")
+    bits.append("  Builder --> Lint[\"Lint report\\ncoverage, links, and known risks\"]\n")
+    bits.append("  Notes --> Vault[\"Obsidian vault\\nopen challenge-2 folder\"]\n")
+    bits.append("  Data --> Vault\n")
+    bits.append("  Synthesis --> Vault\n")
+    bits.append("  Lint --> Vault\n")
+    bits.append("  Vault --> Users[\"Users\\nbrowse, search, follow links, demo answers\"]\n")
+    bits.append("```\n\n")
+
+    bits.append("## Ingest And Validation Flow\n\n")
+    bits.append("```mermaid\n")
+    bits.append("flowchart TD\n")
+    bits.append("  Scan[\"1. Scan corpus\\nfind all source files\"] --> Fingerprint[\"2. Fingerprint\\nsize and SHA-256\"]\n")
+    bits.append("  Fingerprint --> Extract[\"3. Extract content\\nPandoc, pdftotext, ExifTool, openpyxl\"]\n")
+    bits.append("  Extract --> Normalize[\"4. Normalize metadata\\ntitle, status, dates, department, topics\"]\n")
+    bits.append("  Normalize --> SourceNotes[\"5. Write source notes\\nfrontmatter, raw metadata, provenance\"]\n")
+    bits.append("  Normalize --> Tables[\"6. Export tables\\nMarkdown, CSV, and JSON\"]\n")
+    bits.append("  SourceNotes --> Link[\"7. Cross-link\\nsource IDs, topics, entities, maps\"]\n")
+    bits.append("  Tables --> Link\n")
+    bits.append("  Link --> LintStep[\"8. Lint\\ncoverage, broken links, known challenge flags\"]\n")
+    bits.append("  LintStep --> Demo[\"9. Demo-ready vault\\nindex, maps, source register, lint report\"]\n")
+    bits.append("```\n\n")
+
+    bits.append("## Knowledge Model\n\n")
+    bits.append("```mermaid\n")
+    bits.append("flowchart TB\n")
+    bits.append("  Index[\"wiki/index.md\\nmain doorway\"] --> Architecture[\"wiki/architecture.md\\nplain-English architecture guide\"]\n")
+    bits.append("  Index --> Maps[\"wiki/maps\\nmaps of content\"]\n")
+    bits.append("  Maps --> Topics[\"wiki/topics\\npolicy and operational themes\"]\n")
+    bits.append("  Maps --> Sources[\"wiki/sources\\none note per raw document\"]\n")
+    bits.append("  Topics --> Sources\n")
+    bits.append("  Entities[\"wiki/entities\\ndepartments, laws, forms, teams\"] --> Sources\n")
+    bits.append("  Sources --> Raw[\"Raw files\\nimmutable source documents\"]\n")
+    bits.append("  Sources --> Register[\"wiki/data/source-register.json\\nmachine-readable inventory\"]\n")
+    bits.append("  Sources --> Tables[\"wiki/data/tables\\nspreadsheet exports\"]\n")
+    bits.append("  Index --> Lint[\"wiki/lint-report.md\\nquality and risk signals\"]\n")
+    bits.append("```\n\n")
+
+    bits.append("## What The Builder Produces\n\n")
+    bits.append(f"- `{len(records)}` source notes: one generated Markdown note for every Challenge 2 document.\n")
+    bits.append(f"- `{len(TOPIC_DEFS)}` topic pages: reusable summaries for policy and operational themes.\n")
+    bits.append(f"- `{len(ENTITY_DEFS)}` entity pages: departments, forms, laws, and named teams/programmes.\n")
+    bits.append(f"- `{len(MAP_DEFS)}` maps of content: guided entry points for browsing related material.\n")
+    bits.append(f"- `{len(xlsx_sources)}` workbook exports: each spreadsheet is preserved as Markdown tables, JSON, and CSV.\n")
+    bits.append(f"- `{len(flagged)}` flagged sources: stale, draft, superseded, personal-data-like, or past-review records.\n\n")
+
+    bits.append("## Corpus Coverage\n\n")
+    bits.append("| Format | Sources |\n| --- | ---: |\n")
+    for source_format, count in sorted(formats.items()):
+        bits.append(f"| `{source_format}` | {count} |\n")
+    bits.append("\n")
+
+    bits.append("## Demo Walkthrough\n\n")
+    bits.append("1. Open the `challenge-2/` folder as the Obsidian vault.\n")
+    bits.append(f"2. Start at {rel_link(note, WIKI_DIR / 'index.md', 'the knowledge base index')}.\n")
+    bits.append(f"3. Use {rel_link(note, MAPS_DIR / 'housing-and-benefits.md', 'Housing And Benefits Map')} to show how policy documents connect.\n")
+    bits.append(f"4. Use {rel_link(note, TOPICS_DIR / 'procurement-and-spending-controls.md', 'Procurement And Spending Controls')} to answer the IT hardware approval question.\n")
+    bits.append(f"5. Use {rel_link(note, WIKI_DIR / 'lint-report.md', 'the lint report')} to show why metadata, provenance, and versioning matter.\n")
+    bits.append(f"6. Use {rel_link(note, DATA_DIR / 'source-register.json', 'the source register')} to show the same knowledge base can also feed machine consumers.\n\n")
+
+    bits.append("## Why The Architecture Matters\n\n")
+    bits.append("- **Traceability:** every generated note links back to its raw source file.\n")
+    bits.append("- **Repeatability:** the builder can regenerate the wiki from the source corpus.\n")
+    bits.append("- **Findability:** maps, topics, entities, tags, and backlinks give multiple routes through the same material.\n")
+    bits.append("- **Safety:** stale, superseded, draft, and sensitive records are highlighted instead of hidden.\n")
+    bits.append("- **Portability:** the output is plain Markdown and JSON, so it works in Obsidian, GitHub, VS Code, and simple scripts.\n\n")
+
+    bits.append("## Glossary\n\n")
+    bits.append("| Term | Meaning |\n| --- | --- |\n")
+    glossary = [
+        ("Architecture", "The way the raw files, extraction script, generated notes, data files, and Obsidian vault fit together."),
+        ("Corpus", "The complete set of Challenge 2 source documents being processed."),
+        ("Entity page", "A generated note about a department, law, form, team, or programme that appears across sources."),
+        ("Extraction", "The process of reading content and metadata from source formats such as PDF, DOCX, HTML, Markdown, text, and XLSX."),
+        ("Frontmatter", "YAML metadata at the top of a Markdown note, used by Obsidian and scripts for filtering and navigation."),
+        ("Ingest", "One run of the builder that reads the corpus and regenerates the wiki layer."),
+        ("Lint report", "A generated quality report covering source coverage, broken links, missing metadata, and known Challenge 2 risk signals."),
+        ("LLM Wiki", "A maintained Markdown knowledge base that sits between raw sources and users, so knowledge compounds instead of being rediscovered from scratch."),
+        ("Map of content", "A curated navigation page that groups related notes around a domain or workflow."),
+        ("Obsidian vault", "A folder of Markdown files opened in Obsidian as a browsable knowledge base."),
+        ("Provenance", "Evidence showing where a claim or extracted fact came from."),
+        ("Raw source", "The original source document. In this architecture, raw sources are not edited."),
+        ("Source note", "A generated Markdown note that represents one raw source file, including extracted text, metadata, links, and provenance."),
+        ("Source register", "The machine-readable JSON inventory of every source file, extraction method, metadata fields, flags, and generated note path."),
+        ("Topic page", "A generated synthesis note that groups sources around a recurring policy or operational theme."),
+    ]
+    for term, meaning in glossary:
+        bits.append(f"| {term} | {meaning} |\n")
+    bits.append("\n## Related Notes\n\n")
+    bits.append(f"- {rel_link(note, WIKI_DIR / 'index.md', 'Knowledge base index')}\n")
+    bits.append(f"- {rel_link(note, WIKI_DIR / 'lint-report.md', 'Lint report')}\n")
+    bits.append(f"- {rel_link(note, ROOT / 'AGENTS.md', 'Operating rules')}\n")
+    note.write_text("".join(bits), encoding="utf-8")
+
+
 def write_index(records: list[SourceRecord]) -> None:
     note = WIKI_DIR / "index.md"
     by_format: dict[str, int] = {}
@@ -1144,6 +1267,7 @@ def write_index(records: list[SourceRecord]) -> None:
     bits = [frontmatter(fm), "# Challenge 2 Knowledge Base Index\n\n"]
     bits.append("This is the navigation entrypoint for the Challenge 2 Obsidian knowledge base. Raw documents remain in `structured_files/` and `unstructured_files/`; generated knowledge lives under `wiki/`.\n\n")
     bits.append("## Start Here\n\n")
+    bits.append(f"- {rel_link(note, WIKI_DIR / 'architecture.md', 'Architecture overview')}\n")
     bits.append(f"- {rel_link(note, WIKI_DIR / 'lint-report.md', 'Lint report')}\n")
     bits.append(f"- {rel_link(note, WIKI_DIR / 'log.md', 'Ingest log')}\n")
     bits.append(f"- {rel_link(note, DATA_DIR / 'source-register.json', 'Machine-readable source register')}\n\n")
@@ -1334,6 +1458,7 @@ def build() -> dict[str, Any]:
     write_entity_notes(records)
     write_maps(records)
     write_data(records)
+    write_architecture_page(records)
     write_index(records)
     write_log(records)
     (WIKI_DIR / "lint-report.md").write_text("# Pending lint report\n", encoding="utf-8")

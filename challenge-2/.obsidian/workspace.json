@@ -186,6 +186,7 @@
   "active": "01cb286802682118",
   "lastOpenFiles": [
     "wiki/data/lint-report.json",
+    "wiki/architecture.md",
     "wiki/data/source-register.json",
     "wiki/data/tables/uf-staff-directory-extract-q4-2023-notes.csv",
     "wiki/data/tables/uf-staff-directory-extract-q4-2023-directory.csv",
@@ -219,7 +220,6 @@
     "wiki/topics/welsh-language-standards.md",
     "wiki/topics/overpayment-recovery.md",
     "wiki/topics/incident-risk-and-assurance.md",
-    "wiki/topics/people-policies.md",
-    "wiki/topics/foi-and-transparency.md"
+    "wiki/topics/people-policies.md"
   ]
 }

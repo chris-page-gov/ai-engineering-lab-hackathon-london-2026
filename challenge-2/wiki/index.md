@@ -18,6 +18,7 @@ This is the navigation entrypoint for the Challenge 2 Obsidian knowledge base. R
 
 ## Start Here
 
+- [Architecture overview](architecture.md)
 - [Lint report](lint-report.md)
 - [Ingest log](log.md)
 - [Machine-readable source register](data/source-register.json)

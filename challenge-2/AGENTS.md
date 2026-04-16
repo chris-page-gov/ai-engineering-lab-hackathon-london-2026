@@ -19,6 +19,7 @@ This folder is an Obsidian vault for Challenge 2. It follows the Karpathy LLM Wi
 - Maps of content live in `wiki/maps/`.
 - Machine-readable outputs live in `wiki/data/`.
 - `wiki/index.md` is the content catalogue and primary navigation entrypoint.
+- `wiki/architecture.md` is the plain-English architecture page for first-time readers and must stay prominent in `wiki/index.md`.
 - `wiki/log.md` is an append-only chronological record of ingest, query, and lint events.
 
 ## Source Note Frontmatter
@@ -65,4 +66,3 @@ sensitivity:
 - Link source IDs, departments, legislation, forms, policies, and named programmes.
 - Long notes should end with a "Related Notes" section.
 - Flag stale, draft, superseded, contradictory, and low-confidence records rather than hiding them.
-
