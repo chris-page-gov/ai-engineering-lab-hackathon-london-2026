@@ -1,0 +1,191 @@
+{
+  "source_id": "UF-STAFF-DIRECTORY-EXTRACT-Q4-2023",
+  "title": "Staff Directory Extract Q4 2023",
+  "source_path": "unstructured_files/Staff_Directory_Extract_Q4_2023.xlsx",
+  "worksheets": [
+    {
+      "name": "Directory",
+      "max_row": 18,
+      "max_column": 7,
+      "populated_rows": 17,
+      "rows": [
+        [
+          "Staff Directory — Q4 2023 Extract",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Name",
+          "Grade",
+          "Directorate",
+          "Location",
+          "Email",
+          "Phone",
+          "Role"
+        ],
+        [
+          "Smith, J",
+          "HEO",
+          "Digital",
+          "Leeds",
+          "j.smith@dwp.gov.uk",
+          "0113 XXX 1234",
+          "Product Manager"
+        ],
+        [
+          "Patel, A",
+          "SEO",
+          "Digital",
+          "Sheffield",
+          "a.patel@dwp.gov.uk",
+          null,
+          "Senior Developer"
+        ],
+        [
+          "O'Brien, K",
+          "Grade 7",
+          "HR",
+          "London",
+          "k.obrien@dwp.gov.uk",
+          "020 XXXX 5678",
+          "Head of Reward"
+        ],
+        [
+          "Williams, S",
+          "EO",
+          "Operations",
+          "Manchester",
+          null,
+          "0161 XXX 9012",
+          "Caseworker"
+        ],
+        [
+          "Chen, L",
+          "G6",
+          "Finance",
+          "Leeds",
+          "l.chen@dwp.gov.uk",
+          "0113 XXX 3456",
+          "Deputy Director, Financial Control"
+        ],
+        [
+          "McDonald, R",
+          "AO",
+          "Operations",
+          "Glasgow",
+          "r.mcdonald@dwp.gov.uk",
+          "0141 XXX 7890",
+          "Administrative Officer"
+        ],
+        [
+          null,
+          "SEO",
+          "Policy",
+          "London",
+          "m.johnson@dwp.gov.uk",
+          "020 XXXX 2345",
+          "Policy Adviser"
+        ],
+        [
+          "Taylor, E",
+          "HEO",
+          "Commercial",
+          "Newcastle",
+          "e.taylor@dwp.gov.uk",
+          "0191 XXX 6789",
+          "Contract Manager"
+        ],
+        [
+          "Brown, D",
+          null,
+          "Digital",
+          "Leeds",
+          "d.brown@dwp.gov.uk",
+          "0113 XXX 0123",
+          "Developer"
+        ],
+        [
+          "Singh, P",
+          "Grade 7",
+          "Policy",
+          "London",
+          "p.singh@dwp.gov.uk",
+          "020 XXXX 4567",
+          "Head of Disability Policy"
+        ],
+        [
+          "Wilson, M",
+          "EO",
+          "Operations",
+          "Birmingham",
+          "m.wilson@dwp.gov.uk",
+          "0121 XXX 8901",
+          "Caseworker"
+        ],
+        [
+          "Khan, F",
+          "SCS1",
+          "Digital",
+          "London",
+          "f.khan@dwp.gov.uk",
+          "020 XXXX 2345",
+          "Director, Digital Services"
+        ],
+        [
+          "Davies, A",
+          "HEO",
+          "HR",
+          "Sheffield",
+          "a.davies@dwp.gov.uk",
+          "0114 XXX 6789",
+          "HR Business Partner"
+        ],
+        [
+          "Robinson, T",
+          "SEO",
+          "Finance",
+          "Leeds",
+          "t.robinson@dwp.gov.uk",
+          "0113 XXX 0123",
+          "Management Accountant"
+        ],
+        [
+          "Hughes, N",
+          "Grade 6",
+          "Operations",
+          "Sheffield",
+          "n.hughes@dwp.gov.uk",
+          "0114 XXX 4567",
+          "Head of Service Centre Operations"
+        ]
+      ]
+    },
+    {
+      "name": "Notes",
+      "max_row": 6,
+      "max_column": 1,
+      "populated_rows": 5,
+      "rows": [
+        [
+          "This extract is from the HR system as at 31 December 2023. It may not reflect recent moves or new starters."
+        ],
+        [
+          "Some entries have missing data — the HR system allows fields to be left blank."
+        ],
+        [
+          "Grade formats are inconsistent due to a system migration in 2022."
+        ],
+        [
+          "Names are in 'Surname, Initial' format except where the source record used full names."
+        ],
+        [
+          "Last refreshed: 5 January 2024"
+        ]
+      ]
+    }
+  ]
+}

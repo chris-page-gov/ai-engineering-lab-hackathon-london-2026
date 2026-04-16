@@ -1,0 +1,296 @@
+{
+  "source_id": "UF-OVERPAYMENT-RECOVERY-PROCEDURES-V2-3",
+  "title": "Overpayment Recovery Procedures v2.3",
+  "source_path": "unstructured_files/Overpayment_Recovery_Procedures_v2.3.xlsx",
+  "worksheets": [
+    {
+      "name": "Recovery Rates",
+      "max_row": 13,
+      "max_column": 5,
+      "populated_rows": 12,
+      "rows": [
+        [
+          "DWP Overpayment Recovery Procedures — Version 2.3",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Owner: Debt Management Team | November 2023",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Benefit type",
+          "Standard recovery rate",
+          "Maximum recovery rate",
+          "Hardship rate",
+          "Notes"
+        ],
+        [
+          "Universal Credit",
+          "15% of standard allowance",
+          "25% of standard allowance",
+          "5% of standard allowance",
+          "Deducted at source from ongoing UC payments"
+        ],
+        [
+          "Jobseeker's Allowance",
+          "£11.10 per week",
+          "£22.20 per week",
+          "£3.70 per week",
+          "Fixed amounts regardless of benefit rate"
+        ],
+        [
+          "Employment and Support Allowance",
+          "£11.10 per week",
+          "£22.20 per week",
+          "£3.70 per week",
+          "Same rates as JSA"
+        ],
+        [
+          "State Pension",
+          "15% of weekly pension",
+          "25% of weekly pension",
+          "5% of weekly pension",
+          null
+        ],
+        [
+          "Pension Credit",
+          "£11.10 per week",
+          "£22.20 per week",
+          "£3.70 per week",
+          null
+        ],
+        [
+          "Housing Benefit",
+          "Varies by LA",
+          "Varies by LA",
+          "Varies by LA",
+          "Recovered by the local authority, not DWP"
+        ],
+        [
+          "PIP / DLA",
+          "Cannot be recovered from PIP/DLA directly",
+          null,
+          null,
+          "Must use another benefit or direct recovery"
+        ],
+        [
+          "Child Benefit",
+          "Cannot be recovered from CB directly",
+          null,
+          null,
+          "Recovery via HMRC"
+        ],
+        [
+          "Tax Credits",
+          null,
+          null,
+          null,
+          "HMRC responsibility — not DWP"
+        ]
+      ]
+    },
+    {
+      "name": "Escalation Thresholds",
+      "max_row": 12,
+      "max_column": 4,
+      "populated_rows": 11,
+      "rows": [
+        [
+          "Debt value",
+          "Action",
+          "Authority level",
+          "Timescale"
+        ],
+        [
+          "£0 – £65",
+          "Write off (below cost of recovery)",
+          "Team Leader",
+          "Immediate"
+        ],
+        [
+          "£65.01 – £500",
+          "Standard recovery from benefits",
+          "Decision Maker",
+          "Within 28 days of overpayment decision"
+        ],
+        [
+          "£501 – £5,000",
+          "Standard recovery + direct earnings attachment if no benefit in payment",
+          "HEO",
+          "Within 28 days"
+        ],
+        [
+          "£5,001 – £10,000",
+          "Above + consider civil court action",
+          "SEO",
+          "Review at 90 days if not recovered"
+        ],
+        [
+          "£10,001 – £50,000",
+          "Above + mandatory referral to Debt Enforcement",
+          "Grade 7",
+          "Review at 60 days"
+        ],
+        [
+          "£50,001 – £100,000",
+          "Senior management review + potential fraud referral",
+          "G6",
+          "Immediate review"
+        ],
+        [
+          "Over £100,000",
+          "Director approval required for recovery strategy",
+          "SCS1",
+          "Immediate"
+        ],
+        [
+          "Over £1m",
+          null,
+          "Director General + referral to HMT",
+          "Immediate"
+        ],
+        [
+          "[NOTE: The threshold at £65 was set in 2009 and has never been uprated. In real terms this is approximately £45 in 2009 prices. A review was recommended by the NAO in 2019 but has not been actioned.]",
+          null,
+          null,
+          null
+        ],
+        [
+          "[KNOWN ERROR: The £1m threshold row is missing the 'Action' column text. It should read: 'Full recovery strategy and ministerial briefing'. This has been reported but not yet fixed in the published version.]",
+          null,
+          null,
+          null
+        ]
+      ]
+    },
+    {
+      "name": "Fraud vs Non-Fraud",
+      "max_row": 8,
+      "max_column": 4,
+      "populated_rows": 7,
+      "rows": [
+        [
+          "Type",
+          "Definition",
+          "Recovery approach",
+          "Limitation period"
+        ],
+        [
+          "Fraud (civil)",
+          "Claimant knowingly provided false information",
+          "Maximum recovery rate + civil penalty (50% of overpayment, min £350, max £5,000)",
+          "6 years from date of overpayment decision"
+        ],
+        [
+          "Fraud (criminal)",
+          "As above but referred for prosecution",
+          "Compensation order via courts + ongoing recovery",
+          "6 years from date of conviction"
+        ],
+        [
+          "Claimant error",
+          "Claimant failed to report a change of circumstances but without fraudulent intent",
+          "Standard recovery rate",
+          "6 years from overpayment decision"
+        ],
+        [
+          "Official error",
+          "DWP made a mistake in calculating the benefit",
+          "Recovery only where claimant could reasonably have been expected to know they were being overpaid",
+          "6 years — but see note below"
+        ],
+        [
+          "Technical",
+          "System error resulting in overpayment",
+          "Case-by-case assessment",
+          "No fixed policy — legal advice required"
+        ],
+        [
+          "[IMPORTANT: The limitation period for recovery of official error overpayments is contentious. DWP's legal position is that the 6-year limit applies, but Upper Tribunal decisions in 2022 and 2023 have cast doubt on this. Await outcome of Court of Appeal case expected Q2 2024 before relying on this table.]",
+          null,
+          null,
+          null
+        ]
+      ]
+    },
+    {
+      "name": "Payment Methods",
+      "max_row": 9,
+      "max_column": 3,
+      "populated_rows": 9,
+      "rows": [
+        [
+          "Method",
+          "Minimum amount",
+          "Notes"
+        ],
+        [
+          "Deduction from ongoing benefit",
+          "N/A",
+          "Preferred method — automatic"
+        ],
+        [
+          "Direct Debit",
+          "£1 per month",
+          "Set up via Debt Management helpline"
+        ],
+        [
+          "Standing Order",
+          "£1 per month",
+          null
+        ],
+        [
+          "Online payment (GOV.UK Pay)",
+          "£5",
+          "go.to/repay-benefit-overpayment"
+        ],
+        [
+          "Telephone payment (card)",
+          "£5",
+          "Via Debt Management helpline: 0800 XXX XXXX"
+        ],
+        [
+          "Cheque",
+          "£5",
+          "Payable to 'DWP Debt Management' — note: cheques being phased out, target removal date December 2024"
+        ],
+        [
+          "Direct Earnings Attachment",
+          "N/A",
+          "Employer deduction — no court order needed for benefit debts"
+        ],
+        [
+          "Court order (County Court Judgment)",
+          "N/A",
+          "Last resort — requires legal authorisation"
+        ]
+      ]
+    },
+    {
+      "name": "Contact",
+      "max_row": 5,
+      "max_column": 1,
+      "populated_rows": 4,
+      "rows": [
+        [
+          "Debt Management Helpline: 0800 XXX XXXX"
+        ],
+        [
+          "Monday to Friday, 08:00 – 18:00"
+        ],
+        [
+          "Email: debt.management@dwp.gov.uk"
+        ],
+        [
+          "This document was last updated in November 2023. Recovery rates for UC are updated each April in line with the standard allowance. JSA/ESA/PC fixed rates are updated annually — the rates shown here are 2023-24 rates."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3408 @@
+[
+  {
+    "source_id": "DOC-HB-001",
+    "title": "Housing Benefit: Check if you're eligible - GOV.UK",
+    "source_path": "structured_files/DOC-HB-001-housing-benefit-eligibility.html",
+    "note_path": "wiki/sources/doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md",
+    "source_format": "html",
+    "document_type": "guidance",
+    "department": "DLUHC",
+    "status": "current",
+    "version": null,
+    "publication_date": "2025-06-15",
+    "last_updated": "2025-11-20",
+    "audience": [
+      "Citizens"
+    ],
+    "topics": [
+      "housing-benefit",
+      "benefits",
+      "eligibility",
+      "discretionary-housing-payments",
+      "council-tax-reduction",
+      "homelessness-and-social-housing",
+      "overpayment-recovery"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "discretionary-housing-payments",
+      "council-tax-reduction",
+      "homelessness-and-social-housing",
+      "overpayment-recovery"
+    ],
+    "matched_entities": [
+      "dluhc",
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-002",
+      "DOC-HB-003",
+      "DOC-HB-005",
+      "DOC-SB-006"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-html",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 8139,
+      "sha256": "fab4f4b3a0e2672b2dc5023fef0f23c8836a4dad9d2a488329b5b4d4f6275372"
+    },
+    "raw_metadata": {
+      "viewport": "width=device-width, initial-scale=1.0",
+      "description": "Find out if you can get Housing Benefit to help pay your rent. Includes eligibility criteria, income thresholds, and how to apply through your local council.",
+      "author": "Department for Levelling Up, Housing and Communities (DLUHC)",
+      "publication-date": "2025-06-15",
+      "last-updated": "2025-11-20",
+      "document-id": "DOC-HB-001",
+      "audience": "Citizens",
+      "topics": "housing-benefit, benefits, eligibility",
+      "document-type": "guidance",
+      "department": "DLUHC",
+      "status": "current",
+      "title": "Housing Benefit: Check if you're eligible - GOV.UK",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-001-housing-benefit-eligibility.html",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "8.1 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "HTML",
+      "exif_FileTypeExtension": "html",
+      "exif_MIMEType": "text/html",
+      "exif_Viewport": "width=device-width, initial-scale=1.0",
+      "exif_Title": "Housing Benefit: Check if you're eligible - GOV.UK",
+      "exif_Description": "Find out if you can get Housing Benefit to help pay your rent. Includes eligibility criteria, income thresholds, and how to apply through your local council.",
+      "exif_Author": "Department for Levelling Up, Housing and Communities (DLUHC)",
+      "exif_PublicationDate": "2025-06-15",
+      "exif_LastUpdated": "2025-11-20",
+      "exif_DocumentId": "DOC-HB-001",
+      "exif_Audience": "Citizens",
+      "exif_Topics": "housing-benefit, benefits, eligibility",
+      "exif_DocumentType": "guidance",
+      "exif_Department": "DLUHC",
+      "exif_Status": "current"
+    }
+  },
+  {
+    "source_id": "DOC-HB-002",
+    "title": "Discretionary Housing Payments: Guidance for Local Authority Administration",
+    "source_path": "structured_files/DOC-HB-002-discretionary-housing-payments.md",
+    "note_path": "wiki/sources/doc-hb-002-discretionary-housing-payments-guidance-for-local-autho.md",
+    "source_format": "md",
+    "document_type": "procedural-manual",
+    "department": "DLUHC",
+    "status": "current",
+    "version": "2.1",
+    "publication_date": "2025-03-01",
+    "last_updated": "2025-09-15",
+    "audience": [
+      "Local authority housing officers"
+    ],
+    "topics": [
+      "housing-benefit",
+      "discretionary-housing-payments",
+      "local-authority-administration",
+      "homelessness-and-social-housing",
+      "incident-risk-and-assurance",
+      "welsh-language-standards"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "discretionary-housing-payments",
+      "homelessness-and-social-housing",
+      "incident-risk-and-assurance",
+      "welsh-language-standards"
+    ],
+    "matched_entities": [
+      "dluhc",
+      "local-authorities"
+    ],
+    "supersedes": [
+      "DOC-HB-002 v1.4 (2023-07-01)"
+    ],
+    "related_sources": [
+      "DOC-HB-001",
+      "DOC-HB-008"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "markdown-frontmatter",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 7895,
+      "sha256": "836e9499bfbc6e0700ffb2e83f01cd2b125270fddd4c75f03e15789bf2d46efa"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-HB-002",
+      "title": "Discretionary Housing Payments: Guidance for Local Authority Administration",
+      "department": "DLUHC",
+      "type": "procedural-manual",
+      "status": "current",
+      "publication_date": "2025-03-01",
+      "last_updated": "2025-09-15",
+      "audience": "Local authority housing officers",
+      "version": "2.1",
+      "topics": [
+        "housing-benefit",
+        "discretionary-housing-payments",
+        "local-authority-administration"
+      ],
+      "supersedes": "DOC-HB-002 v1.4 (2023-07-01)",
+      "related_documents": [
+        "DOC-HB-001",
+        "DOC-HB-008"
+      ],
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-002-discretionary-housing-payments.md",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "7.9 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "us-ascii",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 101,
+      "exif_WordCount": 1170
+    }
+  },
+  {
+    "source_id": "DOC-HB-003",
+    "title": "COUNCIL TAX REDUCTION SCHEMES: REGULATORY FRAMEWORK AND LOCAL AUTHORITY OBLIGATIONS",
+    "source_path": "structured_files/DOC-HB-003-council-tax-reduction-regulations.txt",
+    "note_path": "wiki/sources/doc-hb-003-council-tax-reduction-schemes-regulatory-framework-and.md",
+    "source_format": "txt",
+    "document_type": "framework",
+    "department": "Department for Levelling Up, Housing and Communities",
+    "status": "current",
+    "version": null,
+    "publication_date": "March 2024",
+    "last_updated": null,
+    "audience": [
+      "Local authority revenues and benefits officers"
+    ],
+    "topics": [
+      "housing-benefit",
+      "council-tax-reduction",
+      "incident-risk-and-assurance",
+      "overpayment-recovery"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "council-tax-reduction",
+      "incident-risk-and-assurance",
+      "overpayment-recovery"
+    ],
+    "matched_entities": [
+      "dluhc",
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-001"
+    ],
+    "flags": [
+      "stale/conflicted: DOC-HB-009 says it replaces the March 2024 version"
+    ],
+    "extraction": {
+      "method": "plain-text-regex",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 7299,
+      "sha256": "655e48b3b3c15d211ed285ace9fab16145ab789a0bf0a7e2334ac4b53a55413c"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-HB-003",
+      "published": "March 2024",
+      "department": "Department for Levelling Up, Housing and Communities",
+      "status": "Current",
+      "audience": "Local authority revenues and benefits officers",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-003-council-tax-reduction-regulations.txt",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "7.3 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "us-ascii",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 54,
+      "exif_WordCount": 1082
+    }
+  },
+  {
+    "source_id": "DOC-HB-004",
+    "title": "Social Housing: Frequently Asked Questions - GOV.UK",
+    "source_path": "structured_files/DOC-HB-004-social-housing-faq.html",
+    "note_path": "wiki/sources/doc-hb-004-social-housing-frequently-asked-questions-gov-uk.md",
+    "source_format": "html",
+    "document_type": "FAQ",
+    "department": "DLUHC",
+    "status": "current",
+    "version": null,
+    "publication_date": null,
+    "last_updated": "2025-08-10",
+    "audience": [
+      "Citizens"
+    ],
+    "topics": [
+      "social-housing",
+      "housing",
+      "council-housing",
+      "allocation",
+      "housing-benefit",
+      "homelessness-and-social-housing"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "homelessness-and-social-housing"
+    ],
+    "matched_entities": [
+      "dluhc",
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-005",
+      "DOC-HB-001"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-html",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 11230,
+      "sha256": "e6ceb90ddb47499be1262d09df88ed2571880ac80cb26383b3c27a2a9de7e621"
+    },
+    "raw_metadata": {
+      "viewport": "width=device-width, initial-scale=1.0",
+      "description": "Common questions about applying for social housing, council housing waiting lists, allocation policies, and your rights as a social housing tenant.",
+      "author": "Department for Levelling Up, Housing and Communities (DLUHC)",
+      "last-updated": "2025-08-10",
+      "document-id": "DOC-HB-004",
+      "audience": "Citizens",
+      "topics": "social-housing, housing, council-housing, allocation",
+      "document-type": "FAQ",
+      "department": "DLUHC",
+      "status": "current",
+      "title": "Social Housing: Frequently Asked Questions - GOV.UK",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-004-social-housing-faq.html",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "11 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "HTML",
+      "exif_FileTypeExtension": "html",
+      "exif_MIMEType": "text/html",
+      "exif_Viewport": "width=device-width, initial-scale=1.0",
+      "exif_Title": "Social Housing: Frequently Asked Questions - GOV.UK",
+      "exif_Description": "Common questions about applying for social housing, council housing waiting lists, allocation policies, and your rights as a social housing tenant.",
+      "exif_Author": "Department for Levelling Up, Housing and Communities (DLUHC)",
+      "exif_LastUpdated": "2025-08-10",
+      "exif_DocumentId": "DOC-HB-004",
+      "exif_Audience": "Citizens",
+      "exif_Topics": "social-housing, housing, council-housing, allocation",
+      "exif_DocumentType": "FAQ",
+      "exif_Department": "DLUHC",
+      "exif_Status": "current"
+    }
+  },
+  {
+    "source_id": "DOC-HB-005",
+    "title": "Homelessness Prevention and Relief: Local Authority Duties and Assessment Procedures",
+    "source_path": "structured_files/DOC-HB-005-homelessness-prevention.txt",
+    "note_path": "wiki/sources/doc-hb-005-homelessness-prevention-and-relief-local-authority-duti.md",
+    "source_format": "txt",
+    "document_type": "assessment",
+    "department": "DLUHC",
+    "status": "unknown",
+    "version": null,
+    "publication_date": "January 2025",
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "housing-benefit",
+      "discretionary-housing-payments",
+      "homelessness-and-social-housing",
+      "incident-risk-and-assurance"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "discretionary-housing-payments",
+      "homelessness-and-social-housing",
+      "incident-risk-and-assurance"
+    ],
+    "matched_entities": [
+      "dluhc",
+      "local-authorities",
+      "housing-act-1996",
+      "homelessness-reduction-act-2017"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-001",
+      "DOC-HB-002",
+      "DOC-HB-004",
+      "DOC-SB-008"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "plain-text-regex",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 7317,
+      "sha256": "91fd209b81329038a636e437b621796a6c480e9b8229c0a87bd6b7c90ad14ea3"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-HB-005",
+      "published": "January 2025",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-005-homelessness-prevention.txt",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "7.3 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "us-ascii",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 15,
+      "exif_WordCount": 1111
+    }
+  },
+  {
+    "source_id": "DOC-HB-006",
+    "title": "Housing Benefit Claim Form (HB1) — Completion Instructions",
+    "source_path": "structured_files/DOC-HB-006-housing-benefit-claim-form-instructions.md",
+    "note_path": "wiki/sources/doc-hb-006-housing-benefit-claim-form-hb1-completion-instructions.md",
+    "source_format": "md",
+    "document_type": "form-instructions",
+    "department": "DLUHC",
+    "status": "superseded",
+    "version": "2.3",
+    "publication_date": "2024-01-15",
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "housing-benefit",
+      "council-tax-reduction",
+      "homelessness-and-social-housing",
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "council-tax-reduction",
+      "homelessness-and-social-housing",
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_entities": [
+      "hmrc",
+      "local-authorities",
+      "hb1-form"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-006a",
+      "DOC-HB-001"
+    ],
+    "flags": [
+      "superseded",
+      "points readers to DOC-HB-006a"
+    ],
+    "extraction": {
+      "method": "markdown-frontmatter",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 4526,
+      "sha256": "724336d5e55b0af2845c07c698b6e134f1377b1db1d819750114a55194097968"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-HB-006",
+      "title": "Housing Benefit Claim Form (HB1) — Completion Instructions",
+      "department": "DLUHC",
+      "type": "form-instructions",
+      "status": "superseded",
+      "version": "2.3",
+      "publication_date": "2024-01-15",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-006-housing-benefit-claim-form-instructions.md",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "4.5 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "utf-8",
+      "exif_ByteOrderMark": "No",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 76,
+      "exif_WordCount": 727
+    }
+  },
+  {
+    "source_id": "DOC-HB-007",
+    "title": "Housing Benefit Caseload Statistics: Quarter 3 2025/26",
+    "source_path": "structured_files/DOC-HB-007-housing-benefit-statistics-q3.html",
+    "note_path": "wiki/sources/doc-hb-007-housing-benefit-caseload-statistics-quarter-3-2025-26.md",
+    "source_format": "html",
+    "document_type": "statistical-bulletin",
+    "department": "DLUHC",
+    "status": "current",
+    "version": null,
+    "publication_date": "2026-01-28",
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "housing-benefit",
+      "council-tax-reduction"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "council-tax-reduction"
+    ],
+    "matched_entities": [
+      "dluhc",
+      "dwp",
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-001"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-html",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL"
+    },
+    "technical_metadata": {
+      "size_bytes": 8759,
+      "sha256": "d14cc57b535a88c1d441db8c9f2dbe10509efb57db74931c739ad8ecb170429b"
+    },
+    "raw_metadata": {
+      "viewport": "width=device-width, initial-scale=1.0",
+      "document-id": "DOC-HB-007",
+      "date-published": "2026-01-28",
+      "department": "DLUHC",
+      "type": "statistical-bulletin",
+      "status": "current",
+      "frequency": "quarterly",
+      "title": "Housing Benefit Caseload Statistics: Quarter 3 2025/26",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-007-housing-benefit-statistics-q3.html",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "8.8 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "HTML",
+      "exif_FileTypeExtension": "html",
+      "exif_MIMEType": "text/html",
+      "exif_Viewport": "width=device-width, initial-scale=1.0",
+      "exif_DocumentId": "DOC-HB-007",
+      "exif_DatePublished": "2026-01-28",
+      "exif_Department": "DLUHC",
+      "exif_Type": "statistical-bulletin",
+      "exif_Status": "current",
+      "exif_Frequency": "quarterly",
+      "exif_Title": "Housing Benefit Caseload Statistics: Quarter 3 2025/26"
+    }
+  },
+  {
+    "source_id": "DOC-HB-008",
+    "title": "SUMMARY OF RESPONSES TO THE CONSULTATION ON DISCRETIONARY HOUSING PAYMENTS REFORM",
+    "source_path": "structured_files/DOC-HB-008-dhp-consultation-responses.txt",
+    "note_path": "wiki/sources/doc-hb-008-summary-of-responses-to-the-consultation-on-discretiona.md",
+    "source_format": "txt",
+    "document_type": "guidance",
+    "department": "DLUHC",
+    "status": "unknown",
+    "version": null,
+    "publication_date": "15/11/2025",
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "housing-benefit",
+      "discretionary-housing-payments",
+      "homelessness-and-social-housing"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "discretionary-housing-payments",
+      "homelessness-and-social-housing"
+    ],
+    "matched_entities": [
+      "dluhc",
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-002"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "plain-text-regex",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 5579,
+      "sha256": "79d6f92475499d526d6d44ef6e2dc35061eebbb7c6067157a4cd7bdc8d5e0e43"
+    },
+    "raw_metadata": {
+      "published": "15/11/2025",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-008-dhp-consultation-responses.txt",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "5.6 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "us-ascii",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 58,
+      "exif_WordCount": 789
+    }
+  },
+  {
+    "source_id": "DOC-HB-009",
+    "title": "COUNCIL TAX REDUCTION SCHEMES (PRESCRIBED REQUIREMENTS) (ENGLAND) (AMENDMENT) REGULATIONS 2025 — SUMMARY AND GUIDANCE",
+    "source_path": "structured_files/DOC-HB-009-council-tax-reduction-updated.txt",
+    "note_path": "wiki/sources/doc-hb-009-council-tax-reduction-schemes-prescribed-requirements-e.md",
+    "source_format": "txt",
+    "document_type": "guidance",
+    "department": "DLUHC",
+    "status": "current",
+    "version": null,
+    "publication_date": "September 2025",
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "housing-benefit",
+      "council-tax-reduction"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "council-tax-reduction"
+    ],
+    "matched_entities": [
+      "dluhc",
+      "local-authorities"
+    ],
+    "supersedes": [
+      "replaces the version published in March 2024, which reflected the previous regulatory position prior to the enactment of the Finance Act 2025"
+    ],
+    "related_sources": [
+      "DOC-HB-001"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "plain-text-regex",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 5178,
+      "sha256": "805dfca0463139735c0badf4fcbb9b32e2cb9e22d78ab00dec1f124f60b73205"
+    },
+    "raw_metadata": {
+      "published": "September 2025",
+      "status": "Current",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-009-council-tax-reduction-updated.txt",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "5.2 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "utf-8",
+      "exif_ByteOrderMark": "No",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 75,
+      "exif_WordCount": 800
+    }
+  },
+  {
+    "source_id": "DOC-HB-010",
+    "title": "Right to Buy: Guidance for Tenants and Social Landlords",
+    "source_path": "structured_files/DOC-HB-010-right-to-buy.md",
+    "note_path": "wiki/sources/doc-hb-010-right-to-buy-guidance-for-tenants-and-social-landlords.md",
+    "source_format": "md",
+    "document_type": "guidance",
+    "department": "DLUHC",
+    "status": "current",
+    "version": null,
+    "publication_date": "2025-04-01",
+    "last_updated": "2025-10-15",
+    "audience": [
+      "Tenants and social landlords"
+    ],
+    "topics": [
+      "housing-benefit",
+      "homelessness-and-social-housing"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "homelessness-and-social-housing"
+    ],
+    "matched_entities": [
+      "local-authorities",
+      "rtb1-form"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-004"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "markdown-frontmatter",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 6482,
+      "sha256": "98c28f0d11ea7a8230d6e9df3c91d68de611fb9aab08389ca222f51349095029"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-HB-010",
+      "title": "Right to Buy: Guidance for Tenants and Social Landlords",
+      "department": "DLUHC",
+      "type": "guidance",
+      "status": "current",
+      "publication_date": "2025-04-01",
+      "last_updated": "2025-10-15",
+      "audience": "Tenants and social landlords",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-HB-010-right-to-buy.md",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "6.5 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "us-ascii",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 99,
+      "exif_WordCount": 1114
+    }
+  },
+  {
+    "source_id": "DOC-SB-001",
+    "title": "Starting a Business in the UK: Step by Step",
+    "source_path": "structured_files/DOC-SB-001-starting-a-business.html",
+    "note_path": "wiki/sources/doc-sb-001-starting-a-business-in-the-uk-step-by-step.md",
+    "source_format": "html",
+    "document_type": "guidance",
+    "department": "Department for Business and Trade",
+    "status": "current",
+    "version": null,
+    "publication_date": "2025-07-01",
+    "last_updated": "2026-01-10",
+    "audience": [
+      "Citizens starting a business"
+    ],
+    "topics": [
+      "business",
+      "self-employment",
+      "registration",
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_topics": [
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_entities": [
+      "hmrc",
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-SB-002",
+      "DOC-SB-003",
+      "DOC-SB-004",
+      "DOC-SB-006"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-html",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 6449,
+      "sha256": "324a50acdfc4e09208909da81dcb21ca045d72cbbb67ecda41de6b7c37de8810"
+    },
+    "raw_metadata": {
+      "viewport": "width=device-width, initial-scale=1.0",
+      "description": "A step-by-step guide to starting a business in the UK, covering registration, legal structures, tax obligations, and employer duties.",
+      "author": "Department for Business and Trade",
+      "document-id": "DOC-SB-001",
+      "document-type": "guidance",
+      "publication-date": "2025-07-01",
+      "last-updated": "2026-01-10",
+      "status": "current",
+      "audience": "Citizens starting a business",
+      "topics": "business, self-employment, registration",
+      "title": "Starting a Business in the UK: Step by Step",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-001-starting-a-business.html",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "6.4 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "HTML",
+      "exif_FileTypeExtension": "html",
+      "exif_MIMEType": "text/html",
+      "exif_Viewport": "width=device-width, initial-scale=1.0",
+      "exif_Title": "Starting a Business in the UK: Step by Step",
+      "exif_Description": "A step-by-step guide to starting a business in the UK, covering registration, legal structures, tax obligations, and employer duties.",
+      "exif_Author": "Department for Business and Trade",
+      "exif_DocumentId": "DOC-SB-001",
+      "exif_DocumentType": "guidance",
+      "exif_PublicationDate": "2025-07-01",
+      "exif_LastUpdated": "2026-01-10",
+      "exif_Status": "current",
+      "exif_Audience": "Citizens starting a business",
+      "exif_Topics": "business, self-employment, registration"
+    }
+  },
+  {
+    "source_id": "DOC-SB-002",
+    "title": "Registering as Self-Employed with HMRC",
+    "source_path": "structured_files/DOC-SB-002-registering-self-employed.md",
+    "note_path": "wiki/sources/doc-sb-002-registering-as-self-employed-with-hmrc.md",
+    "source_format": "md",
+    "document_type": "form-instructions",
+    "department": "HM Revenue and Customs",
+    "status": "current",
+    "version": null,
+    "publication_date": "12 January 2026",
+    "last_updated": null,
+    "audience": [
+      "Self-employed individuals"
+    ],
+    "topics": [
+      "self-employment",
+      "tax-registration",
+      "hmrc",
+      "council-tax-reduction",
+      "small-business-and-self-employment"
+    ],
+    "matched_topics": [
+      "council-tax-reduction",
+      "small-business-and-self-employment"
+    ],
+    "matched_entities": [
+      "hmrc"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-SB-001",
+      "DOC-SB-006"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "markdown-frontmatter",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 4517,
+      "sha256": "939f1ed1d2b3bf5ef15617528d52f7700e116c7d0a09bb758d11634336fcf004"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-SB-002",
+      "title": "Registering as Self-Employed with HMRC",
+      "department": "HM Revenue and Customs",
+      "type": "form-instructions",
+      "status": "current",
+      "publication_date": "12 January 2026",
+      "audience": "Self-employed individuals",
+      "topics": [
+        "self-employment",
+        "tax registration",
+        "HMRC"
+      ],
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-002-registering-self-employed.md",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "4.5 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "utf-8",
+      "exif_ByteOrderMark": "No",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 67,
+      "exif_WordCount": 736
+    }
+  },
+  {
+    "source_id": "DOC-SB-003",
+    "title": "National Minimum Wage and National Living Wage: Employer Guidance",
+    "source_path": "structured_files/DOC-SB-003-national-minimum-wage.html",
+    "note_path": "wiki/sources/doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md",
+    "source_format": "html",
+    "document_type": "guidance",
+    "department": "Department for Business and Trade",
+    "status": "current",
+    "version": null,
+    "publication_date": "2025-04-01",
+    "last_updated": "2025-04-01",
+    "audience": [
+      "Employers"
+    ],
+    "topics": [
+      "employment",
+      "wages",
+      "national-minimum-wage",
+      "national-living-wage",
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working",
+      "people-policies",
+      "incident-risk-and-assurance"
+    ],
+    "matched_topics": [
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working",
+      "people-policies",
+      "incident-risk-and-assurance"
+    ],
+    "matched_entities": [
+      "hmrc",
+      "employment-rights-act-1996"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-SB-001",
+      "DOC-SB-005"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-html",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 8120,
+      "sha256": "5f92cb8c95b6407b7d59e1c7bb2e406a4d839119a5a48e2204f13e85b93d40c4"
+    },
+    "raw_metadata": {
+      "viewport": "width=device-width, initial-scale=1.0",
+      "description": "Current National Minimum Wage and National Living Wage rates, employer obligations, and common errors in calculating pay.",
+      "author": "Department for Business and Trade",
+      "document-id": "DOC-SB-003",
+      "document-type": "guidance",
+      "publication-date": "2025-04-01",
+      "last-updated": "2025-04-01",
+      "status": "current",
+      "audience": "Employers",
+      "topics": "employment, wages, national minimum wage, national living wage",
+      "title": "National Minimum Wage and National Living Wage: Employer Guidance",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-003-national-minimum-wage.html",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "8.1 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "HTML",
+      "exif_FileTypeExtension": "html",
+      "exif_MIMEType": "text/html",
+      "exif_Viewport": "width=device-width, initial-scale=1.0",
+      "exif_Title": "National Minimum Wage and National Living Wage: Employer Guidance",
+      "exif_Description": "Current National Minimum Wage and National Living Wage rates, employer obligations, and common errors in calculating pay.",
+      "exif_Author": "Department for Business and Trade",
+      "exif_DocumentId": "DOC-SB-003",
+      "exif_DocumentType": "guidance",
+      "exif_PublicationDate": "2025-04-01",
+      "exif_LastUpdated": "2025-04-01",
+      "exif_Status": "current",
+      "exif_Audience": "Employers",
+      "exif_Topics": "employment, wages, national minimum wage, national living wage"
+    }
+  },
+  {
+    "source_id": "DOC-SB-004",
+    "title": "WORKPLACE PENSIONS: AUTO-ENROLMENT DUTIES FOR EMPLOYERS",
+    "source_path": "structured_files/DOC-SB-004-workplace-pensions.txt",
+    "note_path": "wiki/sources/doc-sb-004-workplace-pensions-auto-enrolment-duties-for-employers.md",
+    "source_format": "txt",
+    "document_type": "guidance",
+    "department": null,
+    "status": "current",
+    "version": null,
+    "publication_date": "2025-06-15",
+    "last_updated": "2025-11-20",
+    "audience": [],
+    "topics": [
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working",
+      "incident-risk-and-assurance"
+    ],
+    "matched_topics": [
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working",
+      "incident-risk-and-assurance"
+    ],
+    "matched_entities": [],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-SB-001",
+      "DOC-SB-003"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "plain-text-regex",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 8333,
+      "sha256": "185f2931c5d540d0df5f4d9ba64ac278982db533ae608ccba18d236451fc3816"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-SB-004",
+      "published": "2025-06-15",
+      "last_updated": "2025-11-20",
+      "status": "Current",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-004-workplace-pensions.txt",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "8.3 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:09+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "us-ascii",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 215,
+      "exif_WordCount": 1065
+    }
+  },
+  {
+    "source_id": "DOC-SB-005",
+    "title": "Employment Rights Act 1996: Plain-English Summary",
+    "source_path": "structured_files/DOC-SB-005-employment-rights-era-1996.md",
+    "note_path": "wiki/sources/doc-sb-005-employment-rights-act-1996-plain-english-summary.md",
+    "source_format": "md",
+    "document_type": "legislation-summary",
+    "department": "Department for Business and Trade",
+    "status": "current",
+    "version": "1.2",
+    "publication_date": "2025-08-01",
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "employment-law",
+      "employee-rights",
+      "unfair-dismissal",
+      "redundancy",
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working",
+      "foi-and-transparency",
+      "people-policies"
+    ],
+    "matched_topics": [
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working",
+      "foi-and-transparency",
+      "people-policies"
+    ],
+    "matched_entities": [
+      "employment-rights-act-1996"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-SB-003",
+      "DOC-SB-007",
+      "DOC-SB-009"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "markdown-frontmatter",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 6018,
+      "sha256": "ca50ee08d426b38d8f4b61012603499b88e186ead40a8a8fc6cd200fb182980a"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-SB-005",
+      "title": "Employment Rights Act 1996: Plain-English Summary",
+      "department": "Department for Business and Trade",
+      "type": "legislation-summary",
+      "status": "current",
+      "publication_date": "2025-08-01",
+      "version": "1.2",
+      "topics": [
+        "employment law",
+        "employee rights",
+        "unfair dismissal",
+        "redundancy"
+      ],
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-005-employment-rights-era-1996.md",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "6.0 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "us-ascii",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 72,
+      "exif_WordCount": 937
+    }
+  },
+  {
+    "source_id": "DOC-SB-006",
+    "title": "Self-employment and Housing Benefit: how income is assessed",
+    "source_path": "structured_files/DOC-SB-006-self-employment-housing-benefit.md",
+    "note_path": "wiki/sources/doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md",
+    "source_format": "md",
+    "document_type": "guidance",
+    "department": "Department for Levelling Up, Housing and Communities",
+    "status": "current",
+    "version": null,
+    "publication_date": "2025-05-15",
+    "last_updated": "2025-12-01",
+    "audience": [
+      "Self-employed Housing Benefit claimants and local authority assessors"
+    ],
+    "topics": [
+      "housing-benefit",
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "small-business-and-self-employment",
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_entities": [
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-001",
+      "DOC-SB-001",
+      "DOC-SB-002"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "markdown-frontmatter",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 4733,
+      "sha256": "aad7693fce18aa98f87a56fd143c7394b3f4bb94085f0e5910498b2573801dc6"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-SB-006",
+      "title": "Self-employment and Housing Benefit: how income is assessed",
+      "department": "Department for Levelling Up, Housing and Communities",
+      "type": "guidance",
+      "status": "current",
+      "publication_date": "2025-05-15",
+      "last_updated": "2025-12-01",
+      "audience": "Self-employed Housing Benefit claimants and local authority assessors",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-006-self-employment-housing-benefit.md",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "4.7 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "utf-8",
+      "exif_ByteOrderMark": "No",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 77,
+      "exif_WordCount": 704
+    }
+  },
+  {
+    "source_id": "DOC-SB-007",
+    "title": "Statutory Sick Pay (SSP): employer guide",
+    "source_path": "structured_files/DOC-SB-007-statutory-sick-pay.html",
+    "note_path": "wiki/sources/doc-sb-007-statutory-sick-pay-ssp-employer-guide.md",
+    "source_format": "html",
+    "document_type": "guidance",
+    "department": "HM Revenue and Customs",
+    "status": "current",
+    "version": null,
+    "publication_date": "2025-09-01",
+    "last_updated": "2025-09-01",
+    "audience": [
+      "Employers"
+    ],
+    "topics": [
+      "housing-benefit",
+      "council-tax-reduction",
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "council-tax-reduction",
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_entities": [
+      "hmrc",
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-001",
+      "DOC-SB-005"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-html",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 8150,
+      "sha256": "f456e630e694f1dad36875166b1a2d124b856840a93d910155ced7ddf088c2b3"
+    },
+    "raw_metadata": {
+      "document-id": "DOC-SB-007",
+      "title": "Statutory Sick Pay (SSP): employer guide",
+      "department": "HM Revenue and Customs",
+      "publication-date": "2025-09-01",
+      "last-updated": "2025-09-01",
+      "status": "current",
+      "type": "guidance",
+      "audience": "Employers",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-007-statutory-sick-pay.html",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "8.2 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "HTML",
+      "exif_FileTypeExtension": "html",
+      "exif_MIMEType": "text/html",
+      "exif_DocumentId": "DOC-SB-007",
+      "exif_Department": "HM Revenue and Customs",
+      "exif_PublicationDate": "2025-09-01",
+      "exif_LastUpdated": "2025-09-01",
+      "exif_Status": "current",
+      "exif_Type": "guidance",
+      "exif_Audience": "Employers",
+      "exif_Title": "Statutory Sick Pay (SSP): employer guide"
+    }
+  },
+  {
+    "source_id": "DOC-SB-008",
+    "title": "Employer duties under the Homelessness Reduction Act 2017",
+    "source_path": "structured_files/DOC-SB-008-employer-duties-homelessness.html",
+    "note_path": "wiki/sources/doc-sb-008-employer-duties-under-the-homelessness-reduction-act-20.md",
+    "source_format": "html",
+    "document_type": "guidance",
+    "department": "DLUHC / DBT",
+    "status": "current",
+    "version": null,
+    "publication_date": "15/11/2025",
+    "last_updated": null,
+    "audience": [
+      "Employers and employees"
+    ],
+    "topics": [
+      "homelessness-and-social-housing",
+      "employment-rights-and-flexible-working",
+      "foi-and-transparency",
+      "people-policies",
+      "incident-risk-and-assurance"
+    ],
+    "matched_topics": [
+      "homelessness-and-social-housing",
+      "employment-rights-and-flexible-working",
+      "foi-and-transparency",
+      "people-policies",
+      "incident-risk-and-assurance"
+    ],
+    "matched_entities": [
+      "dluhc",
+      "dbt",
+      "local-authorities",
+      "homelessness-reduction-act-2017"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-HB-005",
+      "DOC-SB-005"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-html",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 7004,
+      "sha256": "3da9e2d659fe8dff9a03c6ee4c2893c2a1f75372f4158934ff6b4d33ee13b837"
+    },
+    "raw_metadata": {
+      "document-id": "DOC-SB-008",
+      "title": "Employer duties under the Homelessness Reduction Act 2017",
+      "department": "DLUHC / DBT",
+      "publication-date": "15/11/2025",
+      "status": "current",
+      "type": "guidance",
+      "audience": "Employers and employees",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-008-employer-duties-homelessness.html",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "7.0 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "HTML",
+      "exif_FileTypeExtension": "html",
+      "exif_MIMEType": "text/html",
+      "exif_DocumentId": "DOC-SB-008",
+      "exif_Department": "DLUHC / DBT",
+      "exif_PublicationDate": "15/11/2025",
+      "exif_Status": "current",
+      "exif_Type": "guidance",
+      "exif_Audience": "Employers and employees",
+      "exif_Title": "Employer duties under the Homelessness Reduction Act 2017"
+    }
+  },
+  {
+    "source_id": "DOC-SB-009",
+    "title": "Right to request flexible working: frequently asked questions",
+    "source_path": "structured_files/DOC-SB-009-flexible-working.md",
+    "note_path": "wiki/sources/doc-sb-009-right-to-request-flexible-working-frequently-asked-ques.md",
+    "source_format": "md",
+    "document_type": "faq",
+    "department": "Department for Business and Trade",
+    "status": "current",
+    "version": null,
+    "publication_date": "2025-10-01",
+    "last_updated": null,
+    "audience": [
+      "Employees and employers"
+    ],
+    "topics": [
+      "employment-rights-and-flexible-working",
+      "people-policies"
+    ],
+    "matched_topics": [
+      "employment-rights-and-flexible-working",
+      "people-policies"
+    ],
+    "matched_entities": [
+      "employment-rights-act-1996"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-SB-005"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "markdown-frontmatter",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 5174,
+      "sha256": "eae06e471d5183ba1586f08224aa9bfd4655f8b46ce01ae04e964b49e831b998"
+    },
+    "raw_metadata": {
+      "document_id": "DOC-SB-009",
+      "title": "Right to request flexible working: frequently asked questions",
+      "department": "Department for Business and Trade",
+      "type": "faq",
+      "status": "current",
+      "publication_date": "2025-10-01",
+      "audience": "Employees and employers",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-009-flexible-working.md",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "5.2 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:32:23+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "TXT",
+      "exif_FileTypeExtension": "txt",
+      "exif_MIMEType": "text/plain",
+      "exif_MIMEEncoding": "us-ascii",
+      "exif_Newlines": "Unix LF",
+      "exif_LineCount": 91,
+      "exif_WordCount": 836
+    }
+  },
+  {
+    "source_id": "DOC-SB-010",
+    "title": "Small Business Survey 2025: annual findings",
+    "source_path": "structured_files/DOC-SB-010-small-business-survey-2025.html",
+    "note_path": "wiki/sources/doc-sb-010-small-business-survey-2025-annual-findings.md",
+    "source_format": "html",
+    "document_type": "statistical-bulletin",
+    "department": "Department for Business and Trade",
+    "status": "current",
+    "version": null,
+    "publication_date": "2026-02-15",
+    "last_updated": "2026-02-15",
+    "audience": [
+      "Policy officials, business support organisations, researchers"
+    ],
+    "topics": [
+      "small-business-and-self-employment"
+    ],
+    "matched_topics": [
+      "small-business-and-self-employment"
+    ],
+    "matched_entities": [
+      "dbt"
+    ],
+    "supersedes": [],
+    "related_sources": [
+      "DOC-SB-001",
+      "DOC-SB-003"
+    ],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-html",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 12259,
+      "sha256": "3a0296a2c4ccf38f47e5116fc4629e7a7d309210dcc78907f4bd8f2bcacb4008"
+    },
+    "raw_metadata": {
+      "document-id": "DOC-SB-010",
+      "title": "Small Business Survey 2025: annual findings",
+      "department": "Department for Business and Trade",
+      "publication-date": "2026-02-15",
+      "last-updated": "2026-02-15",
+      "status": "current",
+      "type": "statistical-bulletin",
+      "audience": "Policy officials, business support organisations, researchers",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "DOC-SB-010-small-business-survey-2025.html",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/structured_files",
+      "exif_FileSize": "12 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "HTML",
+      "exif_FileTypeExtension": "html",
+      "exif_MIMEType": "text/html",
+      "exif_DocumentId": "DOC-SB-010",
+      "exif_Department": "Department for Business and Trade",
+      "exif_PublicationDate": "2026-02-15",
+      "exif_LastUpdated": "2026-02-15",
+      "exif_Status": "current",
+      "exif_Type": "statistical-bulletin",
+      "exif_Audience": "Policy officials, business support organisations, researchers",
+      "exif_Title": "Small Business Survey 2025: annual findings"
+    }
+  },
+  {
+    "source_id": "UF-ACCEPTABLE-USE-POLICY-IT-SYSTEMS",
+    "title": "ACCEPTABLE USE POLICY IT SYSTEMS AND",
+    "source_path": "unstructured_files/Acceptable_Use_Policy_IT_Systems.pdf",
+    "note_path": "wiki/sources/uf-acceptable-use-policy-it-systems-acceptable-use-policy-it-systems-and.md",
+    "source_format": "pdf",
+    "document_type": "policy",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "data-protection-and-information-security",
+      "incident-risk-and-assurance"
+    ],
+    "matched_topics": [
+      "data-protection-and-information-security",
+      "incident-risk-and-assurance"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pdftotext-layout",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL"
+    },
+    "technical_metadata": {
+      "size_bytes": 6659,
+      "sha256": "c431316f64374a172e39e9616a5d37669f930edc5cc87a56d04d4429ffe265f4"
+    },
+    "raw_metadata": {
+      "Title": "(anonymous)",
+      "Subject": "(unspecified)",
+      "Keywords": "",
+      "Author": "(anonymous)",
+      "Creator": "(unspecified)",
+      "Producer": "ReportLab PDF Library - (opensource)",
+      "CreationDate": "Tue Apr 14 09:58:50 2026 BST",
+      "ModDate": "Tue Apr 14 09:58:50 2026 BST",
+      "Custom Metadata": "no",
+      "Metadata Stream": "no",
+      "Tagged": "no",
+      "UserProperties": "no",
+      "Suspects": "no",
+      "Form": "none",
+      "JavaScript": "no",
+      "Pages": "3",
+      "Encrypted": "no",
+      "Page size": "595.276 x 841.89 pts (A4)",
+      "Page rot": "0",
+      "File size": "6659 bytes",
+      "Optimized": "no",
+      "PDF version": "1.4",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Acceptable_Use_Policy_IT_Systems.pdf",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "6.7 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:13:59+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "PDF",
+      "exif_FileTypeExtension": "pdf",
+      "exif_MIMEType": "application/pdf",
+      "exif_PDFVersion": 1.4,
+      "exif_Linearized": "No",
+      "exif_Author": "(anonymous)",
+      "exif_CreateDate": "2026:04:14 08:58:50+00:00",
+      "exif_Creator": "(unspecified)",
+      "exif_ModifyDate": "2026:04:14 08:58:50+00:00",
+      "exif_Producer": "ReportLab PDF Library - (opensource)",
+      "exif_Subject": "(unspecified)",
+      "exif_Title": "(anonymous)",
+      "exif_Trapped": false,
+      "exif_PageMode": "UseNone",
+      "exif_PageCount": 3
+    }
+  },
+  {
+    "source_id": "UF-ANNUAL-LEAVE-POLICY",
+    "title": "Annual Leave Policy",
+    "source_path": "unstructured_files/Annual_Leave_Policy.docx",
+    "note_path": "wiki/sources/uf-annual-leave-policy-annual-leave-policy.md",
+    "source_format": "docx",
+    "document_type": "policy",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "people-policies"
+    ],
+    "matched_topics": [
+      "people-policies"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 10061,
+      "sha256": "401e78806c8828e5ad25ef09b1dd3e572eadd107f662ed1f0fd06e5453dd676b"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.793Z",
+      "modified": "2026-04-14T09:02:53.793Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Annual_Leave_Policy.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "10 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.793Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.793Z"
+    }
+  },
+  {
+    "source_id": "UF-DATA-PROTECTION-GUIDANCE-FOR-STAFF-MARCH-2024",
+    "title": "Data Protection Guidance for Staff",
+    "source_path": "unstructured_files/Data Protection Guidance for Staff - March 2024.pdf",
+    "note_path": "wiki/sources/uf-data-protection-guidance-for-sta-data-protection-guidance-for-staff.md",
+    "source_format": "pdf",
+    "document_type": "guidance",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": "March 2024 | Owner: Information Governance Directorate",
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "council-tax-reduction",
+      "data-protection-and-information-security",
+      "foi-and-transparency"
+    ],
+    "matched_topics": [
+      "council-tax-reduction",
+      "data-protection-and-information-security",
+      "foi-and-transparency"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pdftotext-layout",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL-SENSITIVE"
+    },
+    "technical_metadata": {
+      "size_bytes": 6378,
+      "sha256": "632fde214d1d3ab614bcb5f28c0cd08010c6d7267cf4601ac11ac3ca748ee068"
+    },
+    "raw_metadata": {
+      "Title": "(anonymous)",
+      "Subject": "(unspecified)",
+      "Keywords": "",
+      "Author": "(anonymous)",
+      "Creator": "(unspecified)",
+      "Producer": "ReportLab PDF Library - (opensource)",
+      "CreationDate": "Tue Apr 14 09:58:50 2026 BST",
+      "ModDate": "Tue Apr 14 09:58:50 2026 BST",
+      "Custom Metadata": "no",
+      "Metadata Stream": "no",
+      "Tagged": "no",
+      "UserProperties": "no",
+      "Suspects": "no",
+      "Form": "none",
+      "JavaScript": "no",
+      "Pages": "3",
+      "Encrypted": "no",
+      "Page size": "595.276 x 841.89 pts (A4)",
+      "Page rot": "0",
+      "File size": "6378 bytes",
+      "Optimized": "no",
+      "PDF version": "1.4",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Data Protection Guidance for Staff - March 2024.pdf",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "6.4 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:01+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "PDF",
+      "exif_FileTypeExtension": "pdf",
+      "exif_MIMEType": "application/pdf",
+      "exif_PDFVersion": 1.4,
+      "exif_Linearized": "No",
+      "exif_Author": "(anonymous)",
+      "exif_CreateDate": "2026:04:14 08:58:50+00:00",
+      "exif_Creator": "(unspecified)",
+      "exif_ModifyDate": "2026:04:14 08:58:50+00:00",
+      "exif_Producer": "ReportLab PDF Library - (opensource)",
+      "exif_Subject": "(unspecified)",
+      "exif_Title": "(anonymous)",
+      "exif_Trapped": false,
+      "exif_PageMode": "UseNone",
+      "exif_PageCount": 3,
+      "published": "March 2024 | Owner: Information Governance Directorate"
+    }
+  },
+  {
+    "source_id": "UF-ELIGIBILITY-CRITERIA-HOUSING-BENEFIT",
+    "title": "Housing Benefit: Eligibility Criteria",
+    "source_path": "unstructured_files/Eligibility_Criteria_Housing_Benefit.docx",
+    "note_path": "wiki/sources/uf-eligibility-criteria-housing-ben-housing-benefit-eligibility-criteria.md",
+    "source_format": "docx",
+    "document_type": "policy",
+    "department": null,
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": "June 2019 \\| Owner: Benefits Policy Division",
+    "audience": [],
+    "topics": [
+      "housing-benefit"
+    ],
+    "matched_topics": [
+      "housing-benefit"
+    ],
+    "matched_entities": [
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 10598,
+      "sha256": "9c20daad1cc0c588c247340d0903a1c3eca1437be2383fa9cd3b36447b3e3b1b"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.695Z",
+      "modified": "2026-04-14T09:02:53.695Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Eligibility_Criteria_Housing_Benefit.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "11 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.695Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.695Z",
+      "last_updated": "June 2019 \\| Owner: Benefits Policy Division"
+    }
+  },
+  {
+    "source_id": "UF-EQUALITY-IMPACT-ASSESSMENT-UC-MIGRATION",
+    "title": "Equality Impact Assessment Universal Credit",
+    "source_path": "unstructured_files/Equality_Impact_Assessment_UC_Migration.pdf",
+    "note_path": "wiki/sources/uf-equality-impact-assessment-uc-mi-equality-impact-assessment-universal-credit.md",
+    "source_format": "pdf",
+    "document_type": "assessment",
+    "department": null,
+    "status": "unknown",
+    "version": null,
+    "publication_date": "September 2023 | SRO: [REDACTED] | Lead analyst: [REDACTED]",
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "housing-benefit",
+      "incident-risk-and-assurance"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "incident-risk-and-assurance"
+    ],
+    "matched_entities": [],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pdftotext-layout",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL"
+    },
+    "technical_metadata": {
+      "size_bytes": 5471,
+      "sha256": "fb86210f2a14bf493c02bb7dd3efc39b7cd50fd409930abdc7b2b546d17aa09f"
+    },
+    "raw_metadata": {
+      "Title": "(anonymous)",
+      "Subject": "(unspecified)",
+      "Keywords": "",
+      "Author": "(anonymous)",
+      "Creator": "(unspecified)",
+      "Producer": "ReportLab PDF Library - (opensource)",
+      "CreationDate": "Tue Apr 14 09:58:50 2026 BST",
+      "ModDate": "Tue Apr 14 09:58:50 2026 BST",
+      "Custom Metadata": "no",
+      "Metadata Stream": "no",
+      "Tagged": "no",
+      "UserProperties": "no",
+      "Suspects": "no",
+      "Form": "none",
+      "JavaScript": "no",
+      "Pages": "2",
+      "Encrypted": "no",
+      "Page size": "595.276 x 841.89 pts (A4)",
+      "Page rot": "0",
+      "File size": "5471 bytes",
+      "Optimized": "no",
+      "PDF version": "1.4",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Equality_Impact_Assessment_UC_Migration.pdf",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "5.5 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:32:24+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "PDF",
+      "exif_FileTypeExtension": "pdf",
+      "exif_MIMEType": "application/pdf",
+      "exif_PDFVersion": 1.4,
+      "exif_Linearized": "No",
+      "exif_Author": "(anonymous)",
+      "exif_CreateDate": "2026:04:14 08:58:50+00:00",
+      "exif_Creator": "(unspecified)",
+      "exif_ModifyDate": "2026:04:14 08:58:50+00:00",
+      "exif_Producer": "ReportLab PDF Library - (opensource)",
+      "exif_Subject": "(unspecified)",
+      "exif_Title": "(anonymous)",
+      "exif_Trapped": false,
+      "exif_PageMode": "UseNone",
+      "exif_PageCount": 2,
+      "published": "September 2023 | SRO: [REDACTED] | Lead analyst: [REDACTED]"
+    }
+  },
+  {
+    "source_id": "UF-FOI-RESPONSE-TEMPLATE",
+    "title": "TEMPLATE — FREEDOM OF INFORMATION ACT 2000 RESPONSE",
+    "source_path": "unstructured_files/FOI_Response_Template.docx",
+    "note_path": "wiki/sources/uf-foi-response-template-template-freedom-of-information-act-2000-response.md",
+    "source_format": "docx",
+    "document_type": "template",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "data-protection-and-information-security",
+      "foi-and-transparency"
+    ],
+    "matched_topics": [
+      "data-protection-and-information-security",
+      "foi-and-transparency"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 9690,
+      "sha256": "8e5ec989e30881db60253762e29b39a9f58469850c2148872756f778fdaa58dc"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.809Z",
+      "modified": "2026-04-14T09:02:53.809Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "FOI_Response_Template.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "9.7 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.809Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.809Z"
+    }
+  },
+  {
+    "source_id": "UF-GRIEVANCE-POLICY-2024",
+    "title": "Grievance Policy",
+    "source_path": "unstructured_files/Grievance_Policy_2024.docx",
+    "note_path": "wiki/sources/uf-grievance-policy-2024-grievance-policy.md",
+    "source_format": "docx",
+    "document_type": "policy",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "people-policies"
+    ],
+    "matched_topics": [
+      "people-policies"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 10309,
+      "sha256": "523010df292cc605773f567b7b240d49f0efb9fdcc7ac72af79b72836ed2e8a8"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.725Z",
+      "modified": "2026-04-14T09:02:53.725Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Grievance_Policy_2024.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "10 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.725Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.725Z"
+    }
+  },
+  {
+    "source_id": "UF-INFORMATION-SECURITY-POLICY-DRAFT-V0-8",
+    "title": "DRAFT — NOT FOR DISTRIBUTION",
+    "source_path": "unstructured_files/Information Security Policy - DRAFT v0.8.docx",
+    "note_path": "wiki/sources/uf-information-security-policy-draf-draft-not-for-distribution.md",
+    "source_format": "docx",
+    "document_type": "policy",
+    "department": "DWP",
+    "status": "draft",
+    "version": "0.8",
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "data-protection-and-information-security",
+      "incident-risk-and-assurance"
+    ],
+    "matched_topics": [
+      "data-protection-and-information-security",
+      "incident-risk-and-assurance"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [
+      "replaces the Information Security Policy v4"
+    ],
+    "related_sources": [],
+    "flags": [
+      "draft"
+    ],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL-SENSITIVE"
+    },
+    "technical_metadata": {
+      "size_bytes": 10378,
+      "sha256": "944fff5377415f4ec113e6893d455d2fa9c547561d9bfe1fba05333715912f76"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.618Z",
+      "modified": "2026-04-14T09:02:53.618Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Information Security Policy - DRAFT v0.8.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "10 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.618Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.618Z",
+      "version": "0.8"
+    }
+  },
+  {
+    "source_id": "UF-MINISTERS-QUESTIONS-BRIEFING-PACK-12MARCH",
+    "title": "MINISTERIAL QUESTIONS BRIEFING",
+    "source_path": "unstructured_files/Ministers_Questions_Briefing_Pack_12March.pdf",
+    "note_path": "wiki/sources/uf-ministers-questions-briefing-pac-ministerial-questions-briefing.md",
+    "source_format": "pdf",
+    "document_type": "document",
+    "department": null,
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "foi-and-transparency"
+    ],
+    "matched_topics": [
+      "foi-and-transparency"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pdftotext-layout",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 1
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL-SENSITIVE"
+    },
+    "technical_metadata": {
+      "size_bytes": 4305,
+      "sha256": "c6eb10f9db4945b7cd6b1ae307222b498dacf5660b3d039b8b4a40342cc66a69"
+    },
+    "raw_metadata": {
+      "Title": "(anonymous)",
+      "Subject": "(unspecified)",
+      "Keywords": "",
+      "Author": "(anonymous)",
+      "Creator": "(unspecified)",
+      "Producer": "ReportLab PDF Library - (opensource)",
+      "CreationDate": "Tue Apr 14 09:58:50 2026 BST",
+      "ModDate": "Tue Apr 14 09:58:50 2026 BST",
+      "Custom Metadata": "no",
+      "Metadata Stream": "no",
+      "Tagged": "no",
+      "UserProperties": "no",
+      "Suspects": "no",
+      "Form": "none",
+      "JavaScript": "no",
+      "Pages": "2",
+      "Encrypted": "no",
+      "Page size": "595.276 x 841.89 pts (A4)",
+      "Page rot": "0",
+      "File size": "4305 bytes",
+      "Optimized": "no",
+      "PDF version": "1.4",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Ministers_Questions_Briefing_Pack_12March.pdf",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "4.3 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:02+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "PDF",
+      "exif_FileTypeExtension": "pdf",
+      "exif_MIMEType": "application/pdf",
+      "exif_PDFVersion": 1.4,
+      "exif_Linearized": "No",
+      "exif_Author": "(anonymous)",
+      "exif_CreateDate": "2026:04:14 08:58:50+00:00",
+      "exif_Creator": "(unspecified)",
+      "exif_ModifyDate": "2026:04:14 08:58:50+00:00",
+      "exif_Producer": "ReportLab PDF Library - (opensource)",
+      "exif_Subject": "(unspecified)",
+      "exif_Title": "(anonymous)",
+      "exif_Trapped": false,
+      "exif_PageMode": "UseNone",
+      "exif_PageCount": 2
+    }
+  },
+  {
+    "source_id": "UF-OVERPAYMENT-RECOVERY-PROCEDURES-V2-3",
+    "title": "Overpayment Recovery Procedures v2.3",
+    "source_path": "unstructured_files/Overpayment_Recovery_Procedures_v2.3.xlsx",
+    "note_path": "wiki/sources/uf-overpayment-recovery-procedures-overpayment-recovery-procedures-v2-3.md",
+    "source_format": "xlsx",
+    "document_type": "spreadsheet",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "housing-benefit",
+      "overpayment-recovery"
+    ],
+    "matched_topics": [
+      "housing-benefit",
+      "overpayment-recovery"
+    ],
+    "matched_entities": [
+      "dwp",
+      "hmrc",
+      "local-authorities"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "openpyxl-workbook",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 10246,
+      "sha256": "ab4d55947ec2df65a1cd38281eeddf2f9841259fe2979207d8cfa654ead19c12"
+    },
+    "raw_metadata": {
+      "creator": "openpyxl",
+      "created": "2026-04-14T08:54:51",
+      "modified": "2026-04-14T08:54:51",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Overpayment_Recovery_Procedures_v2.3.xlsx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "10 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "XLSX",
+      "exif_FileTypeExtension": "xlsx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "exif_ZipRequiredVersion": 20,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "Deflated",
+      "exif_ZipModifyDate": "2026:04:14 08:54:50",
+      "exif_ZipCRC": "0x484dc746",
+      "exif_ZipCompressedSize": 149,
+      "exif_ZipUncompressedSize": 205,
+      "exif_ZipFileName": "docProps/app.xml",
+      "exif_Application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "exif_AppVersion": 3.1,
+      "exif_Creator": "openpyxl",
+      "exif_CreateDate": "2026:04:14 08:54:51Z",
+      "exif_ModifyDate": "2026:04:14 08:54:51Z"
+    }
+  },
+  {
+    "source_id": "UF-PERFORMANCE-MANAGEMENT-FRAMEWORK-2024-25",
+    "title": "Performance Management Framework 2024–25",
+    "source_path": "unstructured_files/Performance_Management_Framework_2024-25.docx",
+    "note_path": "wiki/sources/uf-performance-management-framework-performance-management-framework-2024-25.md",
+    "source_format": "docx",
+    "document_type": "framework",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "people-policies",
+      "welsh-language-standards"
+    ],
+    "matched_topics": [
+      "people-policies",
+      "welsh-language-standards"
+    ],
+    "matched_entities": [
+      "dwp",
+      "cabinet-office"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 11796,
+      "sha256": "d16165dd4a14bd5f70d1718608c6dbde1562229d099c08579c962161609e5d45"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.821Z",
+      "modified": "2026-04-14T09:02:53.821Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Performance_Management_Framework_2024-25.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "12 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.821Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.821Z",
+      "owner": "Talent & Performance Team"
+    }
+  },
+  {
+    "source_id": "UF-PROCUREMENT-THRESHOLDS-2024-25",
+    "title": "Procurement Thresholds 2024-25",
+    "source_path": "unstructured_files/Procurement Thresholds 2024-25.xlsx",
+    "note_path": "wiki/sources/uf-procurement-thresholds-2024-25-procurement-thresholds-2024-25.md",
+    "source_format": "xlsx",
+    "document_type": "spreadsheet",
+    "department": "Cabinet Office",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "procurement-and-spending-controls"
+    ],
+    "matched_topics": [
+      "procurement-and-spending-controls"
+    ],
+    "matched_entities": [
+      "cabinet-office"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "openpyxl-workbook",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 7148,
+      "sha256": "bbd55b42b6309bdf705e653394261441aeead218ea9e34a81db4128821c4de09"
+    },
+    "raw_metadata": {
+      "creator": "openpyxl",
+      "created": "2026-04-14T08:54:51",
+      "modified": "2026-04-14T08:54:51",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Procurement Thresholds 2024-25.xlsx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "7.1 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "XLSX",
+      "exif_FileTypeExtension": "xlsx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "exif_ZipRequiredVersion": 20,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "Deflated",
+      "exif_ZipModifyDate": "2026:04:14 08:54:50",
+      "exif_ZipCRC": "0x484dc746",
+      "exif_ZipCompressedSize": 149,
+      "exif_ZipUncompressedSize": 205,
+      "exif_ZipFileName": "docProps/app.xml",
+      "exif_Application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "exif_AppVersion": 3.1,
+      "exif_Creator": "openpyxl",
+      "exif_CreateDate": "2026:04:14 08:54:51Z",
+      "exif_ModifyDate": "2026:04:14 08:54:51Z"
+    }
+  },
+  {
+    "source_id": "UF-PROGRAMME-BOARD-MINUTES-14-FEB-2024",
+    "title": "UC Managed Migration Programme Board",
+    "source_path": "unstructured_files/Programme Board Minutes 14 Feb 2024.docx",
+    "note_path": "wiki/sources/uf-programme-board-minutes-14-feb-2-uc-managed-migration-programme-board.md",
+    "source_format": "docx",
+    "document_type": "minutes",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "discretionary-housing-payments",
+      "incident-risk-and-assurance",
+      "overpayment-recovery"
+    ],
+    "matched_topics": [
+      "discretionary-housing-payments",
+      "incident-risk-and-assurance",
+      "overpayment-recovery"
+    ],
+    "matched_entities": [
+      "dwp",
+      "universal-credit-migration"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 11050,
+      "sha256": "31151eef4a9b02dea4efe5dece594b7014453e2587d16ab886baf4c2e034b5a9"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.917Z",
+      "modified": "2026-04-14T09:02:53.917Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Programme Board Minutes 14 Feb 2024.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "11 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.917Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.917Z"
+    }
+  },
+  {
+    "source_id": "UF-RAISING-CONCERNS-WHISTLEBLOWING-GUIDANCE",
+    "title": "Raising Concerns at Work",
+    "source_path": "unstructured_files/Raising Concerns (Whistleblowing) Guidance.docx",
+    "note_path": "wiki/sources/uf-raising-concerns-whistleblowing-raising-concerns-at-work.md",
+    "source_format": "docx",
+    "document_type": "guidance",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "data-protection-and-information-security",
+      "foi-and-transparency",
+      "people-policies",
+      "overpayment-recovery",
+      "welsh-language-standards"
+    ],
+    "matched_topics": [
+      "data-protection-and-information-security",
+      "foi-and-transparency",
+      "people-policies",
+      "overpayment-recovery",
+      "welsh-language-standards"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 11031,
+      "sha256": "4780b27b109f60fe469c29616c49ab4f29c4f4adbb77865bd7aef3d42d35e491"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.894Z",
+      "modified": "2026-04-14T09:02:53.894Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Raising Concerns (Whistleblowing) Guidance.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "11 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.894Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.894Z",
+      "owner": "Corporate Governance Directorate \\| Version: 3.0"
+    }
+  },
+  {
+    "source_id": "UF-RECRUITMENT-AND-SELECTION-POLICY",
+    "title": "Recruitment and Selection Policy",
+    "source_path": "unstructured_files/Recruitment_and_Selection_Policy.pdf",
+    "note_path": "wiki/sources/uf-recruitment-and-selection-policy-recruitment-and-selection-policy.md",
+    "source_format": "pdf",
+    "document_type": "policy",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "procurement-and-spending-controls",
+      "people-policies"
+    ],
+    "matched_topics": [
+      "procurement-and-spending-controls",
+      "people-policies"
+    ],
+    "matched_entities": [
+      "dwp",
+      "cabinet-office"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pdftotext-layout",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 4
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL"
+    },
+    "technical_metadata": {
+      "size_bytes": 6914,
+      "sha256": "5b18bfd8df2e6b375880b6bced4b29d95bca7a41b4a7bff56f50bdcde379fce3"
+    },
+    "raw_metadata": {
+      "Title": "(anonymous)",
+      "Subject": "(unspecified)",
+      "Keywords": "",
+      "Author": "(anonymous)",
+      "Creator": "(unspecified)",
+      "Producer": "ReportLab PDF Library - (opensource)",
+      "CreationDate": "Tue Apr 14 09:58:50 2026 BST",
+      "ModDate": "Tue Apr 14 09:58:50 2026 BST",
+      "Custom Metadata": "no",
+      "Metadata Stream": "no",
+      "Tagged": "no",
+      "UserProperties": "no",
+      "Suspects": "no",
+      "Form": "none",
+      "JavaScript": "no",
+      "Pages": "3",
+      "Encrypted": "no",
+      "Page size": "595.276 x 841.89 pts (A4)",
+      "Page rot": "0",
+      "File size": "6914 bytes",
+      "Optimized": "no",
+      "PDF version": "1.4",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Recruitment_and_Selection_Policy.pdf",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "6.9 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:04+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "PDF",
+      "exif_FileTypeExtension": "pdf",
+      "exif_MIMEType": "application/pdf",
+      "exif_PDFVersion": 1.4,
+      "exif_Linearized": "No",
+      "exif_Author": "(anonymous)",
+      "exif_CreateDate": "2026:04:14 08:58:50+00:00",
+      "exif_Creator": "(unspecified)",
+      "exif_ModifyDate": "2026:04:14 08:58:50+00:00",
+      "exif_Producer": "ReportLab PDF Library - (opensource)",
+      "exif_Subject": "(unspecified)",
+      "exif_Title": "(anonymous)",
+      "exif_Trapped": false,
+      "exif_PageMode": "UseNone",
+      "exif_PageCount": 3
+    }
+  },
+  {
+    "source_id": "UF-SOCIAL-MEDIA-GUIDANCE-FOR-STAFF",
+    "title": "Social Media Guidance for Staff",
+    "source_path": "unstructured_files/SOCIAL MEDIA GUIDANCE FOR STAFF.docx",
+    "note_path": "wiki/sources/uf-social-media-guidance-for-staff-social-media-guidance-for-staff.md",
+    "source_format": "docx",
+    "document_type": "policy",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "data-protection-and-information-security"
+    ],
+    "matched_topics": [
+      "data-protection-and-information-security"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL-SENSITIVE"
+    },
+    "technical_metadata": {
+      "size_bytes": 10939,
+      "sha256": "4b3c9380769a5b5ce121251e90374a70dd8d5239fcb6b97091fa0542fe253031"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.842Z",
+      "modified": "2026-04-14T09:02:53.842Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "SOCIAL MEDIA GUIDANCE FOR STAFF.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "11 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.842Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.842Z",
+      "owner": "Internal Communications Team"
+    }
+  },
+  {
+    "source_id": "UF-SPENDING-CONTROLS-GUIDANCE",
+    "title": "DWP Spending Controls Guidance",
+    "source_path": "unstructured_files/Spending_Controls_Guidance.pdf",
+    "note_path": "wiki/sources/uf-spending-controls-guidance-dwp-spending-controls-guidance.md",
+    "source_format": "pdf",
+    "document_type": "guidance",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "procurement-and-spending-controls",
+      "people-policies",
+      "incident-risk-and-assurance"
+    ],
+    "matched_topics": [
+      "procurement-and-spending-controls",
+      "people-policies",
+      "incident-risk-and-assurance"
+    ],
+    "matched_entities": [
+      "dwp",
+      "cabinet-office",
+      "finance-directorate"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pdftotext-layout",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 1
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL"
+    },
+    "technical_metadata": {
+      "size_bytes": 4589,
+      "sha256": "3ea6811f836737a09181a91b0dcd7e9ede439c1ff6d4835ea96345f428272686"
+    },
+    "raw_metadata": {
+      "Title": "(anonymous)",
+      "Subject": "(unspecified)",
+      "Keywords": "",
+      "Author": "(anonymous)",
+      "Creator": "(unspecified)",
+      "Producer": "ReportLab PDF Library - (opensource)",
+      "CreationDate": "Tue Apr 14 09:58:50 2026 BST",
+      "ModDate": "Tue Apr 14 09:58:50 2026 BST",
+      "Custom Metadata": "no",
+      "Metadata Stream": "no",
+      "Tagged": "no",
+      "UserProperties": "no",
+      "Suspects": "no",
+      "Form": "none",
+      "JavaScript": "no",
+      "Pages": "2",
+      "Encrypted": "no",
+      "Page size": "595.276 x 841.89 pts (A4)",
+      "Page rot": "0",
+      "File size": "4589 bytes",
+      "Optimized": "no",
+      "PDF version": "1.4",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Spending_Controls_Guidance.pdf",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "4.6 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:05+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "PDF",
+      "exif_FileTypeExtension": "pdf",
+      "exif_MIMEType": "application/pdf",
+      "exif_PDFVersion": 1.4,
+      "exif_Linearized": "No",
+      "exif_Author": "(anonymous)",
+      "exif_CreateDate": "2026:04:14 08:58:50+00:00",
+      "exif_Creator": "(unspecified)",
+      "exif_ModifyDate": "2026:04:14 08:58:50+00:00",
+      "exif_Producer": "ReportLab PDF Library - (opensource)",
+      "exif_Subject": "(unspecified)",
+      "exif_Title": "(anonymous)",
+      "exif_Trapped": false,
+      "exif_PageMode": "UseNone",
+      "exif_PageCount": 2
+    }
+  },
+  {
+    "source_id": "UF-STAFF-DIRECTORY-EXTRACT-Q4-2023",
+    "title": "Staff Directory Extract Q4 2023",
+    "source_path": "unstructured_files/Staff_Directory_Extract_Q4_2023.xlsx",
+    "note_path": "wiki/sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md",
+    "source_format": "xlsx",
+    "document_type": "spreadsheet",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "staff-directory"
+    ],
+    "matched_topics": [
+      "staff-directory"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [
+      "personal-data-like content"
+    ],
+    "extraction": {
+      "method": "openpyxl-workbook",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": true,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 6995,
+      "sha256": "c2b7ee733fa1da090cacba7aa97cf6628af4144bffdb4b4b14bdf4fe51bf03b9"
+    },
+    "raw_metadata": {
+      "creator": "openpyxl",
+      "created": "2026-04-14T08:54:51",
+      "modified": "2026-04-14T08:54:51",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Staff_Directory_Extract_Q4_2023.xlsx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "7.0 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "XLSX",
+      "exif_FileTypeExtension": "xlsx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "exif_ZipRequiredVersion": 20,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "Deflated",
+      "exif_ZipModifyDate": "2026:04:14 08:54:50",
+      "exif_ZipCRC": "0x484dc746",
+      "exif_ZipCompressedSize": 149,
+      "exif_ZipUncompressedSize": 205,
+      "exif_ZipFileName": "docProps/app.xml",
+      "exif_Application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "exif_AppVersion": 3.1,
+      "exif_Creator": "openpyxl",
+      "exif_CreateDate": "2026:04:14 08:54:51Z",
+      "exif_ModifyDate": "2026:04:14 08:54:51Z"
+    }
+  },
+  {
+    "source_id": "UF-WELSH-LANGUAGE-STANDARDS-COMPLIANCE-REPORT-2023",
+    "title": "Adroddiad Cydymffurfiaeth Safonau’r Gymraeg",
+    "source_path": "unstructured_files/Welsh_Language_Standards_Compliance_Report_2023.pdf",
+    "note_path": "wiki/sources/uf-welsh-language-standards-complia-adroddiad-cydymffurfiaeth-safonau-r-gymraeg.md",
+    "source_format": "pdf",
+    "document_type": "report",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "incident-risk-and-assurance",
+      "welsh-language-standards"
+    ],
+    "matched_topics": [
+      "incident-risk-and-assurance",
+      "welsh-language-standards"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pdftotext-layout",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 2
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL"
+    },
+    "technical_metadata": {
+      "size_bytes": 7227,
+      "sha256": "0e9fb9e5bf31517f74ceba88c73f23c47f8448569cfd87f2b84f4764a80deb21"
+    },
+    "raw_metadata": {
+      "Title": "(anonymous)",
+      "Subject": "(unspecified)",
+      "Keywords": "",
+      "Author": "(anonymous)",
+      "Creator": "(unspecified)",
+      "Producer": "ReportLab PDF Library - (opensource)",
+      "CreationDate": "Tue Apr 14 09:58:50 2026 BST",
+      "ModDate": "Tue Apr 14 09:58:50 2026 BST",
+      "Custom Metadata": "no",
+      "Metadata Stream": "no",
+      "Tagged": "no",
+      "UserProperties": "no",
+      "Suspects": "no",
+      "Form": "none",
+      "JavaScript": "no",
+      "Pages": "3",
+      "Encrypted": "no",
+      "Page size": "595.276 x 841.89 pts (A4)",
+      "Page rot": "0",
+      "File size": "7227 bytes",
+      "Optimized": "no",
+      "PDF version": "1.4",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "Welsh_Language_Standards_Compliance_Report_2023.pdf",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "7.2 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:06+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "PDF",
+      "exif_FileTypeExtension": "pdf",
+      "exif_MIMEType": "application/pdf",
+      "exif_PDFVersion": 1.4,
+      "exif_Linearized": "No",
+      "exif_Author": "(anonymous)",
+      "exif_CreateDate": "2026:04:14 08:58:50+00:00",
+      "exif_Creator": "(unspecified)",
+      "exif_ModifyDate": "2026:04:14 08:58:50+00:00",
+      "exif_Producer": "ReportLab PDF Library - (opensource)",
+      "exif_Subject": "(unspecified)",
+      "exif_Title": "(anonymous)",
+      "exif_Trapped": false,
+      "exif_PageMode": "UseNone",
+      "exif_PageCount": 3
+    }
+  },
+  {
+    "source_id": "UF-FLEXIBLE-WORKING-POLICY",
+    "title": "Flexible Working Policy",
+    "source_path": "unstructured_files/flexible-working-policy.pdf",
+    "note_path": "wiki/sources/uf-flexible-working-policy-flexible-working-policy.md",
+    "source_format": "pdf",
+    "document_type": "policy",
+    "department": "DWP",
+    "status": "unknown",
+    "version": null,
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_topics": [
+      "employment-rights-and-flexible-working"
+    ],
+    "matched_entities": [
+      "dwp",
+      "employment-rights-act-1996"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pdftotext-layout",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL"
+    },
+    "technical_metadata": {
+      "size_bytes": 4249,
+      "sha256": "da0f80cd632026a87da0fdec8c2afe4342b04935fe106832f42e4db95bf01f21"
+    },
+    "raw_metadata": {
+      "Title": "(anonymous)",
+      "Subject": "(unspecified)",
+      "Keywords": "",
+      "Author": "(anonymous)",
+      "Creator": "(unspecified)",
+      "Producer": "ReportLab PDF Library - (opensource)",
+      "CreationDate": "Tue Apr 14 09:58:50 2026 BST",
+      "ModDate": "Tue Apr 14 09:58:50 2026 BST",
+      "Custom Metadata": "no",
+      "Metadata Stream": "no",
+      "Tagged": "no",
+      "UserProperties": "no",
+      "Suspects": "no",
+      "Form": "none",
+      "JavaScript": "no",
+      "Pages": "2",
+      "Encrypted": "no",
+      "Page size": "595.276 x 841.89 pts (A4)",
+      "Page rot": "0",
+      "File size": "4249 bytes",
+      "Optimized": "no",
+      "PDF version": "1.4",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "flexible-working-policy.pdf",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "4.2 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:06+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "PDF",
+      "exif_FileTypeExtension": "pdf",
+      "exif_MIMEType": "application/pdf",
+      "exif_PDFVersion": 1.4,
+      "exif_Linearized": "No",
+      "exif_Author": "(anonymous)",
+      "exif_CreateDate": "2026:04:14 08:58:50+00:00",
+      "exif_Creator": "(unspecified)",
+      "exif_ModifyDate": "2026:04:14 08:58:50+00:00",
+      "exif_Producer": "ReportLab PDF Library - (opensource)",
+      "exif_Subject": "(unspecified)",
+      "exif_Title": "(anonymous)",
+      "exif_Trapped": false,
+      "exif_PageMode": "UseNone",
+      "exif_PageCount": 2
+    }
+  },
+  {
+    "source_id": "UF-INCIDENT-REPORTING-V1",
+    "title": "INCIDENT REPORTING PROCEDURE",
+    "source_path": "unstructured_files/incident-reporting-v1.docx",
+    "note_path": "wiki/sources/uf-incident-reporting-v1-incident-reporting-procedure.md",
+    "source_format": "docx",
+    "document_type": "report",
+    "department": "DWP",
+    "status": "unknown",
+    "version": "1.0",
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "incident-risk-and-assurance"
+    ],
+    "matched_topics": [
+      "incident-risk-and-assurance"
+    ],
+    "matched_entities": [
+      "dwp"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": null
+    },
+    "technical_metadata": {
+      "size_bytes": 10206,
+      "sha256": "c9684718f41c4d1a77aa89620793c59a85f00eee4787ba05f88c473a917baf26"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.596Z",
+      "modified": "2026-04-14T09:02:53.596Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "incident-reporting-v1.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "10 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.596Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.596Z",
+      "version": "1.0"
+    }
+  },
+  {
+    "source_id": "UF-SOCIAL-FUND-BUDGETING-LOANS-GUIDANCE-CHAPTER12",
+    "title": "Social Fund Guide Chapter 12: Budgeting Loans",
+    "source_path": "unstructured_files/social_fund_budgeting_loans_guidance_chapter12.pdf",
+    "note_path": "wiki/sources/uf-social-fund-budgeting-loans-guid-social-fund-guide-chapter-12-budgeting-loans.md",
+    "source_format": "pdf",
+    "document_type": "guidance",
+    "department": null,
+    "status": "unknown",
+    "version": "March",
+    "publication_date": null,
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "people-policies"
+    ],
+    "matched_topics": [
+      "people-policies"
+    ],
+    "matched_entities": [],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [],
+    "extraction": {
+      "method": "pdftotext-layout",
+      "quality": "medium",
+      "warnings": [],
+      "table_count": 1
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL"
+    },
+    "technical_metadata": {
+      "size_bytes": 5745,
+      "sha256": "de6a2d4b7a2f6d47536507d7ad90d2511610c81f11c5122fa7967af5e12dd1d1"
+    },
+    "raw_metadata": {
+      "Title": "(anonymous)",
+      "Subject": "(unspecified)",
+      "Keywords": "",
+      "Author": "(anonymous)",
+      "Creator": "(unspecified)",
+      "Producer": "ReportLab PDF Library - (opensource)",
+      "CreationDate": "Tue Apr 14 09:58:50 2026 BST",
+      "ModDate": "Tue Apr 14 09:58:50 2026 BST",
+      "Custom Metadata": "no",
+      "Metadata Stream": "no",
+      "Tagged": "no",
+      "UserProperties": "no",
+      "Suspects": "no",
+      "Form": "none",
+      "JavaScript": "no",
+      "Pages": "3",
+      "Encrypted": "no",
+      "Page size": "595.276 x 841.89 pts (A4)",
+      "Page rot": "0",
+      "File size": "5745 bytes",
+      "Optimized": "no",
+      "PDF version": "1.4",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "social_fund_budgeting_loans_guidance_chapter12.pdf",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "5.7 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 10:14:07+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "PDF",
+      "exif_FileTypeExtension": "pdf",
+      "exif_MIMEType": "application/pdf",
+      "exif_PDFVersion": 1.4,
+      "exif_Linearized": "No",
+      "exif_Author": "(anonymous)",
+      "exif_CreateDate": "2026:04:14 08:58:50+00:00",
+      "exif_Creator": "(unspecified)",
+      "exif_ModifyDate": "2026:04:14 08:58:50+00:00",
+      "exif_Producer": "ReportLab PDF Library - (opensource)",
+      "exif_Subject": "(unspecified)",
+      "exif_Title": "(anonymous)",
+      "exif_Trapped": false,
+      "exif_PageMode": "UseNone",
+      "exif_PageCount": 3,
+      "version": "March"
+    }
+  },
+  {
+    "source_id": "UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0",
+    "title": "Travel and Subsistence Policy",
+    "source_path": "unstructured_files/travel-and-subsistence-policy-v2.0.docx",
+    "note_path": "wiki/sources/uf-travel-and-subsistence-policy-v2-travel-and-subsistence-policy.md",
+    "source_format": "docx",
+    "document_type": "policy",
+    "department": "DWP",
+    "status": "unknown",
+    "version": "2.0",
+    "publication_date": "April 2021",
+    "last_updated": null,
+    "audience": [],
+    "topics": [
+      "people-policies"
+    ],
+    "matched_topics": [
+      "people-policies"
+    ],
+    "matched_entities": [
+      "dwp",
+      "people-services"
+    ],
+    "supersedes": [],
+    "related_sources": [],
+    "flags": [
+      "past review: next review was April 2022"
+    ],
+    "extraction": {
+      "method": "pandoc-docx",
+      "quality": "high",
+      "warnings": [],
+      "table_count": 0
+    },
+    "sensitivity": {
+      "contains_personal_data": false,
+      "classification": "OFFICIAL"
+    },
+    "technical_metadata": {
+      "size_bytes": 9809,
+      "sha256": "381d004b7d44b64881bf7e7fc8868fac1d833bf8768e6149936a30944b5cbdb6"
+    },
+    "raw_metadata": {
+      "creator": "Un-named",
+      "lastModifiedBy": "Un-named",
+      "revision": "1",
+      "created": "2026-04-14T09:02:53.439Z",
+      "modified": "2026-04-14T09:02:53.440Z",
+      "exif_ExifToolVersion": 13.5,
+      "exif_FileName": "travel-and-subsistence-policy-v2.0.docx",
+      "exif_Directory": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/unstructured_files",
+      "exif_FileSize": "9.8 kB",
+      "exif_FileModifyDate": "2026:04:16 03:32:22+01:00",
+      "exif_FileAccessDate": "2026:04:16 03:33:03+01:00",
+      "exif_FileInodeChangeDate": "2026:04:16 03:32:22+01:00",
+      "exif_FilePermissions": "-rw-r--r--",
+      "exif_FileType": "DOCX",
+      "exif_FileTypeExtension": "docx",
+      "exif_MIMEType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "exif_ZipRequiredVersion": 10,
+      "exif_ZipBitFlag": 0,
+      "exif_ZipCompression": "None",
+      "exif_ZipModifyDate": "2026:04:14 09:02:52",
+      "exif_ZipCRC": "0x00000000",
+      "exif_ZipCompressedSize": 0,
+      "exif_ZipUncompressedSize": 0,
+      "exif_ZipFileName": "word/",
+      "exif_Creator": "Un-named",
+      "exif_LastModifiedBy": "Un-named",
+      "exif_RevisionNumber": 1,
+      "exif_CreateDate": "2026:04:14 09:02:53.439Z",
+      "exif_ModifyDate": "2026:04:14 09:02:53.440Z",
+      "published": "April 2021",
+      "version": "2.0",
+      "owner": "People Services"
+    }
+  }
+]
