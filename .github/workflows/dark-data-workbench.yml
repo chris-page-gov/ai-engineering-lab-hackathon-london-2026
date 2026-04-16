@@ -1,0 +1,62 @@
+name: dark-data-workbench
+
+on:
+  pull_request:
+    paths:
+      - "challenge-2/workbench/**"
+      - "challenge-2/tools/workbench_mcp.py"
+      - "tests/test_challenge2_workbench_mcp.py"
+      - ".github/workflows/dark-data-workbench.yml"
+  workflow_dispatch:
+
+jobs:
+  workbench:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: challenge-2/workbench
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.25.0
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Typecheck
+        run: pnpm check
+
+      - name: Unit and component tests
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+
+      - name: Playwright tests
+        run: pnpm test:ui
+
+  mcp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python MCP tests
+        run: python -m unittest tests/test_challenge2_workbench_mcp.py

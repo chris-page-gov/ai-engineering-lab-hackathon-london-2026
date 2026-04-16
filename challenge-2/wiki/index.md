@@ -19,6 +19,7 @@ This is the navigation entrypoint for the Challenge 2 Obsidian knowledge base. R
 ## Start Here
 
 - [Architecture overview](architecture.md)
+- [Dark Data Workbench](workbench.md)
 - [Evaluation benchmark](evaluation-benchmark.md)
 - [Lint report](lint-report.md)
 - [Ingest log](log.md)
