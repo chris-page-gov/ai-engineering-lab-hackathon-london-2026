@@ -2,9 +2,9 @@
 
 ## Repository Purpose
 
-This repository supports the AI Engineering Lab Hackathon London 2026. It provides challenge briefs, starter data, setup guidance, and prototype artefacts for a one-day AI-assisted engineering event.
+This fork is Team DSIT A's working Challenge 2 implementation and evidence pack from the AI Engineering Lab Hackathon London 2026. It keeps the original event briefs and starter material, but its primary purpose is now to document, demonstrate, evaluate, and critique the "Unlocking the dark data" prototype.
 
-The event is about how AI coding tools change software delivery. It does not require teams to embed live model APIs in their prototypes. Mocked AI capabilities are acceptable when teams can explain what is mocked and what would be needed to productionise it.
+The original repository was an event pack for a one-day AI-assisted engineering hackathon. This fork is a worked example of how AI coding assistants can help build a source-backed LLM Wiki, browser workbench, MCP/evaluation harness, delivery report, public postmortem, and security assessment for a government-style dark-data problem.
 
 ## Current Prototype Focus
 
@@ -20,6 +20,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - Lint output checks coverage, metadata, links, and known challenge flags.
 - The evaluation harness tests whether AI coding agents can answer source-backed questions using only the generated wiki, while producing DSAP-shaped audit artifacts for later scoring, FOI-style disclosure, and reconstruction.
 - Dark Data Workbench provides a browser UI over the generated wiki so users can filter sources, build explicit context sets, inspect evidence without AI, or export the same context to browser AI and MCP clients.
+- The Codex collaboration postmortem applies the same wiki pattern to the build conversations themselves so the human and Codex contributions can be traced from prompts, responses, repository artifacts, and external methodology sources.
 
 ## Data Assumptions
 
@@ -30,7 +31,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 
 ## Important Paths
 
-- `README.md`: event overview, challenge list, judging model, and materials.
+- `README.md`: fork overview, Challenge 2 value proposition, start points, repository map, validation summary, and original hackathon context.
 - `Changelog.md`: dated change history.
 - `Context.md`: project context, architecture assumptions, and operating constraints.
 - `Progress.md`: current status, validation, blockers, and next steps.
@@ -51,10 +52,25 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `challenge-2/wiki/lint-report.md`: generated quality report.
 - `challenge-2/wiki/data/source-register.json`: machine-readable source register.
 - `challenge-2/workbench/`: SvelteKit Dark Data Workbench app and its unit, component, Playwright, and optional coverage tests.
+- `output/doc/challenge-2-realtime-delivery-report.md` and `.docx`: colleague-facing report reconstructing the Challenge 2 realtime delivery story from the supplied hackathon write-up, repo history, logs, and Codex thread evidence.
+- `postmortem/`: private generated Codex collaboration evidence archive and wiki, ignored by Git.
+- `postmortem-public/`: GitHub-safe public derivative of the Codex collaboration postmortem.
+- `postmortem-public/wiki/index.md`: public postmortem navigation entry point.
+- `postmortem-public/wiki/postmortem.md`: public postmortem of user and Codex contributions.
+- `postmortem-public/wiki/decisions.md`: inclusion-forward publication decision register with questions for review.
+- `postmortem-public/wiki/data/publication-lint-report.json`: machine-readable publication lint output.
+- `tools/build_codex_postmortem.py`: repeatable builder for both the private postmortem archive and public derivative.
+- `output/doc/contribution-modes-proposal.md`: Markdown conversion of the attached report used as the contribution-mode evaluation frame.
+- `output/doc/codex-contribution-modes-security-assessment.md`: government-security and contribution-mode assessment of Codex's role in the project.
+- `output/doc/linkedin-version-1-1-announcement.md`: LinkedIn announcement draft for the Version 1.1 public release.
 
 Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context. The workbench also carries a user-entered question through Browser AI JSON, copied prompts, and Markdown evidence bundles so exported evidence remains tied to the question it is meant to answer.
 
 The Challenge 2 demonstration guide is the recommended walkthrough for showing the complete prototype. It ties the source corpus, Obsidian wiki, SeeLinks-style workbench, Browser AI export, evaluation benchmark, harness outputs, and audit/FOI record back to the `Unlocking_Dark_Data.pdf` slide narrative and benchmark scoring guide.
+
+The Codex postmortem source archive is evidence material, not automatically publication-ready content. Conversation transcripts may include local paths, screenshots, private workflow details, local assistant configuration references, and dynamic third-party source snapshots. The localized Karpathy X/gist copies have no explicit redistribution license recorded, so public releases should cite canonical URLs and publish metadata or short excerpts rather than full copied source bodies unless permission or an explicit license is obtained. The GitHub-safe `postmortem-public/` derivative redacts local paths, excludes raw transcripts, keeps `.claude/settings.local.json` visible as a conventional public path, and publishes citation-only external source notes. Repository artifact references in the postmortem use commit-specific GitHub fork permalinks where the source file was tracked at the tagged baseline; local-only sources are flagged as such.
+
+The contribution-modes assessment treats Codex as strongest in Explorer, Builder, Refiner, and Verifier work; useful with human steering in Framer, Architect, and Experience Shaper work; assistant-only in Security Steward work; and not autonomous for Operator work. The security baseline for any production continuation is Secure by Design, GOV.UK Service Standard point 9, the Technology Code of Practice, NCSC secure development guidance, CAF outcomes, ICO data protection by design/default, NIST SSDF, and OWASP web/CI guidance.
 
 Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are local session state, not shared vault configuration. They are ignored and left on disk locally so using Obsidian does not repeatedly create repository changes.
 
@@ -65,7 +81,7 @@ Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are loca
 - Evaluated agents are explicitly instructed not to inspect `challenge-2/wiki/evaluation-benchmark.md` or `challenge-2/evaluation/` while answering, because those paths contain gold answers or scoring material.
 - Harness run artifacts are written under `challenge-2/evaluation/runs/<run-id>/` and ignored by git.
 - The local MCP layer records source access when clients use its wiki search/read tools, but direct filesystem reads by a CLI client cannot be proven from the harness alone.
-- The audit format follows the same DSAP principles used in `/Users/crpage/repos/mcp-geo/server/audit`: event ledger, evidence register, source register, audit card, integrity manifest, redaction manifest, visible transcript, and zipped bundle.
+- The audit format follows the same DSAP principles used in the related `mcp-geo` server audit work: event ledger, evidence register, source register, audit card, integrity manifest, redaction manifest, visible transcript, and zipped bundle.
 
 ## Documentation Lockstep
 

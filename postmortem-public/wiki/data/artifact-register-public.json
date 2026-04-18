@@ -1,0 +1,432 @@
+[
+  {
+    "path": "AGENTS.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/AGENTS.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/AGENTS.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "Changelog.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/Changelog.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/Changelog.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "Context.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/Context.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/Context.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "Progress.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/Progress.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/Progress.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "README.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/README.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/README.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-02-unlocking-the-dark-data.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-02-unlocking-the-dark-data.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-02-unlocking-the-dark-data.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/AGENTS.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/AGENTS.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/AGENTS.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/tools/build_wiki.py",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/tools/build_wiki.py",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/tools/build_wiki.py",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/wiki/index.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/wiki/index.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/wiki/index.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/wiki/architecture.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/wiki/architecture.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/wiki/architecture.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/wiki/demonstration-guide.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/wiki/demonstration-guide.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/wiki/demonstration-guide.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/wiki/workbench.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/wiki/workbench.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/wiki/workbench.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/wiki/evaluation-benchmark.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/wiki/evaluation-benchmark.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/wiki/evaluation-benchmark.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/wiki/data/source-register.json",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/wiki/data/source-register.json",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/wiki/data/source-register.json",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/evaluation/README.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/evaluation/README.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/evaluation/README.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/evaluation/clients.py",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/evaluation/clients.py",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/evaluation/clients.py",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/tools/run_wiki_eval.py",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/tools/run_wiki_eval.py",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/tools/run_wiki_eval.py",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/tools/wiki_eval_mcp.py",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/tools/wiki_eval_mcp.py",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/tools/wiki_eval_mcp.py",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/tools/summarise_wiki_eval.py",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/tools/summarise_wiki_eval.py",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/tools/summarise_wiki_eval.py",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/workbench/README.md",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/workbench/README.md",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/workbench/README.md",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/workbench/src/routes/+page.svelte",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/workbench/src/routes/+page.svelte",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/workbench/src/routes/+page.svelte",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/workbench/src/lib/workbench/model.ts",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/workbench/src/lib/workbench/model.ts",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/workbench/src/lib/workbench/model.ts",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/workbench/src/lib/workbench/types.ts",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/workbench/src/lib/workbench/types.ts",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/workbench/src/lib/workbench/types.ts",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/workbench/src/lib/components/EvidencePanel.svelte",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/workbench/src/lib/components/EvidencePanel.svelte",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/workbench/src/lib/components/EvidencePanel.svelte",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "challenge-2/workbench/src/lib/components/SourceCard.svelte",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/challenge-2/workbench/src/lib/components/SourceCard.svelte",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/challenge-2/workbench/src/lib/components/SourceCard.svelte",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "tests/test_challenge2_eval_questions.py",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/tests/test_challenge2_eval_questions.py",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/tests/test_challenge2_eval_questions.py",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "tests/test_challenge2_eval_mcp.py",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/tests/test_challenge2_eval_mcp.py",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/tests/test_challenge2_eval_mcp.py",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "tests/test_challenge2_workbench_mcp.py",
+    "tracked_at_baseline": true,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/326a82a8f17440d49471dab6a11d2b725b879359/tests/test_challenge2_workbench_mcp.py",
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/tests/test_challenge2_workbench_mcp.py",
+    "publication_status": "baseline-permalink"
+  },
+  {
+    "path": "output/doc/challenge-2-realtime-delivery-report.md",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/challenge-2-realtime-delivery-report.md",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/challenge-2-realtime-delivery-report.docx",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/challenge-2-realtime-delivery-report.docx",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/contribution-modes-proposal.md",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/contribution-modes-proposal.md",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/codex-contribution-modes-security-assessment.md",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/codex-contribution-modes-security-assessment.md",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/linkedin-version-1-1-announcement.md",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/linkedin-version-1-1-announcement.md",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/Dark_Data_Engineering_Playbook.pdf",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/Dark_Data_Engineering_Playbook.pdf",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/Real-Time Dark Data Engineering Timeline.png",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/Real-Time%20Dark%20Data%20Engineering%20Timeline.png",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/assets/ai-benchmark-mastery-scoring-guide.png",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/ai-benchmark-mastery-scoring-guide.png",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/assets/dark-data-workbench-question-box.png",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/dark-data-workbench-question-box.png",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/assets/knowledge-architecture.png",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/knowledge-architecture.png",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/assets/realtime-delivery-timeline.png",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/realtime-delivery-timeline.png",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/assets/contribution-modes-proposal/media/image1.png",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/media/image1.png",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/assets/contribution-modes-proposal/mode-authority.svg",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/mode-authority.svg",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/assets/contribution-modes-proposal/mode-anatomy.svg",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/mode-anatomy.svg",
+    "publication_status": "publication-branch-link"
+  },
+  {
+    "path": "output/doc/assets/contribution-modes-proposal/hackathon-stages.svg",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": true,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/hackathon-stages.svg",
+    "publication_status": "publication-branch-link"
+  }
+]

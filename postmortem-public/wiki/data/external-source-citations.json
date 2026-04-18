@@ -1,0 +1,41 @@
+[
+  {
+    "source_id": "EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES",
+    "title": "Karpathy X Post: LLM Knowledge Bases",
+    "canonical_url": "https://x.com/karpathy/status/2039805659525644595",
+    "kind": "x_post_readable_snapshot",
+    "captured_at": "2026-04-18T11:51:31+00:00",
+    "fetch_status": 200,
+    "direct_status": 200,
+    "private_archive_sha256": "9b2cd93b1264536a6dc81c43758697bd2bd01b266d13898109c2d8bba8628c16",
+    "license_status": "terms-only-platform-use",
+    "publication_disposition": "Citation metadata only; do not publish the full localized readable snapshot.",
+    "public_source_path": "postmortem-public/wiki/sources/ext-karpathy-x-llm-knowledge-bases.md"
+  },
+  {
+    "source_id": "EXT-KARPATHY-X-IDEA-FILE",
+    "title": "Karpathy X Post: LLM Wiki Idea File",
+    "canonical_url": "https://x.com/karpathy/status/2040470801506541998",
+    "kind": "x_post_readable_snapshot",
+    "captured_at": "2026-04-18T11:51:31+00:00",
+    "fetch_status": 200,
+    "direct_status": 200,
+    "private_archive_sha256": "1b4fa5112345d6845455207d86ca0478c7fd3f7759484a981ee8e58bec9965f4",
+    "license_status": "terms-only-platform-use",
+    "publication_disposition": "Citation metadata only; do not publish the full localized readable snapshot.",
+    "public_source_path": "postmortem-public/wiki/sources/ext-karpathy-x-idea-file.md"
+  },
+  {
+    "source_id": "EXT-KARPATHY-GIST-LLM-WIKI",
+    "title": "Karpathy Gist: LLM Wiki",
+    "canonical_url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+    "kind": "gist_raw_markdown",
+    "captured_at": "2026-04-18T11:51:31+00:00",
+    "fetch_status": 200,
+    "direct_status": 200,
+    "private_archive_sha256": "dc3efe98ae62f23dd08acad13aba2e95287beb20b6bec2f4af0423557fe37401",
+    "license_status": "no-explicit-license",
+    "publication_disposition": "Citation metadata only unless the author grants permission or adds an explicit license.",
+    "public_source_path": "postmortem-public/wiki/sources/ext-karpathy-gist-llm-wiki.md"
+  }
+]
