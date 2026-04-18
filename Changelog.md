@@ -31,8 +31,14 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added `tools/check_documentation_lockstep.py` and a GitHub Actions workflow to enforce tracking-file updates on pull requests.
 - Added `challenge-2/wiki/evaluation-benchmark.md` with 100 source-backed questions, gold answers, per-question rubrics, and a 500-point summative scoring regime for Challenge 2 wiki evaluation.
 - Added a Challenge 2 wiki evaluation harness under `challenge-2/evaluation/` and `challenge-2/tools/run_wiki_eval.py` for Codex, Gemini CLI, and Claude Code prompt runs.
+- Added per-client model/version manifests to Challenge 2 evaluation runs, including selected model source, model-reference URL/date, executable paths, version-command outputs, repo state, benchmark hash, and detected macOS Copilot desktop app versions.
+- Added optional GitHub Copilot CLI support to the Challenge 2 evaluation harness, gated behind explicit `--clients github-copilot` selection or client configuration.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
+
+### Changed
+
+- Updated Challenge 2 evaluation default model policy to use explicit `gpt-5.4` for Codex, Gemini CLI Auto routing, and Claude Code's `opus` latest-model alias, with floating selectors recorded as aliases rather than immutable model snapshots.
 
 ### Fixed
 

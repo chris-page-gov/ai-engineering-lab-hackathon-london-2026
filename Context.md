@@ -78,6 +78,10 @@ Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are loca
 ## Evaluation And Audit Assumptions
 
 - The Challenge 2 benchmark Markdown is the scoring source of truth for questions, gold answers, and rubrics.
+- Evaluation runs record the exact client invocation context: selected model or alias, model-selection source, model reference URL/date, executable paths, version-command output, repository commit/branch/tag/dirty state, benchmark SHA-256, and detected macOS Copilot desktop app versions.
+- Current default model policy is explicit `gpt-5.4` for Codex, Gemini CLI `auto` routing without passing `--model`, and Claude Code `opus` as the latest-capable Opus alias. Floating selectors are recorded as aliases rather than immutable model snapshots.
+- GitHub Copilot CLI is available as an optional harness client, but it is not part of the default batch until the standalone `copilot` agent and its model/tool permissions are confirmed for non-interactive wiki-only runs.
+- Microsoft Copilot desktop apps are captured as local environment evidence when installed, but they are not headless harness clients in the current evaluation runner.
 - Evaluated agents are instructed to use only `challenge-2/wiki/`, `challenge-2/wiki/data/`, and `challenge-2/AGENTS.md`.
 - Evaluated agents are explicitly instructed not to inspect `challenge-2/wiki/evaluation-benchmark.md` or `challenge-2/evaluation/` while answering, because those paths contain gold answers or scoring material.
 - Harness run artifacts are written under `challenge-2/evaluation/runs/<run-id>/` and ignored by git.

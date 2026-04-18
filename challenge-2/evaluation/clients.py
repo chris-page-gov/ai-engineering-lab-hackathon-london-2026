@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import json
 import os
+import platform
+import plistlib
+import shutil
 import subprocess
 import time
 from dataclasses import dataclass
@@ -14,11 +17,67 @@ from .audit import ClientRunResult, utc_now
 from .questions import EvaluationQuestion
 
 
-DEFAULT_MODELS = {
-    "codex": os.environ.get("CODEX_MODEL", "gpt-5.4"),
-    "gemini": os.environ.get("GEMINI_MODEL", ""),
-    "claude": os.environ.get("CLAUDE_MODEL", ""),
+SUPPORTED_CLIENTS = ("codex", "gemini", "claude", "github-copilot")
+DEFAULT_CLIENTS = ("codex", "gemini", "claude")
+
+MODEL_ENV_VARS = {
+    "codex": ("CODEX_MODEL",),
+    "gemini": ("GEMINI_MODEL",),
+    "claude": ("CLAUDE_MODEL", "ANTHROPIC_MODEL"),
+    "github-copilot": ("COPILOT_MODEL",),
 }
+
+MODEL_POLICIES: dict[str, dict[str, Any]] = {
+    "codex": {
+        "default_model": "gpt-5.4",
+        "default_source": "built_in_latest_explicit",
+        "pass_default_model_arg": True,
+        "latest_policy": "OpenAI model documentation recommends gpt-5.4 for complex reasoning and coding workflows.",
+        "reference_url": "https://developers.openai.com/api/docs/models",
+        "reference_checked_at": "2026-04-18",
+    },
+    "gemini": {
+        "default_model": "auto",
+        "default_source": "cli_default_auto_routing",
+        "pass_default_model_arg": False,
+        "latest_policy": "Gemini CLI defaults to Auto routing; current docs describe Gemini 3 Auto routing over Gemini 3 Pro/Flash where available.",
+        "reference_url": "https://geminicli.com/docs/cli/model-routing/",
+        "reference_checked_at": "2026-04-18",
+    },
+    "claude": {
+        "default_model": "opus",
+        "default_source": "built_in_latest_alias",
+        "pass_default_model_arg": True,
+        "latest_policy": "Claude Code's opus alias selects the most capable Opus model available to the account; record the CLI version because the alias floats.",
+        "reference_url": "https://code.claude.com/docs/en/model-config",
+        "reference_checked_at": "2026-04-18",
+    },
+    "github-copilot": {
+        "default_model": "copilot-cli-default",
+        "default_source": "cli_default_floating",
+        "known_default_model_label": "Claude Sonnet 4.5",
+        "pass_default_model_arg": False,
+        "latest_policy": "GitHub documents the Copilot CLI default as Claude Sonnet 4.5 and reserves the right to change it; pass --model only when deliberately pinned.",
+        "reference_url": "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli",
+        "reference_checked_at": "2026-04-18",
+    },
+}
+
+CLIENT_VERSION_COMMANDS = {
+    "codex": (("codex", "--version"),),
+    "gemini": (("gemini", "--version"),),
+    "claude": (("claude", "--version"),),
+    "github-copilot": (
+        ("copilot", "--version"),
+        ("gh", "--version"),
+        ("gh", "copilot", "--help"),
+    ),
+}
+
+MACOS_AI_APP_PATHS = (
+    "/Applications/Copilot.app",
+    "/Applications/Microsoft 365 Copilot.app",
+)
 
 
 @dataclass(frozen=True)
@@ -31,6 +90,7 @@ class ClientCommandContext:
     repo_root: Path
     challenge_root: Path
     assistant_response_path: Path
+    client_manifest: dict[str, Any] | None = None
 
 
 def build_wiki_prompt(question: EvaluationQuestion, *, repo_root: Path, challenge_root: Path) -> str:
@@ -66,27 +126,128 @@ def load_client_config(path: Path | None) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_command(context: ClientCommandContext, config: dict[str, Any] | None = None) -> list[str]:
-    """Build a client command, using optional JSON config overrides."""
+def describe_client(
+    client: str,
+    *,
+    model_override: str | None = None,
+    config: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Capture run-time client, model, and executable metadata without invoking an LLM."""
 
-    config = config or {}
-    client_config = config.get(context.client, {}) if isinstance(config, dict) else {}
+    client_config = _client_config(config, client)
+    model = resolve_model(client, model_override=model_override, client_config=client_config)
+    command_source = "client_config.argv" if "argv" in client_config else "built_in"
+    return {
+        "client": client,
+        "captured_at": utc_now(),
+        "supported_by_harness": client in SUPPORTED_CLIENTS,
+        "model": model,
+        "command_source": command_source,
+        "command_config": _public_client_config_metadata(client_config),
+        "executables": _describe_executables(client, client_config),
+        "version_checks": [_run_version_check(command) for command in CLIENT_VERSION_COMMANDS.get(client, ())],
+        "platform": {
+            "system": platform.system(),
+            "release": platform.release(),
+            "machine": platform.machine(),
+            "python": platform.python_version(),
+        },
+        "model_environment": _capture_model_environment(client),
+    }
+
+
+def describe_desktop_ai_apps() -> list[dict[str, Any]]:
+    """Capture installed desktop AI app versions that are not headless harness clients."""
+
+    if platform.system() != "Darwin":
+        return []
+    apps: list[dict[str, Any]] = []
+    for raw_path in MACOS_AI_APP_PATHS:
+        path = Path(raw_path)
+        if not path.exists():
+            continue
+        info = _read_macos_app_info(path)
+        apps.append(
+            {
+                "path": str(path),
+                "name": info.get("CFBundleDisplayName") or info.get("CFBundleName") or path.stem,
+                "bundle_identifier": info.get("CFBundleIdentifier"),
+                "version": info.get("CFBundleShortVersionString") or info.get("CFBundleVersion"),
+                "build": info.get("CFBundleVersion"),
+                "headless_harness_client": False,
+            }
+        )
+    return apps
+
+
+def resolve_model(
+    client: str,
+    *,
+    model_override: str | None = None,
+    client_config: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Resolve the model selector and record why that selector was chosen."""
+
+    policy = MODEL_POLICIES.get(client, {})
+    client_config = client_config or {}
+    if model_override is not None and model_override.strip():
+        model = model_override.strip()
+        source = "run_argument"
+        pass_model_arg = True
+    elif str(client_config.get("model") or "").strip():
+        model = str(client_config["model"]).strip()
+        source = str(client_config.get("model_source") or "client_config")
+        pass_model_arg = bool(client_config.get("pass_model_arg", True))
+    else:
+        env_model = _first_model_environment(client)
+        if env_model is not None:
+            model, env_var = env_model
+            source = f"environment:{env_var}"
+            pass_model_arg = True
+        else:
+            model = str(policy.get("default_model") or "")
+            source = str(policy.get("default_source") or "unspecified")
+            pass_model_arg = bool(policy.get("pass_default_model_arg", bool(model)))
+
+    return {
+        "selected_model": model or None,
+        "source": source,
+        "pass_model_arg": pass_model_arg and bool(model),
+        "known_default_model_label": policy.get("known_default_model_label"),
+        "latest_policy": client_config.get("latest_policy") or policy.get("latest_policy"),
+        "reference_url": client_config.get("model_reference_url") or policy.get("reference_url"),
+        "reference_checked_at": client_config.get("model_reference_checked_at")
+        or policy.get("reference_checked_at"),
+    }
+
+
+def build_client_invocation(
+    context: ClientCommandContext, config: dict[str, Any] | None = None
+) -> tuple[list[str], dict[str, Any]]:
+    """Build a client command and metadata describing model/command selection."""
+
+    client_config = _client_config(config, context.client)
+    model = resolve_model(context.client, model_override=context.model, client_config=client_config)
     if "argv" in client_config:
-        return [
-            _expand_token(str(token), context)
-            for token in client_config["argv"]
-            if _expand_token(str(token), context) != ""
-        ]
-    model = context.model
-    if model is None:
-        model = str(client_config.get("model") or DEFAULT_MODELS.get(context.client, ""))
+        command = []
+        for raw_token in client_config["argv"]:
+            expanded = _expand_token(str(raw_token), context, model=model)
+            if expanded != "":
+                command.append(expanded)
+        return command, {
+            "model": model,
+            "command_source": "client_config.argv",
+            "command_config": _public_client_config_metadata(client_config),
+        }
+
+    command_model = str(model.get("selected_model") or "")
+    pass_model_arg = bool(model.get("pass_model_arg") and command_model)
     if context.client == "codex":
-        model = model or DEFAULT_MODELS["codex"]
-        return [
+        command = [
             "codex",
             "exec",
             "-m",
-            model,
+            command_model or "gpt-5.4",
             "--json",
             "-o",
             str(context.assistant_response_path),
@@ -94,7 +255,7 @@ def build_command(context: ClientCommandContext, config: dict[str, Any] | None =
             str(context.repo_root),
             context.prompt,
         ]
-    if context.client == "gemini":
+    elif context.client == "gemini":
         command = [
             "gemini",
             "--approval-mode",
@@ -104,17 +265,30 @@ def build_command(context: ClientCommandContext, config: dict[str, Any] | None =
             "--include-directories",
             str(context.challenge_root),
         ]
-        if model:
-            command.extend(["--model", model])
+        if pass_model_arg:
+            command.extend(["--model", command_model])
         command.extend(["--prompt", context.prompt])
-        return command
-    if context.client == "claude":
+    elif context.client == "claude":
         command = ["claude"]
-        if model:
-            command.extend(["--model", model])
+        if pass_model_arg:
+            command.extend(["--model", command_model])
         command.extend(["-p", "--output-format", "json", context.prompt])
-        return command
-    raise ValueError(f"Unsupported client: {context.client}")
+    elif context.client == "github-copilot":
+        command = _github_copilot_command(context, command_model if pass_model_arg else None)
+    else:
+        raise ValueError(f"Unsupported client: {context.client}")
+
+    return command, {
+        "model": model,
+        "command_source": "built_in",
+        "command_config": _public_client_config_metadata(client_config),
+    }
+
+
+def build_command(context: ClientCommandContext, config: dict[str, Any] | None = None) -> list[str]:
+    """Build a client command, using optional JSON config overrides."""
+
+    return build_client_invocation(context, config)[0]
 
 
 def run_client(
@@ -127,7 +301,12 @@ def run_client(
 ) -> ClientRunResult:
     """Run a client command and capture visible output."""
 
-    command = build_command(context, config)
+    command, invocation_metadata = build_client_invocation(context, config)
+    selected_model = invocation_metadata["model"].get("selected_model")
+    metadata = {
+        "invocation": invocation_metadata,
+        "client_manifest": context.client_manifest or {},
+    }
     stdout_path = context.run_dir / "raw" / context.client / f"{context.question_id}.stdout.txt"
     stderr_path = context.run_dir / "raw" / context.client / f"{context.question_id}.stderr.txt"
     stdout_path.parent.mkdir(parents=True, exist_ok=True)
@@ -139,7 +318,7 @@ def run_client(
             run_id=context.run_dir.name,
             client=context.client,
             question_id=context.question_id,
-            model=context.model,
+            model=selected_model,
             command=command,
             status="dry_run",
             answer_text="",
@@ -149,6 +328,7 @@ def run_client(
             prompt_path=str(prompt_path),
             stdout_path=str(stdout_path),
             stderr_path=str(stderr_path),
+            metadata=metadata,
         )
     try:
         proc = subprocess.run(
@@ -167,7 +347,7 @@ def run_client(
             run_id=context.run_dir.name,
             client=context.client,
             question_id=context.question_id,
-            model=context.model,
+            model=selected_model,
             command=command,
             status="completed" if proc.returncode == 0 else "failed",
             answer_text=answer_text,
@@ -179,6 +359,7 @@ def run_client(
             stdout_path=str(stdout_path),
             stderr_path=str(stderr_path),
             error=None if proc.returncode == 0 else f"{context.client} exited with {proc.returncode}",
+            metadata=metadata,
         )
     except subprocess.TimeoutExpired as exc:
         elapsed = time.monotonic() - started
@@ -188,7 +369,7 @@ def run_client(
             run_id=context.run_dir.name,
             client=context.client,
             question_id=context.question_id,
-            model=context.model,
+            model=selected_model,
             command=command,
             status="timeout",
             answer_text=_coerce_output(exc.stdout),
@@ -201,6 +382,7 @@ def run_client(
             stdout_path=str(stdout_path),
             stderr_path=str(stderr_path),
             error=f"{context.client} timed out after {timeout_sec}s",
+            metadata=metadata,
         )
 
 
@@ -218,11 +400,11 @@ def _coerce_output(value: str | bytes | None) -> str:
     return value
 
 
-def _expand_token(token: str, context: ClientCommandContext) -> str:
-    model = context.model or DEFAULT_MODELS.get(context.client, "")
+def _expand_token(token: str, context: ClientCommandContext, *, model: dict[str, Any]) -> str:
+    selected_model = str(model.get("selected_model") or "")
     values = {
         "client": context.client,
-        "model": model,
+        "model": selected_model,
         "prompt": context.prompt,
         "question_id": context.question_id,
         "run_dir": str(context.run_dir),
@@ -232,3 +414,136 @@ def _expand_token(token: str, context: ClientCommandContext) -> str:
         "assistant_response_path": str(context.assistant_response_path),
     }
     return token.format(**values)
+
+
+def _client_config(config: dict[str, Any] | None, client: str) -> dict[str, Any]:
+    if not isinstance(config, dict):
+        return {}
+    value = config.get(client, {})
+    return value if isinstance(value, dict) else {}
+
+
+def _first_model_environment(client: str) -> tuple[str, str] | None:
+    for name in MODEL_ENV_VARS.get(client, ()):
+        value = os.environ.get(name)
+        if value:
+            return value, name
+    return None
+
+
+def _capture_model_environment(client: str) -> dict[str, dict[str, Any]]:
+    captured: dict[str, dict[str, Any]] = {}
+    for name in MODEL_ENV_VARS.get(client, ()):
+        value = os.environ.get(name)
+        captured[name] = {"set": value is not None, "value": value if value else None}
+    return captured
+
+
+def _describe_executables(client: str, client_config: dict[str, Any]) -> list[dict[str, Any]]:
+    names: list[str] = []
+    if "argv" in client_config and client_config["argv"]:
+        names.append(str(client_config["argv"][0]))
+    elif client == "github-copilot":
+        names.extend(["copilot", "gh"])
+    else:
+        names.append({"codex": "codex", "gemini": "gemini", "claude": "claude"}.get(client, client))
+    seen: set[str] = set()
+    executables: list[dict[str, Any]] = []
+    for name in names:
+        if name in seen:
+            continue
+        seen.add(name)
+        executables.append({"name": name, "path": shutil.which(name), "available": shutil.which(name) is not None})
+    return executables
+
+
+def _run_version_check(command: tuple[str, ...]) -> dict[str, Any]:
+    executable_path = shutil.which(command[0])
+    record: dict[str, Any] = {
+        "command": list(command),
+        "executable_path": executable_path,
+        "available": executable_path is not None,
+    }
+    if executable_path is None:
+        record["status"] = "missing"
+        return record
+    try:
+        proc = subprocess.run(
+            list(command),
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=5,
+        )
+    except subprocess.TimeoutExpired as exc:
+        record.update(
+            {
+                "status": "timeout",
+                "exit_code": 124,
+                "stdout": _trim_output(_coerce_output(exc.stdout)),
+                "stderr": _trim_output(_coerce_output(exc.stderr)),
+            }
+        )
+        return record
+    record.update(
+        {
+            "status": "completed" if proc.returncode == 0 else "failed",
+            "exit_code": proc.returncode,
+            "stdout": _trim_output(proc.stdout),
+            "stderr": _trim_output(proc.stderr),
+            "detected_version": _first_output_line(proc.stdout or proc.stderr),
+        }
+    )
+    return record
+
+
+def _first_output_line(value: str | None) -> str | None:
+    if not value:
+        return None
+    for line in value.splitlines():
+        if line.strip():
+            return line.strip()
+    return None
+
+
+def _trim_output(value: str | None, limit: int = 4000) -> str:
+    if not value:
+        return ""
+    if len(value) <= limit:
+        return value
+    return value[:limit] + "\n[truncated]\n"
+
+
+def _github_copilot_command(context: ClientCommandContext, model: str | None) -> list[str]:
+    if shutil.which("copilot"):
+        command = ["copilot"]
+    else:
+        command = ["gh", "copilot", "--"]
+    if model:
+        command.extend(["--model", model])
+    command.extend(["-p", context.prompt])
+    return command
+
+
+def _public_client_config_metadata(client_config: dict[str, Any]) -> dict[str, Any]:
+    allowed_keys = {
+        "model",
+        "model_source",
+        "model_reference_url",
+        "model_reference_checked_at",
+        "latest_policy",
+        "pass_model_arg",
+        "notes",
+    }
+    return {key: client_config[key] for key in allowed_keys if key in client_config}
+
+
+def _read_macos_app_info(path: Path) -> dict[str, Any]:
+    info_plist = path / "Contents" / "Info.plist"
+    if not info_plist.exists():
+        return {}
+    try:
+        with info_plist.open("rb") as handle:
+            return plistlib.load(handle)
+    except (OSError, plistlib.InvalidFileException):
+        return {}

@@ -1,6 +1,10 @@
 {
+  "_schema": "challenge-2-wiki-eval-client-config-v2",
   "codex": {
     "model": "gpt-5.4",
+    "model_source": "explicit_latest_openai_docs",
+    "model_reference_url": "https://developers.openai.com/api/docs/models",
+    "model_reference_checked_at": "2026-04-18",
     "argv": [
       "codex",
       "exec",
@@ -15,7 +19,11 @@
     ]
   },
   "gemini": {
-    "model": "",
+    "model": "auto",
+    "model_source": "gemini_cli_auto_routing",
+    "model_reference_url": "https://geminicli.com/docs/cli/model-routing/",
+    "model_reference_checked_at": "2026-04-18",
+    "pass_model_arg": false,
     "argv": [
       "gemini",
       "--approval-mode",
@@ -29,12 +37,31 @@
     ]
   },
   "claude": {
-    "model": "",
+    "model": "opus",
+    "model_source": "claude_code_latest_alias",
+    "model_reference_url": "https://code.claude.com/docs/en/model-config",
+    "model_reference_checked_at": "2026-04-18",
     "argv": [
       "claude",
+      "--model",
+      "{model}",
       "-p",
       "--output-format",
       "json",
+      "{prompt}"
+    ]
+  },
+  "github-copilot": {
+    "model": "",
+    "model_source": "copilot_cli_default_floating",
+    "model_reference_url": "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli",
+    "model_reference_checked_at": "2026-04-18",
+    "notes": "Optional client. The standalone copilot binary was not on PATH during harness setup; gh copilot can download/run it. Keep model blank to record GitHub's floating default, or pin with --model CLIENT=MODEL after confirming the installed Copilot CLI model list.",
+    "argv": [
+      "gh",
+      "copilot",
+      "--",
+      "-p",
       "{prompt}"
     ]
   }

@@ -169,6 +169,7 @@ class ChallengeAuditRecorder:
         self._write_source_register(register)
 
     def record_answer(self, question: EvaluationQuestion, result: ClientRunResult) -> Path:
+        model_info = result.metadata.get("invocation", {}).get("model", {})
         record = {
             **asdict(result),
             "category": question.category,
@@ -188,6 +189,8 @@ class ChallengeAuditRecorder:
             {
                 "client": result.client,
                 "question_id": result.question_id,
+                "model": result.model,
+                "model_source": model_info.get("source"),
                 "status": result.status,
                 "exit_code": result.exit_code,
                 "elapsed_seconds": result.elapsed_seconds,
@@ -237,6 +240,9 @@ class ChallengeAuditRecorder:
         return {"audit_card": card, "integrity_manifest": integrity, "bundle_path": str(bundle_path)}
 
     def format_answer_audit(self, question: EvaluationQuestion, result: ClientRunResult) -> str:
+        invocation = result.metadata.get("invocation", {})
+        model_info = invocation.get("model", {})
+        manifest = result.metadata.get("client_manifest", {})
         sections = [
             "=" * 72,
             f"CHALLENGE 2 WIKI EVALUATION AUDIT: {self.run_id}/{result.client}/{question.question_id}",
@@ -259,6 +265,12 @@ class ChallengeAuditRecorder:
             "-" * 72,
             f"Client: {result.client}",
             f"Model: {result.model or ''}",
+            f"Model source: {model_info.get('source') or ''}",
+            f"Model reference: {model_info.get('reference_url') or ''}",
+            f"Model reference checked at: {model_info.get('reference_checked_at') or ''}",
+            f"Command source: {invocation.get('command_source') or ''}",
+            f"Client executables: {json.dumps(manifest.get('executables', []), sort_keys=True)}",
+            f"Client version checks: {json.dumps(manifest.get('version_checks', []), sort_keys=True)}",
             f"Command: {result.command}",
             f"Status: {result.status}",
             f"Exit code: {result.exit_code}",

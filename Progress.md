@@ -12,7 +12,9 @@ Dark Data Workbench now includes a question box so saved checks and Browser AI e
 
 The current local working branch also includes a linked and illustrated colleague report in Markdown and Word format that reconstructs the Challenge 2 realtime delivery sequence from the supplied hackathon write-up, repo history, logs, and Codex thread evidence.
 
-The current local branch is `codex/postmortem-wiki`, with the committed Challenge 2 baseline tagged locally as `v1-challenge-2`. It now includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The latest generation covers five local Codex conversation sources, 66 redacted prompt-response exchanges, three citation-only Karpathy methodology source notes, and repository artifacts linked to GitHub fork permalinks at the tagged baseline or publication branch.
+Version 1.1 has been published from `main` and tagged as `v1.1`. The current local branch is `codex/evaluation-versioning`, which extends the Challenge 2 evaluation harness before the full 100-question model run. The branch records per-client model selectors, model-selection sources, executable versions, repository state, benchmark hashes, optional GitHub Copilot CLI configuration, and detected Microsoft Copilot desktop app versions so the later evaluation can be traced against the exact client environment.
+
+The postmortem release includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The publication line now treats the public derivative and reports as part of the Version 1.1 baseline, with the full 100-question AI comparison still outstanding.
 
 The postmortem artifacts have been reviewed for publication readiness. The review found no obvious credential-shaped secrets or email-address pattern hits in the postmortem scan, but it blocks public release until local paths, local assistant configuration references, copied third-party source bodies, private workflow references, and local-only evidence are redacted or repackaged. A follow-up license check found no explicit redistribution license in the localized Karpathy X/gist copies, so public releases should use citation metadata and short excerpts unless permission or an explicit license is obtained.
 
@@ -59,6 +61,9 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added `output/doc/linkedin-version-1-1-announcement.md` for public Version 1.1 announcement copy.
 - Addressed PR review comments by fixing whole-word contribution classification, single-pass Jina Reader source URLs, and public sanitisation for bare local path markers.
 - Added `tests/test_build_codex_postmortem.py` to guard postmortem contribution inference and public sanitisation regressions.
+- Published Version 1.1 from `main` with a GitHub tag and release.
+- Created `codex/evaluation-versioning` from the clean `v1.1` baseline for the next evaluation run.
+- Added Challenge 2 evaluation model/version capture for Codex, Gemini CLI, Claude Code, optional GitHub Copilot CLI, and detected Microsoft Copilot desktop apps.
 
 ## Validation
 
@@ -111,17 +116,27 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `cd challenge-2/workbench && pnpm test`
   - `cd challenge-2/workbench && pnpm build`
   - `cd challenge-2/workbench && pnpm test:ui`
+- Current evaluation-versioning validation passed locally:
+  - `python3 -m py_compile challenge-2/evaluation/clients.py challenge-2/evaluation/audit.py challenge-2/tools/run_wiki_eval.py tests/test_challenge2_eval_clients.py`
+  - `python3 -m json.tool challenge-2/evaluation/client-config.example.json`
+  - `python3 -m unittest discover -s tests -p 'test_challenge2_eval*.py'`
+  - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients codex,gemini,claude --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id versioning-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients github-copilot --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id copilot-smoke`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
 
 ## Open Items
 
 - Review the `postmortem-public/wiki/decisions.md` defaults before publishing externally.
 - Address the security assessment findings before making any production-readiness claim: harden GitHub Actions permissions/action pinning, upgrade the low `cookie` advisory path, replace unsafe XML parsing for untrusted documents, add response-size and redirect controls to postmortem URL fetching, and define Secure by Design/DPIA/operational controls for real data.
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
-- Run the full 100-question benchmark through the available Codex, Gemini CLI, and Claude Code installations, then fill the scoring sheet and publish the generated leaderboard.
+- Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through Codex, Gemini CLI, Claude Code, and any confirmed optional Copilot CLI client. Fill the scoring sheet and publish the generated leaderboard.
 
 ## Next Recommended Steps
 
-1. Run the full benchmark against Codex, Gemini CLI, and Claude Code using `challenge-2/tools/run_wiki_eval.py`.
-2. Score `generated/scoring-sheet.csv` and generate `generated/leaderboard.md`.
-3. Add source-backed demo answers for the five Challenge 2 demo questions.
-4. Use Dark Data Workbench during the demo to show search, context export, and source-backed checks over the generated knowledge base.
+1. Review `run.json` from a `--dry-run` versioning smoke test to confirm client paths, CLI versions, model selectors, and floating defaults.
+2. Run the full benchmark against Codex, Gemini CLI, Claude Code, and any confirmed optional Copilot CLI client using `challenge-2/tools/run_wiki_eval.py`.
+3. Score `generated/scoring-sheet.csv` and generate `generated/leaderboard.md`.
+4. Add source-backed demo answers for the five Challenge 2 demo questions.
+5. Use Dark Data Workbench during the demo to show search, context export, and source-backed checks over the generated knowledge base.
