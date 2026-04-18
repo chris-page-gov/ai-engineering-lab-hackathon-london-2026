@@ -177,7 +177,7 @@ For government production work, Codex should be used inside a controlled enginee
 4. Add CI hardening work before any production claim: explicit workflow permissions, pinned actions, dependency review, CodeQL or equivalent SAST, secret scanning, SBOM/provenance, and protected branches.
 5. Upgrade the `cookie` transitive dependency path and rerun `pnpm audit`.
 6. Replace ElementTree parsing with `defusedxml` before processing user-supplied documents.
-7. Add scheme/domain allowlisting to postmortem external-source fetching.
+7. Add response-size and redirect controls to postmortem external-source fetching; scheme/domain allowlisting is already in place.
 8. Produce a real Secure by Design pack before processing real government data: threat model, DPIA screening, classification handling, security owner, operational model, incident process, and risk acceptance.
 
 ## References

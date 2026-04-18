@@ -18,6 +18,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added `output/doc/codex-contribution-modes-security-assessment.md`, evaluating project contribution modes, Codex suitability, and security scan findings against government Secure by Design, NCSC, GOV.UK, ICO, NIST SSDF, and OWASP expectations.
 - Added `output/doc/linkedin-version-1-1-announcement.md`, a LinkedIn announcement draft for the public Version 1.1 publication.
 - Added GitHub-renderable SVG replacements for the contribution-modes proposal diagrams so the Markdown renders without EMF support.
+- Added regression coverage for postmortem contribution inference and public local-path sanitisation.
 - Added a Dark Data Workbench question box that carries the user's question into Browser AI JSON, copied prompts, Markdown evidence bundles, and saved-check flows.
 - Added `output/doc/challenge-2-realtime-delivery-report.md` and `.docx`, a linked and illustrated colleague report reconstructing the Challenge 2 build timeline from the source write-up, repo history, logs, and Codex thread evidence.
 - Added Dark Data Workbench, a SvelteKit browser UI under `challenge-2/workbench/` for filtering the Challenge 2 wiki corpus, building context sets, browsing evidence, and exporting optional AI/MCP context.
@@ -43,6 +44,9 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Ignored root-level Obsidian state so local browsing metadata is not included with the public postmortem.
 - Ignored Python bytecode caches created by local validation runs.
 - Hardened the postmortem external-source fetcher with HTTPS and host allowlisting.
+- Fixed postmortem contribution inference so `pr` and `git` are matched as whole words instead of substrings inside words such as `prompt` or `legitimate`.
+- Fixed Karpathy X source snapshot URLs to use a single Jina Reader prefix instead of proxying an already proxied URL.
+- Fixed public postmortem sanitisation for bare local user-path markers and local state-file mentions in explanatory text.
 
 ### Documentation
 

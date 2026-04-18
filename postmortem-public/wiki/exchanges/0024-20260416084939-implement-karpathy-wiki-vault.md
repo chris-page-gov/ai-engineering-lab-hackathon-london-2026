@@ -546,7 +546,7 @@ The only generated Python cache directories were from our MCP test run, so I rem
 - Timestamp: `2026-04-16T13:09:17.402Z`
 
 ````text
-The workbench has generated build, coverage, and dependency directories present locally, but its `.gitignore` covers them before staging. I found a macOS `.DS_Store` under the new folder, so I’m ignoring that pattern and removing the local artifact before staging.
+The workbench has generated build, coverage, and dependency directories present locally, but its `.gitignore` covers them before staging. I found a macOS `[LOCAL_STATE_FILE]` under the new folder, so I’m ignoring that pattern and removing the local artifact before staging.
 ````
 
 ### Response 57 (commentary)

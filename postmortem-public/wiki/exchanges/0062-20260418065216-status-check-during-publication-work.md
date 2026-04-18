@@ -115,7 +115,7 @@ The TypeScript/Svelte check completed cleanly. I found the final Bandit rerun ch
 - Timestamp: `2026-04-18T11:49:12.671Z`
 
 ````text
-The report now matches the latest scanner output, and the stray `.DS_Store` is removed. I’m running the heavier workbench test/build/browser checks now; these are the last blockers before commit and PR.
+The report now matches the latest scanner output, and the stray `[LOCAL_STATE_FILE]` is removed. I’m running the heavier workbench test/build/browser checks now; these are the last blockers before commit and PR.
 ````
 
 ### Response 12 (commentary)
@@ -147,7 +147,7 @@ The postmortem public wiki regenerated cleanly and still captures 5 conversation
 - Timestamp: `2026-04-18T11:50:02.380Z`
 
 ````text
-The publication scan is clean: no `.emf` Markdown references, local file URLs, absolute user paths, or `.DS_Store` files in the publishable docs; the npm audit has only the known low advisory. I’m checking staged state and generated artifacts now before committing.
+The publication scan is clean: no `.emf` Markdown references, local file URLs, absolute user paths, or `[LOCAL_STATE_FILE]` files in the publishable docs; the npm audit has only the known low advisory. I’m checking staged state and generated artifacts now before committing.
 ````
 
 ### Response 16 (commentary)
@@ -172,6 +172,87 @@ Bandit found the same residual profile after the final run: 17 low, 2 medium, 0 
 
 ````text
 I hardened the new source fetcher and the final Bandit profile is now 17 low, 1 medium, 0 high; the remaining medium is the existing DOCX metadata parser risk. I’m regenerating the public wiki again so the artifact register reflects that code and report change.
+````
+
+### Response 19 (commentary)
+
+- Timestamp: `2026-04-18T11:51:46.672Z`
+
+````text
+The public wiki regenerated cleanly after the hardening change. I’m doing the last short checks now; if these pass, I’ll commit, push, and open the PR.
+````
+
+### Response 20 (commentary)
+
+- Timestamp: `2026-04-18T11:52:06.322Z`
+
+````text
+The human-facing pages look correct: the README now starts from Team DSIT A’s Challenge 2 implementation, the public postmortem is clearly the GitHub-safe derivative, and the LinkedIn draft is in the output docs. I’m committing the prepared Version 1.1 publication branch now.
+````
+
+### Response 21 (commentary)
+
+- Timestamp: `2026-04-18T11:52:13.511Z`
+
+````text
+The commit is clean and the working tree has no remaining untracked or unstaged files. I’m pushing `codex/postmortem-wiki` to the fork and then I’ll create the PR.
+````
+
+### Response 22 (commentary)
+
+- Timestamp: `2026-04-18T11:52:31.840Z`
+
+````text
+The branch is now on GitHub. I checked there is no existing open PR for this branch, so I’m creating a ready PR against the fork’s `main` branch with the validation evidence in the description.
+````
+
+### Response 23 (commentary)
+
+- Timestamp: `2026-04-18T11:52:46.622Z`
+
+````text
+PR #5 is open. I’m checking the GitHub-side status once so I can tell you whether the remote checks have started or completed.
+````
+
+### Response 24 (commentary)
+
+- Timestamp: `2026-04-18T11:52:53.846Z`
+
+````text
+GitHub has started the `documentation-lockstep` workflow and it is still pending. I’m going to wait for that remote check to finish rather than leaving the PR status ambiguous.
+````
+
+### Response 25 (final_answer)
+
+- Timestamp: `2026-04-18T11:53:14.470Z`
+
+````text
+Done. Version 1.1 publication work is committed, pushed, and opened as a ready PR:
+
+[PR #5: Publish Challenge 2 postmortem and evidence pack](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/pull/5)
+
+What changed:
+- Recast [README.md]([LOCAL_REPO]/README.md) around Team DSIT A’s Challenge 2 implementation and value proposition.
+- Added the GitHub-safe [postmortem-public wiki]([LOCAL_REPO]/postmortem-public/wiki/index.md), including this thread in the trace.
+- Added reports, publication artifacts, GitHub-renderable SVG replacements, and the LinkedIn draft at [output/doc/linkedin-version-1-1-announcement.md]([LOCAL_REPO]/output/doc/linkedin-version-1-1-announcement.md).
+- Added Team DSIT A attribution across the README, reports, public postmortem, and announcement.
+- Hardened the postmortem external-source fetcher with HTTPS and host allowlisting.
+
+Validation completed:
+- Local repo status clean after commit.
+- GitHub PR check `documentation-lockstep` passed.
+- Postmortem builder: 5 conversations, 62 exchanges, 3 external sources; public lint has 0 broken links and 0 forbidden publication hits.
+- `pnpm check`, `pnpm test`, `pnpm build`, and `pnpm test:ui` passed.
+- Python compile and MCP unit tests passed.
+- Publication scans found no publishable `.emf` links, local file URLs, `[LOCAL_USER_PATH]` paths, or `[LOCAL_STATE_FILE]` files.
+- Security scan is documented: Bandit now reports 17 low, 1 medium, 0 high; npm audit passes for moderate and higher with one known low advisory documented.
+
+Commit: `655c22369603b8a9953ca16f57eff2c0b4a9f97c`
+
+::git-stage{cwd="[LOCAL_REPO]"}
+::git-commit{cwd="[LOCAL_REPO]"}
+::git-push{cwd="[LOCAL_REPO]" branch="codex/postmortem-wiki"}
+::git-create-pr{cwd="[LOCAL_REPO]" branch="codex/postmortem-wiki" url="https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/pull/5" isDraft=false}
 ````
 
 ## Contribution Reading

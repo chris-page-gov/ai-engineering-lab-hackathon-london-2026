@@ -67,7 +67,7 @@ The regenerated wiki passes strict lint with 80 notes, so the architecture page 
 - Timestamp: `2026-04-16T09:31:18.254Z`
 
 ````text
-The generated page looks good and is now the first Start Here link. The build created transient `.DS_Store` and `__pycache__` files, and Obsidian updated `workspace.json`; I’m cleaning the transient files and checking the workspace diff before deciding what belongs in the PR update.
+The generated page looks good and is now the first Start Here link. The build created transient `[LOCAL_STATE_FILE]` and `__pycache__` files, and Obsidian updated `workspace.json`; I’m cleaning the transient files and checking the workspace diff before deciding what belongs in the PR update.
 ````
 
 ### Response 6 (commentary)
@@ -170,5 +170,5 @@ One local note: Obsidian changed `challenge-2/.obsidian/workspace.json` again in
 
 ## Contribution Reading
 
-- User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
+- User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.

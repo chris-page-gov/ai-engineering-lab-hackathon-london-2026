@@ -83,4 +83,4 @@ So: **the branch is pushed and merged into the fork, but the local checkout is n
 ## Contribution Reading
 
 - User contribution: Supplied task direction, constraints, or review feedback.
-- Codex contribution: Performed repo analysis, implementation, validation, or synthesis in response.
+- Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.

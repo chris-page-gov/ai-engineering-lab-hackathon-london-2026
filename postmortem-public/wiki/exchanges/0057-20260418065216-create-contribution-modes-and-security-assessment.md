@@ -113,7 +113,7 @@ I’ve got enough evidence to write the assessment now. I’m going to add one M
 - Timestamp: `2026-04-18T08:40:38.437Z`
 
 ````text
-The assessment file is in place and the tracking docs are updated. I removed `.DS_Store` files from `output/` so staging “all untracked output” will not accidentally carry local Finder metadata. Next I’m running the repo-level checks required by `AGENTS.md`.
+The assessment file is in place and the tracking docs are updated. I removed `[LOCAL_STATE_FILE]` files from `output/` so staging “all untracked output” will not accidentally carry local Finder metadata. Next I’m running the repo-level checks required by `AGENTS.md`.
 ````
 
 ### Response 11 (commentary)
@@ -172,5 +172,5 @@ Official sources used for the assessment include [UK Government Secure by Design
 
 ## Contribution Reading
 
-- User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
+- User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.

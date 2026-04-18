@@ -280,6 +280,16 @@
     "publication_status": "baseline-permalink"
   },
   {
+    "path": "tests/test_build_codex_postmortem.py",
+    "tracked_at_baseline": false,
+    "tracked_in_publication_branch": false,
+    "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
+    "github_permalink": null,
+    "publication_branch": "codex/postmortem-wiki",
+    "publication_branch_url": null,
+    "publication_status": "local-only-reference"
+  },
+  {
     "path": "output/doc/challenge-2-realtime-delivery-report.md",
     "tracked_at_baseline": false,
     "tracked_in_publication_branch": true,

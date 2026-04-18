@@ -18,8 +18,8 @@ This public source note intentionally does not include the localized full-text c
 
 - Canonical URL: [https://x.com/karpathy/status/2040470801506541998](https://x.com/karpathy/status/2040470801506541998)
 - Source kind: `x_post_readable_snapshot`
-- Captured at: `2026-04-18T11:51:31+00:00`
+- Captured at: `2026-04-18T12:24:43+00:00`
 - Fetch status: `200`; direct status: `200`
-- Private archive SHA-256: `1b4fa5112345d6845455207d86ca0478c7fd3f7759484a981ee8e58bec9965f4`
+- Private archive SHA-256: `3c335010bb7334cce8b1a1c2faf20260f56164918ac5860847e066dd4efc5a05`
 - License status: `terms-only-platform-use`
 - Publication disposition: Citation metadata only; do not publish the full localized readable snapshot.

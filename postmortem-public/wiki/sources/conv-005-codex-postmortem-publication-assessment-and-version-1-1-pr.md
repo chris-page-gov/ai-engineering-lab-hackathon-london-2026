@@ -16,9 +16,9 @@ This source note summarizes a local Codex conversation without publishing the ra
 - Conversation source ID: `CONV-005`
 - Start timestamp: `2026-04-18T06:52:16.557Z`
 - Updated at: `2026-04-18T06:52:24.081005Z`
-- User visible messages: 11
-- Codex visible messages: 71
-- Private evidence hash: `c2b1ca9cb5de2643401e260d63385a1f7f73a1ea386e45b015f07905203e4641`
+- User visible messages: 15
+- Codex visible messages: 99
+- Private evidence hash: `6d1aca528518655df2ed7e5a92e4fdd293e2a2d31447fd76091369a4cb71cf64`
 - Raw transcript: private/local evidence archive only.
 
 ## Public Exchange Notes
@@ -33,3 +33,7 @@ This source note summarizes a local Codex conversation without publishing the ra
 - [EX-0060: Prepare Version 1.1 Publication PR](../exchanges/0060-20260418065216-prepare-version-1-1-publication-pr.md)
 - [EX-0061: <turn_aborted>](../exchanges/0061-20260418065216-turn-aborted.md)
 - [EX-0062: Status Check During Publication Work](../exchanges/0062-20260418065216-status-check-during-publication-work.md)
+- [EX-0063: The PR says 5 conversations, I thought we added this, which would be six?](../exchanges/0063-20260418065216-the-pr-says-5-conversations-i-thought-we-added-this-which-would-be-six.md)
+- [EX-0064: We now have a command line GitHub Copilot and a Microsoft Copilot app. Can you investigate addin](../exchanges/0064-20260418065216-we-now-have-a-command-line-github-copilot-and-a-microsoft-copilot-app-can-you-investigate.md)
+- [EX-0065: First, fix the current PR comments, ensuring that you consider each as indicating a class of err](../exchanges/0065-20260418065216-first-fix-the-current-pr-comments-ensuring-that-you-consider-each-as-indicating-a-class-of.md)
+- [EX-0066: Ensure you close the comments you address with apropriate comments](../exchanges/0066-20260418065216-ensure-you-close-the-comments-you-address-with-apropriate-comments.md)

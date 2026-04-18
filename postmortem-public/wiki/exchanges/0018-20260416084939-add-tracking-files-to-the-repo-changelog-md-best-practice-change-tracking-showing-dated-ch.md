@@ -117,5 +117,5 @@ No raw challenge source files were changed, and nothing was redacted from synthe
 
 ## Contribution Reading
 
-- User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
+- User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.

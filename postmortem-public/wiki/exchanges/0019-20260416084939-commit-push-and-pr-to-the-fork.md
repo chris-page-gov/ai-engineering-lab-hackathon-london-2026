@@ -51,7 +51,7 @@ The publish skill confirms the right flow: inspect mixed worktree, stage only in
 - Timestamp: `2026-04-16T11:33:30.453Z`
 
 ````text
-Auth is good. I also noticed local `.DS_Store` files under `.github` and `tools`; I’ll make sure they are not part of the commit and remove them if they are just local Finder artefacts.
+Auth is good. I also noticed local `[LOCAL_STATE_FILE]` files under `.github` and `tools`; I’ll make sure they are not part of the commit and remove them if they are just local Finder artefacts.
 ````
 
 ### Response 4 (commentary)

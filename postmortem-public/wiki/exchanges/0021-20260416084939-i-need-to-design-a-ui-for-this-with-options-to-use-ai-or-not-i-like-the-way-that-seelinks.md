@@ -314,5 +314,5 @@ That gives you a demoable UI without depending on any runtime model access, whil
 
 ## Contribution Reading
 
-- User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
+- User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.

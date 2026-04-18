@@ -59,3 +59,7 @@ Commit-specific GitHub permalinks are used where files were tracked at the tagge
 - [output/doc/assets/contribution-modes-proposal/mode-authority.svg](sources/artifact-output-doc-assets-contribution-modes-proposal-mode-authority-svg.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/mode-authority.svg)
 - [output/doc/assets/contribution-modes-proposal/mode-anatomy.svg](sources/artifact-output-doc-assets-contribution-modes-proposal-mode-anatomy-svg.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/mode-anatomy.svg)
 - [output/doc/assets/contribution-modes-proposal/hackathon-stages.svg](sources/artifact-output-doc-assets-contribution-modes-proposal-hackathon-stages-svg.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/hackathon-stages.svg)
+
+## Local-Only Evidence
+
+- `tests/test_build_codex_postmortem.py`: not tracked at the tagged baseline

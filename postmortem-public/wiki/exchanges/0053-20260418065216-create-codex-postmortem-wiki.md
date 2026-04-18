@@ -123,7 +123,7 @@ The first generated pass exposed a lint issue in my validator, not the wiki stru
 - Timestamp: `2026-04-18T07:00:14.725Z`
 
 ````text
-The generated wiki is structurally sound, but I spotted two hygiene issues before validation: the annotated tag was being recorded as the tag object SHA instead of the commit SHA, and macOS `.DS_Store` files appeared in the new folder. I’m correcting the tag dereference and excluding those local state files.
+The generated wiki is structurally sound, but I spotted two hygiene issues before validation: the annotated tag was being recorded as the tag object SHA instead of the commit SHA, and macOS `[LOCAL_STATE_FILE]` files appeared in the new folder. I’m correcting the tag dereference and excluding those local state files.
 ````
 
 ### Response 11 (commentary)
@@ -147,7 +147,7 @@ The tracking docs now reference the postmortem work. I’m rerunning the postmor
 - Timestamp: `2026-04-18T07:04:20.443Z`
 
 ````text
-I’m picking up from the completed build and doing the final workspace hygiene checks now, mainly removing any `.DS_Store` files the desktop app may have recreated and confirming the branch state before I summarize what changed.
+I’m picking up from the completed build and doing the final workspace hygiene checks now, mainly removing any `[LOCAL_STATE_FILE]` files the desktop app may have recreated and confirming the branch state before I summarize what changed.
 ````
 
 ### Response 14 (final_answer)

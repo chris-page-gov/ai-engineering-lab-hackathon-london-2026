@@ -12,7 +12,7 @@ Dark Data Workbench now includes a question box so saved checks and Browser AI e
 
 The current local working branch also includes a linked and illustrated colleague report in Markdown and Word format that reconstructs the Challenge 2 realtime delivery sequence from the supplied hackathon write-up, repo history, logs, and Codex thread evidence.
 
-The current local branch is `codex/postmortem-wiki`, with the committed Challenge 2 baseline tagged locally as `v1-challenge-2`. It now includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The latest generation covers five project conversations, 56 redacted prompt-response exchanges, three citation-only Karpathy methodology source notes, and repository artifacts linked to GitHub fork permalinks at the tagged baseline.
+The current local branch is `codex/postmortem-wiki`, with the committed Challenge 2 baseline tagged locally as `v1-challenge-2`. It now includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The latest generation covers five local Codex conversation sources, 66 redacted prompt-response exchanges, three citation-only Karpathy methodology source notes, and repository artifacts linked to GitHub fork permalinks at the tagged baseline or publication branch.
 
 The postmortem artifacts have been reviewed for publication readiness. The review found no obvious credential-shaped secrets or email-address pattern hits in the postmortem scan, but it blocks public release until local paths, local assistant configuration references, copied third-party source bodies, private workflow references, and local-only evidence are redacted or repackaged. A follow-up license check found no explicit redistribution license in the localized Karpathy X/gist copies, so public releases should use citation metadata and short excerpts unless permission or an explicit license is obtained.
 
@@ -57,6 +57,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added Team DSIT A attribution across the README, delivery report, security assessment, public postmortem generation, and LinkedIn announcement draft.
 - Replaced non-GitHub-renderable contribution-modes EMF references with SVG diagram assets.
 - Added `output/doc/linkedin-version-1-1-announcement.md` for public Version 1.1 announcement copy.
+- Addressed PR review comments by fixing whole-word contribution classification, single-pass Jina Reader source URLs, and public sanitisation for bare local path markers.
+- Added `tests/test_build_codex_postmortem.py` to guard postmortem contribution inference and public sanitisation regressions.
 
 ## Validation
 
@@ -92,7 +94,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Current Codex postmortem wiki validation passed locally:
   - `python3 -m py_compile tools/build_codex_postmortem.py`
   - `python3 tools/build_codex_postmortem.py`
-  - Generated private lint reports `5` conversation sources, `56` exchanges, `3` external sources, `29` repository artifact sources, and `0` broken internal links.
+  - `python3 -m unittest tests/test_build_codex_postmortem.py`
+  - Generated private lint reports `5` conversation sources, `66` exchanges, `3` external sources, `44` repository artifact sources, and `0` broken internal links.
   - Generated public publication lint report with `0` broken internal links and `0` forbidden publication hits.
 - Current postmortem publication-readiness review used targeted scans for local paths, account/workspace identifiers, credential-shaped strings, email-address patterns, copied external-source material, read-only source permissions, and untracked publication-adjacent artifacts.
 - Current localized-source license review checked the external source copies for license notices and compared them against X Terms of Service, GitHub Terms of Service, GitHub licensing guidance, the Karpathy gist page, and Jina AI legal terms.
@@ -112,7 +115,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 ## Open Items
 
 - Review the `postmortem-public/wiki/decisions.md` defaults before publishing externally.
-- Address the security assessment findings before making any production-readiness claim: harden GitHub Actions permissions/action pinning, upgrade the low `cookie` advisory path, replace unsafe XML parsing for untrusted documents, constrain postmortem URL fetching, and define Secure by Design/DPIA/operational controls for real data.
+- Address the security assessment findings before making any production-readiness claim: harden GitHub Actions permissions/action pinning, upgrade the low `cookie` advisory path, replace unsafe XML parsing for untrusted documents, add response-size and redirect controls to postmortem URL fetching, and define Secure by Design/DPIA/operational controls for real data.
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
 - Run the full 100-question benchmark through the available Codex, Gemini CLI, and Claude Code installations, then fill the scoring sheet and publish the generated leaderboard.
 

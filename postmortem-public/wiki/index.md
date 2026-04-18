@@ -84,10 +84,14 @@ This folder is the GitHub-safe derivative of the private Codex postmortem eviden
 | 60 | [Prepare Version 1.1 Publication PR](exchanges/0060-20260418065216-prepare-version-1-1-publication-pr.md) | CONV-005 |
 | 61 | [<turn_aborted>](exchanges/0061-20260418065216-turn-aborted.md) | CONV-005 |
 | 62 | [Status Check During Publication Work](exchanges/0062-20260418065216-status-check-during-publication-work.md) | CONV-005 |
+| 63 | [The PR says 5 conversations, I thought we added this, which would be six?](exchanges/0063-20260418065216-the-pr-says-5-conversations-i-thought-we-added-this-which-would-be-six.md) | CONV-005 |
+| 64 | [We now have a command line GitHub Copilot and a Microsoft Copilot app. Can you investigate addin](exchanges/0064-20260418065216-we-now-have-a-command-line-github-copilot-and-a-microsoft-copilot-app-can-you-investigate.md) | CONV-005 |
+| 65 | [First, fix the current PR comments, ensuring that you consider each as indicating a class of err](exchanges/0065-20260418065216-first-fix-the-current-pr-comments-ensuring-that-you-consider-each-as-indicating-a-class-of.md) | CONV-005 |
+| 66 | [Ensure you close the comments you address with apropriate comments](exchanges/0066-20260418065216-ensure-you-close-the-comments-you-address-with-apropriate-comments.md) | CONV-005 |
 
 ## Publication Counts
 
 - Conversation summaries: 5
-- Redacted prompt-response exchanges: 62
+- Redacted prompt-response exchanges: 66
 - External citations: 3
-- Repository artifacts registered: 43
+- Repository artifacts registered: 44

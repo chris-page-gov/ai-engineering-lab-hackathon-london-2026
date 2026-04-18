@@ -44,9 +44,9 @@
     "title": "Codex Postmortem, Publication Assessment, and Version 1.1 PR",
     "start_timestamp": "2026-04-18T06:52:16.557Z",
     "updated_at": "2026-04-18T06:52:24.081005Z",
-    "private_evidence_sha256": "c2b1ca9cb5de2643401e260d63385a1f7f73a1ea386e45b015f07905203e4641",
-    "user_message_count": 11,
-    "assistant_message_count": 71,
+    "private_evidence_sha256": "6d1aca528518655df2ed7e5a92e4fdd293e2a2d31447fd76091369a4cb71cf64",
+    "user_message_count": 15,
+    "assistant_message_count": 99,
     "public_source_path": "postmortem-public/wiki/sources/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md"
   }
 ]

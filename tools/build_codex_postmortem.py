@@ -98,6 +98,7 @@ ARTIFACT_PATHS = [
     "tests/test_challenge2_eval_questions.py",
     "tests/test_challenge2_eval_mcp.py",
     "tests/test_challenge2_workbench_mcp.py",
+    "tests/test_build_codex_postmortem.py",
     "output/doc/challenge-2-realtime-delivery-report.md",
     "output/doc/challenge-2-realtime-delivery-report.docx",
     "output/doc/contribution-modes-proposal.md",
@@ -120,7 +121,7 @@ EXTERNAL_REFERENCES = [
         "source_id": "EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES",
         "title": "Karpathy X Post: LLM Knowledge Bases",
         "canonical_url": "https://x.com/karpathy/status/2039805659525644595",
-        "fetch_url": "https://r.jina.ai/http://r.jina.ai/http://x.com/karpathy/status/2039805659525644595",
+        "fetch_url": "https://r.jina.ai/https://x.com/karpathy/status/2039805659525644595",
         "direct_url": "https://x.com/karpathy/status/2039805659525644595",
         "filename": "karpathy-x-2039805659525644595-llm-knowledge-bases.md",
         "kind": "x_post_readable_snapshot",
@@ -130,7 +131,7 @@ EXTERNAL_REFERENCES = [
         "source_id": "EXT-KARPATHY-X-IDEA-FILE",
         "title": "Karpathy X Post: LLM Wiki Idea File",
         "canonical_url": "https://x.com/karpathy/status/2040470801506541998",
-        "fetch_url": "https://r.jina.ai/http://r.jina.ai/http://x.com/karpathy/status/2040470801506541998",
+        "fetch_url": "https://r.jina.ai/https://x.com/karpathy/status/2040470801506541998",
         "direct_url": "https://x.com/karpathy/status/2040470801506541998",
         "filename": "karpathy-x-2040470801506541998-idea-file.md",
         "kind": "x_post_readable_snapshot",
@@ -816,34 +817,55 @@ def write_source_notes(sessions: list[Session], external_records: list[dict[str,
 
 def infer_user_contribution(exchange: Exchange) -> str:
     text = exchange.user_message.text.lower()
-    if "give us a plan" in text:
+    if _has_phrase(text, "give us a plan"):
         return "Set the strategic goal and named the Karpathy Wiki method as the design frame."
-    if "please implement" in text:
+    if _has_phrase(text, "please implement"):
         return "Approved implementation and supplied a detailed acceptance plan."
-    if "documentation only" in text:
+    if _has_phrase(text, "documentation only"):
         return "Constrained the task to documentation and evaluation design."
-    if "question box" in text:
+    if _has_phrase(text, "question box"):
         return "Identified a user-facing gap in the workbench export flow."
-    if "postmortem" in text:
+    if _has_word(text, "postmortem"):
         return "Defined the evidence-preservation goal and requested a research wiki plus analysis."
-    if "pr" in text:
+    if _has_any_phrase(text, ["pull request", "pull requests"]) or _has_any_word(text, ["pr", "prs"]):
         return "Asked Codex to inspect GitHub state and unblock the repository workflow."
     return "Supplied task direction, constraints, or review feedback."
 
 
 def infer_codex_contribution(exchange: Exchange) -> str:
     response_text = "\n".join(message.text for message in exchange.assistant_messages).lower()
-    if "strict build" in response_text or "generated" in response_text and "wiki" in response_text:
+    if _has_phrase(response_text, "strict build") or (
+        _has_word(response_text, "generated") and _has_word(response_text, "wiki")
+    ):
         return "Mapped the request into repeatable generation, linting, and source-backed wiki artifacts."
-    if "playwright" in response_text or "svelte" in response_text:
+    if _has_any_word(response_text, ["playwright", "svelte"]):
         return "Implemented and validated user-facing workbench behavior."
-    if "pull request" in response_text or "git" in response_text:
+    if (
+        _has_any_phrase(response_text, ["pull request", "pull requests"])
+        or _has_any_word(response_text, ["git", "github", "pr", "prs", "commit", "branch", "merge"])
+    ):
         return "Inspected repository/GitHub state and adjusted branch or PR hygiene."
-    if "plan" in response_text:
+    if _has_word(response_text, "plan"):
         return "Translated the user intent into a concrete implementation plan."
     if not response_text:
         return "No visible response before the next user message."
     return "Performed repo analysis, implementation, validation, or synthesis in response."
+
+
+def _has_phrase(text: str, phrase: str) -> bool:
+    return phrase in text
+
+
+def _has_any_phrase(text: str, phrases: list[str]) -> bool:
+    return any(_has_phrase(text, phrase) for phrase in phrases)
+
+
+def _has_word(text: str, word: str) -> bool:
+    return re.search(rf"(?<![a-z0-9]){re.escape(word.lower())}(?![a-z0-9])", text.lower()) is not None
+
+
+def _has_any_word(text: str, words: list[str]) -> bool:
+    return any(_has_word(text, word) for word in words)
 
 
 def write_data_registers(
@@ -1280,9 +1302,10 @@ def public_sanitize_text(text: str) -> str:
     text = re.sub(r"/Users/crpage/\.codex/sessions/[^\s`)]+", "[CODEX_SESSION_JSONL]", text)
     text = re.sub(r"/Users/crpage/\.codex/[^\s`)]+", "[LOCAL_ASSISTANT_HOME]", text)
     text = re.sub(r"/Users/crpage/Desktop/[^\n`)]+", "[DESKTOP_SCREENSHOT]", text)
-    text = re.sub(r"file:///Users/[^\s`)]+", "[LOCAL_FILE_URL]", text)
-    text = re.sub(r"/Users/[^\s`)]+", "[LOCAL_USER_PATH]", text)
+    text = re.sub(r"file:///Users/(?:[^\s`)]+)?", "[LOCAL_FILE_URL]", text)
+    text = re.sub(r"/Users/(?:[^\s`)]+)?", "[LOCAL_USER_PATH]", text)
     text = re.sub(r"/var/folders/[^\n`)]+", "[TEMP_SCREENSHOT]", text)
+    text = text.replace(".DS_Store", "[LOCAL_STATE_FILE]")
     text = text.replace("/Users/crpage", "[LOCAL_HOME]")
     text = re.sub(r"base64_chars=\d+; sha256=[a-f0-9]+", "base64 omitted", text)
     text = text.replace("only has `READ` permission", "did not have enough upstream permission")
