@@ -34,6 +34,16 @@ The prompt also explicitly excludes `challenge-2/wiki/evaluation-benchmark.md` a
 
 Use `--client-config challenge-2/evaluation/client-config.example.json` as a starting point if local CLI arguments need to be adjusted for installed versions of Codex, Gemini CLI, Claude Code, or the optional GitHub Copilot CLI client.
 
+For the full coverage set, including the UI-driven Microsoft Copilot adapter:
+
+```bash
+python3 challenge-2/tools/run_wiki_eval.py \
+  --clients full \
+  --questions Q001,Q002,Q003
+```
+
+Full coverage expands to `codex,gemini,claude,github-copilot,microsoft-copilot`.
+
 ## Model And Version Capture
 
 Each run now writes a client manifest into `run.json` under `metadata.client_manifests`. The manifest records:
@@ -50,19 +60,31 @@ The default batch remains `codex,gemini,claude`. Current model policy, checked o
 
 | Client | Harness default | Why |
 | --- | --- | --- |
-| Codex | `gpt-5.4` | OpenAI model documentation recommends `gpt-5.4` for complex reasoning and coding. |
-| Gemini CLI | `auto` | Gemini CLI documentation says the default model is Auto routing; the built-in command deliberately omits `--model` so the installed CLI owns routing to the latest available Gemini models. |
-| Claude Code | `opus` | Claude Code documents `opus` as a floating alias for the most capable Opus model available to the account. |
-| GitHub Copilot CLI | `copilot-cli-default` | Optional client. GitHub documents the default as Claude Sonnet 4.5 and reserves the right to change it; pin with `--model github-copilot=<model>` only after confirming the installed Copilot CLI model list. |
+| Codex | `gpt-5.4`, `xhigh` effort | OpenAI model documentation describes `gpt-5.4` as the frontier model for complex professional work. |
+| Gemini CLI | `auto` | Gemini CLI documentation recommends Auto routing; Gemini 3.1 Pro Preview is included in routing where available, so the installed client owns availability and fallback. |
+| Claude Code | `best`, `max` effort | Claude Code documents `best` as the most capable available model and currently equivalent to `opus`. |
+| GitHub Copilot CLI | `gpt-5.4`, `xhigh` effort | Staff-confirmed override after contradictory public Copilot documentation. The command still records public Copilot model references as context. |
+| Microsoft Copilot | `gpt-5-auto-routed` | Microsoft 365 Copilot release notes state Copilot Chat uses GPT-5 by default and automatically routes prompts to best-performing models for each task. |
 
-The runner also records Git commit, branch, tags-at-HEAD, dirty status, benchmark SHA-256, and detected macOS Copilot desktop app versions. Desktop Copilot apps are captured as environment evidence only; they are not headless clients for the current harness.
+The runner also records Git commit, branch, tags-at-HEAD, dirty status, benchmark SHA-256, and detected macOS Copilot desktop app versions.
+
+## Copilot Coverage Caveats
+
+GitHub Copilot CLI is included in the full coverage set. The standalone `copilot` binary must be installed and authenticated before a non-dry run; `gh copilot` alone is only a wrapper. Organisation, subscription, or policy controls can still block live requests, and the runner reports those access denials as `policy_blocked`.
+
+Microsoft Copilot is included through `challenge-2/tools/microsoft_copilot_playwright.mjs`, a Playwright browser UI adapter pointed at Microsoft 365 Copilot Chat. This is intentionally caveated:
+
+- it is not a stable headless API;
+- it needs an authenticated Playwright browser profile, configured with `MICROSOFT_COPILOT_PROFILE_DIR` or `profile_dir` in client config;
+- it can fail when Microsoft changes selectors, loading states, tenant controls, or routing behaviour;
+- it captures screenshot and HTML sidecars under `raw/microsoft-copilot/<question>.ui/` for audit review.
 
 For an auditable smoke test of version capture:
 
 ```bash
 python3 challenge-2/tools/run_wiki_eval.py \
   --dry-run \
-  --clients codex,gemini,claude \
+  --clients full \
   --questions Q001 \
   --run-id versioning-smoke
 ```

@@ -12,7 +12,7 @@ Dark Data Workbench now includes a question box so saved checks and Browser AI e
 
 The current local working branch also includes a linked and illustrated colleague report in Markdown and Word format that reconstructs the Challenge 2 realtime delivery sequence from the supplied hackathon write-up, repo history, logs, and Codex thread evidence.
 
-Version 1.1 has been published from `main` and tagged as `v1.1`. The current local branch is `codex/evaluation-versioning`, which extends the Challenge 2 evaluation harness before the full 100-question model run. The branch records per-client model selectors, model-selection sources, executable versions, repository state, benchmark hashes, optional GitHub Copilot CLI configuration, and detected Microsoft Copilot desktop app versions so the later evaluation can be traced against the exact client environment.
+Version 1.1 has been published from `main` and tagged as `v1.1`. The current local branch is `codex/evaluation-versioning`, which extends the Challenge 2 evaluation harness before the full 100-question model run. The branch records per-client model selectors, reasoning effort where supported, model-selection sources, executable versions, repository state, benchmark hashes, GitHub Copilot CLI coverage, Microsoft Copilot UI coverage, and detected Microsoft Copilot desktop app versions so the later evaluation can be traced against the exact client environment.
 
 The postmortem release includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The publication line now treats the public derivative and reports as part of the Version 1.1 baseline, with the full 100-question AI comparison still outstanding.
 
@@ -63,7 +63,11 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added `tests/test_build_codex_postmortem.py` to guard postmortem contribution inference and public sanitisation regressions.
 - Published Version 1.1 from `main` with a GitHub tag and release.
 - Created `codex/evaluation-versioning` from the clean `v1.1` baseline for the next evaluation run.
-- Added Challenge 2 evaluation model/version capture for Codex, Gemini CLI, Claude Code, optional GitHub Copilot CLI, and detected Microsoft Copilot desktop apps.
+- Added Challenge 2 evaluation model/version capture for Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, Microsoft Copilot UI runs, and detected Microsoft Copilot desktop apps.
+- Added staff-confirmed `gpt-5.4` selection for GitHub Copilot CLI after contradictory public model guidance was identified.
+- Added distinct `policy_blocked` classification for GitHub Copilot CLI live requests denied by organisation, subscription, or policy controls.
+- Added a Playwright-based Microsoft Copilot UI adapter for full coverage, with caveats for authenticated profile requirements and selector/UI fragility.
+- Adjusted Microsoft Copilot UI adapter metadata to record the Playwright profile source rather than a default local profile path.
 
 ## Validation
 
@@ -119,10 +123,21 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Current evaluation-versioning validation passed locally:
   - `python3 -m py_compile challenge-2/evaluation/clients.py challenge-2/evaluation/audit.py challenge-2/tools/run_wiki_eval.py tests/test_challenge2_eval_clients.py`
   - `python3 -m json.tool challenge-2/evaluation/client-config.example.json`
+  - `node --check challenge-2/tools/microsoft_copilot_playwright.mjs`
   - `python3 -m unittest discover -s tests -p 'test_challenge2_eval*.py'`
   - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`
   - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients codex,gemini,claude --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id versioning-smoke`
   - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients github-copilot --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id copilot-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-coverage-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-config-smoke`
+  - `copilot version` returned `GitHub Copilot CLI 1.0.32` and reported it was the latest installed version.
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-coverage-smoke-xhigh`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-config-smoke-xhigh`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-config-smoke-sanitized`
+  - Inspected `full-config-smoke-sanitized/run.json`; Microsoft Copilot UI metadata records `profile_dir_source: default` rather than a local profile path, and GitHub Copilot records `gpt-5.4` with `xhigh` effort from the staff-confirmed override.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients microsoft-copilot --questions Q001 --timeout-sec 90 --output-root /tmp/challenge2-wiki-eval-versioning --run-id microsoft-live-smoke-3` returned `auth_required`, proving the adapter runs and captures sign-in evidence but still needs an authenticated Playwright profile.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients microsoft-copilot --questions Q001 --timeout-sec 90 --output-root /tmp/challenge2-wiki-eval-versioning --run-id microsoft-live-smoke-sanitized` returned `auth_required`; the captured JSON records `profileDirSource: default` and no local profile path.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients github-copilot --questions Q001 --timeout-sec 120 --output-root /tmp/challenge2-wiki-eval-versioning --run-id github-copilot-live-smoke-policy` returned `policy_blocked`, proving the installed CLI is callable but the account or organisation policy blocks live requests.
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
 
@@ -131,12 +146,15 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Review the `postmortem-public/wiki/decisions.md` defaults before publishing externally.
 - Address the security assessment findings before making any production-readiness claim: harden GitHub Actions permissions/action pinning, upgrade the low `cookie` advisory path, replace unsafe XML parsing for untrusted documents, add response-size and redirect controls to postmortem URL fetching, and define Secure by Design/DPIA/operational controls for real data.
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
-- Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through Codex, Gemini CLI, Claude Code, and any confirmed optional Copilot CLI client. Fill the scoring sheet and publish the generated leaderboard.
+- Enable/authenticate GitHub Copilot CLI policy access for live runs; the standalone `copilot` binary is installed locally, but live evaluation currently returns `policy_blocked`.
+- Configure or warm an authenticated Playwright profile for Microsoft 365 Copilot Chat before a non-dry full coverage run.
+- Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through `--clients full`. Fill the scoring sheet and publish the generated leaderboard.
 
 ## Next Recommended Steps
 
-1. Review `run.json` from a `--dry-run` versioning smoke test to confirm client paths, CLI versions, model selectors, and floating defaults.
-2. Run the full benchmark against Codex, Gemini CLI, Claude Code, and any confirmed optional Copilot CLI client using `challenge-2/tools/run_wiki_eval.py`.
-3. Score `generated/scoring-sheet.csv` and generate `generated/leaderboard.md`.
-4. Add source-backed demo answers for the five Challenge 2 demo questions.
-5. Use Dark Data Workbench during the demo to show search, context export, and source-backed checks over the generated knowledge base.
+1. Review `run.json` from a `--dry-run --clients full` versioning smoke test to confirm client paths, CLI versions, model selectors, effort settings, and UI caveats.
+2. Enable GitHub Copilot CLI policy access and warm the Microsoft Copilot Playwright profile if the full run should include live answers from those clients.
+3. Run the full benchmark with `python3 challenge-2/tools/run_wiki_eval.py --clients full`.
+4. Score `generated/scoring-sheet.csv` and generate `generated/leaderboard.md`.
+5. Add source-backed demo answers for the five Challenge 2 demo questions.
+6. Use Dark Data Workbench during the demo to show search, context export, and source-backed checks over the generated knowledge base.

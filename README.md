@@ -69,7 +69,7 @@ The workbench is deliberately useful without AI. AI export is optional and evide
 The evaluation harness tests whether AI coding agents can answer benchmark questions using only the generated wiki and approved local context. It includes:
 
 - [challenge-2/wiki/evaluation-benchmark.md](challenge-2/wiki/evaluation-benchmark.md): 100 questions, gold answers, rubrics, and scoring.
-- [challenge-2/tools/run_wiki_eval.py](challenge-2/tools/run_wiki_eval.py): CLI runner for Codex, Gemini CLI, Claude Code, and optional GitHub Copilot CLI, with per-client model/version manifests for auditable runs.
+- [challenge-2/tools/run_wiki_eval.py](challenge-2/tools/run_wiki_eval.py): CLI runner for Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, and Microsoft Copilot UI coverage, with per-client model/version manifests for auditable runs.
 - [challenge-2/tools/wiki_eval_mcp.py](challenge-2/tools/wiki_eval_mcp.py): stdio MCP audit layer.
 - [challenge-2/tools/summarise_wiki_eval.py](challenge-2/tools/summarise_wiki_eval.py): scoring-sheet and leaderboard summariser.
 

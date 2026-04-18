@@ -17,48 +17,70 @@ from .audit import ClientRunResult, utc_now
 from .questions import EvaluationQuestion
 
 
-SUPPORTED_CLIENTS = ("codex", "gemini", "claude", "github-copilot")
+SUPPORTED_CLIENTS = ("codex", "gemini", "claude", "github-copilot", "microsoft-copilot")
 DEFAULT_CLIENTS = ("codex", "gemini", "claude")
+FULL_COVERAGE_CLIENTS = SUPPORTED_CLIENTS
 
 MODEL_ENV_VARS = {
     "codex": ("CODEX_MODEL",),
     "gemini": ("GEMINI_MODEL",),
     "claude": ("CLAUDE_MODEL", "ANTHROPIC_MODEL"),
     "github-copilot": ("COPILOT_MODEL",),
+    "microsoft-copilot": (),
+}
+
+MODEL_EFFORT_ENV_VARS = {
+    "codex": ("CODEX_REASONING_EFFORT",),
+    "claude": ("CLAUDE_CODE_EFFORT_LEVEL",),
+    "github-copilot": (),
+    "gemini": (),
+    "microsoft-copilot": (),
 }
 
 MODEL_POLICIES: dict[str, dict[str, Any]] = {
     "codex": {
         "default_model": "gpt-5.4",
         "default_source": "built_in_latest_explicit",
+        "default_effort": "xhigh",
         "pass_default_model_arg": True,
-        "latest_policy": "OpenAI model documentation recommends gpt-5.4 for complex reasoning and coding workflows.",
-        "reference_url": "https://developers.openai.com/api/docs/models",
+        "latest_policy": "OpenAI model documentation describes gpt-5.4 as the frontier model for complex professional work; the harness sets xhigh reasoning effort for best-model runs.",
+        "reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
         "reference_checked_at": "2026-04-18",
     },
     "gemini": {
         "default_model": "auto",
         "default_source": "cli_default_auto_routing",
         "pass_default_model_arg": False,
-        "latest_policy": "Gemini CLI defaults to Auto routing; current docs describe Gemini 3 Auto routing over Gemini 3 Pro/Flash where available.",
-        "reference_url": "https://geminicli.com/docs/cli/model-routing/",
+        "known_default_model_label": "Auto routing over Gemini 3 and available Gemini 3.1 models",
+        "latest_policy": "Gemini CLI docs recommend Auto routing; Gemini 3.1 Pro Preview is included in routing where available, so the harness leaves routing to the installed client.",
+        "reference_url": "https://geminicli.com/docs/get-started/gemini-3/",
         "reference_checked_at": "2026-04-18",
     },
     "claude": {
-        "default_model": "opus",
-        "default_source": "built_in_latest_alias",
+        "default_model": "best",
+        "default_source": "built_in_best_alias",
+        "default_effort": "max",
         "pass_default_model_arg": True,
-        "latest_policy": "Claude Code's opus alias selects the most capable Opus model available to the account; record the CLI version because the alias floats.",
+        "latest_policy": "Claude Code documents best as the most capable available model and currently equivalent to opus; the harness uses max effort for best-model runs.",
         "reference_url": "https://code.claude.com/docs/en/model-config",
         "reference_checked_at": "2026-04-18",
     },
     "github-copilot": {
-        "default_model": "copilot-cli-default",
-        "default_source": "cli_default_floating",
-        "known_default_model_label": "Claude Sonnet 4.5",
+        "default_model": "gpt-5.4",
+        "default_source": "staff_confirmed_best_override",
+        "default_effort": "xhigh",
+        "pass_default_model_arg": True,
+        "latest_policy": "Staff-confirmed override after contradictory Copilot documentation: use gpt-5.4 with xhigh effort for GitHub Copilot CLI best-model coverage; public Copilot docs are retained as context.",
+        "reference_url": "https://docs.github.com/en/copilot/reference/ai-models/model-comparison",
+        "reference_checked_at": "2026-04-18",
+    },
+    "microsoft-copilot": {
+        "default_model": "gpt-5-auto-routed",
+        "default_source": "microsoft_365_copilot_default_gpt5",
+        "known_default_model_label": "Microsoft 365 Copilot Chat GPT-5 with automatic routing",
         "pass_default_model_arg": False,
-        "latest_policy": "GitHub documents the Copilot CLI default as Claude Sonnet 4.5 and reserves the right to change it; pass --model only when deliberately pinned.",
-        "reference_url": "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli",
+        "latest_policy": "Microsoft 365 Copilot release notes state Copilot Chat uses GPT-5 by default and routes prompts to the best-performing models for each task.",
+        "reference_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes",
         "reference_checked_at": "2026-04-18",
     },
 }
@@ -68,16 +90,20 @@ CLIENT_VERSION_COMMANDS = {
     "gemini": (("gemini", "--version"),),
     "claude": (("claude", "--version"),),
     "github-copilot": (
+        ("copilot", "version"),
         ("copilot", "--version"),
         ("gh", "--version"),
         ("gh", "copilot", "--help"),
     ),
+    "microsoft-copilot": (("node", "--version"),),
 }
 
 MACOS_AI_APP_PATHS = (
     "/Applications/Copilot.app",
     "/Applications/Microsoft 365 Copilot.app",
 )
+
+MICROSOFT_COPILOT_URL = "https://m365.cloud.microsoft/chat"
 
 
 @dataclass(frozen=True)
@@ -146,6 +172,7 @@ def describe_client(
         "command_config": _public_client_config_metadata(client_config),
         "executables": _describe_executables(client, client_config),
         "version_checks": [_run_version_check(command) for command in CLIENT_VERSION_COMMANDS.get(client, ())],
+        "ui_automation": _describe_ui_automation(client, client_config),
         "platform": {
             "system": platform.system(),
             "release": platform.release(),
@@ -194,23 +221,28 @@ def resolve_model(
         model = model_override.strip()
         source = "run_argument"
         pass_model_arg = True
+        effort = _configured_effort(client, client_config, policy)
     elif str(client_config.get("model") or "").strip():
         model = str(client_config["model"]).strip()
         source = str(client_config.get("model_source") or "client_config")
         pass_model_arg = bool(client_config.get("pass_model_arg", True))
+        effort = _configured_effort(client, client_config, policy)
     else:
         env_model = _first_model_environment(client)
         if env_model is not None:
             model, env_var = env_model
             source = f"environment:{env_var}"
             pass_model_arg = True
+            effort = _configured_effort(client, client_config, policy)
         else:
             model = str(policy.get("default_model") or "")
             source = str(policy.get("default_source") or "unspecified")
             pass_model_arg = bool(policy.get("pass_default_model_arg", bool(model)))
+            effort = _configured_effort(client, client_config, policy)
 
     return {
         "selected_model": model or None,
+        "reasoning_effort": effort,
         "source": source,
         "pass_model_arg": pass_model_arg and bool(model),
         "known_default_model_label": policy.get("known_default_model_label"),
@@ -248,13 +280,19 @@ def build_client_invocation(
             "exec",
             "-m",
             command_model or "gpt-5.4",
-            "--json",
-            "-o",
-            str(context.assistant_response_path),
-            "-C",
-            str(context.repo_root),
-            context.prompt,
         ]
+        if model.get("reasoning_effort"):
+            command.extend(["-c", f"model_reasoning_effort=\"{model['reasoning_effort']}\""])
+        command.extend(
+            [
+                "--json",
+                "-o",
+                str(context.assistant_response_path),
+                "-C",
+                str(context.repo_root),
+                context.prompt,
+            ]
+        )
     elif context.client == "gemini":
         command = [
             "gemini",
@@ -272,9 +310,17 @@ def build_client_invocation(
         command = ["claude"]
         if pass_model_arg:
             command.extend(["--model", command_model])
+        if model.get("reasoning_effort"):
+            command.extend(["--effort", str(model["reasoning_effort"])])
         command.extend(["-p", "--output-format", "json", context.prompt])
     elif context.client == "github-copilot":
-        command = _github_copilot_command(context, command_model if pass_model_arg else None)
+        command = _github_copilot_command(
+            context,
+            command_model if pass_model_arg else None,
+            str(model.get("reasoning_effort") or "") or None,
+        )
+    elif context.client == "microsoft-copilot":
+        command = _microsoft_copilot_command(context, client_config)
     else:
         raise ValueError(f"Unsupported client: {context.client}")
 
@@ -343,13 +389,14 @@ def run_client(
         stdout_path.write_text(proc.stdout or "", encoding="utf-8")
         stderr_path.write_text(proc.stderr or "", encoding="utf-8")
         answer_text = _read_answer_text(context.assistant_response_path, proc.stdout)
+        status = _client_status(context.client, proc.returncode, context.assistant_response_path, proc.stderr)
         return ClientRunResult(
             run_id=context.run_dir.name,
             client=context.client,
             question_id=context.question_id,
             model=selected_model,
             command=command,
-            status="completed" if proc.returncode == 0 else "failed",
+            status=status,
             answer_text=answer_text,
             elapsed_seconds=elapsed,
             started_at=started_at,
@@ -359,6 +406,27 @@ def run_client(
             stdout_path=str(stdout_path),
             stderr_path=str(stderr_path),
             error=None if proc.returncode == 0 else f"{context.client} exited with {proc.returncode}",
+            metadata=metadata,
+        )
+    except FileNotFoundError as exc:
+        elapsed = time.monotonic() - started
+        stderr_path.write_text(str(exc), encoding="utf-8")
+        return ClientRunResult(
+            run_id=context.run_dir.name,
+            client=context.client,
+            question_id=context.question_id,
+            model=selected_model,
+            command=command,
+            status="unavailable",
+            answer_text="",
+            elapsed_seconds=elapsed,
+            started_at=started_at,
+            finished_at=utc_now(),
+            exit_code=127,
+            prompt_path=str(prompt_path),
+            stdout_path=str(stdout_path),
+            stderr_path=str(stderr_path),
+            error=f"{context.client} executable unavailable: {exc}",
             metadata=metadata,
         )
     except subprocess.TimeoutExpired as exc:
@@ -390,6 +458,24 @@ def _read_answer_text(assistant_response_path: Path, stdout: str) -> str:
     if assistant_response_path.exists() and assistant_response_path.stat().st_size:
         return assistant_response_path.read_text(encoding="utf-8", errors="replace")
     return stdout or ""
+
+
+def _client_status(client: str, returncode: int, assistant_response_path: Path, stderr: str = "") -> str:
+    if returncode == 0:
+        return "completed"
+    if client == "github-copilot" and "Copilot CLI not installed" in stderr:
+        return "unavailable"
+    if client == "github-copilot" and "Access denied by policy settings" in stderr:
+        return "policy_blocked"
+    if client == "microsoft-copilot" and assistant_response_path.exists():
+        try:
+            payload = json.loads(assistant_response_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            return "failed"
+        status = str(payload.get("status") or "").strip()
+        if status:
+            return status
+    return "failed"
 
 
 def _coerce_output(value: str | bytes | None) -> str:
@@ -433,10 +519,22 @@ def _first_model_environment(client: str) -> tuple[str, str] | None:
 
 def _capture_model_environment(client: str) -> dict[str, dict[str, Any]]:
     captured: dict[str, dict[str, Any]] = {}
-    for name in MODEL_ENV_VARS.get(client, ()):
+    for name in MODEL_ENV_VARS.get(client, ()) + MODEL_EFFORT_ENV_VARS.get(client, ()):
         value = os.environ.get(name)
         captured[name] = {"set": value is not None, "value": value if value else None}
     return captured
+
+
+def _configured_effort(client: str, client_config: dict[str, Any], policy: dict[str, Any]) -> str | None:
+    for key in ("reasoning_effort", "effort"):
+        if str(client_config.get(key) or "").strip():
+            return str(client_config[key]).strip()
+    for name in MODEL_EFFORT_ENV_VARS.get(client, ()):
+        value = os.environ.get(name)
+        if value:
+            return value
+    value = policy.get("default_effort")
+    return str(value) if value else None
 
 
 def _describe_executables(client: str, client_config: dict[str, Any]) -> list[dict[str, Any]]:
@@ -445,6 +543,8 @@ def _describe_executables(client: str, client_config: dict[str, Any]) -> list[di
         names.append(str(client_config["argv"][0]))
     elif client == "github-copilot":
         names.extend(["copilot", "gh"])
+    elif client == "microsoft-copilot":
+        names.append("node")
     else:
         names.append({"codex": "codex", "gemini": "gemini", "claude": "claude"}.get(client, client))
     seen: set[str] = set()
@@ -455,6 +555,27 @@ def _describe_executables(client: str, client_config: dict[str, Any]) -> list[di
         seen.add(name)
         executables.append({"name": name, "path": shutil.which(name), "available": shutil.which(name) is not None})
     return executables
+
+
+def _describe_ui_automation(client: str, client_config: dict[str, Any]) -> dict[str, Any] | None:
+    if client != "microsoft-copilot":
+        return None
+    profile_dir_source = "client_config" if client_config.get("profile_dir") else "environment"
+    if not client_config.get("profile_dir") and not os.environ.get("MICROSOFT_COPILOT_PROFILE_DIR"):
+        profile_dir_source = "default"
+    return {
+        "method": client_config.get("automation_method") or "playwright_web_ui",
+        "url": client_config.get("url") or MICROSOFT_COPILOT_URL,
+        "app_name": client_config.get("app_name") or "Microsoft 365 Copilot",
+        "profile_dir_source": profile_dir_source,
+        "profile_dir_configured": profile_dir_source != "default",
+        "headless": bool(client_config.get("headless", False)),
+        "caveats": [
+            "Microsoft Copilot is evaluated through a browser UI adapter rather than a stable headless API.",
+            "The adapter requires an authenticated Microsoft session in the Playwright profile.",
+            "Selectors, loading states, tenant policies, and model routing can change outside this repository.",
+        ],
+    }
 
 
 def _run_version_check(command: tuple[str, ...]) -> dict[str, Any]:
@@ -514,14 +635,49 @@ def _trim_output(value: str | None, limit: int = 4000) -> str:
     return value[:limit] + "\n[truncated]\n"
 
 
-def _github_copilot_command(context: ClientCommandContext, model: str | None) -> list[str]:
+def _github_copilot_command(
+    context: ClientCommandContext, model: str | None, reasoning_effort: str | None
+) -> list[str]:
     if shutil.which("copilot"):
         command = ["copilot"]
     else:
         command = ["gh", "copilot", "--"]
+    command.extend(
+        [
+            f"--add-dir={context.challenge_root}",
+            "--available-tools=read",
+            "--allow-tool=read",
+        ]
+    )
     if model:
         command.extend(["--model", model])
+    if reasoning_effort:
+        command.append(f"--reasoning-effort={reasoning_effort}")
     command.extend(["-p", context.prompt])
+    return command
+
+
+def _microsoft_copilot_command(context: ClientCommandContext, client_config: dict[str, Any]) -> list[str]:
+    script_path = context.challenge_root / "tools" / "microsoft_copilot_playwright.mjs"
+    command = [
+        "node",
+        str(script_path),
+        "--client",
+        context.client,
+        "--url",
+        str(client_config.get("url") or MICROSOFT_COPILOT_URL),
+        "--output",
+        str(context.assistant_response_path),
+        "--artifact-dir",
+        str(context.run_dir / "raw" / context.client / f"{context.question_id}.ui"),
+        "--prompt",
+        context.prompt,
+    ]
+    profile_dir = client_config.get("profile_dir")
+    if profile_dir:
+        command.extend(["--profile-dir", str(profile_dir)])
+    if client_config.get("headless"):
+        command.append("--headless")
     return command
 
 
@@ -531,8 +687,15 @@ def _public_client_config_metadata(client_config: dict[str, Any]) -> dict[str, A
         "model_source",
         "model_reference_url",
         "model_reference_checked_at",
+        "reasoning_effort",
+        "effort",
         "latest_policy",
         "pass_model_arg",
+        "automation_method",
+        "url",
+        "app_name",
+        "profile_dir",
+        "headless",
         "notes",
     }
     return {key: client_config[key] for key in allowed_keys if key in client_config}

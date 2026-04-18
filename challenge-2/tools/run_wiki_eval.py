@@ -19,6 +19,7 @@ from evaluation.audit import ChallengeAuditRecorder, sha256_file  # noqa: E402
 from evaluation.clients import (  # noqa: E402
     ClientCommandContext,
     DEFAULT_CLIENTS,
+    FULL_COVERAGE_CLIENTS,
     SUPPORTED_CLIENTS,
     build_wiki_prompt,
     describe_client,
@@ -35,7 +36,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--clients",
         default=",".join(DEFAULT_CLIENTS),
-        help=f"Comma-separated clients to run: {', '.join(SUPPORTED_CLIENTS)}.",
+        help=f"Comma-separated clients to run, or 'default'/'full'. Supported: {', '.join(SUPPORTED_CLIENTS)}.",
     )
     parser.add_argument("--questions", help="Comma-separated question IDs, for example Q001,Q002.")
     parser.add_argument("--category", help="Category substring filter.")
@@ -138,6 +139,10 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def _parse_clients(raw: str) -> list[str]:
+    if raw.strip().lower() == "default":
+        return list(DEFAULT_CLIENTS)
+    if raw.strip().lower() == "full":
+        return list(FULL_COVERAGE_CLIENTS)
     clients = _split_csv(raw)
     if not clients:
         raise SystemExit("At least one client is required.")

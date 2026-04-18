@@ -31,14 +31,16 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added `tools/check_documentation_lockstep.py` and a GitHub Actions workflow to enforce tracking-file updates on pull requests.
 - Added `challenge-2/wiki/evaluation-benchmark.md` with 100 source-backed questions, gold answers, per-question rubrics, and a 500-point summative scoring regime for Challenge 2 wiki evaluation.
 - Added a Challenge 2 wiki evaluation harness under `challenge-2/evaluation/` and `challenge-2/tools/run_wiki_eval.py` for Codex, Gemini CLI, and Claude Code prompt runs.
-- Added per-client model/version manifests to Challenge 2 evaluation runs, including selected model source, model-reference URL/date, executable paths, version-command outputs, repo state, benchmark hash, and detected macOS Copilot desktop app versions.
-- Added optional GitHub Copilot CLI support to the Challenge 2 evaluation harness, gated behind explicit `--clients github-copilot` selection or client configuration.
+- Added per-client model/version manifests to Challenge 2 evaluation runs, including selected model source, reasoning effort where supported, model-reference URL/date, executable paths, version-command outputs, repo state, benchmark hash, and detected macOS Copilot desktop app versions.
+- Added full-coverage Challenge 2 evaluation support for GitHub Copilot CLI and Microsoft Copilot UI runs, including a caveated Playwright adapter for Microsoft 365 Copilot Chat.
+- Added a `full` client alias for running Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, and Microsoft Copilot together.
+- Added a distinct `policy_blocked` status for GitHub Copilot CLI live runs denied by organisation, subscription, or policy controls.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
 
 ### Changed
 
-- Updated Challenge 2 evaluation default model policy to use explicit `gpt-5.4` for Codex, Gemini CLI Auto routing, and Claude Code's `opus` latest-model alias, with floating selectors recorded as aliases rather than immutable model snapshots.
+- Updated Challenge 2 evaluation best-model policy to use `gpt-5.4` with `xhigh` effort for Codex, Gemini CLI Auto routing, Claude Code `best` with `max` effort, staff-confirmed `gpt-5.4` for GitHub Copilot CLI, and Microsoft 365 Copilot Chat GPT-5 automatic routing for Microsoft Copilot.
 
 ### Fixed
 
@@ -53,6 +55,10 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Fixed postmortem contribution inference so `pr` and `git` are matched as whole words instead of substrings inside words such as `prompt` or `legitimate`.
 - Fixed Karpathy X source snapshot URLs to use a single Jina Reader prefix instead of proxying an already proxied URL.
 - Fixed public postmortem sanitisation for bare local user-path markers and local state-file mentions in explanatory text.
+
+### Security
+
+- Avoided recording default local Microsoft Copilot Playwright profile paths in generated UI-adapter metadata; runs now record the profile source instead.
 
 ### Documentation
 

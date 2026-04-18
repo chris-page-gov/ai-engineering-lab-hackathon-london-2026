@@ -13,6 +13,7 @@ CHALLENGE_ROOT = REPO_ROOT / "challenge-2"
 sys.path.insert(0, str(CHALLENGE_ROOT))
 
 from evaluation.clients import ClientCommandContext, build_client_invocation, run_client  # noqa: E402
+from evaluation.clients import _client_status  # noqa: E402
 
 
 class Challenge2EvalClientsTest(unittest.TestCase):
@@ -25,6 +26,7 @@ class Challenge2EvalClientsTest(unittest.TestCase):
             self.assertIn("gpt-5.4", codex_command)
             self.assertEqual(codex_metadata["model"]["selected_model"], "gpt-5.4")
             self.assertEqual(codex_metadata["model"]["source"], "built_in_latest_explicit")
+            self.assertEqual(codex_metadata["model"]["reasoning_effort"], "xhigh")
 
             gemini_command, gemini_metadata = build_client_invocation(self._context(run_dir, "gemini"), {})
             self.assertNotIn("--model", gemini_command)
@@ -33,8 +35,24 @@ class Challenge2EvalClientsTest(unittest.TestCase):
 
             claude_command, claude_metadata = build_client_invocation(self._context(run_dir, "claude"), {})
             self.assertIn("--model", claude_command)
-            self.assertIn("opus", claude_command)
-            self.assertEqual(claude_metadata["model"]["selected_model"], "opus")
+            self.assertIn("best", claude_command)
+            self.assertIn("--effort", claude_command)
+            self.assertIn("max", claude_command)
+            self.assertEqual(claude_metadata["model"]["selected_model"], "best")
+
+            copilot_command, copilot_metadata = build_client_invocation(
+                self._context(run_dir, "github-copilot"), {}
+            )
+            self.assertIn("gpt-5.4", copilot_command)
+            self.assertIn("--reasoning-effort=xhigh", copilot_command)
+            self.assertEqual(copilot_metadata["model"]["source"], "staff_confirmed_best_override")
+            self.assertEqual(copilot_metadata["model"]["reasoning_effort"], "xhigh")
+
+            microsoft_command, microsoft_metadata = build_client_invocation(
+                self._context(run_dir, "microsoft-copilot"), {}
+            )
+            self.assertIn("microsoft_copilot_playwright.mjs", " ".join(microsoft_command))
+            self.assertEqual(microsoft_metadata["model"]["selected_model"], "gpt-5-auto-routed")
 
     def test_dry_run_records_resolved_model_and_manifest(self) -> None:
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {}, clear=True):
@@ -61,6 +79,18 @@ class Challenge2EvalClientsTest(unittest.TestCase):
             self.assertEqual(result.model, "auto")
             self.assertEqual(result.metadata["invocation"]["model"]["source"], "cli_default_auto_routing")
             self.assertEqual(result.metadata["client_manifest"]["client"], "gemini")
+
+    def test_github_copilot_policy_denial_is_classified(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            assistant_response_path = Path(tmp) / "missing.txt"
+            status = _client_status(
+                "github-copilot",
+                1,
+                assistant_response_path,
+                "Error: Access denied by policy settings",
+            )
+
+            self.assertEqual(status, "policy_blocked")
 
     def _context(
         self,

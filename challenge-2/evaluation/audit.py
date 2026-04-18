@@ -266,6 +266,7 @@ class ChallengeAuditRecorder:
             f"Client: {result.client}",
             f"Model: {result.model or ''}",
             f"Model source: {model_info.get('source') or ''}",
+            f"Reasoning effort: {model_info.get('reasoning_effort') or ''}",
             f"Model reference: {model_info.get('reference_url') or ''}",
             f"Model reference checked at: {model_info.get('reference_checked_at') or ''}",
             f"Command source: {invocation.get('command_source') or ''}",

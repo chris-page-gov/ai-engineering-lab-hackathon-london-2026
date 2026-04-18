@@ -3,13 +3,16 @@
   "codex": {
     "model": "gpt-5.4",
     "model_source": "explicit_latest_openai_docs",
-    "model_reference_url": "https://developers.openai.com/api/docs/models",
+    "model_reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
     "model_reference_checked_at": "2026-04-18",
+    "reasoning_effort": "xhigh",
     "argv": [
       "codex",
       "exec",
       "-m",
       "{model}",
+      "-c",
+      "model_reasoning_effort=\"xhigh\"",
       "--json",
       "-o",
       "{assistant_response_path}",
@@ -21,7 +24,7 @@
   "gemini": {
     "model": "auto",
     "model_source": "gemini_cli_auto_routing",
-    "model_reference_url": "https://geminicli.com/docs/cli/model-routing/",
+    "model_reference_url": "https://geminicli.com/docs/get-started/gemini-3/",
     "model_reference_checked_at": "2026-04-18",
     "pass_model_arg": false,
     "argv": [
@@ -37,14 +40,17 @@
     ]
   },
   "claude": {
-    "model": "opus",
-    "model_source": "claude_code_latest_alias",
+    "model": "best",
+    "model_source": "claude_code_best_alias",
     "model_reference_url": "https://code.claude.com/docs/en/model-config",
     "model_reference_checked_at": "2026-04-18",
+    "reasoning_effort": "max",
     "argv": [
       "claude",
       "--model",
       "{model}",
+      "--effort",
+      "max",
       "-p",
       "--output-format",
       "json",
@@ -52,17 +58,33 @@
     ]
   },
   "github-copilot": {
-    "model": "",
-    "model_source": "copilot_cli_default_floating",
-    "model_reference_url": "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli",
+    "model": "gpt-5.4",
+    "model_source": "staff_confirmed_best_override",
+    "model_reference_url": "https://docs.github.com/en/copilot/reference/ai-models/model-comparison",
     "model_reference_checked_at": "2026-04-18",
-    "notes": "Optional client. The standalone copilot binary was not on PATH during harness setup; gh copilot can download/run it. Keep model blank to record GitHub's floating default, or pin with --model CLIENT=MODEL after confirming the installed Copilot CLI model list.",
+    "reasoning_effort": "xhigh",
+    "notes": "Full-coverage client. Staff-confirmed override uses GPT-5.4 with xhigh effort despite contradictory public Copilot documentation. Install and authenticate the standalone copilot binary before non-dry runs; organisation or subscription policy can still block live requests.",
     "argv": [
-      "gh",
       "copilot",
-      "--",
+      "--add-dir={challenge_root}",
+      "--available-tools=read",
+      "--allow-tool=read",
+      "--model",
+      "{model}",
+      "--reasoning-effort=xhigh",
       "-p",
       "{prompt}"
     ]
+  },
+  "microsoft-copilot": {
+    "model": "gpt-5-auto-routed",
+    "model_source": "microsoft_365_copilot_default_gpt5",
+    "model_reference_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes",
+    "model_reference_checked_at": "2026-04-18",
+    "automation_method": "playwright_web_ui",
+    "url": "https://m365.cloud.microsoft/chat",
+    "app_name": "Microsoft 365 Copilot",
+    "headless": false,
+    "notes": "Full-coverage UI client. This uses a brittle Playwright browser adapter against Microsoft 365 Copilot Chat because no stable headless local API is available. It requires an authenticated browser profile and may need manual sign-in before the benchmark run."
   }
 }
