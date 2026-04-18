@@ -1,134 +1,154 @@
-# AI Engineering Lab Hackathon
+# Challenge 2 Dark Data Implementation
 
-A one-day event where you work in a small team to build a working prototype that addresses a real cross-government challenge. You will use your AI coding tools throughout the day to plan, write, test, and present your solution.
+This fork is Team DSIT A's working Challenge 2 implementation and evidence pack from the AI Engineering Lab Hackathon London 2026.
 
-This event is open to all engineers in the AI Engineering Lab community, whether your department is currently on the programme or not.
+It demonstrates how a messy collection of government-style guidance, policy, procedure, PDF, Word, and spreadsheet material can be turned into a source-backed knowledge base, inspected without AI, exported to AI tools with explicit evidence, evaluated through a repeatable benchmark, and preserved as an auditable postmortem of human and Codex contributions.
 
-## What this is
+The original repository was an event pack for a one-day AI-assisted engineering hackathon. This fork now serves a different purpose: it is the implementation record for the "Unlocking the dark data" challenge and a worked example of how AI coding assistants can help build, test, document, and critique a government-style prototype.
 
-This is not a competition to write the most code. It is about showing how AI tools change the way you work, and building something that could make a real difference to how government operates.
+## Value Proposition
 
-### AI coding tools and your application
+Challenge 2 asks what it would take to make large volumes of government documentation findable, source-backed, and usable by people and AI systems. This fork provides a concrete answer:
 
-You will use AI coding tools (GitHub Copilot, Amazon Kiro, Gemini Code Assist, or similar) to help you plan, write, and test your prototype. These tools assist your development process. The [AI Engineering Lab repository](https://github.com/govuk-digital-backbone/aiengineeringlab) has resources and guidance on getting the most from AI coding tools.
+- A generated LLM Wiki over 43 synthetic source documents, with one source note per raw document.
+- Topic, entity, map, table, source-register, and lint outputs for transparent navigation.
+- A browser workbench for searching, filtering, reading, selecting, and exporting evidence without requiring AI.
+- Browser AI and MCP export paths that carry the user's question and selected sources together.
+- A 100-question evaluation benchmark for testing whether AI coding agents can answer from the generated wiki.
+- Audit and postmortem artifacts showing how the implementation was produced, validated, reviewed, and packaged for publication.
+- A government-security assessment of the repo and of Codex's suitability across contribution modes.
 
-> The event does not provide access to AI models (such as large language model APIs) for use within your application.
+The result is not a production government service. It is a tested prototype and evidence trail showing how dark-data engineering could work, what controls helped, and what would still be required before real government data or production use.
 
-If your team has access to models through your own department or personal accounts, or if you want to use locally hosted models, that is fine. You can also mock AI capabilities in your prototype. The focus is on what you build and how you use your coding tools to build it, not on embedding AI into the solution itself.
+## Start Here
 
-By the end of the day, your team will have:
+For the Challenge 2 implementation:
 
-- chosen a challenge and scoped a realistic solution
-- built a working prototype using AI-assisted development
-- reflected on how AI tools shaped your approach
-- explained your work to a judging panel at your table
+- [Challenge 2 brief](challenge-02-unlocking-the-dark-data.md): the original problem statement.
+- [Challenge 2 wiki index](challenge-2/wiki/index.md): generated Obsidian-friendly knowledge base.
+- [Demonstration guide](challenge-2/wiki/demonstration-guide.md): end-to-end walkthrough of the prototype.
+- [Dark Data Workbench guide](challenge-2/wiki/workbench.md): how to run and use the browser workbench.
+- [Evaluation benchmark](challenge-2/wiki/evaluation-benchmark.md): 100 source-backed questions with scoring guidance.
+- [Realtime delivery report](output/doc/challenge-2-realtime-delivery-report.md): narrative reconstruction of the build.
+- [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem.
+- [Contribution modes and security assessment](output/doc/codex-contribution-modes-security-assessment.md): assessment of Codex, contribution modes, and security findings.
+- [LinkedIn announcement draft](output/doc/linkedin-version-1-1-announcement.md): publication post for Version 1.1.
 
-## The challenges
+## What Was Built
 
-The four challenges below are examples drawn from real cross-government needs. They are provided to give your team a well-defined problem with starter data and hints. You are not required to use them. If your team has a problem from your own work that you would rather tackle, bring it.
+### Generated LLM Wiki
 
-Your solution should be demoable by the end of the day.
+The Challenge 2 wiki turns raw source material into structured Markdown and machine-readable outputs:
 
-### Open brief
+- raw Challenge 2 sources remain immutable
+- generated notes live under `challenge-2/wiki/`
+- source notes preserve provenance and caveats
+- topic, entity, and map notes make the corpus navigable
+- JSON and table exports support tool use
+- lint output checks generated coverage, links, metadata, and known challenge flags
 
-Teams are actively encouraged to bring their own problems. If you work with a process, a dataset, or a user experience that frustrates you or the people around you, this is a good opportunity to do something about it. The four challenges above are examples — you are not required to use them.
+The repeatable builder is [challenge-2/tools/build_wiki.py](challenge-2/tools/build_wiki.py).
 
-To propose an open brief, speak to a facilitator during the morning session before 10:00. Your problem must be achievable as a working prototype in one day and use open or synthetic data.
+### Dark Data Workbench
 
-[Read the full open brief guidance — including prompts to help you frame your problem](open-brief.md)
+The workbench in [challenge-2/workbench/](challenge-2/workbench/) is a SvelteKit browser UI over the generated corpus. It supports:
 
-### Challenge 1: From PDF to digital service
+- searching and filtering sources
+- reading source metadata and extracted content
+- building explicit context sets
+- saving source-context selections locally
+- exporting evidence bundles
+- copying Browser AI prompts
+- generating MCP-ready context
+- running saved source-backed checks
 
-In many parts of government, official processes still rely on PDF forms: download, print, fill in by hand, scan, and post or email back. Citizens receive no confirmation, have no way to check status, and may find out weeks later that something was missing. The teams receiving those submissions handle them manually at every step.
+The workbench is deliberately useful without AI. AI export is optional and evidence-led.
 
-This challenge is about the citizen and the caseworker on either side of that process — and what a genuinely better experience looks like for both. A good starting point if your team is newer to AI coding tools.
+### Evaluation Harness
 
-Use `challenge-1/FORM-LIC-001-licence-application.pdf` as the default sample form for this challenge.
+The evaluation harness tests whether AI coding agents can answer benchmark questions using only the generated wiki and approved local context. It includes:
 
-[Read the full challenge brief](challenge-01-from-pdf-to-digital-service.md)
+- [challenge-2/wiki/evaluation-benchmark.md](challenge-2/wiki/evaluation-benchmark.md): 100 questions, gold answers, rubrics, and scoring.
+- [challenge-2/tools/run_wiki_eval.py](challenge-2/tools/run_wiki_eval.py): CLI runner for Codex, Gemini CLI, and Claude Code.
+- [challenge-2/tools/wiki_eval_mcp.py](challenge-2/tools/wiki_eval_mcp.py): stdio MCP audit layer.
+- [challenge-2/tools/summarise_wiki_eval.py](challenge-2/tools/summarise_wiki_eval.py): scoring-sheet and leaderboard summariser.
 
-### Challenge 2: Unlocking the dark data
+### Postmortem and Publication Pack
 
-Government produces an enormous amount of guidance, policy, and procedural documentation. Most of it is published. Very little of it is genuinely findable. Citizens cannot get a direct answer to a specific question. Officials spend significant time locating guidance that exists somewhere but is not easily accessible. The GOV.UK App is building chat capabilities that depend on this content being structured — and right now, most of it is not.
+This branch also contains a public postmortem derivative:
 
-This challenge is about the citizen who wants an answer, the official who needs the right policy at the right moment, and the infrastructure that makes both possible.
+- `postmortem/` is the private local evidence archive and is gitignored.
+- [postmortem-public/](postmortem-public/) is the GitHub-safe derivative.
+- [tools/build_codex_postmortem.py](tools/build_codex_postmortem.py) regenerates both the private archive and the public derivative.
 
-Starter data is provided in `challenge-2/` — choose between structured files (20 text-based documents in HTML, Markdown, and plain text) and/or unstructured files (23 binary-format documents including Word, PDF, and spreadsheets).
+The public postmortem preserves sequence, decisions, artifact links, and contribution evidence while excluding raw transcripts, local-only paths, and unlicensed copied third-party source bodies.
 
-[Read the full challenge brief](challenge-02-unlocking-the-dark-data.md)
+## Original Hackathon Context
 
-### Challenge 3: Supporting casework decisions
+The upstream repository was created for the AI Engineering Lab Hackathon London 2026: a one-day event where teams used AI coding tools to build prototypes against cross-government challenge briefs.
 
-Caseworkers across government spend a significant part of their day on information-gathering tasks — reading through notes to understand a case, looking up which policy applies, checking whether evidence has arrived, identifying what action is needed next. These are tasks that follow predictable patterns. The judgement and decision-making that genuinely requires a person gets less time as a result.
+Challenge 2, "Unlocking the dark data", focused on a common government problem: guidance and policy material exists, but is hard to find, structure, evaluate, and use safely. This fork keeps the original briefs and starter material, but the README now documents the fork as the Challenge 2 implementation rather than as an invitation to attend the event.
 
-This challenge is about the caseworker who needs the right information quickly, the team leader who needs visibility of risk across their caseload, and the applicant who is waiting for a decision and does not know where their case stands.
+The original event material remains available:
 
-[Read the full challenge brief](challenge-03-supporting-casework-decisions.md)
+- [Open brief guidance](open-brief.md)
+- [Challenge 1: From PDF to digital service](challenge-01-from-pdf-to-digital-service.md)
+- [Challenge 2: Unlocking the dark data](challenge-02-unlocking-the-dark-data.md)
+- [Challenge 3: Supporting casework decisions](challenge-03-supporting-casework-decisions.md)
+- [Challenge 4: Knowing your own organisation](challenge-04-knowing-your-own-organisation.md)
+- [Setup guide](SETUP-GUIDE.md)
 
-### Challenge 4: Knowing your own organisation
+## Repository Map
 
-Departments hold significant information about their people, projects, and operational workload — but it is distributed across systems that were not designed to work together. When a minister asks a director how many people are working on a priority programme, the answer takes days to piece together. When a head of operations wants to know which teams are under pressure, they have to ask around rather than look it up.
+Core tracking and governance:
 
-This challenge is about the leader who needs a clear picture to make a decision, the operations manager who can see the pressure but cannot surface it in a form anyone can act on, and the team whose workload is invisible to the rest of the organisation.
+- `README.md`: this fork overview.
+- `Changelog.md`: dated change history.
+- `Context.md`: project purpose, architecture assumptions, data policy, and operating constraints.
+- `Progress.md`: implementation status, validation, blockers, and next steps.
+- `AGENTS.md`: repo-wide operating rules, including documentation lockstep.
+- `tools/check_documentation_lockstep.py`: local and CI check for tracking-document updates.
 
-[Read the full challenge brief](challenge-04-knowing-your-own-organisation.md)
+Challenge 2 implementation:
 
-## Judging
+- `challenge-2/structured_files/`: synthetic text-based starter documents.
+- `challenge-2/unstructured_files/`: synthetic binary-format starter documents.
+- `challenge-2/tools/build_wiki.py`: repeatable wiki builder.
+- `challenge-2/wiki/`: generated Obsidian-friendly knowledge base.
+- `challenge-2/wiki/demonstration-guide.md`: end-to-end demo route.
+- `challenge-2/wiki/evaluation-benchmark.md`: 100-question benchmark.
+- `challenge-2/workbench/`: SvelteKit Dark Data Workbench.
+- `challenge-2/tools/workbench_mcp.py`: MCP source search/read/context export server.
+- `challenge-2/evaluation/`: evaluation harness support code.
+- `challenge-2/tools/run_wiki_eval.py`: benchmark runner.
+- `challenge-2/tools/wiki_eval_mcp.py`: audited MCP layer for wiki evaluation.
+- `challenge-2/tools/summarise_wiki_eval.py`: leaderboard summariser.
 
-Scoring runs throughout the day, not just at the end. Your team earns points for reaching milestones during the build phase, tracked on a live dashboard visible to the room. Milestones include things like setting up your repository, producing a first working prototype, and demonstrating a complete user journey.
+Reports and publication artifacts:
 
-At the end of the build phase, judge pairs visit every team at their tables. Each pair asks a consistent set of questions about what you built, how you used AI tools, and what you would do next. They score against a simple rubric.
+- `output/doc/challenge-2-realtime-delivery-report.md`: colleague-facing delivery report.
+- `output/doc/challenge-2-realtime-delivery-report.docx`: Word version of the delivery report.
+- `output/doc/contribution-modes-proposal.md`: Markdown conversion of the attached contribution-modes proposal.
+- `output/doc/codex-contribution-modes-security-assessment.md`: contribution-mode and security assessment.
+- `output/doc/linkedin-version-1-1-announcement.md`: LinkedIn announcement draft for Version 1.1.
+- `postmortem-public/wiki/index.md`: public Codex collaboration postmortem entry point.
+- `postmortem-public/wiki/decisions.md`: publication decision register.
+- `postmortem-public/wiki/data/publication-lint-report.json`: machine-readable publication lint output.
 
-Your final score combines your milestone points with the judge review. There are no stage presentations.
+## Validation Summary
 
-## Day structure
+Recent local validation for this branch includes:
 
-| Time | Activity |
-|------|----------|
-| 08:30 | Arrival, registration and breakfast |
-| 09:00 | Welcome and kick-off |
-| 09:15 | Problem selection and team planning |
-| 09:45 | Lightning talk: Version 1: From Requirements to Release - AI's Role Across the SDLC|
-| 09:55 | Build phase |
-| 11:00 | Morning break |
-| 11:30 | Lightning talk: Microsoft: Lightning Talk: One Platform, Many Models — Choice at the Core|
-| 11:45 | Build phase (continued) |
-| 12:30 | Lunch break (optional working break) |
-| 13:45 | Lightning talk: Anthropic: Let Claude Cook |
-| 13:55 | Build phase (resumed) |
-| 14:30 | Afternoon break |
-| 14:45 | Build phase (final stretch) |
-| 15:15 | Final review — judges return to teams for rubric scoring |
-| 16:00 | Lightning talk: AWS: Pushing Security to the Left with Agentic AI|
-| 16:15 | Top 3 Finalist Presentations|
-| 16:30 | Winners announced and wrap-up |
-| 16:45 | Post-Event Networking |
+- Challenge 2 workbench typecheck, unit/component tests, production build, and Playwright tests.
+- Python compile checks for the wiki builder, MCP tools, evaluation client, postmortem builder, and documentation lockstep tool.
+- MCP unit tests for the workbench and evaluation layer.
+- Documentation lockstep validation.
+- `git diff --check` / staged whitespace validation.
+- Credential-pattern scan, unsafe-code-pattern scan, `pnpm audit`, and Bandit security scan.
 
-## Team formation
+Known security and production-readiness gaps are recorded in [output/doc/codex-contribution-modes-security-assessment.md](output/doc/codex-contribution-modes-security-assessment.md). The most important point is that this is a synthetic prototype and research artifact, not a production service.
 
-Teams are three to five people, pre-assigned before arrival. When you walk in, you already have a group to sit with. Each team is supported by a Forward Deployed Engineer (FDE) from Version 1, who acts as your technical anchor throughout the day. FDEs are experienced engineers who can help you scope your approach, unblock technical problems, and point you to the right resources. They will not write your code for you, but they know the challenges well and can help your team make decisions when you are stuck. If you registered without a team, you will be placed into one on the day.
+## Version
 
-## Materials included
-
-This workshop includes:
-
-- `README.md` (this file) — overview and day structure
-- `Changelog.md` — dated change history for repository additions, changes, fixes and documentation updates
-- `Context.md` — project context, architecture assumptions, data policy and operating constraints
-- `Progress.md` — current implementation status, validation, blockers and next steps
-- `AGENTS.md` — repo-wide operating rules, including the documentation lockstep policy
-- `SETUP-GUIDE.md` — what to do before the event
-- `open-brief.md` — guidance for teams bringing their own problem, including prompts to frame and scope it
-- `challenge-01-from-pdf-to-digital-service.md` — detailed brief, data, and prompts for challenge 1
-- `challenge-1/FORM-LIC-001-licence-application.pdf` — sample licence application PDF for challenge 1
-- `challenge-02-unlocking-the-dark-data.md` — detailed brief, data, and prompts for challenge 2
-- `challenge-2/` — starter data for challenge 2: `structured_files/` (text-based documents) and `unstructured_files/` (binary-format documents)
-- `challenge-2/wiki/demonstration-guide.md` — end-to-end Challenge 2 demo route covering source construction, Obsidian validation, the workbench, browser AI export, evaluation, and audit/FOI tracking
-- `challenge-2/wiki/evaluation-benchmark.md` — 100-question source-backed benchmark for evaluating how AI coding agents use the Challenge 2 wiki
-- `challenge-2/tools/run_wiki_eval.py` and `challenge-2/tools/wiki_eval_mcp.py` — Challenge 2 evaluation harness and auditable MCP layer
-- `challenge-03-supporting-casework-decisions.md` — detailed brief, data, and prompts for challenge 3
-- `challenge-04-knowing-your-own-organisation.md` — detailed brief, data, and prompts for challenge 4
-
----
 Version: 1.0
 Last updated: April 2026

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Anatomy of a contribution mode</title>
+  <desc id="desc">A contribution mode is defined by purpose, outputs, tooling, freedom level, assurance and evidence.</desc>
+  <rect width="1280" height="720" fill="#f8fafc"/>
+  <text x="640" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0f172a">What defines a contribution mode?</text>
+  <circle cx="640" cy="360" r="122" fill="#ffffff" stroke="#0f172a" stroke-width="4"/>
+  <text x="640" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Contribution</text>
+  <text x="640" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Mode</text>
+  <g font-family="Arial, sans-serif" font-size="22" fill="#0f172a" text-anchor="middle">
+    <rect x="145" y="155" width="250" height="95" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="270" y="195" font-weight="700">Purpose</text>
+    <text x="270" y="225" font-size="18">why this work exists</text>
+    <rect x="515" y="125" width="250" height="95" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    <text x="640" y="165" font-weight="700">Outputs</text>
+    <text x="640" y="195" font-size="18">what remains afterwards</text>
+    <rect x="885" y="155" width="250" height="95" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+    <text x="1010" y="195" font-weight="700">Tooling</text>
+    <text x="1010" y="225" font-size="18">what tools fit</text>
+    <rect x="145" y="475" width="250" height="95" rx="12" fill="#fae8ff" stroke="#c026d3" stroke-width="3"/>
+    <text x="270" y="515" font-weight="700">Freedom</text>
+    <text x="270" y="545" font-size="18">how much autonomy</text>
+    <rect x="515" y="505" width="250" height="95" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+    <text x="640" y="545" font-weight="700">Assurance</text>
+    <text x="640" y="575" font-size="18">review and controls</text>
+    <rect x="885" y="475" width="250" height="95" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+    <text x="1010" y="515" font-weight="700">Evidence</text>
+    <text x="1010" y="545" font-size="18">audit trail kept</text>
+  </g>
+  <g stroke="#64748b" stroke-width="3">
+    <line x1="395" y1="232" x2="542" y2="303"/>
+    <line x1="640" y1="220" x2="640" y2="238"/>
+    <line x1="885" y1="232" x2="738" y2="303"/>
+    <line x1="395" y1="488" x2="542" y2="417"/>
+    <line x1="640" y1="505" x2="640" y2="482"/>
+    <line x1="885" y1="488" x2="738" y2="417"/>
+  </g>
+</svg>

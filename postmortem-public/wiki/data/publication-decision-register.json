@@ -1,0 +1,74 @@
+[
+  {
+    "id": "PUB-DEC-001",
+    "decision": "Keep the private postmortem evidence archive out of Git.",
+    "default": "Apply",
+    "rationale": "The private archive contains raw transcripts, local paths, and full third-party source copies. The public folder preserves the useful evidence without those risks.",
+    "elicitation_question": "Should the raw `postmortem/` evidence archive remain local-only and ignored by Git?",
+    "status": "default_applied_pending_user_review"
+  },
+  {
+    "id": "PUB-DEC-002",
+    "decision": "Keep `.claude/settings.local.json` as a visible conventional path, but redact absolute local source locations.",
+    "default": "Include path, redact local machine provenance",
+    "rationale": "The path is a recognizable assistant configuration location. The sensitive part is the local filesystem topology, not the conventional file name.",
+    "elicitation_question": "Should `.claude/settings.local.json` remain visible in the public exchange notes?",
+    "status": "default_applied_pending_user_review"
+  },
+  {
+    "id": "PUB-DEC-003",
+    "decision": "Keep public GitHub fork permalinks and PR links where they support evidence.",
+    "default": "Include public GitHub evidence links",
+    "rationale": "The user preference is to include what can be included. Commit-specific GitHub links are the strongest public evidence.",
+    "elicitation_question": "Should public GitHub account, commit, and PR links remain visible where they evidence the timeline?",
+    "status": "default_applied_pending_user_review"
+  },
+  {
+    "id": "PUB-DEC-004",
+    "decision": "Do not publish full localized Karpathy X/gist source bodies.",
+    "default": "Citation metadata and short excerpts only",
+    "rationale": "No explicit redistribution license was found. Platform terms do not create a general off-platform redistribution license.",
+    "elicitation_question": "Should full third-party source copies remain private unless permission or an explicit license is obtained?",
+    "status": "default_applied_pending_user_review"
+  },
+  {
+    "id": "PUB-DEC-005",
+    "decision": "Redact private/local reference repositories while preserving the design influence.",
+    "default": "Redact private repo URL and local prior-work paths",
+    "rationale": "The public narrative only needs the reusable interaction pattern and audit-harness influence.",
+    "elicitation_question": "Should private repo names/URLs and local prior-work paths be replaced with neutral labels?",
+    "status": "default_applied_pending_user_review"
+  },
+  {
+    "id": "PUB-DEC-006",
+    "decision": "Reference the realtime delivery report as local-only until it is intentionally committed.",
+    "default": "Do not claim a GitHub permalink until tracked",
+    "rationale": "The report is useful evidence, but public traceability requires a committed file and commit-specific URL.",
+    "elicitation_question": "Should the realtime delivery report be committed later so it can become public permalink evidence?",
+    "status": "default_applied_pending_user_review"
+  },
+  {
+    "id": "PUB-DEC-007",
+    "decision": "Do not publish screenshot image payloads or local screenshot paths.",
+    "default": "Omit image payloads, redact paths",
+    "rationale": "The screenshots are not required to understand the engineering timeline and may expose desktop context.",
+    "elicitation_question": "Should screenshots stay out of the public package unless individually reviewed?",
+    "status": "default_applied_pending_user_review"
+  },
+  {
+    "id": "PUB-DEC-008",
+    "decision": "Do not redact Challenge 2 synthetic fixture values solely because they resemble personal data.",
+    "default": "Include synthetic fixture references",
+    "rationale": "Repository operating rules explicitly state that Challenge 2 fixture data is synthetic unless a brief says otherwise.",
+    "elicitation_question": "Should synthetic Challenge 2 names/contact-like values remain publishable when context makes them synthetic?",
+    "status": "default_applied_pending_user_review"
+  },
+  {
+    "id": "PUB-DEC-009",
+    "decision": "Preserve the prompt-response sequence in redacted exchange notes.",
+    "default": "Include redacted prompt-response files",
+    "rationale": "The sequence is the core evidence for the human/Codex contribution split.",
+    "elicitation_question": "Should the public package keep one sanitized note per prompt-response exchange?",
+    "status": "default_applied_pending_user_review"
+  }
+]

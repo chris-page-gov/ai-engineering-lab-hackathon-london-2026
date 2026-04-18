@@ -1,6 +1,18 @@
 # macOS local metadata
 .DS_Store
 
+# Python local caches
+__pycache__/
+*.py[cod]
+
+# Private Codex postmortem evidence archive. The GitHub-safe derivative lives in
+# postmortem-public/.
+postmortem/
+
+# Root-level Obsidian state is local browsing state. Challenge 2 vault settings
+# are handled separately below.
+/.obsidian/
+
 # Obsidian session state changes on every local browsing session.
 challenge-2/.obsidian/workspace.json
 challenge-2/.obsidian/workspace-mobile.json
