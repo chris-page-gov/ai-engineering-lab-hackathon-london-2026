@@ -71,6 +71,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added an optional Microsoft Copilot UI `preferred_mode` path and smoke-tested `Think Deeper` mode selection.
 - Added a client-config path for Claude Code to defer model and effort selection to DSIT-managed local Claude settings.
 - Added per-client environment overrides so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` and avoid DSIT gateway rejection of beta request fields such as `context_management`.
+- Added a Microsoft Copilot prompt-source path that cites public `v1.1` GitHub wiki permalinks and injects copied excerpts from key wiki files so the Microsoft web UI is not asked to read local filesystem paths.
 
 ## Validation
 
@@ -151,6 +152,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-explicit-config-dry-smoke` recorded explicit selectable models for Codex, Gemini, GitHub Copilot, and Microsoft Copilot, with Claude delegated to DSIT-managed local settings.
   - `python3 challenge-2/tools/run_wiki_eval.py --clients full --questions Q001 --timeout-sec 180 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-explicit-config-live-smoke` completed for Codex, Gemini, Claude, and Microsoft Copilot; GitHub Copilot CLI remained `policy_blocked`.
   - A direct Microsoft Copilot `Think Deeper` smoke with public GitHub wiki URLs selected the mode successfully but did not yield usable scored JSON, so GitHub URLs alone are not sufficient; Microsoft scoring still needs explicit source-context injection or attachment strategy.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients microsoft-copilot --questions Q001 --timeout-sec 180 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id microsoft-github-context-live-smoke` completed and returned usable JSON from the Microsoft UI client with `Think Deeper` selected, using public GitHub permalinks plus copied source excerpts instead of local paths.
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
 
@@ -161,13 +163,13 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
 - Enable/authenticate GitHub Copilot CLI policy access for live runs; the standalone `copilot` binary is installed locally, but live evaluation currently returns `policy_blocked`.
 - Use `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for Claude Code runs through the DSIT-managed gateway; the smoke test is now live-run ready with that compatibility flag.
-- Add Microsoft Copilot context injection before scoring Microsoft UI answers; the UI smoke can select `Think Deeper`, but the web session cannot read local wiki paths directly.
+- Keep Microsoft Copilot source grounding explicit for scored runs: the GitHub permalink plus copied-excerpt prompt path has passed a `Q001` smoke, while a versioned OneDrive or SharePoint wiki copy is a plausible manual fallback if GitHub access fails and should be smoke-tested before use.
 - Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through `--clients full`. Fill the scoring sheet and publish the generated leaderboard.
 
 ## Next Recommended Steps
 
 1. Review `run.json` from a `--dry-run --clients full` versioning smoke test to confirm client paths, CLI versions, model selectors, effort settings, and UI caveats.
-2. Enable GitHub Copilot CLI policy access and warm the Microsoft Copilot Playwright profile if the full run should include live answers from those clients.
+2. Enable GitHub Copilot CLI policy access and keep the Microsoft Copilot Playwright profile warm if the full run should include live answers from those clients.
 3. Run the full benchmark with `python3 challenge-2/tools/run_wiki_eval.py --clients full`.
 4. Score `generated/scoring-sheet.csv` and generate `generated/leaderboard.md`.
 5. Add source-backed demo answers for the five Challenge 2 demo questions.

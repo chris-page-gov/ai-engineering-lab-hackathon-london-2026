@@ -12,8 +12,9 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 CHALLENGE_ROOT = REPO_ROOT / "challenge-2"
 sys.path.insert(0, str(CHALLENGE_ROOT))
 
-from evaluation.clients import ClientCommandContext, build_client_invocation, run_client  # noqa: E402
+from evaluation.clients import ClientCommandContext, build_client_invocation, build_wiki_prompt, run_client  # noqa: E402
 from evaluation.clients import _client_status  # noqa: E402
+from evaluation.questions import EvaluationQuestion  # noqa: E402
 
 
 class Challenge2EvalClientsTest(unittest.TestCase):
@@ -125,6 +126,42 @@ class Challenge2EvalClientsTest(unittest.TestCase):
                 metadata["command_config"]["environment"]["CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS"],
                 "1",
             )
+
+    def test_prompt_can_use_github_permalinks_and_context_excerpts(self) -> None:
+        prompt = build_wiki_prompt(
+            EvaluationQuestion(
+                question_id="Q001",
+                category="Architecture",
+                question="What is the source of truth?",
+                gold_answer="",
+                specific_rubric="",
+                source_refs=(),
+            ),
+            repo_root=REPO_ROOT,
+            challenge_root=CHALLENGE_ROOT,
+            client_config={
+                "prompt_source_mode": "github_permalinks",
+                "github_tree_base_url": "https://github.com/example/repo/tree/v1.1",
+                "github_blob_base_url": "https://github.com/example/repo/blob/v1.1",
+                "prompt_context_paths": [
+                    "challenge-2/AGENTS.md",
+                    "challenge-2/wiki/evaluation-benchmark.md",
+                    "../outside.md",
+                ],
+                "prompt_context_max_chars": 9000,
+            },
+        )
+
+        self.assertIn("public GitHub permalink sources and the copied source excerpts", prompt)
+        self.assertIn("https://github.com/example/repo/tree/v1.1/challenge-2/wiki", prompt)
+        self.assertIn("https://github.com/example/repo/tree/v1.1/challenge-2/wiki/data", prompt)
+        self.assertIn("https://github.com/example/repo/blob/v1.1/challenge-2/AGENTS.md", prompt)
+        self.assertIn("Repository baseline: public GitHub permalink sources listed above", prompt)
+        self.assertIn("--- challenge-2/AGENTS.md ---", prompt)
+        self.assertIn("Challenge 2 LLM Wiki Operating Rules", prompt)
+        self.assertNotIn(str(REPO_ROOT), prompt)
+        self.assertNotIn("--- challenge-2/wiki/evaluation-benchmark.md ---", prompt)
+        self.assertNotIn("--- ../outside.md ---", prompt)
 
     def _context(
         self,

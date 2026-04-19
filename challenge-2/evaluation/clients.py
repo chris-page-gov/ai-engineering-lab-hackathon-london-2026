@@ -123,17 +123,29 @@ class ClientCommandContext:
     client_manifest: dict[str, Any] | None = None
 
 
-def build_wiki_prompt(question: EvaluationQuestion, *, repo_root: Path, challenge_root: Path) -> str:
+def build_wiki_prompt(
+    question: EvaluationQuestion,
+    *,
+    repo_root: Path,
+    challenge_root: Path,
+    client_config: dict[str, Any] | None = None,
+) -> str:
     """Build the per-question prompt sent to each CLI client."""
+
+    client_config = client_config or {}
+    source_lines = _prompt_source_lines(
+        repo_root=repo_root,
+        challenge_root=challenge_root,
+        client_config=client_config,
+    )
+    context_lines = _prompt_context_lines(repo_root=repo_root, client_config=client_config)
+    repository_context = _prompt_repository_context(repo_root=repo_root, client_config=client_config)
 
     return "\n".join(
         [
             "You are answering a Challenge 2 wiki evaluation question.",
             "",
-            "Use only these local repository sources as authority:",
-            f"- {challenge_root / 'wiki'}",
-            f"- {challenge_root / 'wiki' / 'data'}",
-            f"- {challenge_root / 'AGENTS.md'}",
+            *source_lines,
             "",
             "Do not use web search or outside knowledge. Do not inspect raw source files unless the question explicitly asks about provenance back to a raw file path.",
             "Do not inspect challenge-2/wiki/evaluation-benchmark.md or challenge-2/evaluation/ while answering; those are benchmark harness artifacts and contain gold-answer or scoring material.",
@@ -142,12 +154,20 @@ def build_wiki_prompt(question: EvaluationQuestion, *, repo_root: Path, challeng
             "Return concise JSON with this shape:",
             '{"question_id":"Q000","answer":"...","cited_sources":["..."],"caveats":["..."]}',
             "",
-            f"Repository root: {repo_root}",
+            repository_context,
             f"Question ID: {question.question_id}",
             f"Category: {question.category}",
             f"Question: {question.question}",
+            *context_lines,
         ]
     )
+
+
+def _prompt_repository_context(*, repo_root: Path, client_config: dict[str, Any]) -> str:
+    mode = str(client_config.get("prompt_source_mode") or "local_paths")
+    if mode == "github_permalinks":
+        return "Repository baseline: public GitHub permalink sources listed above"
+    return f"Repository root: {repo_root}"
 
 
 def load_client_config(path: Path | None) -> dict[str, Any]:
@@ -210,6 +230,66 @@ def describe_desktop_ai_apps() -> list[dict[str, Any]]:
             }
         )
     return apps
+
+
+def _prompt_source_lines(*, repo_root: Path, challenge_root: Path, client_config: dict[str, Any]) -> list[str]:
+    mode = str(client_config.get("prompt_source_mode") or "local_paths")
+    if mode == "github_permalinks":
+        tree_base = str(client_config.get("github_tree_base_url") or "").rstrip("/")
+        blob_base = str(client_config.get("github_blob_base_url") or "").rstrip("/")
+        has_context = bool(client_config.get("prompt_context_paths"))
+        if not tree_base:
+            tree_base = "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/tree/v1.1"
+        if not blob_base:
+            blob_base = tree_base.replace("/tree/", "/blob/")
+        source_intro = "Use only these public GitHub permalink sources"
+        if has_context:
+            source_intro += " and the copied source excerpts below"
+        return [
+            f"{source_intro} as authority:",
+            f"- {tree_base}/challenge-2/wiki",
+            f"- {tree_base}/challenge-2/wiki/data",
+            f"- {blob_base}/challenge-2/AGENTS.md",
+        ]
+    return [
+        "Use only these local repository sources as authority:",
+        f"- {challenge_root / 'wiki'}",
+        f"- {challenge_root / 'wiki' / 'data'}",
+        f"- {challenge_root / 'AGENTS.md'}",
+    ]
+
+
+def _prompt_context_lines(*, repo_root: Path, client_config: dict[str, Any]) -> list[str]:
+    raw_paths = client_config.get("prompt_context_paths")
+    if not isinstance(raw_paths, list) or not raw_paths:
+        return []
+    max_chars = int(client_config.get("prompt_context_max_chars") or 24000)
+    remaining = max(max_chars, 0)
+    lines = [
+        "",
+        "Copied source excerpts for clients without local filesystem access:",
+    ]
+    for raw_path in raw_paths:
+        rel_path = Path(str(raw_path))
+        if rel_path.is_absolute() or ".." in rel_path.parts:
+            continue
+        if "evaluation-benchmark.md" in rel_path.parts or "evaluation" in rel_path.parts:
+            continue
+        path = repo_root / rel_path
+        if not path.exists() or not path.is_file() or remaining <= 0:
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        excerpt = text[:remaining]
+        remaining -= len(excerpt)
+        suffix = "\n[truncated]" if len(excerpt) < len(text) else ""
+        lines.extend(
+            [
+                "",
+                f"--- {rel_path.as_posix()} ---",
+                f"{excerpt}{suffix}",
+            ]
+        )
+    return lines
 
 
 def resolve_model(
@@ -742,6 +822,11 @@ def _public_client_config_metadata(client_config: dict[str, Any]) -> dict[str, A
         "profile_dir",
         "headless",
         "preferred_mode",
+        "prompt_source_mode",
+        "github_tree_base_url",
+        "github_blob_base_url",
+        "prompt_context_paths",
+        "prompt_context_max_chars",
         "environment",
         "env",
         "notes",

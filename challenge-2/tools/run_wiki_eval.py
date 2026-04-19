@@ -97,7 +97,12 @@ def main(argv: list[str] | None = None) -> int:
 
     for question in selected:
         for client in clients:
-            prompt = build_wiki_prompt(question, repo_root=REPO_ROOT, challenge_root=CHALLENGE_ROOT)
+            prompt = build_wiki_prompt(
+                question,
+                repo_root=REPO_ROOT,
+                challenge_root=CHALLENGE_ROOT,
+                client_config=_client_config(client_config, client),
+            )
             prompt_path = recorder.write_prompt(client, question, prompt)
             assistant_response_path = run_dir / "raw" / client / f"{question.question_id}.assistant-response.txt"
             context = ClientCommandContext(
@@ -165,6 +170,13 @@ def _parse_model_overrides(values: list[str]) -> dict[str, str]:
             raise SystemExit(f"Invalid --model value {value!r}; model cannot be empty")
         overrides[client] = model.strip()
     return overrides
+
+
+def _client_config(config: dict, client: str) -> dict:
+    if not isinstance(config, dict):
+        return {}
+    value = config.get(client, {})
+    return value if isinstance(value, dict) else {}
 
 
 def _split_csv(raw: str | None) -> list[str]:

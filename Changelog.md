@@ -37,6 +37,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added a distinct `policy_blocked` status for GitHub Copilot CLI live runs denied by organisation, subscription, or policy controls.
 - Added optional Microsoft Copilot UI GPT mode selection so the Playwright adapter can attempt to select a visible mode such as `Think Deeper` before submitting benchmark prompts.
 - Added per-client environment overrides in the evaluation config so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for DSIT managed gateway compatibility.
+- Added a Microsoft Copilot prompt-source mode that replaces inaccessible local wiki paths with public GitHub permalinks plus copied source excerpts for deterministic UI-client grounding.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
 
@@ -44,6 +45,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 - Updated Challenge 2 evaluation best-model policy to use `gpt-5.4` with `xhigh` effort for Codex, Gemini CLI Auto routing, Claude Code `best` with `max` effort, staff-confirmed `gpt-5.4` for GitHub Copilot CLI, and Microsoft 365 Copilot Chat GPT-5 automatic routing for Microsoft Copilot.
 - Allowed client config to suppress a default reasoning-effort argument with JSON `null`, enabling Claude Code runs that defer model and effort selection to DSIT-managed local Claude settings.
+- Updated the Microsoft Copilot example config to prefer `Think Deeper`, cite the public `v1.1` GitHub wiki, and inject key wiki excerpts because the Microsoft web UI cannot read local repository paths.
 
 ### Fixed
 

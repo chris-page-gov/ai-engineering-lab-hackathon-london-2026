@@ -42,17 +42,17 @@
     ]
   },
   "claude": {
-    "model": "local-settings-managed",
-    "model_source": "dsit_managed_local_settings",
+    "model": "opus",
+    "model_source": "dsit_managed_opus_alias",
     "model_reference_url": "https://code.claude.com/docs/en/model-config",
     "model_reference_checked_at": "2026-04-18",
-    "pass_model_arg": false,
+    "pass_model_arg": true,
     "reasoning_effort": null,
     "environment": {
       "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
     },
-    "latest_policy": "Claude Code is allowed to use the repository-local DSIT managed Claude settings for model routing, expected to resolve to Opus 4.6 in this environment. Experimental beta fields are disabled for compatibility with the DSIT managed gateway.",
-    "notes": "The local DSIT Claude settings select the managed model path. The environment flag prevents Claude Code 2.1.x from sending beta request fields such as context_management through the managed gateway."
+    "latest_policy": "Claude Code uses the DSIT managed Opus alias, which resolves to Opus 4.6 in this environment. Experimental beta fields are disabled for compatibility with the DSIT managed gateway.",
+    "notes": "The local DSIT Claude settings map the opus alias to the managed model path. The environment flag prevents Claude Code 2.1.x from sending beta request fields such as context_management through the managed gateway."
   },
   "github-copilot": {
     "model": "gpt-5.4",
@@ -82,7 +82,17 @@
     "url": "https://m365.cloud.microsoft/chat",
     "app_name": "Microsoft 365 Copilot",
     "preferred_mode": "Think Deeper",
+    "prompt_source_mode": "github_permalinks",
+    "github_tree_base_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/tree/v1.1",
+    "github_blob_base_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/v1.1",
+    "prompt_context_paths": [
+      "challenge-2/AGENTS.md",
+      "challenge-2/wiki/index.md",
+      "challenge-2/wiki/architecture.md",
+      "challenge-2/wiki/data/source-register.json"
+    ],
+    "prompt_context_max_chars": 24000,
     "headless": false,
-    "notes": "Full-coverage UI client. This uses a brittle Playwright browser adapter against Microsoft 365 Copilot Chat because no stable headless local API is available. It requires an authenticated browser profile and may need manual sign-in before the benchmark run. When preferred_mode is set, the adapter attempts to select the named GPT mode before submitting the prompt."
+    "notes": "Full-coverage UI client. This uses a brittle Playwright browser adapter against Microsoft 365 Copilot Chat because no stable headless local API is available. It requires an authenticated browser profile and may need manual sign-in before the benchmark run. When preferred_mode is set, the adapter attempts to select the named GPT mode before submitting the prompt. Because the Microsoft web UI cannot read local repository paths, this config supplies public GitHub v1.1 permalinks plus copied excerpts from the operating schema and key wiki files."
   }
 }
