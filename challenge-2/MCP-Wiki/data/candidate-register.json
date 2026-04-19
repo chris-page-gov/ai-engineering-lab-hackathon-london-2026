@@ -1,0 +1,74 @@
+[
+  {
+    "name": "cyanheads/obsidian-mcp-server",
+    "url": "https://github.com/cyanheads/obsidian-mcp-server",
+    "role": "obsidian_vault_reference",
+    "license_signal": "Apache-2.0",
+    "treatment": "study_only",
+    "reuse_risk": "architectural_mismatch_due_to_broad_crud_surface"
+  },
+  {
+    "name": "ProfessionalWiki/MediaWiki-MCP-Server",
+    "url": "https://github.com/ProfessionalWiki/MediaWiki-MCP-Server",
+    "role": "wiki_mcp_design_reference",
+    "license_signal": "MIT",
+    "treatment": "study_first_possible_submodule_after_review",
+    "reuse_risk": "backend_model_differs_from_local_markdown"
+  },
+  {
+    "name": "olgasafonova/mediawiki-mcp-server",
+    "url": "https://github.com/olgasafonova/mediawiki-mcp-server",
+    "role": "remote_http_deployment_reference",
+    "license_signal": "MIT",
+    "treatment": "study_first_possible_submodule_after_review",
+    "reuse_risk": "mediawiki_backend_and_authenticated_edit_surface"
+  },
+  {
+    "name": "heAdz0r/wikijs-mcp-server",
+    "url": "https://github.com/heAdz0r/wikijs-mcp-server",
+    "role": "wikijs_graphql_reference",
+    "license_signal": "MIT",
+    "treatment": "study_only",
+    "reuse_risk": "write_and_admin_surface_too_broad"
+  },
+  {
+    "name": "tobi/qmd",
+    "url": "https://github.com/tobi/qmd",
+    "role": "markdown_retrieval_reference",
+    "license_signal": "MIT",
+    "treatment": "study_first_possible_submodule_after_dependency_review",
+    "reuse_risk": "heavier_retrieval_and_model_dependency_surface"
+  },
+  {
+    "name": "douinc/mkdocs-mcp-plugin",
+    "url": "https://github.com/douinc/mkdocs-mcp-plugin",
+    "role": "python_fastmcp_docs_retrieval_reference",
+    "license_signal": "MIT",
+    "treatment": "study_first",
+    "reuse_risk": "dependency_and_embedding_model_license_review_needed"
+  },
+  {
+    "name": "OpenDataLab/MinerU-Document-Explorer",
+    "url": "https://github.com/OpenDataLab/MinerU-Document-Explorer",
+    "role": "future_state_document_wiki_retrieval_reference",
+    "license_signal": "MIT",
+    "treatment": "study_only",
+    "reuse_risk": "too_broad_for_mvp"
+  },
+  {
+    "name": "jeanibarz/knowledge-base-mcp-server",
+    "url": "https://github.com/jeanibarz/knowledge-base-mcp-server",
+    "role": "generic_semantic_kb_reference",
+    "license_signal": "Unlicense",
+    "treatment": "study_only",
+    "reuse_risk": "weaker_provenance_and_external_embedding_terms"
+  },
+  {
+    "name": "shiquda/mediawiki-mcp-server",
+    "url": "https://github.com/shiquda/mediawiki-mcp-server",
+    "role": "historical_python_mediawiki_mcp",
+    "license_signal": "none_detected",
+    "treatment": "avoid_reuse",
+    "reuse_risk": "no_clear_license_and_marked_outdated"
+  }
+]

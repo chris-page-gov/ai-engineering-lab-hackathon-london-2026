@@ -1,0 +1,76 @@
+[
+  {
+    "source_id": "MCP-REPORT-MD",
+    "title": "Challenge 2 Wiki MCP Server Research Report",
+    "path": "research/Challenge 2 Wiki MCP Server Research Report.md",
+    "format": "md",
+    "source_type": "project_generated_research_report",
+    "license_status": "project_artifact",
+    "publication_status": "local_full_text",
+    "sha256": "3c050e9fdc2d5cca99f722b78121ca3a9b3486b63ffdd4c6dd6463d0cbd5e8ae",
+    "size_bytes": 40887
+  },
+  {
+    "source_id": "MCP-REPORT-PDF",
+    "title": "Challenge 2 Wiki MCP Server Research Report PDF",
+    "path": "research/Challenge 2 Wiki MCP Server Research Report.pdf",
+    "format": "pdf",
+    "source_type": "project_generated_research_report",
+    "license_status": "project_artifact",
+    "publication_status": "local_full_text",
+    "sha256": "c45f759b5bd47e5d81abec3c46a5b0f901228e6cfa9f3027839ca923575ad514",
+    "size_bytes": 118709
+  },
+  {
+    "source_id": "MCP-REPORT-DOCX",
+    "title": "Challenge 2 Wiki MCP Server Research Report DOCX",
+    "path": "research/Challenge 2 Wiki MCP Server Research Report.docx",
+    "format": "docx",
+    "source_type": "project_generated_research_report",
+    "license_status": "project_artifact",
+    "publication_status": "local_full_text",
+    "sha256": "55b6da57d1186638b7253acbfbabea1dfeb26558e0ab3b4b84a258152825bceb",
+    "size_bytes": 31736
+  },
+  {
+    "source_id": "MCP-SRC-KARPATHY-LLM-WIKI",
+    "title": "Karpathy LLM Wiki Methodology",
+    "path": "sources/karpathy-llm-wiki-methodology.md",
+    "canonical_url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+    "source_type": "external_citation",
+    "license_status": "no_explicit_license",
+    "publication_status": "citation_only"
+  },
+  {
+    "source_id": "MCP-SRC-SPEC",
+    "title": "Model Context Protocol Specification Sources",
+    "path": "sources/mcp-specification.md",
+    "source_type": "external_specification_index",
+    "license_status": "to_verify_before_snapshot",
+    "publication_status": "citation_first"
+  },
+  {
+    "source_id": "MCP-SRC-GITHUB-CANDIDATES",
+    "title": "GitHub MCP Candidate Projects",
+    "path": "sources/github-candidates.md",
+    "source_type": "candidate_summary",
+    "license_status": "mixed_verify_before_reuse",
+    "publication_status": "summary_and_links"
+  },
+  {
+    "source_id": "MCP-SRC-MICROSOFT-COPILOT",
+    "title": "Microsoft Copilot MCP Integration Sources",
+    "path": "sources/microsoft-copilot-mcp.md",
+    "source_type": "external_documentation",
+    "license_status": "microsoft_docs_terms",
+    "publication_status": "citation_only"
+  },
+  {
+    "source_id": "MCP-SRC-ACADEMIC-LITERATURE",
+    "title": "Academic Literature For Wiki MCP Design",
+    "path": "sources/academic-literature.md",
+    "source_type": "literature_summary",
+    "license_status": "citation_and_summary",
+    "publication_status": "citation_and_summary"
+  }
+]

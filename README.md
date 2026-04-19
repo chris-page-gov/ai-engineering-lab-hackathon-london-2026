@@ -32,6 +32,7 @@ For the Challenge 2 implementation:
 - [Realtime delivery report](output/doc/challenge-2-realtime-delivery-report.md): narrative reconstruction of the build.
 - [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem.
 - [Contribution modes and security assessment](output/doc/codex-contribution-modes-security-assessment.md): assessment of Codex, contribution modes, and security findings.
+- [MCP research wiki](challenge-2/MCP-Wiki/index.md): research, candidates, licensing posture, and implementation planning for a purpose-built Wiki MCP server.
 - [LinkedIn announcement draft](output/doc/linkedin-version-1-1-announcement.md): publication post for Version 1.1.
 
 ## What Was Built
@@ -123,6 +124,7 @@ Challenge 2 implementation:
 - `challenge-2/tools/run_wiki_eval.py`: benchmark runner.
 - `challenge-2/tools/wiki_eval_mcp.py`: audited MCP layer for wiki evaluation.
 - `challenge-2/tools/summarise_wiki_eval.py`: leaderboard summariser.
+- `challenge-2/MCP-Wiki/`: MCP research wiki for the planned read-only Wiki MCP server, including the Deep Research report, candidate register, source register, licensing posture, and implementation workspace.
 
 Reports and publication artifacts:
 

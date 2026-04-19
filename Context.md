@@ -21,6 +21,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - The evaluation harness tests whether AI coding agents can answer source-backed questions using only the generated wiki, while producing DSAP-shaped audit artifacts for later scoring, FOI-style disclosure, and reconstruction.
 - Dark Data Workbench provides a browser UI over the generated wiki so users can filter sources, build explicit context sets, inspect evidence without AI, or export the same context to browser AI and MCP clients.
 - The Codex collaboration postmortem applies the same wiki pattern to the build conversations themselves so the human and Codex contributions can be traced from prompts, responses, repository artifacts, and external methodology sources.
+- The MCP research wiki applies the same separation principle to follow-on engineering work: MCP research, source/license registers, candidate implementation reviews, specifications, and future server implementation notes live under `challenge-2/MCP-Wiki/` rather than being folded into the Challenge 2 corpus wiki or postmortem wiki.
 
 ## Data Assumptions
 
@@ -44,6 +45,10 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `challenge-2/tools/wiki_eval_mcp.py`: stdio MCP-compatible audit layer for controlled wiki read/search and answer recording.
 - `challenge-2/tools/summarise_wiki_eval.py`: leaderboard summariser for scored harness runs.
 - `challenge-2/tools/workbench_mcp.py`: stdio MCP server for Dark Data Workbench source search, source read, and context export.
+- `challenge-2/MCP-Wiki/index.md`: MCP research wiki entry point for the planned purpose-built Wiki MCP server.
+- `challenge-2/MCP-Wiki/research/Challenge 2 Wiki MCP Server Research Report.md`: Deep Research report motivating the Wiki MCP server architecture.
+- `challenge-2/MCP-Wiki/data/source-register.json`: MCP research wiki source register, including report variants and external source treatment.
+- `challenge-2/MCP-Wiki/data/candidate-register.json`: candidate project register for reference implementations and licensing posture.
 - `challenge-2/wiki/index.md`: Obsidian knowledge-base entry point.
 - `challenge-2/wiki/demonstration-guide.md`: end-to-end Challenge 2 demo route covering source construction, Obsidian validation, workbench usage, Browser AI export, evaluation, and audit/FOI tracking.
 - `challenge-2/wiki/workbench.md`: Obsidian entry point for running and explaining Dark Data Workbench.

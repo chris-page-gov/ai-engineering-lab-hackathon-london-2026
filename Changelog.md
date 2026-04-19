@@ -38,6 +38,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added optional Microsoft Copilot UI GPT mode selection so the Playwright adapter can attempt to select a visible mode such as `Think Deeper` before submitting benchmark prompts.
 - Added per-client environment overrides in the evaluation config so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for DSIT managed gateway compatibility.
 - Added a Microsoft Copilot prompt-source mode that replaces inaccessible local wiki paths with public GitHub permalinks plus copied source excerpts for deterministic UI-client grounding.
+- Added `challenge-2/MCP-Wiki/`, a separate MCP research wiki with the Deep Research report in Markdown/DOCX/PDF, source and candidate registers, security model, implementation plan, and license-aware reference/specification policy for a purpose-built Wiki MCP server.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
 
@@ -60,6 +61,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Fixed postmortem contribution inference so `pr` and `git` are matched as whole words instead of substrings inside words such as `prompt` or `legitimate`.
 - Fixed Karpathy X source snapshot URLs to use a single Jina Reader prefix instead of proxying an already proxied URL.
 - Fixed public postmortem sanitisation for bare local user-path markers and local state-file mentions in explanatory text.
+- Ignored nested `.DS_Store` and AppleDouble metadata files throughout the repository.
 
 ### Security
 

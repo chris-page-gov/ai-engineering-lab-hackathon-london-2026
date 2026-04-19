@@ -14,6 +14,8 @@ The current local working branch also includes a linked and illustrated colleagu
 
 Version 1.1 has been published from `main` and tagged as `v1.1`. The current local branch is `codex/evaluation-versioning`, which extends the Challenge 2 evaluation harness before the full 100-question model run. The branch records per-client model selectors, reasoning effort where supported, model-selection sources, executable versions, repository state, benchmark hashes, GitHub Copilot CLI coverage, Microsoft Copilot UI coverage, and detected Microsoft Copilot desktop app versions so the later evaluation can be traced against the exact client environment.
 
+The current MCP research branch is `codex/wiki-mcp-research`. It adds a separate `challenge-2/MCP-Wiki/` research wiki for the planned purpose-built Wiki MCP server, preserving the Deep Research report variants, candidate and source registers, licensing posture, security model, and future implementation workspace without polluting the Challenge 2 corpus wiki or the public postmortem wiki.
+
 The postmortem release includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The publication line now treats the public derivative and reports as part of the Version 1.1 baseline, with the full 100-question AI comparison still outstanding.
 
 The postmortem artifacts have been reviewed for publication readiness. The review found no obvious credential-shaped secrets or email-address pattern hits in the postmortem scan, but it blocks public release until local paths, local assistant configuration references, copied third-party source bodies, private workflow references, and local-only evidence are redacted or repackaged. A follow-up license check found no explicit redistribution license in the localized Karpathy X/gist copies, so public releases should use citation metadata and short excerpts unless permission or an explicit license is obtained.
@@ -72,6 +74,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added a client-config path for Claude Code to defer model and effort selection to DSIT-managed local Claude settings.
 - Added per-client environment overrides so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` and avoid DSIT gateway rejection of beta request fields such as `context_management`.
 - Added a Microsoft Copilot prompt-source path that cites public `v1.1` GitHub wiki permalinks and injects copied excerpts from key wiki files so the Microsoft web UI is not asked to read local filesystem paths.
+- Added the MCP research wiki under `challenge-2/MCP-Wiki/`, including an index, operating rules, architecture, implementation plan, security model, decision record, candidate register, source notes, report index, machine-readable source register, machine-readable candidate register, and reserved folders for implementation, specifications, and external reference submodules.
+- Added repository ignore coverage for nested `.DS_Store` and AppleDouble metadata files.
 
 ## Validation
 
@@ -155,6 +159,13 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 challenge-2/tools/run_wiki_eval.py --clients microsoft-copilot --questions Q001 --timeout-sec 180 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id microsoft-github-context-live-smoke` completed and returned usable JSON from the Microsoft UI client with `Think Deeper` selected, using public GitHub permalinks plus copied source excerpts instead of local paths.
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
+- Current MCP research wiki validation passed locally:
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/source-register.json`
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/candidate-register.json`
+  - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+  - Confirmed no `.DS_Store` files remain outside `.git`.
 
 ## Open Items
 
@@ -165,6 +176,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Use `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for Claude Code runs through the DSIT-managed gateway; the smoke test is now live-run ready with that compatibility flag.
 - Keep Microsoft Copilot source grounding explicit for scored runs: the GitHub permalink plus copied-excerpt prompt path has passed a `Q001` smoke, while a versioned OneDrive or SharePoint wiki copy is a plausible manual fallback if GitHub access fails and should be smoke-tested before use.
 - Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through `--clients full`. Fill the scoring sheet and publish the generated leaderboard.
+- Review and normalize the Deep Research report citations from internal Deep Research markers into ordinary links, footnotes, or source-register entries before treating the report as publication-ready source material.
+- Decide which MCP specification snapshots or reference implementations, if any, should be added as licensed submodules under `challenge-2/MCP-Wiki/references/external/`.
 
 ## Next Recommended Steps
 
