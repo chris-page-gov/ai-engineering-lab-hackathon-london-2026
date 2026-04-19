@@ -5,6 +5,16 @@ tags:
   - "security"
   - "mcp"
   - "evaluation-safety"
+search_terms:
+  - "Wiki MCP security model"
+  - "prompt injection mitigation"
+  - "benchmark leakage"
+  - "evaluation-safe MCP"
+related:
+  - "architecture.md"
+  - "implementation-plan.md"
+  - "sources/academic-literature.md"
+  - "sources/bibliography.md"
 ---
 
 # Wiki MCP Security Model
@@ -12,6 +22,8 @@ tags:
 ## Baseline Position
 
 The first Challenge 2 Wiki MCP server should be read-only, scoped, auditable, and benchmark-safe. It should expose the generated wiki as evidence, not the whole repository as a filesystem.
+
+This posture follows [the architecture](architecture.md), [the implementation plan](implementation-plan.md), and the security sources catalogued in [the bibliography](sources/bibliography.md).
 
 ## Required Controls
 
@@ -36,3 +48,11 @@ The benchmark and gold answers must never be indexed or exposed to evaluated cli
 ## External Source Licensing
 
 External source material can only be exposed through the server if the license allows redistribution. Citation-only sources should remain summarized and linked, not served in full.
+
+## Related
+
+- [Academic literature and security sources](sources/academic-literature.md)
+- [Bibliography](sources/bibliography.md)
+- [MCP specification sources](sources/mcp-specification.md)
+- [Microsoft Copilot sources](sources/microsoft-copilot-mcp.md)
+- [Decision record](decision-record.md)

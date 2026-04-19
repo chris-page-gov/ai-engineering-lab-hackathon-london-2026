@@ -1,0 +1,151 @@
+{
+  "created_at": "2026-04-19T21:01:20+00:00",
+  "errors": [],
+  "metrics": {
+    "AGENTS.md": {
+      "external_link_count": 0,
+      "has_frontmatter": false,
+      "internal_link_count": 0,
+      "opaque_marker_exempt": false
+    },
+    "architecture.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 12,
+      "opaque_marker_exempt": false
+    },
+    "candidate-register.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 11,
+      "opaque_marker_exempt": false
+    },
+    "decision-record.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
+      "opaque_marker_exempt": false
+    },
+    "implementation-plan.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 16,
+      "opaque_marker_exempt": false
+    },
+    "implementation/README.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
+      "opaque_marker_exempt": false
+    },
+    "index.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 33,
+      "opaque_marker_exempt": false
+    },
+    "lint-report.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 7,
+      "opaque_marker_exempt": false
+    },
+    "references/README.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
+      "opaque_marker_exempt": false
+    },
+    "references/external/README.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
+      "opaque_marker_exempt": false
+    },
+    "research/Challenge 2 Wiki MCP Server Research Report - linked.md": {
+      "external_link_count": 18,
+      "has_frontmatter": true,
+      "internal_link_count": 7,
+      "opaque_marker_exempt": false
+    },
+    "research/Challenge 2 Wiki MCP Server Research Report.md": {
+      "external_link_count": 0,
+      "has_frontmatter": false,
+      "internal_link_count": 0,
+      "opaque_marker_exempt": true
+    },
+    "research/index.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 15,
+      "opaque_marker_exempt": false
+    },
+    "security-model.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 12,
+      "opaque_marker_exempt": false
+    },
+    "sources/academic-literature.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 10,
+      "opaque_marker_exempt": false
+    },
+    "sources/bibliography.md": {
+      "external_link_count": 31,
+      "has_frontmatter": true,
+      "internal_link_count": 18,
+      "opaque_marker_exempt": false
+    },
+    "sources/github-candidates.md": {
+      "external_link_count": 9,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
+      "opaque_marker_exempt": false
+    },
+    "sources/karpathy-llm-wiki-methodology.md": {
+      "external_link_count": 1,
+      "has_frontmatter": true,
+      "internal_link_count": 9,
+      "opaque_marker_exempt": false
+    },
+    "sources/mcp-specification.md": {
+      "external_link_count": 5,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
+      "opaque_marker_exempt": false
+    },
+    "sources/microsoft-copilot-mcp.md": {
+      "external_link_count": 3,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
+      "opaque_marker_exempt": false
+    },
+    "specifications/README.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
+      "opaque_marker_exempt": false
+    },
+    "wiki-optimization-log.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
+      "opaque_marker_exempt": false
+    }
+  },
+  "root": "/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026/challenge-2/MCP-Wiki",
+  "status": "pass",
+  "summary": {
+    "errors": 0,
+    "external_links": 67,
+    "frontmatter_files": 20,
+    "ignored_ds_store_files": 1,
+    "internal_links": 222,
+    "markdown_files": 22,
+    "missing_search_terms": 0,
+    "warnings": 0
+  },
+  "warnings": []
+}

@@ -8,6 +8,16 @@ tags:
   - "literature"
   - "rag"
   - "provenance"
+search_terms:
+  - "RAG literature"
+  - "attributed question answering"
+  - "semantic wiki literature"
+  - "prompt injection security"
+related:
+  - "bibliography.md"
+  - "../security-model.md"
+  - "../architecture.md"
+  - "../implementation-plan.md"
 ---
 
 # Academic Literature For Wiki MCP Design
@@ -22,4 +32,11 @@ The research report identifies several literature streams relevant to a state-of
 | Graph-enhanced retrieval | GraphRAG | Use existing topic/entity/map structure before adding a new graph stack. |
 | Security and contamination | Prompt injection guidance, benchmark contamination surveys, retrieval poisoning work | Keep the server narrow, audited, and deny benchmark/gold-answer artifacts. |
 
-Full bibliographic detail is in the Deep Research report.
+Full bibliographic detail is in [the bibliography](bibliography.md) and the [linked Deep Research report](<../research/Challenge 2 Wiki MCP Server Research Report - linked.md>).
+
+## Related
+
+- [Security model](../security-model.md)
+- [Architecture](../architecture.md)
+- [Implementation plan](../implementation-plan.md)
+- [Wiki optimization log](../wiki-optimization-log.md)

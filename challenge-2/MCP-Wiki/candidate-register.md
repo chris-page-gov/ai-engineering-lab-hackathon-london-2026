@@ -5,6 +5,16 @@ tags:
   - "candidate-register"
   - "mcp"
   - "licensing"
+search_terms:
+  - "MCP candidate projects"
+  - "wiki MCP reference implementations"
+  - "FastMCP candidates"
+  - "MediaWiki MCP"
+related:
+  - "sources/github-candidates.md"
+  - "sources/bibliography.md"
+  - "data/candidate-register.json"
+  - "implementation-plan.md"
 ---
 
 # Wiki MCP Candidate Register
@@ -23,8 +33,15 @@ This register tracks candidate projects we can learn from while building a purpo
 | `jeanibarz/knowledge-base-mcp-server` | Generic semantic KB reference | Unlicense signal | Study only | Interesting semantic retrieval; weaker provenance/audit posture for this use case. |
 | `shiquda/mediawiki-mcp-server` | Historical Python MediaWiki MCP | No clear license detected | Avoid reuse | Marked outdated in research; no-license posture is unsuitable for reuse. |
 
-Machine-readable details are in [data/candidate-register.json](data/candidate-register.json).
+Machine-readable details are in [data/candidate-register.json](data/candidate-register.json). Resolved URLs and source IDs are in [the bibliography](sources/bibliography.md), and the summarized source note is [GitHub MCP candidate projects](sources/github-candidates.md).
 
 ## Selection Principle
 
 Use existing projects to learn MCP surface design, transport handling, retrieval ergonomics, and packaging patterns. Build the Challenge 2 server from scratch unless a later decision record justifies reuse.
+
+## Related
+
+- [Implementation plan](implementation-plan.md)
+- [Decision record](decision-record.md)
+- [Reference material policy](references/README.md)
+- [External reference workspace](references/external/README.md)

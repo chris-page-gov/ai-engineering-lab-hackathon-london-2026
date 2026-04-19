@@ -5,11 +5,23 @@ tags:
   - "architecture"
   - "mcp"
   - "research-wiki"
+search_terms:
+  - "MCP wiki architecture"
+  - "read-only wiki server architecture"
+  - "source-governed MCP"
+  - "Streamable HTTP wiki MCP"
+related:
+  - "index.md"
+  - "implementation-plan.md"
+  - "security-model.md"
+  - "sources/bibliography.md"
 ---
 
 # MCP Research Wiki Architecture
 
 This wiki separates MCP research and implementation planning from the Challenge 2 evaluation corpus. It gives humans and agents one place to understand candidate projects, specifications, licensing, security controls, and the future server implementation.
+
+The linked implementation path is [the implementation plan](implementation-plan.md), the control baseline is [the security model](security-model.md), and the source basis is [the bibliography](sources/bibliography.md).
 
 ## Knowledge Boundaries
 
@@ -61,3 +73,11 @@ challenge-2/MCP-Wiki/references/external/<source-id>/
 ```
 
 Each `SOURCE.md` should record canonical URL, commit or version, license, retrieval command, purpose of inclusion, and whether code is used directly or only studied.
+
+## Related
+
+- [Wiki index](index.md)
+- [Implementation plan](implementation-plan.md)
+- [Security model](security-model.md)
+- [Bibliography](sources/bibliography.md)
+- [Reference material policy](references/README.md)

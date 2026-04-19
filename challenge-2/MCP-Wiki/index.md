@@ -9,6 +9,16 @@ tags:
   - "challenge-2"
   - "mcp"
   - "research-wiki"
+search_terms:
+  - "Challenge 2 MCP research wiki"
+  - "Wiki MCP server"
+  - "M365 Copilot grounding"
+  - "source-backed wiki server"
+related:
+  - "architecture.md"
+  - "implementation-plan.md"
+  - "sources/bibliography.md"
+  - "wiki-optimization-log.md"
 ---
 
 # Challenge 2 MCP Research Wiki
@@ -21,26 +31,33 @@ This wiki is the research and implementation planning space for a purpose-built 
 - [Implementation Plan](implementation-plan.md)
 - [Security Model](security-model.md)
 - [Decision Record](decision-record.md)
+- [Wiki Optimization Log](wiki-optimization-log.md)
 - [Candidate Register](candidate-register.md)
+- [Bibliography](sources/bibliography.md)
 - [Research Report Index](research/index.md)
+- [MCP Wiki Lint Report](lint-report.md)
 - [Source Register](data/source-register.json)
+- [Bibliography Data](data/bibliography.json)
 - [Candidate Register Data](data/candidate-register.json)
 
 ## Research Report
 
-The Deep Research output is stored in three equivalent formats:
+The raw Deep Research output is preserved in three equivalent formats, and a linked derivative is maintained for AI navigation:
 
+- [Linked Markdown report](<research/Challenge 2 Wiki MCP Server Research Report - linked.md>)
 - [Markdown report](<research/Challenge 2 Wiki MCP Server Research Report.md>)
 - [Word report](<research/Challenge 2 Wiki MCP Server Research Report.docx>)
 - [PDF report](<research/Challenge 2 Wiki MCP Server Research Report.pdf>)
 
-The Markdown report is the preferred source for agents. The DOCX and PDF variants are preserved for human review and publication workflows. Hashes and file sizes are recorded in [the source register](data/source-register.json).
+The linked Markdown report is the preferred source for agents because it removes Deep Research internal markers and points to [the bibliography](sources/bibliography.md). The raw Markdown, DOCX, and PDF variants are preserved for evidence and human review. Hashes and file sizes are recorded in [the source register](data/source-register.json).
 
 ## Why This Is A Separate Wiki
 
 The Challenge 2 corpus wiki in `challenge-2/wiki/` is generated from the synthetic dark-data source corpus and is used for benchmark evaluation. The public postmortem wiki explains the human and Codex collaboration history. This MCP research wiki is different: it is a forward-looking engineering research and implementation space for the server that will expose the corpus wiki safely to AI clients.
 
 Keeping those scopes separate follows the LLM Wiki pattern: each wiki has a clear source boundary, purpose, index, and operating contract.
+
+See [the Karpathy methodology note](sources/karpathy-llm-wiki-methodology.md) for the source-boundary rationale and [the wiki optimization log](wiki-optimization-log.md) for how this wiki is being tuned for navigation and AI retrieval.
 
 ## Current Direction
 
@@ -53,8 +70,19 @@ Build a purpose-built read-only Wiki MCP server rather than forking a broad Obsi
 - support local stdio and Microsoft-compatible Streamable HTTP;
 - add reference implementations or MCP specifications as submodules only after license review.
 
+## Quality Gate
+
+Run [the MCP Wiki lint tool](tools/lint_mcp_wiki.py) after changing links, source registers, or metadata:
+
+```bash
+python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report
+```
+
+The generated [lint report](lint-report.md) and [machine-readable lint output](data/lint-report.json) check frontmatter, tags, local links, source-register paths, duplicate IDs, `.DS_Store` files, and Deep Research citation-marker leakage outside the raw report.
+
 ## Related Source Notes
 
+- [Bibliography](sources/bibliography.md)
 - [Karpathy LLM Wiki methodology](sources/karpathy-llm-wiki-methodology.md)
 - [MCP specification sources](sources/mcp-specification.md)
 - [GitHub candidate projects](sources/github-candidates.md)

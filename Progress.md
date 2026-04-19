@@ -75,6 +75,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added per-client environment overrides so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` and avoid DSIT gateway rejection of beta request fields such as `context_management`.
 - Added a Microsoft Copilot prompt-source path that cites public `v1.1` GitHub wiki permalinks and injects copied excerpts from key wiki files so the Microsoft web UI is not asked to read local filesystem paths.
 - Added the MCP research wiki under `challenge-2/MCP-Wiki/`, including an index, operating rules, architecture, implementation plan, security model, decision record, candidate register, source notes, report index, machine-readable source register, machine-readable candidate register, and reserved folders for implementation, specifications, and external reference submodules.
+- Added a resolved MCP bibliography, linked Deep Research report derivative, search-oriented frontmatter, cross-link graph, wiki optimization log, and MCP wiki lint gate.
 - Added repository ignore coverage for nested `.DS_Store` and AppleDouble metadata files.
 
 ## Validation
@@ -162,10 +163,14 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Current MCP research wiki validation passed locally:
   - `python3 -m json.tool challenge-2/MCP-Wiki/data/source-register.json`
   - `python3 -m json.tool challenge-2/MCP-Wiki/data/candidate-register.json`
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/bibliography.json`
+  - `python3 -m py_compile challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `22` Markdown files, `222` internal links, `67` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - Live bibliography URL check returned HTTP success responses for all `31` entries after replacing stale Microsoft/NCSC URLs and ACM DOI targets that blocked automated checks.
   - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
-  - Confirmed no `.DS_Store` files remain outside `.git`.
+  - Removed the previously tracked `challenge-2/.DS_Store`; MCP wiki lint treats ignored `.DS_Store` files as local state and fails only if they are tracked.
 
 ## Open Items
 
@@ -176,7 +181,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Use `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for Claude Code runs through the DSIT-managed gateway; the smoke test is now live-run ready with that compatibility flag.
 - Keep Microsoft Copilot source grounding explicit for scored runs: the GitHub permalink plus copied-excerpt prompt path has passed a `Q001` smoke, while a versioned OneDrive or SharePoint wiki copy is a plausible manual fallback if GitHub access fails and should be smoke-tested before use.
 - Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through `--clients full`. Fill the scoring sheet and publish the generated leaderboard.
-- Review and normalize the Deep Research report citations from internal Deep Research markers into ordinary links, footnotes, or source-register entries before treating the report as publication-ready source material.
+- Decide whether to enable external URL checking for the MCP bibliography in CI or keep it as a release-time validation step.
 - Decide which MCP specification snapshots or reference implementations, if any, should be added as licensed submodules under `challenge-2/MCP-Wiki/references/external/`.
 
 ## Next Recommended Steps

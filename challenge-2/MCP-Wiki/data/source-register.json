@@ -11,6 +11,18 @@
     "size_bytes": 40887
   },
   {
+    "source_id": "MCP-REPORT-LINKED-MD",
+    "title": "Challenge 2 Wiki MCP Server Research Report Linked Markdown",
+    "path": "research/Challenge 2 Wiki MCP Server Research Report - linked.md",
+    "format": "md",
+    "source_type": "linked_research_report_derivative",
+    "license_status": "project_artifact",
+    "publication_status": "local_full_text_with_resolved_source_links",
+    "derived_from": "MCP-REPORT-MD",
+    "sha256": "2c11ee7ddcb99da88a999a71bcefb6d57eae16f03b2056c6d1b5c2535913c51e",
+    "size_bytes": 37942
+  },
+  {
     "source_id": "MCP-REPORT-PDF",
     "title": "Challenge 2 Wiki MCP Server Research Report PDF",
     "path": "research/Challenge 2 Wiki MCP Server Research Report.pdf",
@@ -31,6 +43,26 @@
     "publication_status": "local_full_text",
     "sha256": "55b6da57d1186638b7253acbfbabea1dfeb26558e0ab3b4b84a258152825bceb",
     "size_bytes": 31736
+  },
+  {
+    "source_id": "MCP-SRC-BIBLIOGRAPHY",
+    "title": "MCP Wiki Bibliography",
+    "path": "sources/bibliography.md",
+    "source_type": "source_bibliography",
+    "license_status": "mixed_citation_only_until_reviewed",
+    "publication_status": "summary_and_links",
+    "sha256": "7a885e19973f7ec5afc1ad795559d42b329512f272adf0a595ad30c8376a0561",
+    "size_bytes": 7810
+  },
+  {
+    "source_id": "MCP-DATA-BIBLIOGRAPHY",
+    "title": "MCP Wiki Machine-Readable Bibliography",
+    "path": "data/bibliography.json",
+    "source_type": "machine_readable_source_bibliography",
+    "license_status": "mixed_citation_only_until_reviewed",
+    "publication_status": "structured_source_metadata",
+    "sha256": "b51ac548238f37f220fc1bcc1382ddfb7157baec718b565b253dadb8ad9d2133",
+    "size_bytes": 15290
   },
   {
     "source_id": "MCP-SRC-KARPATHY-LLM-WIKI",

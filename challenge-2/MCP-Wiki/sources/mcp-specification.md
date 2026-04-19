@@ -8,6 +8,16 @@ tags:
   - "source"
   - "mcp"
   - "specification"
+search_terms:
+  - "MCP specification"
+  - "Streamable HTTP"
+  - "FastMCP"
+  - "MCP Python SDK"
+related:
+  - "bibliography.md"
+  - "../specifications/README.md"
+  - "../implementation-plan.md"
+  - "../architecture.md"
 ---
 
 # Model Context Protocol Specification Sources
@@ -32,3 +42,10 @@ If we add a local snapshot or submodule, record:
 - retrieval command;
 - reason for local inclusion;
 - update cadence.
+
+## Related
+
+- [Bibliography](bibliography.md)
+- [Specification workspace](../specifications/README.md)
+- [Implementation plan](../implementation-plan.md)
+- [Security model](../security-model.md)

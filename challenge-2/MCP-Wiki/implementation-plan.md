@@ -5,6 +5,16 @@ tags:
   - "implementation"
   - "mcp"
   - "plan"
+search_terms:
+  - "Wiki MCP implementation plan"
+  - "FastMCP Challenge 2"
+  - "MCP context pack"
+  - "Copilot Studio Streamable HTTP"
+related:
+  - "architecture.md"
+  - "security-model.md"
+  - "candidate-register.md"
+  - "sources/bibliography.md"
 ---
 
 # Wiki MCP Server Implementation Plan
@@ -12,6 +22,8 @@ tags:
 ## Decision
 
 Create the research wiki first, then implement the server inside this folder structure. The wiki now carries the research report, candidate matrix, source and license registers, architecture, and future implementation notes. That avoids a loose plan document and keeps the implementation traceable from the start.
+
+The plan is grounded in [the architecture](architecture.md), [the security model](security-model.md), [the candidate register](candidate-register.md), and [the linked research report](<research/Challenge 2 Wiki MCP Server Research Report - linked.md>).
 
 ## Target Implementation
 
@@ -29,9 +41,11 @@ The first implementation should be purpose-built for the generated Challenge 2 w
 ## Phase 1: Research Wiki And Registers
 
 - Preserve the Deep Research report in Markdown, DOCX, and PDF.
+- Maintain a linked Markdown derivative and [bibliography](sources/bibliography.md).
 - Add source and candidate registers.
 - Record license posture for all external candidates and specifications.
 - Define update policy for submodules and snapshots.
+- Keep [the optimization log](wiki-optimization-log.md) and [lint report](lint-report.md) current when navigation or metadata changes.
 
 ## Phase 2: Minimal Local MCP Server
 
@@ -61,3 +75,11 @@ The first implementation should be purpose-built for the generated Challenge 2 w
 ## Phase 6: Reference Implementations
 
 Only after the first implementation shape is stable, decide whether to add reference implementations as git submodules under `references/external/`. Do this for study and comparison, not as production dependencies, unless a later decision record says otherwise.
+
+## Related
+
+- [Architecture](architecture.md)
+- [Security model](security-model.md)
+- [Implementation workspace](implementation/README.md)
+- [Specifications workspace](specifications/README.md)
+- [Decision record](decision-record.md)

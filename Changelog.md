@@ -39,6 +39,10 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added per-client environment overrides in the evaluation config so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for DSIT managed gateway compatibility.
 - Added a Microsoft Copilot prompt-source mode that replaces inaccessible local wiki paths with public GitHub permalinks plus copied source excerpts for deterministic UI-client grounding.
 - Added `challenge-2/MCP-Wiki/`, a separate MCP research wiki with the Deep Research report in Markdown/DOCX/PDF, source and candidate registers, security model, implementation plan, and license-aware reference/specification policy for a purpose-built Wiki MCP server.
+- Added `challenge-2/MCP-Wiki/sources/bibliography.md` and `data/bibliography.json` to resolve Deep Research citation markers into durable source IDs, URLs, license posture, and local treatment.
+- Added a citation-clean linked derivative of the MCP Deep Research report for AI and human navigation while preserving the raw report unchanged as evidence.
+- Added `challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py`, plus generated Markdown and JSON lint reports for frontmatter, tags, source paths, duplicate IDs, internal links, and citation-marker leakage checks.
+- Added `challenge-2/MCP-Wiki/wiki-optimization-log.md` to record wiki navigation, metadata, and lint decisions as part of the MCP research evidence.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
 
@@ -47,6 +51,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Updated Challenge 2 evaluation best-model policy to use `gpt-5.4` with `xhigh` effort for Codex, Gemini CLI Auto routing, Claude Code `best` with `max` effort, staff-confirmed `gpt-5.4` for GitHub Copilot CLI, and Microsoft 365 Copilot Chat GPT-5 automatic routing for Microsoft Copilot.
 - Allowed client config to suppress a default reasoning-effort argument with JSON `null`, enabling Claude Code runs that defer model and effort selection to DSIT-managed local Claude settings.
 - Updated the Microsoft Copilot example config to prefer `Think Deeper`, cite the public `v1.1` GitHub wiki, and inject key wiki excerpts because the Microsoft web UI cannot read local repository paths.
+- Expanded the MCP research wiki frontmatter, search terms, related-link properties, and cross-links so the wiki can be navigated and linted as an AI-usable knowledge base.
 
 ### Fixed
 
@@ -62,6 +67,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Fixed Karpathy X source snapshot URLs to use a single Jina Reader prefix instead of proxying an already proxied URL.
 - Fixed public postmortem sanitisation for bare local user-path markers and local state-file mentions in explanatory text.
 - Ignored nested `.DS_Store` and AppleDouble metadata files throughout the repository.
+- Removed the previously tracked `challenge-2/.DS_Store` local Finder state file.
 
 ### Security
 
@@ -77,6 +83,12 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Recorded the contribution-modes and government security assessment in the public materials list.
 - Linked the new tracking files from `README.md`.
 - Linked the Challenge 2 benchmark into the wiki index and documented the evaluation harness in the Challenge 2 brief and README.
+- Recorded the MCP wiki citation-linking and optimization decisions in the MCP decision record and source register.
+
+### Validation
+
+- Verified the MCP research wiki lint: `22` Markdown files, `222` internal links, `67` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Verified all `31` MCP bibliography URLs returned HTTP success responses and replaced stale Microsoft/NCSC citation targets with current URLs.
 
 ## 2026-04-16
 

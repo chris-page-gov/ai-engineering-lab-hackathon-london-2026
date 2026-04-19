@@ -1,0 +1,526 @@
+[
+  {
+    "source_id": "MCP-BIB-OBS-MCP",
+    "title": "cyanheads/obsidian-mcp-server",
+    "url": "https://github.com/cyanheads/obsidian-mcp-server",
+    "source_group": "reference_implementation",
+    "license_status": "Apache-2.0 signal from research report; verify LICENSE before reuse",
+    "local_treatment": "citation_and_link_only",
+    "related": [
+      "candidate-register.md",
+      "sources/github-candidates.md"
+    ],
+    "tags": [
+      "mcp",
+      "obsidian",
+      "reference-implementation"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-PROF-MW",
+    "title": "ProfessionalWiki/MediaWiki-MCP-Server",
+    "url": "https://github.com/ProfessionalWiki/MediaWiki-MCP-Server",
+    "source_group": "reference_implementation",
+    "license_status": "MIT signal from research report; verify LICENSE before reuse",
+    "local_treatment": "candidate_for_study_and_possible_submodule_after_review",
+    "related": [
+      "candidate-register.md",
+      "sources/github-candidates.md"
+    ],
+    "tags": [
+      "mcp",
+      "mediawiki",
+      "reference-implementation"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-OLGA-MW",
+    "title": "olgasafonova/mediawiki-mcp-server",
+    "url": "https://github.com/olgasafonova/mediawiki-mcp-server",
+    "source_group": "reference_implementation",
+    "license_status": "MIT signal from research report; verify LICENSE before reuse",
+    "local_treatment": "candidate_for_study_and_possible_submodule_after_review",
+    "related": [
+      "candidate-register.md",
+      "sources/github-candidates.md"
+    ],
+    "tags": [
+      "mcp",
+      "mediawiki",
+      "streamable-http"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-SHIQUDA-MW",
+    "title": "shiquda/mediawiki-mcp-server",
+    "url": "https://github.com/shiquda/mediawiki-mcp-server",
+    "source_group": "reference_implementation",
+    "license_status": "no clear license detected in research pass",
+    "local_treatment": "avoid_reuse",
+    "related": [
+      "candidate-register.md",
+      "sources/github-candidates.md"
+    ],
+    "tags": [
+      "mcp",
+      "mediawiki",
+      "avoid-reuse"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-WIKIJS",
+    "title": "heAdz0r/wikijs-mcp-server",
+    "url": "https://github.com/heAdz0r/wikijs-mcp-server",
+    "source_group": "reference_implementation",
+    "license_status": "MIT signal from research report; verify LICENSE before reuse",
+    "local_treatment": "study_only",
+    "related": [
+      "candidate-register.md",
+      "sources/github-candidates.md"
+    ],
+    "tags": [
+      "mcp",
+      "wikijs",
+      "reference-implementation"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-KB-MCP",
+    "title": "jeanibarz/knowledge-base-mcp-server",
+    "url": "https://github.com/jeanibarz/knowledge-base-mcp-server",
+    "source_group": "reference_implementation",
+    "license_status": "Unlicense signal from research report; verify terms before reuse",
+    "local_treatment": "study_only",
+    "related": [
+      "candidate-register.md",
+      "sources/github-candidates.md"
+    ],
+    "tags": [
+      "mcp",
+      "semantic-search",
+      "knowledge-base"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-QMD",
+    "title": "tobi/qmd",
+    "url": "https://github.com/tobi/qmd",
+    "source_group": "reference_implementation",
+    "license_status": "MIT signal from research report; verify dependency licenses before reuse",
+    "local_treatment": "study_first_possible_submodule_after_dependency_review",
+    "related": [
+      "candidate-register.md",
+      "sources/github-candidates.md"
+    ],
+    "tags": [
+      "mcp",
+      "markdown",
+      "hybrid-search"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-MKDOCS-MCP",
+    "title": "douinc/mkdocs-mcp-plugin",
+    "url": "https://github.com/douinc/mkdocs-mcp-plugin",
+    "source_group": "reference_implementation",
+    "license_status": "MIT signal from research report; verify dependency and model licenses before reuse",
+    "local_treatment": "study_first",
+    "related": [
+      "candidate-register.md",
+      "sources/github-candidates.md"
+    ],
+    "tags": [
+      "mcp",
+      "mkdocs",
+      "fastmcp"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-MINERU",
+    "title": "OpenDataLab/MinerU-Document-Explorer",
+    "url": "https://github.com/OpenDataLab/MinerU-Document-Explorer",
+    "source_group": "reference_implementation",
+    "license_status": "MIT signal from research report; verify service and model terms before reuse",
+    "local_treatment": "study_only",
+    "related": [
+      "candidate-register.md",
+      "sources/github-candidates.md"
+    ],
+    "tags": [
+      "mcp",
+      "document-retrieval",
+      "future-state"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-MCP-SPEC",
+    "title": "Model Context Protocol specification",
+    "url": "https://modelcontextprotocol.io/specification",
+    "source_group": "specification",
+    "license_status": "verify before local snapshot",
+    "local_treatment": "citation_only_until_snapshot_decision",
+    "related": [
+      "sources/mcp-specification.md",
+      "architecture.md",
+      "implementation-plan.md"
+    ],
+    "tags": [
+      "mcp",
+      "specification",
+      "protocol"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-MCP-TRANSPORT",
+    "title": "MCP Streamable HTTP transport specification",
+    "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/transports",
+    "source_group": "specification",
+    "license_status": "verify before local snapshot",
+    "local_treatment": "citation_only_until_snapshot_decision",
+    "related": [
+      "sources/mcp-specification.md",
+      "architecture.md",
+      "implementation-plan.md"
+    ],
+    "tags": [
+      "mcp",
+      "streamable-http",
+      "transport"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-PY-SDK",
+    "title": "Model Context Protocol Python SDK",
+    "url": "https://github.com/modelcontextprotocol/python-sdk",
+    "source_group": "specification",
+    "license_status": "verify LICENSE and dependency terms before reuse",
+    "local_treatment": "likely_dependency_after_review",
+    "related": [
+      "sources/mcp-specification.md",
+      "implementation-plan.md"
+    ],
+    "tags": [
+      "mcp",
+      "python",
+      "fastmcp"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-INSPECTOR",
+    "title": "Model Context Protocol Inspector",
+    "url": "https://github.com/modelcontextprotocol/inspector",
+    "source_group": "tooling",
+    "license_status": "verify before vendoring",
+    "local_treatment": "developer_tool_citation",
+    "related": [
+      "implementation-plan.md"
+    ],
+    "tags": [
+      "mcp",
+      "inspector",
+      "validation"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-MS-COPILOT-STUDIO",
+    "title": "Microsoft Copilot Studio MCP connection guidance",
+    "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-extend-action-mcp",
+    "source_group": "microsoft_documentation",
+    "license_status": "Microsoft Learn terms; citation only",
+    "local_treatment": "citation_only",
+    "related": [
+      "sources/microsoft-copilot-mcp.md",
+      "implementation-plan.md"
+    ],
+    "tags": [
+      "mcp",
+      "copilot-studio",
+      "microsoft"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-MS-AGENTS-MCP",
+    "title": "Microsoft 365 Copilot MCP plugin build guidance",
+    "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/build-mcp-plugins",
+    "source_group": "microsoft_documentation",
+    "license_status": "Microsoft Learn terms; citation only",
+    "local_treatment": "citation_only",
+    "related": [
+      "sources/microsoft-copilot-mcp.md",
+      "implementation-plan.md"
+    ],
+    "tags": [
+      "mcp",
+      "microsoft-365-copilot",
+      "agents-toolkit"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-MS-AUTH",
+    "title": "Microsoft 365 Copilot authentication guidance for agents and plugins",
+    "url": "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-authentication",
+    "source_group": "microsoft_documentation",
+    "license_status": "Microsoft Learn terms; citation only",
+    "local_treatment": "citation_only",
+    "related": [
+      "sources/microsoft-copilot-mcp.md",
+      "security-model.md"
+    ],
+    "tags": [
+      "mcp",
+      "authentication",
+      "microsoft"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-RAG",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "url": "https://arxiv.org/abs/2005.11401",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md",
+      "architecture.md"
+    ],
+    "tags": [
+      "rag",
+      "retrieval",
+      "provenance"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-SEMANTIC-MEDIAWIKI",
+    "title": "Semantic MediaWiki",
+    "url": "https://doi.org/10.1007/11926078_68",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md"
+    ],
+    "tags": [
+      "semantic-wiki",
+      "metadata",
+      "knowledge-base"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-WIKIDATA",
+    "title": "Wikidata: A Free Collaborative Knowledge Base",
+    "url": "https://research.google/pubs/wikidata-a-free-collaborative-knowledge-base/",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md"
+    ],
+    "tags": [
+      "semantic-wiki",
+      "wikidata",
+      "structured-knowledge"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-DBPEDIA",
+    "title": "DBpedia: A Nucleus for a Web of Open Data",
+    "url": "https://doi.org/10.1007/978-3-540-76298-0_52",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md"
+    ],
+    "tags": [
+      "semantic-wiki",
+      "linked-data",
+      "knowledge-base"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-YAGO",
+    "title": "YAGO: A Core of Semantic Knowledge",
+    "url": "https://suchanek.name/work/publications/www2007.pdf",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md"
+    ],
+    "tags": [
+      "semantic-wiki",
+      "linked-data",
+      "knowledge-base"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-GRAPHRAG",
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "url": "https://arxiv.org/abs/2404.16130",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md",
+      "architecture.md"
+    ],
+    "tags": [
+      "graphrag",
+      "retrieval",
+      "corpus-summarization"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-ATTRIBUTED-QA",
+    "title": "Attributed Question Answering",
+    "url": "https://arxiv.org/abs/2212.08037",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md",
+      "security-model.md"
+    ],
+    "tags": [
+      "attribution",
+      "question-answering",
+      "evidence"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-ATTRIBUTION-EVAL",
+    "title": "Automatic Evaluation of Attribution by Large Language Models",
+    "url": "https://arxiv.org/abs/2305.06311",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md",
+      "security-model.md"
+    ],
+    "tags": [
+      "attribution",
+      "evaluation",
+      "evidence"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-RARR",
+    "title": "RARR: Researching and Revising What Language Models Say",
+    "url": "https://arxiv.org/abs/2210.08726",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md",
+      "architecture.md"
+    ],
+    "tags": [
+      "attribution",
+      "revision",
+      "evidence"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-FACTSCORE",
+    "title": "FActScore",
+    "url": "https://arxiv.org/abs/2305.14251",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md",
+      "security-model.md"
+    ],
+    "tags": [
+      "factscore",
+      "attribution",
+      "evaluation"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-CONTAMINATION",
+    "title": "Benchmark Data Contamination of Large Language Models: A Survey",
+    "url": "https://arxiv.org/abs/2406.04244",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md",
+      "security-model.md"
+    ],
+    "tags": [
+      "benchmark-contamination",
+      "evaluation",
+      "security"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-KNOWLEDGE-POISONING",
+    "title": "Exploring Knowledge Poisoning Attacks to Retrieval-Augmented Generation",
+    "url": "https://doi.org/10.1016/j.inffus.2025.103900",
+    "source_group": "academic_literature",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_and_summary",
+    "related": [
+      "sources/academic-literature.md",
+      "security-model.md"
+    ],
+    "tags": [
+      "knowledge-poisoning",
+      "rag",
+      "security"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-NCSC-PROMPT-INJECTION",
+    "title": "NCSC: Prompt injection is not SQL injection",
+    "url": "https://www.ncsc.gov.uk/blog-post/prompt-injection-is-not-sql-injection",
+    "source_group": "security_guidance",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_only",
+    "related": [
+      "sources/academic-literature.md",
+      "security-model.md"
+    ],
+    "tags": [
+      "prompt-injection",
+      "security",
+      "ncsc"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-NCSC-AI-CYBER",
+    "title": "NCSC: AI and cyber security",
+    "url": "https://www.ncsc.gov.uk/guidance/ai-and-cyber-security-what-you-need-to-know",
+    "source_group": "security_guidance",
+    "license_status": "citation_and_summary",
+    "local_treatment": "citation_only",
+    "related": [
+      "sources/academic-literature.md",
+      "security-model.md"
+    ],
+    "tags": [
+      "ai-security",
+      "security",
+      "ncsc"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-KARPATHY-LLM-WIKI",
+    "title": "Karpathy LLM Wiki methodology gist",
+    "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+    "source_group": "methodology",
+    "license_status": "no explicit redistribution license recorded",
+    "local_treatment": "citation_only",
+    "related": [
+      "sources/karpathy-llm-wiki-methodology.md",
+      "index.md"
+    ],
+    "tags": [
+      "llm-wiki",
+      "methodology",
+      "karpathy"
+    ]
+  }
+]
