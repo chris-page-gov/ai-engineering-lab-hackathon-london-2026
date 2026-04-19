@@ -54,6 +54,14 @@ class Challenge2EvalClientsTest(unittest.TestCase):
             self.assertIn("microsoft_copilot_playwright.mjs", " ".join(microsoft_command))
             self.assertEqual(microsoft_metadata["model"]["selected_model"], "gpt-5-auto-routed")
 
+            thinking_command, thinking_metadata = build_client_invocation(
+                self._context(run_dir, "microsoft-copilot"),
+                {"microsoft-copilot": {"preferred_mode": "Think Deeper"}},
+            )
+            self.assertIn("--preferred-mode", thinking_command)
+            self.assertIn("Think Deeper", thinking_command)
+            self.assertEqual(thinking_metadata["command_config"]["preferred_mode"], "Think Deeper")
+
     def test_dry_run_records_resolved_model_and_manifest(self) -> None:
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {}, clear=True):
             run_dir = Path(tmp) / "run"
@@ -91,6 +99,27 @@ class Challenge2EvalClientsTest(unittest.TestCase):
             )
 
             self.assertEqual(status, "policy_blocked")
+
+    def test_claude_can_defer_model_and_effort_to_local_settings(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {}, clear=True):
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+            command, metadata = build_client_invocation(
+                self._context(run_dir, "claude"),
+                {
+                    "claude": {
+                        "model": "local-settings-managed",
+                        "model_source": "local_settings_managed",
+                        "pass_model_arg": False,
+                        "reasoning_effort": None,
+                    }
+                },
+            )
+
+            self.assertNotIn("--model", command)
+            self.assertNotIn("--effort", command)
+            self.assertEqual(metadata["model"]["selected_model"], "local-settings-managed")
+            self.assertIsNone(metadata["model"]["reasoning_effort"])
 
     def _context(
         self,

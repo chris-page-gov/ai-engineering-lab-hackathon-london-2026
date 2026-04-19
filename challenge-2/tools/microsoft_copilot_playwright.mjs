@@ -18,6 +18,7 @@ const url = args.url || "https://m365.cloud.microsoft/chat";
 const output = required(args.output, "--output");
 const artifactDir = args["artifact-dir"] || path.join(path.dirname(output), `${client}.ui`);
 const prompt = required(args.prompt, "--prompt");
+const preferredMode = args["preferred-mode"] || args["preferred-model"] || "";
 const profileDirArg = args["profile-dir"];
 const profileDirEnv = process.env.MICROSOFT_COPILOT_PROFILE_DIR;
 const profileDirSource = profileDirArg ? "argument" : profileDirEnv ? "environment" : "default";
@@ -38,6 +39,7 @@ const metadata = {
   headless,
   startedAt,
   automation: "playwright_web_ui",
+  preferredMode: preferredMode || null,
   caveats: [
     "Microsoft Copilot is evaluated through a browser UI adapter rather than a stable headless API.",
     "The adapter requires an authenticated Microsoft session in the Playwright profile.",
@@ -67,12 +69,14 @@ try {
     });
     process.exitCode = 4;
   } else {
+    const modeSelection = await selectPreferredMode(page, preferredMode, artifactDir);
     const textbox = await findPromptBox(page);
     if (!textbox) {
       await capture(page, artifactDir, "no-prompt-box");
       await writeOutput(output, {
         ...metadata,
         status: "failed",
+        modeSelection,
         finishedAt: new Date().toISOString(),
         error: "No prompt textbox was found. The browser may need interactive sign-in, the tenant may block Copilot Chat, or the UI selectors may have changed.",
       });
@@ -90,6 +94,7 @@ try {
       await writeOutput(output, {
         ...metadata,
         status: answer.trim() ? "completed" : "completed_empty",
+        modeSelection,
         finishedAt: new Date().toISOString(),
         answer,
       });
@@ -143,6 +148,70 @@ async function findPromptBox(page) {
     }
   }
   return null;
+}
+
+async function selectPreferredMode(page, preferredMode, artifactDir) {
+  const requested = String(preferredMode || "").trim();
+  if (!requested) {
+    return { requested: null, status: "not_requested" };
+  }
+
+  const modeButton = page
+    .locator(
+      [
+        "#gptModeSwitcher",
+        "button[aria-label*='mode' i]",
+        "button[aria-label*='model' i]",
+        "button:has-text('Auto')",
+        "button:has-text('GPT')",
+      ].join(", ")
+    )
+    .first();
+  if (!(await modeButton.count().catch(() => 0)) || !(await modeButton.isVisible().catch(() => false))) {
+    await capture(page, artifactDir, "mode-switcher-not-found");
+    return { requested, status: "switcher_not_found" };
+  }
+
+  await modeButton.click({ timeout: 30000 });
+  await page.waitForTimeout(1000);
+  await capture(page, artifactDir, "mode-menu-open");
+
+  const labels = preferredModeLabels(requested);
+  for (const label of labels) {
+    const option = page
+      .locator(
+        [
+          `[role='menuitemradio']:has-text('${cssString(label)}')`,
+          `[role='menuitem']:has-text('${cssString(label)}')`,
+          `[role='option']:has-text('${cssString(label)}')`,
+          `button:has-text('${cssString(label)}')`,
+          `div:has-text('${cssString(label)}')`,
+        ].join(", ")
+      )
+      .last();
+    if (!(await option.count().catch(() => 0)) || !(await option.isVisible().catch(() => false))) {
+      continue;
+    }
+    await option.click({ timeout: 30000 });
+    await page.waitForTimeout(1500);
+    await capture(page, artifactDir, "mode-selected");
+    return { requested, selected: label, status: "selected" };
+  }
+
+  await page.keyboard.press("Escape").catch(() => {});
+  return { requested, candidates: labels, status: "option_not_found" };
+}
+
+function preferredModeLabels(requested) {
+  const labels = [requested];
+  if (/think|reason|deep/i.test(requested)) {
+    labels.push("Think Deeper", "Thinking", "Deep reasoning", "Reasoning", "GPT-5 Thinking", "GPT-5");
+  }
+  return [...new Set(labels)];
+}
+
+function cssString(value) {
+  return String(value).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
 }
 
 async function extractAnswer(page, promptText) {

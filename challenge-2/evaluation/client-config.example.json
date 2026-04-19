@@ -84,7 +84,8 @@
     "automation_method": "playwright_web_ui",
     "url": "https://m365.cloud.microsoft/chat",
     "app_name": "Microsoft 365 Copilot",
+    "preferred_mode": "Think Deeper",
     "headless": false,
-    "notes": "Full-coverage UI client. This uses a brittle Playwright browser adapter against Microsoft 365 Copilot Chat because no stable headless local API is available. It requires an authenticated browser profile and may need manual sign-in before the benchmark run."
+    "notes": "Full-coverage UI client. This uses a brittle Playwright browser adapter against Microsoft 365 Copilot Chat because no stable headless local API is available. It requires an authenticated browser profile and may need manual sign-in before the benchmark run. When preferred_mode is set, the adapter attempts to select the named GPT mode before submitting the prompt."
   }
 }

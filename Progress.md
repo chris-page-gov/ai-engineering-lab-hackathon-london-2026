@@ -68,6 +68,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added distinct `policy_blocked` classification for GitHub Copilot CLI live requests denied by organisation, subscription, or policy controls.
 - Added a Playwright-based Microsoft Copilot UI adapter for full coverage, with caveats for authenticated profile requirements and selector/UI fragility.
 - Adjusted Microsoft Copilot UI adapter metadata to record the Playwright profile source rather than a default local profile path.
+- Added an optional Microsoft Copilot UI `preferred_mode` path and smoke-tested `Think Deeper` mode selection.
+- Added a client-config path for Claude Code to defer model and effort selection to DSIT-managed local Claude settings.
 
 ## Validation
 
@@ -138,6 +140,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 challenge-2/tools/run_wiki_eval.py --clients microsoft-copilot --questions Q001 --timeout-sec 90 --output-root /tmp/challenge2-wiki-eval-versioning --run-id microsoft-live-smoke-3` returned `auth_required`, proving the adapter runs and captures sign-in evidence but still needs an authenticated Playwright profile.
   - `python3 challenge-2/tools/run_wiki_eval.py --clients microsoft-copilot --questions Q001 --timeout-sec 90 --output-root /tmp/challenge2-wiki-eval-versioning --run-id microsoft-live-smoke-sanitized` returned `auth_required`; the captured JSON records `profileDirSource: default` and no local profile path.
   - `python3 challenge-2/tools/run_wiki_eval.py --clients github-copilot --questions Q001 --timeout-sec 120 --output-root /tmp/challenge2-wiki-eval-versioning --run-id github-copilot-live-smoke-policy` returned `policy_blocked`, proving the installed CLI is callable but the account or organisation policy blocks live requests.
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --timeout-sec 180 --client-config /tmp/challenge2-explicit-smoke.XXXXXX.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id managed-claude-thinking-dry-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients full --questions Q001 --timeout-sec 180 --client-config /tmp/challenge2-explicit-smoke.XXXXXX.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id managed-claude-thinking-live-smoke` completed for Codex, Gemini, and Microsoft Copilot with `Think Deeper` selected; Claude still failed against the DSIT-managed license portal with `context_management: Extra inputs are not permitted`, and GitHub Copilot CLI remained `policy_blocked`.
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
 
@@ -147,7 +151,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Address the security assessment findings before making any production-readiness claim: harden GitHub Actions permissions/action pinning, upgrade the low `cookie` advisory path, replace unsafe XML parsing for untrusted documents, add response-size and redirect controls to postmortem URL fetching, and define Secure by Design/DPIA/operational controls for real data.
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
 - Enable/authenticate GitHub Copilot CLI policy access for live runs; the standalone `copilot` binary is installed locally, but live evaluation currently returns `policy_blocked`.
-- Configure or warm an authenticated Playwright profile for Microsoft 365 Copilot Chat before a non-dry full coverage run.
+- Resolve the Claude Code DSIT-managed license portal error `context_management: Extra inputs are not permitted` before treating Claude as live-run ready.
+- Add Microsoft Copilot context injection before scoring Microsoft UI answers; the UI smoke can select `Think Deeper`, but the web session cannot read local wiki paths directly.
 - Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through `--clients full`. Fill the scoring sheet and publish the generated leaderboard.
 
 ## Next Recommended Steps

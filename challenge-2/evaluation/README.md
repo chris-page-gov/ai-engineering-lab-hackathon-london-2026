@@ -76,8 +76,11 @@ Microsoft Copilot is included through `challenge-2/tools/microsoft_copilot_playw
 
 - it is not a stable headless API;
 - it needs an authenticated Playwright browser profile, configured with `MICROSOFT_COPILOT_PROFILE_DIR` or `profile_dir` in client config;
+- when `preferred_mode` is set in client config, the adapter attempts to open the GPT mode switcher and select that visible mode, such as `Think Deeper`, before submitting the prompt;
 - it can fail when Microsoft changes selectors, loading states, tenant controls, or routing behaviour;
 - it captures screenshot and HTML sidecars under `raw/microsoft-copilot/<question>.ui/` for audit review.
+
+The Microsoft UI client does not receive local filesystem tools. A completed UI smoke only proves the browser path, sign-in, and optional mode selection work; a scored benchmark run needs a separate context-injection strategy if Microsoft Copilot must answer from local wiki content.
 
 For an auditable smoke test of version capture:
 

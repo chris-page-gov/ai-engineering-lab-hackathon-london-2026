@@ -527,6 +527,8 @@ def _capture_model_environment(client: str) -> dict[str, dict[str, Any]]:
 
 def _configured_effort(client: str, client_config: dict[str, Any], policy: dict[str, Any]) -> str | None:
     for key in ("reasoning_effort", "effort"):
+        if key in client_config and client_config[key] is None:
+            return None
         if str(client_config.get(key) or "").strip():
             return str(client_config[key]).strip()
     for name in MODEL_EFFORT_ENV_VARS.get(client, ()):
@@ -570,6 +572,7 @@ def _describe_ui_automation(client: str, client_config: dict[str, Any]) -> dict[
         "profile_dir_source": profile_dir_source,
         "profile_dir_configured": profile_dir_source != "default",
         "headless": bool(client_config.get("headless", False)),
+        "preferred_mode": client_config.get("preferred_mode"),
         "caveats": [
             "Microsoft Copilot is evaluated through a browser UI adapter rather than a stable headless API.",
             "The adapter requires an authenticated Microsoft session in the Playwright profile.",
@@ -673,6 +676,9 @@ def _microsoft_copilot_command(context: ClientCommandContext, client_config: dic
         "--prompt",
         context.prompt,
     ]
+    preferred_mode = client_config.get("preferred_mode")
+    if preferred_mode:
+        command.extend(["--preferred-mode", str(preferred_mode)])
     profile_dir = client_config.get("profile_dir")
     if profile_dir:
         command.extend(["--profile-dir", str(profile_dir)])
@@ -696,6 +702,7 @@ def _public_client_config_metadata(client_config: dict[str, Any]) -> dict[str, A
         "app_name",
         "profile_dir",
         "headless",
+        "preferred_mode",
         "notes",
     }
     return {key: client_config[key] for key in allowed_keys if key in client_config}

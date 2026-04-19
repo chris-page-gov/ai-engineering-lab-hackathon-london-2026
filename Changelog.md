@@ -35,12 +35,14 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added full-coverage Challenge 2 evaluation support for GitHub Copilot CLI and Microsoft Copilot UI runs, including a caveated Playwright adapter for Microsoft 365 Copilot Chat.
 - Added a `full` client alias for running Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, and Microsoft Copilot together.
 - Added a distinct `policy_blocked` status for GitHub Copilot CLI live runs denied by organisation, subscription, or policy controls.
+- Added optional Microsoft Copilot UI GPT mode selection so the Playwright adapter can attempt to select a visible mode such as `Think Deeper` before submitting benchmark prompts.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
 
 ### Changed
 
 - Updated Challenge 2 evaluation best-model policy to use `gpt-5.4` with `xhigh` effort for Codex, Gemini CLI Auto routing, Claude Code `best` with `max` effort, staff-confirmed `gpt-5.4` for GitHub Copilot CLI, and Microsoft 365 Copilot Chat GPT-5 automatic routing for Microsoft Copilot.
+- Allowed client config to suppress a default reasoning-effort argument with JSON `null`, enabling Claude Code runs that defer model and effort selection to DSIT-managed local Claude settings.
 
 ### Fixed
 
