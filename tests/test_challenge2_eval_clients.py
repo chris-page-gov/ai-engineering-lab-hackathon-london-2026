@@ -112,6 +112,7 @@ class Challenge2EvalClientsTest(unittest.TestCase):
                         "model_source": "local_settings_managed",
                         "pass_model_arg": False,
                         "reasoning_effort": None,
+                        "environment": {"CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"},
                     }
                 },
             )
@@ -120,6 +121,10 @@ class Challenge2EvalClientsTest(unittest.TestCase):
             self.assertNotIn("--effort", command)
             self.assertEqual(metadata["model"]["selected_model"], "local-settings-managed")
             self.assertIsNone(metadata["model"]["reasoning_effort"])
+            self.assertEqual(
+                metadata["command_config"]["environment"]["CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS"],
+                "1",
+            )
 
     def _context(
         self,

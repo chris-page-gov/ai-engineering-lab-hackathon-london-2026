@@ -70,6 +70,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Adjusted Microsoft Copilot UI adapter metadata to record the Playwright profile source rather than a default local profile path.
 - Added an optional Microsoft Copilot UI `preferred_mode` path and smoke-tested `Think Deeper` mode selection.
 - Added a client-config path for Claude Code to defer model and effort selection to DSIT-managed local Claude settings.
+- Added per-client environment overrides so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` and avoid DSIT gateway rejection of beta request fields such as `context_management`.
 
 ## Validation
 
@@ -142,6 +143,14 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 challenge-2/tools/run_wiki_eval.py --clients github-copilot --questions Q001 --timeout-sec 120 --output-root /tmp/challenge2-wiki-eval-versioning --run-id github-copilot-live-smoke-policy` returned `policy_blocked`, proving the installed CLI is callable but the account or organisation policy blocks live requests.
   - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --timeout-sec 180 --client-config /tmp/challenge2-explicit-smoke.XXXXXX.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id managed-claude-thinking-dry-smoke`
   - `python3 challenge-2/tools/run_wiki_eval.py --clients full --questions Q001 --timeout-sec 180 --client-config /tmp/challenge2-explicit-smoke.XXXXXX.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id managed-claude-thinking-live-smoke` completed for Codex, Gemini, and Microsoft Copilot with `Think Deeper` selected; Claude still failed against the DSIT-managed license portal with `context_management: Extra inputs are not permitted`, and GitHub Copilot CLI remained `policy_blocked`.
+  - `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 claude -p --output-format json "Reply with OK only."` completed.
+  - `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 claude -p --model opus --output-format json "Reply with OK only."` completed and resolved to the DSIT-managed `eu.anthropic.claude-opus-4-6-v1` model group.
+  - `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 python3 challenge-2/tools/run_wiki_eval.py --clients full --questions Q001 --timeout-sec 180 --client-config /tmp/challenge2-explicit-smoke.XXXXXX.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id managed-claude-beta-disabled-live-smoke` completed for Codex, Gemini, Claude, and Microsoft Copilot; GitHub Copilot CLI remained `policy_blocked`.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients claude --questions Q001 --timeout-sec 120 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id claude-config-env-smoke` completed, proving the client config can inject the Claude beta-disable compatibility flag without a shell-level export.
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-config-env-dry-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-explicit-config-dry-smoke` recorded explicit selectable models for Codex, Gemini, GitHub Copilot, and Microsoft Copilot, with Claude delegated to DSIT-managed local settings.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients full --questions Q001 --timeout-sec 180 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-explicit-config-live-smoke` completed for Codex, Gemini, Claude, and Microsoft Copilot; GitHub Copilot CLI remained `policy_blocked`.
+  - A direct Microsoft Copilot `Think Deeper` smoke with public GitHub wiki URLs selected the mode successfully but did not yield usable scored JSON, so GitHub URLs alone are not sufficient; Microsoft scoring still needs explicit source-context injection or attachment strategy.
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
 
@@ -151,7 +160,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Address the security assessment findings before making any production-readiness claim: harden GitHub Actions permissions/action pinning, upgrade the low `cookie` advisory path, replace unsafe XML parsing for untrusted documents, add response-size and redirect controls to postmortem URL fetching, and define Secure by Design/DPIA/operational controls for real data.
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
 - Enable/authenticate GitHub Copilot CLI policy access for live runs; the standalone `copilot` binary is installed locally, but live evaluation currently returns `policy_blocked`.
-- Resolve the Claude Code DSIT-managed license portal error `context_management: Extra inputs are not permitted` before treating Claude as live-run ready.
+- Use `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for Claude Code runs through the DSIT-managed gateway; the smoke test is now live-run ready with that compatibility flag.
 - Add Microsoft Copilot context injection before scoring Microsoft UI answers; the UI smoke can select `Think Deeper`, but the web session cannot read local wiki paths directly.
 - Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through `--clients full`. Fill the scoring sheet and publish the generated leaderboard.
 

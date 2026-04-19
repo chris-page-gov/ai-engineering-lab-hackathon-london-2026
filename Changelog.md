@@ -36,6 +36,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added a `full` client alias for running Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, and Microsoft Copilot together.
 - Added a distinct `policy_blocked` status for GitHub Copilot CLI live runs denied by organisation, subscription, or policy controls.
 - Added optional Microsoft Copilot UI GPT mode selection so the Playwright adapter can attempt to select a visible mode such as `Think Deeper` before submitting benchmark prompts.
+- Added per-client environment overrides in the evaluation config so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for DSIT managed gateway compatibility.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
 

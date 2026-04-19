@@ -37,6 +37,10 @@ MODEL_EFFORT_ENV_VARS = {
     "microsoft-copilot": (),
 }
 
+CLIENT_RUNTIME_ENV_VARS = {
+    "claude": ("CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS",),
+}
+
 MODEL_POLICIES: dict[str, dict[str, Any]] = {
     "codex": {
         "default_model": "gpt-5.4",
@@ -180,6 +184,7 @@ def describe_client(
             "python": platform.python_version(),
         },
         "model_environment": _capture_model_environment(client),
+        "runtime_environment": _capture_runtime_environment(client, client_config),
     }
 
 
@@ -347,6 +352,7 @@ def run_client(
 ) -> ClientRunResult:
     """Run a client command and capture visible output."""
 
+    client_config = _client_config(config, context.client)
     command, invocation_metadata = build_client_invocation(context, config)
     selected_model = invocation_metadata["model"].get("selected_model")
     metadata = {
@@ -384,6 +390,7 @@ def run_client(
             text=True,
             check=False,
             timeout=max(timeout_sec, 1),
+            env=_subprocess_environment(client_config),
         )
         elapsed = time.monotonic() - started
         stdout_path.write_text(proc.stdout or "", encoding="utf-8")
@@ -523,6 +530,38 @@ def _capture_model_environment(client: str) -> dict[str, dict[str, Any]]:
         value = os.environ.get(name)
         captured[name] = {"set": value is not None, "value": value if value else None}
     return captured
+
+
+def _capture_runtime_environment(client: str, client_config: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    names = set(CLIENT_RUNTIME_ENV_VARS.get(client, ()))
+    names.update(_configured_environment(client_config).keys())
+    captured: dict[str, dict[str, Any]] = {}
+    configured = _configured_environment(client_config)
+    for name in sorted(names):
+        value = configured.get(name, os.environ.get(name))
+        captured[name] = {
+            "set": value is not None,
+            "source": "client_config" if name in configured else "environment",
+            "value": _public_env_value(name, value),
+        }
+    return captured
+
+
+def _configured_environment(client_config: dict[str, Any]) -> dict[str, str | None]:
+    raw = client_config.get("environment", client_config.get("env", {}))
+    if not isinstance(raw, dict):
+        return {}
+    return {str(name): (None if value is None else str(value)) for name, value in raw.items()}
+
+
+def _subprocess_environment(client_config: dict[str, Any]) -> dict[str, str]:
+    env = os.environ.copy()
+    for name, value in _configured_environment(client_config).items():
+        if value is None:
+            env.pop(name, None)
+        else:
+            env[name] = value
+    return env
 
 
 def _configured_effort(client: str, client_config: dict[str, Any], policy: dict[str, Any]) -> str | None:
@@ -703,9 +742,30 @@ def _public_client_config_metadata(client_config: dict[str, Any]) -> dict[str, A
         "profile_dir",
         "headless",
         "preferred_mode",
+        "environment",
+        "env",
         "notes",
     }
-    return {key: client_config[key] for key in allowed_keys if key in client_config}
+    record: dict[str, Any] = {}
+    for key in allowed_keys:
+        if key not in client_config:
+            continue
+        if key in {"environment", "env"} and isinstance(client_config[key], dict):
+            record[key] = {
+                str(name): _public_env_value(str(name), None if value is None else str(value))
+                for name, value in client_config[key].items()
+            }
+        else:
+            record[key] = client_config[key]
+    return record
+
+
+def _public_env_value(name: str, value: str | None) -> str | None:
+    if value is None:
+        return None
+    if any(marker in name.upper() for marker in ("TOKEN", "KEY", "SECRET", "PASSWORD", "AUTH", "CREDENTIAL")):
+        return "[redacted]"
+    return value
 
 
 def _read_macos_app_info(path: Path) -> dict[str, Any]:

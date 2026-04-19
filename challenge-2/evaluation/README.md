@@ -61,12 +61,14 @@ The default batch remains `codex,gemini,claude`. Current model policy, checked o
 | Client | Harness default | Why |
 | --- | --- | --- |
 | Codex | `gpt-5.4`, `xhigh` effort | OpenAI model documentation describes `gpt-5.4` as the frontier model for complex professional work. |
-| Gemini CLI | `auto` | Gemini CLI documentation recommends Auto routing; Gemini 3.1 Pro Preview is included in routing where available, so the installed client owns availability and fallback. |
-| Claude Code | `best`, `max` effort | Claude Code documents `best` as the most capable available model and currently equivalent to `opus`. |
+| Gemini CLI | `gemini-3.1-pro-preview` in the full-run config | Gemini CLI documentation allows direct model selection; the evaluation config pins Gemini 3.1 Pro Preview rather than relying on Auto routing. |
+| Claude Code | DSIT-managed local settings, beta fields disabled | The shared local Claude settings select the managed model path, expected to resolve to Opus 4.6 in this environment. `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` is required for the DSIT gateway because Claude Code 2.1.x otherwise sends beta fields such as `context_management`. |
 | GitHub Copilot CLI | `gpt-5.4`, `xhigh` effort | Staff-confirmed override after contradictory public Copilot documentation. The command still records public Copilot model references as context. |
-| Microsoft Copilot | `gpt-5-auto-routed` | Microsoft 365 Copilot release notes state Copilot Chat uses GPT-5 by default and automatically routes prompts to best-performing models for each task. |
+| Microsoft Copilot | `gpt-5-thinking-ui-selected` | The Playwright adapter attempts to select the visible `Think Deeper` GPT mode before submitting; model internals remain Microsoft-managed. |
 
 The runner also records Git commit, branch, tags-at-HEAD, dirty status, benchmark SHA-256, and detected macOS Copilot desktop app versions.
+
+Client config may set per-client environment variables under `environment`. Values for secret-like names are redacted in public metadata; non-secret compatibility flags, such as `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`, are recorded so the run can be reproduced.
 
 ## Copilot Coverage Caveats
 
