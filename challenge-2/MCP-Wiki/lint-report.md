@@ -19,7 +19,7 @@ related:
 
 # MCP Wiki Lint Report
 
-Generated: `2026-04-19T21:01:20+00:00`
+Generated: `2026-04-19T21:25:37+00:00`
 
 Status: **PASS**
 
@@ -27,14 +27,14 @@ Status: **PASS**
 
 | Metric | Value |
 | --- | ---: |
-| `markdown_files` | 22 |
-| `frontmatter_files` | 20 |
-| `internal_links` | 222 |
-| `external_links` | 67 |
+| `markdown_files` | 27 |
+| `frontmatter_files` | 25 |
+| `internal_links` | 270 |
+| `external_links` | 75 |
 | `errors` | 0 |
 | `warnings` | 0 |
 | `missing_search_terms` | 0 |
-| `ignored_ds_store_files` | 1 |
+| `ignored_ds_store_files` | 2 |
 
 ## Errors
 

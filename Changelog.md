@@ -43,6 +43,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added a citation-clean linked derivative of the MCP Deep Research report for AI and human navigation while preserving the raw report unchanged as evidence.
 - Added `challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py`, plus generated Markdown and JSON lint reports for frontmatter, tags, source paths, duplicate IDs, internal links, and citation-marker leakage checks.
 - Added `challenge-2/MCP-Wiki/wiki-optimization-log.md` to record wiki navigation, metadata, and lint decisions as part of the MCP research evidence.
+- Added `challenge-2/MCP-Wiki/authentication-options.md` to evaluate Copilot Studio-facing Streamable HTTP authentication options and record OAuth 2.0 / Microsoft Entra ID as the target production pattern.
+- Added first-use MCP reference implementation submodules under `challenge-2/MCP-Wiki/references/external/` for ProfessionalWiki, olgasafonova, qmd, and mkdocs-mcp-plugin, each with local `SOURCE.md` metadata.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
 
@@ -52,6 +54,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Allowed client config to suppress a default reasoning-effort argument with JSON `null`, enabling Claude Code runs that defer model and effort selection to DSIT-managed local Claude settings.
 - Updated the Microsoft Copilot example config to prefer `Think Deeper`, cite the public `v1.1` GitHub wiki, and inject key wiki excerpts because the Microsoft web UI cannot read local repository paths.
 - Expanded the MCP research wiki frontmatter, search terms, related-link properties, and cross-links so the wiki can be navigated and linted as an AI-usable knowledge base.
+- Resolved MCP research wiki open decisions for authentication, first-use submodules, semantic retrieval in v1, and release-time external URL validation.
+- Updated the MCP implementation plan so semantic retrieval is included in v1 behind deterministic provenance and context-pack contracts.
 
 ### Fixed
 
@@ -89,6 +93,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 - Verified the MCP research wiki lint: `22` Markdown files, `222` internal links, `67` external links, complete search-term coverage, `0` errors, and `0` warnings.
 - Verified all `31` MCP bibliography URLs returned HTTP success responses and replaced stale Microsoft/NCSC citation targets with current URLs.
+- Verified the MCP research wiki lint after submodule metadata: `27` Markdown files, `270` internal links, `75` external links, complete search-term coverage, `0` errors, and `0` warnings.
 
 ## 2026-04-16
 

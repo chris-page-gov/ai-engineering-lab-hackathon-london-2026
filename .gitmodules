@@ -1,0 +1,12 @@
+[submodule "challenge-2/MCP-Wiki/references/external/MCP-BIB-PROF-MW-ProfessionalWiki-MediaWiki-MCP-Server/upstream"]
+	path = challenge-2/MCP-Wiki/references/external/MCP-BIB-PROF-MW-ProfessionalWiki-MediaWiki-MCP-Server/upstream
+	url = https://github.com/ProfessionalWiki/MediaWiki-MCP-Server
+[submodule "challenge-2/MCP-Wiki/references/external/MCP-BIB-OLGA-MW-olgasafonova-mediawiki-mcp-server/upstream"]
+	path = challenge-2/MCP-Wiki/references/external/MCP-BIB-OLGA-MW-olgasafonova-mediawiki-mcp-server/upstream
+	url = https://github.com/olgasafonova/mediawiki-mcp-server
+[submodule "challenge-2/MCP-Wiki/references/external/MCP-BIB-QMD-tobi-qmd/upstream"]
+	path = challenge-2/MCP-Wiki/references/external/MCP-BIB-QMD-tobi-qmd/upstream
+	url = https://github.com/tobi/qmd
+[submodule "challenge-2/MCP-Wiki/references/external/MCP-BIB-MKDOCS-MCP-douinc-mkdocs-mcp-plugin/upstream"]
+	path = challenge-2/MCP-Wiki/references/external/MCP-BIB-MKDOCS-MCP-douinc-mkdocs-mcp-plugin/upstream
+	url = https://github.com/douinc/mkdocs-mcp-plugin

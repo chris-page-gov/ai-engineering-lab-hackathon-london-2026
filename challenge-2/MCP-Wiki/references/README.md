@@ -32,6 +32,8 @@ Do not copy third-party code or documentation into this folder casually. Prefer 
 
 If a source is added as a git submodule or snapshot, include a sibling `SOURCE.md`, preserve upstream `LICENSE` and `NOTICE` files, and record the source in `../data/source-register.json`.
 
+The first-use submodules are listed in [external references](external/README.md). They are for study and comparison, not production dependency adoption.
+
 ## Related
 
 - [Candidate register](../candidate-register.md)

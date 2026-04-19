@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-04-19T21:01:20+00:00",
+  "created_at": "2026-04-19T21:25:37+00:00",
   "errors": [],
   "metrics": {
     "AGENTS.md": {
@@ -14,22 +14,28 @@
       "internal_link_count": 12,
       "opaque_marker_exempt": false
     },
+    "authentication-options.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 9,
+      "opaque_marker_exempt": false
+    },
     "candidate-register.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 11,
+      "internal_link_count": 13,
       "opaque_marker_exempt": false
     },
     "decision-record.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 8,
+      "internal_link_count": 11,
       "opaque_marker_exempt": false
     },
     "implementation-plan.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 16,
+      "internal_link_count": 20,
       "opaque_marker_exempt": false
     },
     "implementation/README.md": {
@@ -41,7 +47,7 @@
     "index.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 33,
+      "internal_link_count": 36,
       "opaque_marker_exempt": false
     },
     "lint-report.md": {
@@ -53,13 +59,37 @@
     "references/README.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 8,
+      "internal_link_count": 9,
+      "opaque_marker_exempt": false
+    },
+    "references/external/MCP-BIB-MKDOCS-MCP-douinc-mkdocs-mcp-plugin/SOURCE.md": {
+      "external_link_count": 1,
+      "has_frontmatter": true,
+      "internal_link_count": 4,
+      "opaque_marker_exempt": false
+    },
+    "references/external/MCP-BIB-OLGA-MW-olgasafonova-mediawiki-mcp-server/SOURCE.md": {
+      "external_link_count": 1,
+      "has_frontmatter": true,
+      "internal_link_count": 4,
+      "opaque_marker_exempt": false
+    },
+    "references/external/MCP-BIB-PROF-MW-ProfessionalWiki-MediaWiki-MCP-Server/SOURCE.md": {
+      "external_link_count": 1,
+      "has_frontmatter": true,
+      "internal_link_count": 4,
+      "opaque_marker_exempt": false
+    },
+    "references/external/MCP-BIB-QMD-tobi-qmd/SOURCE.md": {
+      "external_link_count": 1,
+      "has_frontmatter": true,
+      "internal_link_count": 4,
       "opaque_marker_exempt": false
     },
     "references/external/README.md": {
-      "external_link_count": 0,
+      "external_link_count": 4,
       "has_frontmatter": true,
-      "internal_link_count": 8,
+      "internal_link_count": 12,
       "opaque_marker_exempt": false
     },
     "research/Challenge 2 Wiki MCP Server Research Report - linked.md": {
@@ -83,7 +113,7 @@
     "security-model.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 12,
+      "internal_link_count": 15,
       "opaque_marker_exempt": false
     },
     "sources/academic-literature.md": {
@@ -101,7 +131,7 @@
     "sources/github-candidates.md": {
       "external_link_count": 9,
       "has_frontmatter": true,
-      "internal_link_count": 8,
+      "internal_link_count": 9,
       "opaque_marker_exempt": false
     },
     "sources/karpathy-llm-wiki-methodology.md": {
@@ -119,7 +149,7 @@
     "sources/microsoft-copilot-mcp.md": {
       "external_link_count": 3,
       "has_frontmatter": true,
-      "internal_link_count": 8,
+      "internal_link_count": 10,
       "opaque_marker_exempt": false
     },
     "specifications/README.md": {
@@ -139,11 +169,11 @@
   "status": "pass",
   "summary": {
     "errors": 0,
-    "external_links": 67,
-    "frontmatter_files": 20,
-    "ignored_ds_store_files": 1,
-    "internal_links": 222,
-    "markdown_files": 22,
+    "external_links": 75,
+    "frontmatter_files": 25,
+    "ignored_ds_store_files": 2,
+    "internal_links": 270,
+    "markdown_files": 27,
     "missing_search_terms": 0,
     "warnings": 0
   },

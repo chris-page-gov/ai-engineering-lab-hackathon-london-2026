@@ -51,8 +51,8 @@
     "source_type": "source_bibliography",
     "license_status": "mixed_citation_only_until_reviewed",
     "publication_status": "summary_and_links",
-    "sha256": "7a885e19973f7ec5afc1ad795559d42b329512f272adf0a595ad30c8376a0561",
-    "size_bytes": 7810
+    "sha256": "9921c5a02f6db6d920b5efb6a0947ba7e332ac282af4fd66bf6cb889cfd3b3ef",
+    "size_bytes": 7883
   },
   {
     "source_id": "MCP-DATA-BIBLIOGRAPHY",
@@ -61,8 +61,60 @@
     "source_type": "machine_readable_source_bibliography",
     "license_status": "mixed_citation_only_until_reviewed",
     "publication_status": "structured_source_metadata",
-    "sha256": "b51ac548238f37f220fc1bcc1382ddfb7157baec718b565b253dadb8ad9d2133",
-    "size_bytes": 15290
+    "sha256": "14e470d126ef7db955c4e7e7687d45e3b4a02128578d821e0301b1fa165d1c20",
+    "size_bytes": 15266
+  },
+  {
+    "source_id": "MCP-DOC-AUTH-OPTIONS",
+    "title": "Copilot Studio MCP Authentication Options",
+    "path": "authentication-options.md",
+    "source_type": "decision_support",
+    "license_status": "project_artifact",
+    "publication_status": "local_full_text"
+  },
+  {
+    "source_id": "MCP-REF-PROF-MW",
+    "title": "ProfessionalWiki MediaWiki MCP Server Submodule",
+    "path": "references/external/MCP-BIB-PROF-MW-ProfessionalWiki-MediaWiki-MCP-Server/upstream",
+    "metadata_path": "references/external/MCP-BIB-PROF-MW-ProfessionalWiki-MediaWiki-MCP-Server/SOURCE.md",
+    "canonical_url": "https://github.com/ProfessionalWiki/MediaWiki-MCP-Server",
+    "source_type": "git_submodule_reference",
+    "license_status": "mit_license_file_present",
+    "publication_status": "first_use_submodule_for_study",
+    "pinned_commit": "6521ebfc1c5e6460a4964de17d90d212b4f872da"
+  },
+  {
+    "source_id": "MCP-REF-OLGA-MW",
+    "title": "olgasafonova MediaWiki MCP Server Submodule",
+    "path": "references/external/MCP-BIB-OLGA-MW-olgasafonova-mediawiki-mcp-server/upstream",
+    "metadata_path": "references/external/MCP-BIB-OLGA-MW-olgasafonova-mediawiki-mcp-server/SOURCE.md",
+    "canonical_url": "https://github.com/olgasafonova/mediawiki-mcp-server",
+    "source_type": "git_submodule_reference",
+    "license_status": "mit_license_file_present",
+    "publication_status": "first_use_submodule_for_study",
+    "pinned_commit": "a09173325bd21e7c35f17360c4ad3b62314c7063"
+  },
+  {
+    "source_id": "MCP-REF-QMD",
+    "title": "qmd Submodule",
+    "path": "references/external/MCP-BIB-QMD-tobi-qmd/upstream",
+    "metadata_path": "references/external/MCP-BIB-QMD-tobi-qmd/SOURCE.md",
+    "canonical_url": "https://github.com/tobi/qmd",
+    "source_type": "git_submodule_reference",
+    "license_status": "mit_license_file_present",
+    "publication_status": "first_use_submodule_for_study",
+    "pinned_commit": "cfd640ed3499769b3ee41a7118119ff884dbe8c5"
+  },
+  {
+    "source_id": "MCP-REF-MKDOCS-MCP",
+    "title": "mkdocs-mcp-plugin Submodule",
+    "path": "references/external/MCP-BIB-MKDOCS-MCP-douinc-mkdocs-mcp-plugin/upstream",
+    "metadata_path": "references/external/MCP-BIB-MKDOCS-MCP-douinc-mkdocs-mcp-plugin/SOURCE.md",
+    "canonical_url": "https://github.com/douinc/mkdocs-mcp-plugin",
+    "source_type": "git_submodule_reference",
+    "license_status": "mit_metadata_root_license_file_missing",
+    "publication_status": "first_use_submodule_for_study_with_license_caveat",
+    "pinned_commit": "1bb15d124295bb3344e1b2991d05f6485dd1d1de"
   },
   {
     "source_id": "MCP-SRC-KARPATHY-LLM-WIKI",

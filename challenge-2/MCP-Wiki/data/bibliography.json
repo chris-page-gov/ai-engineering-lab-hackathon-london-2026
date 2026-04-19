@@ -22,7 +22,7 @@
     "url": "https://github.com/ProfessionalWiki/MediaWiki-MCP-Server",
     "source_group": "reference_implementation",
     "license_status": "MIT signal from research report; verify LICENSE before reuse",
-    "local_treatment": "candidate_for_study_and_possible_submodule_after_review",
+    "local_treatment": "first_use_submodule_for_study",
     "related": [
       "candidate-register.md",
       "sources/github-candidates.md"
@@ -39,7 +39,7 @@
     "url": "https://github.com/olgasafonova/mediawiki-mcp-server",
     "source_group": "reference_implementation",
     "license_status": "MIT signal from research report; verify LICENSE before reuse",
-    "local_treatment": "candidate_for_study_and_possible_submodule_after_review",
+    "local_treatment": "first_use_submodule_for_study",
     "related": [
       "candidate-register.md",
       "sources/github-candidates.md"
@@ -107,7 +107,7 @@
     "url": "https://github.com/tobi/qmd",
     "source_group": "reference_implementation",
     "license_status": "MIT signal from research report; verify dependency licenses before reuse",
-    "local_treatment": "study_first_possible_submodule_after_dependency_review",
+    "local_treatment": "first_use_submodule_for_study",
     "related": [
       "candidate-register.md",
       "sources/github-candidates.md"
@@ -123,8 +123,8 @@
     "title": "douinc/mkdocs-mcp-plugin",
     "url": "https://github.com/douinc/mkdocs-mcp-plugin",
     "source_group": "reference_implementation",
-    "license_status": "MIT signal from research report; verify dependency and model licenses before reuse",
-    "local_treatment": "study_first",
+    "license_status": "MIT metadata in pyproject; root license file missing in pinned checkout; verify before code reuse",
+    "local_treatment": "first_use_submodule_for_study_with_license_caveat",
     "related": [
       "candidate-register.md",
       "sources/github-candidates.md"

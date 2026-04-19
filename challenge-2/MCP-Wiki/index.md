@@ -17,6 +17,7 @@ search_terms:
 related:
   - "architecture.md"
   - "implementation-plan.md"
+  - "authentication-options.md"
   - "sources/bibliography.md"
   - "wiki-optimization-log.md"
 ---
@@ -30,9 +31,11 @@ This wiki is the research and implementation planning space for a purpose-built 
 - [Architecture](architecture.md)
 - [Implementation Plan](implementation-plan.md)
 - [Security Model](security-model.md)
+- [Authentication Options](authentication-options.md)
 - [Decision Record](decision-record.md)
 - [Wiki Optimization Log](wiki-optimization-log.md)
 - [Candidate Register](candidate-register.md)
+- [External Reference Submodules](references/external/README.md)
 - [Bibliography](sources/bibliography.md)
 - [Research Report Index](research/index.md)
 - [MCP Wiki Lint Report](lint-report.md)
@@ -69,6 +72,9 @@ Build a purpose-built read-only Wiki MCP server rather than forking a broad Obsi
 - log source access for audit;
 - support local stdio and Microsoft-compatible Streamable HTTP;
 - add reference implementations or MCP specifications as submodules only after license review.
+- use OAuth 2.0 or Microsoft Entra ID / SSO for a production Copilot Studio-facing endpoint;
+- include semantic retrieval in v1 behind deterministic provenance and context-pack contracts;
+- validate external URLs at release time rather than in CI.
 
 ## Quality Gate
 

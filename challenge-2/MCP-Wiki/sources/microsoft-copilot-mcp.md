@@ -24,6 +24,8 @@ related:
 
 The research report concludes that Microsoft 365 Copilot and Copilot Studio need a remote Streamable HTTP MCP endpoint, not a local stdio server.
 
+The accepted target authentication pattern is OAuth 2.0 or Microsoft Entra ID / SSO. See [authentication options](../authentication-options.md) for the evaluated alternatives and caveats around API keys, bearer tokens, and anonymous smoke tests.
+
 | Source | URL | Relevance |
 | --- | --- | --- |
 | Copilot Studio MCP connection guidance | [learn.microsoft.com](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-extend-action-mcp) | Target host integration path. |
@@ -37,6 +39,7 @@ Personal OneDrive folder discovery and OneDrive share links did not provide reli
 ## Related
 
 - [Bibliography](bibliography.md)
+- [Authentication options](../authentication-options.md)
 - [Implementation plan](../implementation-plan.md)
 - [Security model](../security-model.md)
 - [MCP specification sources](mcp-specification.md)

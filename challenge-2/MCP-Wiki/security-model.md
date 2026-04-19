@@ -13,6 +13,7 @@ search_terms:
 related:
   - "architecture.md"
   - "implementation-plan.md"
+  - "authentication-options.md"
   - "sources/academic-literature.md"
   - "sources/bibliography.md"
 ---
@@ -36,6 +37,8 @@ This posture follows [the architecture](architecture.md), [the implementation pl
 - No write, delete, shell, network, or raw repository read tools in evaluation mode.
 - Structured audit events for every allowed and denied request.
 - Deterministic citations from server-side metadata, not model-generated path guesses.
+- OAuth 2.0 or Microsoft Entra ID / SSO for remote Copilot-facing production endpoints.
+- Semantic retrieval must preserve path allowlists, denylists, source IDs, index hashes, and bounded response sizes.
 
 ## Prompt Injection Posture
 
@@ -49,9 +52,16 @@ The benchmark and gold answers must never be indexed or exposed to evaluated cli
 
 External source material can only be exposed through the server if the license allows redistribution. Citation-only sources should remain summarized and linked, not served in full.
 
+## Authentication Posture
+
+For local development, anonymous stdio and local-only HTTP are acceptable. For Copilot Studio-facing Streamable HTTP, use OAuth 2.0 or Microsoft Entra ID / SSO as the target production pattern. Static bearer tokens are acceptable only for private smoke tests or gateway-to-server controls. API-key support should be treated as a host-specific exception because Microsoft support differs across Copilot Studio and Microsoft 365 plugin paths.
+
+See [authentication options](authentication-options.md) for the full evaluation.
+
 ## Related
 
 - [Academic literature and security sources](sources/academic-literature.md)
+- [Authentication options](authentication-options.md)
 - [Bibliography](sources/bibliography.md)
 - [MCP specification sources](sources/mcp-specification.md)
 - [Microsoft Copilot sources](sources/microsoft-copilot-mcp.md)

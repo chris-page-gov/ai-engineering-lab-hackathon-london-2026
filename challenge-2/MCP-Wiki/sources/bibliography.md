@@ -30,13 +30,13 @@ This bibliography resolves the Deep Research report's opaque citation markers in
 | Source ID | Source | URL | License posture | Local treatment |
 | --- | --- | --- | --- | --- |
 | `MCP-BIB-OBS-MCP` | cyanheads/obsidian-mcp-server | [GitHub](https://github.com/cyanheads/obsidian-mcp-server) | Apache-2.0 signal; verify before reuse | Study only |
-| `MCP-BIB-PROF-MW` | ProfessionalWiki/MediaWiki-MCP-Server | [GitHub](https://github.com/ProfessionalWiki/MediaWiki-MCP-Server) | MIT signal; verify before reuse | Study first; possible submodule after review |
-| `MCP-BIB-OLGA-MW` | olgasafonova/mediawiki-mcp-server | [GitHub](https://github.com/olgasafonova/mediawiki-mcp-server) | MIT signal; verify before reuse | Study first; possible submodule after review |
+| `MCP-BIB-PROF-MW` | ProfessionalWiki/MediaWiki-MCP-Server | [GitHub](https://github.com/ProfessionalWiki/MediaWiki-MCP-Server) | MIT file present in submodule | First-use submodule for study |
+| `MCP-BIB-OLGA-MW` | olgasafonova/mediawiki-mcp-server | [GitHub](https://github.com/olgasafonova/mediawiki-mcp-server) | MIT file present in submodule | First-use submodule for study |
 | `MCP-BIB-SHIQUDA-MW` | shiquda/mediawiki-mcp-server | [GitHub](https://github.com/shiquda/mediawiki-mcp-server) | No clear license detected in the research pass | Avoid reuse |
 | `MCP-BIB-WIKIJS` | heAdz0r/wikijs-mcp-server | [GitHub](https://github.com/heAdz0r/wikijs-mcp-server) | MIT signal; verify before reuse | Study only |
 | `MCP-BIB-KB-MCP` | jeanibarz/knowledge-base-mcp-server | [GitHub](https://github.com/jeanibarz/knowledge-base-mcp-server) | Unlicense signal; verify before reuse | Study only |
-| `MCP-BIB-QMD` | tobi/qmd | [GitHub](https://github.com/tobi/qmd) | MIT signal; dependency review needed | Study first |
-| `MCP-BIB-MKDOCS-MCP` | douinc/mkdocs-mcp-plugin | [GitHub](https://github.com/douinc/mkdocs-mcp-plugin) | MIT signal; dependency and model review needed | Study first |
+| `MCP-BIB-QMD` | tobi/qmd | [GitHub](https://github.com/tobi/qmd) | MIT file present in submodule; dependency review needed | First-use submodule for study |
+| `MCP-BIB-MKDOCS-MCP` | douinc/mkdocs-mcp-plugin | [GitHub](https://github.com/douinc/mkdocs-mcp-plugin) | MIT metadata in `pyproject.toml`; root license file missing in pinned checkout | First-use submodule for study with license caveat |
 | `MCP-BIB-MINERU` | OpenDataLab/MinerU-Document-Explorer | [GitHub](https://github.com/OpenDataLab/MinerU-Document-Explorer) | MIT signal; service and model terms need review | Study only |
 
 See [the candidate register](../candidate-register.md), [the candidate data](../data/candidate-register.json), and [the GitHub candidate source note](github-candidates.md) for reuse analysis.

@@ -33,6 +33,7 @@ REQUIRED_NAV_FILES = [
     Path("architecture.md"),
     Path("implementation-plan.md"),
     Path("security-model.md"),
+    Path("authentication-options.md"),
     Path("decision-record.md"),
     Path("wiki-optimization-log.md"),
     Path("candidate-register.md"),
@@ -50,6 +51,14 @@ WIKILINK_RE = re.compile(r"\[\[([^]\n|#]+)(?:#[^]\n|]+)?(?:\|[^]\n]+)?\]\]")
 
 def rel(path: Path) -> str:
     return path.relative_to(ROOT).as_posix()
+
+
+def is_submodule_upstream_path(path: Path) -> bool:
+    try:
+        parts = path.relative_to(ROOT).parts
+    except ValueError:
+        return False
+    return len(parts) >= 4 and parts[0] == "references" and parts[1] == "external" and "upstream" in parts
 
 
 def strip_quotes(value: str) -> str:
@@ -281,7 +290,7 @@ def run() -> dict[str, object]:
         if not (ROOT / required).exists():
             errors.append({"type": "missing_required_file", "file": required.as_posix()})
 
-    markdown_files = sorted(ROOT.rglob("*.md"))
+    markdown_files = sorted(path for path in ROOT.rglob("*.md") if not is_submodule_upstream_path(path))
     total_internal_links = 0
     total_external_links = 0
     frontmatter_count = 0
@@ -374,7 +383,7 @@ def run() -> dict[str, object]:
             "opaque_marker_exempt": relative in OPAQUE_MARKER_EXEMPTIONS,
         }
 
-    ds_store_files = list(ROOT.rglob(".DS_Store"))
+    ds_store_files = [path for path in ROOT.rglob(".DS_Store") if not is_submodule_upstream_path(path)]
     tracked_ds_store = tracked_files(ds_store_files)
     for ds_store in ds_store_files:
         repo_path = ds_store.relative_to(REPO_ROOT).as_posix()

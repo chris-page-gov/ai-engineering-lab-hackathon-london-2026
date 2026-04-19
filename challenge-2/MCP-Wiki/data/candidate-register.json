@@ -12,7 +12,11 @@
     "url": "https://github.com/ProfessionalWiki/MediaWiki-MCP-Server",
     "role": "wiki_mcp_design_reference",
     "license_signal": "MIT",
-    "treatment": "study_first_possible_submodule_after_review",
+    "license_file_status": "license_file_present",
+    "treatment": "first_use_submodule_for_study",
+    "submodule_path": "references/external/MCP-BIB-PROF-MW-ProfessionalWiki-MediaWiki-MCP-Server/upstream",
+    "source_metadata_path": "references/external/MCP-BIB-PROF-MW-ProfessionalWiki-MediaWiki-MCP-Server/SOURCE.md",
+    "pinned_commit": "6521ebfc1c5e6460a4964de17d90d212b4f872da",
     "reuse_risk": "backend_model_differs_from_local_markdown"
   },
   {
@@ -20,7 +24,11 @@
     "url": "https://github.com/olgasafonova/mediawiki-mcp-server",
     "role": "remote_http_deployment_reference",
     "license_signal": "MIT",
-    "treatment": "study_first_possible_submodule_after_review",
+    "license_file_status": "license_file_present",
+    "treatment": "first_use_submodule_for_study",
+    "submodule_path": "references/external/MCP-BIB-OLGA-MW-olgasafonova-mediawiki-mcp-server/upstream",
+    "source_metadata_path": "references/external/MCP-BIB-OLGA-MW-olgasafonova-mediawiki-mcp-server/SOURCE.md",
+    "pinned_commit": "a09173325bd21e7c35f17360c4ad3b62314c7063",
     "reuse_risk": "mediawiki_backend_and_authenticated_edit_surface"
   },
   {
@@ -36,15 +44,23 @@
     "url": "https://github.com/tobi/qmd",
     "role": "markdown_retrieval_reference",
     "license_signal": "MIT",
-    "treatment": "study_first_possible_submodule_after_dependency_review",
+    "license_file_status": "license_file_present",
+    "treatment": "first_use_submodule_for_study",
+    "submodule_path": "references/external/MCP-BIB-QMD-tobi-qmd/upstream",
+    "source_metadata_path": "references/external/MCP-BIB-QMD-tobi-qmd/SOURCE.md",
+    "pinned_commit": "cfd640ed3499769b3ee41a7118119ff884dbe8c5",
     "reuse_risk": "heavier_retrieval_and_model_dependency_surface"
   },
   {
     "name": "douinc/mkdocs-mcp-plugin",
     "url": "https://github.com/douinc/mkdocs-mcp-plugin",
     "role": "python_fastmcp_docs_retrieval_reference",
-    "license_signal": "MIT",
-    "treatment": "study_first",
+    "license_signal": "MIT_metadata",
+    "license_file_status": "pyproject_declares_mit_but_root_license_file_missing",
+    "treatment": "first_use_submodule_for_study_with_license_caveat",
+    "submodule_path": "references/external/MCP-BIB-MKDOCS-MCP-douinc-mkdocs-mcp-plugin/upstream",
+    "source_metadata_path": "references/external/MCP-BIB-MKDOCS-MCP-douinc-mkdocs-mcp-plugin/SOURCE.md",
+    "pinned_commit": "1bb15d124295bb3344e1b2991d05f6485dd1d1de",
     "reuse_risk": "dependency_and_embedding_model_license_review_needed"
   },
   {
