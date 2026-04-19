@@ -34,6 +34,7 @@ REQUIRED_NAV_FILES = [
     Path("implementation-plan.md"),
     Path("security-model.md"),
     Path("authentication-options.md"),
+    Path("semantic-retrieval-options.md"),
     Path("decision-record.md"),
     Path("wiki-optimization-log.md"),
     Path("candidate-register.md"),

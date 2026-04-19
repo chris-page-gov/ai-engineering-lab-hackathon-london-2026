@@ -77,6 +77,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added the MCP research wiki under `challenge-2/MCP-Wiki/`, including an index, operating rules, architecture, implementation plan, security model, decision record, candidate register, source notes, report index, machine-readable source register, machine-readable candidate register, and reserved folders for implementation, specifications, and external reference submodules.
 - Added a resolved MCP bibliography, linked Deep Research report derivative, search-oriented frontmatter, cross-link graph, wiki optimization log, and MCP wiki lint gate.
 - Resolved the MCP wiki open decisions: OAuth 2.0 / Microsoft Entra ID target authentication, first-use reference submodules, semantic retrieval in v1, and release-time external URL validation.
+- Resolved additional MCP validation/auth decisions: Copilot Studio direct MCP connection is first, and API-key authentication is excluded unless live host validation proves it is required.
+- Added semantic retrieval option evaluation, with a provisional local baseline of `BAAI/bge-small-en-v1.5` plus exact NumPy cosine search and comparison runs for `all-MiniLM-L6-v2` and `e5-small-v2`.
 - Added first-use reference implementation submodules for ProfessionalWiki, olgasafonova, qmd, and mkdocs-mcp-plugin, with local `SOURCE.md` metadata and license/reuse caveats.
 - Added repository ignore coverage for nested `.DS_Store` and AppleDouble metadata files.
 
@@ -170,6 +172,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `22` Markdown files, `222` internal links, `67` external links, complete search-term coverage, `0` errors, and `0` warnings.
   - Live bibliography URL check returned HTTP success responses for all `31` entries after replacing stale Microsoft/NCSC URLs and ACM DOI targets that blocked automated checks.
   - After adding first-use submodule metadata, `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `27` Markdown files, `270` internal links, `75` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - After adding semantic retrieval options, `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `28` Markdown files, `286` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
   - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
@@ -184,8 +187,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Use `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for Claude Code runs through the DSIT-managed gateway; the smoke test is now live-run ready with that compatibility flag.
 - Keep Microsoft Copilot source grounding explicit for scored runs: the GitHub permalink plus copied-excerpt prompt path has passed a `Q001` smoke, while a versioned OneDrive or SharePoint wiki copy is a plausible manual fallback if GitHub access fails and should be smoke-tested before use.
 - Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through `--clients full`. Fill the scoring sheet and publish the generated leaderboard.
-- Select the v1 semantic retrieval embedding model, index format, chunking strategy, and reproducibility controls.
-- Validate the first Microsoft host path for the remote MCP endpoint: Copilot Studio direct MCP connection, Agents Toolkit plugin packaging, or custom connector route.
+- Run the v1 semantic retrieval benchmark to lock the final embedding model from the evaluated shortlist.
+- Validate the Copilot Studio direct MCP connection and only escalate to Agents Toolkit packaging or a custom connector if direct connection cannot deliver the required server functionality.
 
 ## Next Recommended Steps
 

@@ -32,6 +32,7 @@ This wiki is the research and implementation planning space for a purpose-built 
 - [Implementation Plan](implementation-plan.md)
 - [Security Model](security-model.md)
 - [Authentication Options](authentication-options.md)
+- [Semantic Retrieval Options](semantic-retrieval-options.md)
 - [Decision Record](decision-record.md)
 - [Wiki Optimization Log](wiki-optimization-log.md)
 - [Candidate Register](candidate-register.md)
@@ -74,6 +75,8 @@ Build a purpose-built read-only Wiki MCP server rather than forking a broad Obsi
 - add reference implementations or MCP specifications as submodules only after license review.
 - use OAuth 2.0 or Microsoft Entra ID / SSO for a production Copilot Studio-facing endpoint;
 - include semantic retrieval in v1 behind deterministic provenance and context-pack contracts;
+- validate Copilot Studio direct MCP connection first;
+- exclude API-key authentication unless live host validation proves it is required;
 - validate external URLs at release time rather than in CI.
 
 ## Quality Gate

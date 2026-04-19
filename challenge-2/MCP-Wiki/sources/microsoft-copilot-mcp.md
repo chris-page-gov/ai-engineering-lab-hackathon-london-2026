@@ -26,6 +26,8 @@ The research report concludes that Microsoft 365 Copilot and Copilot Studio need
 
 The accepted target authentication pattern is OAuth 2.0 or Microsoft Entra ID / SSO. See [authentication options](../authentication-options.md) for the evaluated alternatives and caveats around API keys, bearer tokens, and anonymous smoke tests.
 
+The first validation path is Copilot Studio direct MCP connection. Move to Agents Toolkit packaging or a custom connector only if direct connection cannot deliver the required tools, resources, authentication, or governance behaviour.
+
 | Source | URL | Relevance |
 | --- | --- | --- |
 | Copilot Studio MCP connection guidance | [learn.microsoft.com](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-extend-action-mcp) | Target host integration path. |

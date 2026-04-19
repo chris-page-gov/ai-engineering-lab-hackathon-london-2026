@@ -35,6 +35,7 @@ This log records how the MCP research wiki is being shaped so humans and AI clie
 | Cross-linked architecture, implementation, security, candidate, bibliography, research, and decision notes. | Make the wiki navigable from any major entry point and improve retrieval by link graph. | Lint reports internal-link totals and per-file coverage. |
 | Added first-use reference submodules with local `SOURCE.md` metadata. | Preserve direct access to selected implementations while keeping upstream code separate and license-reviewed. | Lint excludes upstream submodule Markdown and checks local source metadata links. |
 | Recorded authentication, semantic retrieval, and release-time URL validation decisions. | Convert open decisions into implementation constraints before building the server. | Decision record now closes the previous open questions and leaves only implementation-specific follow-ups. |
+| Added semantic retrieval option evaluation. | Select embedding and vector-index technology by evidence without weakening licensing, provenance, or reproducibility. | The wiki now records a local permissive shortlist and exact NumPy baseline for v1 retrieval benchmarking. |
 
 ## Next Optimization Checks
 

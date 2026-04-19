@@ -273,6 +273,166 @@
     ]
   },
   {
+    "source_id": "MCP-BIB-BGE-SMALL",
+    "title": "BAAI/bge-small-en-v1.5",
+    "url": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+    "source_group": "semantic_retrieval",
+    "license_status": "MIT model/license signal; model card states released models can be used commercially",
+    "local_treatment": "candidate_embedding_model",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "embedding-model",
+      "bge",
+      "semantic-retrieval"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-MINILM",
+    "title": "sentence-transformers/all-MiniLM-L6-v2",
+    "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+    "source_group": "semantic_retrieval",
+    "license_status": "Apache-2.0 license file present in Hugging Face repository",
+    "local_treatment": "fallback_embedding_baseline",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "embedding-model",
+      "sentence-transformers",
+      "semantic-retrieval"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-E5-SMALL",
+    "title": "intfloat/e5-small-v2",
+    "url": "https://huggingface.co/intfloat/e5-small-v2",
+    "source_group": "semantic_retrieval",
+    "license_status": "MIT license signal",
+    "local_treatment": "candidate_embedding_model",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "embedding-model",
+      "e5",
+      "semantic-retrieval"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-OPENAI-EMBEDDINGS",
+    "title": "OpenAI text-embedding-3 models",
+    "url": "https://openai.com/index/new-embedding-models-and-api-updates/",
+    "source_group": "semantic_retrieval",
+    "license_status": "proprietary_api_service",
+    "local_treatment": "comparison_only_unless_policy_allows_external_embedding_service",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "embedding-model",
+      "openai",
+      "external-service"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-NUMPY",
+    "title": "NumPy license and project overview",
+    "url": "https://numpy.org/about",
+    "source_group": "semantic_retrieval",
+    "license_status": "modified BSD license",
+    "local_treatment": "preferred_exact_vector_matrix_baseline",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "vector-index",
+      "numpy",
+      "exact-search"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-SCIKIT-LEARN",
+    "title": "scikit-learn project metadata",
+    "url": "https://scientific-python.org/specs/core-projects/scikit-learn/",
+    "source_group": "semantic_retrieval",
+    "license_status": "3-clause BSD",
+    "local_treatment": "optional_exact_search_helper",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "vector-index",
+      "scikit-learn",
+      "exact-search"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-FAISS",
+    "title": "FAISS",
+    "url": "https://github.com/facebookresearch/faiss",
+    "source_group": "semantic_retrieval",
+    "license_status": "MIT",
+    "local_treatment": "scale_candidate_if_exact_numpy_is_too_slow",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "vector-index",
+      "faiss",
+      "semantic-retrieval"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-SQLITE-VEC",
+    "title": "sqlite-vec",
+    "url": "https://github.com/asg017/sqlite-vec",
+    "source_group": "semantic_retrieval",
+    "license_status": "MIT/Apache-2.0 dual-license signal; pre-v1 project",
+    "local_treatment": "study_for_later_persistent_local_index",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "vector-index",
+      "sqlite",
+      "semantic-retrieval"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-HNSWLIB",
+    "title": "hnswlib",
+    "url": "https://github.com/nmslib/hnswlib",
+    "source_group": "semantic_retrieval",
+    "license_status": "Apache-2.0",
+    "local_treatment": "not_v1_default_due_to_approximate_reproducibility_burden",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "vector-index",
+      "hnsw",
+      "approximate-search"
+    ]
+  },
+  {
+    "source_id": "MCP-BIB-CHROMA",
+    "title": "Chroma open source documentation",
+    "url": "https://docs.trychroma.com/docs/overview/oss",
+    "source_group": "semantic_retrieval",
+    "license_status": "Apache-2.0",
+    "local_treatment": "defer_until_vector_database_scale_is_needed",
+    "related": [
+      "semantic-retrieval-options.md"
+    ],
+    "tags": [
+      "vector-database",
+      "chroma",
+      "semantic-retrieval"
+    ]
+  },
+  {
     "source_id": "MCP-BIB-RAG",
     "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
     "url": "https://arxiv.org/abs/2005.11401",

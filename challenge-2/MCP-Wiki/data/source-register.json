@@ -51,8 +51,8 @@
     "source_type": "source_bibliography",
     "license_status": "mixed_citation_only_until_reviewed",
     "publication_status": "summary_and_links",
-    "sha256": "9921c5a02f6db6d920b5efb6a0947ba7e332ac282af4fd66bf6cb889cfd3b3ef",
-    "size_bytes": 7883
+    "sha256": "46c65e091d72a2394e83e91fe3bbb072198733c17820c9a5c7482e99ee8880f4",
+    "size_bytes": 9545
   },
   {
     "source_id": "MCP-DATA-BIBLIOGRAPHY",
@@ -61,13 +61,21 @@
     "source_type": "machine_readable_source_bibliography",
     "license_status": "mixed_citation_only_until_reviewed",
     "publication_status": "structured_source_metadata",
-    "sha256": "14e470d126ef7db955c4e7e7687d45e3b4a02128578d821e0301b1fa165d1c20",
-    "size_bytes": 15266
+    "sha256": "105e91f462664ac502c0ba6ed6b716e167cd52af5133c1fc19d267b9f848085a",
+    "size_bytes": 19833
   },
   {
     "source_id": "MCP-DOC-AUTH-OPTIONS",
     "title": "Copilot Studio MCP Authentication Options",
     "path": "authentication-options.md",
+    "source_type": "decision_support",
+    "license_status": "project_artifact",
+    "publication_status": "local_full_text"
+  },
+  {
+    "source_id": "MCP-DOC-SEMANTIC-OPTIONS",
+    "title": "Semantic Retrieval Options",
+    "path": "semantic-retrieval-options.md",
     "source_type": "decision_support",
     "license_status": "project_artifact",
     "publication_status": "local_full_text"

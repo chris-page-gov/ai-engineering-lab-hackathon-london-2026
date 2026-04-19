@@ -39,7 +39,7 @@ This note evaluates authentication choices for a Copilot Studio-facing Streamabl
 
 Use OAuth 2.0 or Microsoft Entra ID / SSO as the target pattern for a Copilot Studio-facing production endpoint. Anonymous access and static bearer tokens remain allowed only for local development, smoke testing, or tightly controlled private tunnels.
 
-API-key authentication should not be the default because Microsoft support varies by host and packaging path. If a specific Copilot Studio path requires API key support, record that as a host-specific exception in [the decision record](decision-record.md).
+API-key authentication is excluded from the v1 implementation unless live Copilot Studio validation proves it is required for a specific host path. Microsoft support varies by host and packaging path, and API keys weaken principal-level audit compared with OAuth 2.0 or Microsoft Entra ID / SSO.
 
 ## Implementation Implications
 
@@ -49,6 +49,7 @@ API-key authentication should not be the default because Microsoft support varie
 - Return deterministic citations and source IDs regardless of authentication pattern.
 - Keep benchmark and gold-answer denylist controls independent of identity.
 - Treat auth failures and policy denials as audit events.
+- Validate Copilot Studio direct MCP connection before moving to Agents Toolkit packaging or custom connector routes.
 
 ## Related
 

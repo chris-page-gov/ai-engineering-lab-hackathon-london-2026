@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-04-19T21:25:37+00:00",
+  "created_at": "2026-04-19T21:37:27+00:00",
   "errors": [],
   "metrics": {
     "AGENTS.md": {
@@ -17,7 +17,7 @@
     "authentication-options.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 9,
+      "internal_link_count": 8,
       "opaque_marker_exempt": false
     },
     "candidate-register.md": {
@@ -29,13 +29,13 @@
     "decision-record.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 11,
+      "internal_link_count": 13,
       "opaque_marker_exempt": false
     },
     "implementation-plan.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 20,
+      "internal_link_count": 23,
       "opaque_marker_exempt": false
     },
     "implementation/README.md": {
@@ -47,7 +47,7 @@
     "index.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 36,
+      "internal_link_count": 37,
       "opaque_marker_exempt": false
     },
     "lint-report.md": {
@@ -113,7 +113,13 @@
     "security-model.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 15,
+      "internal_link_count": 17,
+      "opaque_marker_exempt": false
+    },
+    "semantic-retrieval-options.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 8,
       "opaque_marker_exempt": false
     },
     "sources/academic-literature.md": {
@@ -123,9 +129,9 @@
       "opaque_marker_exempt": false
     },
     "sources/bibliography.md": {
-      "external_link_count": 31,
+      "external_link_count": 41,
       "has_frontmatter": true,
-      "internal_link_count": 18,
+      "internal_link_count": 19,
       "opaque_marker_exempt": false
     },
     "sources/github-candidates.md": {
@@ -169,11 +175,11 @@
   "status": "pass",
   "summary": {
     "errors": 0,
-    "external_links": 75,
-    "frontmatter_files": 25,
-    "ignored_ds_store_files": 2,
-    "internal_links": 270,
-    "markdown_files": 27,
+    "external_links": 85,
+    "frontmatter_files": 26,
+    "ignored_ds_store_files": 0,
+    "internal_links": 286,
+    "markdown_files": 28,
     "missing_search_terms": 0,
     "warnings": 0
   },

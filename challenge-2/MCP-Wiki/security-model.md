@@ -14,6 +14,7 @@ related:
   - "architecture.md"
   - "implementation-plan.md"
   - "authentication-options.md"
+  - "semantic-retrieval-options.md"
   - "sources/academic-literature.md"
   - "sources/bibliography.md"
 ---
@@ -58,10 +59,17 @@ For local development, anonymous stdio and local-only HTTP are acceptable. For C
 
 See [authentication options](authentication-options.md) for the full evaluation.
 
+API-key authentication is excluded from the v1 implementation unless live Copilot Studio validation proves it is required for a specific host path.
+
+## Semantic Retrieval Posture
+
+Semantic retrieval must be additive to deterministic lexical retrieval, not a replacement for provenance. The v1 implementation should start with local embeddings, an exact local vector matrix, and a manifest that records model revision, index type, corpus hashes, source IDs, and denylist proof. External embedding APIs are comparison-only unless project policy explicitly permits sending corpus text outside the local environment.
+
 ## Related
 
 - [Academic literature and security sources](sources/academic-literature.md)
 - [Authentication options](authentication-options.md)
+- [Semantic retrieval options](semantic-retrieval-options.md)
 - [Bibliography](sources/bibliography.md)
 - [MCP specification sources](sources/mcp-specification.md)
 - [Microsoft Copilot sources](sources/microsoft-copilot-mcp.md)

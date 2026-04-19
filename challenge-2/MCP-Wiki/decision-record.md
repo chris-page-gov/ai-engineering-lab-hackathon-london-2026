@@ -13,6 +13,7 @@ related:
   - "index.md"
   - "wiki-optimization-log.md"
   - "authentication-options.md"
+  - "semantic-retrieval-options.md"
   - "sources/bibliography.md"
   - "implementation-plan.md"
 ---
@@ -35,17 +36,20 @@ related:
 | MCP-DEC-012 | Add the first-use candidate repositories as submodules for study: ProfessionalWiki, olgasafonova, qmd, and mkdocs-mcp-plugin. | These were the candidates marked study-first or possible-submodule; they cover wiki surface design, remote HTTP deployment, Markdown retrieval, and Python/FastMCP retrieval. | Accepted |
 | MCP-DEC-013 | Include semantic retrieval in v1 behind the same provenance-preserving `search_wiki` and `build_context_pack` contracts. | Semantic retrieval should improve recall, but deterministic lexical retrieval, source IDs, snippets, and citation objects must remain the audit baseline. | Accepted |
 | MCP-DEC-014 | Keep external URL checking as release-time validation rather than a CI gate. | Publisher sites can rate-limit, block, redirect, or change availability unpredictably; CI should not fail because a third-party website is temporarily unavailable. | Accepted |
+| MCP-DEC-015 | Evaluate v1 semantic retrieval using a local permissive embedding shortlist and exact local vector matrix before locking the final model. | This preserves licensing and reproducibility while allowing evidence-based choice. The provisional baseline is `BAAI/bge-small-en-v1.5` plus exact NumPy cosine search, with `all-MiniLM-L6-v2` and `e5-small-v2` as comparisons. | Accepted |
+| MCP-DEC-016 | Validate Copilot Studio direct MCP connection first. | Copilot Studio direct MCP currently exposes tools and resources from a connected MCP server. Use Agents Toolkit plugin packaging or a custom connector only if direct connection cannot deliver the required tools, resources, authentication, or governance behaviour. | Accepted |
+| MCP-DEC-017 | Exclude API-key authentication unless live Copilot Studio validation proves it is required for a specific host path. | OAuth 2.0 / Microsoft Entra ID remains the target production pattern; API keys weaken principal-level audit and have inconsistent Microsoft host support. | Accepted |
 
 ## Open Decisions
 
-- Which embedding model and vector index should be used for v1 semantic retrieval without weakening licensing, provenance, or reproducibility?
-- Which exact Microsoft host path should be validated first: Copilot Studio direct MCP connection, Agents Toolkit plugin packaging, or a custom connector route?
-- Should API-key authentication be implemented as a host-specific exception, or excluded unless live Copilot Studio validation proves it is required?
+- Which embedding model from the evaluated shortlist should be locked after the v1 retrieval benchmark?
+- Does Copilot Studio direct MCP validation expose enough of the server's tools and resources, or does the work need to move to Agents Toolkit packaging?
 
 ## Related
 
 - [Wiki optimization log](wiki-optimization-log.md)
 - [Authentication options](authentication-options.md)
+- [Semantic retrieval options](semantic-retrieval-options.md)
 - [Bibliography](sources/bibliography.md)
 - [Implementation plan](implementation-plan.md)
 - [External reference workspace](references/external/README.md)

@@ -14,6 +14,7 @@ related:
   - "architecture.md"
   - "security-model.md"
   - "authentication-options.md"
+  - "semantic-retrieval-options.md"
   - "candidate-register.md"
   - "sources/bibliography.md"
 ---
@@ -40,6 +41,8 @@ The first implementation should be purpose-built for the generated Challenge 2 w
 - Deterministic citations to wiki-relative paths and source IDs.
 - Append-only audit logging for source access.
 - Semantic retrieval in v1, behind deterministic provenance objects and bounded context packs.
+- Copilot Studio direct MCP connection as the first Microsoft host validation path.
+- No API-key authentication unless direct live validation proves a host-specific need.
 
 ## Phase 1: Research Wiki And Registers
 
@@ -68,6 +71,7 @@ The first implementation should be purpose-built for the generated Challenge 2 w
 
 - Add semantic retrieval in v1 after lexical search and provenance tests are stable.
 - Keep semantic scoring behind the same `search_wiki` and `build_context_pack` tool contracts.
+- Evaluate [semantic retrieval options](semantic-retrieval-options.md), starting with local `BAAI/bge-small-en-v1.5` embeddings, exact NumPy cosine search, and `all-MiniLM-L6-v2` / `e5-small-v2` comparison runs.
 - Record embedding model, vector index, chunking strategy, source note path, source IDs, and generated index hash.
 - Ensure semantic matches cannot surface benchmark or gold-answer artifacts.
 
@@ -81,6 +85,7 @@ The first implementation should be purpose-built for the generated Challenge 2 w
 
 - Connect the HTTP MCP endpoint to Copilot Studio.
 - Validate which parts of MCP are consumed by the Microsoft host: tools, resources, prompts, or tools only.
+- Stay with direct MCP connection unless it cannot expose the required tool/resource surface or governance controls.
 - Run Q001 and a small representative smoke set against the Challenge 2 wiki.
 
 ## Phase 7: Reference Implementations
@@ -92,6 +97,7 @@ The first-use reference implementation submodules are now added under [reference
 - [Architecture](architecture.md)
 - [Security model](security-model.md)
 - [Authentication options](authentication-options.md)
+- [Semantic retrieval options](semantic-retrieval-options.md)
 - [Implementation workspace](implementation/README.md)
 - [Specifications workspace](specifications/README.md)
 - [Decision record](decision-record.md)

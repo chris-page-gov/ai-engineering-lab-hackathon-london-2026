@@ -62,6 +62,23 @@ See [the MCP specification source note](mcp-specification.md), [the architecture
 
 See [the Microsoft Copilot source note](microsoft-copilot-mcp.md) and [the security model](../security-model.md).
 
+## Semantic Retrieval Sources
+
+| Source ID | Source | URL | Local treatment |
+| --- | --- | --- | --- |
+| `MCP-BIB-BGE-SMALL` | BAAI/bge-small-en-v1.5 | [Hugging Face](https://huggingface.co/BAAI/bge-small-en-v1.5) | Preferred first embedding candidate |
+| `MCP-BIB-MINILM` | sentence-transformers/all-MiniLM-L6-v2 | [Hugging Face](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) | Fallback embedding baseline |
+| `MCP-BIB-E5-SMALL` | intfloat/e5-small-v2 | [Hugging Face](https://huggingface.co/intfloat/e5-small-v2) | Second local embedding candidate |
+| `MCP-BIB-OPENAI-EMBEDDINGS` | OpenAI text-embedding-3 models | [OpenAI](https://openai.com/index/new-embedding-models-and-api-updates/) | Comparison only unless external embedding service use is approved |
+| `MCP-BIB-NUMPY` | NumPy | [numpy.org](https://numpy.org/about) | Preferred exact vector-matrix baseline |
+| `MCP-BIB-SCIKIT-LEARN` | scikit-learn | [Scientific Python](https://scientific-python.org/specs/core-projects/scikit-learn/) | Optional exact-search helper |
+| `MCP-BIB-FAISS` | FAISS | [GitHub](https://github.com/facebookresearch/faiss) | Scale candidate if exact NumPy is too slow |
+| `MCP-BIB-SQLITE-VEC` | sqlite-vec | [GitHub](https://github.com/asg017/sqlite-vec) | Study for later persistent local index |
+| `MCP-BIB-HNSWLIB` | hnswlib | [GitHub](https://github.com/nmslib/hnswlib) | Approximate search option, not v1 default |
+| `MCP-BIB-CHROMA` | Chroma open source docs | [Chroma](https://docs.trychroma.com/docs/overview/oss) | Defer until vector database scale is needed |
+
+See [semantic retrieval options](../semantic-retrieval-options.md) for the evaluation.
+
 ## Academic And Security Sources
 
 | Source ID | Source | URL | Design relevance |
