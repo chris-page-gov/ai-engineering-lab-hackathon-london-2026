@@ -472,7 +472,12 @@ def build_client_invocation(
             ]
         )
     elif context.client == "codex-mcp":
-        command = _codex_mcp_command(context, command_model or "gpt-5.4", str(model.get("reasoning_effort") or "xhigh"))
+        command = _codex_mcp_command(
+            context,
+            command_model or "gpt-5.4",
+            str(model.get("reasoning_effort") or "xhigh"),
+            client_config,
+        )
     elif context.client == "gemini":
         command = [
             "gemini",
@@ -889,20 +894,13 @@ def _github_copilot_command(
     return command
 
 
-def _codex_mcp_command(context: ClientCommandContext, model: str, reasoning_effort: str | None) -> list[str]:
-    script_path = context.challenge_root / "tools" / "wiki_mcp_server.py"
-    audit_path = context.run_dir / "raw" / context.client / f"{context.question_id}.mcp-audit.jsonl"
-    mcp_args = [
-        str(script_path),
-        "--transport",
-        "stdio",
-        "--repo-root",
-        str(context.repo_root),
-        "--challenge-root",
-        str(context.challenge_root),
-        "--audit-path",
-        str(audit_path),
-    ]
+def _codex_mcp_command(
+    context: ClientCommandContext,
+    model: str,
+    reasoning_effort: str | None,
+    client_config: dict[str, Any],
+) -> list[str]:
+    mcp_args = _codex_mcp_server_args(context, client_config)
     command = [
         "codex",
         "exec",
@@ -927,6 +925,28 @@ def _codex_mcp_command(context: ClientCommandContext, model: str, reasoning_effo
         ]
     )
     return command
+
+
+def _codex_mcp_server_args(context: ClientCommandContext, client_config: dict[str, Any]) -> list[str]:
+    script_path = context.challenge_root / "tools" / "wiki_mcp_server.py"
+    audit_path = context.run_dir / "raw" / context.client / f"{context.question_id}.mcp-audit.jsonl"
+    transport = str(client_config.get("mcp_server_transport") or "stdio")
+    if transport != "stdio":
+        raise ValueError("codex-mcp can only spawn the Wiki MCP server with stdio transport.")
+    mcp_args = [
+        str(script_path),
+        "--transport",
+        transport,
+        "--repo-root",
+        str(context.repo_root),
+        "--challenge-root",
+        str(context.challenge_root),
+        "--audit-path",
+        str(audit_path),
+        "--semantic-model-id",
+        str(client_config.get("semantic_model_id") or "challenge2-local-hash-v1"),
+    ]
+    return mcp_args
 
 
 def _microsoft_copilot_command(context: ClientCommandContext, client_config: dict[str, Any]) -> list[str]:

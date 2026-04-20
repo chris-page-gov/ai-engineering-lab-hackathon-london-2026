@@ -33,7 +33,7 @@
     "mcp_context_budget_bytes": 48000,
     "mcp_prompt_include_context_pack": false,
     "semantic_model_id": "challenge2-local-hash-v1",
-    "notes": "Codex with MCP uses the local read-only Challenge 2 Wiki MCP server over stdio. The harness also stores the MCP context pack used to seed each prompt so the Codex-with-MCP path can be compared with the standard local-path Codex path. The built-in command disables interactive approval prompts for this client because noninteractive Codex otherwise cancels MCP tool calls; the MCP server itself remains read-only and path-scoped."
+    "notes": "Codex with MCP uses the local read-only Challenge 2 Wiki MCP server over stdio. The harness also stores the MCP context pack used to seed each prompt so the Codex-with-MCP path can be compared with the standard local-path Codex path. The built-in command forwards the same semantic_model_id into the spawned answer-time MCP server so prompt seeding and live tool calls use the same retrieval configuration. The built-in command disables interactive approval prompts for this client because noninteractive Codex otherwise cancels MCP tool calls; the MCP server itself remains read-only and path-scoped."
   },
   "gemini": {
     "model": "gemini-3.1-pro-preview",

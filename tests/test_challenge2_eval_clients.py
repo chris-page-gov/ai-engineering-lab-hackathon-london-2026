@@ -34,6 +34,8 @@ class Challenge2EvalClientsTest(unittest.TestCase):
             self.assertIn("gpt-5.4", codex_mcp_command)
             self.assertIn("mcp_servers.challenge2_wiki.command", " ".join(codex_mcp_command))
             self.assertIn("wiki_mcp_server.py", " ".join(codex_mcp_command))
+            self.assertIn("--semantic-model-id", " ".join(codex_mcp_command))
+            self.assertIn("challenge2-local-hash-v1", " ".join(codex_mcp_command))
             self.assertEqual(
                 codex_mcp_metadata["model"]["source"],
                 "built_in_latest_explicit_with_challenge2_wiki_mcp",
@@ -73,6 +75,38 @@ class Challenge2EvalClientsTest(unittest.TestCase):
             self.assertIn("--preferred-mode", thinking_command)
             self.assertIn("Think Deeper", thinking_command)
             self.assertEqual(thinking_metadata["command_config"]["preferred_mode"], "Think Deeper")
+
+    def test_codex_mcp_forwards_server_config_to_spawned_args(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+            command, metadata = build_client_invocation(
+                self._context(run_dir, "codex-mcp"),
+                {
+                    "codex-mcp": {
+                        "semantic_model_id": "custom-semantic-v1",
+                        "mcp_server_transport": "stdio",
+                    }
+                },
+            )
+            joined = " ".join(command)
+
+            self.assertIn("--semantic-model-id", joined)
+            self.assertIn("custom-semantic-v1", joined)
+            self.assertIn("--transport", joined)
+            self.assertIn("stdio", joined)
+            self.assertEqual(metadata["command_config"]["semantic_model_id"], "custom-semantic-v1")
+
+    def test_codex_mcp_rejects_non_stdio_spawned_transport(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+
+            with self.assertRaisesRegex(ValueError, "stdio transport"):
+                build_client_invocation(
+                    self._context(run_dir, "codex-mcp"),
+                    {"codex-mcp": {"mcp_server_transport": "http"}},
+                )
 
     def test_dry_run_records_resolved_model_and_manifest(self) -> None:
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {}, clear=True):

@@ -96,6 +96,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Updated the comparison report to include the rubric-scored quality leaderboard: Codex `484/500`, Claude `480/500`, Codex with MCP `471/500`, Gemini `171/500`, and Microsoft Copilot `58/500`.
 - Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
 - Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
+- Addressed the latest PR review comment as a reproducibility bug class: the `codex-mcp` spawned Wiki MCP server now receives configured server args, including `semantic_model_id`, so live MCP retrieval uses the same semantic model recorded for the prompt context-pack seed.
 
 ## Validation
 
@@ -162,6 +163,12 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Current MCP PR review-hardening validation passed locally:
   - `python3 -m py_compile challenge-2/MCP-Wiki/implementation/wiki_mcp/core.py challenge-2/MCP-Wiki/implementation/wiki_mcp/transport.py challenge-2/tools/workbench_mcp.py challenge-2/tools/wiki_eval_mcp.py challenge-2/tools/run_wiki_eval.py challenge-2/evaluation/clients.py tools/check_documentation_lockstep.py tools/build_codex_postmortem.py`
   - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp tests.test_challenge2_eval_mcp tests.test_challenge2_run_wiki_eval tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+- Current `codex-mcp` reproducibility validation passed locally:
+  - `python3 -m py_compile challenge-2/evaluation/clients.py`
+  - `python3 -m unittest tests.test_challenge2_eval_clients`
   - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report`
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
