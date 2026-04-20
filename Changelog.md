@@ -94,6 +94,9 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Hardened Wiki MCP, Workbench MCP, and evaluation MCP JSON-RPC handlers so non-object requests and malformed `params` envelopes return protocol errors instead of terminating stdio or HTTP sessions.
 - Made Challenge 2 evaluation repo-state metadata tolerate a missing `git` executable, and changed repository maintenance helpers to report missing Git with clear failures instead of raw tracebacks.
 - Fixed the `codex-mcp` invocation so spawned Wiki MCP server arguments use the same configured semantic model as the prompt context-pack seed, preventing recorded config from diverging from live MCP tool-call behavior.
+- Fixed evaluation reruns so stale assistant-response artifacts are removed before live client invocation and cannot contaminate failed-run audit evidence.
+- Fixed Workbench MCP `workbench://source-register` reads so they use the configured challenge root instead of the repository default root.
+- Fixed comparison-report MCP audit parsing so malformed or truncated JSONL lines are skipped and counted instead of aborting metrics generation.
 
 ### Security
 
@@ -123,6 +126,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Verified the MCP research wiki lint after adding the Codex thread capture: `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
 - Verified PR review hardening for malformed JSON-RPC request handling and missing-Git metadata with targeted unit tests, py_compile, MCP wiki lint, documentation lockstep, and whitespace checks.
 - Verified the `codex-mcp` server-argument reproducibility fix with targeted client-invocation tests, py_compile, MCP wiki lint, documentation lockstep, and whitespace checks.
+- Verified stale-output cleanup, configured-root Workbench resources, and malformed MCP audit-line tolerance with targeted regression tests, py_compile, MCP wiki lint, documentation lockstep, and whitespace checks.
 - Verified the Challenge 2 Wiki MCP server with unit and transport tests at `91%` package coverage using `uv run --with coverage`.
 - Verified live `Q001` smoke tests for `codex`, `codex-mcp`, `gemini`, `claude`, and `microsoft-copilot`; `github-copilot` remains `policy_blocked`.
 - Completed a 100-question benchmark run for `codex,codex-mcp,gemini,claude,microsoft-copilot`, writing raw audit evidence outside the repository under an external run directory and sealing DSAP audit pack `DSAP-validated-full-20260419T2225Z`.

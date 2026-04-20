@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -89,6 +90,49 @@ class Challenge2WorkbenchMcpTest(unittest.TestCase):
         self.assertLessEqual(len(welsh_payload["note_text"].encode("utf-8")), 1000)
         self.assertTrue(welsh_payload["truncated"])
         self.assertEqual(responses[7]["error"]["code"], -32602)
+
+    def test_source_register_resource_uses_configured_challenge_root(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            challenge_root = Path(tmp)
+            data_dir = challenge_root / "wiki" / "data"
+            source_dir = challenge_root / "wiki" / "sources"
+            data_dir.mkdir(parents=True)
+            source_dir.mkdir(parents=True)
+            (source_dir / "custom.md").write_text("Custom note text", encoding="utf-8")
+            (data_dir / "source-register.json").write_text(
+                json.dumps(
+                    [
+                        {
+                            "source_id": "CUSTOM-001",
+                            "title": "Custom configured root",
+                            "source_path": "source/custom.txt",
+                            "note_path": "wiki/sources/custom.md",
+                        }
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            request = {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "resources/read",
+                "params": {"uri": "workbench://source-register"},
+            }
+            proc = subprocess.run(
+                [sys.executable, str(MCP_SCRIPT), "--challenge-root", str(challenge_root)],
+                input=json.dumps(request) + "\n",
+                capture_output=True,
+                text=True,
+                cwd=REPO_ROOT,
+                check=False,
+                timeout=10,
+            )
+
+            self.assertEqual(proc.returncode, 0, proc.stderr)
+            response = json.loads(proc.stdout)
+            register_text = response["result"]["contents"][0]["text"]
+            self.assertIn("CUSTOM-001", register_text)
+            self.assertNotIn("DOC-HB-001", register_text)
 
 
 if __name__ == "__main__":

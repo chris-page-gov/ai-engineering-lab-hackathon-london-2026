@@ -14,7 +14,6 @@ from typing import Any
 
 CHALLENGE_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = CHALLENGE_ROOT.parent
-REGISTER_PATH = CHALLENGE_ROOT / "wiki" / "data" / "source-register.json"
 SYNTHETIC_NOTICE = (
     "Challenge 2 corpus data is synthetic hackathon fixture data. Synthetic names and "
     "contact-like values are retained for demo fidelity and should not be redacted."
@@ -247,7 +246,7 @@ class WorkbenchMcpServer:
         if uri == "workbench://corpus":
             text = json.dumps(self.build_context(source_ids=[], query="", limit=50), indent=2, sort_keys=True)
         elif uri == "workbench://source-register":
-            text = REGISTER_PATH.read_text(encoding="utf-8")
+            text = (self.challenge_root / "wiki" / "data" / "source-register.json").read_text(encoding="utf-8")
         else:
             raise ValueError(f"Unknown resource: {uri}")
         return {"contents": [{"uri": uri, "mimeType": "application/json", "text": text}]}

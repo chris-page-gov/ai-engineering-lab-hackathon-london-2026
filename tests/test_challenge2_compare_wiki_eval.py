@@ -58,6 +58,35 @@ class Challenge2CompareWikiEvalTest(unittest.TestCase):
 
             self.assertEqual(compare_wiki_eval.classified_status(answer), "quota_exhausted")
 
+    def test_mcp_tool_evidence_tolerates_malformed_audit_lines(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = Path(tmp)
+            audit_path = run_dir / "raw" / "codex-mcp" / "Q001.mcp-audit.jsonl"
+            audit_path.parent.mkdir(parents=True)
+            audit_path.write_text(
+                "\n".join(
+                    [
+                        json.dumps({"event_type": "wiki.search"}),
+                        "{truncated",
+                        json.dumps(["not", "an", "event"]),
+                    ]
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            answer = compare_wiki_eval.ParsedAnswer(
+                raw={"client": "codex-mcp", "question_id": "Q001", "status": "completed"},
+                visible_json=None,
+                run_dir=run_dir,
+            )
+
+            evidence = compare_wiki_eval.mcp_tool_evidence(run_dir, "codex-mcp", [answer])
+
+            self.assertEqual(evidence["questions_with_mcp_audit"], 1)
+            self.assertEqual(evidence["audit_event_counts"], {"wiki.search": 1})
+            self.assertEqual(evidence["malformed_audit_lines"], 2)
+            self.assertEqual(compare_wiki_eval.mcp_event_count(answer), 1)
+
     def test_apply_corrections_replaces_non_completed_base_row(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             base_dir = Path(tmp) / "base"

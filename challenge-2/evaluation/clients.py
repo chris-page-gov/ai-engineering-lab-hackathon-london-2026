@@ -562,6 +562,7 @@ def run_client(
             stderr_path=str(stderr_path),
             metadata=metadata,
         )
+    _remove_stale_output(context.assistant_response_path)
     try:
         proc = subprocess.run(
             command,
@@ -645,6 +646,13 @@ def _read_answer_text(assistant_response_path: Path, stdout: str) -> str:
     if assistant_response_path.exists() and assistant_response_path.stat().st_size:
         return assistant_response_path.read_text(encoding="utf-8", errors="replace")
     return stdout or ""
+
+
+def _remove_stale_output(path: Path) -> None:
+    try:
+        path.unlink()
+    except FileNotFoundError:
+        return
 
 
 def _client_status(client: str, returncode: int, assistant_response_path: Path, stderr: str = "") -> str:

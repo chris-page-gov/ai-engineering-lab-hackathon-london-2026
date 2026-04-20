@@ -245,6 +245,7 @@ def classified_status(answer: ParsedAnswer) -> str:
 def mcp_tool_evidence(run_dir: Path, client: str, rows: list[ParsedAnswer]) -> dict[str, Any]:
     raw_dir = run_dir / "raw" / client
     event_counts: Counter[str] = Counter()
+    malformed_audit_lines = 0
     stdout_tool_calls = 0
     questions_with_mcp_audit = 0
     for row in rows:
@@ -255,13 +256,22 @@ def mcp_tool_evidence(run_dir: Path, client: str, rows: list[ParsedAnswer]) -> d
             for line in audit_path.read_text(encoding="utf-8").splitlines():
                 if not line.strip():
                     continue
-                event_counts[json.loads(line).get("event_type", "")] += 1
+                try:
+                    event = json.loads(line)
+                except json.JSONDecodeError:
+                    malformed_audit_lines += 1
+                    continue
+                if isinstance(event, dict):
+                    event_counts[str(event.get("event_type") or "")] += 1
+                else:
+                    malformed_audit_lines += 1
         stdout_path = raw_dir / f"{row.question_id}.stdout.txt"
         if stdout_path.exists():
             stdout_tool_calls += stdout_path.read_text(encoding="utf-8", errors="replace").count('"type":"mcp_tool_call"')
     return {
         "questions_with_mcp_audit": questions_with_mcp_audit,
         "audit_event_counts": dict(sorted(event_counts.items())),
+        "malformed_audit_lines": malformed_audit_lines,
         "stdout_mcp_tool_call_events": stdout_tool_calls,
     }
 
@@ -639,7 +649,18 @@ def mcp_event_count(answer: ParsedAnswer) -> int:
     path = answer.run_dir / "raw" / answer.client / f"{answer.question_id}.mcp-audit.jsonl"
     if not path.exists():
         return 0
-    return sum(1 for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
+    count = 0
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        try:
+            event = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if not isinstance(event, dict):
+            continue
+        count += 1
+    return count
 
 
 def pct(numerator: int, denominator: int) -> float:

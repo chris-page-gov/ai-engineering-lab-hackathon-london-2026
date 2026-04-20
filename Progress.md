@@ -97,6 +97,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
 - Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
 - Addressed the latest PR review comment as a reproducibility bug class: the `codex-mcp` spawned Wiki MCP server now receives configured server args, including `semantic_model_id`, so live MCP retrieval uses the same semantic model recorded for the prompt context-pack seed.
+- Addressed the newest PR review comments as evidence-integrity classes: live evaluation runs now remove stale assistant-response files before invocation, Workbench MCP resources use the configured challenge root, and comparison metrics skip/count malformed MCP audit JSONL lines instead of failing the report.
 
 ## Validation
 
@@ -169,6 +170,12 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Current `codex-mcp` reproducibility validation passed locally:
   - `python3 -m py_compile challenge-2/evaluation/clients.py`
   - `python3 -m unittest tests.test_challenge2_eval_clients`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+- Current evidence-integrity review validation passed locally:
+  - `python3 -m py_compile challenge-2/evaluation/clients.py challenge-2/tools/workbench_mcp.py challenge-2/tools/compare_wiki_eval.py`
+  - `python3 -m unittest tests.test_challenge2_eval_clients tests.test_challenge2_workbench_mcp tests.test_challenge2_compare_wiki_eval`
   - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report`
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`

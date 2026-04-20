@@ -80,7 +80,7 @@ Current validation includes:
 - Full Challenge 2 wiki evaluation report: `../../evaluation/reports/validated-full-20260419T2225Z-comparison.md`.
 - Effective `codex-mcp` coverage: `100/100` benchmark questions after a correction rerun for the single base-run Q057 timeout.
 - Rubric-scored leaderboard: `../../evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md`, with per-question public-safe scores and raw answers kept outside Git.
-- PR review hardening: context packs truncate excerpts by UTF-8 byte budget, HTTP JSON-RPC notifications return `204 No Content`, MCP handlers reject malformed request envelopes with JSON-RPC errors, evaluation repo-state metadata is non-fatal when Git is unavailable, and `codex-mcp` forwards the configured semantic model into the spawned Wiki MCP server process.
+- PR review hardening: context packs truncate excerpts by UTF-8 byte budget, HTTP JSON-RPC notifications return `204 No Content`, MCP handlers reject malformed request envelopes with JSON-RPC errors, evaluation repo-state metadata is non-fatal when Git is unavailable, `codex-mcp` forwards the configured semantic model into the spawned Wiki MCP server process, stale assistant-response files are removed before live runs, Workbench resources honor configured roots, and malformed MCP audit JSONL lines are counted without aborting comparison reports.
 
 The Codex thread that drove the implementation and evaluation is captured as a publication-safe summary in [the MCP thread capture note](../sources/codex-thread-mcp-implementation-evaluation.md). The note records the recommendation to include this summary in the current MCP pull request while keeping raw transcript regeneration separate.
 

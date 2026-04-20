@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -133,6 +134,33 @@ class Challenge2EvalClientsTest(unittest.TestCase):
             self.assertEqual(result.model, "auto")
             self.assertEqual(result.metadata["invocation"]["model"]["source"], "cli_default_auto_routing")
             self.assertEqual(result.metadata["client_manifest"]["client"], "gemini")
+
+    def test_live_run_ignores_stale_assistant_response_file(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+            context = self._context(run_dir, "codex")
+            context.assistant_response_path.parent.mkdir(parents=True)
+            context.assistant_response_path.write_text('{"answer":"stale"}', encoding="utf-8")
+            prompt_path = run_dir / "prompts" / "codex" / "Q001.txt"
+            prompt_path.parent.mkdir(parents=True)
+            prompt_path.write_text("prompt", encoding="utf-8")
+
+            with mock.patch(
+                "evaluation.clients.subprocess.run",
+                return_value=subprocess.CompletedProcess(args=["codex"], returncode=1, stdout="", stderr="boom"),
+            ):
+                result = run_client(
+                    context=context,
+                    prompt_path=prompt_path,
+                    config={},
+                    timeout_sec=1,
+                    dry_run=False,
+                )
+
+            self.assertEqual(result.status, "failed")
+            self.assertEqual(result.answer_text, "")
+            self.assertFalse(context.assistant_response_path.exists())
 
     def test_github_copilot_policy_denial_is_classified(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
