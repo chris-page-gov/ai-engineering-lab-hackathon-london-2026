@@ -81,7 +81,7 @@ The raw transcript should not be included in this PR. A full postmortem-public r
 
 ## Current PR Review Status
 
-The PR review cycle after rubric scoring raised two implementation bug classes: UTF-8 byte budgets were being applied as character counts in context excerpts, and HTTP JSON-RPC notifications were being serialized as `{}` rather than treated as no-response messages. The PR now fixes those classes across the Wiki MCP and Workbench MCP surfaces and adds regression tests for non-ASCII byte caps and HTTP notification `204 No Content` behavior.
+The PR review cycle after rubric scoring raised four implementation bug classes. The first pass found UTF-8 byte budgets being applied as character counts in context excerpts and HTTP JSON-RPC notifications being serialized as `{}` rather than treated as no-response messages. The follow-up pass found JSON-RPC handlers reading fields before validating request shape and an evaluation repo-state probe that aborted if Git was missing from `PATH`. The PR now fixes those classes across the Wiki MCP, Workbench MCP, and evaluation MCP surfaces, adds regression tests for non-ASCII byte caps, HTTP notification `204 No Content` behavior, malformed request envelopes, and missing-Git metadata, and keeps raw transcript publication separate from this summary note.
 
 ## Publication Treatment
 

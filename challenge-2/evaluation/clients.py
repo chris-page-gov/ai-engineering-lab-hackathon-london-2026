@@ -817,6 +817,17 @@ def _run_version_check(command: tuple[str, ...]) -> dict[str, Any]:
             check=False,
             timeout=5,
         )
+    except FileNotFoundError as exc:
+        record.update(
+            {
+                "available": False,
+                "status": "missing",
+                "exit_code": 127,
+                "stdout": "",
+                "stderr": str(exc),
+            }
+        )
+        return record
     except subprocess.TimeoutExpired as exc:
         record.update(
             {

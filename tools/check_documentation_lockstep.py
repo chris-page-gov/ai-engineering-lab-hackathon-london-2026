@@ -15,7 +15,10 @@ IGNORED_PREFIXES = {".git/"}
 
 
 def git_lines(args: list[str]) -> set[str]:
-    result = subprocess.run(["git", *args], capture_output=True, text=True, check=False)
+    try:
+        result = subprocess.run(["git", *args], capture_output=True, text=True, check=False)
+    except FileNotFoundError as exc:
+        raise SystemExit("Documentation lockstep check failed: git executable is unavailable on PATH.") from exc
     if result.returncode != 0:
         raise SystemExit(result.stderr.strip() or f"git {' '.join(args)} failed")
     return {line.strip() for line in result.stdout.splitlines() if line.strip()}

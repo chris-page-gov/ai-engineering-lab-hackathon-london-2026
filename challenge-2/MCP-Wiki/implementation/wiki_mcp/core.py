@@ -34,6 +34,10 @@ class AccessDenied(ValueError):
     """Raised when a request tries to leave the read-only wiki source surface."""
 
 
+class JsonRpcInvalidParams(ValueError):
+    """Raised when the JSON-RPC params envelope is not an object."""
+
+
 @dataclass(frozen=True)
 class SourceRecord:
     """One entry from `wiki/data/source-register.json`."""
@@ -752,9 +756,14 @@ class WikiMcpServer:
     def __init__(self, knowledge_base: WikiKnowledgeBase) -> None:
         self.kb = knowledge_base
 
-    def handle(self, request: dict[str, Any]) -> dict[str, Any] | None:
-        method = str(request.get("method") or "")
+    def handle(self, request: object) -> dict[str, Any] | None:
+        if not isinstance(request, dict):
+            return self._error(None, -32600, "Invalid Request: expected a JSON object.")
         request_id = request.get("id")
+        method_value = request.get("method")
+        if not isinstance(method_value, str) or not method_value:
+            return self._error(request_id, -32600, "Invalid Request: method must be a non-empty string.")
+        method = method_value
         try:
             if method in {"notifications/initialized", "notifications/cancelled"}:
                 return None
@@ -765,25 +774,29 @@ class WikiMcpServer:
             if method == "tools/list":
                 return self._response(request_id, {"tools": self.tools()})
             if method == "tools/call":
-                params = request.get("params") or {}
+                params = self._params(request)
+                arguments = self._arguments(params)
                 return self._response(
                     request_id,
-                    self.call_tool(str(params.get("name") or ""), params.get("arguments") or {}),
+                    self.call_tool(str(params.get("name") or ""), arguments),
                 )
             if method == "resources/list":
                 return self._response(request_id, {"resources": self.resources()})
             if method == "resources/read":
-                params = request.get("params") or {}
+                params = self._params(request)
                 return self._response(request_id, self.read_resource(str(params.get("uri") or "")))
             if method == "prompts/list":
                 return self._response(request_id, {"prompts": self.prompts()})
             if method == "prompts/get":
-                params = request.get("params") or {}
-                return self._response(request_id, self.get_prompt(str(params.get("name") or ""), params.get("arguments") or {}))
+                params = self._params(request)
+                arguments = self._arguments(params)
+                return self._response(request_id, self.get_prompt(str(params.get("name") or ""), arguments))
             return self._error(request_id, -32601, f"Unsupported method: {method}")
         except AccessDenied as exc:
             self.kb.audit.record("wiki.denied", method=method, message=str(exc))
             return self._error(request_id, -32001, str(exc))
+        except JsonRpcInvalidParams as exc:
+            return self._error(request_id, -32602, str(exc))
         except Exception as exc:  # noqa: BLE001 - JSON-RPC errors are the protocol surface.
             return self._error(request_id, -32000, str(exc))
 
@@ -1012,6 +1025,24 @@ class WikiMcpServer:
     @staticmethod
     def _response(request_id: Any, result: Any) -> dict[str, Any]:
         return {"jsonrpc": "2.0", "id": request_id, "result": result}
+
+    @staticmethod
+    def _params(request: dict[str, Any]) -> dict[str, Any]:
+        params = request.get("params")
+        if params is None:
+            return {}
+        if not isinstance(params, dict):
+            raise JsonRpcInvalidParams("Invalid params: expected an object.")
+        return params
+
+    @staticmethod
+    def _arguments(params: dict[str, Any]) -> dict[str, Any]:
+        arguments = params.get("arguments")
+        if arguments is None:
+            return {}
+        if not isinstance(arguments, dict):
+            raise JsonRpcInvalidParams("Invalid params: arguments must be an object.")
+        return arguments
 
     @staticmethod
     def _error(request_id: Any, code: int, message: str) -> dict[str, Any]:

@@ -21,6 +21,10 @@ SYNTHETIC_NOTICE = (
 )
 
 
+class JsonRpcInvalidParams(ValueError):
+    """Raised when the JSON-RPC params envelope is not an object."""
+
+
 @dataclass(frozen=True)
 class SourceRecord:
     source_id: str
@@ -128,9 +132,13 @@ class WorkbenchMcpServer:
         self.challenge_root = challenge_root
         self.sources = load_sources(challenge_root)
 
-    def handle(self, request: dict[str, Any]) -> dict[str, Any] | None:
-        method = request.get("method")
+    def handle(self, request: object) -> dict[str, Any] | None:
+        if not isinstance(request, dict):
+            return self._error(None, -32600, "Invalid Request: expected a JSON object.")
         request_id = request.get("id")
+        method = request.get("method")
+        if not isinstance(method, str) or not method:
+            return self._error(request_id, -32600, "Invalid Request: method must be a non-empty string.")
         try:
             if method in {"notifications/initialized", "notifications/cancelled"}:
                 return None
@@ -139,16 +147,18 @@ class WorkbenchMcpServer:
             if method == "tools/list":
                 return self._response(request_id, {"tools": self._tools()})
             if method == "tools/call":
-                params = request.get("params") or {}
-                return self._response(request_id, self._tool_call(str(params.get("name") or ""), params.get("arguments") or {}))
+                params = self._params(request)
+                return self._response(request_id, self._tool_call(str(params.get("name") or ""), self._arguments(params)))
             if method == "resources/list":
                 return self._response(request_id, {"resources": self._resources()})
             if method == "resources/read":
-                params = request.get("params") or {}
+                params = self._params(request)
                 return self._response(request_id, self._resource_read(str(params.get("uri") or "")))
             if method == "ping":
                 return self._response(request_id, {})
             return self._error(request_id, -32601, f"Unsupported method: {method}")
+        except JsonRpcInvalidParams as exc:
+            return self._error(request_id, -32602, str(exc))
         except Exception as exc:  # noqa: BLE001 - JSON-RPC surface should return errors.
             return self._error(request_id, -32000, str(exc))
 
@@ -310,6 +320,24 @@ class WorkbenchMcpServer:
         return {"jsonrpc": "2.0", "id": request_id, "result": result}
 
     @staticmethod
+    def _params(request: dict[str, Any]) -> dict[str, Any]:
+        params = request.get("params")
+        if params is None:
+            return {}
+        if not isinstance(params, dict):
+            raise JsonRpcInvalidParams("Invalid params: expected an object.")
+        return params
+
+    @staticmethod
+    def _arguments(params: dict[str, Any]) -> dict[str, Any]:
+        arguments = params.get("arguments")
+        if arguments is None:
+            return {}
+        if not isinstance(arguments, dict):
+            raise JsonRpcInvalidParams("Invalid params: arguments must be an object.")
+        return arguments
+
+    @staticmethod
     def _error(request_id: Any, code: int, message: str) -> dict[str, Any]:
         return {"jsonrpc": "2.0", "id": request_id, "error": {"code": code, "message": message}}
 
@@ -323,7 +351,12 @@ def main(argv: list[str] | None = None) -> int:
     for line in sys.stdin:
         if not line.strip():
             continue
-        response = server.handle(json.loads(line))
+        try:
+            request = json.loads(line)
+        except json.JSONDecodeError as exc:
+            response = {"jsonrpc": "2.0", "id": None, "error": {"code": -32700, "message": str(exc)}}
+        else:
+            response = server.handle(request)
         if response is not None:
             print(json.dumps(response), flush=True)
     return 0

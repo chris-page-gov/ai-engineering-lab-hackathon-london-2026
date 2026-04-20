@@ -14,6 +14,7 @@ MCP_SCRIPT = REPO_ROOT / "challenge-2" / "tools" / "workbench_mcp.py"
 class Challenge2WorkbenchMcpTest(unittest.TestCase):
     def test_stdio_server_searches_reads_and_builds_context(self) -> None:
         requests = [
+            [],
             {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}},
             {
                 "jsonrpc": "2.0",
@@ -55,10 +56,11 @@ class Challenge2WorkbenchMcpTest(unittest.TestCase):
                     },
                 },
             },
+            {"jsonrpc": "2.0", "id": 6, "method": "tools/call", "params": []},
         ]
         proc = subprocess.run(
             [sys.executable, str(MCP_SCRIPT)],
-            input="\n".join(json.dumps(request) for request in requests) + "\n",
+            input="{not-json}\n" + "\n".join(json.dumps(request) for request in requests) + "\n",
             capture_output=True,
             text=True,
             cwd=REPO_ROOT,
@@ -68,22 +70,25 @@ class Challenge2WorkbenchMcpTest(unittest.TestCase):
 
         self.assertEqual(proc.returncode, 0, proc.stderr)
         responses = [json.loads(line) for line in proc.stdout.splitlines() if line.strip()]
-        self.assertEqual(len(responses), 5)
+        self.assertEqual(len(responses), 8)
+        self.assertEqual(responses[0]["error"]["code"], -32700)
+        self.assertEqual(responses[1]["error"]["code"], -32600)
 
-        search_payload = json.loads(responses[1]["result"]["content"][0]["text"])
+        search_payload = json.loads(responses[3]["result"]["content"][0]["text"])
         self.assertEqual(search_payload["sources"][0]["source_id"], "DOC-HB-002")
 
-        read_payload = json.loads(responses[2]["result"]["content"][0]["text"])
+        read_payload = json.loads(responses[4]["result"]["content"][0]["text"])
         self.assertIn("synthetic", read_payload["synthetic_data_notice"])
         self.assertIn("note_text", read_payload)
 
-        context_payload = json.loads(responses[3]["result"]["content"][0]["text"])
+        context_payload = json.loads(responses[5]["result"]["content"][0]["text"])
         self.assertEqual(context_payload["sources"][0]["source_id"], "DOC-HB-002")
         self.assertIn("source_id", context_payload["instructions"]["citation_policy"])
 
-        welsh_payload = json.loads(responses[4]["result"]["content"][0]["text"])
+        welsh_payload = json.loads(responses[6]["result"]["content"][0]["text"])
         self.assertLessEqual(len(welsh_payload["note_text"].encode("utf-8")), 1000)
         self.assertTrue(welsh_payload["truncated"])
+        self.assertEqual(responses[7]["error"]["code"], -32602)
 
 
 if __name__ == "__main__":

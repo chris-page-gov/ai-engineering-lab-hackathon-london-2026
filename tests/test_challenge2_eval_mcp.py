@@ -16,6 +16,7 @@ class Challenge2McpTest(unittest.TestCase):
     def test_stdio_server_lists_and_reads_question_without_gold(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             requests = [
+                [],
                 {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}},
                 {
                     "jsonrpc": "2.0",
@@ -35,6 +36,7 @@ class Challenge2McpTest(unittest.TestCase):
                         "arguments": {"path": "challenge-2/wiki/evaluation-benchmark.md"},
                     },
                 },
+                {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": []},
             ]
             proc = subprocess.run(
                 [sys.executable, str(MCP_SCRIPT), "--run-root", tmp, "--run-id", "mcp-test"],
@@ -48,14 +50,16 @@ class Challenge2McpTest(unittest.TestCase):
 
             self.assertEqual(proc.returncode, 0, proc.stderr)
             responses = [json.loads(line) for line in proc.stdout.splitlines() if line.strip()]
-            self.assertEqual(len(responses), 3)
-            payload = json.loads(responses[1]["result"]["content"][0]["text"])
+            self.assertEqual(len(responses), 5)
+            self.assertEqual(responses[0]["error"]["code"], -32600)
+            payload = json.loads(responses[2]["result"]["content"][0]["text"])
             self.assertEqual(payload["question_id"], "Q001")
             self.assertIn("prompt", payload)
             self.assertNotIn("gold_answer", payload)
             self.assertNotIn("source_refs", payload)
-            self.assertIn("error", responses[2])
-            self.assertIn("gold answers", responses[2]["error"]["message"])
+            self.assertIn("error", responses[3])
+            self.assertIn("gold answers", responses[3]["error"]["message"])
+            self.assertEqual(responses[4]["error"]["code"], -32602)
 
 
 if __name__ == "__main__":

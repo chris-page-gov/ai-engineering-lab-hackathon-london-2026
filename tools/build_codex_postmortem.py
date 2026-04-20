@@ -189,7 +189,10 @@ class Exchange:
 
 
 def run_git(args: list[str]) -> str:
-    return subprocess.check_output(["git", *args], cwd=REPO_ROOT, text=True).strip()
+    try:
+        return subprocess.check_output(["git", *args], cwd=REPO_ROOT, text=True).strip()
+    except FileNotFoundError as exc:
+        raise SystemExit("Postmortem build failed: git executable is unavailable on PATH.") from exc
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -647,6 +650,8 @@ def git_path_exists_at_ref(ref: str, path: str) -> bool:
     try:
         subprocess.check_output(["git", "cat-file", "-e", f"{ref}:{path}"], cwd=REPO_ROOT, stderr=subprocess.DEVNULL)
         return True
+    except FileNotFoundError as exc:
+        raise SystemExit("Postmortem build failed: git executable is unavailable on PATH.") from exc
     except subprocess.CalledProcessError:
         return False
 

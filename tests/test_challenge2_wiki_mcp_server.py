@@ -238,6 +238,19 @@ class Challenge2WikiMcpProtocolTest(unittest.TestCase):
         self.assertEqual(missing_method["error"]["code"], -32601)
         self.assertIn("Unknown tool", missing_tool["error"]["message"])
 
+    def test_json_rpc_rejects_non_object_requests_and_invalid_params(self) -> None:
+        non_object = self.server.handle([])
+        missing_method = self.server.handle({"jsonrpc": "2.0", "id": 1, "params": {}})
+        invalid_params = self.server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": []})
+        invalid_arguments = self.server.handle(
+            {"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "wiki.search", "arguments": []}}
+        )
+
+        self.assertEqual(non_object["error"]["code"], -32600)
+        self.assertEqual(missing_method["error"]["code"], -32600)
+        self.assertEqual(invalid_params["error"]["code"], -32602)
+        self.assertEqual(invalid_arguments["error"]["code"], -32602)
+
     def test_stdio_script_smoke(self) -> None:
         requests = [
             {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}},

@@ -14,6 +14,7 @@ from pathlib import Path
 CHALLENGE_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = CHALLENGE_ROOT.parent
 sys.path.insert(0, str(CHALLENGE_ROOT))
+GIT_UNAVAILABLE = "<git-unavailable>"
 
 from evaluation.audit import ChallengeAuditRecorder, sha256_file  # noqa: E402
 from evaluation.clients import (  # noqa: E402
@@ -189,11 +190,13 @@ def _split_csv(raw: str | None) -> list[str]:
 
 def _repo_state(repo_root: Path) -> dict[str, object]:
     status = _git(repo_root, "status", "--short")
+    git_available = status != GIT_UNAVAILABLE
     return {
+        "git_available": git_available,
         "commit": _git(repo_root, "rev-parse", "HEAD"),
         "branch": _git(repo_root, "rev-parse", "--abbrev-ref", "HEAD"),
         "tags_at_head": _split_lines(_git(repo_root, "tag", "--points-at", "HEAD")),
-        "dirty": bool(status.strip()),
+        "dirty": bool(status.strip()) if git_available else None,
         "status_short": status,
     }
 
@@ -208,6 +211,8 @@ def _git(repo_root: Path, *args: str) -> str:
             check=False,
             timeout=10,
         )
+    except FileNotFoundError:
+        return GIT_UNAVAILABLE
     except subprocess.TimeoutExpired:
         return "<timeout>"
     if proc.returncode != 0:
