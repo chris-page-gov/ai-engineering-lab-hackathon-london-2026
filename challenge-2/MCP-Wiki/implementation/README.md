@@ -19,6 +19,7 @@ related:
   - "../architecture.md"
   - "../security-model.md"
   - "../references/README.md"
+  - "../sources/codex-thread-mcp-implementation-evaluation.md"
 ---
 
 # Implementation
@@ -79,9 +80,12 @@ Current validation includes:
 - Full Challenge 2 wiki evaluation report: `../../evaluation/reports/validated-full-20260419T2225Z-comparison.md`.
 - Effective `codex-mcp` coverage: `100/100` benchmark questions after a correction rerun for the single base-run Q057 timeout.
 
+The Codex thread that drove the implementation and evaluation is captured as a publication-safe summary in [the MCP thread capture note](../sources/codex-thread-mcp-implementation-evaluation.md). The note records the recommendation to include this summary in the current MCP pull request while keeping raw transcript regeneration separate.
+
 ## Related
 
 - [Implementation plan](../implementation-plan.md)
 - [Architecture](../architecture.md)
 - [Security model](../security-model.md)
 - [Specifications workspace](../specifications/README.md)
+- [Codex MCP implementation and evaluation thread capture](../sources/codex-thread-mcp-implementation-evaluation.md)

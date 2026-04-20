@@ -19,6 +19,7 @@ related:
   - "implementation-plan.md"
   - "authentication-options.md"
   - "sources/bibliography.md"
+  - "sources/codex-thread-mcp-implementation-evaluation.md"
   - "wiki-optimization-log.md"
 ---
 
@@ -36,6 +37,7 @@ This wiki is the research, implementation, and validation space for a purpose-bu
 - [Semantic Retrieval Options](semantic-retrieval-options.md)
 - [Decision Record](decision-record.md)
 - [Wiki Optimization Log](wiki-optimization-log.md)
+- [Codex Thread Capture And Publication Recommendation](sources/codex-thread-mcp-implementation-evaluation.md)
 - [Candidate Register](candidate-register.md)
 - [External Reference Submodules](references/external/README.md)
 - [Bibliography](sources/bibliography.md)
@@ -82,6 +84,8 @@ The first purpose-built read-only Wiki MCP server is now implemented under [the 
 
 The `codex-mcp` evaluation client has completed live Q001 smoke validation with recorded `wiki.search` and `wiki.read` MCP audit events. Full validated-client benchmark evidence is generated through the Challenge 2 evaluation harness rather than stored directly in this research wiki.
 
+The current MCP implementation and evaluation thread is captured as a public summary note at [Codex Thread Capture: MCP Implementation And Evaluation](sources/codex-thread-mcp-implementation-evaluation.md). The note records why this thread should be included in the current MCP pull request as summarized evidence, while leaving any raw transcript regeneration to the separate postmortem-public workflow.
+
 ## Quality Gate
 
 Run [the MCP Wiki lint tool](tools/lint_mcp_wiki.py) after changing links, source registers, or metadata:
@@ -100,3 +104,4 @@ The generated [lint report](lint-report.md) and [machine-readable lint output](d
 - [GitHub candidate projects](sources/github-candidates.md)
 - [Microsoft Copilot MCP sources](sources/microsoft-copilot-mcp.md)
 - [Academic literature](sources/academic-literature.md)
+- [Codex MCP implementation and evaluation thread capture](sources/codex-thread-mcp-implementation-evaluation.md)

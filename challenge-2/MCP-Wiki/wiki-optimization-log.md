@@ -24,6 +24,12 @@ related:
 
 This log records how the MCP research wiki is being shaped so humans and AI clients can navigate it predictably. It is deliberately separate from [the decision record](decision-record.md): the decision record captures durable choices, while this log captures the search, navigation, and validation changes used to make the wiki usable.
 
+## 2026-04-20
+
+| Change | Reason | Evaluation signal |
+| --- | --- | --- |
+| Added [the Codex MCP implementation and evaluation thread capture](sources/codex-thread-mcp-implementation-evaluation.md). | Preserve the contribution trace and publication recommendation for the thread that drove the MCP server, client-grounding strategy, and Codex-with-MCP comparison. | The thread is available as a summarized public source note and is linked from the index, decision record, implementation workspace, and source register without publishing raw transcripts. |
+
 ## 2026-04-19
 
 | Change | Reason | Evaluation signal |

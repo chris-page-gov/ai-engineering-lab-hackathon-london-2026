@@ -164,5 +164,15 @@
     "source_type": "literature_summary",
     "license_status": "citation_and_summary",
     "publication_status": "citation_and_summary"
+  },
+  {
+    "source_id": "MCP-SRC-CODEX-THREAD-IMPLEMENTATION-EVAL",
+    "title": "Codex Thread Capture: MCP Implementation And Evaluation",
+    "path": "sources/codex-thread-mcp-implementation-evaluation.md",
+    "source_type": "codex_thread_summary",
+    "license_status": "project_artifact",
+    "publication_status": "public_summary_not_raw_transcript",
+    "sha256": "142e1de6c2113b7473f9866834180538aad7d61adb30a8023922d7a7f9051f6e",
+    "size_bytes": 8516
   }
 ]

@@ -16,6 +16,8 @@ Version 1.1 has been published from `main` and tagged as `v1.1`. The current loc
 
 The current MCP research branch adds a separate `challenge-2/MCP-Wiki/` research wiki and now includes the implemented read-only Wiki MCP server. It preserves the Deep Research report variants, candidate and source registers, licensing posture, security model, implementation trace, and evaluation evidence without polluting the Challenge 2 corpus wiki or the public postmortem wiki.
 
+The current MCP implementation and evaluation thread is now captured as a publication-safe summary note in the MCP research wiki. The branch recommendation is to include that summary in the current MCP pull request, while leaving any raw transcript or full public postmortem regeneration to the separate postmortem workflow.
+
 The full Challenge 2 wiki evaluation report now lives at `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md`, with sanitized metrics in the adjacent JSON file. Raw prompts, answers, audit bundles, screenshots, and UI captures remain outside Git in external run directories.
 
 The postmortem release includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The publication line now treats the public derivative and reports as part of the Version 1.1 baseline, with the full 100-question AI comparison still outstanding.
@@ -89,6 +91,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added `challenge-2/tools/compare_wiki_eval.py` and `tests/test_challenge2_compare_wiki_eval.py` for correction-aware comparison reporting.
 - Completed the `validated-full-20260419T2225Z` 100-question evaluation run for the validated clients. Codex, Codex with MCP, Claude, and Microsoft Copilot have effective `100/100` completed rows; Gemini completed `36/100` before model quota exhaustion; GitHub Copilot CLI remains `policy_blocked` by smoke test.
 - Added the sanitized comparison report and metrics under `challenge-2/evaluation/reports/`.
+- Added `challenge-2/MCP-Wiki/sources/codex-thread-mcp-implementation-evaluation.md` to capture the current MCP implementation/evaluation thread as a public summary and to recommend including it in the current MCP pull request rather than publishing a raw transcript.
 
 ## Validation
 
@@ -194,6 +197,10 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 challenge-2/tools/run_wiki_eval.py --clients codex-mcp --questions Q057 --timeout-sec 900 --output-root /tmp/challenge2-wiki-eval-corrections --run-id codex-mcp-q057-correction-20260420T0320Z --client-config challenge-2/evaluation/client-config.example.json` completed the single Codex-MCP correction row.
   - `python3 challenge-2/tools/compare_wiki_eval.py /tmp/challenge2-wiki-eval-full/validated-full-20260419T2225Z --correction-run codex-mcp=/tmp/challenge2-wiki-eval-corrections/codex-mcp-q057-correction-20260420T0320Z --smoke-run github-copilot=/tmp/challenge2-wiki-eval-mcp/github-copilot-q001-smoke --output challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md --json-output challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
   - The comparison report records `100/100` completed answers for Codex, Codex with MCP, Claude, and Microsoft Copilot; Gemini is recorded as `completed:36, quota_exhausted:64`; GitHub Copilot CLI is recorded through a `policy_blocked` smoke run.
+- Current MCP thread-capture validation passed locally:
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/source-register.json`
+  - `python3 -m py_compile challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
 
 ## Open Items
 

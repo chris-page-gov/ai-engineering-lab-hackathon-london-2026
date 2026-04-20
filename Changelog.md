@@ -53,6 +53,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added `codex-mcp` as a Challenge 2 evaluation client that configures Codex with the local Wiki MCP server and records live MCP tool-call evidence.
 - Added `challenge-2/tools/compare_wiki_eval.py` to generate reproducible comparison reports from DSAP evaluation runs.
 - Added `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md` and matching sanitized metrics JSON for the full Challenge 2 wiki evaluation report.
+- Added `challenge-2/MCP-Wiki/sources/codex-thread-mcp-implementation-evaluation.md`, a publication-safe capture and recommendation note for the Codex thread that drove the MCP implementation and evaluation work.
 
 ### Changed
 
@@ -102,6 +103,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Linked the new tracking files from `README.md`.
 - Linked the Challenge 2 benchmark into the wiki index and documented the evaluation harness in the Challenge 2 brief and README.
 - Recorded the MCP wiki citation-linking and optimization decisions in the MCP decision record and source register.
+- Linked the MCP implementation/evaluation thread capture from the MCP wiki index, implementation workspace, decision record, optimization log, and source register.
 
 ### Validation
 
@@ -110,6 +112,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Verified the MCP research wiki lint after submodule metadata: `27` Markdown files, `270` internal links, `75` external links, complete search-term coverage, `0` errors, and `0` warnings.
 - Verified the MCP research wiki lint after semantic retrieval options: `28` Markdown files, `286` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
 - Verified the final MCP research wiki lint after implementation/report updates: `28` Markdown files, `287` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Verified the MCP research wiki lint after adding the Codex thread capture: `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
 - Verified the Challenge 2 Wiki MCP server with unit and transport tests at `91%` package coverage using `uv run --with coverage`.
 - Verified live `Q001` smoke tests for `codex`, `codex-mcp`, `gemini`, `claude`, and `microsoft-copilot`; `github-copilot` remains `policy_blocked`.
 - Completed a 100-question benchmark run for `codex,codex-mcp,gemini,claude,microsoft-copilot`, writing raw audit evidence outside the repository under an external run directory and sealing DSAP audit pack `DSAP-validated-full-20260419T2225Z`.

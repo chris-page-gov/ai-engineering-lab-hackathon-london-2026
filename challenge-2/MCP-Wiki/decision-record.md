@@ -43,6 +43,7 @@ related:
 | MCP-DEC-019 | Use Codex stdio MCP as the tightest validation loop before Microsoft host validation. | Codex can be configured with the local stdio server and produces fast MCP tool-call evidence. Copilot Studio direct MCP remains the first Microsoft host path, but direct live validation should only proceed after the core server passes local tests and Codex MCP smoke. | Accepted |
 | MCP-DEC-020 | Implement the first server with a dependency-light Python JSON-RPC core instead of FastMCP. | This keeps stdio and local HTTP on the same tested core, avoids framework lock-in while the Microsoft host path is still being validated, and lets the implementation run on the disk-constrained benchmark machine without adding dependencies. | Accepted |
 | MCP-DEC-021 | Use Codex approval bypass only for the noninteractive `codex-mcp` evaluation client. | `codex exec` cancels MCP tool calls without interactive approval. The bypass is scoped to the Codex process; the MCP server itself remains read-only, allowlisted, benchmark-safe, and audited. | Accepted |
+| MCP-DEC-022 | Capture the current MCP implementation and evaluation thread as a public summary note in the MCP research wiki. | The thread is primary evidence for the MCP server, client-grounding, and evaluation decisions in this branch. A summary note fits the current PR scope, while raw transcript regeneration belongs to the separate postmortem-public workflow after redaction review. | Accepted |
 
 ## Open Decisions
 
@@ -57,4 +58,5 @@ related:
 - [Bibliography](sources/bibliography.md)
 - [Implementation plan](implementation-plan.md)
 - [External reference workspace](references/external/README.md)
+- [Codex thread capture](sources/codex-thread-mcp-implementation-evaluation.md)
 - [Lint report](lint-report.md)

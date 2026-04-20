@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-04-20T03:24:44+00:00",
+  "created_at": "2026-04-20T06:14:12+00:00",
   "errors": [],
   "metrics": {
     "AGENTS.md": {
@@ -29,7 +29,7 @@
     "decision-record.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 13,
+      "internal_link_count": 14,
       "opaque_marker_exempt": false
     },
     "implementation-plan.md": {
@@ -41,13 +41,13 @@
     "implementation/README.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 8,
+      "internal_link_count": 11,
       "opaque_marker_exempt": false
     },
     "index.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 39,
+      "internal_link_count": 43,
       "opaque_marker_exempt": false
     },
     "lint-report.md": {
@@ -134,6 +134,12 @@
       "internal_link_count": 19,
       "opaque_marker_exempt": false
     },
+    "sources/codex-thread-mcp-implementation-evaluation.md": {
+      "external_link_count": 0,
+      "has_frontmatter": true,
+      "internal_link_count": 15,
+      "opaque_marker_exempt": false
+    },
     "sources/github-candidates.md": {
       "external_link_count": 9,
       "has_frontmatter": true,
@@ -167,7 +173,7 @@
     "wiki-optimization-log.md": {
       "external_link_count": 0,
       "has_frontmatter": true,
-      "internal_link_count": 7,
+      "internal_link_count": 8,
       "opaque_marker_exempt": false
     }
   },
@@ -176,10 +182,10 @@
   "summary": {
     "errors": 0,
     "external_links": 85,
-    "frontmatter_files": 26,
-    "ignored_ds_store_files": 3,
-    "internal_links": 287,
-    "markdown_files": 28,
+    "frontmatter_files": 27,
+    "ignored_ds_store_files": 4,
+    "internal_links": 311,
+    "markdown_files": 29,
     "missing_search_terms": 0,
     "warnings": 0
   },
