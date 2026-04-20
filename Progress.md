@@ -98,6 +98,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
 - Addressed the latest PR review comment as a reproducibility bug class: the `codex-mcp` spawned Wiki MCP server now receives configured server args, including `semantic_model_id`, so live MCP retrieval uses the same semantic model recorded for the prompt context-pack seed.
 - Addressed the newest PR review comments as evidence-integrity classes: live evaluation runs now remove stale assistant-response files before invocation, Workbench MCP resources use the configured challenge root, and comparison metrics skip/count malformed MCP audit JSONL lines instead of failing the report.
+- Addressed the latest PR review comments as security/publication classes: Wiki MCP HTTP startup now rejects a missing or empty configured bearer-token environment variable, and public comparison metrics now sanitize arbitrary local executable/app paths and home-relative paths.
 
 ## Validation
 
@@ -242,6 +243,19 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval`
   - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
   - Searched for remaining `text[:remaining]`, `[:max_bytes]`, and `response or {}` style instances in MCP implementation paths; remaining byte slices are inside the UTF-8 truncation helpers.
+- Current security/publication PR review validation passed locally:
+  - `python3 -m py_compile challenge-2/tools/wiki_mcp_server.py challenge-2/tools/compare_wiki_eval.py`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_compare_wiki_eval`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp tests.test_challenge2_eval_mcp tests.test_challenge2_run_wiki_eval tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval`
+  - `uv run --with coverage python -m coverage run --source=challenge-2/MCP-Wiki/implementation/wiki_mcp -m unittest tests.test_challenge2_wiki_mcp_server`
+  - `uv run --with coverage python -m coverage report` reported `91%` package coverage for the MCP server implementation.
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - `python3 -m json.tool challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/source-register.json`
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/lint-report.json`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+  - Targeted path scans found no `/opt/homebrew`, `/Applications`, local user home, home-relative, `/usr/local`, or `/tmp/challenge2` paths remaining in committed evaluation report JSON/Markdown artifacts.
 
 ## Open Items
 

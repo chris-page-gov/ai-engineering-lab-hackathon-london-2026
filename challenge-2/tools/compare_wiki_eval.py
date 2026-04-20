@@ -23,6 +23,34 @@ from evaluation.scoring import summarise_scores  # noqa: E402
 
 SOURCE_ID_RE = re.compile(r"\b(?:DOC-[A-Z0-9-]+|UF-[A-Z0-9-]+)\b")
 WIKI_PATH_RE = re.compile(r"\bchallenge-2/(?:AGENTS\.md|wiki/[^\s\]\)\"'<>`,;:]*)")
+LOCAL_ABSOLUTE_PATH_ROOTS = (
+    "Applications",
+    "Library",
+    "System",
+    "Users",
+    "Volumes",
+    "bin",
+    "dev",
+    "etc",
+    "home",
+    "mnt",
+    "nix",
+    "opt",
+    "private",
+    "run",
+    "sbin",
+    "tmp",
+    "usr",
+    "var",
+)
+LOCAL_ABSOLUTE_PATH_RE = re.compile(
+    r"(?<![A-Za-z0-9+.-]:)"
+    r"(?<![A-Za-z0-9_~<>./-])"
+    r"/(?:" + "|".join(re.escape(root) for root in LOCAL_ABSOLUTE_PATH_ROOTS) + r")"
+    r"(?=/|$)"
+    r"(?:/[^\s\]\)\"'<>`,;]*)*"
+)
+HOME_RELATIVE_PATH_RE = re.compile(r"~/(?:[^\s\]\)\"'<>`,;]*)+")
 
 
 @dataclass
@@ -531,7 +559,17 @@ def sanitize_public_value(value: Any, *, run_dir: Path) -> Any:
     for raw, replacement in replacements:
         if raw:
             result = result.replace(raw, replacement)
+    if is_local_absolute_path(result):
+        return "<absolute-path>"
+    if result.startswith("~/"):
+        return "<home-path>"
+    result = LOCAL_ABSOLUTE_PATH_RE.sub("<absolute-path>", result)
+    result = HOME_RELATIVE_PATH_RE.sub("<home-path>", result)
     return result
+
+
+def is_local_absolute_path(value: str) -> bool:
+    return any(value == f"/{root}" or value.startswith(f"/{root}/") for root in LOCAL_ABSOLUTE_PATH_ROOTS)
 
 
 def client_provenance_table(metrics: dict[str, Any]) -> list[str]:

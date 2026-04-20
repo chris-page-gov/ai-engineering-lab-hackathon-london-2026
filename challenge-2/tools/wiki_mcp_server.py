@@ -17,6 +17,17 @@ sys.path.insert(0, str(IMPLEMENTATION_ROOT))
 from wiki_mcp.transport import build_server, run_http, run_stdio  # noqa: E402
 
 
+def resolve_bearer_token(args: argparse.Namespace, parser: argparse.ArgumentParser) -> str | None:
+    """Resolve HTTP bearer token configuration without silently disabling auth."""
+
+    if args.transport != "http" or not args.bearer_token_env:
+        return None
+    bearer_token = os.environ.get(args.bearer_token_env)
+    if not bearer_token or not bearer_token.strip():
+        parser.error(f"--bearer-token-env {args.bearer_token_env!r} is unset or empty")
+    return bearer_token
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--transport", choices=["stdio", "http"], default="stdio")
@@ -38,7 +49,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    bearer_token = os.environ.get(args.bearer_token_env) if args.bearer_token_env else None
+    bearer_token = resolve_bearer_token(args, parser)
     server = build_server(
         repo_root=args.repo_root.resolve(),
         challenge_root=args.challenge_root.resolve(),

@@ -19,7 +19,7 @@ related:
 
 # MCP Wiki Lint Report
 
-Generated: `2026-04-20T09:27:56+00:00`
+Generated: `2026-04-20T09:53:28+00:00`
 
 Status: **PASS**
 

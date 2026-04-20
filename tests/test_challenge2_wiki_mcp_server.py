@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import io
+import os
 import subprocess
 import sys
 import tempfile
@@ -282,6 +283,31 @@ class Challenge2WikiMcpProtocolTest(unittest.TestCase):
         responses = [json.loads(line) for line in proc.stdout.splitlines()]
         self.assertEqual(responses[0]["result"]["serverInfo"]["name"], "challenge2-wiki-mcp")
         self.assertEqual(responses[1]["error"]["code"], -32001)
+
+    def test_http_script_rejects_missing_bearer_token_env(self) -> None:
+        env = dict(os.environ)
+        env.pop("CHALLENGE2_MISSING_TOKEN", None)
+        proc = subprocess.run(
+            [
+                sys.executable,
+                str(MCP_SCRIPT),
+                "--transport",
+                "http",
+                "--bearer-token-env",
+                "CHALLENGE2_MISSING_TOKEN",
+                "--port",
+                "0",
+            ],
+            text=True,
+            capture_output=True,
+            cwd=REPO_ROOT,
+            check=False,
+            timeout=10,
+            env=env,
+        )
+
+        self.assertNotEqual(proc.returncode, 0)
+        self.assertIn("--bearer-token-env 'CHALLENGE2_MISSING_TOKEN' is unset or empty", proc.stderr)
 
     def test_http_transport_health_manifest_post_and_guards(self) -> None:
         handler = make_http_handler(

@@ -508,7 +508,7 @@
             {
               "available": true,
               "name": "claude",
-              "path": "~/.local/bin/claude"
+              "path": "<home-path>"
             }
           ],
           "model": {
@@ -558,7 +558,7 @@
                 "--version"
               ],
               "detected_version": "2.1.114 (Claude Code)",
-              "executable_path": "~/.local/bin/claude",
+              "executable_path": "<home-path>",
               "exit_code": 0,
               "status": "completed",
               "stderr": "",
@@ -581,7 +581,7 @@
             {
               "available": true,
               "name": "codex",
-              "path": "/opt/homebrew/bin/codex"
+              "path": "<absolute-path>"
             }
           ],
           "model": {
@@ -621,7 +621,7 @@
                 "--version"
               ],
               "detected_version": "codex-cli 0.121.0",
-              "executable_path": "/opt/homebrew/bin/codex",
+              "executable_path": "<absolute-path>",
               "exit_code": 0,
               "status": "completed",
               "stderr": "",
@@ -651,12 +651,12 @@
             {
               "available": true,
               "name": "codex",
-              "path": "/opt/homebrew/bin/codex"
+              "path": "<absolute-path>"
             },
             {
               "available": true,
               "name": "python3.14",
-              "path": "/opt/homebrew/bin/python3.14"
+              "path": "<absolute-path>"
             }
           ],
           "model": {
@@ -696,7 +696,7 @@
                 "--version"
               ],
               "detected_version": "codex-cli 0.121.0",
-              "executable_path": "/opt/homebrew/bin/codex",
+              "executable_path": "<absolute-path>",
               "exit_code": 0,
               "status": "completed",
               "stderr": "",
@@ -705,11 +705,11 @@
             {
               "available": true,
               "command": [
-                "/opt/homebrew/opt/python@3.14/bin/python3.14",
+                "<absolute-path>",
                 "--version"
               ],
               "detected_version": "Python 3.14.4",
-              "executable_path": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+              "executable_path": "<absolute-path>",
               "exit_code": 0,
               "status": "completed",
               "stderr": "",
@@ -732,7 +732,7 @@
             {
               "available": true,
               "name": "gemini",
-              "path": "/opt/homebrew/bin/gemini"
+              "path": "<absolute-path>"
             }
           ],
           "model": {
@@ -768,7 +768,7 @@
                 "--version"
               ],
               "detected_version": "0.38.2",
-              "executable_path": "/opt/homebrew/bin/gemini",
+              "executable_path": "<absolute-path>",
               "exit_code": 0,
               "status": "completed",
               "stderr": "",
@@ -806,7 +806,7 @@
             {
               "available": true,
               "name": "node",
-              "path": "/opt/homebrew/bin/node"
+              "path": "<absolute-path>"
             }
           ],
           "model": {
@@ -850,7 +850,7 @@
                 "--version"
               ],
               "detected_version": "v25.9.0",
-              "executable_path": "/opt/homebrew/bin/node",
+              "executable_path": "<absolute-path>",
               "exit_code": 0,
               "status": "completed",
               "stderr": "",
@@ -865,7 +865,7 @@
           "bundle_identifier": "com.microsoft.copilot-mac",
           "headless_harness_client": false,
           "name": "Copilot",
-          "path": "/Applications/Copilot.app",
+          "path": "<absolute-path>",
           "version": "25.6.440416001"
         },
         {
@@ -873,7 +873,7 @@
           "bundle_identifier": "com.microsoft.m365copilot",
           "headless_harness_client": false,
           "name": "Microsoft 365 Copilot",
-          "path": "/Applications/Microsoft 365 Copilot.app",
+          "path": "<absolute-path>",
           "version": "1.2604"
         }
       ],

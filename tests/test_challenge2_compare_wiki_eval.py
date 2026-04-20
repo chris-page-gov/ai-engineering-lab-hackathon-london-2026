@@ -87,6 +87,39 @@ class Challenge2CompareWikiEvalTest(unittest.TestCase):
             self.assertEqual(evidence["malformed_audit_lines"], 2)
             self.assertEqual(compare_wiki_eval.mcp_event_count(answer), 1)
 
+    def test_sanitize_public_value_removes_arbitrary_local_paths(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = Path(tmp) / "validated-full"
+            raw = {
+                "executable_path": "/opt/homebrew/bin/codex",
+                "command": [
+                    "node",
+                    "/opt/homebrew/bin/node",
+                    "https://example.com/usr/local/docs",
+                ],
+                "app": "/Applications/Microsoft 365 Copilot.app",
+                "home": str(Path.home() / ".local/bin/claude"),
+                "sentence": "uses /usr/local/bin/tool and https://example.com/var/help",
+                "model_docs": "https://developers.openai.com/api/docs/models/gpt-5.4",
+                "authority_like": "/developers.openai.com/api/docs",
+            }
+
+            sanitized = compare_wiki_eval.sanitize_public_value(raw, run_dir=run_dir)
+
+        serialized = json.dumps(sanitized)
+        self.assertNotIn("/opt/homebrew", serialized)
+        self.assertNotIn("/Applications/", serialized)
+        self.assertNotIn(str(Path.home()), serialized)
+        self.assertNotIn("~/", serialized)
+        self.assertEqual(sanitized["executable_path"], "<absolute-path>")
+        self.assertEqual(sanitized["app"], "<absolute-path>")
+        self.assertEqual(sanitized["home"], "<home-path>")
+        self.assertEqual(sanitized["command"][1], "<absolute-path>")
+        self.assertIn("https://example.com/usr/local/docs", sanitized["command"])
+        self.assertIn("https://example.com/var/help", sanitized["sentence"])
+        self.assertEqual(sanitized["model_docs"], "https://developers.openai.com/api/docs/models/gpt-5.4")
+        self.assertEqual(sanitized["authority_like"], "/developers.openai.com/api/docs")
+
     def test_apply_corrections_replaces_non_completed_base_row(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             base_dir = Path(tmp) / "base"

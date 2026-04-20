@@ -124,6 +124,8 @@ Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are loca
 - Challenge 2 evaluation repo-state metadata should be best-effort: missing Git records `git_available: false` rather than aborting an evaluation run. Repository maintenance scripts that require Git should fail with a clear missing-Git message instead of an unhandled traceback.
 - Evaluation runs can reuse a `run_id` while debugging, so live client execution must remove any pre-existing assistant-response artifact before invoking the client. Comparison/reporting tools should treat partially written MCP audit JSONL as degraded evidence by skipping and counting malformed lines, not by aborting the whole report.
 - MCP servers that accept a configurable challenge root must use that root consistently for both tool calls and resource reads.
+- Wiki MCP HTTP runs that specify `--bearer-token-env` must fail fast if the named environment variable is unset or empty. Anonymous local HTTP remains an explicit choice only when the bearer-token option is omitted.
+- Public comparison metrics must not retain machine-local executable paths, app paths, run roots, repository roots, or home-relative paths. Sanitized metrics use placeholders while raw manifests remain in external run evidence.
 - The audit format follows the same DSAP principles used in the related `mcp-geo` server audit work: event ledger, evidence register, source register, audit card, integrity manifest, redaction manifest, visible transcript, and zipped bundle.
 
 ## Documentation Lockstep
