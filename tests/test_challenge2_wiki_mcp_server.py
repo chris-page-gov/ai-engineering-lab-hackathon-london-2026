@@ -10,6 +10,7 @@ import threading
 import unittest
 import urllib.error
 import urllib.request
+from unittest import mock
 from pathlib import Path
 
 
@@ -88,11 +89,24 @@ class Challenge2WikiMcpCoreTest(unittest.TestCase):
 
         self.assertEqual(lexical["mode"], "lexical")
         self.assertGreater(lexical["count"], 0)
+        self.assertEqual(lexical["semantic_index"]["vector_count"], 0)
         self.assertGreater(semantic["count"], 0)
         self.assertEqual(semantic["semantic_index"]["provider"], "deterministic-local-hash")
         self.assertGreater(hybrid["count"], 0)
         self.assertEqual(source_filtered["results"][0]["source_id"], "DOC-SB-006")
         self.assertTrue(all("evaluation-benchmark" not in item["path"] for item in hybrid["results"]))
+
+    def test_search_only_runs_selected_retrieval_mode(self) -> None:
+        with mock.patch.object(self.kb, "_semantic_search", side_effect=AssertionError("semantic should not run")):
+            lexical = self.kb.search("Housing Benefit", mode="lexical", limit=5)
+        self.assertGreater(lexical["count"], 0)
+        self.assertEqual(lexical["semantic_index"]["vector_count"], 0)
+        self.assertIsNone(self.kb._semantic_vectors)
+
+        with mock.patch.object(self.kb, "_lexical_search", side_effect=AssertionError("lexical should not run")):
+            semantic = self.kb.search("Housing Benefit", mode="semantic", limit=5)
+        self.assertGreater(semantic["count"], 0)
+        self.assertGreater(semantic["semantic_index"]["vector_count"], 0)
 
     def test_read_note_offsets_frontmatter_and_backlinks(self) -> None:
         payload = self.kb.read_note(

@@ -99,6 +99,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Fixed comparison-report MCP audit parsing so malformed or truncated JSONL lines are skipped and counted instead of aborting metrics generation.
 - Fixed Wiki MCP HTTP startup so a configured `--bearer-token-env` must resolve to a non-empty environment variable instead of silently starting without bearer-token checks.
 - Broadened comparison metrics sanitisation and refreshed the committed metrics JSON so arbitrary local executable paths, app paths, and home-relative paths are replaced before publication.
+- Fixed Wiki MCP search mode selection so lexical-only searches do not build/query the semantic index and semantic-only searches do not run lexical scoring.
 
 ### Security
 

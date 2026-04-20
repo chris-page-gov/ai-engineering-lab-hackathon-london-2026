@@ -328,13 +328,15 @@ class WikiKnowledgeBase:
     ) -> dict[str, Any]:
         mode = _bounded_choice(mode, {"lexical", "semantic", "hybrid"}, "hybrid")
         selected_notes = self._filter_notes(source_ids=source_ids, tags=tags)
-        lexical = self._lexical_search(query, selected_notes, max_snippet_chars=max_snippet_chars)
-        semantic = self._semantic_search(query, selected_notes, max_snippet_chars=max_snippet_chars)
         if mode == "lexical":
+            lexical = self._lexical_search(query, selected_notes, max_snippet_chars=max_snippet_chars)
             results = lexical
         elif mode == "semantic":
+            semantic = self._semantic_search(query, selected_notes, max_snippet_chars=max_snippet_chars)
             results = semantic
         else:
+            lexical = self._lexical_search(query, selected_notes, max_snippet_chars=max_snippet_chars)
+            semantic = self._semantic_search(query, selected_notes, max_snippet_chars=max_snippet_chars)
             results = self._merge_results(lexical, semantic)
         results = results[: _bounded_int(limit, default=10, minimum=1, maximum=50)]
         self.audit.record(

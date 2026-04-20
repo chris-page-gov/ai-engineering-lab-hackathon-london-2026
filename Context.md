@@ -126,6 +126,7 @@ Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are loca
 - MCP servers that accept a configurable challenge root must use that root consistently for both tool calls and resource reads.
 - Wiki MCP HTTP runs that specify `--bearer-token-env` must fail fast if the named environment variable is unset or empty. Anonymous local HTTP remains an explicit choice only when the bearer-token option is omitted.
 - Public comparison metrics must not retain machine-local executable paths, app paths, run roots, repository roots, or home-relative paths. Sanitized metrics use placeholders while raw manifests remain in external run evidence.
+- Wiki MCP retrieval modes are expected to be side-effect scoped: lexical mode does not build semantic vectors, semantic mode does not run lexical scoring, and hybrid mode is the only path that combines both engines.
 - The audit format follows the same DSAP principles used in the related `mcp-geo` server audit work: event ledger, evidence register, source register, audit card, integrity manifest, redaction manifest, visible transcript, and zipped bundle.
 
 ## Documentation Lockstep
