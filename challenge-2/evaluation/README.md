@@ -32,7 +32,7 @@ By default, each prompt instructs the client to use only:
 
 The prompt also explicitly excludes `challenge-2/wiki/evaluation-benchmark.md` and `challenge-2/evaluation/` from answer-time evidence because those files contain benchmark and scoring material.
 
-Use `--client-config challenge-2/evaluation/client-config.example.json` as a starting point if local CLI arguments need to be adjusted for installed versions of Codex, Gemini CLI, Claude Code, or the optional GitHub Copilot CLI client.
+Use `--client-config challenge-2/evaluation/client-config.example.json` as a starting point if local CLI arguments need to be adjusted for installed versions of Codex, Codex with MCP, Gemini CLI, Claude Code, or the optional Copilot clients.
 
 For the full coverage set, including the UI-driven Microsoft Copilot adapter:
 
@@ -42,7 +42,7 @@ python3 challenge-2/tools/run_wiki_eval.py \
   --questions Q001,Q002,Q003
 ```
 
-Full coverage expands to `codex,gemini,claude,github-copilot,microsoft-copilot`.
+Full coverage expands to `codex,codex-mcp,gemini,claude,github-copilot,microsoft-copilot`. For publication-quality runs, use the smoke tests to identify which clients are actually validated in the current environment; this branch's live smoke set completed for `codex`, `codex-mcp`, `gemini`, `claude`, and `microsoft-copilot`, while `github-copilot` remained `policy_blocked`.
 
 ## Model And Version Capture
 
@@ -61,6 +61,7 @@ The default batch remains `codex,gemini,claude`. Current model policy, checked o
 | Client | Harness default | Why |
 | --- | --- | --- |
 | Codex | `gpt-5.4`, `xhigh` effort | OpenAI model documentation describes `gpt-5.4` as the frontier model for complex professional work. |
+| Codex with MCP | `gpt-5.4`, `xhigh` effort, local `challenge2_wiki` stdio MCP server | Uses the purpose-built read-only Challenge 2 Wiki MCP server for answer-time source retrieval and records MCP audit events for comparison with the standard local-path Codex path. |
 | Gemini CLI | `gemini-3.1-pro-preview` in the full-run config | Gemini CLI documentation allows direct model selection; the evaluation config pins Gemini 3.1 Pro Preview rather than relying on Auto routing. |
 | Claude Code | DSIT-managed local settings, beta fields disabled | The shared local Claude settings select the managed model path, expected to resolve to Opus 4.6 in this environment. `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` is required for the DSIT gateway because Claude Code 2.1.x otherwise sends beta fields such as `context_management`. |
 | GitHub Copilot CLI | `gpt-5.4`, `xhigh` effort | Staff-confirmed override after contradictory public Copilot documentation. The command still records public Copilot model references as context. |
@@ -69,6 +70,20 @@ The default batch remains `codex,gemini,claude`. Current model policy, checked o
 The runner also records Git commit, branch, tags-at-HEAD, dirty status, benchmark SHA-256, and detected macOS Copilot desktop app versions.
 
 Client config may set per-client environment variables under `environment`. Values for secret-like names are redacted in public metadata; non-secret compatibility flags, such as `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`, are recorded so the run can be reproduced.
+
+## Codex With MCP
+
+`codex-mcp` is a separate evaluation client for comparing standard Codex local-path behaviour with Codex grounded through the Challenge 2 Wiki MCP server.
+
+The harness:
+
+- writes a per-question context pack artifact under `raw/codex-mcp/<question>.context-pack.json`;
+- configures Codex with `challenge-2/tools/wiki_mcp_server.py` as the local stdio MCP server named `challenge2_wiki`;
+- requires Codex to call at least one MCP tool such as `wiki.search`, `wiki.read`, or `wiki.build_context_pack`;
+- records live MCP tool access under `raw/codex-mcp/<question>.mcp-audit.jsonl`; and
+- uses Codex's noninteractive approval-bypass mode for this client because `codex exec` otherwise cancels MCP tool calls.
+
+The approval bypass is scoped to the Codex process, not to the MCP server. The MCP server remains read-only and exposes only `challenge-2/wiki/`, `challenge-2/wiki/data/`, and `challenge-2/AGENTS.md`, with benchmark artifacts denied.
 
 ## Copilot Coverage Caveats
 
@@ -116,6 +131,26 @@ Key outputs:
 - `decision-record.json`, `conversation-record.json`, `evidence-register.json`, `redaction-manifest.json`, and `integrity-manifest.json`: DSAP-style audit records.
 - `generated/scoring-sheet.csv`: scoring worksheet with blank score columns.
 - `bundle/DSAP-<run-id>.zip`: sealed audit bundle plus SHA-256 sidecar.
+
+## Compare Runs
+
+After a run completes, write a reproducible comparison report:
+
+```bash
+python3 challenge-2/tools/compare_wiki_eval.py \
+  challenge-2/evaluation/runs/<run-id> \
+  --output challenge-2/evaluation/reports/<run-id>-comparison.md \
+  --json-output challenge-2/evaluation/reports/<run-id>-metrics.json
+```
+
+The comparison report computes automated proxy metrics only: completion status, JSON parseability, elapsed time, citation overlap against gold source references, and MCP tool-call evidence. It does not replace human scoring against the benchmark rubric.
+
+Current report:
+
+- `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md`
+- `challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+
+That report applies the Q057 Codex-with-MCP correction run, records `100/100` effective completed answers for Codex, Codex with MCP, Claude, and Microsoft Copilot, and records Gemini as partial because `gemini-3.1-pro-preview` quota was exhausted after 36 completed questions.
 
 ## Score And Rank
 

@@ -61,6 +61,10 @@ See [authentication options](authentication-options.md) for the full evaluation.
 
 API-key authentication is excluded from the v1 implementation unless live Copilot Studio validation proves it is required for a specific host path.
 
+## Codex Evaluation Posture
+
+The `codex-mcp` benchmark client runs Codex with approval bypass so noninteractive MCP tool calls are not cancelled. This is not a production security pattern. It is acceptable for the local validation loop because the MCP server exposes no write, shell, network, or raw repository tools, and every server read is still constrained by the allowlist, denylist, size limits, symlink checks, and audit logging described above.
+
 ## Semantic Retrieval Posture
 
 Semantic retrieval must be additive to deterministic lexical retrieval, not a replacement for provenance. The v1 implementation should start with local embeddings, an exact local vector matrix, and a manifest that records model revision, index type, corpus hashes, source IDs, and denylist proof. External embedding APIs are comparison-only unless project policy explicitly permits sending corpus text outside the local environment.

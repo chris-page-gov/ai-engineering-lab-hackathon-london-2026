@@ -36,9 +36,11 @@ This log records how the MCP research wiki is being shaped so humans and AI clie
 | Added first-use reference submodules with local `SOURCE.md` metadata. | Preserve direct access to selected implementations while keeping upstream code separate and license-reviewed. | Lint excludes upstream submodule Markdown and checks local source metadata links. |
 | Recorded authentication, semantic retrieval, and release-time URL validation decisions. | Convert open decisions into implementation constraints before building the server. | Decision record now closes the previous open questions and leaves only implementation-specific follow-ups. |
 | Added semantic retrieval option evaluation. | Select embedding and vector-index technology by evidence without weakening licensing, provenance, or reproducibility. | The wiki now records a local permissive shortlist and exact NumPy baseline for v1 retrieval benchmarking. |
+| Added implementation notes for the read-only Challenge 2 Wiki MCP server. | Keep the research wiki aligned with the actual server shape, including JSON-RPC core, stdio/local HTTP transports, Codex MCP validation, and semantic retrieval caveats. | Implementation docs now link to the plan, security model, decision record, and evaluation harness. |
+| Added comparison-report generation for MCP evaluation runs. | Make Codex-with-MCP versus standard Codex comparison reproducible without committing raw prompts or answer transcripts. | Report metrics cover completion, JSON parseability, timings, citation-overlap proxy, model/version provenance, and MCP audit events. |
 
 ## Next Optimization Checks
 
 - Add external-link verification once the source URLs are frozen for a release.
-- Decide which specification or reference repositories should become submodules.
-- Add MCP implementation notes under [implementation](implementation/README.md) once the server build starts.
+- Run the embedding shortlist benchmark and record the final model lock.
+- Add Copilot Studio direct MCP validation notes once the Microsoft host smoke has been run.

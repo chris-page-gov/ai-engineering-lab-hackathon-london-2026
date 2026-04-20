@@ -12,9 +12,11 @@ Dark Data Workbench now includes a question box so saved checks and Browser AI e
 
 The current local working branch also includes a linked and illustrated colleague report in Markdown and Word format that reconstructs the Challenge 2 realtime delivery sequence from the supplied hackathon write-up, repo history, logs, and Codex thread evidence.
 
-Version 1.1 has been published from `main` and tagged as `v1.1`. The current local branch is `codex/evaluation-versioning`, which extends the Challenge 2 evaluation harness before the full 100-question model run. The branch records per-client model selectors, reasoning effort where supported, model-selection sources, executable versions, repository state, benchmark hashes, GitHub Copilot CLI coverage, Microsoft Copilot UI coverage, and detected Microsoft Copilot desktop app versions so the later evaluation can be traced against the exact client environment.
+Version 1.1 has been published from `main` and tagged as `v1.1`. The current local branch is `codex/wiki-mcp-research`, which extends the Challenge 2 evaluation harness with a purpose-built Wiki MCP server and a full comparison report for standard Codex versus Codex using MCP.
 
-The current MCP research branch is `codex/wiki-mcp-research`. It adds a separate `challenge-2/MCP-Wiki/` research wiki for the planned purpose-built Wiki MCP server, preserving the Deep Research report variants, candidate and source registers, licensing posture, security model, and future implementation workspace without polluting the Challenge 2 corpus wiki or the public postmortem wiki.
+The current MCP research branch adds a separate `challenge-2/MCP-Wiki/` research wiki and now includes the implemented read-only Wiki MCP server. It preserves the Deep Research report variants, candidate and source registers, licensing posture, security model, implementation trace, and evaluation evidence without polluting the Challenge 2 corpus wiki or the public postmortem wiki.
+
+The full Challenge 2 wiki evaluation report now lives at `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md`, with sanitized metrics in the adjacent JSON file. Raw prompts, answers, audit bundles, screenshots, and UI captures remain outside Git in external run directories.
 
 The postmortem release includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The publication line now treats the public derivative and reports as part of the Version 1.1 baseline, with the full 100-question AI comparison still outstanding.
 
@@ -81,6 +83,12 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added semantic retrieval option evaluation, with a provisional local baseline of `BAAI/bge-small-en-v1.5` plus exact NumPy cosine search and comparison runs for `all-MiniLM-L6-v2` and `e5-small-v2`.
 - Added first-use reference implementation submodules for ProfessionalWiki, olgasafonova, qmd, and mkdocs-mcp-plugin, with local `SOURCE.md` metadata and license/reuse caveats.
 - Added repository ignore coverage for nested `.DS_Store` and AppleDouble metadata files.
+- Implemented the read-only Challenge 2 Wiki MCP server under `challenge-2/MCP-Wiki/implementation/wiki_mcp/`, with stdio and local HTTP transports, path allowlists, benchmark denylists, source-register tools, context-pack tools, provenance explanations, deterministic semantic retrieval, and append-only audit logging.
+- Added `challenge-2/tools/wiki_mcp_server.py` as the MCP server CLI entry point.
+- Added `codex-mcp` as an evaluation client so Codex can answer through the local Wiki MCP server and record live MCP tool-call evidence.
+- Added `challenge-2/tools/compare_wiki_eval.py` and `tests/test_challenge2_compare_wiki_eval.py` for correction-aware comparison reporting.
+- Completed the `validated-full-20260419T2225Z` 100-question evaluation run for the validated clients. Codex, Codex with MCP, Claude, and Microsoft Copilot have effective `100/100` completed rows; Gemini completed `36/100` before model quota exhaustion; GitHub Copilot CLI remains `policy_blocked` by smoke test.
+- Added the sanitized comparison report and metrics under `challenge-2/evaluation/reports/`.
 
 ## Validation
 
@@ -177,6 +185,15 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
   - Removed the previously tracked `challenge-2/.DS_Store`; MCP wiki lint treats ignored `.DS_Store` files as local state and fails only if they are tracked.
+- Current Wiki MCP implementation and evaluation validation passed locally:
+  - `python3 -m py_compile challenge-2/MCP-Wiki/implementation/wiki_mcp/__init__.py challenge-2/MCP-Wiki/implementation/wiki_mcp/core.py challenge-2/MCP-Wiki/implementation/wiki_mcp/transport.py challenge-2/tools/wiki_mcp_server.py challenge-2/tools/compare_wiki_eval.py challenge-2/evaluation/clients.py challenge-2/tools/run_wiki_eval.py`
+  - `python3 -m unittest tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval tests.test_challenge2_wiki_mcp_server`
+  - `uv run --with coverage python -m coverage run --source=challenge-2/MCP-Wiki/implementation/wiki_mcp -m unittest tests.test_challenge2_wiki_mcp_server`
+  - `uv run --with coverage python -m coverage report` reported `91%` package coverage for the MCP server implementation.
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `28` Markdown files, `287` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients codex-mcp --questions Q057 --timeout-sec 900 --output-root /tmp/challenge2-wiki-eval-corrections --run-id codex-mcp-q057-correction-20260420T0320Z --client-config challenge-2/evaluation/client-config.example.json` completed the single Codex-MCP correction row.
+  - `python3 challenge-2/tools/compare_wiki_eval.py /tmp/challenge2-wiki-eval-full/validated-full-20260419T2225Z --correction-run codex-mcp=/tmp/challenge2-wiki-eval-corrections/codex-mcp-q057-correction-20260420T0320Z --smoke-run github-copilot=/tmp/challenge2-wiki-eval-mcp/github-copilot-q001-smoke --output challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md --json-output challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+  - The comparison report records `100/100` completed answers for Codex, Codex with MCP, Claude, and Microsoft Copilot; Gemini is recorded as `completed:36, quota_exhausted:64`; GitHub Copilot CLI is recorded through a `policy_blocked` smoke run.
 
 ## Open Items
 
@@ -184,17 +201,18 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Address the security assessment findings before making any production-readiness claim: harden GitHub Actions permissions/action pinning, upgrade the low `cookie` advisory path, replace unsafe XML parsing for untrusted documents, add response-size and redirect controls to postmortem URL fetching, and define Secure by Design/DPIA/operational controls for real data.
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
 - Enable/authenticate GitHub Copilot CLI policy access for live runs; the standalone `copilot` binary is installed locally, but live evaluation currently returns `policy_blocked`.
-- Use `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for Claude Code runs through the DSIT-managed gateway; the smoke test is now live-run ready with that compatibility flag.
+- Use `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for Claude Code runs through the DSIT-managed gateway; the full validated run completed with that compatibility flag injected through client config.
 - Keep Microsoft Copilot source grounding explicit for scored runs: the GitHub permalink plus copied-excerpt prompt path has passed a `Q001` smoke, while a versioned OneDrive or SharePoint wiki copy is a plausible manual fallback if GitHub access fails and should be smoke-tested before use.
-- Inspect a dry-run client-manifest smoke output, then run the full 100-question benchmark through `--clients full`. Fill the scoring sheet and publish the generated leaderboard.
+- Rerun Gemini CLI on `Q037` through `Q100` after `gemini-3.1-pro-preview` quota resets, or record a decision to exclude Gemini from the full validated set for this publication cycle.
+- Score the generated scoring sheet and publish a human-checked leaderboard; the current report uses automated proxy metrics only.
 - Run the v1 semantic retrieval benchmark to lock the final embedding model from the evaluated shortlist.
 - Validate the Copilot Studio direct MCP connection and only escalate to Agents Toolkit packaging or a custom connector if direct connection cannot deliver the required server functionality.
 
 ## Next Recommended Steps
 
-1. Review `run.json` from a `--dry-run --clients full` versioning smoke test to confirm client paths, CLI versions, model selectors, effort settings, and UI caveats.
-2. Enable GitHub Copilot CLI policy access and keep the Microsoft Copilot Playwright profile warm if the full run should include live answers from those clients.
-3. Run the full benchmark with `python3 challenge-2/tools/run_wiki_eval.py --clients full`.
-4. Score `generated/scoring-sheet.csv` and generate `generated/leaderboard.md`.
-5. Add source-backed demo answers for the five Challenge 2 demo questions.
-6. Use Dark Data Workbench during the demo to show search, context export, and source-backed checks over the generated knowledge base.
+1. Review `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md` and decide whether the automated proxy metrics are sufficient for publication, or whether to add human rubric scores first.
+2. Rerun Gemini CLI after quota reset if a complete Gemini row set is required for the public comparison.
+3. Enable GitHub Copilot CLI policy access if GitHub Copilot must be included beyond the current `policy_blocked` smoke evidence.
+4. Run the embedding shortlist benchmark and lock the v1 semantic retrieval model.
+5. Validate the server through Copilot Studio direct MCP connection.
+6. Add source-backed demo answers for the five Challenge 2 demo questions.

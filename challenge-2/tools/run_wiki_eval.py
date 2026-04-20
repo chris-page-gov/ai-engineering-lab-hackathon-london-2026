@@ -21,7 +21,7 @@ from evaluation.clients import (  # noqa: E402
     DEFAULT_CLIENTS,
     FULL_COVERAGE_CLIENTS,
     SUPPORTED_CLIENTS,
-    build_wiki_prompt,
+    build_client_prompt,
     describe_client,
     describe_desktop_ai_apps,
     load_client_config,
@@ -97,10 +97,12 @@ def main(argv: list[str] | None = None) -> int:
 
     for question in selected:
         for client in clients:
-            prompt = build_wiki_prompt(
+            prompt = build_client_prompt(
+                client,
                 question,
                 repo_root=REPO_ROOT,
                 challenge_root=CHALLENGE_ROOT,
+                run_dir=run_dir,
                 client_config=_client_config(client_config, client),
             )
             prompt_path = recorder.write_prompt(client, question, prompt)

@@ -29,18 +29,18 @@ The plan is grounded in [the architecture](architecture.md), [the security model
 
 ## Target Implementation
 
-The first implementation should be purpose-built for the generated Challenge 2 wiki:
+The first implementation is purpose-built for the generated Challenge 2 wiki:
 
-- Python and FastMCP unless later research proves a better fit.
+- Python with a dependency-light JSON-RPC MCP surface so stdio and local HTTP share the same tested core.
 - Read-only by default.
-- Local stdio for development and MCP Inspector.
-- Streamable HTTP for Microsoft Copilot Studio and remote clients.
+- Local stdio for development, Codex, and MCP Inspector-style clients.
+- Local Streamable HTTP-compatible JSON-RPC endpoint for Microsoft Copilot Studio and remote-host validation.
 - OAuth 2.0 or Microsoft Entra ID / SSO for the target remote authentication pattern.
 - Explicit allowlist for `challenge-2/wiki`, `challenge-2/wiki/data`, and `challenge-2/AGENTS.md`.
 - Explicit denylist for `evaluation-benchmark.md`, `challenge-2/evaluation/`, and generated run artifacts.
 - Deterministic citations to wiki-relative paths and source IDs.
 - Append-only audit logging for source access.
-- Semantic retrieval in v1, behind deterministic provenance objects and bounded context packs.
+- Semantic retrieval behind deterministic provenance objects and bounded context packs.
 - Copilot Studio direct MCP connection as the first Microsoft host validation path.
 - No API-key authentication unless direct live validation proves a host-specific need.
 
@@ -56,19 +56,22 @@ The first implementation should be purpose-built for the generated Challenge 2 w
 
 ## Phase 2: Minimal Local MCP Server
 
-- Add a server package under `implementation/`.
-- Implement `search_wiki`, `read_note`, `list_sources`, `read_source_register`, and `find_by_source_id`.
-- Add traversal, symlink, extension, size, and denylist tests.
-- Validate with the MCP Inspector over stdio.
+- Status: complete.
+- Added a server package under `implementation/wiki_mcp/`.
+- Implemented `wiki.search`, `wiki.read`, `wiki.list_sources`, `wiki.read_source`, `wiki.source_register`, `wiki.read_source_register`, and `wiki.find_by_source_id`.
+- Added traversal, symlink, extension, size, denylist, stdio, and HTTP tests.
+- Validated with Codex over stdio.
 
 ## Phase 3: Provenance And Context Packs
 
+- Status: complete.
 - Add `build_context_pack` and `explain_provenance`.
 - Return structured evidence objects with note path, source ID, title, snippet, and offsets where practical.
 - Add tests proving benchmark artifacts never surface.
 
 ## Phase 4: Semantic Retrieval
 
+- Status: implemented with deterministic local hashing for the current validation loop; embedding model lock remains open pending benchmark.
 - Add semantic retrieval in v1 after lexical search and provenance tests are stable.
 - Keep semantic scoring behind the same `search_wiki` and `build_context_pack` tool contracts.
 - Evaluate [semantic retrieval options](semantic-retrieval-options.md), starting with local `BAAI/bge-small-en-v1.5` embeddings, exact NumPy cosine search, and `all-MiniLM-L6-v2` / `e5-small-v2` comparison runs.
@@ -77,12 +80,14 @@ The first implementation should be purpose-built for the generated Challenge 2 w
 
 ## Phase 5: Streamable HTTP
 
+- Status: local endpoint implemented; Copilot Studio live validation remains next.
 - Mount the same core server behind a Streamable HTTP endpoint.
 - Add authentication, origin validation, rate limits, and response-size controls.
 - Validate against a local HTTP MCP client before trying Copilot Studio.
 
 ## Phase 6: Microsoft Copilot Studio Validation
 
+- Status: not yet live-validated.
 - Connect the HTTP MCP endpoint to Copilot Studio.
 - Validate which parts of MCP are consumed by the Microsoft host: tools, resources, prompts, or tools only.
 - Stay with direct MCP connection unless it cannot expose the required tool/resource surface or governance controls.

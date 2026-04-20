@@ -8,6 +8,7 @@ import platform
 import plistlib
 import shutil
 import subprocess
+import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -17,12 +18,13 @@ from .audit import ClientRunResult, utc_now
 from .questions import EvaluationQuestion
 
 
-SUPPORTED_CLIENTS = ("codex", "gemini", "claude", "github-copilot", "microsoft-copilot")
+SUPPORTED_CLIENTS = ("codex", "codex-mcp", "gemini", "claude", "github-copilot", "microsoft-copilot")
 DEFAULT_CLIENTS = ("codex", "gemini", "claude")
 FULL_COVERAGE_CLIENTS = SUPPORTED_CLIENTS
 
 MODEL_ENV_VARS = {
     "codex": ("CODEX_MODEL",),
+    "codex-mcp": ("CODEX_MODEL",),
     "gemini": ("GEMINI_MODEL",),
     "claude": ("CLAUDE_MODEL", "ANTHROPIC_MODEL"),
     "github-copilot": ("COPILOT_MODEL",),
@@ -31,6 +33,7 @@ MODEL_ENV_VARS = {
 
 MODEL_EFFORT_ENV_VARS = {
     "codex": ("CODEX_REASONING_EFFORT",),
+    "codex-mcp": ("CODEX_REASONING_EFFORT",),
     "claude": ("CLAUDE_CODE_EFFORT_LEVEL",),
     "github-copilot": (),
     "gemini": (),
@@ -48,6 +51,15 @@ MODEL_POLICIES: dict[str, dict[str, Any]] = {
         "default_effort": "xhigh",
         "pass_default_model_arg": True,
         "latest_policy": "OpenAI model documentation describes gpt-5.4 as the frontier model for complex professional work; the harness sets xhigh reasoning effort for best-model runs.",
+        "reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+        "reference_checked_at": "2026-04-18",
+    },
+    "codex-mcp": {
+        "default_model": "gpt-5.4",
+        "default_source": "built_in_latest_explicit_with_challenge2_wiki_mcp",
+        "default_effort": "xhigh",
+        "pass_default_model_arg": True,
+        "latest_policy": "Codex uses gpt-5.4 with xhigh reasoning effort and a configured local Challenge 2 Wiki MCP server for source retrieval.",
         "reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
         "reference_checked_at": "2026-04-18",
     },
@@ -91,6 +103,7 @@ MODEL_POLICIES: dict[str, dict[str, Any]] = {
 
 CLIENT_VERSION_COMMANDS = {
     "codex": (("codex", "--version"),),
+    "codex-mcp": (("codex", "--version"), (sys.executable, "--version")),
     "gemini": (("gemini", "--version"),),
     "claude": (("claude", "--version"),),
     "github-copilot": (
@@ -159,6 +172,86 @@ def build_wiki_prompt(
             f"Category: {question.category}",
             f"Question: {question.question}",
             *context_lines,
+        ]
+    )
+
+
+def build_client_prompt(
+    client: str,
+    question: EvaluationQuestion,
+    *,
+    repo_root: Path,
+    challenge_root: Path,
+    run_dir: Path,
+    client_config: dict[str, Any] | None = None,
+) -> str:
+    """Build the per-client prompt, including MCP context generation where required."""
+
+    client_config = client_config or {}
+    if client == "codex-mcp":
+        return build_codex_mcp_prompt(
+            question,
+            repo_root=repo_root,
+            challenge_root=challenge_root,
+            run_dir=run_dir,
+            client_config=client_config,
+        )
+    return build_wiki_prompt(
+        question,
+        repo_root=repo_root,
+        challenge_root=challenge_root,
+        client_config=client_config,
+    )
+
+
+def build_codex_mcp_prompt(
+    question: EvaluationQuestion,
+    *,
+    repo_root: Path,
+    challenge_root: Path,
+    run_dir: Path,
+    client_config: dict[str, Any] | None = None,
+) -> str:
+    """Build a Codex prompt backed by a context pack from the local wiki MCP implementation."""
+
+    client_config = client_config or {}
+    implementation_root = challenge_root / "MCP-Wiki" / "implementation"
+    if str(implementation_root) not in sys.path:
+        sys.path.insert(0, str(implementation_root))
+    from wiki_mcp import AuditLogger, WikiKnowledgeBase, build_codex_mcp_prompt as format_mcp_prompt  # noqa: PLC0415
+
+    artifact_dir = run_dir / "raw" / "codex-mcp"
+    artifact_dir.mkdir(parents=True, exist_ok=True)
+    audit_path = artifact_dir / f"{question.question_id}.context-pack-audit.jsonl"
+    semantic_model_id = str(client_config.get("semantic_model_id") or "challenge2-local-hash-v1")
+    kb = WikiKnowledgeBase(
+        repo_root=repo_root,
+        challenge_root=challenge_root,
+        audit=AuditLogger(audit_path),
+        semantic_model_id=semantic_model_id,
+    )
+    context_pack = kb.build_context_pack(
+        query=question.question,
+        limit=int(client_config.get("mcp_context_limit") or 8),
+        budget_bytes=int(client_config.get("mcp_context_budget_bytes") or 48000),
+        mode=str(client_config.get("mcp_retrieval_mode") or "hybrid"),
+    )
+    context_pack_path = artifact_dir / f"{question.question_id}.context-pack.json"
+    context_pack_path.write_text(json.dumps(context_pack, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    prompt = format_mcp_prompt(
+        question.question_id,
+        question.category,
+        question.question,
+        context_pack,
+        include_context_pack=bool(client_config.get("mcp_prompt_include_context_pack")),
+    )
+    return "\n".join(
+        [
+            prompt,
+            "",
+            "The local MCP server is configured for Codex as `challenge2_wiki`.",
+            "Use the MCP server tools directly if you need to verify, expand, or cross-check the supplied context pack.",
+            f"Context pack audit artifact: {context_pack_path}",
         ]
     )
 
@@ -378,6 +471,8 @@ def build_client_invocation(
                 context.prompt,
             ]
         )
+    elif context.client == "codex-mcp":
+        command = _codex_mcp_command(context, command_model or "gpt-5.4", str(model.get("reasoning_effort") or "xhigh"))
     elif context.client == "gemini":
         command = [
             "gemini",
@@ -554,6 +649,8 @@ def _client_status(client: str, returncode: int, assistant_response_path: Path, 
         return "unavailable"
     if client == "github-copilot" and "Access denied by policy settings" in stderr:
         return "policy_blocked"
+    if client == "gemini" and ("QUOTA_EXHAUSTED" in stderr or "exhausted your capacity" in stderr):
+        return "quota_exhausted"
     if client == "microsoft-copilot" and assistant_response_path.exists():
         try:
             payload = json.loads(assistant_response_path.read_text(encoding="utf-8"))
@@ -662,6 +759,8 @@ def _describe_executables(client: str, client_config: dict[str, Any]) -> list[di
     names: list[str] = []
     if "argv" in client_config and client_config["argv"]:
         names.append(str(client_config["argv"][0]))
+    elif client == "codex-mcp":
+        names.extend(["codex", Path(sys.executable).name])
     elif client == "github-copilot":
         names.extend(["copilot", "gh"])
     elif client == "microsoft-copilot":
@@ -779,6 +878,46 @@ def _github_copilot_command(
     return command
 
 
+def _codex_mcp_command(context: ClientCommandContext, model: str, reasoning_effort: str | None) -> list[str]:
+    script_path = context.challenge_root / "tools" / "wiki_mcp_server.py"
+    audit_path = context.run_dir / "raw" / context.client / f"{context.question_id}.mcp-audit.jsonl"
+    mcp_args = [
+        str(script_path),
+        "--transport",
+        "stdio",
+        "--repo-root",
+        str(context.repo_root),
+        "--challenge-root",
+        str(context.challenge_root),
+        "--audit-path",
+        str(audit_path),
+    ]
+    command = [
+        "codex",
+        "exec",
+        "-m",
+        model,
+    ]
+    if reasoning_effort:
+        command.extend(["-c", f"model_reasoning_effort=\"{reasoning_effort}\""])
+    command.extend(
+        [
+            "-c",
+            f"mcp_servers.challenge2_wiki.command={json.dumps(sys.executable)}",
+            "-c",
+            f"mcp_servers.challenge2_wiki.args={json.dumps(mcp_args)}",
+            "--dangerously-bypass-approvals-and-sandbox",
+            "--json",
+            "-o",
+            str(context.assistant_response_path),
+            "-C",
+            str(context.repo_root),
+            context.prompt,
+        ]
+    )
+    return command
+
+
 def _microsoft_copilot_command(context: ClientCommandContext, client_config: dict[str, Any]) -> list[str]:
     script_path = context.challenge_root / "tools" / "microsoft_copilot_playwright.mjs"
     command = [
@@ -829,6 +968,12 @@ def _public_client_config_metadata(client_config: dict[str, Any]) -> dict[str, A
         "prompt_context_max_chars",
         "environment",
         "env",
+        "mcp_context_limit",
+        "mcp_context_budget_bytes",
+        "mcp_retrieval_mode",
+        "mcp_server_transport",
+        "mcp_prompt_include_context_pack",
+        "semantic_model_id",
         "notes",
     }
     record: dict[str, Any] = {}

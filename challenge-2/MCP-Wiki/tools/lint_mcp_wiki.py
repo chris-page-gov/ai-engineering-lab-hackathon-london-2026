@@ -425,7 +425,7 @@ def run() -> dict[str, object]:
     }
     return {
         "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "root": str(ROOT),
+        "root": ROOT.relative_to(REPO_ROOT).as_posix(),
         "status": "pass" if not errors else "fail",
         "summary": summary,
         "errors": errors,

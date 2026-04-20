@@ -24,12 +24,13 @@ related:
 
 # Challenge 2 MCP Research Wiki
 
-This wiki is the research and implementation planning space for a purpose-built MCP server over the Challenge 2 generated wiki. It exists because Microsoft 365 Copilot could not reliably ground on local or Personal OneDrive wiki folders, while a proper MCP endpoint can expose the wiki as controlled, audited knowledge.
+This wiki is the research, implementation, and validation space for a purpose-built MCP server over the Challenge 2 generated wiki. It exists because Microsoft 365 Copilot could not reliably ground on local or Personal OneDrive wiki folders, while a proper MCP endpoint can expose the wiki as controlled, audited knowledge.
 
 ## Start Here
 
 - [Architecture](architecture.md)
 - [Implementation Plan](implementation-plan.md)
+- [Implementation](implementation/README.md)
 - [Security Model](security-model.md)
 - [Authentication Options](authentication-options.md)
 - [Semantic Retrieval Options](semantic-retrieval-options.md)
@@ -65,19 +66,21 @@ See [the Karpathy methodology note](sources/karpathy-llm-wiki-methodology.md) fo
 
 ## Current Direction
 
-Build a purpose-built read-only Wiki MCP server rather than forking a broad Obsidian, MediaWiki, or Wiki.js server. Use the candidate projects as references, preserve their licenses, and keep the first implementation narrow:
+The first purpose-built read-only Wiki MCP server is now implemented under [the implementation workspace](implementation/README.md) rather than forked from a broad Obsidian, MediaWiki, or Wiki.js server. The candidate projects remain references with preserved licenses. The current implementation:
 
 - expose only generated wiki notes, metadata, and source-register data;
 - deny benchmark and gold-answer artifacts;
 - return deterministic citations to wiki paths and source IDs;
 - log source access for audit;
 - support local stdio and Microsoft-compatible Streamable HTTP;
-- add reference implementations or MCP specifications as submodules only after license review.
+- uses first-use reference implementation submodules only for study, not as runtime dependencies;
 - use OAuth 2.0 or Microsoft Entra ID / SSO for a production Copilot Studio-facing endpoint;
-- include semantic retrieval in v1 behind deterministic provenance and context-pack contracts;
+- includes semantic retrieval behind deterministic provenance and context-pack contracts, currently using a local deterministic exact-cosine hashing backend for validation while the embedding shortlist remains under benchmark;
 - validate Copilot Studio direct MCP connection first;
 - exclude API-key authentication unless live host validation proves it is required;
 - validate external URLs at release time rather than in CI.
+
+The `codex-mcp` evaluation client has completed live Q001 smoke validation with recorded `wiki.search` and `wiki.read` MCP audit events. Full validated-client benchmark evidence is generated through the Challenge 2 evaluation harness rather than stored directly in this research wiki.
 
 ## Quality Gate
 

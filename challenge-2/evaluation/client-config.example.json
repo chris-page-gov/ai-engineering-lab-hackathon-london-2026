@@ -21,6 +21,20 @@
       "{prompt}"
     ]
   },
+  "codex-mcp": {
+    "model": "gpt-5.4",
+    "model_source": "explicit_latest_openai_docs_with_challenge2_wiki_mcp",
+    "model_reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+    "model_reference_checked_at": "2026-04-18",
+    "reasoning_effort": "xhigh",
+    "mcp_server_transport": "stdio",
+    "mcp_retrieval_mode": "hybrid",
+    "mcp_context_limit": 8,
+    "mcp_context_budget_bytes": 48000,
+    "mcp_prompt_include_context_pack": false,
+    "semantic_model_id": "challenge2-local-hash-v1",
+    "notes": "Codex with MCP uses the local read-only Challenge 2 Wiki MCP server over stdio. The harness also stores the MCP context pack used to seed each prompt so the Codex-with-MCP path can be compared with the standard local-path Codex path. The built-in command disables interactive approval prompts for this client because noninteractive Codex otherwise cancels MCP tool calls; the MCP server itself remains read-only and path-scoped."
+  },
   "gemini": {
     "model": "gemini-3.1-pro-preview",
     "model_source": "explicit_gemini_cli_docs",
@@ -42,17 +56,17 @@
     ]
   },
   "claude": {
-    "model": "opus",
-    "model_source": "dsit_managed_opus_alias",
+    "model": "local-settings-managed",
+    "model_source": "dsit_managed_local_settings",
     "model_reference_url": "https://code.claude.com/docs/en/model-config",
     "model_reference_checked_at": "2026-04-18",
-    "pass_model_arg": true,
+    "pass_model_arg": false,
     "reasoning_effort": null,
     "environment": {
       "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
     },
-    "latest_policy": "Claude Code uses the DSIT managed Opus alias, which resolves to Opus 4.6 in this environment. Experimental beta fields are disabled for compatibility with the DSIT managed gateway.",
-    "notes": "The local DSIT Claude settings map the opus alias to the managed model path. The environment flag prevents Claude Code 2.1.x from sending beta request fields such as context_management through the managed gateway."
+    "latest_policy": "Claude Code is invoked without model or effort parameters so the DSIT managed local settings file selects the best available model, expected in this environment to resolve to Opus 4.6. Experimental beta fields are disabled for compatibility with the DSIT managed gateway.",
+    "notes": "The local DSIT Claude settings choose the model. The environment flag prevents Claude Code 2.1.x from sending beta request fields such as context_management through the managed gateway."
   },
   "github-copilot": {
     "model": "gpt-5.4",

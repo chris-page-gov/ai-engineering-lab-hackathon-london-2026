@@ -48,6 +48,11 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added first-use MCP reference implementation submodules under `challenge-2/MCP-Wiki/references/external/` for ProfessionalWiki, olgasafonova, qmd, and mkdocs-mcp-plugin, each with local `SOURCE.md` metadata.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
+- Added `challenge-2/MCP-Wiki/implementation/wiki_mcp/`, a read-only Challenge 2 Wiki MCP server with stdio and local HTTP transports, source allowlists, benchmark denylists, source-register tools, context-pack tools, provenance explanations, deterministic semantic retrieval, and append-only audit logging.
+- Added `challenge-2/tools/wiki_mcp_server.py` as the CLI entry point for the Challenge 2 Wiki MCP server.
+- Added `codex-mcp` as a Challenge 2 evaluation client that configures Codex with the local Wiki MCP server and records live MCP tool-call evidence.
+- Added `challenge-2/tools/compare_wiki_eval.py` to generate reproducible comparison reports from DSAP evaluation runs.
+- Added `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md` and matching sanitized metrics JSON for the full Challenge 2 wiki evaluation report.
 
 ### Changed
 
@@ -60,6 +65,10 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Recorded Copilot Studio direct MCP connection as the first Microsoft validation path, with Agents Toolkit or custom connector routes reserved for gaps in direct delivery.
 - Excluded API-key authentication from v1 unless live Copilot Studio validation proves a host-specific need.
 - Added a provisional semantic retrieval baseline: local `BAAI/bge-small-en-v1.5` embeddings with exact NumPy cosine search, compared against `all-MiniLM-L6-v2` and `e5-small-v2` before final lock.
+- Updated the Claude example config to defer model and effort selection to DSIT-managed local settings while keeping `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1`.
+- Recorded Codex stdio MCP as the tightest local validation loop and kept Copilot Studio direct MCP validation as the first Microsoft-host path.
+- Kept the production embedding lock open while using deterministic local exact-cosine hashing for server contract tests and live MCP validation on the disk-constrained machine.
+- Classified Gemini CLI quota exhaustion separately from generic client failures and taught the comparison report to apply explicit correction runs without committing raw prompts or answer transcripts.
 
 ### Fixed
 
@@ -76,6 +85,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Fixed public postmortem sanitisation for bare local user-path markers and local state-file mentions in explanatory text.
 - Ignored nested `.DS_Store` and AppleDouble metadata files throughout the repository.
 - Removed the previously tracked `challenge-2/.DS_Store` local Finder state file.
+- Changed the MCP wiki lint report to record the repository-relative wiki root instead of a local absolute path.
 
 ### Security
 
@@ -99,6 +109,13 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Verified all `31` MCP bibliography URLs returned HTTP success responses and replaced stale Microsoft/NCSC citation targets with current URLs.
 - Verified the MCP research wiki lint after submodule metadata: `27` Markdown files, `270` internal links, `75` external links, complete search-term coverage, `0` errors, and `0` warnings.
 - Verified the MCP research wiki lint after semantic retrieval options: `28` Markdown files, `286` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Verified the final MCP research wiki lint after implementation/report updates: `28` Markdown files, `287` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Verified the Challenge 2 Wiki MCP server with unit and transport tests at `91%` package coverage using `uv run --with coverage`.
+- Verified live `Q001` smoke tests for `codex`, `codex-mcp`, `gemini`, `claude`, and `microsoft-copilot`; `github-copilot` remains `policy_blocked`.
+- Completed a 100-question benchmark run for `codex,codex-mcp,gemini,claude,microsoft-copilot`, writing raw audit evidence outside the repository under an external run directory and sealing DSAP audit pack `DSAP-validated-full-20260419T2225Z`.
+- Completed a correction run for the single `codex-mcp` timeout on `Q057`, giving Codex with MCP effective completed coverage for all `100` benchmark questions.
+- Recorded that Gemini CLI completed `36` questions before `gemini-3.1-pro-preview` quota exhaustion blocked the remaining `64` questions; the report keeps those rows as `quota_exhausted`.
+- Generated the comparison report showing `100/100` completed answers for Codex, Codex with MCP, Claude, and Microsoft Copilot; GitHub Copilot CLI remains represented by a `policy_blocked` smoke run.
 
 ## 2026-04-16
 
