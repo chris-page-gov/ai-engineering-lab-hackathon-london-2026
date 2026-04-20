@@ -44,7 +44,9 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `challenge-2/tools/run_wiki_eval.py`: CLI harness for sending benchmark questions to Codex, Gemini CLI, and Claude Code.
 - `challenge-2/tools/compare_wiki_eval.py`: DSAP run comparison report generator for completion, JSON parseability, citation-overlap proxies, timings, and MCP tool-call evidence.
 - `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md`: full Challenge 2 wiki evaluation report comparing standard Codex with Codex using the Wiki MCP server and the other validated clients.
-- `challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`: sanitized machine-readable metrics for the same run; raw prompts, answers, and bundles remain outside Git.
+- `challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`: sanitized machine-readable metrics for the same run, including rubric-score summary data; raw prompts, answers, and bundles remain outside Git.
+- `challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-scores.csv`: public-safe per-question rubric scores, statuses, and scorer notes without raw answer text.
+- `challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md`: human-rubric quality leaderboard for the validated full run.
 - `challenge-2/tools/wiki_mcp_server.py`: read-only Challenge 2 Wiki MCP server entry point for stdio and local HTTP validation.
 - `challenge-2/tools/wiki_eval_mcp.py`: stdio MCP-compatible audit layer for controlled wiki read/search and answer recording.
 - `challenge-2/tools/summarise_wiki_eval.py`: leaderboard summariser for scored harness runs.
@@ -116,6 +118,7 @@ Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are loca
 - The local MCP layer records source access when clients use its wiki search/read tools, but direct filesystem reads by a CLI client cannot be proven from the harness alone.
 - The `codex-mcp` path records source access through `raw/codex-mcp/<question>.mcp-audit.jsonl`; noninteractive Codex requires approval bypass for MCP tool calls, but the MCP server itself remains read-only and path-scoped.
 - The completed `validated-full-20260419T2225Z` evaluation gives effective `100/100` completed rows for Codex, Codex with MCP, Claude, and Microsoft Copilot after applying the explicit `codex-mcp` Q057 correction run. Gemini CLI completed `36/100` rows before `gemini-3.1-pro-preview` returned quota exhaustion, and GitHub Copilot CLI remains `policy_blocked`.
+- The same effective answer set now has a rubric-scored quality leaderboard using the benchmark's human-written rubrics. The score artifacts are public-safe summaries; raw prompts, raw answers, UI captures, and full generated scoring sheets remain external run evidence rather than committed repository content.
 - The audit format follows the same DSAP principles used in the related `mcp-geo` server audit work: event ledger, evidence register, source register, audit card, integrity manifest, redaction manifest, visible transcript, and zipped bundle.
 
 ## Documentation Lockstep

@@ -139,18 +139,22 @@ After a run completes, write a reproducible comparison report:
 ```bash
 python3 challenge-2/tools/compare_wiki_eval.py \
   challenge-2/evaluation/runs/<run-id> \
+  --score-path challenge-2/evaluation/reports/<run-id>-rubric-scores.csv \
   --output challenge-2/evaluation/reports/<run-id>-comparison.md \
   --json-output challenge-2/evaluation/reports/<run-id>-metrics.json
 ```
 
-The comparison report computes automated proxy metrics only: completion status, JSON parseability, elapsed time, citation overlap against gold source references, and MCP tool-call evidence. It does not replace human scoring against the benchmark rubric.
+The comparison report computes completion status, JSON parseability, elapsed time, citation overlap against gold source references, and MCP tool-call evidence. The optional `--score-path` argument adds a rubric-scored quality leaderboard from the benchmark's human-written rubrics.
 
 Current report:
 
 - `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md`
 - `challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+- `challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-scores.csv`
+- `challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md`
+- `challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.json`
 
-That report applies the Q057 Codex-with-MCP correction run, records `100/100` effective completed answers for Codex, Codex with MCP, Claude, and Microsoft Copilot, and records Gemini as partial because `gemini-3.1-pro-preview` quota was exhausted after 36 completed questions.
+That report applies the Q057 Codex-with-MCP correction run, records `100/100` effective completed answers for Codex, Codex with MCP, Claude, and Microsoft Copilot, records Gemini as partial because `gemini-3.1-pro-preview` quota was exhausted after 36 completed questions, and includes a 500-point rubric-scored leaderboard.
 
 ## Score And Rank
 
@@ -166,6 +170,8 @@ The summariser writes:
 - `generated/leaderboard.md`
 
 The final percentage uses the benchmark regime in `challenge-2/wiki/evaluation-benchmark.md`: 100 questions, 5 points each, 500 points total.
+
+For a public-safe report artifact, commit only the per-question scores, statuses, and scorer notes. Do not commit the raw generated scoring sheet if it contains raw prompts, raw answer text, UI captures, or local run paths.
 
 ## MCP Audit Layer
 

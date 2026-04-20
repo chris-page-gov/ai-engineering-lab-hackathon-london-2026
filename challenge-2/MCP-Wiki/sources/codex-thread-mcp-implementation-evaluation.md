@@ -42,7 +42,7 @@ The thread covered:
 - The conclusion that a Wiki MCP server is the right strategy for exposing the Challenge 2 wiki as controlled, audited knowledge.
 - Deep Research incorporation, reference implementation review, license-aware submodule choices, MCP specification and Microsoft host-path decisions, and semantic retrieval decisions.
 - Implementation of the read-only Challenge 2 Wiki MCP server, including path allowlists, benchmark denylists, source-register tools, context-pack tools, provenance explanations, deterministic semantic retrieval, and audit logging.
-- Validation through unit tests, coverage, MCP wiki linting, live Codex-MCP smoke evidence, full benchmark comparison, and sanitized report generation.
+- Validation through unit tests, coverage, MCP wiki linting, live Codex-MCP smoke evidence, full benchmark comparison, rubric scoring, and sanitized report generation.
 - The need to capture this thread as evidence for how the implementation and evaluation decisions were made.
 
 ## Contribution Analysis
@@ -61,7 +61,7 @@ Codex contribution in this thread:
 - Researched and structured the MCP research wiki, including source registers, candidate registers, bibliography, decision log, and lint checks.
 - Implemented the Wiki MCP server and integrated it with the Challenge 2 evaluation harness as `codex-mcp`.
 - Added deterministic semantic retrieval for validation while leaving the production embedding-model lock open pending benchmark evidence.
-- Generated the comparison report showing the effect of Codex with MCP against standard Codex and other validated clients.
+- Generated the comparison report and rubric-scored leaderboard showing the effect of Codex with MCP against standard Codex and other validated clients.
 - Preserved source-boundary and publication constraints so research material, corpus wiki content, evaluation gold answers, and public postmortem material remain separated.
 
 ## Placement Options
@@ -86,6 +86,7 @@ Publish:
 - This summary note.
 - Links to implementation and evaluation artifacts.
 - Sanitized comparison metrics and reports.
+- Public-safe rubric score summaries that omit raw prompts and answer text.
 - Decision-log entries that explain branch scope and source boundaries.
 
 Do not publish without another review:

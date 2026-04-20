@@ -54,6 +54,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added `challenge-2/tools/compare_wiki_eval.py` to generate reproducible comparison reports from DSAP evaluation runs.
 - Added `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md` and matching sanitized metrics JSON for the full Challenge 2 wiki evaluation report.
 - Added `challenge-2/MCP-Wiki/sources/codex-thread-mcp-implementation-evaluation.md`, a publication-safe capture and recommendation note for the Codex thread that drove the MCP implementation and evaluation work.
+- Added public-safe rubric score artifacts for the validated full run: per-question scores, a Markdown leaderboard, and a JSON leaderboard, without committing raw answer text.
 
 ### Changed
 
@@ -70,6 +71,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Recorded Codex stdio MCP as the tightest local validation loop and kept Copilot Studio direct MCP validation as the first Microsoft-host path.
 - Kept the production embedding lock open while using deterministic local exact-cosine hashing for server contract tests and live MCP validation on the disk-constrained machine.
 - Classified Gemini CLI quota exhaustion separately from generic client failures and taught the comparison report to apply explicit correction runs without committing raw prompts or answer transcripts.
+- Updated the comparison report generator to accept a rubric score CSV and include a quality leaderboard alongside operational proxy metrics.
 
 ### Fixed
 
@@ -104,6 +106,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Linked the Challenge 2 benchmark into the wiki index and documented the evaluation harness in the Challenge 2 brief and README.
 - Recorded the MCP wiki citation-linking and optimization decisions in the MCP decision record and source register.
 - Linked the MCP implementation/evaluation thread capture from the MCP wiki index, implementation workspace, decision record, optimization log, and source register.
+- Documented the committed rubric-scored leaderboard and the rule that raw scoring sheets with answer text stay outside Git.
 
 ### Validation
 
@@ -119,6 +122,10 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Completed a correction run for the single `codex-mcp` timeout on `Q057`, giving Codex with MCP effective completed coverage for all `100` benchmark questions.
 - Recorded that Gemini CLI completed `36` questions before `gemini-3.1-pro-preview` quota exhaustion blocked the remaining `64` questions; the report keeps those rows as `quota_exhausted`.
 - Generated the comparison report showing `100/100` completed answers for Codex, Codex with MCP, Claude, and Microsoft Copilot; GitHub Copilot CLI remains represented by a `policy_blocked` smoke run.
+- Generated the rubric-scored leaderboard from the effective full run: Codex `484/500`, Claude `480/500`, Codex with MCP `471/500`, Gemini `171/500`, and Microsoft Copilot `58/500`.
+- Verified the rubric score CSV contains `500` unique client/question score rows with no raw answer or gold-answer columns, and no local path or UI-session metadata hits in the committed report artifacts.
+- Verified `python3 -m unittest tests.test_challenge2_compare_wiki_eval` after adding rubric-score report support.
+- Verified the broader MCP evaluation test set with `python3 -m unittest tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval tests.test_challenge2_wiki_mcp_server`.
 
 ## 2026-04-16
 

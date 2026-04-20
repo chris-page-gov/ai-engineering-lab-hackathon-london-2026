@@ -18,6 +18,8 @@ CHALLENGE_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = CHALLENGE_ROOT.parent
 sys.path.insert(0, str(CHALLENGE_ROOT))
 
+from evaluation.scoring import summarise_scores  # noqa: E402
+
 
 SOURCE_ID_RE = re.compile(r"\b(?:DOC-[A-Z0-9-]+|UF-[A-Z0-9-]+)\b")
 WIKI_PATH_RE = re.compile(r"\bchallenge-2/(?:AGENTS\.md|wiki/[^\s\]\)\"'<>`,;:]*)")
@@ -95,6 +97,11 @@ def main(argv: list[str] | None = None) -> int:
         default=[],
         help="Optional CLIENT=RUN_DIR correction run used to replace a non-completed base row.",
     )
+    parser.add_argument(
+        "--score-path",
+        type=Path,
+        help="Optional rubric-scored CSV used to add a quality leaderboard to the report.",
+    )
     args = parser.parse_args(argv)
 
     answers = load_answers(args.run_dir)
@@ -102,6 +109,8 @@ def main(argv: list[str] | None = None) -> int:
     answers, applied_corrections = apply_corrections(answers, correction_runs)
     metrics = build_metrics(args.run_dir, answers)
     metrics["corrections"] = applied_corrections
+    if args.score_path:
+        metrics["rubric_scores"] = summarise_scores(args.score_path)
     public_metrics = sanitize_public_value(metrics, run_dir=args.run_dir)
     smoke = load_smoke_runs(args.smoke_run)
     report = format_report(
@@ -335,7 +344,7 @@ def format_report(
         f"- Questions: `{run.get('question_count', len({answer.question_id for answer in answers}))}`",
         f"- Clients: `{', '.join(clients)}`",
         f"- Repository state: {repo_state_summary(run)}",
-        "- Scoring posture: automated proxy metrics only; no human rubric scores are asserted in this report.",
+        scoring_posture(metrics),
         "- Source policy: Challenge 2 wiki, `wiki/data`, and `challenge-2/AGENTS.md`; benchmark and gold-answer artifacts remain excluded from prompts and MCP tools.",
         "",
         "## Model And Version Provenance",
@@ -366,6 +375,19 @@ def format_report(
                 statuses=", ".join(f"{key}:{value}" for key, value in item["status_counts"].items()),
             )
         )
+    rubric_scores = metrics.get("rubric_scores")
+    if isinstance(rubric_scores, dict):
+        lines.extend(["", "## Rubric-Scored Quality Leaderboard", ""])
+        lines.extend(rubric_leaderboard_table(rubric_scores))
+        lines.extend(["", "### Rubric Scoring Method", ""])
+        lines.extend(
+            [
+                "- Scores use the benchmark's human-written `specific_rubric` and gold answer for each question.",
+                "- The effective answer set applies the explicit Q057 Codex-with-MCP correction before scoring.",
+                "- Each client is scored against the full 500-point benchmark denominator; non-completed, failed, and quota-exhausted rows receive `0`.",
+                "- The committed score CSV records per-question scores and notes without committing raw prompts or answer text.",
+            ]
+        )
     partial = partial_client_notes(clients)
     if partial:
         lines.extend(["", "## Partial Or Blocked Clients", ""])
@@ -391,6 +413,8 @@ def format_report(
     comparison = clients.get(comparison_client)
     if baseline and comparison:
         lines.extend(compare_clients_text(baseline_client, comparison_client, baseline, comparison))
+        if isinstance(rubric_scores, dict):
+            lines.extend(rubric_comparison_text(baseline_client, comparison_client, rubric_scores))
         lines.extend(["", "### Per-Question Difference Flags", ""])
         lines.extend(question_delta_table(run_dir, answers, baseline_client, comparison_client))
     else:
@@ -407,7 +431,7 @@ def format_report(
             "",
             "## Caveats",
             "",
-            "- The citation metric is a recall proxy over source IDs and wiki paths, not a semantic correctness score.",
+            "- The citation metric remains a recall proxy over source IDs and wiki paths; the rubric-scored leaderboard is the quality signal for answer correctness.",
             "- Microsoft Copilot uses browser UI automation and may include UI chrome or previous chat text in raw captured output; parsed JSON is extracted from visible text where possible.",
             "- GitHub Copilot CLI was excluded from the full validated run if the smoke run remained `policy_blocked`.",
             "- Codex with MCP uses noninteractive approval bypass for the Codex process so MCP tool calls are not cancelled; the MCP server itself is read-only, allowlisted, and benchmark-safe.",
@@ -415,13 +439,65 @@ def format_report(
             "",
             "## Next Steps",
             "",
-            "- Add human or LLM-assisted rubric scoring over the generated scoring sheet before treating the leaderboard as quality-ranked.",
+            "- Use independent moderation if this rubric-scored leaderboard is promoted from project evidence to an official comparative claim.",
             "- Run the embedding shortlist benchmark and lock the v1 model only after comparing retrieval quality, disk impact, license posture, and reproducibility.",
             "- Validate the same MCP server through Copilot Studio direct MCP connection; move to Agents Toolkit packaging only if direct connection cannot expose the required tools, resources, or governance controls.",
             "- Improve the Microsoft Copilot adapter by starting a fresh conversation per question and extracting only the final assistant JSON block.",
         ]
     )
     return "\n".join(lines) + "\n"
+
+
+def scoring_posture(metrics: dict[str, Any]) -> str:
+    if isinstance(metrics.get("rubric_scores"), dict):
+        return "- Scoring posture: rubric-scored quality leaderboard added from the benchmark's human-written rubrics; automated proxy metrics are retained as secondary operational signals."
+    return "- Scoring posture: automated proxy metrics only; no human rubric scores are asserted in this report."
+
+
+def rubric_leaderboard_table(rubric_scores: dict[str, Any]) -> list[str]:
+    leaderboard = rubric_scores.get("leaderboard") or []
+    if not isinstance(leaderboard, list) or not leaderboard:
+        return ["No rubric score rows were supplied."]
+    lines = [
+        "| Rank | Client | Scored answers | Raw points | Final % | Scored subset % | Hallucinations | Missed source risks |",
+        "| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+    ]
+    for rank, item in enumerate(leaderboard, start=1):
+        subset = "" if item.get("scored_subset_percent") is None else item.get("scored_subset_percent")
+        lines.append(
+            "| {rank} | {client} | {scored} | {points}/{max_points} | {final} | {subset} | {hallucinations} | {risks} |".format(
+                rank=rank,
+                client=item.get("client"),
+                scored=item.get("scored_answers"),
+                points=item.get("raw_points"),
+                max_points=item.get("benchmark_max_points"),
+                final=item.get("final_score_percent"),
+                subset=subset,
+                hallucinations=item.get("hallucination_count"),
+                risks=item.get("missed_source_risk_count"),
+            )
+        )
+    return lines
+
+
+def rubric_comparison_text(
+    baseline_client: str,
+    comparison_client: str,
+    rubric_scores: dict[str, Any],
+) -> list[str]:
+    by_client = {
+        str(item.get("client")): item
+        for item in rubric_scores.get("leaderboard", [])
+        if isinstance(item, dict)
+    }
+    baseline = by_client.get(baseline_client)
+    comparison = by_client.get(comparison_client)
+    if not baseline or not comparison:
+        return []
+    return [
+        f"- Rubric score: `{baseline_client}` scored `{baseline['raw_points']}/{baseline['benchmark_max_points']}` (`{baseline['final_score_percent']}`%); `{comparison_client}` scored `{comparison['raw_points']}/{comparison['benchmark_max_points']}` (`{comparison['final_score_percent']}`%).",
+        f"- Rubric risks: `{baseline_client}` recorded `{baseline['missed_source_risk_count']}` missed-source risks and `{baseline['hallucination_count']}` hallucination flags; `{comparison_client}` recorded `{comparison['missed_source_risk_count']}` missed-source risks and `{comparison['hallucination_count']}` hallucination flags.",
+    ]
 
 
 def sanitize_public_value(value: Any, *, run_dir: Path) -> Any:

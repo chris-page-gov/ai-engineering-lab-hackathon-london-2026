@@ -7,7 +7,7 @@
 - Questions: `100`
 - Clients: `claude, codex, codex-mcp, gemini, microsoft-copilot`
 - Repository state: `codex/wiki-mcp-research` at `f775aec3d689`, dirty=`True`
-- Scoring posture: automated proxy metrics only; no human rubric scores are asserted in this report.
+- Scoring posture: rubric-scored quality leaderboard added from the benchmark's human-written rubrics; automated proxy metrics are retained as secondary operational signals.
 - Source policy: Challenge 2 wiki, `wiki/data`, and `challenge-2/AGENTS.md`; benchmark and gold-answer artifacts remain excluded from prompts and MCP tools.
 
 ## Model And Version Provenance
@@ -30,6 +30,23 @@
 | gemini | 100 | 36 | 36.0 | 24.693 | 32.3 | 0 | completed:36, quota_exhausted:64 |
 | microsoft-copilot | 100 | 100 | 100.0 | 57.078 | 69.9 | 0 | completed:100 |
 
+## Rubric-Scored Quality Leaderboard
+
+| Rank | Client | Scored answers | Raw points | Final % | Scored subset % | Hallucinations | Missed source risks |
+| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | codex | 100 | 484.0/500 | 96.8 | 96.8 | 2 | 2 |
+| 2 | claude | 100 | 480.0/500 | 96.0 | 96.0 | 9 | 7 |
+| 3 | codex-mcp | 100 | 471.0/500 | 94.2 | 94.2 | 5 | 6 |
+| 4 | gemini | 100 | 171.0/500 | 34.2 | 34.2 | 1 | 59 |
+| 5 | microsoft-copilot | 100 | 58.0/500 | 11.6 | 11.6 | 19 | 92 |
+
+### Rubric Scoring Method
+
+- Scores use the benchmark's human-written `specific_rubric` and gold answer for each question.
+- The effective answer set applies the explicit Q057 Codex-with-MCP correction before scoring.
+- Each client is scored against the full 500-point benchmark denominator; non-completed, failed, and quota-exhausted rows receive `0`.
+- The committed score CSV records per-question scores and notes without committing raw prompts or answer text.
+
 ## Partial Or Blocked Clients
 
 - `gemini` became quota-limited during the run (`quota_exhausted`=64); completed rows before quota remain retained as evidence, but the client needs a rerun after quota reset for full coverage.
@@ -47,6 +64,8 @@
 - `codex` JSON parseability was `100.0`%; `codex-mcp` JSON parseability was `100.0`%.
 - `codex` gold-reference recall proxy was `92.5`%; `codex-mcp` was `94.0`%.
 - `codex-mcp` recorded MCP audit events for `100` questions, with events `{'wiki.build_context_pack': 56, 'wiki.explain_provenance': 1, 'wiki.list_sources': 3, 'wiki.read': 89, 'wiki.read_source': 9, 'wiki.search': 134}`.
+- Rubric score: `codex` scored `484.0/500` (`96.8`%); `codex-mcp` scored `471.0/500` (`94.2`%).
+- Rubric risks: `codex` recorded `2` missed-source risks and `2` hallucination flags; `codex-mcp` recorded `6` missed-source risks and `5` hallucination flags.
 
 ### Per-Question Difference Flags
 
@@ -87,7 +106,7 @@
 
 ## Caveats
 
-- The citation metric is a recall proxy over source IDs and wiki paths, not a semantic correctness score.
+- The citation metric remains a recall proxy over source IDs and wiki paths; the rubric-scored leaderboard is the quality signal for answer correctness.
 - Microsoft Copilot uses browser UI automation and may include UI chrome or previous chat text in raw captured output; parsed JSON is extracted from visible text where possible.
 - GitHub Copilot CLI was excluded from the full validated run if the smoke run remained `policy_blocked`.
 - Codex with MCP uses noninteractive approval bypass for the Codex process so MCP tool calls are not cancelled; the MCP server itself is read-only, allowlisted, and benchmark-safe.
@@ -95,7 +114,7 @@
 
 ## Next Steps
 
-- Add human or LLM-assisted rubric scoring over the generated scoring sheet before treating the leaderboard as quality-ranked.
+- Use independent moderation if this rubric-scored leaderboard is promoted from project evidence to an official comparative claim.
 - Run the embedding shortlist benchmark and lock the v1 model only after comparing retrieval quality, disk impact, license posture, and reproducibility.
 - Validate the same MCP server through Copilot Studio direct MCP connection; move to Agents Toolkit packaging only if direct connection cannot expose the required tools, resources, or governance controls.
 - Improve the Microsoft Copilot adapter by starting a fresh conversation per question and extracting only the final assistant JSON block.

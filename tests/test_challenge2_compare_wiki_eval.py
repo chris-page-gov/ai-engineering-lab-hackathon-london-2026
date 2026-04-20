@@ -81,6 +81,73 @@ class Challenge2CompareWikiEvalTest(unittest.TestCase):
             self.assertEqual(applied[0]["base_status"], "timeout")
             self.assertEqual(applied[0]["correction_status"], "completed")
 
+    def test_format_report_includes_rubric_leaderboard_when_scores_supplied(self) -> None:
+        metrics = {
+            "run": {"run_id": "test-run", "question_count": 1, "metadata": {}},
+            "clients": {
+                "codex": {
+                    "answer_count": 1,
+                    "completed": 1,
+                    "parseable_json_percent": 100.0,
+                    "avg_elapsed_seconds": 1.0,
+                    "status_counts": {"completed": 1},
+                    "citation_overlap": {"gold_ref_recall_percent": 100.0},
+                    "mcp_tool_evidence": {
+                        "questions_with_mcp_audit": 0,
+                        "audit_event_counts": {},
+                    },
+                },
+                "codex-mcp": {
+                    "answer_count": 1,
+                    "completed": 1,
+                    "parseable_json_percent": 100.0,
+                    "avg_elapsed_seconds": 1.0,
+                    "status_counts": {"completed": 1},
+                    "citation_overlap": {"gold_ref_recall_percent": 100.0},
+                    "mcp_tool_evidence": {
+                        "questions_with_mcp_audit": 1,
+                        "audit_event_counts": {"wiki.search": 1},
+                    },
+                },
+            },
+            "rubric_scores": {
+                "leaderboard": [
+                    {
+                        "client": "codex",
+                        "scored_answers": 1,
+                        "raw_points": 5.0,
+                        "benchmark_max_points": 5,
+                        "final_score_percent": 100.0,
+                        "scored_subset_percent": 100.0,
+                        "hallucination_count": 0,
+                        "missed_source_risk_count": 0,
+                    },
+                    {
+                        "client": "codex-mcp",
+                        "scored_answers": 1,
+                        "raw_points": 4.0,
+                        "benchmark_max_points": 5,
+                        "final_score_percent": 80.0,
+                        "scored_subset_percent": 80.0,
+                        "hallucination_count": 0,
+                        "missed_source_risk_count": 1,
+                    },
+                ]
+            },
+        }
+
+        report = compare_wiki_eval.format_report(
+            Path("run"),
+            metrics,
+            [],
+            baseline_client="codex",
+            comparison_client="codex-mcp",
+            smoke={},
+        )
+
+        self.assertIn("## Rubric-Scored Quality Leaderboard", report)
+        self.assertIn("Rubric score: `codex` scored `5.0/5`", report)
+
 
 if __name__ == "__main__":
     unittest.main()

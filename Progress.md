@@ -18,7 +18,7 @@ The current MCP research branch adds a separate `challenge-2/MCP-Wiki/` research
 
 The current MCP implementation and evaluation thread is now captured as a publication-safe summary note in the MCP research wiki. The branch recommendation is to include that summary in the current MCP pull request, while leaving any raw transcript or full public postmortem regeneration to the separate postmortem workflow.
 
-The full Challenge 2 wiki evaluation report now lives at `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md`, with sanitized metrics in the adjacent JSON file. Raw prompts, answers, audit bundles, screenshots, and UI captures remain outside Git in external run directories.
+The full Challenge 2 wiki evaluation report now lives at `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md`, with sanitized metrics in the adjacent JSON file and a rubric-scored leaderboard in `challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md`. Raw prompts, answers, audit bundles, screenshots, and UI captures remain outside Git in external run directories.
 
 The postmortem release includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The publication line now treats the public derivative and reports as part of the Version 1.1 baseline, with the full 100-question AI comparison still outstanding.
 
@@ -92,6 +92,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Completed the `validated-full-20260419T2225Z` 100-question evaluation run for the validated clients. Codex, Codex with MCP, Claude, and Microsoft Copilot have effective `100/100` completed rows; Gemini completed `36/100` before model quota exhaustion; GitHub Copilot CLI remains `policy_blocked` by smoke test.
 - Added the sanitized comparison report and metrics under `challenge-2/evaluation/reports/`.
 - Added `challenge-2/MCP-Wiki/sources/codex-thread-mcp-implementation-evaluation.md` to capture the current MCP implementation/evaluation thread as a public summary and to recommend including it in the current MCP pull request rather than publishing a raw transcript.
+- Added public-safe rubric scoring artifacts for the same effective run: `validated-full-20260419T2225Z-rubric-scores.csv`, `validated-full-20260419T2225Z-rubric-leaderboard.md`, and `validated-full-20260419T2225Z-rubric-leaderboard.json`.
+- Updated the comparison report to include the rubric-scored quality leaderboard: Codex `484/500`, Claude `480/500`, Codex with MCP `471/500`, Gemini `171/500`, and Microsoft Copilot `58/500`.
 
 ## Validation
 
@@ -201,6 +203,17 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 -m json.tool challenge-2/MCP-Wiki/data/source-register.json`
   - `python3 -m py_compile challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py`
   - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Current rubric-scoring validation passed locally:
+  - Rubric scoring batches produced `500` unique score rows, one per effective client/question pair.
+  - `python3 challenge-2/tools/compare_wiki_eval.py /tmp/challenge2-wiki-eval-full/validated-full-20260419T2225Z --correction-run codex-mcp=/tmp/challenge2-wiki-eval-corrections/codex-mcp-q057-correction-20260420T0320Z --smoke-run github-copilot=/tmp/challenge2-wiki-eval-mcp/github-copilot-q001-smoke --score-path challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-scores.csv --output challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md --json-output challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+  - `python3 -m json.tool challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+  - `python3 -m json.tool challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.json`
+  - `python3 -m py_compile challenge-2/tools/compare_wiki_eval.py challenge-2/evaluation/scoring.py`
+  - `python3 -m unittest tests.test_challenge2_compare_wiki_eval`
+  - `python3 -m unittest tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval tests.test_challenge2_wiki_mcp_server`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+  - Targeted publication scan found no raw answer/gold-answer columns, local run paths, UI session IDs, or Playwright profile metadata in the committed rubric report artifacts.
 
 ## Open Items
 
@@ -211,13 +224,12 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Use `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for Claude Code runs through the DSIT-managed gateway; the full validated run completed with that compatibility flag injected through client config.
 - Keep Microsoft Copilot source grounding explicit for scored runs: the GitHub permalink plus copied-excerpt prompt path has passed a `Q001` smoke, while a versioned OneDrive or SharePoint wiki copy is a plausible manual fallback if GitHub access fails and should be smoke-tested before use.
 - Rerun Gemini CLI on `Q037` through `Q100` after `gemini-3.1-pro-preview` quota resets, or record a decision to exclude Gemini from the full validated set for this publication cycle.
-- Score the generated scoring sheet and publish a human-checked leaderboard; the current report uses automated proxy metrics only.
 - Run the v1 semantic retrieval benchmark to lock the final embedding model from the evaluated shortlist.
 - Validate the Copilot Studio direct MCP connection and only escalate to Agents Toolkit packaging or a custom connector if direct connection cannot deliver the required server functionality.
 
 ## Next Recommended Steps
 
-1. Review `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md` and decide whether the automated proxy metrics are sufficient for publication, or whether to add human rubric scores first.
+1. Review the rubric-scored leaderboard and decide whether independent moderation is needed before making an external comparative quality claim.
 2. Rerun Gemini CLI after quota reset if a complete Gemini row set is required for the public comparison.
 3. Enable GitHub Copilot CLI policy access if GitHub Copilot must be included beyond the current `policy_blocked` smoke evidence.
 4. Run the embedding shortlist benchmark and lock the v1 semantic retrieval model.

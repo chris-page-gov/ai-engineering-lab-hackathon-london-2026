@@ -73,6 +73,7 @@ The evaluation harness tests whether AI coding agents can answer benchmark quest
 - [challenge-2/tools/run_wiki_eval.py](challenge-2/tools/run_wiki_eval.py): CLI runner for Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, and Microsoft Copilot UI coverage, with per-client model/version manifests for auditable runs.
 - [challenge-2/tools/wiki_eval_mcp.py](challenge-2/tools/wiki_eval_mcp.py): stdio MCP audit layer.
 - [challenge-2/tools/summarise_wiki_eval.py](challenge-2/tools/summarise_wiki_eval.py): scoring-sheet and leaderboard summariser.
+- [challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md](challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md): rubric-scored leaderboard for the validated full run, with raw answers kept outside Git.
 
 ### Postmortem and Publication Pack
 

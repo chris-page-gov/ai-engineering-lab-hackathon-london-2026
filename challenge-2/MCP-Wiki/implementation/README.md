@@ -79,6 +79,7 @@ Current validation includes:
 - Live Q001 smoke for `codex-mcp`, with recorded `wiki.search` and `wiki.read` MCP audit events.
 - Full Challenge 2 wiki evaluation report: `../../evaluation/reports/validated-full-20260419T2225Z-comparison.md`.
 - Effective `codex-mcp` coverage: `100/100` benchmark questions after a correction rerun for the single base-run Q057 timeout.
+- Rubric-scored leaderboard: `../../evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md`, with per-question public-safe scores and raw answers kept outside Git.
 
 The Codex thread that drove the implementation and evaluation is captured as a publication-safe summary in [the MCP thread capture note](../sources/codex-thread-mcp-implementation-evaluation.md). The note records the recommendation to include this summary in the current MCP pull request while keeping raw transcript regeneration separate.
 
