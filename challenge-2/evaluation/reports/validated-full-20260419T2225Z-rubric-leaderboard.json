@@ -1,0 +1,312 @@
+{
+  "categories": {
+    "claude": {
+      "Business, employment, and workplace rights": {
+        "max_points": 100,
+        "percent": 97.0,
+        "raw_points": 97.0,
+        "scored_answers": 20
+      },
+      "Data protection, information security, FOI, social media, and whistleblowing": {
+        "max_points": 50,
+        "percent": 96.0,
+        "raw_points": 48.0,
+        "scored_answers": 10
+      },
+      "Housing, benefits, homelessness, and CTR": {
+        "max_points": 125,
+        "percent": 94.4,
+        "raw_points": 118.0,
+        "scored_answers": 25
+      },
+      "Overpayment, Social Fund, and staff-directory dark data": {
+        "max_points": 40,
+        "percent": 97.5,
+        "raw_points": 39.0,
+        "scored_answers": 8
+      },
+      "People policies and operational procedures": {
+        "max_points": 50,
+        "percent": 98.0,
+        "raw_points": 49.0,
+        "scored_answers": 10
+      },
+      "Procurement and spending controls": {
+        "max_points": 35,
+        "percent": 100.0,
+        "raw_points": 35.0,
+        "scored_answers": 7
+      },
+      "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+        "max_points": 50,
+        "percent": 88.0,
+        "raw_points": 44.0,
+        "scored_answers": 10
+      },
+      "Wiki architecture and provenance": {
+        "max_points": 50,
+        "percent": 100.0,
+        "raw_points": 50.0,
+        "scored_answers": 10
+      }
+    },
+    "codex": {
+      "Business, employment, and workplace rights": {
+        "max_points": 100,
+        "percent": 96.0,
+        "raw_points": 96.0,
+        "scored_answers": 20
+      },
+      "Data protection, information security, FOI, social media, and whistleblowing": {
+        "max_points": 50,
+        "percent": 100.0,
+        "raw_points": 50.0,
+        "scored_answers": 10
+      },
+      "Housing, benefits, homelessness, and CTR": {
+        "max_points": 125,
+        "percent": 99.2,
+        "raw_points": 124.0,
+        "scored_answers": 25
+      },
+      "Overpayment, Social Fund, and staff-directory dark data": {
+        "max_points": 40,
+        "percent": 90.0,
+        "raw_points": 36.0,
+        "scored_answers": 8
+      },
+      "People policies and operational procedures": {
+        "max_points": 50,
+        "percent": 98.0,
+        "raw_points": 49.0,
+        "scored_answers": 10
+      },
+      "Procurement and spending controls": {
+        "max_points": 35,
+        "percent": 97.1,
+        "raw_points": 34.0,
+        "scored_answers": 7
+      },
+      "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+        "max_points": 50,
+        "percent": 96.0,
+        "raw_points": 48.0,
+        "scored_answers": 10
+      },
+      "Wiki architecture and provenance": {
+        "max_points": 50,
+        "percent": 94.0,
+        "raw_points": 47.0,
+        "scored_answers": 10
+      }
+    },
+    "codex-mcp": {
+      "Business, employment, and workplace rights": {
+        "max_points": 100,
+        "percent": 96.0,
+        "raw_points": 96.0,
+        "scored_answers": 20
+      },
+      "Data protection, information security, FOI, social media, and whistleblowing": {
+        "max_points": 50,
+        "percent": 96.0,
+        "raw_points": 48.0,
+        "scored_answers": 10
+      },
+      "Housing, benefits, homelessness, and CTR": {
+        "max_points": 125,
+        "percent": 96.8,
+        "raw_points": 121.0,
+        "scored_answers": 25
+      },
+      "Overpayment, Social Fund, and staff-directory dark data": {
+        "max_points": 40,
+        "percent": 77.5,
+        "raw_points": 31.0,
+        "scored_answers": 8
+      },
+      "People policies and operational procedures": {
+        "max_points": 50,
+        "percent": 90.0,
+        "raw_points": 45.0,
+        "scored_answers": 10
+      },
+      "Procurement and spending controls": {
+        "max_points": 35,
+        "percent": 97.1,
+        "raw_points": 34.0,
+        "scored_answers": 7
+      },
+      "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+        "max_points": 50,
+        "percent": 92.0,
+        "raw_points": 46.0,
+        "scored_answers": 10
+      },
+      "Wiki architecture and provenance": {
+        "max_points": 50,
+        "percent": 100.0,
+        "raw_points": 50.0,
+        "scored_answers": 10
+      }
+    },
+    "gemini": {
+      "Business, employment, and workplace rights": {
+        "max_points": 100,
+        "percent": 4.0,
+        "raw_points": 4.0,
+        "scored_answers": 20
+      },
+      "Data protection, information security, FOI, social media, and whistleblowing": {
+        "max_points": 50,
+        "percent": 0.0,
+        "raw_points": 0.0,
+        "scored_answers": 10
+      },
+      "Housing, benefits, homelessness, and CTR": {
+        "max_points": 125,
+        "percent": 93.6,
+        "raw_points": 117.0,
+        "scored_answers": 25
+      },
+      "Overpayment, Social Fund, and staff-directory dark data": {
+        "max_points": 40,
+        "percent": 0.0,
+        "raw_points": 0.0,
+        "scored_answers": 8
+      },
+      "People policies and operational procedures": {
+        "max_points": 50,
+        "percent": 0.0,
+        "raw_points": 0.0,
+        "scored_answers": 10
+      },
+      "Procurement and spending controls": {
+        "max_points": 35,
+        "percent": 0.0,
+        "raw_points": 0.0,
+        "scored_answers": 7
+      },
+      "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+        "max_points": 50,
+        "percent": 0.0,
+        "raw_points": 0.0,
+        "scored_answers": 10
+      },
+      "Wiki architecture and provenance": {
+        "max_points": 50,
+        "percent": 100.0,
+        "raw_points": 50.0,
+        "scored_answers": 10
+      }
+    },
+    "microsoft-copilot": {
+      "Business, employment, and workplace rights": {
+        "max_points": 100,
+        "percent": 0.0,
+        "raw_points": 0.0,
+        "scored_answers": 20
+      },
+      "Data protection, information security, FOI, social media, and whistleblowing": {
+        "max_points": 50,
+        "percent": 4.0,
+        "raw_points": 2.0,
+        "scored_answers": 10
+      },
+      "Housing, benefits, homelessness, and CTR": {
+        "max_points": 125,
+        "percent": 4.8,
+        "raw_points": 6.0,
+        "scored_answers": 25
+      },
+      "Overpayment, Social Fund, and staff-directory dark data": {
+        "max_points": 40,
+        "percent": 5.0,
+        "raw_points": 2.0,
+        "scored_answers": 8
+      },
+      "People policies and operational procedures": {
+        "max_points": 50,
+        "percent": 4.0,
+        "raw_points": 2.0,
+        "scored_answers": 10
+      },
+      "Procurement and spending controls": {
+        "max_points": 35,
+        "percent": 0.0,
+        "raw_points": 0.0,
+        "scored_answers": 7
+      },
+      "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+        "max_points": 50,
+        "percent": 10.0,
+        "raw_points": 5.0,
+        "scored_answers": 10
+      },
+      "Wiki architecture and provenance": {
+        "max_points": 50,
+        "percent": 82.0,
+        "raw_points": 41.0,
+        "scored_answers": 10
+      }
+    }
+  },
+  "leaderboard": [
+    {
+      "benchmark_max_points": 500,
+      "captured_answers": 100,
+      "client": "codex",
+      "final_score_percent": 96.8,
+      "hallucination_count": 2,
+      "missed_source_risk_count": 2,
+      "raw_points": 484.0,
+      "scored_answers": 100,
+      "scored_subset_percent": 96.8
+    },
+    {
+      "benchmark_max_points": 500,
+      "captured_answers": 100,
+      "client": "claude",
+      "final_score_percent": 96.0,
+      "hallucination_count": 9,
+      "missed_source_risk_count": 7,
+      "raw_points": 480.0,
+      "scored_answers": 100,
+      "scored_subset_percent": 96.0
+    },
+    {
+      "benchmark_max_points": 500,
+      "captured_answers": 100,
+      "client": "codex-mcp",
+      "final_score_percent": 94.2,
+      "hallucination_count": 5,
+      "missed_source_risk_count": 6,
+      "raw_points": 471.0,
+      "scored_answers": 100,
+      "scored_subset_percent": 94.2
+    },
+    {
+      "benchmark_max_points": 500,
+      "captured_answers": 100,
+      "client": "gemini",
+      "final_score_percent": 34.2,
+      "hallucination_count": 1,
+      "missed_source_risk_count": 59,
+      "raw_points": 171.0,
+      "scored_answers": 100,
+      "scored_subset_percent": 34.2
+    },
+    {
+      "benchmark_max_points": 500,
+      "captured_answers": 100,
+      "client": "microsoft-copilot",
+      "final_score_percent": 11.6,
+      "hallucination_count": 19,
+      "missed_source_risk_count": 92,
+      "raw_points": 58.0,
+      "scored_answers": 100,
+      "scored_subset_percent": 11.6
+    }
+  ],
+  "score_path": "challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-scores.csv"
+}

@@ -12,7 +12,15 @@ Dark Data Workbench now includes a question box so saved checks and Browser AI e
 
 The current local working branch also includes a linked and illustrated colleague report in Markdown and Word format that reconstructs the Challenge 2 realtime delivery sequence from the supplied hackathon write-up, repo history, logs, and Codex thread evidence.
 
-The current local branch is `codex/postmortem-wiki`, with the committed Challenge 2 baseline tagged locally as `v1-challenge-2`. It now includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The latest generation covers five local Codex conversation sources, 66 redacted prompt-response exchanges, three citation-only Karpathy methodology source notes, and repository artifacts linked to GitHub fork permalinks at the tagged baseline or publication branch.
+Version 1.1 has been published from `main` and tagged as `v1.1`. The current local branch is `codex/wiki-mcp-research`, which extends the Challenge 2 evaluation harness with a purpose-built Wiki MCP server and a full comparison report for standard Codex versus Codex using MCP.
+
+The current MCP research branch adds a separate `challenge-2/MCP-Wiki/` research wiki and now includes the implemented read-only Wiki MCP server. It preserves the Deep Research report variants, candidate and source registers, licensing posture, security model, implementation trace, and evaluation evidence without polluting the Challenge 2 corpus wiki or the public postmortem wiki.
+
+The current MCP implementation and evaluation thread is now captured as a publication-safe summary note in the MCP research wiki. The branch recommendation is to include that summary in the current MCP pull request, while leaving any raw transcript or full public postmortem regeneration to the separate postmortem workflow.
+
+The full Challenge 2 wiki evaluation report now lives at `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md`, with sanitized metrics in the adjacent JSON file and a rubric-scored leaderboard in `challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md`. Raw prompts, answers, audit bundles, screenshots, and UI captures remain outside Git in external run directories.
+
+The postmortem release includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The publication line now treats the public derivative and reports as part of the Version 1.1 baseline, with the full 100-question AI comparison still outstanding.
 
 The postmortem artifacts have been reviewed for publication readiness. The review found no obvious credential-shaped secrets or email-address pattern hits in the postmortem scan, but it blocks public release until local paths, local assistant configuration references, copied third-party source bodies, private workflow references, and local-only evidence are redacted or repackaged. A follow-up license check found no explicit redistribution license in the localized Karpathy X/gist copies, so public releases should use citation metadata and short excerpts unless permission or an explicit license is obtained.
 
@@ -59,6 +67,39 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added `output/doc/linkedin-version-1-1-announcement.md` for public Version 1.1 announcement copy.
 - Addressed PR review comments by fixing whole-word contribution classification, single-pass Jina Reader source URLs, and public sanitisation for bare local path markers.
 - Added `tests/test_build_codex_postmortem.py` to guard postmortem contribution inference and public sanitisation regressions.
+- Published Version 1.1 from `main` with a GitHub tag and release.
+- Created `codex/evaluation-versioning` from the clean `v1.1` baseline for the next evaluation run.
+- Added Challenge 2 evaluation model/version capture for Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, Microsoft Copilot UI runs, and detected Microsoft Copilot desktop apps.
+- Added staff-confirmed `gpt-5.4` selection for GitHub Copilot CLI after contradictory public model guidance was identified.
+- Added distinct `policy_blocked` classification for GitHub Copilot CLI live requests denied by organisation, subscription, or policy controls.
+- Added a Playwright-based Microsoft Copilot UI adapter for full coverage, with caveats for authenticated profile requirements and selector/UI fragility.
+- Adjusted Microsoft Copilot UI adapter metadata to record the Playwright profile source rather than a default local profile path.
+- Added an optional Microsoft Copilot UI `preferred_mode` path and smoke-tested `Think Deeper` mode selection.
+- Added a client-config path for Claude Code to defer model and effort selection to DSIT-managed local Claude settings.
+- Added per-client environment overrides so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` and avoid DSIT gateway rejection of beta request fields such as `context_management`.
+- Added a Microsoft Copilot prompt-source path that cites public `v1.1` GitHub wiki permalinks and injects copied excerpts from key wiki files so the Microsoft web UI is not asked to read local filesystem paths.
+- Added the MCP research wiki under `challenge-2/MCP-Wiki/`, including an index, operating rules, architecture, implementation plan, security model, decision record, candidate register, source notes, report index, machine-readable source register, machine-readable candidate register, and reserved folders for implementation, specifications, and external reference submodules.
+- Added a resolved MCP bibliography, linked Deep Research report derivative, search-oriented frontmatter, cross-link graph, wiki optimization log, and MCP wiki lint gate.
+- Resolved the MCP wiki open decisions: OAuth 2.0 / Microsoft Entra ID target authentication, first-use reference submodules, semantic retrieval in v1, and release-time external URL validation.
+- Resolved additional MCP validation/auth decisions: Copilot Studio direct MCP connection is first, and API-key authentication is excluded unless live host validation proves it is required.
+- Added semantic retrieval option evaluation, with a provisional local baseline of `BAAI/bge-small-en-v1.5` plus exact NumPy cosine search and comparison runs for `all-MiniLM-L6-v2` and `e5-small-v2`.
+- Added first-use reference implementation submodules for ProfessionalWiki, olgasafonova, qmd, and mkdocs-mcp-plugin, with local `SOURCE.md` metadata and license/reuse caveats.
+- Added repository ignore coverage for nested `.DS_Store` and AppleDouble metadata files.
+- Implemented the read-only Challenge 2 Wiki MCP server under `challenge-2/MCP-Wiki/implementation/wiki_mcp/`, with stdio and local HTTP transports, path allowlists, benchmark denylists, source-register tools, context-pack tools, provenance explanations, deterministic semantic retrieval, and append-only audit logging.
+- Added `challenge-2/tools/wiki_mcp_server.py` as the MCP server CLI entry point.
+- Added `codex-mcp` as an evaluation client so Codex can answer through the local Wiki MCP server and record live MCP tool-call evidence.
+- Added `challenge-2/tools/compare_wiki_eval.py` and `tests/test_challenge2_compare_wiki_eval.py` for correction-aware comparison reporting.
+- Completed the `validated-full-20260419T2225Z` 100-question evaluation run for the validated clients. Codex, Codex with MCP, Claude, and Microsoft Copilot have effective `100/100` completed rows; Gemini completed `36/100` before model quota exhaustion; GitHub Copilot CLI remains `policy_blocked` by smoke test.
+- Added the sanitized comparison report and metrics under `challenge-2/evaluation/reports/`.
+- Added `challenge-2/MCP-Wiki/sources/codex-thread-mcp-implementation-evaluation.md` to capture the current MCP implementation/evaluation thread as a public summary and to recommend including it in the current MCP pull request rather than publishing a raw transcript.
+- Added public-safe rubric scoring artifacts for the same effective run: `validated-full-20260419T2225Z-rubric-scores.csv`, `validated-full-20260419T2225Z-rubric-leaderboard.md`, and `validated-full-20260419T2225Z-rubric-leaderboard.json`.
+- Updated the comparison report to include the rubric-scored quality leaderboard: Codex `484/500`, Claude `480/500`, Codex with MCP `471/500`, Gemini `171/500`, and Microsoft Copilot `58/500`.
+- Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
+- Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
+- Addressed the latest PR review comment as a reproducibility bug class: the `codex-mcp` spawned Wiki MCP server now receives configured server args, including `semantic_model_id`, so live MCP retrieval uses the same semantic model recorded for the prompt context-pack seed.
+- Addressed the newest PR review comments as evidence-integrity classes: live evaluation runs now remove stale assistant-response files before invocation, Workbench MCP resources use the configured challenge root, and comparison metrics skip/count malformed MCP audit JSONL lines instead of failing the report.
+- Addressed the latest PR review comments as security/publication classes: Wiki MCP HTTP startup now rejects a missing or empty configured bearer-token environment variable, and public comparison metrics now sanitize arbitrary local executable/app paths and home-relative paths.
+- Addressed the latest PR review comment as a retrieval-performance class: Wiki MCP search now runs only the retrieval engine required by the selected mode, so lexical-only calls do not build/query the semantic index.
 
 ## Validation
 
@@ -111,17 +152,141 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `cd challenge-2/workbench && pnpm test`
   - `cd challenge-2/workbench && pnpm build`
   - `cd challenge-2/workbench && pnpm test:ui`
+- Current evaluation-versioning validation passed locally:
+  - `python3 -m py_compile challenge-2/evaluation/clients.py challenge-2/evaluation/audit.py challenge-2/tools/run_wiki_eval.py tests/test_challenge2_eval_clients.py`
+  - `python3 -m json.tool challenge-2/evaluation/client-config.example.json`
+  - `node --check challenge-2/tools/microsoft_copilot_playwright.mjs`
+  - `python3 -m unittest discover -s tests -p 'test_challenge2_eval*.py'`
+  - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients codex,gemini,claude --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id versioning-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients github-copilot --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id copilot-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-coverage-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-config-smoke`
+  - `copilot version` returned `GitHub Copilot CLI 1.0.32` and reported it was the latest installed version.
+- Current MCP PR review-hardening validation passed locally:
+  - `python3 -m py_compile challenge-2/MCP-Wiki/implementation/wiki_mcp/core.py challenge-2/MCP-Wiki/implementation/wiki_mcp/transport.py challenge-2/tools/workbench_mcp.py challenge-2/tools/wiki_eval_mcp.py challenge-2/tools/run_wiki_eval.py challenge-2/evaluation/clients.py tools/check_documentation_lockstep.py tools/build_codex_postmortem.py`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp tests.test_challenge2_eval_mcp tests.test_challenge2_run_wiki_eval tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+- Current `codex-mcp` reproducibility validation passed locally:
+  - `python3 -m py_compile challenge-2/evaluation/clients.py`
+  - `python3 -m unittest tests.test_challenge2_eval_clients`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+- Current evidence-integrity review validation passed locally:
+  - `python3 -m py_compile challenge-2/evaluation/clients.py challenge-2/tools/workbench_mcp.py challenge-2/tools/compare_wiki_eval.py`
+  - `python3 -m unittest tests.test_challenge2_eval_clients tests.test_challenge2_workbench_mcp tests.test_challenge2_compare_wiki_eval`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-coverage-smoke-xhigh`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-config-smoke-xhigh`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-config-smoke-sanitized`
+  - Inspected `full-config-smoke-sanitized/run.json`; Microsoft Copilot UI metadata records `profile_dir_source: default` rather than a local profile path, and GitHub Copilot records `gpt-5.4` with `xhigh` effort from the staff-confirmed override.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients microsoft-copilot --questions Q001 --timeout-sec 90 --output-root /tmp/challenge2-wiki-eval-versioning --run-id microsoft-live-smoke-3` returned `auth_required`, proving the adapter runs and captures sign-in evidence but still needs an authenticated Playwright profile.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients microsoft-copilot --questions Q001 --timeout-sec 90 --output-root /tmp/challenge2-wiki-eval-versioning --run-id microsoft-live-smoke-sanitized` returned `auth_required`; the captured JSON records `profileDirSource: default` and no local profile path.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients github-copilot --questions Q001 --timeout-sec 120 --output-root /tmp/challenge2-wiki-eval-versioning --run-id github-copilot-live-smoke-policy` returned `policy_blocked`, proving the installed CLI is callable but the account or organisation policy blocks live requests.
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --timeout-sec 180 --client-config /tmp/challenge2-explicit-smoke.XXXXXX.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id managed-claude-thinking-dry-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients full --questions Q001 --timeout-sec 180 --client-config /tmp/challenge2-explicit-smoke.XXXXXX.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id managed-claude-thinking-live-smoke` completed for Codex, Gemini, and Microsoft Copilot with `Think Deeper` selected; Claude still failed against the DSIT-managed license portal with `context_management: Extra inputs are not permitted`, and GitHub Copilot CLI remained `policy_blocked`.
+  - `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 claude -p --output-format json "Reply with OK only."` completed.
+  - `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 claude -p --model opus --output-format json "Reply with OK only."` completed and resolved to the DSIT-managed `eu.anthropic.claude-opus-4-6-v1` model group.
+  - `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 python3 challenge-2/tools/run_wiki_eval.py --clients full --questions Q001 --timeout-sec 180 --client-config /tmp/challenge2-explicit-smoke.XXXXXX.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id managed-claude-beta-disabled-live-smoke` completed for Codex, Gemini, Claude, and Microsoft Copilot; GitHub Copilot CLI remained `policy_blocked`.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients claude --questions Q001 --timeout-sec 120 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id claude-config-env-smoke` completed, proving the client config can inject the Claude beta-disable compatibility flag without a shell-level export.
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-config-env-dry-smoke`
+  - `python3 challenge-2/tools/run_wiki_eval.py --dry-run --clients full --questions Q001 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-explicit-config-dry-smoke` recorded explicit selectable models for Codex, Gemini, GitHub Copilot, and Microsoft Copilot, with Claude delegated to DSIT-managed local settings.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients full --questions Q001 --timeout-sec 180 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id full-explicit-config-live-smoke` completed for Codex, Gemini, Claude, and Microsoft Copilot; GitHub Copilot CLI remained `policy_blocked`.
+  - A direct Microsoft Copilot `Think Deeper` smoke with public GitHub wiki URLs selected the mode successfully but did not yield usable scored JSON, so GitHub URLs alone are not sufficient; Microsoft scoring still needs explicit source-context injection or attachment strategy.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients microsoft-copilot --questions Q001 --timeout-sec 180 --client-config challenge-2/evaluation/client-config.example.json --output-root /tmp/challenge2-wiki-eval-versioning --run-id microsoft-github-context-live-smoke` completed and returned usable JSON from the Microsoft UI client with `Think Deeper` selected, using public GitHub permalinks plus copied source excerpts instead of local paths.
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+- Current MCP research wiki validation passed locally:
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/source-register.json`
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/candidate-register.json`
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/bibliography.json`
+  - `python3 -m py_compile challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `22` Markdown files, `222` internal links, `67` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - Live bibliography URL check returned HTTP success responses for all `31` entries after replacing stale Microsoft/NCSC URLs and ACM DOI targets that blocked automated checks.
+  - After adding first-use submodule metadata, `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `27` Markdown files, `270` internal links, `75` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - After adding semantic retrieval options, `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `28` Markdown files, `286` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+  - Removed the previously tracked `challenge-2/.DS_Store`; MCP wiki lint treats ignored `.DS_Store` files as local state and fails only if they are tracked.
+- Current Wiki MCP implementation and evaluation validation passed locally:
+  - `python3 -m py_compile challenge-2/MCP-Wiki/implementation/wiki_mcp/__init__.py challenge-2/MCP-Wiki/implementation/wiki_mcp/core.py challenge-2/MCP-Wiki/implementation/wiki_mcp/transport.py challenge-2/tools/wiki_mcp_server.py challenge-2/tools/compare_wiki_eval.py challenge-2/evaluation/clients.py challenge-2/tools/run_wiki_eval.py`
+  - `python3 -m unittest tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval tests.test_challenge2_wiki_mcp_server`
+  - `uv run --with coverage python -m coverage run --source=challenge-2/MCP-Wiki/implementation/wiki_mcp -m unittest tests.test_challenge2_wiki_mcp_server`
+  - `uv run --with coverage python -m coverage report` reported `91%` package coverage for the MCP server implementation.
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `28` Markdown files, `287` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - `python3 challenge-2/tools/run_wiki_eval.py --clients codex-mcp --questions Q057 --timeout-sec 900 --output-root /tmp/challenge2-wiki-eval-corrections --run-id codex-mcp-q057-correction-20260420T0320Z --client-config challenge-2/evaluation/client-config.example.json` completed the single Codex-MCP correction row.
+  - `python3 challenge-2/tools/compare_wiki_eval.py /tmp/challenge2-wiki-eval-full/validated-full-20260419T2225Z --correction-run codex-mcp=/tmp/challenge2-wiki-eval-corrections/codex-mcp-q057-correction-20260420T0320Z --smoke-run github-copilot=/tmp/challenge2-wiki-eval-mcp/github-copilot-q001-smoke --output challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md --json-output challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+  - The comparison report records `100/100` completed answers for Codex, Codex with MCP, Claude, and Microsoft Copilot; Gemini is recorded as `completed:36, quota_exhausted:64`; GitHub Copilot CLI is recorded through a `policy_blocked` smoke run.
+- Current MCP thread-capture validation passed locally:
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/source-register.json`
+  - `python3 -m py_compile challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Current rubric-scoring validation passed locally:
+  - Rubric scoring batches produced `500` unique score rows, one per effective client/question pair.
+  - `python3 challenge-2/tools/compare_wiki_eval.py /tmp/challenge2-wiki-eval-full/validated-full-20260419T2225Z --correction-run codex-mcp=/tmp/challenge2-wiki-eval-corrections/codex-mcp-q057-correction-20260420T0320Z --smoke-run github-copilot=/tmp/challenge2-wiki-eval-mcp/github-copilot-q001-smoke --score-path challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-scores.csv --output challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md --json-output challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+  - `python3 -m json.tool challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+  - `python3 -m json.tool challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.json`
+  - `python3 -m py_compile challenge-2/tools/compare_wiki_eval.py challenge-2/evaluation/scoring.py`
+  - `python3 -m unittest tests.test_challenge2_compare_wiki_eval`
+  - `python3 -m unittest tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval tests.test_challenge2_wiki_mcp_server`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+  - Targeted publication scan found no raw answer/gold-answer columns, local run paths, UI session IDs, or Playwright profile metadata in the committed rubric report artifacts.
+- Current PR review-fix validation passed locally:
+  - `python3 -m py_compile challenge-2/MCP-Wiki/implementation/wiki_mcp/core.py challenge-2/MCP-Wiki/implementation/wiki_mcp/transport.py challenge-2/tools/workbench_mcp.py`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - Searched for remaining `text[:remaining]`, `[:max_bytes]`, and `response or {}` style instances in MCP implementation paths; remaining byte slices are inside the UTF-8 truncation helpers.
+- Current security/publication PR review validation passed locally:
+  - `python3 -m py_compile challenge-2/tools/wiki_mcp_server.py challenge-2/tools/compare_wiki_eval.py`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_compare_wiki_eval`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp tests.test_challenge2_eval_mcp tests.test_challenge2_run_wiki_eval tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval`
+  - `uv run --with coverage python -m coverage run --source=challenge-2/MCP-Wiki/implementation/wiki_mcp -m unittest tests.test_challenge2_wiki_mcp_server`
+  - `uv run --with coverage python -m coverage report` reported `91%` package coverage for the MCP server implementation.
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - `python3 -m json.tool challenge-2/evaluation/reports/validated-full-20260419T2225Z-metrics.json`
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/source-register.json`
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/lint-report.json`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+  - Targeted path scans found no `/opt/homebrew`, `/Applications`, local user home, home-relative, `/usr/local`, or `/tmp/challenge2` paths remaining in committed evaluation report JSON/Markdown artifacts.
+- Current retrieval-mode PR review validation passed locally:
+  - `python3 -m py_compile challenge-2/MCP-Wiki/implementation/wiki_mcp/core.py`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server`
+  - `python3 -m py_compile challenge-2/MCP-Wiki/implementation/wiki_mcp/core.py challenge-2/MCP-Wiki/implementation/wiki_mcp/transport.py challenge-2/tools/wiki_mcp_server.py challenge-2/tools/compare_wiki_eval.py`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp tests.test_challenge2_eval_mcp tests.test_challenge2_run_wiki_eval tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval`
+  - `uv run --with coverage python -m coverage run --source=challenge-2/MCP-Wiki/implementation/wiki_mcp -m unittest tests.test_challenge2_wiki_mcp_server`
+  - `uv run --with coverage python -m coverage report` reported `91%` package coverage for the MCP server implementation.
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/source-register.json`
+  - `python3 -m json.tool challenge-2/MCP-Wiki/data/lint-report.json`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
 
 ## Open Items
 
 - Review the `postmortem-public/wiki/decisions.md` defaults before publishing externally.
 - Address the security assessment findings before making any production-readiness claim: harden GitHub Actions permissions/action pinning, upgrade the low `cookie` advisory path, replace unsafe XML parsing for untrusted documents, add response-size and redirect controls to postmortem URL fetching, and define Secure by Design/DPIA/operational controls for real data.
 - Add `challenge-2/wiki/demo-answers.md` with source-backed answers to the official demo questions.
-- Run the full 100-question benchmark through the available Codex, Gemini CLI, and Claude Code installations, then fill the scoring sheet and publish the generated leaderboard.
+- Enable/authenticate GitHub Copilot CLI policy access for live runs; the standalone `copilot` binary is installed locally, but live evaluation currently returns `policy_blocked`.
+- Use `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for Claude Code runs through the DSIT-managed gateway; the full validated run completed with that compatibility flag injected through client config.
+- Keep Microsoft Copilot source grounding explicit for scored runs: the GitHub permalink plus copied-excerpt prompt path has passed a `Q001` smoke, while a versioned OneDrive or SharePoint wiki copy is a plausible manual fallback if GitHub access fails and should be smoke-tested before use.
+- Rerun Gemini CLI on `Q037` through `Q100` after `gemini-3.1-pro-preview` quota resets, or record a decision to exclude Gemini from the full validated set for this publication cycle.
+- Run the v1 semantic retrieval benchmark to lock the final embedding model from the evaluated shortlist.
+- Validate the Copilot Studio direct MCP connection and only escalate to Agents Toolkit packaging or a custom connector if direct connection cannot deliver the required server functionality.
 
 ## Next Recommended Steps
 
-1. Run the full benchmark against Codex, Gemini CLI, and Claude Code using `challenge-2/tools/run_wiki_eval.py`.
-2. Score `generated/scoring-sheet.csv` and generate `generated/leaderboard.md`.
-3. Add source-backed demo answers for the five Challenge 2 demo questions.
-4. Use Dark Data Workbench during the demo to show search, context export, and source-backed checks over the generated knowledge base.
+1. Review the rubric-scored leaderboard and decide whether independent moderation is needed before making an external comparative quality claim.
+2. Rerun Gemini CLI after quota reset if a complete Gemini row set is required for the public comparison.
+3. Enable GitHub Copilot CLI policy access if GitHub Copilot must be included beyond the current `policy_blocked` smoke evidence.
+4. Run the embedding shortlist benchmark and lock the v1 semantic retrieval model.
+5. Validate the server through Copilot Studio direct MCP connection.
+6. Add source-backed demo answers for the five Challenge 2 demo questions.

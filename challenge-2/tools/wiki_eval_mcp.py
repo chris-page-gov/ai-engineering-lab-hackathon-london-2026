@@ -20,6 +20,10 @@ from evaluation.clients import build_wiki_prompt  # noqa: E402
 from evaluation.questions import BENCHMARK_PATH, EvaluationQuestion, load_questions, select_questions  # noqa: E402
 
 
+class JsonRpcInvalidParams(ValueError):
+    """Raised when the JSON-RPC params envelope is not an object."""
+
+
 class WikiEvalMcpServer:
     def __init__(self, *, run_root: Path, run_id: str | None = None) -> None:
         self.run_id = run_id or f"wiki-eval-mcp-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}"
@@ -38,9 +42,13 @@ class WikiEvalMcpServer:
             metadata={"server": "challenge2-wiki-eval-mcp"},
         )
 
-    def handle(self, request: dict[str, Any]) -> dict[str, Any] | None:
-        method = request.get("method")
+    def handle(self, request: object) -> dict[str, Any] | None:
+        if not isinstance(request, dict):
+            return self._error(None, -32600, "Invalid Request: expected a JSON object.")
         request_id = request.get("id")
+        method = request.get("method")
+        if not isinstance(method, str) or not method:
+            return self._error(request_id, -32600, "Invalid Request: method must be a non-empty string.")
         try:
             if method in {"notifications/initialized", "notifications/cancelled"}:
                 return None
@@ -49,16 +57,18 @@ class WikiEvalMcpServer:
             if method == "tools/list":
                 return self._response(request_id, {"tools": self._tools()})
             if method == "tools/call":
-                params = request.get("params") or {}
-                return self._response(request_id, self._tool_call(params.get("name"), params.get("arguments") or {}))
+                params = self._params(request)
+                return self._response(request_id, self._tool_call(str(params.get("name") or ""), self._arguments(params)))
             if method == "resources/list":
                 return self._response(request_id, {"resources": self._resources()})
             if method == "resources/read":
-                params = request.get("params") or {}
+                params = self._params(request)
                 return self._response(request_id, self._resource_read(str(params.get("uri") or "")))
             if method == "ping":
                 return self._response(request_id, {})
             return self._error(request_id, -32601, f"Unsupported method: {method}")
+        except JsonRpcInvalidParams as exc:
+            return self._error(request_id, -32602, str(exc))
         except Exception as exc:  # noqa: BLE001 - returned to the MCP client as JSON-RPC error.
             return self._error(request_id, -32000, str(exc))
 
@@ -298,6 +308,24 @@ class WikiEvalMcpServer:
 
     def _response(self, request_id: Any, result: Any) -> dict[str, Any]:
         return {"jsonrpc": "2.0", "id": request_id, "result": result}
+
+    @staticmethod
+    def _params(request: dict[str, Any]) -> dict[str, Any]:
+        params = request.get("params")
+        if params is None:
+            return {}
+        if not isinstance(params, dict):
+            raise JsonRpcInvalidParams("Invalid params: expected an object.")
+        return params
+
+    @staticmethod
+    def _arguments(params: dict[str, Any]) -> dict[str, Any]:
+        arguments = params.get("arguments")
+        if arguments is None:
+            return {}
+        if not isinstance(arguments, dict):
+            raise JsonRpcInvalidParams("Invalid params: arguments must be an object.")
+        return arguments
 
     def _error(self, request_id: Any, code: int, message: str) -> dict[str, Any]:
         return {"jsonrpc": "2.0", "id": request_id, "error": {"code": code, "message": message}}

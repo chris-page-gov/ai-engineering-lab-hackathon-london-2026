@@ -1,11 +1,18 @@
 {
+  "_schema": "challenge-2-wiki-eval-client-config-v2",
   "codex": {
     "model": "gpt-5.4",
+    "model_source": "explicit_latest_openai_docs",
+    "model_reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+    "model_reference_checked_at": "2026-04-18",
+    "reasoning_effort": "xhigh",
     "argv": [
       "codex",
       "exec",
       "-m",
       "{model}",
+      "-c",
+      "model_reasoning_effort=\"xhigh\"",
       "--json",
       "-o",
       "{assistant_response_path}",
@@ -14,8 +21,26 @@
       "{prompt}"
     ]
   },
+  "codex-mcp": {
+    "model": "gpt-5.4",
+    "model_source": "explicit_latest_openai_docs_with_challenge2_wiki_mcp",
+    "model_reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+    "model_reference_checked_at": "2026-04-18",
+    "reasoning_effort": "xhigh",
+    "mcp_server_transport": "stdio",
+    "mcp_retrieval_mode": "hybrid",
+    "mcp_context_limit": 8,
+    "mcp_context_budget_bytes": 48000,
+    "mcp_prompt_include_context_pack": false,
+    "semantic_model_id": "challenge2-local-hash-v1",
+    "notes": "Codex with MCP uses the local read-only Challenge 2 Wiki MCP server over stdio. The harness also stores the MCP context pack used to seed each prompt so the Codex-with-MCP path can be compared with the standard local-path Codex path. The built-in command forwards the same semantic_model_id into the spawned answer-time MCP server so prompt seeding and live tool calls use the same retrieval configuration. The built-in command disables interactive approval prompts for this client because noninteractive Codex otherwise cancels MCP tool calls; the MCP server itself remains read-only and path-scoped."
+  },
   "gemini": {
-    "model": "",
+    "model": "gemini-3.1-pro-preview",
+    "model_source": "explicit_gemini_cli_docs",
+    "model_reference_url": "https://geminicli.com/docs/get-started/gemini-3/",
+    "model_reference_checked_at": "2026-04-18",
+    "pass_model_arg": true,
     "argv": [
       "gemini",
       "--approval-mode",
@@ -24,18 +49,64 @@
       "json",
       "--include-directories",
       "{challenge_root}",
+      "--model",
+      "{model}",
       "--prompt",
       "{prompt}"
     ]
   },
   "claude": {
-    "model": "",
+    "model": "local-settings-managed",
+    "model_source": "dsit_managed_local_settings",
+    "model_reference_url": "https://code.claude.com/docs/en/model-config",
+    "model_reference_checked_at": "2026-04-18",
+    "pass_model_arg": false,
+    "reasoning_effort": null,
+    "environment": {
+      "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
+    },
+    "latest_policy": "Claude Code is invoked without model or effort parameters so the DSIT managed local settings file selects the best available model, expected in this environment to resolve to Opus 4.6. Experimental beta fields are disabled for compatibility with the DSIT managed gateway.",
+    "notes": "The local DSIT Claude settings choose the model. The environment flag prevents Claude Code 2.1.x from sending beta request fields such as context_management through the managed gateway."
+  },
+  "github-copilot": {
+    "model": "gpt-5.4",
+    "model_source": "staff_confirmed_best_override",
+    "model_reference_url": "https://docs.github.com/en/copilot/reference/ai-models/model-comparison",
+    "model_reference_checked_at": "2026-04-18",
+    "reasoning_effort": "xhigh",
+    "notes": "Full-coverage client. Staff-confirmed override uses GPT-5.4 with xhigh effort despite contradictory public Copilot documentation. Install and authenticate the standalone copilot binary before non-dry runs; organisation or subscription policy can still block live requests.",
     "argv": [
-      "claude",
+      "copilot",
+      "--add-dir={challenge_root}",
+      "--available-tools=read",
+      "--allow-tool=read",
+      "--model",
+      "{model}",
+      "--reasoning-effort=xhigh",
       "-p",
-      "--output-format",
-      "json",
       "{prompt}"
     ]
+  },
+  "microsoft-copilot": {
+    "model": "gpt-5-thinking-ui-selected",
+    "model_source": "microsoft_365_copilot_ui_preferred_mode",
+    "model_reference_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes",
+    "model_reference_checked_at": "2026-04-18",
+    "automation_method": "playwright_web_ui",
+    "url": "https://m365.cloud.microsoft/chat",
+    "app_name": "Microsoft 365 Copilot",
+    "preferred_mode": "Think Deeper",
+    "prompt_source_mode": "github_permalinks",
+    "github_tree_base_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/tree/v1.1",
+    "github_blob_base_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/v1.1",
+    "prompt_context_paths": [
+      "challenge-2/AGENTS.md",
+      "challenge-2/wiki/index.md",
+      "challenge-2/wiki/architecture.md",
+      "challenge-2/wiki/data/source-register.json"
+    ],
+    "prompt_context_max_chars": 24000,
+    "headless": false,
+    "notes": "Full-coverage UI client. This uses a brittle Playwright browser adapter against Microsoft 365 Copilot Chat because no stable headless local API is available. It requires an authenticated browser profile and may need manual sign-in before the benchmark run. When preferred_mode is set, the adapter attempts to select the named GPT mode before submitting the prompt. Because the Microsoft web UI cannot read local repository paths, this config supplies public GitHub v1.1 permalinks plus copied excerpts from the operating schema and key wiki files."
   }
 }

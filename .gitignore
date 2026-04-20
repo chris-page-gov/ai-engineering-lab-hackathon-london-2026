@@ -1,5 +1,7 @@
 # macOS local metadata
 .DS_Store
+**/.DS_Store
+._*
 
 # Python local caches
 __pycache__/

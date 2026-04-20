@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -13,18 +14,21 @@ from pathlib import Path
 CHALLENGE_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = CHALLENGE_ROOT.parent
 sys.path.insert(0, str(CHALLENGE_ROOT))
+GIT_UNAVAILABLE = "<git-unavailable>"
 
-from evaluation.audit import ChallengeAuditRecorder  # noqa: E402
+from evaluation.audit import ChallengeAuditRecorder, sha256_file  # noqa: E402
 from evaluation.clients import (  # noqa: E402
     ClientCommandContext,
-    build_wiki_prompt,
+    DEFAULT_CLIENTS,
+    FULL_COVERAGE_CLIENTS,
+    SUPPORTED_CLIENTS,
+    build_client_prompt,
+    describe_client,
+    describe_desktop_ai_apps,
     load_client_config,
     run_client,
 )
 from evaluation.questions import BENCHMARK_PATH, load_questions, select_questions  # noqa: E402
-
-
-SUPPORTED_CLIENTS = ("codex", "gemini", "claude")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -32,8 +36,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--benchmark", type=Path, default=BENCHMARK_PATH, help="Benchmark Markdown path.")
     parser.add_argument(
         "--clients",
-        default="codex,gemini,claude",
-        help="Comma-separated clients to run: codex, gemini, claude.",
+        default=",".join(DEFAULT_CLIENTS),
+        help=f"Comma-separated clients to run, or 'default'/'full'. Supported: {', '.join(SUPPORTED_CLIENTS)}.",
     )
     parser.add_argument("--questions", help="Comma-separated question IDs, for example Q001,Q002.")
     parser.add_argument("--category", help="Category substring filter.")
@@ -67,6 +71,10 @@ def main(argv: list[str] | None = None) -> int:
     run_id = args.run_id or f"wiki-eval-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}"
     run_dir = args.output_root / run_id
     client_config = load_client_config(args.client_config)
+    client_manifests = {
+        client: describe_client(client, model_override=model_overrides.get(client), config=client_config)
+        for client in clients
+    }
     recorder = ChallengeAuditRecorder(
         run_dir,
         run_id=run_id,
@@ -79,14 +87,25 @@ def main(argv: list[str] | None = None) -> int:
         dry_run=args.dry_run,
         metadata={
             "benchmark": str(args.benchmark),
+            "benchmark_sha256": sha256_file(args.benchmark),
             "timeout_sec": args.timeout_sec,
             "client_config": str(args.client_config) if args.client_config else None,
+            "repo_state": _repo_state(REPO_ROOT),
+            "client_manifests": client_manifests,
+            "desktop_ai_apps": describe_desktop_ai_apps(),
         },
     )
 
     for question in selected:
         for client in clients:
-            prompt = build_wiki_prompt(question, repo_root=REPO_ROOT, challenge_root=CHALLENGE_ROOT)
+            prompt = build_client_prompt(
+                client,
+                question,
+                repo_root=REPO_ROOT,
+                challenge_root=CHALLENGE_ROOT,
+                run_dir=run_dir,
+                client_config=_client_config(client_config, client),
+            )
             prompt_path = recorder.write_prompt(client, question, prompt)
             assistant_response_path = run_dir / "raw" / client / f"{question.question_id}.assistant-response.txt"
             context = ClientCommandContext(
@@ -98,6 +117,7 @@ def main(argv: list[str] | None = None) -> int:
                 repo_root=REPO_ROOT,
                 challenge_root=CHALLENGE_ROOT,
                 assistant_response_path=assistant_response_path,
+                client_manifest=client_manifests.get(client),
             )
             result = run_client(
                 context=context,
@@ -113,6 +133,7 @@ def main(argv: list[str] | None = None) -> int:
                         "run_id": run_id,
                         "client": client,
                         "question_id": question.question_id,
+                        "model": result.model,
                         "status": result.status,
                         "exit_code": result.exit_code,
                     },
@@ -126,6 +147,10 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def _parse_clients(raw: str) -> list[str]:
+    if raw.strip().lower() == "default":
+        return list(DEFAULT_CLIENTS)
+    if raw.strip().lower() == "full":
+        return list(FULL_COVERAGE_CLIENTS)
     clients = _split_csv(raw)
     if not clients:
         raise SystemExit("At least one client is required.")
@@ -144,14 +169,59 @@ def _parse_model_overrides(values: list[str]) -> dict[str, str]:
         client = client.strip()
         if client not in SUPPORTED_CLIENTS:
             raise SystemExit(f"Unsupported --model client: {client}")
+        if not model.strip():
+            raise SystemExit(f"Invalid --model value {value!r}; model cannot be empty")
         overrides[client] = model.strip()
     return overrides
+
+
+def _client_config(config: dict, client: str) -> dict:
+    if not isinstance(config, dict):
+        return {}
+    value = config.get(client, {})
+    return value if isinstance(value, dict) else {}
 
 
 def _split_csv(raw: str | None) -> list[str]:
     if not raw:
         return []
     return [item.strip() for item in raw.split(",") if item.strip()]
+
+
+def _repo_state(repo_root: Path) -> dict[str, object]:
+    status = _git(repo_root, "status", "--short")
+    git_available = status != GIT_UNAVAILABLE
+    return {
+        "git_available": git_available,
+        "commit": _git(repo_root, "rev-parse", "HEAD"),
+        "branch": _git(repo_root, "rev-parse", "--abbrev-ref", "HEAD"),
+        "tags_at_head": _split_lines(_git(repo_root, "tag", "--points-at", "HEAD")),
+        "dirty": bool(status.strip()) if git_available else None,
+        "status_short": status,
+    }
+
+
+def _git(repo_root: Path, *args: str) -> str:
+    try:
+        proc = subprocess.run(
+            ["git", *args],
+            cwd=repo_root,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=10,
+        )
+    except FileNotFoundError:
+        return GIT_UNAVAILABLE
+    except subprocess.TimeoutExpired:
+        return "<timeout>"
+    if proc.returncode != 0:
+        return (proc.stderr or proc.stdout or "").strip()
+    return proc.stdout.strip()
+
+
+def _split_lines(value: str) -> list[str]:
+    return [line.strip() for line in value.splitlines() if line.strip()]
 
 
 if __name__ == "__main__":

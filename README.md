@@ -32,6 +32,7 @@ For the Challenge 2 implementation:
 - [Realtime delivery report](output/doc/challenge-2-realtime-delivery-report.md): narrative reconstruction of the build.
 - [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem.
 - [Contribution modes and security assessment](output/doc/codex-contribution-modes-security-assessment.md): assessment of Codex, contribution modes, and security findings.
+- [MCP research wiki](challenge-2/MCP-Wiki/index.md): research, candidates, licensing posture, and implementation planning for a purpose-built Wiki MCP server.
 - [LinkedIn announcement draft](output/doc/linkedin-version-1-1-announcement.md): publication post for Version 1.1.
 
 ## What Was Built
@@ -69,9 +70,10 @@ The workbench is deliberately useful without AI. AI export is optional and evide
 The evaluation harness tests whether AI coding agents can answer benchmark questions using only the generated wiki and approved local context. It includes:
 
 - [challenge-2/wiki/evaluation-benchmark.md](challenge-2/wiki/evaluation-benchmark.md): 100 questions, gold answers, rubrics, and scoring.
-- [challenge-2/tools/run_wiki_eval.py](challenge-2/tools/run_wiki_eval.py): CLI runner for Codex, Gemini CLI, and Claude Code.
+- [challenge-2/tools/run_wiki_eval.py](challenge-2/tools/run_wiki_eval.py): CLI runner for Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, and Microsoft Copilot UI coverage, with per-client model/version manifests for auditable runs.
 - [challenge-2/tools/wiki_eval_mcp.py](challenge-2/tools/wiki_eval_mcp.py): stdio MCP audit layer.
 - [challenge-2/tools/summarise_wiki_eval.py](challenge-2/tools/summarise_wiki_eval.py): scoring-sheet and leaderboard summariser.
+- [challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md](challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-leaderboard.md): rubric-scored leaderboard for the validated full run, with raw answers kept outside Git.
 
 ### Postmortem and Publication Pack
 
@@ -123,6 +125,7 @@ Challenge 2 implementation:
 - `challenge-2/tools/run_wiki_eval.py`: benchmark runner.
 - `challenge-2/tools/wiki_eval_mcp.py`: audited MCP layer for wiki evaluation.
 - `challenge-2/tools/summarise_wiki_eval.py`: leaderboard summariser.
+- `challenge-2/MCP-Wiki/`: MCP research wiki for the planned read-only Wiki MCP server, including the Deep Research report, candidate register, source register, licensing posture, and implementation workspace.
 
 Reports and publication artifacts:
 

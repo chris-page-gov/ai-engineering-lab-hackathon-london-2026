@@ -1,0 +1,897 @@
+{
+  "audit_card": {
+    "answer_count": 500,
+    "bundle_path": "bundle/DSAP-validated-full-20260419T2225Z.zip",
+    "completeness_grade": "A",
+    "completeness_reasons": [
+      "Benchmark questions, prompts, captured client outputs, event ledger, evidence register, and integrity hashes are retained.",
+      "Model private reasoning is not captured and is not part of the audit record."
+    ],
+    "created_at": "2026-04-20T03:18:55+00:00",
+    "disclosure_profile": "internal_full",
+    "evidence_item_count": 3204,
+    "integrity_manifest": "integrity-manifest.json",
+    "integrity_status": "sealed",
+    "legal_hold": false,
+    "pack_id": "DSAP-validated-full-20260419T2225Z",
+    "question_count": 100,
+    "redaction_profile": "none",
+    "retention_class": "evaluation_foi_audit",
+    "run_id": "validated-full-20260419T2225Z",
+    "scope": "challenge_2_wiki_evaluation",
+    "scoring_sheet": "generated/scoring-sheet.csv",
+    "source_policy": "wiki_only",
+    "started_at": "2026-04-19T22:26:46+00:00"
+  },
+  "clients": {
+    "claude": {
+      "answer_count": 100,
+      "avg_answer_chars": 775.1,
+      "avg_elapsed_seconds": 21.667,
+      "citation_overlap": {
+        "gold_ref_mentions": 119,
+        "gold_ref_recall_percent": 89.5,
+        "gold_ref_total": 133,
+        "questions_with_any_gold_ref": 95
+      },
+      "completed": 100,
+      "mcp_tool_evidence": {
+        "audit_event_counts": {},
+        "questions_with_mcp_audit": 0,
+        "stdout_mcp_tool_call_events": 0
+      },
+      "median_elapsed_seconds": 17.356,
+      "parseable_json": 100,
+      "parseable_json_percent": 100.0,
+      "status_counts": {
+        "completed": 100
+      }
+    },
+    "codex": {
+      "answer_count": 100,
+      "avg_answer_chars": 648.9,
+      "avg_elapsed_seconds": 45.213,
+      "citation_overlap": {
+        "gold_ref_mentions": 123,
+        "gold_ref_recall_percent": 92.5,
+        "gold_ref_total": 133,
+        "questions_with_any_gold_ref": 98
+      },
+      "completed": 100,
+      "mcp_tool_evidence": {
+        "audit_event_counts": {},
+        "questions_with_mcp_audit": 0,
+        "stdout_mcp_tool_call_events": 0
+      },
+      "median_elapsed_seconds": 43.883,
+      "parseable_json": 100,
+      "parseable_json_percent": 100.0,
+      "status_counts": {
+        "completed": 100
+      }
+    },
+    "codex-mcp": {
+      "answer_count": 100,
+      "avg_answer_chars": 783.0,
+      "avg_elapsed_seconds": 33.748,
+      "citation_overlap": {
+        "gold_ref_mentions": 125,
+        "gold_ref_recall_percent": 94.0,
+        "gold_ref_total": 133,
+        "questions_with_any_gold_ref": 100
+      },
+      "completed": 100,
+      "mcp_tool_evidence": {
+        "audit_event_counts": {
+          "wiki.build_context_pack": 56,
+          "wiki.explain_provenance": 1,
+          "wiki.list_sources": 3,
+          "wiki.read": 89,
+          "wiki.read_source": 9,
+          "wiki.search": 134
+        },
+        "questions_with_mcp_audit": 100,
+        "stdout_mcp_tool_call_events": 458
+      },
+      "median_elapsed_seconds": 31.016,
+      "parseable_json": 100,
+      "parseable_json_percent": 100.0,
+      "status_counts": {
+        "completed": 100
+      }
+    },
+    "gemini": {
+      "answer_count": 100,
+      "avg_answer_chars": 141.2,
+      "avg_elapsed_seconds": 24.693,
+      "citation_overlap": {
+        "gold_ref_mentions": 43,
+        "gold_ref_recall_percent": 32.3,
+        "gold_ref_total": 133,
+        "questions_with_any_gold_ref": 32
+      },
+      "completed": 36,
+      "mcp_tool_evidence": {
+        "audit_event_counts": {},
+        "questions_with_mcp_audit": 0,
+        "stdout_mcp_tool_call_events": 0
+      },
+      "median_elapsed_seconds": 21.074,
+      "parseable_json": 36,
+      "parseable_json_percent": 36.0,
+      "status_counts": {
+        "completed": 36,
+        "quota_exhausted": 64
+      }
+    },
+    "microsoft-copilot": {
+      "answer_count": 100,
+      "avg_answer_chars": 404.9,
+      "avg_elapsed_seconds": 57.078,
+      "citation_overlap": {
+        "gold_ref_mentions": 93,
+        "gold_ref_recall_percent": 69.9,
+        "gold_ref_total": 133,
+        "questions_with_any_gold_ref": 83
+      },
+      "completed": 100,
+      "mcp_tool_evidence": {
+        "audit_event_counts": {},
+        "questions_with_mcp_audit": 0,
+        "stdout_mcp_tool_call_events": 0
+      },
+      "median_elapsed_seconds": 54.759,
+      "parseable_json": 100,
+      "parseable_json_percent": 100.0,
+      "status_counts": {
+        "completed": 100
+      }
+    }
+  },
+  "corrections": [
+    {
+      "base_status": "timeout",
+      "client": "codex-mcp",
+      "correction_run_dir": "<external-tmp>/challenge2-wiki-eval-corrections/codex-mcp-q057-correction-20260420T0320Z",
+      "correction_status": "completed",
+      "question_id": "Q057"
+    }
+  ],
+  "rubric_scores": {
+    "categories": {
+      "claude": {
+        "Business, employment, and workplace rights": {
+          "max_points": 100,
+          "percent": 97.0,
+          "raw_points": 97.0,
+          "scored_answers": 20
+        },
+        "Data protection, information security, FOI, social media, and whistleblowing": {
+          "max_points": 50,
+          "percent": 96.0,
+          "raw_points": 48.0,
+          "scored_answers": 10
+        },
+        "Housing, benefits, homelessness, and CTR": {
+          "max_points": 125,
+          "percent": 94.4,
+          "raw_points": 118.0,
+          "scored_answers": 25
+        },
+        "Overpayment, Social Fund, and staff-directory dark data": {
+          "max_points": 40,
+          "percent": 97.5,
+          "raw_points": 39.0,
+          "scored_answers": 8
+        },
+        "People policies and operational procedures": {
+          "max_points": 50,
+          "percent": 98.0,
+          "raw_points": 49.0,
+          "scored_answers": 10
+        },
+        "Procurement and spending controls": {
+          "max_points": 35,
+          "percent": 100.0,
+          "raw_points": 35.0,
+          "scored_answers": 7
+        },
+        "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+          "max_points": 50,
+          "percent": 88.0,
+          "raw_points": 44.0,
+          "scored_answers": 10
+        },
+        "Wiki architecture and provenance": {
+          "max_points": 50,
+          "percent": 100.0,
+          "raw_points": 50.0,
+          "scored_answers": 10
+        }
+      },
+      "codex": {
+        "Business, employment, and workplace rights": {
+          "max_points": 100,
+          "percent": 96.0,
+          "raw_points": 96.0,
+          "scored_answers": 20
+        },
+        "Data protection, information security, FOI, social media, and whistleblowing": {
+          "max_points": 50,
+          "percent": 100.0,
+          "raw_points": 50.0,
+          "scored_answers": 10
+        },
+        "Housing, benefits, homelessness, and CTR": {
+          "max_points": 125,
+          "percent": 99.2,
+          "raw_points": 124.0,
+          "scored_answers": 25
+        },
+        "Overpayment, Social Fund, and staff-directory dark data": {
+          "max_points": 40,
+          "percent": 90.0,
+          "raw_points": 36.0,
+          "scored_answers": 8
+        },
+        "People policies and operational procedures": {
+          "max_points": 50,
+          "percent": 98.0,
+          "raw_points": 49.0,
+          "scored_answers": 10
+        },
+        "Procurement and spending controls": {
+          "max_points": 35,
+          "percent": 97.1,
+          "raw_points": 34.0,
+          "scored_answers": 7
+        },
+        "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+          "max_points": 50,
+          "percent": 96.0,
+          "raw_points": 48.0,
+          "scored_answers": 10
+        },
+        "Wiki architecture and provenance": {
+          "max_points": 50,
+          "percent": 94.0,
+          "raw_points": 47.0,
+          "scored_answers": 10
+        }
+      },
+      "codex-mcp": {
+        "Business, employment, and workplace rights": {
+          "max_points": 100,
+          "percent": 96.0,
+          "raw_points": 96.0,
+          "scored_answers": 20
+        },
+        "Data protection, information security, FOI, social media, and whistleblowing": {
+          "max_points": 50,
+          "percent": 96.0,
+          "raw_points": 48.0,
+          "scored_answers": 10
+        },
+        "Housing, benefits, homelessness, and CTR": {
+          "max_points": 125,
+          "percent": 96.8,
+          "raw_points": 121.0,
+          "scored_answers": 25
+        },
+        "Overpayment, Social Fund, and staff-directory dark data": {
+          "max_points": 40,
+          "percent": 77.5,
+          "raw_points": 31.0,
+          "scored_answers": 8
+        },
+        "People policies and operational procedures": {
+          "max_points": 50,
+          "percent": 90.0,
+          "raw_points": 45.0,
+          "scored_answers": 10
+        },
+        "Procurement and spending controls": {
+          "max_points": 35,
+          "percent": 97.1,
+          "raw_points": 34.0,
+          "scored_answers": 7
+        },
+        "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+          "max_points": 50,
+          "percent": 92.0,
+          "raw_points": 46.0,
+          "scored_answers": 10
+        },
+        "Wiki architecture and provenance": {
+          "max_points": 50,
+          "percent": 100.0,
+          "raw_points": 50.0,
+          "scored_answers": 10
+        }
+      },
+      "gemini": {
+        "Business, employment, and workplace rights": {
+          "max_points": 100,
+          "percent": 4.0,
+          "raw_points": 4.0,
+          "scored_answers": 20
+        },
+        "Data protection, information security, FOI, social media, and whistleblowing": {
+          "max_points": 50,
+          "percent": 0.0,
+          "raw_points": 0.0,
+          "scored_answers": 10
+        },
+        "Housing, benefits, homelessness, and CTR": {
+          "max_points": 125,
+          "percent": 93.6,
+          "raw_points": 117.0,
+          "scored_answers": 25
+        },
+        "Overpayment, Social Fund, and staff-directory dark data": {
+          "max_points": 40,
+          "percent": 0.0,
+          "raw_points": 0.0,
+          "scored_answers": 8
+        },
+        "People policies and operational procedures": {
+          "max_points": 50,
+          "percent": 0.0,
+          "raw_points": 0.0,
+          "scored_answers": 10
+        },
+        "Procurement and spending controls": {
+          "max_points": 35,
+          "percent": 0.0,
+          "raw_points": 0.0,
+          "scored_answers": 7
+        },
+        "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+          "max_points": 50,
+          "percent": 0.0,
+          "raw_points": 0.0,
+          "scored_answers": 10
+        },
+        "Wiki architecture and provenance": {
+          "max_points": 50,
+          "percent": 100.0,
+          "raw_points": 50.0,
+          "scored_answers": 10
+        }
+      },
+      "microsoft-copilot": {
+        "Business, employment, and workplace rights": {
+          "max_points": 100,
+          "percent": 0.0,
+          "raw_points": 0.0,
+          "scored_answers": 20
+        },
+        "Data protection, information security, FOI, social media, and whistleblowing": {
+          "max_points": 50,
+          "percent": 4.0,
+          "raw_points": 2.0,
+          "scored_answers": 10
+        },
+        "Housing, benefits, homelessness, and CTR": {
+          "max_points": 125,
+          "percent": 4.8,
+          "raw_points": 6.0,
+          "scored_answers": 25
+        },
+        "Overpayment, Social Fund, and staff-directory dark data": {
+          "max_points": 40,
+          "percent": 5.0,
+          "raw_points": 2.0,
+          "scored_answers": 8
+        },
+        "People policies and operational procedures": {
+          "max_points": 50,
+          "percent": 4.0,
+          "raw_points": 2.0,
+          "scored_answers": 10
+        },
+        "Procurement and spending controls": {
+          "max_points": 35,
+          "percent": 0.0,
+          "raw_points": 0.0,
+          "scored_answers": 7
+        },
+        "Welsh language, UC migration, OCR, statistics, and source-risk synthesis": {
+          "max_points": 50,
+          "percent": 10.0,
+          "raw_points": 5.0,
+          "scored_answers": 10
+        },
+        "Wiki architecture and provenance": {
+          "max_points": 50,
+          "percent": 82.0,
+          "raw_points": 41.0,
+          "scored_answers": 10
+        }
+      }
+    },
+    "leaderboard": [
+      {
+        "benchmark_max_points": 500,
+        "captured_answers": 100,
+        "client": "codex",
+        "final_score_percent": 96.8,
+        "hallucination_count": 2,
+        "missed_source_risk_count": 2,
+        "raw_points": 484.0,
+        "scored_answers": 100,
+        "scored_subset_percent": 96.8
+      },
+      {
+        "benchmark_max_points": 500,
+        "captured_answers": 100,
+        "client": "claude",
+        "final_score_percent": 96.0,
+        "hallucination_count": 9,
+        "missed_source_risk_count": 7,
+        "raw_points": 480.0,
+        "scored_answers": 100,
+        "scored_subset_percent": 96.0
+      },
+      {
+        "benchmark_max_points": 500,
+        "captured_answers": 100,
+        "client": "codex-mcp",
+        "final_score_percent": 94.2,
+        "hallucination_count": 5,
+        "missed_source_risk_count": 6,
+        "raw_points": 471.0,
+        "scored_answers": 100,
+        "scored_subset_percent": 94.2
+      },
+      {
+        "benchmark_max_points": 500,
+        "captured_answers": 100,
+        "client": "gemini",
+        "final_score_percent": 34.2,
+        "hallucination_count": 1,
+        "missed_source_risk_count": 59,
+        "raw_points": 171.0,
+        "scored_answers": 100,
+        "scored_subset_percent": 34.2
+      },
+      {
+        "benchmark_max_points": 500,
+        "captured_answers": 100,
+        "client": "microsoft-copilot",
+        "final_score_percent": 11.6,
+        "hallucination_count": 19,
+        "missed_source_risk_count": 92,
+        "raw_points": 58.0,
+        "scored_answers": 100,
+        "scored_subset_percent": 11.6
+      }
+    ],
+    "score_path": "challenge-2/evaluation/reports/validated-full-20260419T2225Z-rubric-scores.csv"
+  },
+  "run": {
+    "benchmark_path": "<repo-root>/challenge-2/wiki/evaluation-benchmark.md",
+    "challenge_root": "<repo-root>/challenge-2",
+    "clients": [
+      "codex",
+      "codex-mcp",
+      "gemini",
+      "claude",
+      "microsoft-copilot"
+    ],
+    "disclosure_profile": "internal_full",
+    "dry_run": false,
+    "legal_hold": false,
+    "metadata": {
+      "benchmark": "<repo-root>/challenge-2/wiki/evaluation-benchmark.md",
+      "benchmark_sha256": "3c3b6caf5a8bc67bceab4212fecff244a89739620058110b058113344c7de56f",
+      "client_config": "challenge-2/evaluation/client-config.example.json",
+      "client_manifests": {
+        "claude": {
+          "captured_at": "2026-04-19T22:26:46+00:00",
+          "client": "claude",
+          "command_config": {
+            "environment": {
+              "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
+            },
+            "latest_policy": "Claude Code is invoked without model or effort parameters so the DSIT managed local settings file selects the best available model, expected in this environment to resolve to Opus 4.6. Experimental beta fields are disabled for compatibility with the DSIT managed gateway.",
+            "model": "local-settings-managed",
+            "model_reference_checked_at": "2026-04-18",
+            "model_reference_url": "https://code.claude.com/docs/en/model-config",
+            "model_source": "dsit_managed_local_settings",
+            "notes": "The local DSIT Claude settings choose the model. The environment flag prevents Claude Code 2.1.x from sending beta request fields such as context_management through the managed gateway.",
+            "pass_model_arg": false,
+            "reasoning_effort": null
+          },
+          "command_source": "built_in",
+          "executables": [
+            {
+              "available": true,
+              "name": "claude",
+              "path": "<home-path>"
+            }
+          ],
+          "model": {
+            "known_default_model_label": null,
+            "latest_policy": "Claude Code is invoked without model or effort parameters so the DSIT managed local settings file selects the best available model, expected in this environment to resolve to Opus 4.6. Experimental beta fields are disabled for compatibility with the DSIT managed gateway.",
+            "pass_model_arg": false,
+            "reasoning_effort": null,
+            "reference_checked_at": "2026-04-18",
+            "reference_url": "https://code.claude.com/docs/en/model-config",
+            "selected_model": "local-settings-managed",
+            "source": "dsit_managed_local_settings"
+          },
+          "model_environment": {
+            "ANTHROPIC_MODEL": {
+              "set": false,
+              "value": null
+            },
+            "CLAUDE_CODE_EFFORT_LEVEL": {
+              "set": false,
+              "value": null
+            },
+            "CLAUDE_MODEL": {
+              "set": false,
+              "value": null
+            }
+          },
+          "platform": {
+            "machine": "arm64",
+            "python": "3.14.4",
+            "release": "25.3.0",
+            "system": "Darwin"
+          },
+          "runtime_environment": {
+            "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": {
+              "set": true,
+              "source": "client_config",
+              "value": "1"
+            }
+          },
+          "supported_by_harness": true,
+          "ui_automation": null,
+          "version_checks": [
+            {
+              "available": true,
+              "command": [
+                "claude",
+                "--version"
+              ],
+              "detected_version": "2.1.114 (Claude Code)",
+              "executable_path": "<home-path>",
+              "exit_code": 0,
+              "status": "completed",
+              "stderr": "",
+              "stdout": "2.1.114 (Claude Code)\n"
+            }
+          ]
+        },
+        "codex": {
+          "captured_at": "2026-04-19T22:26:45+00:00",
+          "client": "codex",
+          "command_config": {
+            "model": "gpt-5.4",
+            "model_reference_checked_at": "2026-04-18",
+            "model_reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+            "model_source": "explicit_latest_openai_docs",
+            "reasoning_effort": "xhigh"
+          },
+          "command_source": "client_config.argv",
+          "executables": [
+            {
+              "available": true,
+              "name": "codex",
+              "path": "<absolute-path>"
+            }
+          ],
+          "model": {
+            "known_default_model_label": null,
+            "latest_policy": "OpenAI model documentation describes gpt-5.4 as the frontier model for complex professional work; the harness sets xhigh reasoning effort for best-model runs.",
+            "pass_model_arg": true,
+            "reasoning_effort": "xhigh",
+            "reference_checked_at": "2026-04-18",
+            "reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+            "selected_model": "gpt-5.4",
+            "source": "explicit_latest_openai_docs"
+          },
+          "model_environment": {
+            "CODEX_MODEL": {
+              "set": false,
+              "value": null
+            },
+            "CODEX_REASONING_EFFORT": {
+              "set": false,
+              "value": null
+            }
+          },
+          "platform": {
+            "machine": "arm64",
+            "python": "3.14.4",
+            "release": "25.3.0",
+            "system": "Darwin"
+          },
+          "runtime_environment": {},
+          "supported_by_harness": true,
+          "ui_automation": null,
+          "version_checks": [
+            {
+              "available": true,
+              "command": [
+                "codex",
+                "--version"
+              ],
+              "detected_version": "codex-cli 0.121.0",
+              "executable_path": "<absolute-path>",
+              "exit_code": 0,
+              "status": "completed",
+              "stderr": "",
+              "stdout": "codex-cli 0.121.0\n"
+            }
+          ]
+        },
+        "codex-mcp": {
+          "captured_at": "2026-04-19T22:26:45+00:00",
+          "client": "codex-mcp",
+          "command_config": {
+            "mcp_context_budget_bytes": 48000,
+            "mcp_context_limit": 8,
+            "mcp_prompt_include_context_pack": false,
+            "mcp_retrieval_mode": "hybrid",
+            "mcp_server_transport": "stdio",
+            "model": "gpt-5.4",
+            "model_reference_checked_at": "2026-04-18",
+            "model_reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+            "model_source": "explicit_latest_openai_docs_with_challenge2_wiki_mcp",
+            "notes": "Codex with MCP uses the local read-only Challenge 2 Wiki MCP server over stdio. The harness also stores the MCP context pack used to seed each prompt so the Codex-with-MCP path can be compared with the standard local-path Codex path. The built-in command disables interactive approval prompts for this client because noninteractive Codex otherwise cancels MCP tool calls; the MCP server itself remains read-only and path-scoped.",
+            "reasoning_effort": "xhigh",
+            "semantic_model_id": "challenge2-local-hash-v1"
+          },
+          "command_source": "built_in",
+          "executables": [
+            {
+              "available": true,
+              "name": "codex",
+              "path": "<absolute-path>"
+            },
+            {
+              "available": true,
+              "name": "python3.14",
+              "path": "<absolute-path>"
+            }
+          ],
+          "model": {
+            "known_default_model_label": null,
+            "latest_policy": "Codex uses gpt-5.4 with xhigh reasoning effort and a configured local Challenge 2 Wiki MCP server for source retrieval.",
+            "pass_model_arg": true,
+            "reasoning_effort": "xhigh",
+            "reference_checked_at": "2026-04-18",
+            "reference_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+            "selected_model": "gpt-5.4",
+            "source": "explicit_latest_openai_docs_with_challenge2_wiki_mcp"
+          },
+          "model_environment": {
+            "CODEX_MODEL": {
+              "set": false,
+              "value": null
+            },
+            "CODEX_REASONING_EFFORT": {
+              "set": false,
+              "value": null
+            }
+          },
+          "platform": {
+            "machine": "arm64",
+            "python": "3.14.4",
+            "release": "25.3.0",
+            "system": "Darwin"
+          },
+          "runtime_environment": {},
+          "supported_by_harness": true,
+          "ui_automation": null,
+          "version_checks": [
+            {
+              "available": true,
+              "command": [
+                "codex",
+                "--version"
+              ],
+              "detected_version": "codex-cli 0.121.0",
+              "executable_path": "<absolute-path>",
+              "exit_code": 0,
+              "status": "completed",
+              "stderr": "",
+              "stdout": "codex-cli 0.121.0\n"
+            },
+            {
+              "available": true,
+              "command": [
+                "<absolute-path>",
+                "--version"
+              ],
+              "detected_version": "Python 3.14.4",
+              "executable_path": "<absolute-path>",
+              "exit_code": 0,
+              "status": "completed",
+              "stderr": "",
+              "stdout": "Python 3.14.4\n"
+            }
+          ]
+        },
+        "gemini": {
+          "captured_at": "2026-04-19T22:26:45+00:00",
+          "client": "gemini",
+          "command_config": {
+            "model": "gemini-3.1-pro-preview",
+            "model_reference_checked_at": "2026-04-18",
+            "model_reference_url": "https://geminicli.com/docs/get-started/gemini-3/",
+            "model_source": "explicit_gemini_cli_docs",
+            "pass_model_arg": true
+          },
+          "command_source": "client_config.argv",
+          "executables": [
+            {
+              "available": true,
+              "name": "gemini",
+              "path": "<absolute-path>"
+            }
+          ],
+          "model": {
+            "known_default_model_label": "Auto routing over Gemini 3 and available Gemini 3.1 models",
+            "latest_policy": "Gemini CLI docs recommend Auto routing; Gemini 3.1 Pro Preview is included in routing where available, so the harness leaves routing to the installed client.",
+            "pass_model_arg": true,
+            "reasoning_effort": null,
+            "reference_checked_at": "2026-04-18",
+            "reference_url": "https://geminicli.com/docs/get-started/gemini-3/",
+            "selected_model": "gemini-3.1-pro-preview",
+            "source": "explicit_gemini_cli_docs"
+          },
+          "model_environment": {
+            "GEMINI_MODEL": {
+              "set": false,
+              "value": null
+            }
+          },
+          "platform": {
+            "machine": "arm64",
+            "python": "3.14.4",
+            "release": "25.3.0",
+            "system": "Darwin"
+          },
+          "runtime_environment": {},
+          "supported_by_harness": true,
+          "ui_automation": null,
+          "version_checks": [
+            {
+              "available": true,
+              "command": [
+                "gemini",
+                "--version"
+              ],
+              "detected_version": "0.38.2",
+              "executable_path": "<absolute-path>",
+              "exit_code": 0,
+              "status": "completed",
+              "stderr": "",
+              "stdout": "0.38.2\n"
+            }
+          ]
+        },
+        "microsoft-copilot": {
+          "captured_at": "2026-04-19T22:26:46+00:00",
+          "client": "microsoft-copilot",
+          "command_config": {
+            "app_name": "Microsoft 365 Copilot",
+            "automation_method": "playwright_web_ui",
+            "github_blob_base_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/v1.1",
+            "github_tree_base_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/tree/v1.1",
+            "headless": false,
+            "model": "gpt-5-thinking-ui-selected",
+            "model_reference_checked_at": "2026-04-18",
+            "model_reference_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes",
+            "model_source": "microsoft_365_copilot_ui_preferred_mode",
+            "notes": "Full-coverage UI client. This uses a brittle Playwright browser adapter against Microsoft 365 Copilot Chat because no stable headless local API is available. It requires an authenticated browser profile and may need manual sign-in before the benchmark run. When preferred_mode is set, the adapter attempts to select the named GPT mode before submitting the prompt. Because the Microsoft web UI cannot read local repository paths, this config supplies public GitHub v1.1 permalinks plus copied excerpts from the operating schema and key wiki files.",
+            "preferred_mode": "Think Deeper",
+            "prompt_context_max_chars": 24000,
+            "prompt_context_paths": [
+              "challenge-2/AGENTS.md",
+              "challenge-2/wiki/index.md",
+              "challenge-2/wiki/architecture.md",
+              "challenge-2/wiki/data/source-register.json"
+            ],
+            "prompt_source_mode": "github_permalinks",
+            "url": "https://m365.cloud.microsoft/chat"
+          },
+          "command_source": "built_in",
+          "executables": [
+            {
+              "available": true,
+              "name": "node",
+              "path": "<absolute-path>"
+            }
+          ],
+          "model": {
+            "known_default_model_label": "Microsoft 365 Copilot Chat GPT-5 with automatic routing",
+            "latest_policy": "Microsoft 365 Copilot release notes state Copilot Chat uses GPT-5 by default and routes prompts to the best-performing models for each task.",
+            "pass_model_arg": true,
+            "reasoning_effort": null,
+            "reference_checked_at": "2026-04-18",
+            "reference_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes",
+            "selected_model": "gpt-5-thinking-ui-selected",
+            "source": "microsoft_365_copilot_ui_preferred_mode"
+          },
+          "model_environment": {},
+          "platform": {
+            "machine": "arm64",
+            "python": "3.14.4",
+            "release": "25.3.0",
+            "system": "Darwin"
+          },
+          "runtime_environment": {},
+          "supported_by_harness": true,
+          "ui_automation": {
+            "app_name": "Microsoft 365 Copilot",
+            "caveats": [
+              "Microsoft Copilot is evaluated through a browser UI adapter rather than a stable headless API.",
+              "The adapter requires an authenticated Microsoft session in the Playwright profile.",
+              "Selectors, loading states, tenant policies, and model routing can change outside this repository."
+            ],
+            "headless": false,
+            "method": "playwright_web_ui",
+            "preferred_mode": "Think Deeper",
+            "profile_dir_configured": false,
+            "profile_dir_source": "default",
+            "url": "https://m365.cloud.microsoft/chat"
+          },
+          "version_checks": [
+            {
+              "available": true,
+              "command": [
+                "node",
+                "--version"
+              ],
+              "detected_version": "v25.9.0",
+              "executable_path": "<absolute-path>",
+              "exit_code": 0,
+              "status": "completed",
+              "stderr": "",
+              "stdout": "v25.9.0\n"
+            }
+          ]
+        }
+      },
+      "desktop_ai_apps": [
+        {
+          "build": "440416001",
+          "bundle_identifier": "com.microsoft.copilot-mac",
+          "headless_harness_client": false,
+          "name": "Copilot",
+          "path": "<absolute-path>",
+          "version": "25.6.440416001"
+        },
+        {
+          "build": "1.2604.0601",
+          "bundle_identifier": "com.microsoft.m365copilot",
+          "headless_harness_client": false,
+          "name": "Microsoft 365 Copilot",
+          "path": "<absolute-path>",
+          "version": "1.2604"
+        }
+      ],
+      "repo_state": {
+        "branch": "codex/wiki-mcp-research",
+        "commit": "f775aec3d689a46d6c7f3779a8de3fe7101b5ce9",
+        "dirty": true,
+        "status_short": "M challenge-2/MCP-Wiki/semantic-retrieval-options.md\n M challenge-2/evaluation/client-config.example.json\n M challenge-2/evaluation/clients.py\n M challenge-2/tools/run_wiki_eval.py\n M tests/test_challenge2_eval_clients.py\n?? .coverage\n?? challenge-2/MCP-Wiki/implementation/wiki_mcp/\n?? challenge-2/tools/compare_wiki_eval.py\n?? challenge-2/tools/wiki_mcp_server.py\n?? tests/test_challenge2_wiki_mcp_server.py",
+        "tags_at_head": []
+      },
+      "timeout_sec": 600
+    },
+    "question_count": 100,
+    "repo_root": "<repo-root>",
+    "retention_class": "evaluation_foi_audit",
+    "run_id": "validated-full-20260419T2225Z",
+    "source_policy": "wiki_only",
+    "started_at": "2026-04-19T22:26:46+00:00"
+  },
+  "run_dir": "<external-run-root>/validated-full-20260419T2225Z"
+}

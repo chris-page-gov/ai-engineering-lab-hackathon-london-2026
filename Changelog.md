@@ -31,8 +31,47 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Added `tools/check_documentation_lockstep.py` and a GitHub Actions workflow to enforce tracking-file updates on pull requests.
 - Added `challenge-2/wiki/evaluation-benchmark.md` with 100 source-backed questions, gold answers, per-question rubrics, and a 500-point summative scoring regime for Challenge 2 wiki evaluation.
 - Added a Challenge 2 wiki evaluation harness under `challenge-2/evaluation/` and `challenge-2/tools/run_wiki_eval.py` for Codex, Gemini CLI, and Claude Code prompt runs.
+- Added per-client model/version manifests to Challenge 2 evaluation runs, including selected model source, reasoning effort where supported, model-reference URL/date, executable paths, version-command outputs, repo state, benchmark hash, and detected macOS Copilot desktop app versions.
+- Added full-coverage Challenge 2 evaluation support for GitHub Copilot CLI and Microsoft Copilot UI runs, including a caveated Playwright adapter for Microsoft 365 Copilot Chat.
+- Added a `full` client alias for running Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, and Microsoft Copilot together.
+- Added a distinct `policy_blocked` status for GitHub Copilot CLI live runs denied by organisation, subscription, or policy controls.
+- Added optional Microsoft Copilot UI GPT mode selection so the Playwright adapter can attempt to select a visible mode such as `Think Deeper` before submitting benchmark prompts.
+- Added per-client environment overrides in the evaluation config so Claude Code can run with `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` for DSIT managed gateway compatibility.
+- Added a Microsoft Copilot prompt-source mode that replaces inaccessible local wiki paths with public GitHub permalinks plus copied source excerpts for deterministic UI-client grounding.
+- Added `challenge-2/MCP-Wiki/`, a separate MCP research wiki with the Deep Research report in Markdown/DOCX/PDF, source and candidate registers, security model, implementation plan, and license-aware reference/specification policy for a purpose-built Wiki MCP server.
+- Added `challenge-2/MCP-Wiki/sources/bibliography.md` and `data/bibliography.json` to resolve Deep Research citation markers into durable source IDs, URLs, license posture, and local treatment.
+- Added a citation-clean linked derivative of the MCP Deep Research report for AI and human navigation while preserving the raw report unchanged as evidence.
+- Added `challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py`, plus generated Markdown and JSON lint reports for frontmatter, tags, source paths, duplicate IDs, internal links, and citation-marker leakage checks.
+- Added `challenge-2/MCP-Wiki/wiki-optimization-log.md` to record wiki navigation, metadata, and lint decisions as part of the MCP research evidence.
+- Added `challenge-2/MCP-Wiki/authentication-options.md` to evaluate Copilot Studio-facing Streamable HTTP authentication options and record OAuth 2.0 / Microsoft Entra ID as the target production pattern.
+- Added `challenge-2/MCP-Wiki/semantic-retrieval-options.md` to evaluate v1 embedding models and vector-index choices against licensing, provenance, reproducibility, and government-fit criteria.
+- Added first-use MCP reference implementation submodules under `challenge-2/MCP-Wiki/references/external/` for ProfessionalWiki, olgasafonova, qmd, and mkdocs-mcp-plugin, each with local `SOURCE.md` metadata.
 - Added `challenge-2/tools/wiki_eval_mcp.py`, a stdio MCP-compatible audit layer for controlled wiki search/read, answer recording, and DSAP-shaped audit pack finalisation.
 - Added `challenge-2/tools/summarise_wiki_eval.py` to turn completed scoring sheets into leaderboard JSON and Markdown.
+- Added `challenge-2/MCP-Wiki/implementation/wiki_mcp/`, a read-only Challenge 2 Wiki MCP server with stdio and local HTTP transports, source allowlists, benchmark denylists, source-register tools, context-pack tools, provenance explanations, deterministic semantic retrieval, and append-only audit logging.
+- Added `challenge-2/tools/wiki_mcp_server.py` as the CLI entry point for the Challenge 2 Wiki MCP server.
+- Added `codex-mcp` as a Challenge 2 evaluation client that configures Codex with the local Wiki MCP server and records live MCP tool-call evidence.
+- Added `challenge-2/tools/compare_wiki_eval.py` to generate reproducible comparison reports from DSAP evaluation runs.
+- Added `challenge-2/evaluation/reports/validated-full-20260419T2225Z-comparison.md` and matching sanitized metrics JSON for the full Challenge 2 wiki evaluation report.
+- Added `challenge-2/MCP-Wiki/sources/codex-thread-mcp-implementation-evaluation.md`, a publication-safe capture and recommendation note for the Codex thread that drove the MCP implementation and evaluation work.
+- Added public-safe rubric score artifacts for the validated full run: per-question scores, a Markdown leaderboard, and a JSON leaderboard, without committing raw answer text.
+
+### Changed
+
+- Updated Challenge 2 evaluation best-model policy to use `gpt-5.4` with `xhigh` effort for Codex, Gemini CLI Auto routing, Claude Code `best` with `max` effort, staff-confirmed `gpt-5.4` for GitHub Copilot CLI, and Microsoft 365 Copilot Chat GPT-5 automatic routing for Microsoft Copilot.
+- Allowed client config to suppress a default reasoning-effort argument with JSON `null`, enabling Claude Code runs that defer model and effort selection to DSIT-managed local Claude settings.
+- Updated the Microsoft Copilot example config to prefer `Think Deeper`, cite the public `v1.1` GitHub wiki, and inject key wiki excerpts because the Microsoft web UI cannot read local repository paths.
+- Expanded the MCP research wiki frontmatter, search terms, related-link properties, and cross-links so the wiki can be navigated and linted as an AI-usable knowledge base.
+- Resolved MCP research wiki open decisions for authentication, first-use submodules, semantic retrieval in v1, and release-time external URL validation.
+- Updated the MCP implementation plan so semantic retrieval is included in v1 behind deterministic provenance and context-pack contracts.
+- Recorded Copilot Studio direct MCP connection as the first Microsoft validation path, with Agents Toolkit or custom connector routes reserved for gaps in direct delivery.
+- Excluded API-key authentication from v1 unless live Copilot Studio validation proves a host-specific need.
+- Added a provisional semantic retrieval baseline: local `BAAI/bge-small-en-v1.5` embeddings with exact NumPy cosine search, compared against `all-MiniLM-L6-v2` and `e5-small-v2` before final lock.
+- Updated the Claude example config to defer model and effort selection to DSIT-managed local settings while keeping `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1`.
+- Recorded Codex stdio MCP as the tightest local validation loop and kept Copilot Studio direct MCP validation as the first Microsoft-host path.
+- Kept the production embedding lock open while using deterministic local exact-cosine hashing for server contract tests and live MCP validation on the disk-constrained machine.
+- Classified Gemini CLI quota exhaustion separately from generic client failures and taught the comparison report to apply explicit correction runs without committing raw prompts or answer transcripts.
+- Updated the comparison report generator to accept a rubric score CSV and include a quality leaderboard alongside operational proxy metrics.
 
 ### Fixed
 
@@ -47,6 +86,24 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Fixed postmortem contribution inference so `pr` and `git` are matched as whole words instead of substrings inside words such as `prompt` or `legitimate`.
 - Fixed Karpathy X source snapshot URLs to use a single Jina Reader prefix instead of proxying an already proxied URL.
 - Fixed public postmortem sanitisation for bare local user-path markers and local state-file mentions in explanatory text.
+- Ignored nested `.DS_Store` and AppleDouble metadata files throughout the repository.
+- Removed the previously tracked `challenge-2/.DS_Store` local Finder state file.
+- Changed the MCP wiki lint report to record the repository-relative wiki root instead of a local absolute path.
+- Fixed UTF-8 byte-budget enforcement for Wiki MCP context packs and Workbench MCP source-note reads so non-ASCII text cannot exceed requested byte caps.
+- Fixed Wiki MCP HTTP notification handling so JSON-RPC notifications return `204 No Content` instead of an invalid empty JSON object response.
+- Hardened Wiki MCP, Workbench MCP, and evaluation MCP JSON-RPC handlers so non-object requests and malformed `params` envelopes return protocol errors instead of terminating stdio or HTTP sessions.
+- Made Challenge 2 evaluation repo-state metadata tolerate a missing `git` executable, and changed repository maintenance helpers to report missing Git with clear failures instead of raw tracebacks.
+- Fixed the `codex-mcp` invocation so spawned Wiki MCP server arguments use the same configured semantic model as the prompt context-pack seed, preventing recorded config from diverging from live MCP tool-call behavior.
+- Fixed evaluation reruns so stale assistant-response artifacts are removed before live client invocation and cannot contaminate failed-run audit evidence.
+- Fixed Workbench MCP `workbench://source-register` reads so they use the configured challenge root instead of the repository default root.
+- Fixed comparison-report MCP audit parsing so malformed or truncated JSONL lines are skipped and counted instead of aborting metrics generation.
+- Fixed Wiki MCP HTTP startup so a configured `--bearer-token-env` must resolve to a non-empty environment variable instead of silently starting without bearer-token checks.
+- Broadened comparison metrics sanitisation and refreshed the committed metrics JSON so arbitrary local executable paths, app paths, and home-relative paths are replaced before publication.
+- Fixed Wiki MCP search mode selection so lexical-only searches do not build/query the semantic index and semantic-only searches do not run lexical scoring.
+
+### Security
+
+- Avoided recording default local Microsoft Copilot Playwright profile paths in generated UI-adapter metadata; runs now record the profile source instead.
 
 ### Documentation
 
@@ -58,6 +115,33 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Recorded the contribution-modes and government security assessment in the public materials list.
 - Linked the new tracking files from `README.md`.
 - Linked the Challenge 2 benchmark into the wiki index and documented the evaluation harness in the Challenge 2 brief and README.
+- Recorded the MCP wiki citation-linking and optimization decisions in the MCP decision record and source register.
+- Linked the MCP implementation/evaluation thread capture from the MCP wiki index, implementation workspace, decision record, optimization log, and source register.
+- Documented the committed rubric-scored leaderboard and the rule that raw scoring sheets with answer text stay outside Git.
+
+### Validation
+
+- Verified the MCP research wiki lint: `22` Markdown files, `222` internal links, `67` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Verified all `31` MCP bibliography URLs returned HTTP success responses and replaced stale Microsoft/NCSC citation targets with current URLs.
+- Verified the MCP research wiki lint after submodule metadata: `27` Markdown files, `270` internal links, `75` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Verified the MCP research wiki lint after semantic retrieval options: `28` Markdown files, `286` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Verified the final MCP research wiki lint after implementation/report updates: `28` Markdown files, `287` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Verified the MCP research wiki lint after adding the Codex thread capture: `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+- Verified PR review hardening for malformed JSON-RPC request handling and missing-Git metadata with targeted unit tests, py_compile, MCP wiki lint, documentation lockstep, and whitespace checks.
+- Verified the `codex-mcp` server-argument reproducibility fix with targeted client-invocation tests, py_compile, MCP wiki lint, documentation lockstep, and whitespace checks.
+- Verified stale-output cleanup, configured-root Workbench resources, and malformed MCP audit-line tolerance with targeted regression tests, py_compile, MCP wiki lint, documentation lockstep, and whitespace checks.
+- Verified the Challenge 2 Wiki MCP server with unit and transport tests at `91%` package coverage using `uv run --with coverage`.
+- Verified live `Q001` smoke tests for `codex`, `codex-mcp`, `gemini`, `claude`, and `microsoft-copilot`; `github-copilot` remains `policy_blocked`.
+- Completed a 100-question benchmark run for `codex,codex-mcp,gemini,claude,microsoft-copilot`, writing raw audit evidence outside the repository under an external run directory and sealing DSAP audit pack `DSAP-validated-full-20260419T2225Z`.
+- Completed a correction run for the single `codex-mcp` timeout on `Q057`, giving Codex with MCP effective completed coverage for all `100` benchmark questions.
+- Recorded that Gemini CLI completed `36` questions before `gemini-3.1-pro-preview` quota exhaustion blocked the remaining `64` questions; the report keeps those rows as `quota_exhausted`.
+- Generated the comparison report showing `100/100` completed answers for Codex, Codex with MCP, Claude, and Microsoft Copilot; GitHub Copilot CLI remains represented by a `policy_blocked` smoke run.
+- Generated the rubric-scored leaderboard from the effective full run: Codex `484/500`, Claude `480/500`, Codex with MCP `471/500`, Gemini `171/500`, and Microsoft Copilot `58/500`.
+- Verified the rubric score CSV contains `500` unique client/question score rows with no raw answer or gold-answer columns, and no local path or UI-session metadata hits in the committed report artifacts.
+- Verified `python3 -m unittest tests.test_challenge2_compare_wiki_eval` after adding rubric-score report support.
+- Verified the broader MCP evaluation test set with `python3 -m unittest tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval tests.test_challenge2_wiki_mcp_server`.
+- Verified the PR review fixes with `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp`, covering non-ASCII byte caps and HTTP notification no-response behavior.
+- Verified the MCP wiki lint after updating the thread capture for PR review status: `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
 
 ## 2026-04-16
 

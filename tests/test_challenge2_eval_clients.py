@@ -1,0 +1,302 @@
+from __future__ import annotations
+
+import json
+import os
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+from unittest import mock
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+CHALLENGE_ROOT = REPO_ROOT / "challenge-2"
+sys.path.insert(0, str(CHALLENGE_ROOT))
+
+from evaluation.clients import ClientCommandContext, build_client_invocation, build_client_prompt, build_wiki_prompt, run_client  # noqa: E402
+from evaluation.clients import _client_status  # noqa: E402
+from evaluation.questions import EvaluationQuestion  # noqa: E402
+
+
+class Challenge2EvalClientsTest(unittest.TestCase):
+    def test_default_model_selectors_are_recorded(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {}, clear=True):
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+
+            codex_command, codex_metadata = build_client_invocation(self._context(run_dir, "codex"), {})
+            self.assertIn("gpt-5.4", codex_command)
+            self.assertEqual(codex_metadata["model"]["selected_model"], "gpt-5.4")
+            self.assertEqual(codex_metadata["model"]["source"], "built_in_latest_explicit")
+            self.assertEqual(codex_metadata["model"]["reasoning_effort"], "xhigh")
+
+            codex_mcp_command, codex_mcp_metadata = build_client_invocation(self._context(run_dir, "codex-mcp"), {})
+            self.assertIn("gpt-5.4", codex_mcp_command)
+            self.assertIn("mcp_servers.challenge2_wiki.command", " ".join(codex_mcp_command))
+            self.assertIn("wiki_mcp_server.py", " ".join(codex_mcp_command))
+            self.assertIn("--semantic-model-id", " ".join(codex_mcp_command))
+            self.assertIn("challenge2-local-hash-v1", " ".join(codex_mcp_command))
+            self.assertEqual(
+                codex_mcp_metadata["model"]["source"],
+                "built_in_latest_explicit_with_challenge2_wiki_mcp",
+            )
+            self.assertEqual(codex_mcp_metadata["model"]["reasoning_effort"], "xhigh")
+
+            gemini_command, gemini_metadata = build_client_invocation(self._context(run_dir, "gemini"), {})
+            self.assertNotIn("--model", gemini_command)
+            self.assertEqual(gemini_metadata["model"]["selected_model"], "auto")
+            self.assertEqual(gemini_metadata["model"]["source"], "cli_default_auto_routing")
+
+            claude_command, claude_metadata = build_client_invocation(self._context(run_dir, "claude"), {})
+            self.assertIn("--model", claude_command)
+            self.assertIn("best", claude_command)
+            self.assertIn("--effort", claude_command)
+            self.assertIn("max", claude_command)
+            self.assertEqual(claude_metadata["model"]["selected_model"], "best")
+
+            copilot_command, copilot_metadata = build_client_invocation(
+                self._context(run_dir, "github-copilot"), {}
+            )
+            self.assertIn("gpt-5.4", copilot_command)
+            self.assertIn("--reasoning-effort=xhigh", copilot_command)
+            self.assertEqual(copilot_metadata["model"]["source"], "staff_confirmed_best_override")
+            self.assertEqual(copilot_metadata["model"]["reasoning_effort"], "xhigh")
+
+            microsoft_command, microsoft_metadata = build_client_invocation(
+                self._context(run_dir, "microsoft-copilot"), {}
+            )
+            self.assertIn("microsoft_copilot_playwright.mjs", " ".join(microsoft_command))
+            self.assertEqual(microsoft_metadata["model"]["selected_model"], "gpt-5-auto-routed")
+
+            thinking_command, thinking_metadata = build_client_invocation(
+                self._context(run_dir, "microsoft-copilot"),
+                {"microsoft-copilot": {"preferred_mode": "Think Deeper"}},
+            )
+            self.assertIn("--preferred-mode", thinking_command)
+            self.assertIn("Think Deeper", thinking_command)
+            self.assertEqual(thinking_metadata["command_config"]["preferred_mode"], "Think Deeper")
+
+    def test_codex_mcp_forwards_server_config_to_spawned_args(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+            command, metadata = build_client_invocation(
+                self._context(run_dir, "codex-mcp"),
+                {
+                    "codex-mcp": {
+                        "semantic_model_id": "custom-semantic-v1",
+                        "mcp_server_transport": "stdio",
+                    }
+                },
+            )
+            joined = " ".join(command)
+
+            self.assertIn("--semantic-model-id", joined)
+            self.assertIn("custom-semantic-v1", joined)
+            self.assertIn("--transport", joined)
+            self.assertIn("stdio", joined)
+            self.assertEqual(metadata["command_config"]["semantic_model_id"], "custom-semantic-v1")
+
+    def test_codex_mcp_rejects_non_stdio_spawned_transport(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+
+            with self.assertRaisesRegex(ValueError, "stdio transport"):
+                build_client_invocation(
+                    self._context(run_dir, "codex-mcp"),
+                    {"codex-mcp": {"mcp_server_transport": "http"}},
+                )
+
+    def test_dry_run_records_resolved_model_and_manifest(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {}, clear=True):
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+            context = self._context(
+                run_dir,
+                "gemini",
+                client_manifest={"client": "gemini", "version_checks": [{"detected_version": "0.0.test"}]},
+            )
+            prompt_path = run_dir / "prompts" / "gemini" / "Q001.txt"
+            prompt_path.parent.mkdir(parents=True)
+            prompt_path.write_text("prompt", encoding="utf-8")
+
+            result = run_client(
+                context=context,
+                prompt_path=prompt_path,
+                config={},
+                timeout_sec=1,
+                dry_run=True,
+            )
+
+            self.assertEqual(result.status, "dry_run")
+            self.assertEqual(result.model, "auto")
+            self.assertEqual(result.metadata["invocation"]["model"]["source"], "cli_default_auto_routing")
+            self.assertEqual(result.metadata["client_manifest"]["client"], "gemini")
+
+    def test_live_run_ignores_stale_assistant_response_file(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+            context = self._context(run_dir, "codex")
+            context.assistant_response_path.parent.mkdir(parents=True)
+            context.assistant_response_path.write_text('{"answer":"stale"}', encoding="utf-8")
+            prompt_path = run_dir / "prompts" / "codex" / "Q001.txt"
+            prompt_path.parent.mkdir(parents=True)
+            prompt_path.write_text("prompt", encoding="utf-8")
+
+            with mock.patch(
+                "evaluation.clients.subprocess.run",
+                return_value=subprocess.CompletedProcess(args=["codex"], returncode=1, stdout="", stderr="boom"),
+            ):
+                result = run_client(
+                    context=context,
+                    prompt_path=prompt_path,
+                    config={},
+                    timeout_sec=1,
+                    dry_run=False,
+                )
+
+            self.assertEqual(result.status, "failed")
+            self.assertEqual(result.answer_text, "")
+            self.assertFalse(context.assistant_response_path.exists())
+
+    def test_github_copilot_policy_denial_is_classified(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            assistant_response_path = Path(tmp) / "missing.txt"
+            status = _client_status(
+                "github-copilot",
+                1,
+                assistant_response_path,
+                "Error: Access denied by policy settings",
+            )
+
+            self.assertEqual(status, "policy_blocked")
+
+    def test_gemini_quota_exhaustion_is_classified(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            assistant_response_path = Path(tmp) / "missing.txt"
+            status = _client_status(
+                "gemini",
+                1,
+                assistant_response_path,
+                "TerminalQuotaError: You have exhausted your capacity on this model. reason: QUOTA_EXHAUSTED",
+            )
+
+            self.assertEqual(status, "quota_exhausted")
+
+    def test_claude_can_defer_model_and_effort_to_local_settings(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {}, clear=True):
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+            command, metadata = build_client_invocation(
+                self._context(run_dir, "claude"),
+                {
+                    "claude": {
+                        "model": "local-settings-managed",
+                        "model_source": "local_settings_managed",
+                        "pass_model_arg": False,
+                        "reasoning_effort": None,
+                        "environment": {"CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"},
+                    }
+                },
+            )
+
+            self.assertNotIn("--model", command)
+            self.assertNotIn("--effort", command)
+            self.assertEqual(metadata["model"]["selected_model"], "local-settings-managed")
+            self.assertIsNone(metadata["model"]["reasoning_effort"])
+            self.assertEqual(
+                metadata["command_config"]["environment"]["CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS"],
+                "1",
+            )
+
+    def test_prompt_can_use_github_permalinks_and_context_excerpts(self) -> None:
+        prompt = build_wiki_prompt(
+            EvaluationQuestion(
+                question_id="Q001",
+                category="Architecture",
+                question="What is the source of truth?",
+                gold_answer="",
+                specific_rubric="",
+                source_refs=(),
+            ),
+            repo_root=REPO_ROOT,
+            challenge_root=CHALLENGE_ROOT,
+            client_config={
+                "prompt_source_mode": "github_permalinks",
+                "github_tree_base_url": "https://github.com/example/repo/tree/v1.1",
+                "github_blob_base_url": "https://github.com/example/repo/blob/v1.1",
+                "prompt_context_paths": [
+                    "challenge-2/AGENTS.md",
+                    "challenge-2/wiki/evaluation-benchmark.md",
+                    "../outside.md",
+                ],
+                "prompt_context_max_chars": 9000,
+            },
+        )
+
+        self.assertIn("public GitHub permalink sources and the copied source excerpts", prompt)
+        self.assertIn("https://github.com/example/repo/tree/v1.1/challenge-2/wiki", prompt)
+        self.assertIn("https://github.com/example/repo/tree/v1.1/challenge-2/wiki/data", prompt)
+        self.assertIn("https://github.com/example/repo/blob/v1.1/challenge-2/AGENTS.md", prompt)
+        self.assertIn("Repository baseline: public GitHub permalink sources listed above", prompt)
+        self.assertIn("--- challenge-2/AGENTS.md ---", prompt)
+        self.assertIn("Challenge 2 LLM Wiki Operating Rules", prompt)
+        self.assertNotIn(str(REPO_ROOT), prompt)
+        self.assertNotIn("--- challenge-2/wiki/evaluation-benchmark.md ---", prompt)
+        self.assertNotIn("--- ../outside.md ---", prompt)
+
+    def test_codex_mcp_prompt_writes_context_pack_artifact(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = Path(tmp) / "run"
+            run_dir.mkdir()
+            prompt = build_client_prompt(
+                "codex-mcp",
+                EvaluationQuestion(
+                    question_id="Q001",
+                    category="Architecture",
+                    question="What is the source of truth?",
+                    gold_answer="",
+                    specific_rubric="",
+                    source_refs=(),
+                ),
+                repo_root=REPO_ROOT,
+                challenge_root=CHALLENGE_ROOT,
+                run_dir=run_dir,
+                client_config={"mcp_context_limit": 2, "mcp_context_budget_bytes": 3000},
+            )
+
+            context_pack_path = run_dir / "raw" / "codex-mcp" / "Q001.context-pack.json"
+            self.assertTrue(context_pack_path.exists())
+            self.assertIn("Challenge 2 Wiki MCP server", prompt)
+            self.assertIn("challenge2_wiki", prompt)
+            context_pack = json.loads(context_pack_path.read_text(encoding="utf-8"))
+            self.assertGreater(context_pack["evidence_count"], 0)
+            self.assertTrue(
+                all("evaluation-benchmark" not in item["path"] for item in context_pack["evidence"])
+            )
+
+    def _context(
+        self,
+        run_dir: Path,
+        client: str,
+        *,
+        client_manifest: dict | None = None,
+    ) -> ClientCommandContext:
+        return ClientCommandContext(
+            client=client,
+            model=None,
+            prompt="Answer from the wiki",
+            question_id="Q001",
+            run_dir=run_dir,
+            repo_root=REPO_ROOT,
+            challenge_root=CHALLENGE_ROOT,
+            assistant_response_path=run_dir / "raw" / client / "Q001.assistant-response.txt",
+            client_manifest=client_manifest,
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
