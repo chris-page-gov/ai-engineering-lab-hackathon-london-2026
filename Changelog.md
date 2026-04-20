@@ -89,6 +89,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Ignored nested `.DS_Store` and AppleDouble metadata files throughout the repository.
 - Removed the previously tracked `challenge-2/.DS_Store` local Finder state file.
 - Changed the MCP wiki lint report to record the repository-relative wiki root instead of a local absolute path.
+- Fixed UTF-8 byte-budget enforcement for Wiki MCP context packs and Workbench MCP source-note reads so non-ASCII text cannot exceed requested byte caps.
+- Fixed Wiki MCP HTTP notification handling so JSON-RPC notifications return `204 No Content` instead of an invalid empty JSON object response.
 
 ### Security
 
@@ -126,6 +128,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - Verified the rubric score CSV contains `500` unique client/question score rows with no raw answer or gold-answer columns, and no local path or UI-session metadata hits in the committed report artifacts.
 - Verified `python3 -m unittest tests.test_challenge2_compare_wiki_eval` after adding rubric-score report support.
 - Verified the broader MCP evaluation test set with `python3 -m unittest tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval tests.test_challenge2_wiki_mcp_server`.
+- Verified the PR review fixes with `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp`, covering non-ASCII byte caps and HTTP notification no-response behavior.
+- Verified the MCP wiki lint after updating the thread capture for PR review status: `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
 
 ## 2026-04-16
 

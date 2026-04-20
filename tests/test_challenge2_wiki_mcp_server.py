@@ -131,8 +131,20 @@ class Challenge2WikiMcpCoreTest(unittest.TestCase):
 
         self.assertEqual(pack["source_policy"]["denied_sources"][0], "challenge-2/wiki/evaluation-benchmark.md")
         self.assertGreater(pack["evidence_count"], 0)
-        self.assertLessEqual(sum(len(item["excerpt"]) for item in pack["evidence"]), 2500)
+        self.assertLessEqual(sum(len(item["excerpt"].encode("utf-8")) for item in pack["evidence"]), 2500)
         self.assertTrue(any(item["source_id"] == "DOC-HB-001" for item in pack["evidence"]))
+
+    def test_context_pack_budget_is_enforced_in_utf8_bytes(self) -> None:
+        pack = self.kb.build_context_pack(
+            source_ids=["UF-WELSH-LANGUAGE-STANDARDS-COMPLIANCE-REPORT-2023"],
+            limit=1,
+            budget_bytes=1000,
+        )
+
+        self.assertEqual(pack["evidence_count"], 1)
+        excerpt = pack["evidence"][0]["excerpt"]
+        self.assertLessEqual(len(excerpt.encode("utf-8")), 1000)
+        self.assertTrue(pack["evidence"][0]["truncated"])
 
     def test_audit_log_records_allowed_and_denied_events(self) -> None:
         self.kb.search("procurement", limit=1)
@@ -276,10 +288,17 @@ class Challenge2WikiMcpProtocolTest(unittest.TestCase):
                 {"jsonrpc": "2.0", "id": 1, "method": "resources/read", "params": {"uri": "wiki://agents"}},
                 headers={"Origin": "https://allowed.example", "Authorization": "Bearer test-token"},
             )
+            notification_status, notification_body = self._post_json_status(
+                f"{base}/mcp",
+                {"jsonrpc": "2.0", "method": "notifications/initialized"},
+                headers={"Origin": "https://allowed.example", "Authorization": "Bearer test-token"},
+            )
 
             self.assertEqual(health["status"], "ok")
             self.assertTrue(any(tool["name"] == "wiki.search" for tool in manifest["tools"]))
             self.assertIn("Challenge 2 LLM Wiki Operating Rules", post["result"]["contents"][0]["text"])
+            self.assertEqual(notification_status, 204)
+            self.assertEqual(notification_body, b"")
             with self.assertRaises(urllib.error.HTTPError) as origin_error:
                 self._post_json(
                     f"{base}/mcp",
@@ -385,6 +404,11 @@ class Challenge2WikiMcpProtocolTest(unittest.TestCase):
 
     @staticmethod
     def _post_json(url: str, payload: dict, *, headers: dict[str, str]) -> dict:
+        _, body = Challenge2WikiMcpProtocolTest._post_json_status(url, payload, headers=headers)
+        return json.loads(body.decode("utf-8"))
+
+    @staticmethod
+    def _post_json_status(url: str, payload: dict, *, headers: dict[str, str]) -> tuple[int, bytes]:
         data = json.dumps(payload).encode("utf-8")
         request = urllib.request.Request(
             url,
@@ -393,7 +417,7 @@ class Challenge2WikiMcpProtocolTest(unittest.TestCase):
             method="POST",
         )
         with urllib.request.urlopen(request, timeout=5) as response:
-            return json.loads(response.read().decode("utf-8"))
+            return response.status, response.read()
 
 
 if __name__ == "__main__":

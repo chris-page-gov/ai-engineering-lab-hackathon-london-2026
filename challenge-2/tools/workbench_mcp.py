@@ -254,7 +254,7 @@ class WorkbenchMcpServer:
         payload = source.to_summary()
         payload["synthetic_data_notice"] = SYNTHETIC_NOTICE
         if include_note:
-            payload["note_text"] = source.note_text[:max_bytes]
+            payload["note_text"] = truncate_utf8(source.note_text, max_bytes)
             payload["truncated"] = len(source.note_text.encode("utf-8")) > max_bytes
         return payload
 
@@ -327,6 +327,15 @@ def main(argv: list[str] | None = None) -> int:
         if response is not None:
             print(json.dumps(response), flush=True)
     return 0
+
+
+def truncate_utf8(text: str, max_bytes: int) -> str:
+    if max_bytes <= 0:
+        return ""
+    data = text.encode("utf-8", errors="replace")
+    if len(data) <= max_bytes:
+        return text
+    return data[:max_bytes].decode("utf-8", errors="ignore")
 
 
 if __name__ == "__main__":

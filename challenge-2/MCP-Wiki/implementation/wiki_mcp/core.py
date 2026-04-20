@@ -489,13 +489,14 @@ class WikiKnowledgeBase:
             if remaining <= 0:
                 break
             text = _strip_frontmatter(note.text).strip()
-            excerpt = text[:remaining]
-            remaining -= len(excerpt.encode("utf-8", errors="replace"))
+            excerpt = _truncate_utf8(text, remaining)
+            excerpt_bytes = len(excerpt.encode("utf-8", errors="replace"))
+            remaining -= excerpt_bytes
             evidence.append(
                 {
                     **note.to_public_dict(),
                     "excerpt": excerpt,
-                    "truncated": len(excerpt) < len(text),
+                    "truncated": excerpt_bytes < len(text.encode("utf-8", errors="replace")),
                 }
             )
         pack = {
@@ -1186,6 +1187,17 @@ def _strip_frontmatter(text: str) -> str:
         return text
     parts = text.split("---", 2)
     return parts[2].lstrip() if len(parts) == 3 else text
+
+
+def _truncate_utf8(text: str, max_bytes: int) -> str:
+    """Return a text prefix whose UTF-8 representation does not exceed max_bytes."""
+
+    if max_bytes <= 0:
+        return ""
+    data = text.encode("utf-8", errors="replace")
+    if len(data) <= max_bytes:
+        return text
+    return data[:max_bytes].decode("utf-8", errors="ignore")
 
 
 def _first_heading(text: str) -> str | None:

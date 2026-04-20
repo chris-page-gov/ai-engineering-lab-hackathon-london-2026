@@ -106,7 +106,10 @@ def make_http_handler(
                 self._write_json(400, {"jsonrpc": "2.0", "id": None, "error": {"code": -32700, "message": str(exc)}})
                 return
             response = server.handle(request)
-            self._write_json(200, response or {})
+            if response is None:
+                self._write_empty(204)
+                return
+            self._write_json(200, response)
 
         def log_message(self, format: str, *args: Any) -> None:  # noqa: A002 - stdlib signature.
             return
@@ -137,6 +140,12 @@ def make_http_handler(
             self.send_header("Content-Length", str(len(data)))
             self.end_headers()
             self.wfile.write(data)
+
+        def _write_empty(self, status: int) -> None:
+            self.send_response(status)
+            self._cors_headers()
+            self.send_header("Content-Length", "0")
+            self.end_headers()
 
     return WikiMcpHttpHandler
 

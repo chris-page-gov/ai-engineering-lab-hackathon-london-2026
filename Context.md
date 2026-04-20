@@ -119,6 +119,7 @@ Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are loca
 - The `codex-mcp` path records source access through `raw/codex-mcp/<question>.mcp-audit.jsonl`; noninteractive Codex requires approval bypass for MCP tool calls, but the MCP server itself remains read-only and path-scoped.
 - The completed `validated-full-20260419T2225Z` evaluation gives effective `100/100` completed rows for Codex, Codex with MCP, Claude, and Microsoft Copilot after applying the explicit `codex-mcp` Q057 correction run. Gemini CLI completed `36/100` rows before `gemini-3.1-pro-preview` returned quota exhaustion, and GitHub Copilot CLI remains `policy_blocked`.
 - The same effective answer set now has a rubric-scored quality leaderboard using the benchmark's human-written rubrics. The score artifacts are public-safe summaries; raw prompts, raw answers, UI captures, and full generated scoring sheets remain external run evidence rather than committed repository content.
+- MCP byte-budget fields are byte limits, not character limits. Context packs and source-note readers must truncate by UTF-8 bytes, especially for Welsh and other non-ASCII material. JSON-RPC notifications are no-response messages; HTTP transport returns `204 No Content` for them rather than a JSON result envelope.
 - The audit format follows the same DSAP principles used in the related `mcp-geo` server audit work: event ledger, evidence register, source register, audit card, integrity manifest, redaction manifest, visible transcript, and zipped bundle.
 
 ## Documentation Lockstep

@@ -42,6 +42,19 @@ class Challenge2WorkbenchMcpTest(unittest.TestCase):
                     "arguments": {"source_ids": ["DOC-HB-002"]},
                 },
             },
+            {
+                "jsonrpc": "2.0",
+                "id": 5,
+                "method": "tools/call",
+                "params": {
+                    "name": "workbench.read_source",
+                    "arguments": {
+                        "source_id": "UF-WELSH-LANGUAGE-STANDARDS-COMPLIANCE-REPORT-2023",
+                        "include_note": True,
+                        "max_bytes": 1000,
+                    },
+                },
+            },
         ]
         proc = subprocess.run(
             [sys.executable, str(MCP_SCRIPT)],
@@ -55,7 +68,7 @@ class Challenge2WorkbenchMcpTest(unittest.TestCase):
 
         self.assertEqual(proc.returncode, 0, proc.stderr)
         responses = [json.loads(line) for line in proc.stdout.splitlines() if line.strip()]
-        self.assertEqual(len(responses), 4)
+        self.assertEqual(len(responses), 5)
 
         search_payload = json.loads(responses[1]["result"]["content"][0]["text"])
         self.assertEqual(search_payload["sources"][0]["source_id"], "DOC-HB-002")
@@ -67,6 +80,10 @@ class Challenge2WorkbenchMcpTest(unittest.TestCase):
         context_payload = json.loads(responses[3]["result"]["content"][0]["text"])
         self.assertEqual(context_payload["sources"][0]["source_id"], "DOC-HB-002")
         self.assertIn("source_id", context_payload["instructions"]["citation_policy"])
+
+        welsh_payload = json.loads(responses[4]["result"]["content"][0]["text"])
+        self.assertLessEqual(len(welsh_payload["note_text"].encode("utf-8")), 1000)
+        self.assertTrue(welsh_payload["truncated"])
 
 
 if __name__ == "__main__":

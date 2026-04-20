@@ -79,6 +79,10 @@ This thread should form part of the current MCP pull request as a summarized pub
 
 The raw transcript should not be included in this PR. A full postmortem-public regeneration should be handled separately, after a redaction and rendering pass, if the goal is to update the public postmortem conversation count from the previous five sources to include this sixth thread.
 
+## Current PR Review Status
+
+The PR review cycle after rubric scoring raised two implementation bug classes: UTF-8 byte budgets were being applied as character counts in context excerpts, and HTTP JSON-RPC notifications were being serialized as `{}` rather than treated as no-response messages. The PR now fixes those classes across the Wiki MCP and Workbench MCP surfaces and adds regression tests for non-ASCII byte caps and HTTP notification `204 No Content` behavior.
+
 ## Publication Treatment
 
 Publish:

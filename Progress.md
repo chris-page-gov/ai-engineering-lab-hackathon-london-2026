@@ -94,6 +94,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added `challenge-2/MCP-Wiki/sources/codex-thread-mcp-implementation-evaluation.md` to capture the current MCP implementation/evaluation thread as a public summary and to recommend including it in the current MCP pull request rather than publishing a raw transcript.
 - Added public-safe rubric scoring artifacts for the same effective run: `validated-full-20260419T2225Z-rubric-scores.csv`, `validated-full-20260419T2225Z-rubric-leaderboard.md`, and `validated-full-20260419T2225Z-rubric-leaderboard.json`.
 - Updated the comparison report to include the rubric-scored quality leaderboard: Codex `484/500`, Claude `480/500`, Codex with MCP `471/500`, Gemini `171/500`, and Microsoft Copilot `58/500`.
+- Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
 
 ## Validation
 
@@ -214,6 +215,12 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `python3 tools/check_documentation_lockstep.py`
   - `git diff --check`
   - Targeted publication scan found no raw answer/gold-answer columns, local run paths, UI session IDs, or Playwright profile metadata in the committed rubric report artifacts.
+- Current PR review-fix validation passed locally:
+  - `python3 -m py_compile challenge-2/MCP-Wiki/implementation/wiki_mcp/core.py challenge-2/MCP-Wiki/implementation/wiki_mcp/transport.py challenge-2/tools/workbench_mcp.py`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp`
+  - `python3 -m unittest tests.test_challenge2_wiki_mcp_server tests.test_challenge2_workbench_mcp tests.test_challenge2_eval_clients tests.test_challenge2_compare_wiki_eval`
+  - `python3 challenge-2/MCP-Wiki/tools/lint_mcp_wiki.py --write-report` reported `29` Markdown files, `311` internal links, `85` external links, complete search-term coverage, `0` errors, and `0` warnings.
+  - Searched for remaining `text[:remaining]`, `[:max_bytes]`, and `response or {}` style instances in MCP implementation paths; remaining byte slices are inside the UTF-8 truncation helpers.
 
 ## Open Items
 
