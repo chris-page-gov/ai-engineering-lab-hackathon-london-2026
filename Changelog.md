@@ -8,6 +8,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
+- 2026-04-21: Added `START-HERE.md`, a public reader guide with LinkedIn, event, time-based, and persona-based routes through the repository.
+- 2026-04-21: Expanded `output/doc/linkedin-version-1-1-announcement.md` with copy-ready main LinkedIn post text and a shorter comment for other event posts.
 - Added `challenge-2/wiki/demonstration-guide.md`, an end-to-end Challenge 2 demo route covering source construction, Obsidian validation, SeeLinks-style workbench flows, Browser AI export, the evaluation matrix/harness, and audit/FOI tracking.
 - Added `postmortem/`, a generated Codex collaboration postmortem wiki with read-only conversation sources, prompt-response exchange notes, external methodology snapshots, repository artifact permalinks, source registers, and a detailed postmortem.
 - Added `postmortem/publication-readiness-report.md` to record redaction and packaging changes required before public release of the Codex postmortem artifacts.
@@ -107,6 +109,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Documentation
 
+- 2026-04-21: Linked the new public reader guide from `README.md` and recorded it in the repository map and tracking docs.
 - Recast `README.md` from the original event-invitation framing into a fork-specific Challenge 2 implementation overview with the value proposition, start points, repository map, validation summary, and original hackathon context.
 - Added Team DSIT A attribution to the README, delivery report, security assessment, LinkedIn draft, and public postmortem generation.
 - Linked the Challenge 2 demonstration guide from the wiki index, README, and Challenge 2 brief.
