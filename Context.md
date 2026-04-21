@@ -33,6 +33,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 ## Important Paths
 
 - `README.md`: fork overview, Challenge 2 value proposition, start points, repository map, validation summary, and original hackathon context.
+- `START-HERE.md`: public reader guide for LinkedIn, event, time-based, and persona-based routes through the repository.
 - `Changelog.md`: dated change history.
 - `Context.md`: project context, architecture assumptions, and operating constraints.
 - `Progress.md`: current status, validation, blockers, and next steps.
@@ -101,6 +102,8 @@ Semantic retrieval should start with local permissive options rather than an ext
 The Codex postmortem source archive is evidence material, not automatically publication-ready content. Conversation transcripts may include local paths, screenshots, private workflow details, local assistant configuration references, and dynamic third-party source snapshots. The localized Karpathy X/gist copies have no explicit redistribution license recorded, so public releases should cite canonical URLs and publish metadata or short excerpts rather than full copied source bodies unless permission or an explicit license is obtained. The GitHub-safe `postmortem-public/` derivative redacts local paths, excludes raw transcripts, keeps `.claude/settings.local.json` visible as a conventional public path, and publishes citation-only external source notes. Repository artifact references in the postmortem use commit-specific GitHub fork permalinks where the source file was tracked at the tagged baseline; local-only sources are flagged as such. Postmortem conversation counts are local Codex session-source counts; finer-grained user/Codex turns are represented as sequenced exchanges.
 
 The contribution-modes assessment treats Codex as strongest in Explorer, Builder, Refiner, and Verifier work; useful with human steering in Framer, Architect, and Experience Shaper work; assistant-only in Security Steward work; and not autonomous for Operator work. The security baseline for any production continuation is Secure by Design, GOV.UK Service Standard point 9, the Technology Code of Practice, NCSC secure development guidance, CAF outcomes, ICO data protection by design/default, NIST SSDF, and OWASP web/CI guidance.
+
+The public sharing default is to link LinkedIn and event posts to the repository root, then use `START-HERE.md` as the reader guide for fast, time-based, and persona-based routes through the evidence pack.
 
 Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are local session state, not shared vault configuration. They are ignored and left on disk locally so using Obsidian does not repeatedly create repository changes.
 

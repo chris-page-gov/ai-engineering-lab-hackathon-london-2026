@@ -22,6 +22,8 @@ The result is not a production government service. It is a tested prototype and 
 
 ## Start Here
 
+New to the repo or arriving from LinkedIn? Start with the [reader guide](START-HERE.md) for routes by role, interest, and time available.
+
 For the Challenge 2 implementation:
 
 - [Challenge 2 brief](challenge-02-unlocking-the-dark-data.md): the original problem statement.
@@ -105,6 +107,7 @@ The original event material remains available:
 Core tracking and governance:
 
 - `README.md`: this fork overview.
+- `START-HERE.md`: reader guide for LinkedIn, event, and role-based routes through the repository.
 - `Changelog.md`: dated change history.
 - `Context.md`: project purpose, architecture assumptions, data policy, and operating constraints.
 - `Progress.md`: implementation status, validation, blockers, and next steps.
