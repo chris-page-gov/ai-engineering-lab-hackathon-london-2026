@@ -105,7 +105,7 @@ The contribution-modes assessment treats Codex as strongest in Explorer, Builder
 
 The public sharing default is to link LinkedIn and event posts to the repository root, then use `START-HERE.md` as the reader guide for fast, time-based, and persona-based routes through the evidence pack.
 
-Obsidian workspace files such as `challenge-2/.obsidian/workspace.json` are local session state, not shared vault configuration. They are ignored and left on disk locally so using Obsidian does not repeatedly create repository changes.
+Obsidian `.obsidian/` directories are local browsing state by default and are ignored throughout the repository. Previously tracked Challenge 2 Obsidian settings remain tracked until explicitly removed from Git, but new Obsidian workspace folders should not create repository changes.
 
 ## Evaluation And Audit Assumptions
 

@@ -11,10 +11,5 @@ __pycache__/
 # postmortem-public/.
 postmortem/
 
-# Root-level Obsidian state is local browsing state. Challenge 2 vault settings
-# are handled separately below.
-/.obsidian/
-
-# Obsidian session state changes on every local browsing session.
-challenge-2/.obsidian/workspace.json
-challenge-2/.obsidian/workspace-mobile.json
+# Obsidian vault state is local browsing state.
+.obsidian/

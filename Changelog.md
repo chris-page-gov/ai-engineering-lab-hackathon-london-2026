@@ -60,6 +60,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
+- 2026-04-22: Updated `.gitignore` to ignore all `.obsidian/` directories as local Obsidian browsing state.
 - Updated Challenge 2 evaluation best-model policy to use `gpt-5.4` with `xhigh` effort for Codex, Gemini CLI Auto routing, Claude Code `best` with `max` effort, staff-confirmed `gpt-5.4` for GitHub Copilot CLI, and Microsoft 365 Copilot Chat GPT-5 automatic routing for Microsoft Copilot.
 - Allowed client config to suppress a default reasoning-effort argument with JSON `null`, enabling Claude Code runs that defer model and effort selection to DSIT-managed local Claude settings.
 - Updated the Microsoft Copilot example config to prefer `Think Deeper`, cite the public `v1.1` GitHub wiki, and inject key wiki excerpts because the Microsoft web UI cannot read local repository paths.
