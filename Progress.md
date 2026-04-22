@@ -32,6 +32,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 
 `output/doc/linkedin-version-1-1-announcement.md` now contains copy-ready LinkedIn publication text plus a shorter comment suitable for replying on other event posts.
 
+`.gitignore` now ignores all `.obsidian/` directories so local Obsidian browsing state does not appear as untracked repo content.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -99,6 +101,7 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Added public-safe rubric scoring artifacts for the same effective run: `validated-full-20260419T2225Z-rubric-scores.csv`, `validated-full-20260419T2225Z-rubric-leaderboard.md`, and `validated-full-20260419T2225Z-rubric-leaderboard.json`.
 - Added `START-HERE.md`, a public reader guide with LinkedIn, event, time-based, and persona-based routes through the repository.
 - Expanded `output/doc/linkedin-version-1-1-announcement.md` with a polished main LinkedIn post and a short comment for other event posts.
+- Updated `.gitignore` to ignore all `.obsidian/` directories as local Obsidian browsing state.
 - Updated the comparison report to include the rubric-scored quality leaderboard: Codex `484/500`, Claude `480/500`, Codex with MCP `471/500`, Gemini `171/500`, and Microsoft Copilot `58/500`.
 - Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
 - Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
