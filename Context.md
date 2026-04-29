@@ -52,6 +52,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `challenge-2/tools/wiki_eval_mcp.py`: stdio MCP-compatible audit layer for controlled wiki read/search and answer recording.
 - `challenge-2/tools/summarise_wiki_eval.py`: leaderboard summariser for scored harness runs.
 - `challenge-2/tools/workbench_mcp.py`: stdio MCP server for Dark Data Workbench source search, source read, and context export.
+- `challenge-2/workbench/src/routes/api/source-note/[sourceId]/+server.ts`: local Markdown endpoint used by Dark Data Workbench reader links so source notes can be opened from the app.
 - `challenge-2/MCP-Wiki/index.md`: MCP research wiki entry point for the planned purpose-built Wiki MCP server.
 - `challenge-2/MCP-Wiki/implementation/`: implemented read-only Wiki MCP server package, transports, and validation notes.
 - `challenge-2/MCP-Wiki/research/Challenge 2 Wiki MCP Server Research Report.md`: Deep Research report motivating the Wiki MCP server architecture.
@@ -87,7 +88,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `output/doc/codex-contribution-modes-security-assessment.md`: government-security and contribution-mode assessment of Codex's role in the project.
 - `output/doc/linkedin-version-1-1-announcement.md`: LinkedIn announcement draft for the Version 1.1 public release.
 
-Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context. The workbench also carries a user-entered question through Browser AI JSON, copied prompts, and Markdown evidence bundles so exported evidence remains tied to the question it is meant to answer.
+Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context. The workbench also carries a user-entered question through Browser AI JSON, copied prompts, and Markdown evidence bundles so exported evidence remains tied to the question it is meant to answer. When a context set has selected sources, exports use the selected corpus records even if the current search or filters hide those cards. Reader note links resolve through a local Markdown endpoint rather than assuming the generated wiki folder is served as app-static content.
 
 The Challenge 2 demonstration guide is the recommended walkthrough for showing the complete prototype. It ties the source corpus, Obsidian wiki, SeeLinks-style workbench, Browser AI export, evaluation benchmark, harness outputs, and audit/FOI record back to the `Unlocking_Dark_Data.pdf` slide narrative and benchmark scoring guide.
 

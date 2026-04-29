@@ -19,5 +19,6 @@ pnpm test:coverage
 ## AI Modes
 
 - **No AI:** deterministic search, facets, saved checks, reader, graph, workbook table view, and evidence bundles.
-- **Browser AI:** copy/download JSON context, copy a browser prompt, or download Markdown evidence. Exports include the current question box text.
+- **Reader:** open rendered note text in the workbench or via the local `/api/source-note/<source-id>` Markdown endpoint.
+- **Browser AI:** copy/download JSON context, copy a browser prompt, or download Markdown evidence. Exports include the current question box text and selected sources even when filters or search terms currently hide them.
 - **MCP:** run `python3 ../tools/workbench_mcp.py` from this directory or `python3 challenge-2/tools/workbench_mcp.py` from the repository root.
