@@ -227,6 +227,20 @@ describe('workbench corpus model', () => {
     expect(context.sources[0].selected).toBe(true);
     expect(context.sources[0].highlighted).toBe(true);
 
+    const filteredContext = buildContextExport({
+      corpus,
+      visibleSources: corpus.sources.filter((source) => source.sourceId === 'DOC-HB-002'),
+      selectedIds,
+      highlightedIds: new Set(),
+      filters: EMPTY_FILTERS,
+      question: 'Who is listed in the staff directory?',
+      query: 'staff',
+      mode: 'browser-ai',
+    });
+
+    expect(filteredContext.view.total_in_view).toBe(1);
+    expect(filteredContext.sources.map((source) => source.source_id)).toEqual(['UF-STAFF-DIRECTORY-EXTRACT-Q4-2023']);
+
     const prompt = buildBrowserPrompt(context);
     expect(prompt).toContain('Cite source_id');
     expect(prompt).toContain('Do not redact synthetic');

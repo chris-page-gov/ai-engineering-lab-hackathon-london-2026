@@ -84,6 +84,12 @@ test.describe('Dark Data Workbench', () => {
     await expect(readerMetadata.getByText('Raw source')).toBeVisible();
     await expect(readerMetadata.getByText('structured_files/DOC-HB-002-discretionary-housing-payments.md')).toBeVisible();
     await expect(readerMetadata.getByText('wiki/sources/doc-hb-002')).toBeVisible();
+
+    const noteHref = await page.getByRole('link', { name: 'Open note' }).getAttribute('href');
+    expect(noteHref).toBeTruthy();
+    const noteResponse = await page.request.get(new URL(noteHref!, page.url()).toString());
+    expect(noteResponse.status()).toBe(200);
+    expect(await noteResponse.text()).toContain('DOC-HB-002');
   });
 
   test('runs the five no-AI saved checks with source-backed results', async ({ page }) => {

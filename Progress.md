@@ -34,6 +34,8 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 
 `.gitignore` now ignores all `.obsidian/` directories so local Obsidian browsing state does not appear as untracked repo content.
 
+The current local branch is `codex/workbench-review`, focused on Dark Data Workbench review and fixes. Initial validation found the existing typecheck, unit/component suite, production build, and Playwright UI suite passing before changes.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -103,6 +105,9 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 - Expanded `output/doc/linkedin-version-1-1-announcement.md` with a polished main LinkedIn post and a short comment for other event posts.
 - Updated `.gitignore` to ignore all `.obsidian/` directories as local Obsidian browsing state.
 - Updated the comparison report to include the rubric-scored quality leaderboard: Codex `484/500`, Claude `480/500`, Codex with MCP `471/500`, Gemini `171/500`, and Microsoft Copilot `58/500`.
+- Added a Dark Data Workbench source-note Markdown endpoint and updated reader links so `Open note` resolves inside the local app.
+- Fixed Dark Data Workbench context export selection so selected sources remain exported even when the active search or filters hide them.
+- Added pnpm workspace build-approval config for the workbench `esbuild` dependency.
 - Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
 - Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
 - Addressed the latest PR review comment as a reproducibility bug class: the `codex-mcp` spawned Wiki MCP server now receives configured server args, including `semantic_model_id`, so live MCP retrieval uses the same semantic model recorded for the prompt context-pack seed.
@@ -133,6 +138,17 @@ The attached contribution-modes proposal has been converted to Markdown under `o
   - `cd challenge-2/workbench && pnpm build`
   - `cd challenge-2/workbench && pnpm test:ui`
   - `python3 -m unittest tests/test_challenge2_workbench_mcp.py`
+- Current Dark Data Workbench review baseline on `codex/workbench-review` passed locally:
+  - `cd challenge-2/workbench && pnpm check`
+  - `cd challenge-2/workbench && pnpm test`
+  - `cd challenge-2/workbench && pnpm build`
+  - `cd challenge-2/workbench && pnpm test:ui`
+  - `cd challenge-2/workbench && pnpm test:coverage`
+  - `python3 -m unittest tests/test_challenge2_workbench_mcp.py`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
+  - Live Playwright interaction pass confirmed 43 initial source cards, exact source search narrowing to one card, Browser AI controls, graph rendering, and no console/page/request errors.
+  - Local `curl` smoke test confirmed `/api/source-note/DOC-HB-002` returns Markdown with HTTP `200`, and the static build emitted source-note endpoint files.
 - Current documentation validation for the Challenge 2 demonstration guide passed locally:
   - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`
   - `python3 tools/check_documentation_lockstep.py`

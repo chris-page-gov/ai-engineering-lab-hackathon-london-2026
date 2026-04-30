@@ -8,6 +8,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
+- 2026-04-29: Added a Dark Data Workbench source-note Markdown endpoint so reader note links resolve under the local dev/static app.
+- 2026-04-29: Added `challenge-2/workbench/pnpm-workspace.yaml` to record the approved pnpm build dependency for `esbuild`.
 - 2026-04-21: Added `START-HERE.md`, a public reader guide with LinkedIn, event, time-based, and persona-based routes through the repository.
 - 2026-04-21: Expanded `output/doc/linkedin-version-1-1-announcement.md` with copy-ready main LinkedIn post text and a shorter comment for other event posts.
 - Added `challenge-2/wiki/demonstration-guide.md`, an end-to-end Challenge 2 demo route covering source construction, Obsidian validation, SeeLinks-style workbench flows, Browser AI export, the evaluation matrix/harness, and audit/FOI tracking.
@@ -78,6 +80,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Fixed
 
+- 2026-04-29: Fixed Dark Data Workbench Browser AI/MCP context exports so selected sources remain in the exported context even when current filters or search terms hide them.
+- 2026-04-29: Fixed Dark Data Workbench reader `Open note` links that previously resolved to missing `/wiki/...` paths in the app.
 - Updated the Challenge 2 architecture Mermaid labels from `1.`, `2.`, etc. to `Step 1:`, `Step 2:`, etc. so Obsidian does not render them as unsupported Markdown lists.
 - Fixed the documentation lockstep check so it fails if required tracking files are deleted, even when their deleted paths appear in the diff.
 - Hardened Dark Data Workbench Playwright interactions for facet and view controls, and exposed explicit pressed-state metadata for those controls.

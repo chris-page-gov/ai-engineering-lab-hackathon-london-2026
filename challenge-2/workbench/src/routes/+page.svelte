@@ -171,6 +171,7 @@
       .slice(0, 40);
 
   const filterActive = (key: keyof FilterState, value: string) => filters[key].includes(value);
+  const sourceNoteHref = (source: WorkbenchSource) => `/api/source-note/${encodeURIComponent(source.sourceId)}`;
 </script>
 
 <svelte:head>
@@ -333,7 +334,7 @@
                 <button type="button" class="secondary" on:click={() => toggleSelect(activeSource)}>
                   {selectedIds.has(activeSource.sourceId) ? 'Remove from context' : 'Add to context'}
                 </button>
-                <a href={`../${activeSource.notePath}`} target="_blank" rel="noreferrer">Open note</a>
+                <a href={sourceNoteHref(activeSource)} target="_blank" rel="noreferrer">Open note</a>
               </div>
             </div>
             <div class="metadata-table">

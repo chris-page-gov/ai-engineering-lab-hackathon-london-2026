@@ -279,7 +279,7 @@ export const buildContextExport = ({
   mode: ContextExport['mode'];
 }): ContextExport => {
   const contextSources = selectedIds.size
-    ? visibleSources.filter((source) => selectedIds.has(source.sourceId))
+    ? corpus.sources.filter((source) => selectedIds.has(source.sourceId))
     : visibleSources;
   return {
     exported_at: new Date().toISOString(),
