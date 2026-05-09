@@ -34,7 +34,9 @@ The attached contribution-modes proposal has been converted to Markdown under `o
 
 `.gitignore` now ignores all `.obsidian/` directories so local Obsidian browsing state does not appear as untracked repo content.
 
-The current local branch is `codex/workbench-review`, focused on Dark Data Workbench review and fixes. Initial validation found the existing typecheck, unit/component suite, production build, and Playwright UI suite passing before changes.
+A reusable repo-local skill now captures the postmortem pattern from this project so the same audit-level full-private plus public-redacted workflow can be applied in another repository without reconstructing it from the generated artifacts.
+
+The current local branch is `codex/workbench-ui-review`, focused on Dark Data Workbench review and fixes. Initial validation found the existing typecheck, unit/component suite, production build, and Playwright UI suite passing before changes.
 
 ## Completed
 
@@ -66,6 +68,7 @@ The current local branch is `codex/workbench-review`, focused on Dark Data Workb
 - Added localized-source licensing findings to the publication-readiness report.
 - Added `postmortem-public/` as the GitHub-safe postmortem replacement, with redacted exchange notes, conversation summaries, citation-only external source notes, public repository evidence links, decision registers, and publication lint output.
 - Added `.gitignore` coverage for the private `postmortem/` archive so the public derivative is the only postmortem folder intended for GitHub.
+- Added `skills/assistant-postmortem-wiki/`, a reusable repo-local skill that encodes the audit-level full-private plus public-redacted postmortem workflow used here.
 - Created the local `v1-challenge-2` tag at commit `326a82a8f17440d49471dab6a11d2b725b879359` before starting postmortem work on `codex/postmortem-wiki`.
 - Converted the attached `Contribution Modes Proposal.docx` to `output/doc/contribution-modes-proposal.md` with extracted media.
 - Added `output/doc/codex-contribution-modes-security-assessment.md` with contribution-mode analysis, Codex suitability conclusions, and security findings against government Secure by Design and secure-development expectations.
@@ -138,7 +141,7 @@ The current local branch is `codex/workbench-review`, focused on Dark Data Workb
   - `cd challenge-2/workbench && pnpm build`
   - `cd challenge-2/workbench && pnpm test:ui`
   - `python3 -m unittest tests/test_challenge2_workbench_mcp.py`
-- Current Dark Data Workbench review baseline on `codex/workbench-review` passed locally:
+- Current Dark Data Workbench review baseline on `codex/workbench-ui-review` passed locally:
   - `cd challenge-2/workbench && pnpm check`
   - `cd challenge-2/workbench && pnpm test`
   - `cd challenge-2/workbench && pnpm build`
@@ -161,6 +164,11 @@ The current local branch is `codex/workbench-review`, focused on Dark Data Workb
   - `python3 -m py_compile tools/build_codex_postmortem.py`
   - `python3 tools/build_codex_postmortem.py`
   - `python3 -m unittest tests/test_build_codex_postmortem.py`
+- Current reusable postmortem-skill validation passed locally:
+  - checked `skills/assistant-postmortem-wiki/SKILL.md` against the repository's working audit-level private/archive plus public/redacted split
+  - checked `skills/assistant-postmortem-wiki/references/reference-implementation.md` against `tools/build_codex_postmortem.py`, `postmortem-public/AGENTS.md`, and `postmortem-public/README.md`
+  - `python3 tools/check_documentation_lockstep.py`
+  - `git diff --check`
   - Generated private lint reports `5` conversation sources, `66` exchanges, `3` external sources, `44` repository artifact sources, and `0` broken internal links.
   - Generated public publication lint report with `0` broken internal links and `0` forbidden publication hits.
 - Current postmortem publication-readiness review used targeted scans for local paths, account/workspace identifiers, credential-shaped strings, email-address patterns, copied external-source material, read-only source permissions, and untracked publication-adjacent artifacts.

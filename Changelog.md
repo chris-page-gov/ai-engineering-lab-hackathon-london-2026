@@ -12,6 +12,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - 2026-04-29: Added `challenge-2/workbench/pnpm-workspace.yaml` to record the approved pnpm build dependency for `esbuild`.
 - 2026-04-21: Added `START-HERE.md`, a public reader guide with LinkedIn, event, time-based, and persona-based routes through the repository.
 - 2026-04-21: Expanded `output/doc/linkedin-version-1-1-announcement.md` with copy-ready main LinkedIn post text and a shorter comment for other event posts.
+- 2026-05-09: Added the reusable repo-local skill `skills/assistant-postmortem-wiki/` to preserve the audit-level full-private plus public-redacted postmortem workflow from this project for reuse elsewhere.
 - Added `challenge-2/wiki/demonstration-guide.md`, an end-to-end Challenge 2 demo route covering source construction, Obsidian validation, SeeLinks-style workbench flows, Browser AI export, the evaluation matrix/harness, and audit/FOI tracking.
 - Added `postmortem/`, a generated Codex collaboration postmortem wiki with read-only conversation sources, prompt-response exchange notes, external methodology snapshots, repository artifact permalinks, source registers, and a detailed postmortem.
 - Added `postmortem/publication-readiness-report.md` to record redaction and packaging changes required before public release of the Codex postmortem artifacts.

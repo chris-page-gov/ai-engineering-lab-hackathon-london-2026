@@ -84,6 +84,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `postmortem-public/wiki/data/publication-lint-report.json`: machine-readable publication lint output.
 - `tools/build_codex_postmortem.py`: repeatable builder for both the private postmortem archive and public derivative.
 - `tests/test_build_codex_postmortem.py`: regression tests for postmortem contribution classification and public path sanitisation.
+- `skills/assistant-postmortem-wiki/SKILL.md`: reusable skill for generating an audit-level full private postmortem plus a GitHub-safe redacted public postmortem from AI-assistant conversations and repository artifacts.
 - `output/doc/contribution-modes-proposal.md`: Markdown conversion of the attached report used as the contribution-mode evaluation frame.
 - `output/doc/codex-contribution-modes-security-assessment.md`: government-security and contribution-mode assessment of Codex's role in the project.
 - `output/doc/linkedin-version-1-1-announcement.md`: LinkedIn announcement draft for the Version 1.1 public release.
