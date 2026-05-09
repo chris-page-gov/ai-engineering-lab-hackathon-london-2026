@@ -35,6 +35,7 @@ For the Challenge 2 implementation:
 - [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem.
 - [Contribution modes and security assessment](output/doc/codex-contribution-modes-security-assessment.md): assessment of Codex, contribution modes, and security findings.
 - [MCP research wiki](challenge-2/MCP-Wiki/index.md): research, candidates, licensing posture, and implementation planning for a purpose-built Wiki MCP server.
+- [HMRC Beyond the Hype talk research pack](research/hmrc-beyond-hype/00_research_brief.md): evidence-backed preparation for a mixed-audience talk on moving from coding assistants to coding agents.
 - [LinkedIn announcement draft](output/doc/linkedin-version-1-1-announcement.md): publication post for Version 1.1.
 
 ## What Was Built
@@ -137,6 +138,7 @@ Reports and publication artifacts:
 - `output/doc/contribution-modes-proposal.md`: Markdown conversion of the attached contribution-modes proposal.
 - `output/doc/codex-contribution-modes-security-assessment.md`: contribution-mode and security assessment.
 - `output/doc/linkedin-version-1-1-announcement.md`: LinkedIn announcement draft for Version 1.1.
+- `research/hmrc-beyond-hype/`: HMRC Beyond the Hype talk research pack, source register, case study, operating model, and appendices.
 - `postmortem-public/wiki/index.md`: public Codex collaboration postmortem entry point.
 - `postmortem-public/wiki/decisions.md`: publication decision register.
 - `postmortem-public/wiki/data/publication-lint-report.json`: machine-readable publication lint output.
