@@ -6,6 +6,8 @@ This fork is Team DSIT A's working Challenge 2 implementation and evidence pack 
 
 The original repository was an event pack for a one-day AI-assisted engineering hackathon. This fork is a worked example of how AI coding assistants can help build a source-backed LLM Wiki, browser workbench, MCP/evaluation harness, delivery report, public postmortem, and security assessment for a government-style dark-data problem.
 
+The repository now also includes an HMRC Beyond the Hype talk research pack that uses this fork as a public-sector case study for the transition from coding assistants to coding agents. The pack is evidence-led and treats the Challenge 2 work as a bounded synthetic-data prototype, not as production assurance or a recommendation to use agents on real HMRC data without approved controls.
+
 ## Current Prototype Focus
 
 The active build work has focused on Challenge 2: Unlocking the dark data.
@@ -88,6 +90,10 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `output/doc/contribution-modes-proposal.md`: Markdown conversion of the attached report used as the contribution-mode evaluation frame.
 - `output/doc/codex-contribution-modes-security-assessment.md`: government-security and contribution-mode assessment of Codex's role in the project.
 - `output/doc/linkedin-version-1-1-announcement.md`: LinkedIn announcement draft for the Version 1.1 public release.
+- `research/hmrc-beyond-hype/00_research_brief.md`: HMRC Beyond the Hype talk research brief for "From Typing Code to Steering Agents".
+- `research/hmrc-beyond-hype/01_source_register.csv`: external and repo-local evidence register, with repo-local claims mapped to GitHub permalinks where possible.
+- `research/hmrc-beyond-hype/06_repo_case_study_codex_build.md`: evidence-led Challenge 2 Codex build case study.
+- `research/hmrc-beyond-hype/07_operating_model_for_public_sector_engineering.md`: five-layer operating model for piloting coding agents in public-sector engineering.
 
 Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context. The workbench also carries a user-entered question through Browser AI JSON, copied prompts, and Markdown evidence bundles so exported evidence remains tied to the question it is meant to answer. When a context set has selected sources, exports use the selected corpus records even if the current search or filters hide those cards. Reader note links resolve through a local Markdown endpoint rather than assuming the generated wiki folder is served as app-static content.
 

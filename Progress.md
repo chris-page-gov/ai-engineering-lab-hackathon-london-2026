@@ -38,6 +38,8 @@ A reusable repo-local skill now captures the postmortem pattern from this projec
 
 The current local branch is `codex/workbench-ui-review`, focused on Dark Data Workbench review and fixes. Initial validation found the existing typecheck, unit/component suite, production build, and Playwright UI suite passing before changes.
 
+The current local branch now also includes `research/hmrc-beyond-hype/`, a complete talk-preparation research pack for an HMRC Beyond the Hype session on moving from coding assistants to coding agents. The pack covers the research brief, source register, timeline, productivity evidence, agentic capability analysis, public-sector governance, repo case study, operating model, and appendices required by `research/hmrc-beyond-hype-prompt-kit/prompts/00_master_prompt.md`.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -78,6 +80,8 @@ The current local branch is `codex/workbench-ui-review`, focused on Dark Data Wo
 - Added `output/doc/linkedin-version-1-1-announcement.md` for public Version 1.1 announcement copy.
 - Addressed PR review comments by fixing whole-word contribution classification, single-pass Jina Reader source URLs, and public sanitisation for bare local path markers.
 - Added `tests/test_build_codex_postmortem.py` to guard postmortem contribution inference and public sanitisation regressions.
+- Added the HMRC Beyond the Hype talk research pack under `research/hmrc-beyond-hype/`, including all Stage 1-8 outputs and appendices from the prompt kit.
+- Added line-level GitHub permalinks after repo-local paths in the source register, repo case study, operating model, and claims matrix where practical.
 - Published Version 1.1 from `main` with a GitHub tag and release.
 - Created `codex/evaluation-versioning` from the clean `v1.1` baseline for the next evaluation run.
 - Added Challenge 2 evaluation model/version capture for Codex, Gemini CLI, Claude Code, GitHub Copilot CLI, Microsoft Copilot UI runs, and detected Microsoft Copilot desktop apps.
@@ -120,6 +124,12 @@ The current local branch is `codex/workbench-ui-review`, focused on Dark Data Wo
 
 ## Validation
 
+- Current HMRC Beyond the Hype talk research pack validation passed locally:
+  - confirmed all `12` master-prompt deliverables exist under `research/hmrc-beyond-hype/`;
+  - parsed `research/hmrc-beyond-hype/01_source_register.csv` as `50` source rows from `EXT-001` through `REPO-022`;
+  - checked for stale repo-local pseudo-links, placeholder markers, and transcript processing remnants in the talk pack and lockstep docs;
+  - ran `python3 tools/check_documentation_lockstep.py`;
+  - ran `git diff --check`.
 - Challenge 2 strict build previously passed with `43 sources, 81 notes, 0 lint issues`.
 - Current lightweight validation for the Mermaid fix passed:
   - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`

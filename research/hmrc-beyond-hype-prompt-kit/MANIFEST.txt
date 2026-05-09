@@ -1,0 +1,16 @@
+research/hmrc-beyond-hype-prompt-kit/README.md
+research/hmrc-beyond-hype-prompt-kit/context/project_context.md
+research/hmrc-beyond-hype-prompt-kit/context/research_method_and_evidence_rules.md
+research/hmrc-beyond-hype-prompt-kit/context/seed_source_list.md
+research/hmrc-beyond-hype-prompt-kit/prompts/00_master_prompt.md
+research/hmrc-beyond-hype-prompt-kit/prompts/01_stage_1_repository_forensic_extraction.md
+research/hmrc-beyond-hype-prompt-kit/prompts/02_stage_2_external_source_discovery.md
+research/hmrc-beyond-hype-prompt-kit/prompts/03_stage_3_timeline_reconstruction.md
+research/hmrc-beyond-hype-prompt-kit/prompts/04_stage_4_empirical_evidence_synthesis.md
+research/hmrc-beyond-hype-prompt-kit/prompts/05_stage_5_capability_and_benchmark_analysis.md
+research/hmrc-beyond-hype-prompt-kit/prompts/06_stage_6_security_governance_public_sector.md
+research/hmrc-beyond-hype-prompt-kit/prompts/07_stage_7_case_study_synthesis.md
+research/hmrc-beyond-hype-prompt-kit/prompts/08_stage_8_public_sector_operating_model.md
+research/hmrc-beyond-hype-prompt-kit/prompts/99_all_prompts_combined.md
+research/hmrc-beyond-hype-prompt-kit/templates/claims_matrix_template.md
+research/hmrc-beyond-hype-prompt-kit/templates/source_register_template.csv
