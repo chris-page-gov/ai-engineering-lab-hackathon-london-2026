@@ -8,6 +8,8 @@ The original repository was an event pack for a one-day AI-assisted engineering 
 
 The repository now also includes an HMRC Beyond the Hype talk research pack that uses this fork as a public-sector case study for the transition from coding assistants to coding agents. The pack is evidence-led and treats the Challenge 2 work as a bounded synthetic-data prototype, not as production assurance or a recommendation to use agents on real HMRC data without approved controls.
 
+Repo-local GitHub permalinks in the HMRC talk pack are pinned to the clean talk-prep branch commit rather than to `main`, so cited line numbers remain stable before and after PR review.
+
 ## Current Prototype Focus
 
 The active build work has focused on Challenge 2: Unlocking the dark data.

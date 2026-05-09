@@ -125,6 +125,7 @@ The current local branch now also includes `research/hmrc-beyond-hype/`, a compl
   - confirmed all `12` master-prompt deliverables exist under `research/hmrc-beyond-hype/`;
   - parsed `research/hmrc-beyond-hype/01_source_register.csv` as `50` source rows from `EXT-001` through `REPO-022`;
   - checked for stale repo-local pseudo-links, placeholder markers, and transcript processing remnants in the talk pack and lockstep docs;
+  - retested all `69` repo-local GitHub blob links in `research/hmrc-beyond-hype/` against the pinned clean-branch commit and found `0` missing paths or invalid line references;
   - ran `python3 tools/check_documentation_lockstep.py`;
   - ran `git diff --check`.
 - Challenge 2 strict build previously passed with `43 sources, 81 notes, 0 lint issues`.

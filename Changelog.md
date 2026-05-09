@@ -9,7 +9,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 ### Added
 
 - 2026-05-09: Added `research/hmrc-beyond-hype/`, a complete HMRC Beyond the Hype talk research pack covering the research brief, source register, AI software-engineering timeline, empirical productivity evidence, agentic capability analysis, public-sector governance, Codex build case study, operating model, and appendices required by the local prompt kit.
-- 2026-05-09: Added line-level GitHub permalinks after repo-local evidence paths in the HMRC talk source register, case study, operating model, and claims matrix where practical.
+- 2026-05-09: Added line-level GitHub permalinks after repo-local evidence paths in the HMRC talk source register, case study, operating model, and claims matrix where practical, pinned to the clean talk-prep branch commit for line stability.
 - 2026-04-29: Added a Dark Data Workbench source-note Markdown endpoint so reader note links resolve under the local dev/static app.
 - 2026-04-29: Added `challenge-2/workbench/pnpm-workspace.yaml` to record the approved pnpm build dependency for `esbuild`.
 - 2026-04-21: Added `START-HERE.md`, a public reader guide with LinkedIn, event, time-based, and persona-based routes through the repository.
@@ -132,7 +132,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Validation
 
-- 2026-05-09: Verified the HMRC Beyond the Hype talk research pack has all `12` master-prompt deliverables, a parseable `50`-row source register, no stale repo-local pseudo-links or transcript processing remnants, passing documentation lockstep, and clean `git diff --check`.
+- 2026-05-09: Verified the HMRC Beyond the Hype talk research pack has all `12` master-prompt deliverables, a parseable `50`-row source register, no stale repo-local pseudo-links or transcript processing remnants, `69` valid repo-local GitHub blob links, passing documentation lockstep, and clean `git diff --check`.
 - Verified the MCP research wiki lint: `22` Markdown files, `222` internal links, `67` external links, complete search-term coverage, `0` errors, and `0` warnings.
 - Verified all `31` MCP bibliography URLs returned HTTP success responses and replaced stale Microsoft/NCSC citation targets with current URLs.
 - Verified the MCP research wiki lint after submodule metadata: `27` Markdown files, `270` internal links, `75` external links, complete search-term coverage, `0` errors, and `0` warnings.

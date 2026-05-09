@@ -27,7 +27,7 @@ Avoid or escalate:
 - production operation, incident response, access-control changes, or irreversible actions
 - policy interpretation where a named policy owner must decide the answer
 
-Repo pattern: Challenge 2 used synthetic material and treated source data as immutable. Local evidence: `challenge-2/wiki/architecture.md:112` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/challenge-2/wiki/architecture.md#L112)); `challenge-2/AGENTS.md:7` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/challenge-2/AGENTS.md#L7)).
+Repo pattern: Challenge 2 used synthetic material and treated source data as immutable. Local evidence: `challenge-2/wiki/architecture.md:112` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/challenge-2/wiki/architecture.md#L112)); `challenge-2/AGENTS.md:7` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/challenge-2/AGENTS.md#L7)).
 
 ### 2. Agent Environment
 
@@ -42,7 +42,7 @@ The agent environment should make the safe path the easy path:
 - record commands, validation, and decisions
 - separate public artefacts from private working evidence
 
-Repo pattern: the repository rules require documentation lockstep and validation, while Challenge 2 rules keep raw source folders read-only. Local evidence: `AGENTS.md:9` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/AGENTS.md#L9)); `AGENTS.md:34` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/AGENTS.md#L34)).
+Repo pattern: the repository rules require documentation lockstep and validation, while Challenge 2 rules keep raw source folders read-only. Local evidence: `AGENTS.md:9` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/AGENTS.md#L9)); `AGENTS.md:34` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/AGENTS.md#L34)).
 
 ### 3. Prompting And Steering
 
@@ -62,7 +62,7 @@ Evidence required for claims:
 Review boundaries:
 ```
 
-Repo pattern: the build worked because operating files kept context, progress, and change history visible to the agent and reviewers. Local evidence: `Context.md:137` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/Context.md#L137)); `Progress.md:121` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/Progress.md#L121)).
+Repo pattern: the build worked because operating files kept context, progress, and change history visible to the agent and reviewers. Local evidence: `Context.md:137` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/Context.md#L137)); `Progress.md:121` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/Progress.md#L121)).
 
 ### 4. Review And Assurance
 
@@ -76,7 +76,7 @@ Review should focus on evidence, not polish:
 - require human sign-off for security, privacy, architecture, operational, and policy decisions
 - keep benchmark and model claims scoped to the evidence that produced them
 
-Repo pattern: the contribution-mode assessment explicitly treats Codex as strong for Explorer, Builder, Refiner, and Verifier work, but not as an autonomous Security Steward or Operator. Local evidence: `output/doc/codex-contribution-modes-security-assessment.md:163` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/output/doc/codex-contribution-modes-security-assessment.md#L163)); `output/doc/codex-contribution-modes-security-assessment.md:170` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/output/doc/codex-contribution-modes-security-assessment.md#L170)).
+Repo pattern: the contribution-mode assessment explicitly treats Codex as strong for Explorer, Builder, Refiner, and Verifier work, but not as an autonomous Security Steward or Operator. Local evidence: `output/doc/codex-contribution-modes-security-assessment.md:163` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/output/doc/codex-contribution-modes-security-assessment.md#L163)); `output/doc/codex-contribution-modes-security-assessment.md:170` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/output/doc/codex-contribution-modes-security-assessment.md#L170)).
 
 ### 5. Learning Loop
 
@@ -90,7 +90,7 @@ Every pilot should leave behind reusable learning:
 - which prompts, rules, and checks should become standard
 - which tasks should stay out of scope
 
-Repo pattern: this project used `Changelog.md`, `Context.md`, and `Progress.md` as living memory for decisions, validation, and next steps. Local evidence: `Changelog.md:5` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/Changelog.md#L5)); `Context.md:146` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/d5aa7c9688f2a703cc6665344a37d5e7cb0fe50f/Context.md#L146)).
+Repo pattern: this project used `Changelog.md`, `Context.md`, and `Progress.md` as living memory for decisions, validation, and next steps. Local evidence: `Changelog.md:5` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/Changelog.md#L5)); `Context.md:146` ([GitHub](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/126f9f0df4a6d4c3993e28df52b609e26316070f/Context.md#L146)).
 
 ## RACI-Style Responsibilities
 
