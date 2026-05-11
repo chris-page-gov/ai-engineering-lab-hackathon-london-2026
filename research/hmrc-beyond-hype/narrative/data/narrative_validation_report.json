@@ -1,0 +1,19 @@
+{
+  "asset_files": 73,
+  "covered_items": 73,
+  "errors": [],
+  "expected_counts": {
+    "ai-benchmark-mastery-scoring-guide": 1,
+    "ai-coding-assistants-2026-evolution": 1,
+    "ai-native-engineering-blueprint": 15,
+    "ai-native-engineering-team-source-openai": 20,
+    "ai-native-engineering-team-workflow": 1,
+    "challenge-2-unlocking-dark-data": 10,
+    "dark-data-blueprint": 13,
+    "governing-ai-engineering": 12
+  },
+  "markdown_files": 90,
+  "ok": true,
+  "orphan_count": 0,
+  "sidecar_count": 73
+}

@@ -19,9 +19,11 @@ The source register is [01_source_register.csv](01_source_register.csv). Methods
 
 ## 2026-05-11 Import Note
 
-The local `research/hmrc-beyond-hype/import/` drop adds a richer market briefing, slide-source files, image assets, a PDF on AI-native engineering teams, and two audio files. The immediate talk implication is to strengthen the category-first framing: IDE assistant, terminal/repo agent, PR/review assistant, autonomous issue-to-PR agent, and enterprise control layer.
+The local `research/hmrc-beyond-hype/import/` drop adds a richer market briefing, a ClawPilot / OpenClaw research brief, slide-source files, image assets, a PDF on AI-native engineering teams, and two audio files. The immediate talk implication is to strengthen the category-first framing: IDE assistant, terminal/repo agent, PR/review assistant, autonomous issue-to-PR agent, and enterprise control layer.
 
 Treat the imported material as source input, not finished evidence. The Markdown briefing is useful enough to track, but the larger binary/audio resources remain local by default until there is a clear publication decision. The two audio files have been transcribed under `research/hmrc-beyond-hype/transcripts/`, including pyannote `Trace` / `Query` voice-name diarization drafts. Promote individual claims into the main source register only after their external links, dates, and audio quotations have been revalidated.
+
+The active follow-on goal is recorded in [narrative/README.md](narrative/README.md): build a GitHub-browsable narrative wiki with slide/image sidecars, topic navigation, valid links, no orphaned notes, and a coherent talk arc. The current sidecar milestone is browseable from [narrative/index.md](narrative/index.md), with 73 visual sidecars and validation output under [narrative/data/](narrative/data/).
 
 ## One-page synthesis
 

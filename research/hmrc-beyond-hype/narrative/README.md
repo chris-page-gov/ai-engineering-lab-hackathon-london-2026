@@ -1,0 +1,172 @@
+# HMRC Talk Narrative Wiki Goal
+
+## Purpose
+
+Create a navigable narrative pack for the HMRC Beyond the Hype talk that can be shared as a GitHub link during or after the session.
+
+The pack should turn the current research material, imported AI-generated slides, imported images, imported PDFs, and transcripts into a short, focused, keyword-classified, highly interlinked Markdown corpus. The result should work like a small wiki: readers should be able to start from one obvious entry point, follow the narrative arc, inspect supporting material, and jump by topic.
+
+This file is the durable replacement for the attempted `/goal` command. Future Codex work on the talk should treat this as the active goal until it is explicitly superseded.
+
+## Current Status
+
+Status: sidecar milestone complete; full narrative curation still in progress.
+
+The narrative wiki now has a GitHub-browsable scaffold, visual sidecars, coverage reports, derived image assets, and a validation report. Large imported binary/audio/PDF/PPTX materials remain local by default unless explicitly selected for publication.
+
+## Source Inputs
+
+Use the existing committed research pack:
+
+- `research/hmrc-beyond-hype/00_research_brief.md`
+- `research/hmrc-beyond-hype/01_source_register.csv`
+- `research/hmrc-beyond-hype/02_timeline_ai_software_engineering.md`
+- `research/hmrc-beyond-hype/03_empirical_evidence_productivity.md`
+- `research/hmrc-beyond-hype/04_agentic_coding_capabilities.md`
+- `research/hmrc-beyond-hype/05_security_governance_public_sector.md`
+- `research/hmrc-beyond-hype/06_repo_case_study_codex_build.md`
+- `research/hmrc-beyond-hype/07_operating_model_for_public_sector_engineering.md`
+- `research/hmrc-beyond-hype/appendices/`
+- `research/hmrc-beyond-hype/transcripts/`
+
+Also inspect the local import drop in `research/hmrc-beyond-hype/import/`, including:
+
+- `AI-Native_Engineering_Blueprint.pptx`
+- `Challenge_2_Unlocking_Dark_Data.pptx`
+- `Dark_Data_Blueprint.pptx`
+- `Governing_AI_Engineering.pptx`
+- `AI-Native-Engineering-Team-source_openAI.pdf`
+- imported PNG images
+- the imported AI-generated Markdown briefing
+- `clawpilot.md`, the local ClawPilot / OpenClaw research brief used for the current agentic-workplace sidebar
+
+Do not commit raw imported binary/audio/PDF/PPTX material unless the user explicitly selects it for publication. Prefer committed derivatives that are small, reviewable, and useful on GitHub.
+
+## Target Output
+
+Build a committed folder of text and image artefacts under `research/hmrc-beyond-hype/narrative/`.
+
+Expected structure:
+
+- `index.md`: the obvious entry point for the talk link.
+- `overview.md`: a one-page explanation of the whole story.
+- `narrative-arc.md`: the coherent beginning-to-end argument for the talk.
+- `topics.md`: topic list with links into all relevant notes.
+- `source-materials.md`: publication-safe register of the imported source assets and derived artefacts.
+- `slides/`: one Markdown sidecar per slide or major image, with publication-safe image derivatives where appropriate.
+- `notes/`: short, focused wiki notes for concepts, claims, risks, tools, workflow patterns, and Q&A themes.
+- `assets/`: checked-in image derivatives that are intentionally publishable on GitHub.
+- `data/`: machine-readable navigation, topic, source, and link-check outputs if useful.
+
+The exact structure may evolve, but the final result must preserve the entry point, overview, topic navigation, asset register, and coherent narrative path.
+
+## Narrative Arc
+
+The story should be complete and coherent:
+
+1. Start with the public-sector dark-data problem: guidance exists, but it is hard to find, structure, trust, and reuse safely.
+2. Explain the shift from typing code to steering agents: intent, context, constraints, review, and validation become the work.
+3. Use the Challenge 2 Codex build as the concrete case study: generated wiki, Dark Data Workbench, provenance, evaluation harness, MCP tooling, and postmortem evidence.
+4. Show what AI coding agents are good at: exploration, scaffolding, refactoring, test generation, documentation, evidence packaging, and validation support.
+5. Draw the boundary: no autonomous security sign-off, no production operation, no policy ownership, no high-sensitivity data decisions without approved controls.
+6. Give teams a safe first step: low-risk internal material, repo rules, immutable raw data, small changes, tests, diffs, decision records, and no trust in fluent output without evidence.
+7. Close with the practical lesson: the productivity gain comes from disciplined workflow as much as model capability.
+
+## Slide And Image Sidecars
+
+Status: complete for the current `research/hmrc-beyond-hype/import/` visual inventory as of 2026-05-11.
+
+Coverage achieved:
+
+- 4 imported PowerPoint decks: 50 slide sidecars.
+- 1 imported PDF: 20 page sidecars.
+- 3 imported standalone PNG files: 3 image sidecars.
+- Total: 73 visual items, 73 Markdown sidecars, and 73 small derived image assets.
+- Coverage report: [data/visual_coverage.md](data/visual_coverage.md).
+- Validation report: [data/narrative_validation_report.md](data/narrative_validation_report.md).
+- Obvious entry point: [index.md](index.md).
+- Source-material register: [source-materials.md](source-materials.md).
+- Topic navigation: [topics.md](topics.md).
+
+The sidecars were generated with `research/hmrc-beyond-hype/tools/build_narrative_sidecars.py` and validated with `research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py --write-report`. The validator checks item coverage against the actual PPTX/PDF/PNG counts, Markdown link integrity, orphaned narrative Markdown files, inbound links to sidecars, asset references, required sidecar metadata, and staged raw-import binaries.
+
+The local `clawpilot.md` import has also been incorporated into [notes/clawpilot-project-lobster.md](notes/clawpilot-project-lobster.md), with the shared ChatGPT thread treated as context rather than final evidence.
+
+For each material point illustrated by every imported PowerPoint slide, PDF page, and standalone image:
+
+- create a Markdown sidecar file;
+- describe the visual in enough detail that a reader can understand the point without opening the binary source;
+- identify the claim or narrative function of the visual;
+- link to the relevant research note, transcript excerpt, source-register item, or repo artefact;
+- assign stable tags;
+- record publication status and any caveat;
+- include a small, publishable image derivative only when appropriate.
+
+Do not silently alter source meaning while creating sidecars. If OCR, screenshot extraction, or AI image description is uncertain, mark the uncertainty in the sidecar.
+
+## Tagging
+
+Use concise lowercase tags. Candidate tags:
+
+- `agentic-coding`
+- `ai-assistants`
+- `auditability`
+- `challenge-2`
+- `codex`
+- `dark-data`
+- `evaluation`
+- `governance`
+- `hmrc`
+- `mcp`
+- `operating-model`
+- `provenance`
+- `public-sector`
+- `risk-boundaries`
+- `security`
+- `source-backed-answers`
+- `talk-demo`
+- `traceability`
+- `validation`
+- `workflow`
+
+Add new tags only when they improve navigation.
+
+## Definition Of Done
+
+This goal is complete only when all of the following are true:
+
+- The narrative folder has an obvious entry point.
+- There is an index, an overview, a topic list, and a coherent narrative arc.
+- Every committed narrative note is reachable from `index.md` through normal Markdown links.
+- There are no orphaned Markdown files in the narrative corpus.
+- All internal Markdown links are valid.
+- All local file references resolve.
+- All GitHub links resolve, including line anchors where used.
+- Every published image or slide derivative has a sidecar note.
+- Every material point from each imported PPTX, PDF, and standalone image is described in text.
+- Sidecars include tags, source attribution, publication status, and caveats.
+- Raw imported binaries remain ignored unless explicitly selected for publication.
+- The pack can be browsed directly on GitHub without requiring local tooling.
+- `Changelog.md`, `Context.md`, and `Progress.md` are updated in lockstep.
+- Validation output is recorded in `Progress.md`.
+
+## Verification Plan
+
+Before marking the goal complete, run or create validation that checks:
+
+- Markdown link integrity across `research/hmrc-beyond-hype/narrative/`.
+- Orphan detection for all narrative Markdown files.
+- Required files exist: `index.md`, `overview.md`, `topics.md`, `narrative-arc.md`, and `source-materials.md`.
+- Every sidecar has tags, source path, publication status, and at least one inbound link.
+- Every checked-in asset is referenced by at least one sidecar.
+- No ignored raw import files are accidentally staged.
+- Documentation lockstep passes with `python3 tools/check_documentation_lockstep.py`.
+- Whitespace validation passes with `git diff --check`.
+
+If a validation helper is added, prefer a reproducible script under `research/hmrc-beyond-hype/tools/` and record its output in `Progress.md`.
+
+## Publication Approach
+
+The default publication route is GitHub Markdown, not a local-only slide deck. The narrative should be useful from a plain browser link and should avoid depending on proprietary local viewers.
+
+Use small derived images only where they make the narrative clearer. Prefer text descriptions and links for claims. Do not publish raw binary sources, generated decks, audio, or PDFs unless the user explicitly approves that publication decision.
