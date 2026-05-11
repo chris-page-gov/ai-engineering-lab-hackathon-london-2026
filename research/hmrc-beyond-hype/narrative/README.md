@@ -10,9 +10,9 @@ This file is the durable replacement for the attempted `/goal` command. Future C
 
 ## Current Status
 
-Status: planned, not complete.
+Status: sidecar milestone complete; full narrative curation still in progress.
 
-The source research pack and transcript artefacts exist, but the navigable narrative wiki has not yet been built. Large imported source materials remain local by default unless explicitly selected for publication.
+The narrative wiki now has a GitHub-browsable scaffold, visual sidecars, coverage reports, derived image assets, and a validation report. Large imported binary/audio/PDF/PPTX materials remain local by default unless explicitly selected for publication.
 
 ## Source Inputs
 
@@ -38,6 +38,7 @@ Also inspect the local import drop in `research/hmrc-beyond-hype/import/`, inclu
 - `AI-Native-Engineering-Team-source_openAI.pdf`
 - imported PNG images
 - the imported AI-generated Markdown briefing
+- `clawpilot.md`, the local ClawPilot / OpenClaw research brief used for the current agentic-workplace sidebar
 
 Do not commit raw imported binary/audio/PDF/PPTX material unless the user explicitly selects it for publication. Prefer committed derivatives that are small, reviewable, and useful on GitHub.
 
@@ -72,6 +73,24 @@ The story should be complete and coherent:
 7. Close with the practical lesson: the productivity gain comes from disciplined workflow as much as model capability.
 
 ## Slide And Image Sidecars
+
+Status: complete for the current `research/hmrc-beyond-hype/import/` visual inventory as of 2026-05-11.
+
+Coverage achieved:
+
+- 4 imported PowerPoint decks: 50 slide sidecars.
+- 1 imported PDF: 20 page sidecars.
+- 3 imported standalone PNG files: 3 image sidecars.
+- Total: 73 visual items, 73 Markdown sidecars, and 73 small derived image assets.
+- Coverage report: [data/visual_coverage.md](data/visual_coverage.md).
+- Validation report: [data/narrative_validation_report.md](data/narrative_validation_report.md).
+- Obvious entry point: [index.md](index.md).
+- Source-material register: [source-materials.md](source-materials.md).
+- Topic navigation: [topics.md](topics.md).
+
+The sidecars were generated with `research/hmrc-beyond-hype/tools/build_narrative_sidecars.py` and validated with `research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py --write-report`. The validator checks item coverage against the actual PPTX/PDF/PNG counts, Markdown link integrity, orphaned narrative Markdown files, inbound links to sidecars, asset references, required sidecar metadata, and staged raw-import binaries.
+
+The local `clawpilot.md` import has also been incorporated into [notes/clawpilot-project-lobster.md](notes/clawpilot-project-lobster.md), with the shared ChatGPT thread treated as context rather than final evidence.
 
 For each material point illustrated by every imported PowerPoint slide, PDF page, and standalone image:
 
@@ -151,4 +170,3 @@ If a validation helper is added, prefer a reproducible script under `research/hm
 The default publication route is GitHub Markdown, not a local-only slide deck. The narrative should be useful from a plain browser link and should avoid depending on proprietary local viewers.
 
 Use small derived images only where they make the narrative clearer. Prefer text descriptions and links for claims. Do not publish raw binary sources, generated decks, audio, or PDFs unless the user explicitly approves that publication decision.
-

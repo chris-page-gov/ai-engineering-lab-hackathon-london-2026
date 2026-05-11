@@ -40,7 +40,7 @@ The current local branch now also includes `research/hmrc-beyond-hype/`, a compl
 
 The current local branch is `codex/hmrc-talk-transcripts`, continuing the HMRC talk preparation work. It adds a local import-resource review, tracks the lightweight imported Markdown briefing, keeps large raw media ignored by default, fixes the VS Code Ruff workspace configuration, and commits machine transcripts plus pyannote `Trace` / `Query` diarization drafts for the two imported prep-audio files. The latest update keeps the transcript words and timings unchanged while replacing only the generic diarization labels with AI voice names.
 
-The current local branch is `codex/hmrc-narrative-goal`, recording the active follow-on goal for the HMRC talk: build a GitHub-browsable narrative wiki from the research pack, imported visual material, and transcripts, with sidecar notes, topic navigation, valid links, no orphaned notes, and a coherent narrative arc.
+The current local branch is `codex/hmrc-narrative-goal`, building the HMRC talk narrative wiki from the research pack, imported visual material, and transcripts. The visual sidecar milestone is complete for the current import inventory: 50 PowerPoint slides, 20 PDF pages, and 3 standalone PNG images now have Markdown sidecars, small derived image assets, topic/source navigation, coverage output, and validation output. Full editorial curation of the broader narrative remains open.
 
 ## Completed
 
@@ -86,6 +86,10 @@ The current local branch is `codex/hmrc-narrative-goal`, recording the active fo
 - Added the HMRC talk import resource review, raw-media ignore policy, lightweight imported Markdown source input, audio transcription tooling, pyannote diarization tooling, base transcripts, SRT files, diarization CSV/report, and `Trace` / `Query` speaker-attributed transcript drafts.
 - Renamed the generated HMRC talk diarization labels to `Trace` and `Query` across speaker-attributed transcript files, diarization metadata, reports, and reproduction tooling without editing the base Whisper transcripts or SRT timings.
 - Added `research/hmrc-beyond-hype/narrative/README.md` as the durable active goal brief for the planned HMRC talk narrative wiki, replacing the unavailable `/goal` slash-command workflow with a committed definition of done and verification plan.
+- Added `research/hmrc-beyond-hype/import/clawpilot.md` as a lightweight local source input for the ClawPilot / OpenClaw sidebar and incorporated it into the HMRC narrative pack.
+- Added the HMRC narrative scaffold under `research/hmrc-beyond-hype/narrative/`, including `index.md`, `overview.md`, `narrative-arc.md`, `topics.md`, `source-materials.md`, `notes/clawpilot-project-lobster.md`, sidecar indexes, visual coverage data, and validation reports.
+- Added generated Markdown sidecars and small derived image assets for all `73` current imported visual items: `15` slides from `AI-Native_Engineering_Blueprint.pptx`, `10` slides from `Challenge_2_Unlocking_Dark_Data.pptx`, `13` slides from `Dark_Data_Blueprint.pptx`, `12` slides from `Governing_AI_Engineering.pptx`, `20` pages from `AI-Native-Engineering-Team-source_openAI.pdf`, and `3` standalone PNG files.
+- Added `research/hmrc-beyond-hype/tools/build_narrative_sidecars.py` and `research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py` so the sidecar pack can be regenerated and checked.
 - Added repository-level Ruff configuration and VS Code settings so the workspace Ruff extension uses the repo config instead of parsing nested external reference `pyproject.toml` files.
 - Published Version 1.1 from `main` with a GitHub tag and release.
 - Created `codex/evaluation-versioning` from the clean `v1.1` baseline for the next evaluation run.
@@ -147,6 +151,15 @@ The current local branch is `codex/hmrc-narrative-goal`, recording the active fo
   - previously ran `uv run --with ruff ruff check --config ruff.toml --show-files .` and confirmed nested external reference repositories are excluded from the workspace Ruff file set.
 - Current HMRC narrative goal validation passed locally:
   - added `research/hmrc-beyond-hype/narrative/README.md` as the active goal brief and checked its local Markdown links resolve;
+  - ran `python3 tools/check_documentation_lockstep.py`;
+  - ran `git diff --check`.
+- Current HMRC narrative sidecar validation passed locally:
+  - ran `uv run --with python-pptx --with pillow --with pypdf python research/hmrc-beyond-hype/tools/build_narrative_sidecars.py`;
+  - generated `73` sidecars and `73` derived image assets from the current visual import inventory;
+  - ran `uv run --with python-pptx --with pillow --with pypdf python research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py --write-report`;
+  - validation reported `73` covered visual items, `90` reachable narrative Markdown files, `73` referenced assets, `0` orphaned narrative Markdown files, and `0` errors.
+  - ran `uv run --with python-pptx --with pillow --with pypdf python -m py_compile research/hmrc-beyond-hype/tools/build_narrative_sidecars.py research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py`;
+  - ran `uv run --with ruff ruff check --config ruff.toml research/hmrc-beyond-hype/tools`;
   - ran `python3 tools/check_documentation_lockstep.py`;
   - ran `git diff --check`.
 - Challenge 2 strict build previously passed with `43 sources, 81 notes, 0 lint issues`.

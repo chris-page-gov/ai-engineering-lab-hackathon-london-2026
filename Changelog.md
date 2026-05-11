@@ -8,6 +8,9 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
+- 2026-05-11: Added a generated HMRC talk narrative scaffold under `research/hmrc-beyond-hype/narrative/`, including an entry point, overview, narrative arc, topic index, source-material register, ClawPilot sidebar note, coverage reports, validation reports, and 73 visual sidecars with 73 small derived image assets for the current imported PPTX/PDF/PNG inventory.
+- 2026-05-11: Added `research/hmrc-beyond-hype/tools/build_narrative_sidecars.py` and `research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py` to make the HMRC visual sidecar pack reproducible and validate coverage, local links, orphaned narrative Markdown, sidecar metadata, asset references, and raw-import staging.
+- 2026-05-11: Added `research/hmrc-beyond-hype/import/clawpilot.md` as a lightweight imported source brief for the ClawPilot / OpenClaw sidebar in the HMRC talk narrative.
 - 2026-05-11: Added `research/hmrc-beyond-hype/narrative/README.md` as the durable active goal brief for a GitHub-browsable HMRC talk narrative wiki, including source inputs, expected structure, slide/image sidecar requirements, tags, definition of done, and verification plan.
 - 2026-05-11: Added HMRC talk import-resource handling under `research/hmrc-beyond-hype/`, including an import review appendix, lightweight imported Markdown source tracking, local audio transcription tooling, pyannote diarization tooling, base transcripts, SRT files, diarization evidence, and `Trace` / `Query` speaker-attributed transcript drafts for the two imported prep-audio files.
 - 2026-05-09: Added `research/hmrc-beyond-hype/`, a complete HMRC Beyond the Hype talk research pack covering the research brief, source register, AI software-engineering timeline, empirical productivity evidence, agentic capability analysis, public-sector governance, Codex build case study, operating model, and appendices required by the local prompt kit.
@@ -66,6 +69,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
+- 2026-05-11: Updated the HMRC narrative goal status from planned to sidecar milestone complete, while keeping full narrative curation open.
 - 2026-05-11: Renamed the HMRC talk pyannote diarization labels from generic speaker numbers to the AI voice names `Trace` and `Query`, while preserving the base Whisper transcript text and SRT outputs.
 - 2026-04-22: Updated `.gitignore` to ignore all `.obsidian/` directories as local Obsidian browsing state.
 - Updated Challenge 2 evaluation best-model policy to use `gpt-5.4` with `xhigh` effort for Codex, Gemini CLI Auto routing, Claude Code `best` with `max` effort, staff-confirmed `gpt-5.4` for GitHub Copilot CLI, and Microsoft 365 Copilot Chat GPT-5 automatic routing for Microsoft Copilot.
@@ -120,6 +124,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Documentation
 
+- 2026-05-11: Linked the HMRC talk narrative wiki entry point from the repository README and research brief, and recorded the sidecar coverage status in the narrative goal brief.
 - 2026-05-11: Documented the HMRC talk import drop, transcript caveats, raw-media publication policy, transcript reproduction commands, and current validation state across the research brief, import review appendix, README, Context, and Progress.
 - 2026-05-09: Linked the HMRC Beyond the Hype research pack from `README.md` and recorded its purpose, evidence boundaries, and important paths in `Context.md` and `Progress.md`.
 - 2026-04-21: Linked the new public reader guide from `README.md` and recorded it in the repository map and tracking docs.
@@ -137,6 +142,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Validation
 
+- 2026-05-11: Verified the HMRC talk narrative sidecar pack with the reproducible builder and validator: `73` imported visual items covered, `90` reachable narrative Markdown files, `73` referenced assets, `0` orphaned narrative Markdown files, and no validation errors.
 - 2026-05-11: Verified the HMRC talk audio workflow with `whisper-cli` transcript/SRT generation, pyannote diarization on `mps` for `40.0` minutes of audio in `83.8` seconds, py_compile for the transcript tools, workspace Ruff file-set validation, and documentation lockstep updates.
 - 2026-05-09: Verified the HMRC Beyond the Hype talk research pack has all `12` master-prompt deliverables, a parseable `50`-row source register, no stale repo-local pseudo-links or transcript processing remnants, `69` valid repo-local GitHub blob links, passing documentation lockstep, and clean `git diff --check`.
 - Verified the MCP research wiki lint: `22` Markdown files, `222` internal links, `67` external links, complete search-term coverage, `0` errors, and `0` warnings.
