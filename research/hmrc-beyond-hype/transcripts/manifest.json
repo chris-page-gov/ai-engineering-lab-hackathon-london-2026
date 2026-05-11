@@ -1,0 +1,67 @@
+{
+  "created_for": "HMRC Beyond the Hype AI Agents talk",
+  "created_date": "2026-05-11",
+  "items": [
+    {
+      "slug": "governing-agentic-ai-in-software-engineering",
+      "source_file": "research/hmrc-beyond-hype/import/Governing_agentic_AI_in_software_engineering.m4a",
+      "duration_seconds": 1209.69,
+      "transcript_path": "research/hmrc-beyond-hype/transcripts/governing-agentic-ai-in-software-engineering.txt",
+      "srt_path": "research/hmrc-beyond-hype/transcripts/governing-agentic-ai-in-software-engineering.srt",
+      "transcript_chars": 21785,
+      "tool": "whisper-cli",
+      "model": "ggml-base.en.bin",
+      "execution": "CPU with no flash attention (-ng -nfa)",
+      "threads": 4,
+      "elapsed_seconds_this_run": 53.697,
+      "speaker_transcript_path": "research/hmrc-beyond-hype/transcripts/governing-agentic-ai-in-software-engineering.speakers.md",
+      "speaker_transcript_text_path": "research/hmrc-beyond-hype/transcripts/governing-agentic-ai-in-software-engineering.speakers.txt",
+      "diarization": {
+        "model": "pyannote-community/speaker-diarization-community-1",
+        "device": "mps",
+        "run_id": "pyannote_community1_mps_20260511T111450Z",
+        "speaker_labels": [
+          "Speaker 1",
+          "Speaker 2"
+        ]
+      }
+    },
+    {
+      "slug": "engineering-accountability-in-public-sector-ai",
+      "source_file": "research/hmrc-beyond-hype/import/Engineering_Accountability_in_Public_Sector_AI.m4a",
+      "duration_seconds": 1188.003,
+      "transcript_path": "research/hmrc-beyond-hype/transcripts/engineering-accountability-in-public-sector-ai.txt",
+      "srt_path": "research/hmrc-beyond-hype/transcripts/engineering-accountability-in-public-sector-ai.srt",
+      "transcript_chars": 21204,
+      "tool": "whisper-cli",
+      "model": "ggml-base.en.bin",
+      "execution": "CPU with no flash attention (-ng -nfa)",
+      "threads": 4,
+      "elapsed_seconds_this_run": 54.893,
+      "speaker_transcript_path": "research/hmrc-beyond-hype/transcripts/engineering-accountability-in-public-sector-ai.speakers.md",
+      "speaker_transcript_text_path": "research/hmrc-beyond-hype/transcripts/engineering-accountability-in-public-sector-ai.speakers.txt",
+      "diarization": {
+        "model": "pyannote-community/speaker-diarization-community-1",
+        "device": "mps",
+        "run_id": "pyannote_community1_mps_20260511T111450Z",
+        "speaker_labels": [
+          "Speaker 1",
+          "Speaker 2"
+        ]
+      }
+    }
+  ],
+  "diarization_run": {
+    "run_id": "pyannote_community1_mps_20260511T111450Z",
+    "model_id": "pyannote-community/speaker-diarization-community-1",
+    "device": "mps",
+    "torch_version": "2.11.0",
+    "mps_available": true,
+    "audio_file_count": 2,
+    "total_audio_seconds": 2397.693,
+    "wall_clock_seconds": 83.757,
+    "created_at": "2026-05-11T11:16:14.003536+00:00",
+    "params_json": "{\"min_speakers\": 2, \"max_speakers\": 2}"
+  },
+  "updated_at": "2026-05-11T11:16:14.035436+00:00"
+}

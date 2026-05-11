@@ -1,0 +1,10 @@
+line-length = 100
+target-version = "py312"
+force-exclude = true
+
+include = ["*.py", "*.pyi", "*.pyw", "*.ipynb"]
+
+extend-exclude = [
+  "challenge-2/MCP-Wiki/references/external/**",
+  "postmortem/**",
+]

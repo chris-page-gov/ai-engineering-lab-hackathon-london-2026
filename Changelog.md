@@ -8,6 +8,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
+- 2026-05-11: Added HMRC talk import-resource handling under `research/hmrc-beyond-hype/`, including an import review appendix, lightweight imported Markdown source tracking, local audio transcription tooling, pyannote diarization tooling, base transcripts, SRT files, diarization evidence, and `Speaker 1` / `Speaker 2` speaker-attributed transcript drafts for the two imported prep-audio files.
 - 2026-05-09: Added `research/hmrc-beyond-hype/`, a complete HMRC Beyond the Hype talk research pack covering the research brief, source register, AI software-engineering timeline, empirical productivity evidence, agentic capability analysis, public-sector governance, Codex build case study, operating model, and appendices required by the local prompt kit.
 - 2026-05-09: Added line-level GitHub permalinks after repo-local evidence paths in the HMRC talk source register, case study, operating model, and claims matrix where practical, pinned to the clean talk-prep branch commit for line stability.
 - 2026-04-29: Added a Dark Data Workbench source-note Markdown endpoint so reader note links resolve under the local dev/static app.
@@ -82,6 +83,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Fixed
 
+- 2026-05-11: Added a repository Ruff configuration and VS Code Ruff setting so the workspace stops parsing nested external reference `pyproject.toml` files that contain unsupported Ruff rule selectors such as `W503`.
 - 2026-04-29: Fixed Dark Data Workbench Browser AI/MCP context exports so selected sources remain in the exported context even when current filters or search terms hide them.
 - 2026-04-29: Fixed Dark Data Workbench reader `Open note` links that previously resolved to missing `/wiki/...` paths in the app.
 - Updated the Challenge 2 architecture Mermaid labels from `1.`, `2.`, etc. to `Step 1:`, `Step 2:`, etc. so Obsidian does not render them as unsupported Markdown lists.
@@ -116,6 +118,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Documentation
 
+- 2026-05-11: Documented the HMRC talk import drop, transcript caveats, raw-media publication policy, transcript reproduction commands, and current validation state across the research brief, import review appendix, README, Context, and Progress.
 - 2026-05-09: Linked the HMRC Beyond the Hype research pack from `README.md` and recorded its purpose, evidence boundaries, and important paths in `Context.md` and `Progress.md`.
 - 2026-04-21: Linked the new public reader guide from `README.md` and recorded it in the repository map and tracking docs.
 - Recast `README.md` from the original event-invitation framing into a fork-specific Challenge 2 implementation overview with the value proposition, start points, repository map, validation summary, and original hackathon context.
@@ -132,6 +135,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Validation
 
+- 2026-05-11: Verified the HMRC talk audio workflow with `whisper-cli` transcript/SRT generation, pyannote diarization on `mps` for `40.0` minutes of audio in `83.8` seconds, py_compile for the transcript tools, workspace Ruff file-set validation, and documentation lockstep updates.
 - 2026-05-09: Verified the HMRC Beyond the Hype talk research pack has all `12` master-prompt deliverables, a parseable `50`-row source register, no stale repo-local pseudo-links or transcript processing remnants, `69` valid repo-local GitHub blob links, passing documentation lockstep, and clean `git diff --check`.
 - Verified the MCP research wiki lint: `22` Markdown files, `222` internal links, `67` external links, complete search-term coverage, `0` errors, and `0` warnings.
 - Verified all `31` MCP bibliography URLs returned HTTP success responses and replaced stale Microsoft/NCSC citation targets with current URLs.

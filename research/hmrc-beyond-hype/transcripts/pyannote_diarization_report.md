@@ -1,0 +1,26 @@
+# Pyannote Diarization Report
+
+- Run ID: `pyannote_community1_mps_20260511T111450Z`
+- Model: `pyannote-community/speaker-diarization-community-1`
+- Device: `mps`
+- Torch: `2.11.0`
+- Audio files: 2
+- Total audio: 40.0 minutes
+- Wall-clock processing: 83.8 seconds
+
+## Speaker Clusters
+
+### governing-agentic-ai-in-software-engineering
+- SPEAKER_00: Speaker 1; 664.6s total speech; first seen at 00:00:00.
+- SPEAKER_01: Speaker 2; 520.3s total speech; first seen at 00:00:10.
+
+### engineering-accountability-in-public-sector-ai
+- SPEAKER_00: Speaker 1; 595.0s total speech; first seen at 00:00:06.
+- SPEAKER_01: Speaker 2; 568.3s total speech; first seen at 00:00:00.
+
+## Caveats
+
+- This is diarization, not named-speaker identification.
+- `Speaker 1` and `Speaker 2` are machine-assigned labels. They are aligned across the two files using pyannote speaker embeddings when available.
+- Text is assigned to the dominant diarized speaker for each Whisper SRT cue; a cue that contains both voices can still have mixed text under one speaker label.
+- Verify any important quotation against the source audio before public use.

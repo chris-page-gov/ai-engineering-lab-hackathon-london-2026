@@ -13,3 +13,11 @@ postmortem/
 
 # Obsidian vault state is local browsing state.
 .obsidian/
+
+# Local talk-prep imports can include large generated decks, images, audio, and
+# PDFs. Commit distilled notes and Markdown sources by default; force-add raw
+# media only when it is intentionally part of the published talk pack.
+research/hmrc-beyond-hype/import/*
+!research/hmrc-beyond-hype/import/
+!research/hmrc-beyond-hype/import/*.md
+research/hmrc-beyond-hype/transcripts/_wav/

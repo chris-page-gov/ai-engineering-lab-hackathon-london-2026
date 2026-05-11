@@ -17,6 +17,12 @@ The pack answers four questions:
 
 The source register is [01_source_register.csv](01_source_register.csv). Methods and limitations are in [appendix A](appendices/a_methods.md). Search queries are in [appendix B](appendices/b_search_queries.md). Exclusions are in [appendix C](appendices/c_excluded_sources.md). The claims matrix is in [appendix D](appendices/d_claims_matrix.md).
 
+## 2026-05-11 Import Note
+
+The local `research/hmrc-beyond-hype/import/` drop adds a richer market briefing, slide-source files, image assets, a PDF on AI-native engineering teams, and two audio files. The immediate talk implication is to strengthen the category-first framing: IDE assistant, terminal/repo agent, PR/review assistant, autonomous issue-to-PR agent, and enterprise control layer.
+
+Treat the imported material as source input, not finished evidence. The Markdown briefing is useful enough to track, but the larger binary/audio resources remain local by default until there is a clear publication decision. The two audio files have been transcribed under `research/hmrc-beyond-hype/transcripts/`, including pyannote `Speaker 1` / `Speaker 2` diarization drafts. Promote individual claims into the main source register only after their external links, dates, and audio quotations have been revalidated.
+
 ## One-page synthesis
 
 By May 2026, AI support for software engineering has moved from autocomplete and chat towards bounded task delegation. The important change is not only model quality. It is the workflow boundary: token to line, line to function, function to conversation, conversation to file, file to repository, repository to issue, branch, pull request and bounded task.
