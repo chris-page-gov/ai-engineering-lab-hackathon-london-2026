@@ -1,0 +1,903 @@
+1
+00:00:00,000 --> 00:00:07,440
+ Usually when we talk about automation, there is this comforting mental model we all seem to share.
+
+2
+00:00:07,440 --> 00:00:12,400
+ It's a lot like the cruise control in your car. You get on the highway, you press a button,
+
+3
+00:00:12,400 --> 00:00:17,040
+ and the system just, well, it just maintains your speed, it's helpful, it's incredibly predictable,
+
+4
+00:00:17,040 --> 00:00:21,200
+ and most importantly, you are still very obviously the one holding the steering wheel.
+
+5
+00:00:21,200 --> 00:00:26,400
+ Exactly. The system is just taking over like a repetitive micro-task. It has boundaries that
+
+6
+00:00:26,400 --> 00:00:31,920
+ you can see and feel. But imagine if you press that cruise control button and suddenly your car
+
+7
+00:00:31,920 --> 00:00:38,560
+ spoke up and said, hey, I noticed traffic is bad up ahead, so I've decided to reroute us
+
+8
+00:00:38,560 --> 00:00:43,600
+ through a residential neighborhood. I changed your suspension settings for the cobblestone streets,
+
+9
+00:00:43,600 --> 00:00:47,440
+ and oh, by the way, I just emailed your boss to say you'll be 10 minutes late.
+
+10
+00:00:47,440 --> 00:00:52,400
+ Oh, wow. Yeah. Yeah, that goes from a driving aid to an absolute hostile takeover of your morning
+
+11
+00:00:52,400 --> 00:00:59,200
+ commute. You've completely transitioned from a simple tool into an active agent making unilateral
+
+12
+00:00:59,200 --> 00:01:04,960
+ decisions on your behalf. And that transition from a tool that just helps you maintain speed
+
+13
+00:01:04,960 --> 00:01:10,480
+ to an agent that actively plots a course and executes it. That is exactly what brings us to
+
+14
+00:01:10,480 --> 00:01:16,240
+ today's deep dive. Welcome back to the show, and a special welcome to you, the learner.
+
+15
+00:01:16,240 --> 00:01:21,600
+ Today, we are looking at a truly fascinating primary source. Yeah, this one is really something.
+
+16
+00:01:21,600 --> 00:01:28,240
+ It's a point in time briefing document prepared for the UK government's HMRC Data Science Academy.
+
+17
+00:01:28,240 --> 00:01:32,960
+ For those who don't know, that's Her Majesty's revenue and customs. So basically, the UK's
+
+18
+00:01:32,960 --> 00:01:40,320
+ tax payment and customs authority, and the document is dated May 9, 2026, which means we are looking
+
+19
+00:01:40,320 --> 00:01:45,840
+ at a snapshot of a massive like critical infrastructure organization grappling with a complete
+
+20
+00:01:45,840 --> 00:01:50,960
+ technological earthquake. Exactly. And our mission today is to cut straight through the vendor hype.
+
+21
+00:01:50,960 --> 00:01:56,320
+ We are going to look at how a highly regulated insanely high stakes environment is actually
+
+22
+00:01:56,320 --> 00:02:00,640
+ evaluating and deploying AI coding assistance. Right, because the stakes don't get much higher
+
+23
+00:02:00,640 --> 00:02:05,520
+ than national tax infrastructure. No, they don't. And just to set the stage here, we are looking at
+
+24
+00:02:05,520 --> 00:02:10,560
+ this strictly through a technical and organizational lens. We are not taking any political stances
+
+25
+00:02:10,560 --> 00:02:15,840
+ on government operations. We are simply unpacking the technical realities from this briefing to
+
+26
+00:02:15,840 --> 00:02:22,720
+ understand where software engineering is really heading. Because one thing is absolutely clear here,
+
+27
+00:02:22,720 --> 00:02:28,880
+ we have moved way, way beyond simple auto complete. The real challenge for software engineering has
+
+28
+00:02:28,880 --> 00:02:35,280
+ completely shifted. It really has. I mean, the shift between 2024 and 2026 is just foundational.
+
+29
+00:02:35,280 --> 00:02:40,160
+ We are no longer talking about a better predictive text engine for programmers. To understand the
+
+30
+00:02:40,160 --> 00:02:45,040
+ operational nightmare HMRC is trying to manage. We first have to understand the mechanics of what
+
+31
+00:02:45,040 --> 00:02:50,080
+ these tools are actually doing now. We've moved away from isolated single file code suggestions.
+
+32
+00:02:50,080 --> 00:02:54,880
+ Okay, let's unpack this because the mechanical distance is huge. In the past, you'd be typing
+
+33
+00:02:54,880 --> 00:02:59,760
+ a single line of code in one specific file. And the AI would basically guess the rest of the line
+
+34
+00:02:59,760 --> 00:03:03,920
+ based on the characters right before it. Like a super smart auto complete on your phone.
+
+35
+00:03:03,920 --> 00:03:09,040
+ Exactly. It was completely blind to the rest of your project. But now we are talking about full
+
+36
+00:03:09,040 --> 00:03:15,120
+ code based context and what the briefing calls, agentic edits. What's fascinating here is that
+
+37
+00:03:15,120 --> 00:03:21,760
+ agentic edits mean systems capable of multi file autonomous editing. They're not just generating
+
+38
+00:03:21,760 --> 00:03:27,520
+ an isolated patch of text anymore. They are executing command and test loops. And how are they
+
+39
+00:03:27,520 --> 00:03:33,280
+ doing that mechanically? Mechanics wise, they are using MCP, which is the model context protocol.
+
+40
+00:03:33,280 --> 00:03:38,880
+ Yes, exactly. MCP is a crucial piece of the puzzle. It allows the AI to interface
+
+41
+00:03:38,880 --> 00:03:45,520
+ directly with external tools, local file systems, and data sources. So the AI can read an error log
+
+42
+00:03:45,520 --> 00:03:50,320
+ in your terminal, decide to open three different files, rewrite a function, run your test suite,
+
+43
+00:03:50,320 --> 00:03:53,680
+ see that it failed, and then rewrite the function again, based on the new error.
+
+44
+00:03:53,680 --> 00:03:58,240
+ Wow. I love the analogy that comes to mind for this. The old AI was essentially a fancy
+
+45
+00:03:58,240 --> 00:04:03,120
+ spell checker. It was entirely reactive. It waited for you to type. But this new AI is acting like
+
+46
+00:04:03,120 --> 00:04:08,400
+ a junior, but insanely fast team member. It can independently inspect a repository, sketch out a
+
+47
+00:04:08,400 --> 00:04:13,200
+ plan, execute the code, revise its own work, and ultimately draft a pull request or a PR for you
+
+48
+00:04:13,200 --> 00:04:19,360
+ to review. It sounds like a dream for a developer. But if you are the head of security or operations
+
+49
+00:04:19,360 --> 00:04:26,160
+ for a government tax authority, it is terrifying. I can imagine because every single new capability
+
+50
+00:04:26,160 --> 00:04:31,520
+ creates a completely new governance surface. If the AI can interface with your terminal,
+
+51
+00:04:31,520 --> 00:04:36,160
+ you have to establish rules for that terminal. Yeah, think about the permissions nightmare.
+
+52
+00:04:36,160 --> 00:04:44,560
+ If this fast junior developer is a machine, what is it allowed to read? Like, can it read your live
+
+53
+00:04:44,560 --> 00:04:49,120
+ customer database, which would be a disaster, total disaster? And what does it allow to write?
+
+54
+00:04:49,120 --> 00:04:53,920
+ Can it fetch a random software package from the external internet just to solve a problem?
+
+55
+00:04:53,920 --> 00:04:58,800
+ What terminal commands can it run? Every one of those actions requires a logging mechanism
+
+56
+00:04:58,800 --> 00:05:03,760
+ and a control point. And the vendor claims around autonomy are changing so fast that any claim
+
+57
+00:05:03,760 --> 00:05:08,720
+ needs to be time stamped. Like, what an AI could do in January is completely different from what
+
+58
+00:05:08,720 --> 00:05:12,320
+ it can do in May. Wait, wait, wait, I have to push back on the core premise here. Yeah,
+
+59
+00:05:12,320 --> 00:05:16,480
+ because I find this a little hard to believe. Oh, really? How so? Well, if these tools are
+
+60
+00:05:16,480 --> 00:05:21,280
+ getting so smart, and they can do all these multi file edits running test loops in seconds,
+
+61
+00:05:21,280 --> 00:05:28,320
+ like a hyper caffeinated junior dev, then engineering teams must be getting massively faster. I mean,
+
+62
+00:05:28,320 --> 00:05:33,520
+ that is the whole pitch, right? But the evidence we are looking at in this document paints a very
+
+63
+00:05:33,520 --> 00:05:38,800
+ different picture. It really does. You're telling me an engineer with this super tool might actually
+
+64
+00:05:38,800 --> 00:05:45,440
+ be slowing down. How does that make sense? That paradox is a it's probably one of the most critical
+
+65
+00:05:45,440 --> 00:05:51,680
+ insights in this entire deep dive. Let's look at the productivity reality check here. We have
+
+66
+00:05:51,680 --> 00:05:56,720
+ two very different studies in the briefing to illustrate the contrast. Back in 2023,
+
+67
+00:05:56,720 --> 00:06:01,040
+ there's a really famous co pilot study that found meaningful measurable speed games for
+
+68
+00:06:01,040 --> 00:06:06,320
+ developers. But and correct me if I'm wrong, those games were on highly constrained, well-specified
+
+69
+00:06:06,320 --> 00:06:10,480
+ tasks, right? Like green field development, exactly, starting from scratch in a perfectly
+
+70
+00:06:10,480 --> 00:06:14,880
+ controlled environment where you just asked the AI to, you know, write a function that sorts this
+
+71
+00:06:14,880 --> 00:06:23,920
+ list spot on. Now, fast forward to a 2025 field study conducted by M E T R. They put early 2025
+
+72
+00:06:23,920 --> 00:06:29,760
+ AI tools in the hands of experienced open source maintainers. Okay. And these maintainers were
+
+73
+00:06:29,760 --> 00:06:35,920
+ working in mature brown field repositories, brown field, meaning older, established code bases,
+
+74
+00:06:35,920 --> 00:06:43,200
+ right? Code bases packed with legacy systems, weird workarounds, you know, massive technical debt,
+
+75
+00:06:43,200 --> 00:06:48,880
+ things they already knew well. And the result, the experienced maintainers were actually slower on
+
+76
+00:06:48,880 --> 00:06:54,400
+ average when using the AI tools than when they just wrote the code themselves. Wow, slower. If you
+
+77
+00:06:54,400 --> 00:06:59,280
+ are a senior dev listening to this right now, you have probably felt that exact pain of untangling a
+
+78
+00:06:59,280 --> 00:07:04,160
+ junior engineer spaghetti code. Oh, absolutely. Now, imagine the junior engineer types 1000 words
+
+79
+00:07:04,160 --> 00:07:09,520
+ a minute. The briefing notes that the biggest hidden cost of AI is not the code generation itself.
+
+80
+00:07:09,520 --> 00:07:13,840
+ The code is basically free. Yeah. The hidden cost is the checking, correcting, and integrating of
+
+81
+00:07:13,840 --> 00:07:18,160
+ those outputs. Because the psychological and cognitive load of reading someone else's code is
+
+82
+00:07:18,160 --> 00:07:22,800
+ entirely different from writing it yourself. Yeah. When you write code, you're building a mental
+
+83
+00:07:22,800 --> 00:07:28,880
+ model of the logic line by line. But when an AI just dumps 50 lines of code into your file,
+
+84
+00:07:29,440 --> 00:07:33,760
+ you have to reverse engineer its logic to figure out if it actually accounts for all the weird
+
+85
+00:07:33,760 --> 00:07:39,040
+ edge cases in your legacy system. Let's break down exactly how this fails in practice, because
+
+86
+00:07:39,040 --> 00:07:44,320
+ the failure modes mentioned in the document are fascinating. One major issue they highlight is
+
+87
+00:07:44,320 --> 00:07:49,360
+ overbroad edits. Yeah, where it changes way more files than it needs to. Exactly. And then there's
+
+88
+00:07:49,360 --> 00:07:55,920
+ dependency drift. Say the AI hits an error while trying to build a feature. Instead of like fixing
+
+89
+00:07:55,920 --> 00:08:00,960
+ the core logic, it autonomously decides to pull in a random third party library from the internet
+
+90
+00:08:00,960 --> 00:08:06,480
+ that patches the error, which is a huge security risk. Huge. Now your secure government tax portal
+
+91
+00:08:06,480 --> 00:08:11,120
+ relies on an unsupported package maintained by one guy in the browser. The human reviewer has to
+
+92
+00:08:11,120 --> 00:08:16,560
+ catch that. Another massive failure mode is what happens with testing. The AI is often tasked with
+
+93
+00:08:16,560 --> 00:08:21,280
+ writing the feature and the unit tests for that feature. And this can lead to tests that pass
+
+94
+00:08:21,280 --> 00:08:26,720
+ for the entirely wrong reason. Wait, how does that work? Well, the AI hallucinates a piece of logic.
+
+95
+00:08:26,720 --> 00:08:31,600
+ And then it writes a test that perfectly validates its own hallucination. It mocks out the wrong data
+
+96
+00:08:31,600 --> 00:08:37,600
+ layer, or it ignores the actual database constraints, creating a sort of self-fulfilling prophecy.
+
+97
+00:08:37,600 --> 00:08:43,280
+ Oh, that is insidious. Right. The green checkmark appears. AI says it succeeded, but the code is
+
+98
+00:08:43,280 --> 00:08:50,080
+ fundamentally broken. Another one is the brittle use of external tools. The AI might rate a script
+
+99
+00:08:50,080 --> 00:08:55,520
+ that relies on a specific version of a command line tool. And if your server has a different version,
+
+100
+00:08:55,520 --> 00:09:00,080
+ it all crashes. So when you add up the time it takes a veteran engineer to hunt down these
+
+101
+00:09:00,080 --> 00:09:05,520
+ subtle workflow failures, any productivity gains you made by not typing the syntax just evaporate.
+
+102
+00:09:05,520 --> 00:09:10,480
+ They're completely gone. And here's where it gets really interesting. Because these hidden costs are
+
+103
+00:09:10,480 --> 00:09:15,360
+ entirely centered around checking and correcting, the fundamental bottleneck in software engineering
+
+104
+00:09:15,360 --> 00:09:21,040
+ has physically moved. It is no longer about sitting at a keyboard and manually translating logic into
+
+105
+00:09:21,040 --> 00:09:28,320
+ syntax. The new bottleneck is validation and approval. And the market has totally realized this.
+
+106
+00:09:28,320 --> 00:09:34,160
+ The enterprise vendors are actively responding to that shifted bottleneck. Nobody is just selling a
+
+107
+00:09:34,160 --> 00:09:39,760
+ quote unquote code generator anymore. They are selling governance bundles. The market is converging
+
+108
+00:09:39,760 --> 00:09:45,120
+ on packages that combine a coding assistant, an autonomous agent, and a review workflow into one
+
+109
+00:09:45,120 --> 00:09:52,080
+ product. So for an organization like HMRC, the decisive question is no longer which model is best,
+
+110
+00:09:52,080 --> 00:09:58,000
+ but rather which workflow can we govern? Exactly. And the expert briefing categorizes the market to
+
+111
+00:09:58,000 --> 00:10:03,840
+ help with exactly that. At the absolute bottom layer, you have your IDE autocomplete tools,
+
+112
+00:10:03,840 --> 00:10:09,440
+ things like Gemini codices or early GitHub co-pilot. They live purely in your text editor.
+
+113
+00:10:09,440 --> 00:10:14,080
+ And the risk there is relatively low. Very low. But then you step up to repo level or terminal
+
+114
+00:10:14,080 --> 00:10:18,560
+ agents like Claude code or cursor agent. These have mechanical access to your file system. They
+
+115
+00:10:18,560 --> 00:10:23,120
+ can read your whole repository and they can execute shell commands. So the risk profile jumps
+
+116
+00:10:23,120 --> 00:10:29,040
+ significantly. Oh, massively. Above that, you have PR and review assistance. Tools like Windsor
+
+117
+00:10:29,040 --> 00:10:33,600
+ for Devin review that integrate directly into your version control platform to review pull
+
+118
+00:10:33,600 --> 00:10:38,480
+ requests before they get merged. Right. Then you hit fully autonomous software engineering agents
+
+119
+00:10:38,480 --> 00:10:44,240
+ that claim they can resolve tickets start to finish. And finally, sitting on top of all of this are
+
+120
+00:10:44,240 --> 00:10:49,600
+ enterprise and government control layers designed to put fences around all these agents, which brings
+
+121
+00:10:49,600 --> 00:10:56,240
+ us to how an organization actually evaluates these tools. If you look at standard AI benchmarks,
+
+122
+00:10:56,240 --> 00:11:02,800
+ you will see a lot of talk about SWE bench. Right. SWE bench is useful for tracking the
+
+123
+00:11:02,800 --> 00:11:08,320
+ capability ceiling of a model. It tests what the smartest AI can do in a vacuum on a specific
+
+124
+00:11:08,320 --> 00:11:13,040
+ isolated problem. I kind of think it has to be events like a spelling bee. A spelling bee,
+
+125
+00:11:13,040 --> 00:11:17,840
+ I like that. Yeah, it proves the AI knows the dictionary. Yeah. But for an enterprise environment
+
+126
+00:11:17,840 --> 00:11:23,040
+ for HMRC, a spelling bee isn't enough. They rely on something called code scale bench,
+
+127
+00:11:23,040 --> 00:11:27,200
+ because code scale bench is more relevant for the enterprise. It stresses larger code bases and
+
+128
+00:11:27,200 --> 00:11:32,720
+ tool traces. Yeah, it's more like testing. If the AI can write a coherent novel while three
+
+129
+00:11:32,720 --> 00:11:37,920
+ other authors are actively editing the chapters, it tests the messy interconnected reality of
+
+130
+00:11:37,920 --> 00:11:42,400
+ restricted enterprise environments. So the government question isn't whether the AI can
+
+131
+00:11:42,400 --> 00:11:47,200
+ write a script that passes a test. The question is whether it can be deployed without completely
+
+132
+00:11:47,200 --> 00:11:51,840
+ undermining established security and change management controls. Precisely. Let's get really
+
+133
+00:11:51,840 --> 00:11:57,920
+ practical here. If governance is the new bottleneck, how do you actually put a leash on a terminal
+
+134
+00:11:57,920 --> 00:12:04,080
+ executing agent? Like if I give an AI permission to run shell commands so it can build my project,
+
+135
+00:12:04,080 --> 00:12:08,800
+ how do you stop it from accidentally dropping a production database or pasting a highly sensitive
+
+136
+00:12:08,800 --> 00:12:14,080
+ API key to the open internet? This raises an important question, and it is where the HMRC
+
+137
+00:12:14,080 --> 00:12:19,280
+ briefing offers a brilliant, truly elegant solution. They outline specific operational
+
+138
+00:12:19,280 --> 00:12:25,040
+ guardrails, but the core mechanism is something called the ageness.md file. Oh, I am obsessed with
+
+139
+00:12:25,040 --> 00:12:30,160
+ this concept. The mechanics of it are so smart is basically a simple markdown file,
+
+140
+00:12:30,160 --> 00:12:34,320
+ like an instruction manual that lives right inside your version control system sitting next to your
+
+141
+00:12:34,320 --> 00:12:40,160
+ actual code. Right. And every single time the AI agent boops up to work on your repository,
+
+142
+00:12:40,160 --> 00:12:46,400
+ the system forces it to read the agents.md file before it is allowed to execute a single line
+
+143
+00:12:46,400 --> 00:12:51,280
+ of code. It acts as a localized policy engine. You are dictating the operating constraints for
+
+144
+00:12:51,280 --> 00:12:56,240
+ that specific project. The file clearly outlines the purpose of the assistant, but more importantly,
+
+145
+00:12:56,240 --> 00:13:01,920
+ it strictly defines the boundaries. It explicitly lists the allowed commands. So mechanically,
+
+146
+00:13:01,920 --> 00:13:07,360
+ if the AI decides it wants to run, say, npm published to push a package to the public internet,
+
+147
+00:13:07,360 --> 00:13:13,520
+ but the agents.md file only lists test, length, format, and type check under the allowed commands.
+
+148
+00:13:13,520 --> 00:13:17,840
+ The AI parses that file realizes the action is out of bounds and just stops itself.
+
+149
+00:13:17,840 --> 00:13:23,920
+ That is so clean. And you combine that with a list of forbidden commands. You explicitly write
+
+150
+00:13:23,920 --> 00:13:28,640
+ down that deployment commands, destructive shell commands, and accessing the production
+
+151
+00:13:28,640 --> 00:13:34,560
+ credentials directory are strictly prohibited. The AI system prompt is weighted heavily to obey
+
+152
+00:13:34,560 --> 00:13:39,440
+ this local file above its own general instincts. The briefing also takes us a step further by
+
+153
+00:13:39,440 --> 00:13:44,320
+ defining what tasks are actually safe to give an AI in a government setting. Right, because
+
+154
+00:13:44,320 --> 00:13:50,240
+ not all tasks are created equal. Exactly. Safe tasks are things that are easily verifiable by a human,
+
+155
+00:13:50,240 --> 00:13:56,400
+ generating unit tests for existing code, updating documentation, drafting release notes, or PR
+
+156
+00:13:56,400 --> 00:14:01,200
+ summarization over synthetic or sanitized corpora, generating boilerplate structures is another good
+
+157
+00:14:01,200 --> 00:14:06,960
+ one. And then you contrast that with the absolute, do not touch zones, the tasks to avoid at all costs.
+
+158
+00:14:06,960 --> 00:14:11,760
+ You do not let an AI initiate privileged infrastructure changes. You do not let it execute
+
+159
+00:14:11,760 --> 00:14:17,280
+ operations on production databases. And crucially, for HMRC, you keep it entirely away from high
+
+160
+00:14:17,280 --> 00:14:22,080
+ sensitivity case work logic, which makes perfect sense. I mean, if you have 1000 lines of code
+
+161
+00:14:22,080 --> 00:14:28,640
+ that dictate the specific formulas for how a citizen's tax burden is calculated, you absolutely
+
+162
+00:14:28,640 --> 00:14:34,880
+ cannot have an AI hallucinate a more efficient algorithm that accidentally alters the tax code.
+
+163
+00:14:34,880 --> 00:14:40,240
+ No, that would be a nightmare. Business logic is human territory. Boilerplate code is machine
+
+164
+00:14:40,240 --> 00:14:45,760
+ territory. Yes, exactly. So what does this all mean? We've seen the risks and the rules.
+
+165
+00:14:45,760 --> 00:14:51,040
+ Now, let's look at the ultimate conclusion of this briefing. What a successful governed AI
+
+166
+00:14:51,040 --> 00:14:56,240
+ workflow actually looks like in practice for the civil service. The briefing grounds this in a
+
+167
+00:14:56,240 --> 00:15:01,360
+ really concrete repo anchored case study. And what stands out about this case study is that it isn't,
+
+168
+00:15:01,360 --> 00:15:07,520
+ you know, flashy vendor video demo of an AI typing code at lightning speed. It's not a generic AI
+
+169
+00:15:07,520 --> 00:15:12,080
+ wrote this claim. The output of the pilot wasn't just the software it built. It was an
+
+170
+00:15:12,080 --> 00:15:17,920
+ auditable postmortem of human and AI contributions. Yeah, it was a prototype where a human specified
+
+171
+00:15:17,920 --> 00:15:22,400
+ the task severely constrained the environment using those agents as MD rules we just talked
+
+172
+00:15:22,400 --> 00:15:27,360
+ about, and then exported the evidence of exactly how the code came to be. The evidence part is key.
+
+173
+00:15:27,360 --> 00:15:33,040
+ Oh, absolutely. If we connect this to the bigger picture, that phrase exported the evidence
+
+174
+00:15:33,040 --> 00:15:37,680
+ is the beating heart of this entire document. It leads to the strongest anchor line in the
+
+175
+00:15:37,680 --> 00:15:44,240
+ briefing. They say, for government, provenance is not an optional add on to AI output. Providence
+
+176
+00:15:44,240 --> 00:15:49,040
+ is part of the product. Providence is part of the products. Let's dig into what that actually
+
+177
+00:15:49,040 --> 00:15:54,560
+ means mechanically. Providence is the origin story of your code. Right. It is not enough that the
+
+178
+00:15:54,560 --> 00:16:00,640
+ code compiles and the app runs. You have to be able to cryptographically prove how it was written,
+
+179
+00:16:00,640 --> 00:16:05,360
+ why certain logic decisions were made, and who human or machine actually made them.
+
+180
+00:16:05,360 --> 00:16:10,000
+ Because if a tax calculation fails three years from now, auditors need to look back and see the
+
+181
+00:16:10,000 --> 00:16:15,440
+ exact trace of the AI agent proposing the code, and the specific human engineer who reviewed and
+
+182
+00:16:15,440 --> 00:16:20,960
+ approved it. This represents a monumental shift in the nature of engineering labor. We are basically
+
+183
+00:16:20,960 --> 00:16:25,760
+ watching the role of a software engineer evolve in real time. We really are. The labor is shifting
+
+184
+00:16:25,760 --> 00:16:31,280
+ aggressively from manual syntax production towards steering, architectural review, mathematical proof,
+
+185
+00:16:31,280 --> 00:16:37,280
+ and governance, which means the way an organization measures the success of its engineers, or when
+
+186
+00:16:37,280 --> 00:16:42,720
+ polluting these tools, it has to change immediately. The document issues a massive warning against
+
+187
+00:16:42,720 --> 00:16:47,520
+ surveying developers and just asking them if they felt faster using the tools. Oh, yeah. Feeling
+
+188
+00:16:47,520 --> 00:16:53,440
+ faster is such a psychological trap. Right. I mean, it feels great to watch an AI write 200 lines
+
+189
+00:16:53,440 --> 00:16:58,000
+ of code in four seconds. But feeling faster doesn't mean you are actually shipping, secure,
+
+190
+00:16:58,000 --> 00:17:02,240
+ working code of production any quicker. No, not at all. To cut through that illusion,
+
+191
+00:17:02,240 --> 00:17:07,920
+ HMRC is advised to measure hard operational metrics. You measure cycle time. How long it
+
+192
+00:17:07,920 --> 00:17:12,880
+ takes an idea to actually reach production. You measure first past test success. You track the
+
+193
+00:17:12,880 --> 00:17:18,480
+ rework rate rework rate being like how much of the AI's code did the human have to delete or rewrite?
+
+194
+00:17:18,480 --> 00:17:23,280
+ Exactly. And most importantly, you measure escape defects and security findings. Because if you write
+
+195
+00:17:23,280 --> 00:17:28,400
+ code 10 times faster, but introduced 10 times as many bugs, you haven't actually gained anything.
+
+196
+00:17:28,400 --> 00:17:33,840
+ No, you've just automated the creation of technical debt. And the language we use to talk about these
+
+197
+00:17:33,840 --> 00:17:39,920
+ tools is just as critical as the metrics. The briefing provides explicit vocabulary guidance.
+
+198
+00:17:39,920 --> 00:17:45,120
+ They strongly advise teams to use terms like assistant or agent. And they completely and
+
+199
+00:17:45,120 --> 00:17:50,560
+ totally reject the industry hype term autonomous developer. Because the rejection of that phrase
+
+200
+00:17:50,560 --> 00:17:55,760
+ isn't just about semantics. It is about legal and operational reality. Autonomous developer
+
+201
+00:17:55,760 --> 00:18:01,520
+ is a great marketing pitch. But in a government setting, it actively obscures where accountability
+
+202
+00:18:01,520 --> 00:18:07,840
+ sits. Accountability must always legally and operationally remain with human people and human
+
+203
+00:18:07,840 --> 00:18:12,800
+ teams. Right. You simply cannot delegate legal or security liability to a Python script.
+
+204
+00:18:12,800 --> 00:18:17,360
+ You really can. So to bring this all together for you listening, we started this deep dive with
+
+205
+00:18:17,360 --> 00:18:21,920
+ the common assumption that AI coding tools, we're just going to act like a magical cruise control,
+
+206
+00:18:21,920 --> 00:18:26,240
+ making everyone type code 10 times faster. But what we have discovered,
+
+207
+00:18:26,240 --> 00:18:32,240
+ looking through the lens of this 2026 HMRC briefing, is that these agent tools are fundamentally
+
+208
+00:18:32,240 --> 00:18:39,280
+ reshaping the entire software development lifecycle. It is no longer a typing competition. It is a
+
+209
+00:18:39,280 --> 00:18:45,600
+ complex game of risk management, rigorous review, and strict governance. And whether you are managing
+
+210
+00:18:45,600 --> 00:18:50,800
+ an enterprise development team, or you are just trying to stay informed on how your own workflow
+
+211
+00:18:50,800 --> 00:18:56,000
+ is going to change over the next few years, the central takeaway is unavoidable. Adopting AI
+
+212
+00:18:56,000 --> 00:19:00,080
+ successfully is not about subscribing to the smartest language model. No, it's not. It is
+
+213
+00:19:00,080 --> 00:19:05,200
+ entirely about building the most governable, audible workflow. It is about proving your work
+
+214
+00:19:05,200 --> 00:19:09,600
+ every single time. But before we wrap up, there's a final provocative thought I want to leave you with.
+
+215
+00:19:09,600 --> 00:19:14,800
+ Something to mull over or explore on your own that builds on this massive shift we've discussed
+
+216
+00:19:14,800 --> 00:19:19,280
+ today. Let's hear it. Well, we know that the engineering labor of today is shifting away from
+
+217
+00:19:19,280 --> 00:19:25,120
+ manually writing code and shifting almost entirely towards reviewing, steering, and governing AI
+
+218
+00:19:25,120 --> 00:19:30,160
+ outputs. Right, we've established that. But if that is true, how will the next generation of
+
+219
+00:19:30,160 --> 00:19:35,840
+ junior developers ever build the deep foundational intuition they need to actually spot the AI's
+
+220
+00:19:35,840 --> 00:19:40,640
+ subtle mistakes and legacy systems? Think back to the M ETR study we talked about earlier.
+
+221
+00:19:40,640 --> 00:19:45,120
+ Those senior developers were able to spot the insidious mistakes because they had spent a
+
+222
+00:19:45,120 --> 00:19:51,120
+ decade in the trenches writing that bad code themselves. They had the muscle memory of making
+
+223
+00:19:51,120 --> 00:19:55,440
+ mistakes. That's a really good point. If the AI does all the heavy lifting early on,
+
+224
+00:19:55,440 --> 00:19:59,840
+ who teaches the human reviewers how to govern these hyperfast systems tomorrow? When the
+
+225
+00:19:59,840 --> 00:20:05,040
+ cruise control suddenly decides to reroute your car into a brick wall, will anyone in the driver's
+
+226
+00:20:05,040 --> 00:20:09,360
+ seat still possess the muscle memory to grab the steering wheel. Something to think about.

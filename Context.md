@@ -10,6 +10,8 @@ The repository now also includes an HMRC Beyond the Hype talk research pack that
 
 Repo-local GitHub permalinks in the HMRC talk pack are pinned to the clean talk-prep branch commit rather than to `main`, so cited line numbers remain stable before and after PR review.
 
+The HMRC talk prep area also has a local import drop under `research/hmrc-beyond-hype/import/`. Large raw decks, images, PDFs, and audio files stay local by default; distilled Markdown inputs and generated transcript artefacts are the publishable Git materials unless a later review explicitly selects a binary source for publication.
+
 ## Current Prototype Focus
 
 The active build work has focused on Challenge 2: Unlocking the dark data.
@@ -95,6 +97,11 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `research/hmrc-beyond-hype/01_source_register.csv`: external and repo-local evidence register, with repo-local claims mapped to GitHub permalinks where possible.
 - `research/hmrc-beyond-hype/06_repo_case_study_codex_build.md`: evidence-led Challenge 2 Codex build case study.
 - `research/hmrc-beyond-hype/07_operating_model_for_public_sector_engineering.md`: five-layer operating model for piloting coding agents in public-sector engineering.
+- `research/hmrc-beyond-hype/import/`: local HMRC talk-prep resource drop; raw binary/audio resources are ignored by default, while lightweight Markdown can be tracked as source input.
+- `research/hmrc-beyond-hype/transcripts/`: committed Whisper transcript text, SRT timings, pyannote diarization evidence, and `Trace` / `Query` review drafts for the imported audio. `Trace` and `Query` are invented AI voice names for the machine diarization clusters, not verified speaker identities.
+- `research/hmrc-beyond-hype/tools/transcribe_audio.py`: reproducible local `ffmpeg` plus `whisper-cli` transcription helper.
+- `research/hmrc-beyond-hype/tools/diarize_audio_transcripts.py`: local pyannote diarization helper that uses `mps` on Apple Silicon where available.
+- `ruff.toml` and `.vscode/settings.json`: workspace Ruff configuration that avoids parsing nested external reference repositories such as the vendored mkdocs MCP plugin `pyproject.toml`.
 
 Dark Data Workbench controls expose active visual state for users and pressed-state metadata for automation/accessibility. Playwright tests assert the active UI state for facet, saved-check, and view-mode controls because those controls drive the visible corpus, evidence, and export context. The workbench also carries a user-entered question through Browser AI JSON, copied prompts, and Markdown evidence bundles so exported evidence remains tied to the question it is meant to answer. When a context set has selected sources, exports use the selected corpus records even if the current search or filters hide those cards. Reader note links resolve through a local Markdown endpoint rather than assuming the generated wiki folder is served as app-static content.
 

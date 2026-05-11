@@ -1,0 +1,2 @@
+run_id,model_id,device,torch_version,mps_available,audio_file_count,total_audio_seconds,wall_clock_seconds,created_at,params_json
+pyannote_community1_mps_20260511T111450Z,pyannote-community/speaker-diarization-community-1,mps,2.11.0,True,2,2397.693,83.757,2026-05-11T11:16:14.003536+00:00,"{""min_speakers"": 2, ""max_speakers"": 2}"
