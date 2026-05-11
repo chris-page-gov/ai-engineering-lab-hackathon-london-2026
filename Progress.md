@@ -40,6 +40,8 @@ The current local branch now also includes `research/hmrc-beyond-hype/`, a compl
 
 The current local branch is `codex/hmrc-talk-transcripts`, continuing the HMRC talk preparation work. It adds a local import-resource review, tracks the lightweight imported Markdown briefing, keeps large raw media ignored by default, fixes the VS Code Ruff workspace configuration, and commits machine transcripts plus pyannote `Trace` / `Query` diarization drafts for the two imported prep-audio files. The latest update keeps the transcript words and timings unchanged while replacing only the generic diarization labels with AI voice names.
 
+The current local branch is `codex/hmrc-narrative-goal`, recording the active follow-on goal for the HMRC talk: build a GitHub-browsable narrative wiki from the research pack, imported visual material, and transcripts, with sidecar notes, topic navigation, valid links, no orphaned notes, and a coherent narrative arc.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -83,6 +85,7 @@ The current local branch is `codex/hmrc-talk-transcripts`, continuing the HMRC t
 - Added line-level GitHub permalinks after repo-local paths in the source register, repo case study, operating model, and claims matrix where practical.
 - Added the HMRC talk import resource review, raw-media ignore policy, lightweight imported Markdown source input, audio transcription tooling, pyannote diarization tooling, base transcripts, SRT files, diarization CSV/report, and `Trace` / `Query` speaker-attributed transcript drafts.
 - Renamed the generated HMRC talk diarization labels to `Trace` and `Query` across speaker-attributed transcript files, diarization metadata, reports, and reproduction tooling without editing the base Whisper transcripts or SRT timings.
+- Added `research/hmrc-beyond-hype/narrative/README.md` as the durable active goal brief for the planned HMRC talk narrative wiki, replacing the unavailable `/goal` slash-command workflow with a committed definition of done and verification plan.
 - Added repository-level Ruff configuration and VS Code settings so the workspace Ruff extension uses the repo config instead of parsing nested external reference `pyproject.toml` files.
 - Published Version 1.1 from `main` with a GitHub tag and release.
 - Created `codex/evaluation-versioning` from the clean `v1.1` baseline for the next evaluation run.
@@ -142,6 +145,10 @@ The current local branch is `codex/hmrc-talk-transcripts`, continuing the HMRC t
   - ran `python3 -m json.tool research/hmrc-beyond-hype/transcripts/manifest.json`;
   - ran `uv run --with ruff ruff check --config ruff.toml research/hmrc-beyond-hype/tools`;
   - previously ran `uv run --with ruff ruff check --config ruff.toml --show-files .` and confirmed nested external reference repositories are excluded from the workspace Ruff file set.
+- Current HMRC narrative goal validation passed locally:
+  - added `research/hmrc-beyond-hype/narrative/README.md` as the active goal brief and checked its local Markdown links resolve;
+  - ran `python3 tools/check_documentation_lockstep.py`;
+  - ran `git diff --check`.
 - Challenge 2 strict build previously passed with `43 sources, 81 notes, 0 lint issues`.
 - Current lightweight validation for the Mermaid fix passed:
   - `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`

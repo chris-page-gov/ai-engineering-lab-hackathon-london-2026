@@ -98,6 +98,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `research/hmrc-beyond-hype/06_repo_case_study_codex_build.md`: evidence-led Challenge 2 Codex build case study.
 - `research/hmrc-beyond-hype/07_operating_model_for_public_sector_engineering.md`: five-layer operating model for piloting coding agents in public-sector engineering.
 - `research/hmrc-beyond-hype/import/`: local HMRC talk-prep resource drop; raw binary/audio resources are ignored by default, while lightweight Markdown can be tracked as source input.
+- `research/hmrc-beyond-hype/narrative/README.md`: durable goal brief for the planned GitHub-browsable HMRC talk narrative wiki, including acceptance criteria for slide/image sidecars, topic navigation, link validity, orphan detection, and coherent narrative flow.
 - `research/hmrc-beyond-hype/transcripts/`: committed Whisper transcript text, SRT timings, pyannote diarization evidence, and `Trace` / `Query` review drafts for the imported audio. `Trace` and `Query` are invented AI voice names for the machine diarization clusters, not verified speaker identities.
 - `research/hmrc-beyond-hype/tools/transcribe_audio.py`: reproducible local `ffmpeg` plus `whisper-cli` transcription helper.
 - `research/hmrc-beyond-hype/tools/diarize_audio_transcripts.py`: local pyannote diarization helper that uses `mps` on Apple Silicon where available.

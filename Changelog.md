@@ -8,6 +8,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
+- 2026-05-11: Added `research/hmrc-beyond-hype/narrative/README.md` as the durable active goal brief for a GitHub-browsable HMRC talk narrative wiki, including source inputs, expected structure, slide/image sidecar requirements, tags, definition of done, and verification plan.
 - 2026-05-11: Added HMRC talk import-resource handling under `research/hmrc-beyond-hype/`, including an import review appendix, lightweight imported Markdown source tracking, local audio transcription tooling, pyannote diarization tooling, base transcripts, SRT files, diarization evidence, and `Trace` / `Query` speaker-attributed transcript drafts for the two imported prep-audio files.
 - 2026-05-09: Added `research/hmrc-beyond-hype/`, a complete HMRC Beyond the Hype talk research pack covering the research brief, source register, AI software-engineering timeline, empirical productivity evidence, agentic capability analysis, public-sector governance, Codex build case study, operating model, and appendices required by the local prompt kit.
 - 2026-05-09: Added line-level GitHub permalinks after repo-local evidence paths in the HMRC talk source register, case study, operating model, and claims matrix where practical, pinned to the clean talk-prep branch commit for line stability.
