@@ -36,7 +36,7 @@ For the Challenge 2 implementation:
 - [Contribution modes and security assessment](output/doc/codex-contribution-modes-security-assessment.md): assessment of Codex, contribution modes, and security findings.
 - [MCP research wiki](challenge-2/MCP-Wiki/index.md): research, candidates, licensing posture, and implementation planning for a purpose-built Wiki MCP server.
 - [HMRC Beyond the Hype talk research pack](research/hmrc-beyond-hype/00_research_brief.md): evidence-backed preparation for a mixed-audience talk on moving from coding assistants to coding agents.
-- [HMRC talk audio transcripts](research/hmrc-beyond-hype/transcripts/README.md): local Whisper transcripts and pyannote `Speaker 1` / `Speaker 2` diarization drafts for the imported prep audio.
+- [HMRC talk audio transcripts](research/hmrc-beyond-hype/transcripts/README.md): local Whisper transcripts and pyannote `Trace` / `Query` voice-name diarization drafts for the imported prep audio.
 - [LinkedIn announcement draft](output/doc/linkedin-version-1-1-announcement.md): publication post for Version 1.1.
 
 ## What Was Built
@@ -141,7 +141,7 @@ Reports and publication artifacts:
 - `output/doc/linkedin-version-1-1-announcement.md`: LinkedIn announcement draft for Version 1.1.
 - `research/hmrc-beyond-hype/`: HMRC Beyond the Hype talk research pack, source register, case study, operating model, and appendices.
 - `research/hmrc-beyond-hype/import/`: local talk-prep source drop; lightweight Markdown is trackable, while large binary/audio resources are ignored unless explicitly selected for publication.
-- `research/hmrc-beyond-hype/transcripts/`: committed machine transcripts, SRT files, diarization evidence, and `Speaker 1` / `Speaker 2` review drafts derived from the local audio import.
+- `research/hmrc-beyond-hype/transcripts/`: committed machine transcripts, SRT files, diarization evidence, and `Trace` / `Query` voice-name review drafts derived from the local audio import.
 - `research/hmrc-beyond-hype/tools/`: local reproducibility scripts for audio transcription and pyannote diarization.
 - `postmortem-public/wiki/index.md`: public Codex collaboration postmortem entry point.
 - `postmortem-public/wiki/decisions.md`: publication decision register.

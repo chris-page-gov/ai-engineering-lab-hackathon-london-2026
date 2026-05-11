@@ -8,7 +8,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
-- 2026-05-11: Added HMRC talk import-resource handling under `research/hmrc-beyond-hype/`, including an import review appendix, lightweight imported Markdown source tracking, local audio transcription tooling, pyannote diarization tooling, base transcripts, SRT files, diarization evidence, and `Speaker 1` / `Speaker 2` speaker-attributed transcript drafts for the two imported prep-audio files.
+- 2026-05-11: Added HMRC talk import-resource handling under `research/hmrc-beyond-hype/`, including an import review appendix, lightweight imported Markdown source tracking, local audio transcription tooling, pyannote diarization tooling, base transcripts, SRT files, diarization evidence, and `Trace` / `Query` speaker-attributed transcript drafts for the two imported prep-audio files.
 - 2026-05-09: Added `research/hmrc-beyond-hype/`, a complete HMRC Beyond the Hype talk research pack covering the research brief, source register, AI software-engineering timeline, empirical productivity evidence, agentic capability analysis, public-sector governance, Codex build case study, operating model, and appendices required by the local prompt kit.
 - 2026-05-09: Added line-level GitHub permalinks after repo-local evidence paths in the HMRC talk source register, case study, operating model, and claims matrix where practical, pinned to the clean talk-prep branch commit for line stability.
 - 2026-04-29: Added a Dark Data Workbench source-note Markdown endpoint so reader note links resolve under the local dev/static app.
@@ -65,6 +65,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
+- 2026-05-11: Renamed the HMRC talk pyannote diarization labels from generic speaker numbers to the AI voice names `Trace` and `Query`, while preserving the base Whisper transcript text and SRT outputs.
 - 2026-04-22: Updated `.gitignore` to ignore all `.obsidian/` directories as local Obsidian browsing state.
 - Updated Challenge 2 evaluation best-model policy to use `gpt-5.4` with `xhigh` effort for Codex, Gemini CLI Auto routing, Claude Code `best` with `max` effort, staff-confirmed `gpt-5.4` for GitHub Copilot CLI, and Microsoft 365 Copilot Chat GPT-5 automatic routing for Microsoft Copilot.
 - Allowed client config to suppress a default reasoning-effort argument with JSON `null`, enabling Claude Code runs that defer model and effort selection to DSIT-managed local Claude settings.

@@ -21,7 +21,7 @@ The source register is [01_source_register.csv](01_source_register.csv). Methods
 
 The local `research/hmrc-beyond-hype/import/` drop adds a richer market briefing, slide-source files, image assets, a PDF on AI-native engineering teams, and two audio files. The immediate talk implication is to strengthen the category-first framing: IDE assistant, terminal/repo agent, PR/review assistant, autonomous issue-to-PR agent, and enterprise control layer.
 
-Treat the imported material as source input, not finished evidence. The Markdown briefing is useful enough to track, but the larger binary/audio resources remain local by default until there is a clear publication decision. The two audio files have been transcribed under `research/hmrc-beyond-hype/transcripts/`, including pyannote `Speaker 1` / `Speaker 2` diarization drafts. Promote individual claims into the main source register only after their external links, dates, and audio quotations have been revalidated.
+Treat the imported material as source input, not finished evidence. The Markdown briefing is useful enough to track, but the larger binary/audio resources remain local by default until there is a clear publication decision. The two audio files have been transcribed under `research/hmrc-beyond-hype/transcripts/`, including pyannote `Trace` / `Query` voice-name diarization drafts. Promote individual claims into the main source register only after their external links, dates, and audio quotations have been revalidated.
 
 ## One-page synthesis
 

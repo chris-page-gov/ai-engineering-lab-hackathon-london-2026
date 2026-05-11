@@ -117,8 +117,8 @@ def write_readme(runs: list[TranscriptRun]) -> None:
             "## Review Notes",
             "",
             "- Whisper provides the base text and subtitle timings.",
-            "- Speaker-attributed transcripts use pyannote diarization and `Speaker 1` / "
-            "`Speaker 2` labels; they are review drafts, not verified human transcripts.",
+            "- Speaker-attributed transcripts use pyannote diarization and `Trace` / "
+            "`Query` voice names; they are review drafts, not verified human transcripts.",
             "- Treat important quotes as provisional until checked against the audio.",
             "- The raw M4A files are local import resources and are not committed by default.",
             "",

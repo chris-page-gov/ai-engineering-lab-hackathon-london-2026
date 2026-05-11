@@ -12,8 +12,8 @@ These transcripts are machine-generated and should be reviewed before quoting in
 ## Review Notes
 
 - Whisper provides the base text and subtitle timings.
-- Speaker-attributed transcripts use pyannote diarization and `Speaker 1` / `Speaker 2` labels; they are review drafts, not verified human transcripts.
-- Speaker labels are aligned across the two audio files when pyannote embeddings are available, so a file does not necessarily start with `Speaker 1`.
+- Speaker-attributed transcripts use pyannote diarization and `Trace` / `Query` voice names; they are review drafts, not verified human transcripts.
+- Voice names are aligned across the two audio files when pyannote embeddings are available, so a file does not necessarily start with `Trace`.
 - Treat important quotes as provisional until checked against the audio.
 - The raw M4A files are local import resources and are not committed by default.
 

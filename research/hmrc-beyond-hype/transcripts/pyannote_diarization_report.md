@@ -11,16 +11,16 @@
 ## Speaker Clusters
 
 ### governing-agentic-ai-in-software-engineering
-- SPEAKER_00: Speaker 1; 664.6s total speech; first seen at 00:00:00.
-- SPEAKER_01: Speaker 2; 520.3s total speech; first seen at 00:00:10.
+- SPEAKER_00: Trace; 664.6s total speech; first seen at 00:00:00.
+- SPEAKER_01: Query; 520.3s total speech; first seen at 00:00:10.
 
 ### engineering-accountability-in-public-sector-ai
-- SPEAKER_00: Speaker 1; 595.0s total speech; first seen at 00:00:06.
-- SPEAKER_01: Speaker 2; 568.3s total speech; first seen at 00:00:00.
+- SPEAKER_00: Trace; 595.0s total speech; first seen at 00:00:06.
+- SPEAKER_01: Query; 568.3s total speech; first seen at 00:00:00.
 
 ## Caveats
 
 - This is diarization, not named-speaker identification.
-- `Speaker 1` and `Speaker 2` are machine-assigned labels. They are aligned across the two files using pyannote speaker embeddings when available.
-- Text is assigned to the dominant diarized speaker for each Whisper SRT cue; a cue that contains both voices can still have mixed text under one speaker label.
+- `Trace` and `Query` are machine-assigned voice names. They are aligned across the two files using pyannote speaker embeddings when available.
+- Text is assigned to the dominant diarized speaker for each Whisper SRT cue; a cue that contains both voices can still have mixed text under one voice name.
 - Verify any important quotation against the source audio before public use.

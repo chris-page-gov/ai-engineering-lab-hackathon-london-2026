@@ -34,7 +34,7 @@ The folder `research/hmrc-beyond-hype/import/` is a local source drop for the HM
 
 Raw media in `research/hmrc-beyond-hype/import/` is intentionally ignored by default. The repository should commit distilled Markdown notes, validated source references, and final deliverables rather than large generated decks, screenshots, audio, or duplicate DOCX/PDF inputs unless they are explicitly selected for publication.
 
-The committed transcript set under `research/hmrc-beyond-hype/transcripts/` includes base Whisper text, SRT timings, pyannote diarization segment CSV, a diarization report, and `Speaker 1` / `Speaker 2` speaker-attributed Markdown/TXT drafts. The raw `.m4a` files remain local import sources.
+The committed transcript set under `research/hmrc-beyond-hype/transcripts/` includes base Whisper text, SRT timings, pyannote diarization segment CSV, a diarization report, and `Trace` / `Query` voice-name Markdown/TXT drafts. The raw `.m4a` files remain local import sources.
 
 ## Follow-Up Work
 

@@ -21,8 +21,8 @@
         "device": "mps",
         "run_id": "pyannote_community1_mps_20260511T111450Z",
         "speaker_labels": [
-          "Speaker 1",
-          "Speaker 2"
+          "Trace",
+          "Query"
         ]
       }
     },
@@ -45,8 +45,8 @@
         "device": "mps",
         "run_id": "pyannote_community1_mps_20260511T111450Z",
         "speaker_labels": [
-          "Speaker 1",
-          "Speaker 2"
+          "Trace",
+          "Query"
         ]
       }
     }

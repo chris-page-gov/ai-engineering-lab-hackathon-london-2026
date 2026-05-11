@@ -32,6 +32,7 @@ SEGMENTS_CSV = TRANSCRIPTS_DIR / "pyannote_diarization_segments.csv"
 REPORT_MD = TRANSCRIPTS_DIR / "pyannote_diarization_report.md"
 MANIFEST_JSON = TRANSCRIPTS_DIR / "manifest.json"
 DEFAULT_MODEL = "pyannote-community/speaker-diarization-community-1"
+VOICE_LABELS = ("Trace", "Query")
 
 AUDIO_FILES = (
     "Governing_agentic_AI_in_software_engineering.m4a",
@@ -281,7 +282,7 @@ def build_global_speaker_map(item_results: dict[str, dict[str, Any]]) -> dict[tu
     reference: dict[str, np.ndarray] = {}
     speaker_map: dict[tuple[str, str], str] = {}
     for index, label in enumerate(first_labels[:2], start=1):
-        speaker_name = f"Speaker {index}"
+        speaker_name = VOICE_LABELS[index - 1] if index <= len(VOICE_LABELS) else f"Voice {index}"
         speaker_map[(slugs[0], label)] = speaker_name
         embedding = first["label_embeddings"].get(label)
         if embedding is not None:
@@ -312,7 +313,9 @@ def build_global_speaker_map(item_results: dict[str, dict[str, Any]]) -> dict[tu
             key=lambda label: result["first_start_by_label"].get(label, float("inf")),
         )
         for index, label in enumerate(sorted_labels[:2], start=1):
-            speaker_map[(slug, label)] = f"Speaker {index}"
+            speaker_map[(slug, label)] = (
+                VOICE_LABELS[index - 1] if index <= len(VOICE_LABELS) else f"Voice {index}"
+            )
 
     return speaker_map
 
@@ -367,7 +370,7 @@ def write_speaker_transcripts(
             f"- Subtitle timing: `{item.srt.relative_to(Path.cwd())}`",
             f"- Diarization model: `{run_row['model_id']}`",
             f"- Device: `{run_row['device']}`",
-            "- Speaker labels: `Speaker 1` / `Speaker 2` from pyannote diarization",
+            "- Voice names: `Trace` / `Query` from pyannote diarization",
             "",
             "Machine-generated transcript and diarization. Verify important quotes against "
             "the audio before using them in slides, speaker notes, or published material.",
@@ -413,7 +416,7 @@ def update_manifest(run_row: dict[str, Any], items: list[AudioItem]) -> None:
             "model": run_row["model_id"],
             "device": run_row["device"],
             "run_id": run_row["run_id"],
-            "speaker_labels": ["Speaker 1", "Speaker 2"],
+            "speaker_labels": list(VOICE_LABELS),
         }
     manifest["diarization_run"] = run_row
     manifest["updated_at"] = datetime.now(UTC).isoformat()
@@ -452,10 +455,10 @@ def write_readme(items: list[AudioItem]) -> None:
             "## Review Notes",
             "",
             "- Whisper provides the base text and subtitle timings.",
-            "- Speaker-attributed transcripts use pyannote diarization and `Speaker 1` / "
-            "`Speaker 2` labels; they are review drafts, not verified human transcripts.",
-            "- Speaker labels are aligned across the two audio files when pyannote embeddings "
-            "are available, so a file does not necessarily start with `Speaker 1`.",
+            "- Speaker-attributed transcripts use pyannote diarization and `Trace` / "
+            "`Query` voice names; they are review drafts, not verified human transcripts.",
+            "- Voice names are aligned across the two audio files when pyannote embeddings "
+            "are available, so a file does not necessarily start with `Trace`.",
             "- Treat important quotes as provisional until checked against the audio.",
             "- The raw M4A files are local import resources and are not committed by default.",
             "",
@@ -509,10 +512,10 @@ def write_report(
             "## Caveats",
             "",
             "- This is diarization, not named-speaker identification.",
-            "- `Speaker 1` and `Speaker 2` are machine-assigned labels. They are aligned across "
+            "- `Trace` and `Query` are machine-assigned voice names. They are aligned across "
             "the two files using pyannote speaker embeddings when available.",
             "- Text is assigned to the dominant diarized speaker for each Whisper SRT cue; a cue "
-            "that contains both voices can still have mixed text under one speaker label.",
+            "that contains both voices can still have mixed text under one voice name.",
             "- Verify any important quotation against the source audio before public use.",
             "",
         ]
