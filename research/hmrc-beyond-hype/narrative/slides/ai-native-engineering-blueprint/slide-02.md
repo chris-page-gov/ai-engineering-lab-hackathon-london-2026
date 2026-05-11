@@ -9,24 +9,42 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
+  - capability-trend
   - codex
+  - review
+  - risk-boundaries
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 02
+# Slide 02 - The Multi-Hour Milestone Has Been Breached
 
 ![AI-Native Engineering Blueprint Slide 02](../../assets/visuals/ai-native-engineering-blueprint/slide-02.jpg)
 
 ## Visual Description
 
-This is slide 02 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A capability-trend slide with a task-duration chart. It argues that frontier systems are moving from short completion tasks towards multi-hour reasoning and software-lifecycle work.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Explains why coding assistants should now be discussed as agents: longer task horizons make planning, tool use, verification, and handoff part of the product.
 
 ## Material Points Illustrated
+
+- The useful claim is the direction of travel: task horizons are lengthening.
+- Longer task horizons bring more of the software lifecycle into scope.
+- Exact model labels and numeric task-duration claims are imported-slide claims and should be rechecked before quoting live.
+
+## Talk Path
+
+- Stage: Capability shift.
+- Use in talk: Frame this as a capability lens, not as a benchmark proof. The important point for HMRC/public-sector teams is that longer tasks create new governance needs.
+- Bridge: Move from capability trend to workflow contrast: autocomplete versus agents.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - Frontier systems now sustain over a GPT-5.1-Codex-Max (2025): 2 hr 17 min ->@
 - two hours of continuous reasoning, 5
@@ -47,11 +65,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - LLM release date
 - A\ NotebookLV
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-01.md)
+- [Next slide](slide-03.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

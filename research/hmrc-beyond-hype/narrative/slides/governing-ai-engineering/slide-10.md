@@ -9,13 +9,16 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - auditability
+  - build
   - dark-data
   - evaluation
   - governance
   - hmrc
   - public-sector
+  - review
   - risk-boundaries
   - security
+  - testing
   - validation
 ---
 
@@ -51,6 +54,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - pilot question is: on which task types does it improve cycle time
 - without increasing rework, defects, or security risk?
 - A\ NotebookLV
+
 
 ## Related Narrative Links
 

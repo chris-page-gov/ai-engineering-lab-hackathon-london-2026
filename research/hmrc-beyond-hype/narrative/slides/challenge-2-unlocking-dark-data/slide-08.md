@@ -10,8 +10,10 @@ tags:
   - auditability
   - challenge-2
   - dark-data
+  - documentation
   - governance
   - provenance
+  - review
   - security
   - source-backed-answers
   - talk-demo
@@ -55,6 +57,7 @@ Frames the public-sector problem: guidance can exist but still be hard to find, 
 - Direct link to the exact line/ Example: Valid from Jan 2026,
 - section in the extracted text. Status: Current.
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

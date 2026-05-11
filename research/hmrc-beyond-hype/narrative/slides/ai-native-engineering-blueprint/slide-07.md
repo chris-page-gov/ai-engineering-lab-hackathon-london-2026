@@ -9,26 +9,44 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
+  - design
   - governance
   - mcp
+  - review
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 07
+# Slide 07 - Phase 02: Design
 
 ![AI-Native Engineering Blueprint Slide 07](../../assets/visuals/ai-native-engineering-blueprint/slide-07.jpg)
 
 ## Visual Description
 
-This is slide 07 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A design slide with a 50/50 human-agent effort split and a translation flow from multimodal input through an MCP-connected agent to component stubs and style application.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Shows agents as design translators, not design owners: they can scaffold from mockups and apply tokens, while humans retain UX and system-level judgement.
 
 ## Material Points Illustrated
+
+- Delegate project scaffolding, mockup translation, and design-token application.
+- Review design conventions, accessibility standards, and system integration.
+- Own the overarching design system, UX patterns, and final user experience.
+- Implementation depends on exposing design tools/component libraries and enforcing typed languages such as TypeScript.
+
+## Talk Path
+
+- Stage: Lifecycle phase.
+- Use in talk: Use this to show why MCP-style context matters: agents need controlled access to the design system, not a screenshot alone.
+- Bridge: The same pattern then moves into implementation, where delegation can increase.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - PHASE 02: Accelerating the path from mockup to component
 - Effort Allocation Slider
@@ -46,11 +64,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - _ own: Overarching design system, UX patterns, final user experience. wens EPS.
 - A) NotebookLM
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-06.md)
+- [Next slide](slide-08.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

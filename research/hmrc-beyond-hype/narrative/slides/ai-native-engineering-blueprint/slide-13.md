@@ -9,25 +9,49 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
+  - design
+  - documentation
   - governance
+  - operating-model
+  - operations
+  - planning
+  - responsibility
+  - review
+  - testing
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 13
+# Slide 13 - Responsibility Matrix
 
 ![AI-Native Engineering Blueprint Slide 13](../../assets/visuals/ai-native-engineering-blueprint/slide-13.jpg)
 
 ## Visual Description
 
-This is slide 13 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A table organising phases against delegate, review, and own responsibilities. The visible examples include AI-led scaffolding, human ownership of complex abstractions, adversarial edge-case design, and final merge authority.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Provides the deck's practical governance artefact: a team can decide, phase by phase, what AI leads, what is shared, and what humans must own.
 
 ## Material Points Illustrated
+
+- The lifecycle should be governed as a responsibility matrix, not a vague adoption policy.
+- AI can lead bounded delegation such as scaffolding and issue detection.
+- Humans must own complex abstractions, adversarial testing strategy, and final merge authority.
+- The matrix gives teams a way to turn agent adoption into reviewable operating rules.
+
+## Talk Path
+
+- Stage: Consolidation.
+- Use in talk: Use this as the handout-style summary for teams asking 'where do we start and what do we keep human-owned?'.
+- Bridge: The matrix explains control; the flywheel explains why disciplined control compounds.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - The Responsibility Matrix: Organising the Al-Native team
 - A consolidated view of shifting human focus across the entire lifecycle.
@@ -41,11 +65,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - Deploy
 - A NotebookiM
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-12.md)
+- [Next slide](slide-14.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

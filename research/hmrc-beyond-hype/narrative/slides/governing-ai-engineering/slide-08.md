@@ -7,13 +7,20 @@ item_number: 8
 asset: "assets/visuals/governing-ai-engineering/slide-08.jpg"
 publication_status: "publishable derived thumbnail and text sidecar; raw imported PowerPoint remains local"
 tags:
+  - build
   - dark-data
+  - documentation
   - governance
   - hmrc
+  - operations
+  - planning
   - provenance
   - public-sector
+  - review
   - risk-boundaries
+  - rollout
   - security
+  - testing
   - validation
 ---
 
@@ -43,6 +50,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - sanitised corpora.
 - CI a) Ct Ty
 - rn RC es Vad en gC oe ee TEST
+
 
 ## Related Narrative Links
 

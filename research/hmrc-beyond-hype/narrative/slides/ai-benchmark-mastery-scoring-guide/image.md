@@ -11,10 +11,14 @@ tags:
   - auditability
   - challenge-2
   - dark-data
+  - design
   - evaluation
   - provenance
+  - review
   - risk-boundaries
+  - rollout
   - talk-demo
+  - testing
   - validation
 ---
 
@@ -62,6 +66,7 @@ Connects the talk demo to evaluation discipline: claims about assistant quality 
 - caveats. } Likely answering points if the agent invents
 - Yi from guesses/priors. facts not in the wiki.
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

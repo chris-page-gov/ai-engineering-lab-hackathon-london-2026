@@ -12,6 +12,7 @@ tags:
   - dark-data
   - mcp
   - provenance
+  - review
   - traceability
 ---
 
@@ -46,6 +47,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - Standard Al tools fail because answers require provenance,
 - supersession, and status-not just matching words.
 - A\ NotebookLV
+
 
 ## Related Narrative Links
 

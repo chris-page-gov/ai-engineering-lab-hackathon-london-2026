@@ -9,26 +9,46 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
+  - documentation
   - governance
+  - operations
+  - planning
+  - review
   - risk-boundaries
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 11
+# Slide 11 - Phase 06: Document
 
 ![AI-Native Engineering Blueprint Slide 11](../../assets/visuals/ai-native-engineering-blueprint/slide-11.jpg)
 
 ## Visual Description
 
-This is slide 11 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A documentation slide showing a pipeline from git commits to build pipeline, SDK/agent run, Mermaid diagrams, and automated changelogs.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Shows documentation as part of the delivery loop rather than an afterthought: agents can draft evidence and diagrams, while humans retain public, critical, and brand-sensitive documentation decisions.
 
 ## Material Points Illustrated
+
+- Delegate first-pass file summaries, dependency lists, PR overviews, and diagrams.
+- Review critical runbooks, public APIs, and core architecture documents.
+- Own documentation strategy, safety-critical external docs, and brand risk.
+- Embed documentation guidelines in `AGENTS.md` and wire generation scripts into release-cycle workflows.
+
+## Talk Path
+
+- Stage: Lifecycle phase.
+- Use in talk: Use this to connect the repo's Changelog/Context/Progress discipline to the broader agentic engineering workflow.
+- Bridge: The lifecycle continues into operations, where context and authority become riskier.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - PHASE 06: Documentation as a continuous byproduct
 - Effort Allocation Slider
@@ -47,11 +67,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - external docs, brand risk.
 - A\ NotebookLV
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-10.md)
+- [Next slide](slide-12.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

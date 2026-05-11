@@ -47,6 +47,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - delivery workflow. QD
 - A\ NotebookLV
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)

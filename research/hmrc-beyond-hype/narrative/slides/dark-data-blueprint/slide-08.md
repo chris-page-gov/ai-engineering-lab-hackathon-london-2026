@@ -9,8 +9,10 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - ai-assistants
   - auditability
+  - build
   - challenge-2
   - dark-data
+  - documentation
   - evaluation
   - mcp
   - provenance
@@ -46,6 +48,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - validation, and documentation were forced to move
 - together. No deleted tracking docs could pass Cl.
 - A\ NotebookLV
+
 
 ## Related Narrative Links
 

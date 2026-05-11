@@ -40,7 +40,7 @@ The current local branch now also includes `research/hmrc-beyond-hype/`, a compl
 
 The current local branch is `codex/hmrc-talk-transcripts`, continuing the HMRC talk preparation work. It adds a local import-resource review, tracks the lightweight imported Markdown briefing, keeps large raw media ignored by default, fixes the VS Code Ruff workspace configuration, and commits machine transcripts plus pyannote `Trace` / `Query` diarization drafts for the two imported prep-audio files. The latest update keeps the transcript words and timings unchanged while replacing only the generic diarization labels with AI voice names.
 
-The current local branch is `codex/hmrc-narrative-goal`, building the HMRC talk narrative wiki from the research pack, imported visual material, and transcripts. The visual sidecar milestone is complete for the current import inventory: 50 PowerPoint slides, 20 PDF pages, and 3 standalone PNG images now have Markdown sidecars, small derived image assets, topic/source navigation, coverage output, and validation output. Full editorial curation of the broader narrative remains open.
+The current local branch is `codex/hmrc-narrative-goal`, building the HMRC talk narrative wiki from the research pack, imported material, and transcripts. The import and visual sidecar milestone is complete for the current import inventory: all 13 current import files have a narrative treatment, and the visual subset has 50 PowerPoint slide sidecars, 20 PDF page sidecars, and 3 standalone PNG sidecars with small derived image assets, topic/source navigation, coverage output, and validation output. Full editorial curation of the broader narrative remains open.
 
 ## Completed
 
@@ -89,6 +89,10 @@ The current local branch is `codex/hmrc-narrative-goal`, building the HMRC talk 
 - Added `research/hmrc-beyond-hype/import/clawpilot.md` as a lightweight local source input for the ClawPilot / OpenClaw sidebar and incorporated it into the HMRC narrative pack.
 - Added the HMRC narrative scaffold under `research/hmrc-beyond-hype/narrative/`, including `index.md`, `overview.md`, `narrative-arc.md`, `topics.md`, `source-materials.md`, `notes/clawpilot-project-lobster.md`, sidecar indexes, visual coverage data, and validation reports.
 - Added generated Markdown sidecars and small derived image assets for all `73` current imported visual items: `15` slides from `AI-Native_Engineering_Blueprint.pptx`, `10` slides from `Challenge_2_Unlocking_Dark_Data.pptx`, `13` slides from `Dark_Data_Blueprint.pptx`, `12` slides from `Governing_AI_Engineering.pptx`, `20` pages from `AI-Native-Engineering-Team-source_openAI.pdf`, and `3` standalone PNG files.
+- Added `research/hmrc-beyond-hype/narrative/notes/import-inventory.md` and `data/import_inventory.csv`, proving every current file in `research/hmrc-beyond-hype/import/` has an explicit narrative treatment.
+- Added `research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md` for the imported AI Coding Assistants Markdown/DOCX briefing pair, with links to the companion evolution and benchmark visuals.
+- Added transcript-backed narrative source notes for the two imported audio files under `research/hmrc-beyond-hype/narrative/notes/`.
+- Curated `research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/narrative-guide.md` as the preferred route through the 15-slide AI-Native Engineering Blueprint deck.
 - Added `research/hmrc-beyond-hype/tools/build_narrative_sidecars.py` and `research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py` so the sidecar pack can be regenerated and checked.
 - Added repository-level Ruff configuration and VS Code settings so the workspace Ruff extension uses the repo config instead of parsing nested external reference `pyproject.toml` files.
 - Published Version 1.1 from `main` with a GitHub tag and release.
@@ -157,7 +161,8 @@ The current local branch is `codex/hmrc-narrative-goal`, building the HMRC talk 
   - ran `uv run --with python-pptx --with pillow --with pypdf python research/hmrc-beyond-hype/tools/build_narrative_sidecars.py`;
   - generated `73` sidecars and `73` derived image assets from the current visual import inventory;
   - ran `uv run --with python-pptx --with pillow --with pypdf python research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py --write-report`;
-  - validation reported `73` covered visual items, `90` reachable narrative Markdown files, `73` referenced assets, `0` orphaned narrative Markdown files, and `0` errors.
+  - validation reported all `13` current import files represented, `73` covered visual items, `95` reachable narrative Markdown files, `73` referenced assets, `0` orphaned narrative Markdown files, and `0` errors;
+  - confirmed `AI-Native_Engineering_Blueprint.pptx` contains `15` slides, with related AI-native PDF/image/briefing material covered as separate import files;
   - ran `uv run --with python-pptx --with pillow --with pypdf python -m py_compile research/hmrc-beyond-hype/tools/build_narrative_sidecars.py research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py`;
   - ran `uv run --with ruff ruff check --config ruff.toml research/hmrc-beyond-hype/tools`;
   - ran `python3 tools/check_documentation_lockstep.py`;

@@ -13,8 +13,11 @@ tags:
   - evaluation
   - governance
   - mcp
+  - operations
   - provenance
+  - review
   - risk-boundaries
+  - testing
   - traceability
   - validation
 ---
@@ -46,6 +49,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - distinguishing synthetic demo
 - fixtures from real data-risk controls.
 - A\ NotebookLV
+
 
 ## Related Narrative Links
 

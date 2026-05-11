@@ -10,9 +10,12 @@ tags:
   - agentic-coding
   - ai-assistants
   - auditability
+  - build
   - governance
   - mcp
   - operating-model
+  - operations
+  - review
   - security
   - workflow
 ---
@@ -63,6 +66,7 @@ Provides the external operating-model backdrop for AI-native engineering: plan, 
 - str a t egies, and e xpand agen t capabilities
 - as y our s y st ems and pr ocesses evolve .
 - 1 9 BuildinganAI - nativeengineeringteam
+
 
 ## Related Narrative Links
 

@@ -8,8 +8,10 @@ asset: "assets/visuals/challenge-2-unlocking-dark-data/slide-05.jpg"
 publication_status: "publishable derived thumbnail and text sidecar; raw imported PowerPoint remains local"
 tags:
   - ai-assistants
+  - build
   - challenge-2
   - dark-data
+  - design
   - provenance
   - source-backed-answers
   - talk-demo
@@ -37,6 +39,7 @@ Frames the public-sector problem: guidance can exist but still be hard to find, 
 - Raw Corpus The Engine Scaler Machine-Readable
 - AL Assistant Repository
 - Copilot / Kiro / Gemini)
+
 
 ## Related Narrative Links
 

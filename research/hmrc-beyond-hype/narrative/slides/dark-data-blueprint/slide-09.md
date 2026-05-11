@@ -41,6 +41,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - 8 - - Users deliberately
 - selecting context sets
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)

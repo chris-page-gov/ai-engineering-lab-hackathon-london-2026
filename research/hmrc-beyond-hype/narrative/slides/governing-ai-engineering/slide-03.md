@@ -9,12 +9,15 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - governance
   - hmrc
   - provenance
   - public-sector
+  - review
   - risk-boundaries
   - security
+  - testing
   - validation
 ---
 
@@ -46,6 +49,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - The most critical question is no longer "which model is
 - best?" but "which workflow can we govern?"
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

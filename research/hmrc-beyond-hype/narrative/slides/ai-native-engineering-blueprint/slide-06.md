@@ -9,25 +9,43 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
   - governance
+  - planning
+  - review
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 06
+# Slide 06 - Phase 01: Plan
 
 ![AI-Native Engineering Blueprint Slide 06](../../assets/visuals/ai-native-engineering-blueprint/slide-06.jpg)
 
 ## Visual Description
 
-This is slide 06 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A planning slide with a human-heavy effort split, the delegate-review-own cards, a tooling map linking issue tracker, agent, and codebase, and an implementation checklist.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Shows planning as the first controlled agent workflow: use agents to analyse and structure work, but keep prioritisation and sequencing with people.
 
 ## Material Points Illustrated
+
+- Delegate feasibility analysis, dependency mapping, and edge-case identification from specs.
+- Review accuracy, completeness, and technical constraints.
+- Own story-point assignment, prioritisation, and long-term sequencing.
+- Connect issue trackers, agents, and codebases so work can be tagged, deduplicated, split into subtasks, and triggered from ticket stage changes.
+
+## Talk Path
+
+- Stage: Lifecycle phase.
+- Use in talk: Use this as a practical first-step example: start with planning support because it is reviewable and low-risk compared with production action.
+- Bridge: Once work is framed, the next phase is translating design intent into code.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - GSS Planning without the alignment overhead
 - side
@@ -47,11 +65,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - Trigger agent run on ticket stage-change.
 - A\ NotebookLV
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-05.md)
+- [Next slide](slide-07.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

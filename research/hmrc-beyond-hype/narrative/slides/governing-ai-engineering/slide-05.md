@@ -9,12 +9,15 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - ai-assistants
   - auditability
+  - build
   - challenge-2
   - dark-data
   - evaluation
   - governance
   - hmrc
+  - operations
   - public-sector
+  - review
   - risk-boundaries
   - security
   - validation
@@ -46,6 +49,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - ceiling for isolated generation. Civil Service because it stresses multi-repo settings, tool
 - traces, and integration realities.
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

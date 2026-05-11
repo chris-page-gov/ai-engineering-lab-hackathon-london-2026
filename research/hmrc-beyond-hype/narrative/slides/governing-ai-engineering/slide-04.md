@@ -10,10 +10,14 @@ tags:
   - agentic-coding
   - ai-assistants
   - auditability
+  - build
+  - documentation
   - governance
   - hmrc
   - public-sector
+  - review
   - risk-boundaries
+  - rollout
   - security
   - validation
 ---
@@ -49,6 +53,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - C5: Enterprise Policy, audit, & a he Pee peak Central departmental
 - Control Layer privacy enforcement Enterprise logging & tenancy
 - Note: Tools marked C1-C5 verified against official primary documentation | A) NotebookLM
+
 
 ## Related Narrative Links
 

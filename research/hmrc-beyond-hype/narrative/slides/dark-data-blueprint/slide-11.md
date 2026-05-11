@@ -10,9 +10,12 @@ tags:
   - auditability
   - challenge-2
   - dark-data
+  - documentation
   - governance
   - mcp
   - provenance
+  - review
+  - testing
   - traceability
   - validation
 ---
@@ -46,6 +49,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - V > python3 check_documentation_lockstep.py - Passed.
 - V > git diff --check - Clean working tree.
 - A\ NotebookLV
+
 
 ## Related Narrative Links
 

@@ -9,6 +9,7 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - operating-model
   - workflow
 ---
@@ -31,6 +32,7 @@ Provides the external operating-model backdrop for AI-native engineering: plan, 
 - engineeringteam
 - Howcodingagentsacceleratethesoftware
 - developmentlifecycle
+
 
 ## Related Narrative Links
 

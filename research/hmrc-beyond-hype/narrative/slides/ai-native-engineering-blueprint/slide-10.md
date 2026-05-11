@@ -9,26 +9,44 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
   - evaluation
   - governance
+  - operations
+  - review
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 10
+# Slide 10 - Phase 05: Review
 
 ![AI-Native Engineering Blueprint Slide 10](../../assets/visuals/ai-native-engineering-blueprint/slide-10.jpg)
 
 ## Visual Description
 
-This is slide 10 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A code-review slide with a human-heavy effort split, a Sansan case-study inset, and implementation guidance for review datasets, tuned models, and signal-to-noise tracking.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Positions agents as review amplifiers: useful for broad tracing and defect hints, but not a replacement for final merge authority or production-readiness judgement.
 
 ## Material Points Illustrated
+
+- Delegate initial static/runtime review and tracing logic across files.
+- Review architectural alignment, composable patterns, and requirement matching.
+- Own final merge process, deployment readiness, and production reliability.
+- Curate gold-standard pull requests as an evaluation dataset, tune models for review, and track comment reactions to measure signal-to-noise.
+
+## Talk Path
+
+- Stage: Lifecycle phase.
+- Use in talk: Use this to explain that AI review can find issues humans miss, but the acceptance decision remains a human engineering responsibility.
+- Bridge: Once a change is accepted, documentation should be generated as a byproduct.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - PHASE 05: Scaling code review for baseline reliability
 - Effort Allocation Slider Case Study
@@ -50,11 +68,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - ratio.
 - A\ NotebookLV
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-09.md)
+- [Next slide](slide-11.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)
