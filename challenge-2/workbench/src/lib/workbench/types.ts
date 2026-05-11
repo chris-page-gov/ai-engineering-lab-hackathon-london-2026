@@ -70,12 +70,24 @@ export type WorkbenchSource = {
   summary: string;
   noteText: string;
   searchText: string;
+  thumbnailPath?: string | null;
+  sourceFamilies?: string[];
+  stages?: string[];
+  assetTypes?: string[];
+  evidenceRoles?: string[];
+  governanceThemes?: string[];
+  talkSections?: string[];
+  provenanceModes?: string[];
+  topicGroups?: string[];
+  screenfulls?: number | null;
+  links?: WorkbenchLink[];
 };
 
 export type WorkbenchFacet = {
   id: keyof FilterState;
   label: string;
   values: Array<{ value: string; count: number }>;
+  kind?: 'category' | 'measure';
 };
 
 export type WorkbenchCorpus = {
@@ -103,6 +115,21 @@ export type FilterState = {
   formats: string[];
   topics: string[];
   flags: string[];
+  sourceFamilies: string[];
+  stages: string[];
+  assetTypes: string[];
+  evidenceRoles: string[];
+  governanceThemes: string[];
+  talkSections: string[];
+  provenanceModes: string[];
+  topicGroups: string[];
+  screenfulls: string[];
+};
+
+export type WorkbenchLink = {
+  label: string;
+  href: string;
+  kind?: string;
 };
 
 export type SavedQuery = {
@@ -126,6 +153,13 @@ export type ContextExportSource = {
   excerpts: string[];
   selected: boolean;
   highlighted: boolean;
+  thumbnail_path?: string | null;
+  source_families?: string[];
+  narrative_stages?: string[];
+  talk_sections?: string[];
+  evidence_roles?: string[];
+  governance_themes?: string[];
+  links?: WorkbenchLink[];
 };
 
 export type ContextExport = {
@@ -160,4 +194,13 @@ export const EMPTY_FILTERS: FilterState = {
   formats: [],
   topics: [],
   flags: [],
+  sourceFamilies: [],
+  stages: [],
+  assetTypes: [],
+  evidenceRoles: [],
+  governanceThemes: [],
+  talkSections: [],
+  provenanceModes: [],
+  topicGroups: [],
+  screenfulls: [],
 };

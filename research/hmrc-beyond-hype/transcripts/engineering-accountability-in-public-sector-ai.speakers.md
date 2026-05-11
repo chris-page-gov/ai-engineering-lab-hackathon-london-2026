@@ -9,6 +9,12 @@
 
 Machine-generated transcript and diarization. Verify important quotes against the audio before using them in slides, speaker notes, or published material.
 
+## HMRC Talk Navigation
+
+- [Narrative entry point](../narrative/index.md)
+- [Navigation and scope](../narrative/notes/navigation-and-scope.md)
+- [Import inventory](../narrative/notes/import-inventory.md)
+
 ## Speaker-Attributed Transcript
 
 **Query [00:00:00-00:00:06]**: Imagine trying to run one of those 48-hour red-bulb-fueled tech hackathons.

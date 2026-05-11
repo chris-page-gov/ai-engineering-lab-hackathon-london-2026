@@ -9,12 +9,15 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 
 - [Overview](overview.md)
 - [Narrative arc](narrative-arc.md)
+- [Navigation and scope](notes/navigation-and-scope.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
 - [Narrative validation report](data/narrative_validation_report.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
 - [Goal and acceptance criteria](README.md)
 
 ## Visual Source Sidecars

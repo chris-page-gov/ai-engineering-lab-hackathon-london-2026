@@ -9,6 +9,12 @@
 
 Machine-generated transcript and diarization. Verify important quotes against the audio before using them in slides, speaker notes, or published material.
 
+## HMRC Talk Navigation
+
+- [Narrative entry point](../narrative/index.md)
+- [Navigation and scope](../narrative/notes/navigation-and-scope.md)
+- [Import inventory](../narrative/notes/import-inventory.md)
+
 ## Speaker-Attributed Transcript
 
 **Trace [00:00:00-00:00:21]**: Usually when we talk about automation, there is this comforting mental model we all seem to share. It's a lot like the cruise control in your car. You get on the highway, you press a button, and the system just, well, it just maintains your speed, it's helpful, it's incredibly predictable, and most importantly, you are still very obviously the one holding the steering wheel.

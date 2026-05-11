@@ -4,6 +4,13 @@ Generated locally from the two M4A files in `research/hmrc-beyond-hype/import/` 
 
 These transcripts are machine-generated and should be reviewed before quoting in slides or speaker notes.
 
+## HMRC Talk Navigation
+
+- [Narrative entry point](../narrative/index.md)
+- [Navigation and scope](../narrative/notes/navigation-and-scope.md)
+- [Engineering Accountability audio source](../narrative/notes/engineering-accountability-audio.md)
+- [Governing Agentic AI audio source](../narrative/notes/governing-agentic-ai-audio.md)
+
 | Source audio | Duration | Transcript | Subtitles | Speaker transcript | Characters |
 |---|---:|---|---|---|---:|
 | `Governing_agentic_AI_in_software_engineering.m4a` | 20.2 min | [governing-agentic-ai-in-software-engineering.txt](governing-agentic-ai-in-software-engineering.txt) | [governing-agentic-ai-in-software-engineering.srt](governing-agentic-ai-in-software-engineering.srt) | [governing-agentic-ai-in-software-engineering.speakers.md](governing-agentic-ai-in-software-engineering.speakers.md) | 21785 |

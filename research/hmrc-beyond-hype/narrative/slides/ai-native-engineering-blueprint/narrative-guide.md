@@ -3,6 +3,16 @@
 
 This guide turns the `AI-Native_Engineering_Blueprint.pptx` sidecars into a navigable story for the HMRC talk. It is the preferred entry point for this deck.
 
+## Table Of Contents
+
+- [Scope Note](#scope-note)
+- [What This Deck Does](#what-this-deck-does)
+- [Recommended Talk Route](#recommended-talk-route)
+- [Full Narrative Route](#full-narrative-route)
+- [Slide-By-Slide Narrative Map](#slide-by-slide-narrative-map)
+- [Public-Sector Reading](#public-sector-reading)
+- [Related Documentation](#related-documentation)
+
 ## Scope Note
 
 This guide covers the 15-slide PowerPoint deck. The import folder also contains related

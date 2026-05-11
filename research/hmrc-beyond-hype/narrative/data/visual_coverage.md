@@ -5,6 +5,21 @@ Coverage target: every imported PowerPoint slide, PDF page, and standalone image
 
 Total covered items: 73.
 
+## Table Of Contents
+
+- [Coverage Summary](#coverage-summary)
+- [Item-Level Coverage](#item-level-coverage)
+- [AI-Native Engineering Blueprint](#ai-native-engineering-blueprint)
+- [Challenge 2 Unlocking Dark Data](#challenge-2-unlocking-dark-data)
+- [Dark Data Blueprint](#dark-data-blueprint)
+- [Governing AI Engineering](#governing-ai-engineering)
+- [AI-Native Engineering Team Source OpenAI](#ai-native-engineering-team-source-openai)
+- [AI Benchmark Mastery Scoring Guide](#ai-benchmark-mastery-scoring-guide)
+- [AI Coding Assistants 2026 Evolution](#ai-coding-assistants-2026-evolution)
+- [AI-Native Engineering Team Workflow](#ai-native-engineering-team-workflow)
+
+## Coverage Summary
+
 | Source | Type | Expected items | Covered sidecars | Source index | Coverage |
 | --- | --- | ---: | ---: | --- | ---: |
 | AI-Native Engineering Blueprint | pptx | 15 | 15 | [index](../slides/ai-native-engineering-blueprint/index.md) | 100% |
@@ -17,6 +32,8 @@ Total covered items: 73.
 | AI-Native Engineering Team Workflow | png | 1 | 1 | [index](../slides/ai-native-engineering-team-workflow/index.md) | 100% |
 
 ## Item-Level Coverage
+
+### AI-Native Engineering Blueprint
 
 - [ai-native-engineering-blueprint pptx-slide 01](../slides/ai-native-engineering-blueprint/slide-01.md)
 - [ai-native-engineering-blueprint pptx-slide 02](../slides/ai-native-engineering-blueprint/slide-02.md)
@@ -33,6 +50,8 @@ Total covered items: 73.
 - [ai-native-engineering-blueprint pptx-slide 13](../slides/ai-native-engineering-blueprint/slide-13.md)
 - [ai-native-engineering-blueprint pptx-slide 14](../slides/ai-native-engineering-blueprint/slide-14.md)
 - [ai-native-engineering-blueprint pptx-slide 15](../slides/ai-native-engineering-blueprint/slide-15.md)
+### Challenge 2 Unlocking Dark Data
+
 - [challenge-2-unlocking-dark-data pptx-slide 01](../slides/challenge-2-unlocking-dark-data/slide-01.md)
 - [challenge-2-unlocking-dark-data pptx-slide 02](../slides/challenge-2-unlocking-dark-data/slide-02.md)
 - [challenge-2-unlocking-dark-data pptx-slide 03](../slides/challenge-2-unlocking-dark-data/slide-03.md)
@@ -43,6 +62,8 @@ Total covered items: 73.
 - [challenge-2-unlocking-dark-data pptx-slide 08](../slides/challenge-2-unlocking-dark-data/slide-08.md)
 - [challenge-2-unlocking-dark-data pptx-slide 09](../slides/challenge-2-unlocking-dark-data/slide-09.md)
 - [challenge-2-unlocking-dark-data pptx-slide 10](../slides/challenge-2-unlocking-dark-data/slide-10.md)
+### Dark Data Blueprint
+
 - [dark-data-blueprint pptx-slide 01](../slides/dark-data-blueprint/slide-01.md)
 - [dark-data-blueprint pptx-slide 02](../slides/dark-data-blueprint/slide-02.md)
 - [dark-data-blueprint pptx-slide 03](../slides/dark-data-blueprint/slide-03.md)
@@ -56,6 +77,8 @@ Total covered items: 73.
 - [dark-data-blueprint pptx-slide 11](../slides/dark-data-blueprint/slide-11.md)
 - [dark-data-blueprint pptx-slide 12](../slides/dark-data-blueprint/slide-12.md)
 - [dark-data-blueprint pptx-slide 13](../slides/dark-data-blueprint/slide-13.md)
+### Governing AI Engineering
+
 - [governing-ai-engineering pptx-slide 01](../slides/governing-ai-engineering/slide-01.md)
 - [governing-ai-engineering pptx-slide 02](../slides/governing-ai-engineering/slide-02.md)
 - [governing-ai-engineering pptx-slide 03](../slides/governing-ai-engineering/slide-03.md)
@@ -68,6 +91,8 @@ Total covered items: 73.
 - [governing-ai-engineering pptx-slide 10](../slides/governing-ai-engineering/slide-10.md)
 - [governing-ai-engineering pptx-slide 11](../slides/governing-ai-engineering/slide-11.md)
 - [governing-ai-engineering pptx-slide 12](../slides/governing-ai-engineering/slide-12.md)
+### AI-Native Engineering Team Source OpenAI
+
 - [ai-native-engineering-team-source-openai pdf-page 01](../slides/ai-native-engineering-team-source-openai/page-01.md)
 - [ai-native-engineering-team-source-openai pdf-page 02](../slides/ai-native-engineering-team-source-openai/page-02.md)
 - [ai-native-engineering-team-source-openai pdf-page 03](../slides/ai-native-engineering-team-source-openai/page-03.md)
@@ -88,8 +113,14 @@ Total covered items: 73.
 - [ai-native-engineering-team-source-openai pdf-page 18](../slides/ai-native-engineering-team-source-openai/page-18.md)
 - [ai-native-engineering-team-source-openai pdf-page 19](../slides/ai-native-engineering-team-source-openai/page-19.md)
 - [ai-native-engineering-team-source-openai pdf-page 20](../slides/ai-native-engineering-team-source-openai/page-20.md)
+### AI Benchmark Mastery Scoring Guide
+
 - [ai-benchmark-mastery-scoring-guide standalone-image 01](../slides/ai-benchmark-mastery-scoring-guide/image.md)
+### AI Coding Assistants 2026 Evolution
+
 - [ai-coding-assistants-2026-evolution standalone-image 01](../slides/ai-coding-assistants-2026-evolution/image.md)
+### AI-Native Engineering Team Workflow
+
 - [ai-native-engineering-team-workflow standalone-image 01](../slides/ai-native-engineering-team-workflow/image.md)
 
 Machine-readable coverage is recorded in [visual_coverage.csv](visual_coverage.csv).

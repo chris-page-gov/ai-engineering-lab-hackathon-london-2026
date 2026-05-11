@@ -4,6 +4,15 @@ This case study turns the AI Engineering Lab Challenge 2 build into talk materia
 
 Repo-local citations use the format `path:line` followed by a GitHub permalink to that exact line where available.
 
+## HMRC Talk Navigation
+
+This file is supporting evidence for the HMRC talk narrative:
+
+- [Narrative entry point](narrative/index.md)
+- [Navigation and scope](narrative/notes/navigation-and-scope.md)
+- [Challenge 2 worked example](narrative/notes/challenge-2-worked-example.md)
+- [Topic index](narrative/topics.md)
+
 ## Case Study Thesis
 
 The useful shift was not "AI writes code instead of a developer". The useful shift was "the human steers a bounded engineering system". In this repo, Codex moved between exploration, implementation, refinement, and verification while the repository rules, tracking documents, tests, generated artefacts, and human judgement constrained the work.

@@ -100,6 +100,13 @@ def write_readme(runs: list[TranscriptRun]) -> None:
         "These transcripts are machine-generated and should be reviewed before quoting in "
         "slides or speaker notes.",
         "",
+        "## HMRC Talk Navigation",
+        "",
+        "- [Narrative entry point](../narrative/index.md)",
+        "- [Navigation and scope](../narrative/notes/navigation-and-scope.md)",
+        "- [Engineering Accountability audio source](../narrative/notes/engineering-accountability-audio.md)",
+        "- [Governing Agentic AI audio source](../narrative/notes/governing-agentic-ai-audio.md)",
+        "",
         "| Source audio | Duration | Transcript | Subtitles | Speaker transcript | Characters |",
         "|---|---:|---|---|---|---:|",
     ]

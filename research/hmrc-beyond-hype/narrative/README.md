@@ -8,11 +8,27 @@ The pack should turn the current research material, imported AI-generated slides
 
 This file is the durable replacement for the attempted `/goal` command. Future Codex work on the talk should treat this as the active goal until it is explicitly superseded.
 
+## Table Of Contents
+
+- [Purpose](#purpose)
+- [Current Status](#current-status)
+- [Source Inputs](#source-inputs)
+- [Target Output](#target-output)
+- [Narrative Arc](#narrative-arc)
+- [Slide And Image Sidecars](#slide-and-image-sidecars)
+- [SeeLinks Datapack](#seelinks-datapack)
+- [Navigation And Readability](#navigation-and-readability)
+- [Scope](#scope)
+- [Tagging](#tagging)
+- [Definition Of Done](#definition-of-done)
+- [Verification Plan](#verification-plan)
+- [Publication Approach](#publication-approach)
+
 ## Current Status
 
-Status: import-inventory and sidecar milestone complete; full narrative curation still in progress.
+Status: import-inventory, sidecar, and SeeLinks datapack milestones complete; full editorial curation still in progress.
 
-The narrative wiki now has a GitHub-browsable scaffold, visual sidecars, source notes, full import inventory, coverage reports, derived image assets, and a validation report. Large imported binary/audio/PDF/PPTX materials remain local by default unless explicitly selected for publication.
+The narrative wiki now has a GitHub-browsable scaffold, visual sidecars, source notes, full import inventory, coverage reports, derived image assets, a SeeLinks-style datapack, and a validation report. Large imported binary/audio/PDF/PPTX materials remain local by default unless explicitly selected for publication.
 
 ## Source Inputs
 
@@ -60,6 +76,7 @@ Expected structure:
 - `notes/`: short, focused wiki notes for concepts, claims, risks, tools, workflow patterns, and Q&A themes.
 - `assets/`: checked-in image derivatives that are intentionally publishable on GitHub.
 - `data/`: machine-readable navigation, topic, source, and link-check outputs if useful.
+- `seelinks/pack.json`: generated datapack for browsing the narrative through Dark Data Workbench as cards, facets, graph nodes, and source-note links.
 
 The exact structure may evolve, but the final result must preserve the entry point, overview, topic navigation, asset register, and coherent narrative path.
 
@@ -111,6 +128,54 @@ For each material point illustrated by every imported PowerPoint slide, PDF page
 - include a small, publishable image derivative only when appropriate.
 
 Do not silently alter source meaning while creating sidecars. If OCR, screenshot extraction, or AI image description is uncertain, mark the uncertainty in the sidecar.
+
+## SeeLinks Datapack
+
+Status: complete for the current narrative corpus as of 2026-05-11.
+
+The narrative can also be loaded in Dark Data Workbench using the HMRC narrative pack link:
+
+```text
+challenge-2/workbench/?pack=hmrc-narrative
+```
+
+The generated pack is [seelinks/pack.json](seelinks/pack.json), with a short generated summary at [seelinks/README.md](seelinks/README.md). It contains 224 items, 10 facets, 9 collections, 275 graph nodes, and 2844 graph edges.
+
+The pack casts the net across the whole talk-prep corpus: slide and image sidecars, curated narrative notes, HMRC research files, transcripts and diarization reports, selected Challenge 2 repo evidence, and relevant postmortem conversation traces. Each item includes a local source-note link where possible so cards open inside the workbench rather than becoming dead ends.
+
+Primary bounded facets are:
+
+- `Source Family`
+- `Narrative Stage`
+- `Talk Section`
+- `Asset Type`
+- `Evidence Role`
+- `Governance Theme`
+- `Topic Group`
+- `Provenance Mode`
+- `Screenfulls`
+- `Tags`
+
+Dark Data Workbench supports the SeeLinks-style card flow for this pack: slide thumbnails, source cards, keep marked, dismiss marked, restore dismissed, reader links, graph view, and drag-a-facet-name-to-the-card-grid colouring. Category facets use high-contrast pastel fills; `Screenfulls` is treated as a measure and uses a graded colour scale.
+
+## Navigation And Readability
+
+The narrative should be readable by screenfuls. Long index-like pages need a table of contents at the top and should offer high-level routes before dense item lists.
+
+Backlinks should be applied selectively:
+
+- curated HMRC talk research notes and transcript notes should link back to the narrative;
+- imported source files should generally remain source evidence, not navigation pages;
+- Challenge 2 source evidence should be reached through [notes/challenge-2-worked-example.md](notes/challenge-2-worked-example.md) rather than by turning every generated Challenge 2 wiki page into an HMRC talk page;
+- the policy is recorded in [notes/navigation-and-scope.md](notes/navigation-and-scope.md).
+
+## Scope
+
+The narrative includes all current import-folder material at source-treatment level: every file is represented in the import inventory, and every imported visual has a sidecar.
+
+The AI Coding Assistants 9 May 2026 briefing is included through [notes/ai-coding-assistants-market-briefing.md](notes/ai-coding-assistants-market-briefing.md), the tracked Markdown source, the DOCX extraction check, and companion visuals. It has not yet been fully decomposed into short, focused notes for every subsection of the 540-line source briefing.
+
+The Challenge 2 worked example is included as the concrete case-study route through [notes/challenge-2-worked-example.md](notes/challenge-2-worked-example.md), linked sidecar decks, and selected Challenge 2 wiki/workbench/evaluation evidence.
 
 ## Tagging
 

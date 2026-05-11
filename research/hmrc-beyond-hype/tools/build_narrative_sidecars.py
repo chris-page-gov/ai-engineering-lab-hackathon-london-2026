@@ -31,6 +31,7 @@ SLIDES_DIR = NARRATIVE_DIR / "slides"
 ASSETS_DIR = NARRATIVE_DIR / "assets" / "visuals"
 DATA_DIR = NARRATIVE_DIR / "data"
 NOTES_DIR = NARRATIVE_DIR / "notes"
+SEELINKS_DIR = NARRATIVE_DIR / "seelinks"
 
 THUMBNAIL_WIDTH = 960
 GENERATED_MARKER = (
@@ -836,6 +837,13 @@ def markdown_link(from_file: Path, label: str, target: Path) -> str:
     return f"[{label}]({quote(rel_link(from_file, target), safe='/#._-')})"
 
 
+def anchor_for_heading(value: str) -> str:
+    value = value.lower().replace("`", "")
+    value = re.sub(r"[^a-z0-9 _-]", "", value)
+    value = re.sub(r"\s+", "-", value.strip())
+    return value
+
+
 def ensure_dirs() -> None:
     for directory in (SLIDES_DIR, ASSETS_DIR, DATA_DIR, NOTES_DIR):
         directory.mkdir(parents=True, exist_ok=True)
@@ -996,6 +1004,18 @@ def sidecar_body(
         if target.exists():
             label = Path(key).stem.replace("-", " ").replace("_", " ").title()
             related_links.append(markdown_link(sidecar_path, label, target))
+    if source.source_id in {
+        "challenge-2-unlocking-dark-data",
+        "dark-data-blueprint",
+        "ai-benchmark-mastery-scoring-guide",
+    }:
+        related_links.append(
+            markdown_link(
+                sidecar_path,
+                "Challenge 2 worked example",
+                NOTES_DIR / "challenge-2-worked-example.md",
+            )
+        )
 
     caveats = [source.caveat]
     if ocr_warning:
@@ -1117,8 +1137,12 @@ def markdown_headings(path: Path) -> list[str]:
     return headings
 
 
+def is_import_source_file(path: Path) -> bool:
+    return path.is_file() and not path.name.startswith(("~$", ".")) and path.name != ".DS_Store"
+
+
 def import_file_names() -> list[str]:
-    return sorted(path.name for path in IMPORT_DIR.iterdir() if path.is_file())
+    return sorted(path.name for path in IMPORT_DIR.iterdir() if is_import_source_file(path))
 
 
 def visual_treatments() -> dict[str, ImportTreatment]:
@@ -1363,6 +1387,16 @@ def write_ai_native_guide(source: VisualSource, rows: list[dict[str, str]]) -> N
 
 This guide turns the `AI-Native_Engineering_Blueprint.pptx` sidecars into a navigable story for the HMRC talk. It is the preferred entry point for this deck.
 
+## Table Of Contents
+
+- [Scope Note](#scope-note)
+- [What This Deck Does](#what-this-deck-does)
+- [Recommended Talk Route](#recommended-talk-route)
+- [Full Narrative Route](#full-narrative-route)
+- [Slide-By-Slide Narrative Map](#slide-by-slide-narrative-map)
+- [Public-Sector Reading](#public-sector-reading)
+- [Related Documentation](#related-documentation)
+
 ## Scope Note
 
 This guide covers the 15-slide PowerPoint deck. The import folder also contains related
@@ -1406,6 +1440,135 @@ That route is enough to explain the capability shift, the human accountability m
 - [AI-Native Engineering Blueprint index](index.md)
 - [Agentic coding capabilities](../../../04_agentic_coding_capabilities.md)
 - [Operating model for public-sector engineering](../../../07_operating_model_for_public_sector_engineering.md)
+""",
+    )
+
+
+def build_navigation_note() -> None:
+    path = NOTES_DIR / "navigation-and-scope.md"
+    write_file(
+        path,
+        f"""{GENERATED_MARKER}
+---
+tags:
+  - navigation
+  - scope
+  - provenance
+  - traceability
+publication_status: "published narrative note"
+---
+
+# Navigation And Scope
+
+This note records the navigation contract for the HMRC talk narrative pack.
+
+## Navigation Rule
+
+The narrative wiki should remain browseable from
+{markdown_link(path, "the narrative entry point", NARRATIVE_DIR / "index.md")}.
+Curated HMRC talk notes and transcript notes should link back here or to the main
+narrative. Raw or imported source files can remain source material rather than becoming
+navigational pages.
+
+## Why Not Backlink Every File
+
+Do not add narrative chrome to every generated or source file in the repository. That would
+blur the boundary between the talk narrative and the evidence base, and it would also make
+regenerated source material harder to compare. Instead:
+
+- add backlinks to curated HMRC talk research pages and transcript notes;
+- route Challenge 2 evidence through the
+  {markdown_link(path, "Challenge 2 worked-example hub", NOTES_DIR / "challenge-2-worked-example.md")};
+- keep imported Markdown, raw media, generated source notes, and binary-derived material as
+  evidence that is reached through sidecars or source notes;
+- keep the narrative scope explicit when a source is represented by a summary note rather
+  than fully decomposed into short notes.
+
+## Scope Boundary
+
+The current narrative covers:
+
+- the HMRC talk research brief and core research notes;
+- every current file in `research/hmrc-beyond-hype/import/`, represented through visual
+  sidecars, source notes, transcript notes, or tracked Markdown;
+- the AI Coding Assistants 9 May 2026 briefing as a source note and linked source, not yet
+  as a fully exploded set of short topic notes;
+- the Challenge 2 worked example as a case-study hub linked to the generated wiki,
+  workbench, evaluation benchmark, and relevant sidecars.
+
+The narrative does not yet claim that every long source document has been rewritten into a
+short focused page. Where a source remains long, the narrative provides a route into it and
+records the limitation.
+
+## Related Navigation
+
+- [Overview](../overview.md)
+- [Narrative arc](../narrative-arc.md)
+- [Topic index](../topics.md)
+- [Source materials](../source-materials.md)
+- [Import inventory](import-inventory.md)
+""",
+    )
+
+
+def build_challenge_2_note() -> None:
+    path = NOTES_DIR / "challenge-2-worked-example.md"
+    write_file(
+        path,
+        f"""{GENERATED_MARKER}
+---
+tags:
+  - challenge-2
+  - dark-data
+  - provenance
+  - source-backed-answers
+  - talk-demo
+  - validation
+publication_status: "published narrative note"
+---
+
+# Challenge 2 Worked Example
+
+This is the narrative hub for the repo's worked example. Use it when the talk moves from
+market claims about coding agents to concrete evidence from the AI Engineering Lab Codex
+build.
+
+## What It Shows
+
+- Government-style guidance can exist while still being hard to find, structure, and trust.
+- The useful engineering product is not a fluent answer; it is a source-backed answer path.
+- Codex was useful when the work was framed, constrained, reviewed, documented, and
+  validated.
+- The example uses synthetic Challenge 2 material; it is not production assurance for real
+  HMRC data.
+
+## Demonstration Route
+
+- {markdown_link(path, "Challenge 2 demonstration guide", REPO_ROOT / "challenge-2" / "wiki" / "demonstration-guide.md")}
+- {markdown_link(path, "Challenge 2 wiki index", REPO_ROOT / "challenge-2" / "wiki" / "index.md")}
+- {markdown_link(path, "Challenge 2 architecture", REPO_ROOT / "challenge-2" / "wiki" / "architecture.md")}
+- {markdown_link(path, "Dark Data Workbench guide", REPO_ROOT / "challenge-2" / "wiki" / "workbench.md")}
+- {markdown_link(path, "Challenge 2 evaluation benchmark", REPO_ROOT / "challenge-2" / "wiki" / "evaluation-benchmark.md")}
+
+## Narrative Evidence
+
+- {markdown_link(path, "Repo case study", PACK_DIR / "06_repo_case_study_codex_build.md")}
+- {markdown_link(path, "Challenge 2 Unlocking Dark Data sidecars", SLIDES_DIR / "challenge-2-unlocking-dark-data" / "index.md")}
+- {markdown_link(path, "Dark Data Blueprint sidecars", SLIDES_DIR / "dark-data-blueprint" / "index.md")}
+- {markdown_link(path, "AI Benchmark Mastery Scoring Guide", SLIDES_DIR / "ai-benchmark-mastery-scoring-guide" / "image.md")}
+
+## Talk Use
+
+Use this hub as the re-entry point whenever a reader follows a Challenge 2 evidence link out
+of the narrative. It keeps the case study connected to the talk's main line: provenance,
+review, validation, and accountable human ownership.
+
+## Related Narrative Links
+
+- [Narrative arc](../narrative-arc.md)
+- [Topic index](../topics.md)
+- [Source materials](../source-materials.md)
+- [Navigation and scope](navigation-and-scope.md)
 """,
     )
 
@@ -1772,12 +1935,15 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 
 - [Overview](overview.md)
 - [Narrative arc](narrative-arc.md)
+- [Navigation and scope](notes/navigation-and-scope.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
 - [Narrative validation report](data/narrative_validation_report.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
 - [Goal and acceptance criteria](README.md)
 
 ## Visual Source Sidecars
@@ -1812,12 +1978,15 @@ Use the pack as a browseable companion during or after the talk rather than as a
 ## Start Points
 
 - [Narrative arc](narrative-arc.md)
+- [Navigation and scope](notes/navigation-and-scope.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
 """,
     )
 
@@ -1838,10 +2007,13 @@ Use the pack as a browseable companion during or after the talk rather than as a
 
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
+- [Navigation and scope](notes/navigation-and-scope.md)
 - [Source material index](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Topic index](topics.md)
 - [Visual coverage report](data/visual_coverage.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
 """,
     )
 
@@ -1876,11 +2048,14 @@ This register lists the imported visual sources that have been turned into publi
 ## External Narrative Inputs
 
 - [Full import inventory](notes/import-inventory.md) records the narrative treatment for every current file in `research/hmrc-beyond-hype/import/`.
+- [Navigation and scope](notes/navigation-and-scope.md) explains how to move between the narrative wiki and source evidence without turning every source into a navigation page.
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md) is the narrative hub for the repo case-study evidence.
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md) incorporates the imported Markdown briefing and DOCX companion.
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md) incorporates `research/hmrc-beyond-hype/import/clawpilot.md` and the shared ChatGPT thread as inputs, and marks secondary claims that need rechecking before live use.
 - `research/hmrc-beyond-hype/import/clawpilot.md` is a Markdown source input and is intended to be committed with the narrative pack.
 - [Engineering Accountability audio source](notes/engineering-accountability-audio.md) represents `research/hmrc-beyond-hype/import/Engineering_Accountability_in_Public_Sector_AI.m4a` through transcript links and caveats.
 - [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md) represents `research/hmrc-beyond-hype/import/Governing_agentic_AI_in_software_engineering.m4a` through transcript links and caveats.
+- [SeeLinks narrative datapack](seelinks/README.md) exposes the narrative as a workbench-ready card, thumbnail, facet, collection, and graph pack.
 
 ## Curated Deck Routes
 
@@ -1925,12 +2100,27 @@ def write_topics(rows: list[dict[str, str]]) -> None:
         "## `import-inventory`\n\n"
         "- [HMRC Talk Import Inventory](notes/import-inventory.md)"
     )
+    sections.append(
+        "## `navigation`\n\n"
+        "- [Navigation and scope](notes/navigation-and-scope.md)\n"
+        "- [Challenge 2 worked example](notes/challenge-2-worked-example.md)\n"
+        "- [SeeLinks narrative datapack](seelinks/README.md)"
+    )
+    topic_toc = "\n".join(
+        f"- [`{match.group(1)}`](#{anchor_for_heading(match.group(1))})"
+        for section in sections
+        if (match := re.match(r"## `(.+)`", section))
+    )
     write_file(
         path,
         f"""{GENERATED_MARKER}
 # Topic Index
 
 Use these tags to jump into the visual sidecars and supporting narrative notes.
+
+## Table Of Contents
+
+{topic_toc}
 
 {chr(10).join(sections)}
 """,
@@ -1977,10 +2167,17 @@ def write_coverage(rows: list[dict[str, str]]) -> None:
             )
             + " |"
         )
-    item_links = "\n".join(
-        f"- {markdown_link(md_path, row['source_id'] + ' ' + row['item_type'] + ' ' + row['item_number'].zfill(2), REPO_ROOT / row['sidecar_path'])}"
-        for row in rows
+    source_toc = "\n".join(
+        f"- [{source.title}](#{anchor_for_heading(source.title)})"
+        for source in VISUAL_SOURCES
     )
+    item_sections = []
+    for source in VISUAL_SOURCES:
+        links = "\n".join(
+            f"- {markdown_link(md_path, row['source_id'] + ' ' + row['item_type'] + ' ' + row['item_number'].zfill(2), REPO_ROOT / row['sidecar_path'])}"
+            for row in by_source.get(source.source_id, [])
+        )
+        item_sections.append(f"### {source.title}\n\n{links}")
     write_file(
         md_path,
         f"""{GENERATED_MARKER}
@@ -1990,13 +2187,21 @@ Coverage target: every imported PowerPoint slide, PDF page, and standalone image
 
 Total covered items: {len(rows)}.
 
+## Table Of Contents
+
+- [Coverage Summary](#coverage-summary)
+- [Item-Level Coverage](#item-level-coverage)
+{source_toc}
+
+## Coverage Summary
+
 | Source | Type | Expected items | Covered sidecars | Source index | Coverage |
 | --- | --- | ---: | ---: | --- | ---: |
 {chr(10).join(source_rows)}
 
 ## Item-Level Coverage
 
-{item_links}
+{chr(10).join(item_sections)}
 
 Machine-readable coverage is recorded in [visual_coverage.csv](visual_coverage.csv).
 """,
@@ -2021,6 +2226,8 @@ def main() -> int:
         print(f"{source.filename}: {len(built)} item(s) covered")
 
     build_clawpilot_note()
+    build_navigation_note()
+    build_challenge_2_note()
     build_ai_coding_assistants_note()
     build_audio_source_notes()
     write_import_inventory()

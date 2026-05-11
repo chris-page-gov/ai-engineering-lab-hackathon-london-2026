@@ -1,6 +1,6 @@
 import { resolve } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { loadCorpusFromDisk } from '$lib/server/corpus';
+import { loadCorpusFromDisk, narrativeAssetPath } from '$lib/server/corpus';
 import {
   SYNTHETIC_DATA_NOTICE,
   buildBrowserPrompt,
@@ -43,6 +43,32 @@ describe('workbench corpus model', () => {
     expect(corpus.syntheticDataNotice).toContain('synthetic');
     expect(corpus.stats.workbookSources).toBe(3);
     expect(corpus.facets.find((facet) => facet.id === 'topics')?.values.length).toBeGreaterThan(5);
+  });
+
+  it('loads the HMRC narrative SeeLinks datapack with bounded navigation facets', async () => {
+    const corpus = await loadCorpusFromDisk(challengeRoot, 'hmrc-narrative');
+
+    expect(corpus.title).toBe('HMRC Beyond The Hype Narrative Arc');
+    expect(corpus.sourceCount).toBe(224);
+    expect(corpus.syntheticData).toBe(false);
+    expect(corpus.sources.filter((source) => source.thumbnailPath).length).toBeGreaterThanOrEqual(73);
+    expect(corpus.facets.map((facet) => facet.id)).toEqual(
+      expect.arrayContaining(['sourceFamilies', 'stages', 'talkSections', 'assetTypes', 'governanceThemes', 'screenfulls'])
+    );
+    expect(corpus.facets.find((facet) => facet.id === 'sourceFamilies')?.values).toHaveLength(9);
+    expect(corpus.facets.find((facet) => facet.id === 'screenfulls')?.kind).toBe('measure');
+
+    const challengeVisuals = filterSources(corpus.sources, { ...EMPTY_FILTERS, sourceFamilies: ['Challenge 2 visuals'] }, '');
+    expect(challengeVisuals).toHaveLength(23);
+    expect(challengeVisuals.every((source) => source.sourceFamilies?.includes('Challenge 2 visuals'))).toBe(true);
+  });
+
+  it('keeps narrative asset paths inside the generated asset folder', () => {
+    expect(narrativeAssetPath('assets/visuals/challenge-2-unlocking-dark-data/slide-01.jpg')).toContain(
+      'research/hmrc-beyond-hype/narrative/assets/visuals/challenge-2-unlocking-dark-data/slide-01.jpg'
+    );
+    expect(() => narrativeAssetPath('assets/../../Context.md')).toThrow(/inside the narrative assets folder/);
+    expect(() => narrativeAssetPath('notes/challenge-2-worked-example.md')).toThrow(/inside the narrative assets folder/);
   });
 
   it('filters by search text and facets', async () => {

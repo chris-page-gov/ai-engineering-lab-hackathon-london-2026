@@ -375,6 +375,12 @@ def write_speaker_transcripts(
             "Machine-generated transcript and diarization. Verify important quotes against "
             "the audio before using them in slides, speaker notes, or published material.",
             "",
+            "## HMRC Talk Navigation",
+            "",
+            "- [Narrative entry point](../narrative/index.md)",
+            "- [Navigation and scope](../narrative/notes/navigation-and-scope.md)",
+            "- [Import inventory](../narrative/notes/import-inventory.md)",
+            "",
             "## Speaker-Attributed Transcript",
             "",
         ]
@@ -437,6 +443,13 @@ def write_readme(items: list[AudioItem]) -> None:
         "These transcripts are machine-generated and should be reviewed before quoting in "
         "slides or speaker notes.",
         "",
+        "## HMRC Talk Navigation",
+        "",
+        "- [Narrative entry point](../narrative/index.md)",
+        "- [Navigation and scope](../narrative/notes/navigation-and-scope.md)",
+        "- [Engineering Accountability audio source](../narrative/notes/engineering-accountability-audio.md)",
+        "- [Governing Agentic AI audio source](../narrative/notes/governing-agentic-ai-audio.md)",
+        "",
         "| Source audio | Duration | Transcript | Subtitles | Speaker transcript | Characters |",
         "|---|---:|---|---|---|---:|",
     ]
@@ -483,6 +496,12 @@ def write_report(
 ) -> None:
     lines = [
         "# Pyannote Diarization Report",
+        "",
+        "## HMRC Talk Navigation",
+        "",
+        "- [Narrative entry point](../narrative/index.md)",
+        "- [Navigation and scope](../narrative/notes/navigation-and-scope.md)",
+        "- [Transcript runbook](README.md)",
         "",
         f"- Run ID: `{run_row['run_id']}`",
         f"- Model: `{run_row['model_id']}`",

@@ -13,7 +13,10 @@
 
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
+- [Navigation and scope](notes/navigation-and-scope.md)
 - [Source material index](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Topic index](topics.md)
 - [Visual coverage report](data/visual_coverage.md)
+- [SeeLinks narrative datapack](seelinks/README.md)

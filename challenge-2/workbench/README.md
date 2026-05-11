@@ -2,6 +2,14 @@
 
 Browser interface for the Challenge 2 Obsidian/wiki corpus. It loads `../wiki/data/source-register.json` plus generated source notes, then lets users enter the question they need to answer, filter documents, build a context set, inspect evidence, and optionally export that same context for browser AI or MCP clients.
 
+The same app can also load the HMRC Beyond the Hype narrative datapack:
+
+```text
+/?pack=hmrc-narrative
+```
+
+That pack is generated at `../../research/hmrc-beyond-hype/narrative/seelinks/pack.json` and presents the talk narrative as slide-thumbnail source cards, narrative notes, transcripts, Challenge 2 evidence, and conversation traces.
+
 ## Commands
 
 ```bash
@@ -22,3 +30,9 @@ pnpm test:coverage
 - **Reader:** open rendered note text in the workbench or via the local `/api/source-note/<source-id>` Markdown endpoint.
 - **Browser AI:** copy/download JSON context, copy a browser prompt, or download Markdown evidence. Exports include the current question box text and selected sources even when filters or search terms currently hide them.
 - **MCP:** run `python3 ../tools/workbench_mcp.py` from this directory or `python3 challenge-2/tools/workbench_mcp.py` from the repository root.
+
+## Narrative Pack Controls
+
+The HMRC narrative pack uses bounded facets for source family, narrative stage, talk section, asset type, evidence role, governance theme, topic group, provenance mode, screenfulls, and tags. Source cards can be marked, narrowed with **Keep marked**, removed with **Dismiss marked**, and restored with **Restore**.
+
+Facet headings are draggable. Drag a facet name such as `Talk Section` onto the card grid to colour the visible cards by that facet. Category facets use high-contrast pastel fills; the `Screenfulls` measure uses a graded colour scale.

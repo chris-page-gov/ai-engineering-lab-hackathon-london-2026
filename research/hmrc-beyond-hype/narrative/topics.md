@@ -3,6 +3,47 @@
 
 Use these tags to jump into the visual sidecars and supporting narrative notes.
 
+## Table Of Contents
+
+- [`agentic-coding`](#agentic-coding)
+- [`ai-assistants`](#ai-assistants)
+- [`architecture`](#architecture)
+- [`auditability`](#auditability)
+- [`build`](#build)
+- [`capability-trend`](#capability-trend)
+- [`challenge-2`](#challenge-2)
+- [`codex`](#codex)
+- [`dark-data`](#dark-data)
+- [`design`](#design)
+- [`documentation`](#documentation)
+- [`evaluation`](#evaluation)
+- [`flywheel`](#flywheel)
+- [`governance`](#governance)
+- [`hmrc`](#hmrc)
+- [`mcp`](#mcp)
+- [`operating-model`](#operating-model)
+- [`operations`](#operations)
+- [`planning`](#planning)
+- [`provenance`](#provenance)
+- [`public-sector`](#public-sector)
+- [`responsibility`](#responsibility)
+- [`review`](#review)
+- [`risk-boundaries`](#risk-boundaries)
+- [`rollout`](#rollout)
+- [`security`](#security)
+- [`source-backed-answers`](#source-backed-answers)
+- [`talk-demo`](#talk-demo)
+- [`testing`](#testing)
+- [`timeline`](#timeline)
+- [`traceability`](#traceability)
+- [`validation`](#validation)
+- [`workflow`](#workflow)
+- [`identity`](#identity)
+- [`market-scan`](#market-scan)
+- [`audio-source`](#audio-source)
+- [`import-inventory`](#import-inventory)
+- [`navigation`](#navigation)
+
 ## `agentic-coding`
 
 - [Slide 01](slides/ai-native-engineering-blueprint/slide-01.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -1088,3 +1129,8 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 ## `import-inventory`
 
 - [HMRC Talk Import Inventory](notes/import-inventory.md)
+## `navigation`
+
+- [Navigation and scope](notes/navigation-and-scope.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
