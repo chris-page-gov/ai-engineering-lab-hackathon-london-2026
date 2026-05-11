@@ -10,9 +10,9 @@ This file is the durable replacement for the attempted `/goal` command. Future C
 
 ## Current Status
 
-Status: sidecar milestone complete; full narrative curation still in progress.
+Status: import-inventory and sidecar milestone complete; full narrative curation still in progress.
 
-The narrative wiki now has a GitHub-browsable scaffold, visual sidecars, coverage reports, derived image assets, and a validation report. Large imported binary/audio/PDF/PPTX materials remain local by default unless explicitly selected for publication.
+The narrative wiki now has a GitHub-browsable scaffold, visual sidecars, source notes, full import inventory, coverage reports, derived image assets, and a validation report. Large imported binary/audio/PDF/PPTX materials remain local by default unless explicitly selected for publication.
 
 ## Source Inputs
 
@@ -38,7 +38,9 @@ Also inspect the local import drop in `research/hmrc-beyond-hype/import/`, inclu
 - `AI-Native-Engineering-Team-source_openAI.pdf`
 - imported PNG images
 - the imported AI-generated Markdown briefing
+- the imported AI-generated DOCX briefing companion
 - `clawpilot.md`, the local ClawPilot / OpenClaw research brief used for the current agentic-workplace sidebar
+- imported audio sources, represented through committed transcripts and audio source notes
 
 Do not commit raw imported binary/audio/PDF/PPTX material unless the user explicitly selects it for publication. Prefer committed derivatives that are small, reviewable, and useful on GitHub.
 
@@ -53,6 +55,7 @@ Expected structure:
 - `narrative-arc.md`: the coherent beginning-to-end argument for the talk.
 - `topics.md`: topic list with links into all relevant notes.
 - `source-materials.md`: publication-safe register of the imported source assets and derived artefacts.
+- `notes/import-inventory.md`: one explicit narrative treatment for every file in the import folder.
 - `slides/`: one Markdown sidecar per slide or major image, with publication-safe image derivatives where appropriate.
 - `notes/`: short, focused wiki notes for concepts, claims, risks, tools, workflow patterns, and Q&A themes.
 - `assets/`: checked-in image derivatives that are intentionally publishable on GitHub.
@@ -78,10 +81,13 @@ Status: complete for the current `research/hmrc-beyond-hype/import/` visual inve
 
 Coverage achieved:
 
+- All 13 current top-level import files are represented in [notes/import-inventory.md](notes/import-inventory.md).
 - 4 imported PowerPoint decks: 50 slide sidecars.
 - 1 imported PDF: 20 page sidecars.
 - 3 imported standalone PNG files: 3 image sidecars.
 - Total: 73 visual items, 73 Markdown sidecars, and 73 small derived image assets.
+- The AI Coding Assistants Markdown/DOCX pair is represented by [notes/ai-coding-assistants-market-briefing.md](notes/ai-coding-assistants-market-briefing.md).
+- The two imported audio files are represented by [notes/engineering-accountability-audio.md](notes/engineering-accountability-audio.md) and [notes/governing-agentic-ai-audio.md](notes/governing-agentic-ai-audio.md), with transcript links.
 - Coverage report: [data/visual_coverage.md](data/visual_coverage.md).
 - Validation report: [data/narrative_validation_report.md](data/narrative_validation_report.md).
 - Obvious entry point: [index.md](index.md).
@@ -91,6 +97,8 @@ Coverage achieved:
 The sidecars were generated with `research/hmrc-beyond-hype/tools/build_narrative_sidecars.py` and validated with `research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py --write-report`. The validator checks item coverage against the actual PPTX/PDF/PNG counts, Markdown link integrity, orphaned narrative Markdown files, inbound links to sidecars, asset references, required sidecar metadata, and staged raw-import binaries.
 
 The local `clawpilot.md` import has also been incorporated into [notes/clawpilot-project-lobster.md](notes/clawpilot-project-lobster.md), with the shared ChatGPT thread treated as context rather than final evidence.
+
+Scope note: `AI-Native_Engineering_Blueprint.pptx` contains 15 slides. The broader import folder contains additional AI-native material, including the 20-page `AI-Native-Engineering-Team-source_openAI.pdf`, the `AI-Native Engineering Team Workflow.png` image, and the AI Coding Assistants Markdown/DOCX briefing; those are separate import files with their own narrative treatments.
 
 For each material point illustrated by every imported PowerPoint slide, PDF page, and standalone image:
 
@@ -144,6 +152,7 @@ This goal is complete only when all of the following are true:
 - All GitHub links resolve, including line anchors where used.
 - Every published image or slide derivative has a sidecar note.
 - Every material point from each imported PPTX, PDF, and standalone image is described in text.
+- Every file in `research/hmrc-beyond-hype/import/` has an explicit narrative treatment.
 - Sidecars include tags, source attribution, publication status, and caveats.
 - Raw imported binaries remain ignored unless explicitly selected for publication.
 - The pack can be browsed directly on GitHub without requiring local tooling.

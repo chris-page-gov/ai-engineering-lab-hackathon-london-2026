@@ -9,8 +9,12 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - dark-data
+  - design
   - operating-model
+  - planning
+  - review
   - workflow
 ---
 
@@ -44,6 +48,7 @@ Provides the external operating-model backdrop for AI-native engineering: plan, 
 - developmen t lif ec y cle with pr ac tical guidance on wha t engineering leader s can do t oda yto start
 - building AI-na tive t eams and pr ocesses.
 - 2 BuildinganAI - nativeengineeringteam
+
 
 ## Related Narrative Links
 

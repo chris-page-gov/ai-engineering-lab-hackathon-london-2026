@@ -9,25 +9,44 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
+  - design
   - mcp
+  - planning
+  - rollout
+  - testing
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 08
+# Slide 08 - Phase 03: Build
 
 ![AI-Native Engineering Blueprint Slide 08](../../assets/visuals/ai-native-engineering-blueprint/slide-08.jpg)
 
 ## Visual Description
 
-This is slide 08 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A build-phase slide with an AI-heavy effort split. It shows generated data models, APIs, UI components, test suites, and a feature specification feeding the build.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Shows the strongest productivity promise: turning clear plans and specs into working code, while validating command execution and test feedback.
 
 ## Material Points Illustrated
+
+- AI can take more of the first-pass implementation work when plans and constraints are explicit.
+- The slide cites a Cloudwalk case-study pattern where engineers, product managers, and designers use Codex to turn specs into working code.
+- The workflow should use committed plans or planning tools, validate command execution, and iterate on `AGENTS.md` so tests and linters guide the agent.
+
+## Talk Path
+
+- Stage: Lifecycle phase.
+- Use in talk: Use this for the concrete productivity upside, then immediately connect it to tests and validation so speed is not mistaken for correctness.
+- Bridge: Implementation only becomes usable when tests become the source of truth.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - PHASE 03: Eliminating friction in the build phase
 - Effort Allocation Slider
@@ -43,11 +62,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - full microservices delivered in minutes. loops.
 - A\ NotebookLV
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-07.md)
+- [Next slide](slide-09.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

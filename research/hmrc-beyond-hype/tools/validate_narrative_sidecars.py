@@ -20,6 +20,7 @@ from build_narrative_sidecars import (
     IMPORT_DIR,
     NARRATIVE_DIR,
     REPO_ROOT,
+    SLIDES_DIR,
     VISUAL_SOURCES,
 )
 from pptx import Presentation
@@ -61,6 +62,14 @@ def load_coverage() -> list[dict[str, str]]:
     if not coverage_path.exists():
         raise AssertionError(f"Missing coverage CSV: {repo_relative(coverage_path)}")
     with coverage_path.open(encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def load_import_inventory() -> list[dict[str, str]]:
+    inventory_path = DATA_DIR / "import_inventory.csv"
+    if not inventory_path.exists():
+        raise AssertionError(f"Missing import inventory CSV: {repo_relative(inventory_path)}")
+    with inventory_path.open(encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
 
 
@@ -147,6 +156,12 @@ def validate() -> dict[str, object]:
         NARRATIVE_DIR / "topics.md",
         NARRATIVE_DIR / "narrative-arc.md",
         NARRATIVE_DIR / "source-materials.md",
+        NARRATIVE_DIR / "notes" / "import-inventory.md",
+        NARRATIVE_DIR / "notes" / "ai-coding-assistants-market-briefing.md",
+        NARRATIVE_DIR / "notes" / "engineering-accountability-audio.md",
+        NARRATIVE_DIR / "notes" / "governing-agentic-ai-audio.md",
+        SLIDES_DIR / "ai-native-engineering-blueprint" / "narrative-guide.md",
+        DATA_DIR / "import_inventory.csv",
         DATA_DIR / "visual_coverage.md",
         DATA_DIR / "visual_coverage.csv",
     ]
@@ -187,6 +202,31 @@ def validate() -> dict[str, object]:
             errors.append(f"{row['sidecar_path']} missing material-points section")
         if "## Caveats" not in text:
             errors.append(f"{row['sidecar_path']} missing caveats section")
+        if row["source_id"] == "ai-native-engineering-blueprint":
+            if "## Talk Path" not in text:
+                errors.append(f"{row['sidecar_path']} missing AI-native talk-path section")
+            if "## OCR-Derived Checkpoints" not in text:
+                errors.append(
+                    f"{row['sidecar_path']} missing AI-native OCR checkpoint section"
+                )
+
+    inventory = load_import_inventory()
+    import_files = sorted(path.name for path in IMPORT_DIR.iterdir() if path.is_file())
+    inventory_files = sorted(row["filename"] for row in inventory)
+    if inventory_files != import_files:
+        errors.append(
+            "Import inventory mismatch: expected "
+            + ", ".join(import_files)
+            + "; got "
+            + ", ".join(inventory_files)
+        )
+    for row in inventory:
+        treatment = REPO_ROOT / row["treatment_path"]
+        if not treatment.exists():
+            errors.append(
+                f"Import treatment for {row['filename']} is missing: "
+                f"{row['treatment_path']}"
+            )
 
     link_errors, inbound, referenced_assets = validate_links()
     errors.extend(link_errors)
@@ -218,6 +258,7 @@ def validate() -> dict[str, object]:
         "covered_items": len(coverage),
         "markdown_files": len(all_markdown),
         "asset_files": len(actual_assets),
+        "import_files": len(import_files),
         "orphan_count": len(orphans),
         "sidecar_count": len(sidecar_paths),
     }
@@ -250,6 +291,7 @@ Status: {status}.
 - Sidecar files: {result["sidecar_count"]}
 - Narrative Markdown files: {result["markdown_files"]}
 - Derived asset files: {result["asset_files"]}
+- Import files represented: {result["import_files"]}
 - Orphaned Markdown files: {result["orphan_count"]}
 
 ## Expected Coverage By Source

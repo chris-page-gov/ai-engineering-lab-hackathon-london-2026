@@ -9,24 +9,43 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
+  - operating-model
+  - operations
+  - planning
+  - talk-demo
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 01
+# Slide 01 - Building the AI-Native Engineering Team
 
 ![AI-Native Engineering Blueprint Slide 01](../../assets/visuals/ai-native-engineering-blueprint/slide-01.jpg)
 
 ## Visual Description
 
-This is slide 01 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+Title slide for the AI-native engineering team story. The visible subtitle frames coding agents as accelerators across the whole software lifecycle, from planning through deployment.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Sets the deck's scope: the issue is no longer only faster typing or inline code completion, but a team operating model for steering agents across an end-to-end engineering lifecycle.
 
 ## Material Points Illustrated
+
+- The subject is the engineering team and lifecycle, not a single IDE feature.
+- The lifecycle explicitly runs from planning to deployment.
+- The title is a clean transition from the talk's dark-data case study into the broader agentic-engineering workflow.
+
+## Talk Path
+
+- Stage: Opening frame.
+- Use in talk: Use as the section opener after the Challenge 2 problem: this is where the talk moves from what was built to how agentic coding changes the work.
+- Bridge: Next, explain why this shift is plausible: task horizons have lengthened.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - VERSION: 2025.1
 - e e (TM)
@@ -48,11 +67,15 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - deployment.
 - A\ NotebookLV
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Next slide](slide-02.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

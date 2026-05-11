@@ -7,8 +7,9 @@ Status: passed.
 
 - Covered visual items: 73
 - Sidecar files: 73
-- Narrative Markdown files: 90
+- Narrative Markdown files: 95
 - Derived asset files: 73
+- Import files represented: 13
 - Orphaned Markdown files: 0
 
 ## Expected Coverage By Source

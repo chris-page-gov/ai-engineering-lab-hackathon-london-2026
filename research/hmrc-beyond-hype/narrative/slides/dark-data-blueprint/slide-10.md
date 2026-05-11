@@ -12,6 +12,7 @@ tags:
   - dark-data
   - mcp
   - provenance
+  - review
   - risk-boundaries
   - traceability
 ---
@@ -44,6 +45,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - Base. payload MCP Client.
 - types.ts).
 - A\ NotebookLV
+
 
 ## Related Narrative Links
 

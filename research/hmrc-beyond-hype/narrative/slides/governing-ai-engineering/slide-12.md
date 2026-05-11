@@ -8,10 +8,12 @@ asset: "assets/visuals/governing-ai-engineering/slide-12.jpg"
 publication_status: "publishable derived thumbnail and text sidecar; raw imported PowerPoint remains local"
 tags:
   - ai-assistants
+  - build
   - governance
   - hmrc
   - provenance
   - public-sector
+  - review
   - risk-boundaries
   - security
   - validation
@@ -40,6 +42,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - is part of the product.
 - AI coding assistants are highly useful for bounded work, but they are not a
 - substitute for accountable human ownership ox secure departmental assurance.
+
 
 ## Related Narrative Links
 

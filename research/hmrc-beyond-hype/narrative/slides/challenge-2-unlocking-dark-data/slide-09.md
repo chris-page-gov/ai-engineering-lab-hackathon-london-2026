@@ -12,6 +12,7 @@ tags:
   - dark-data
   - governance
   - provenance
+  - review
   - source-backed-answers
   - talk-demo
 ---
@@ -42,6 +43,7 @@ Frames the public-sector problem: guidance can exist but still be hard to find, 
 - AI-Ready Data
 - Takeaway: Machine-readable structure and provenance are
 - foundational government requirements, not optional features. - , \couw
+
 
 ## Related Narrative Links
 

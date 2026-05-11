@@ -8,13 +8,17 @@ asset: "assets/visuals/dark-data-blueprint/slide-13.jpg"
 publication_status: "publishable derived thumbnail and text sidecar; raw imported PowerPoint remains local"
 tags:
   - auditability
+  - build
   - challenge-2
   - dark-data
+  - documentation
   - evaluation
   - governance
   - mcp
   - provenance
+  - review
   - risk-boundaries
+  - testing
   - traceability
   - validation
 ---
@@ -44,6 +48,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - extraction quality. benchmarks, not vibes.
 - END OF REPORT // LONDON 2026 AI ENGINEERING LAB
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

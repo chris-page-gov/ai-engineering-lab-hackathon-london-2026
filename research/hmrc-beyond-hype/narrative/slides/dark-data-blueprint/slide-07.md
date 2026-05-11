@@ -14,7 +14,9 @@ tags:
   - governance
   - mcp
   - provenance
+  - review
   - risk-boundaries
+  - rollout
   - traceability
   - validation
 ---
@@ -44,6 +46,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - Codified rules in challenge-2/AGENTS.md / , Actively flagged and blocked by
 - O to preserve these for the demo, avoiding automated pipeline checks.
 - reflexive redaction of useful fixture data.
+
 
 ## Related Narrative Links
 

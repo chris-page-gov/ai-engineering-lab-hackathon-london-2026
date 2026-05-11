@@ -10,10 +10,16 @@ tags:
   - agentic-coding
   - ai-assistants
   - auditability
+  - build
+  - documentation
   - evaluation
   - governance
+  - operations
   - provenance
+  - review
   - risk-boundaries
+  - rollout
+  - testing
   - timeline
   - validation
   - workflow
@@ -57,6 +63,7 @@ Shows the evolution from coding assistance to agentic engineering workflows that
 - Recommended task | Unit test generation & documentation Automated merges to protected * Production database or infra changes
 - High-sensitivity casework logic branches
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

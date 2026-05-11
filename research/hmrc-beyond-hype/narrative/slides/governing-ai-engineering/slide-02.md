@@ -8,12 +8,15 @@ asset: "assets/visuals/governing-ai-engineering/slide-02.jpg"
 publication_status: "publishable derived thumbnail and text sidecar; raw imported PowerPoint remains local"
 tags:
   - agentic-coding
+  - build
   - governance
   - hmrc
   - mcp
   - public-sector
+  - review
   - risk-boundaries
   - security
+  - testing
   - validation
 ---
 
@@ -46,6 +49,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - CLI-powered agents are fast-changing and must
 - 4 always be time-stamped. H
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

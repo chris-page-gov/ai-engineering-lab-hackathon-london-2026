@@ -10,8 +10,10 @@ tags:
   - auditability
   - challenge-2
   - dark-data
+  - documentation
   - governance
   - provenance
+  - review
   - source-backed-answers
   - talk-demo
 ---
@@ -46,6 +48,7 @@ Frames the public-sector problem: guidance can exist but still be hard to find, 
 - AI T status, and source document, you have not solved the problem. The value is T Verified T
 - El a | | el I not in the generated text; the value is in the verifiable truth. | | Source Node I
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

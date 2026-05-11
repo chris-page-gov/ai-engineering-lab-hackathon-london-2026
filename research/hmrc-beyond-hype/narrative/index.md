@@ -9,8 +9,10 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 
 - [Overview](overview.md)
 - [Narrative arc](narrative-arc.md)
+- [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
+- [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
 - [Narrative validation report](data/narrative_validation_report.md)
 - [Goal and acceptance criteria](README.md)
@@ -29,3 +31,9 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 ## Current External Sidebar
 
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md)
+
+## Supporting Source Notes
+
+- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
+- [Engineering Accountability audio source](notes/engineering-accountability-audio.md)
+- [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md)

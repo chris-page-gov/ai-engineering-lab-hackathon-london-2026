@@ -9,8 +9,11 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - evaluation
   - operating-model
+  - review
+  - testing
   - validation
   - workflow
 ---
@@ -56,6 +59,7 @@ Provides the external operating-model backdrop for AI-native engineering: plan, 
 - challenging the model' s iden tifica tion oft est cases. M aking t est writing f ast er allo w s developer sto
 - ship f ea tur es mor e quickly and also tak e on mor e ambitious f ea tur es.
 - 1 2 BuildinganAI - nativeengineeringteam
+
 
 ## Related Narrative Links
 

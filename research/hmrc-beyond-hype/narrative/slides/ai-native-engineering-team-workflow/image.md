@@ -9,11 +9,16 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
+  - design
+  - documentation
   - evaluation
   - governance
   - operating-model
+  - review
   - risk-boundaries
   - security
+  - testing
   - validation
   - workflow
 ---
@@ -53,6 +58,7 @@ Summarises the practical work pattern for the talk: delegate bounded work, revie
 - Hand off boilerplate, unit test generation, log Engineers shift to assessing architectural implications, Humans retain final responsibility for strategic direction,
 - parsing, and first-pass documentation to agents. security risks, and domain alignment of Al code. novel abstractions, and high-stakes production decisions.
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

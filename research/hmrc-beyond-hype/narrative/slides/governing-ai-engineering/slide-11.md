@@ -9,12 +9,14 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - auditability
+  - build
   - challenge-2
   - dark-data
   - governance
   - hmrc
   - provenance
   - public-sector
+  - review
   - risk-boundaries
   - security
   - validation
@@ -45,6 +47,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - This repository is not vendor theatre. It is a working implementation
 - proving that messy, government-style material can be turned into a
 - source-backed, auditable postmortem of human and Al contributions.
+
 
 ## Related Narrative Links
 

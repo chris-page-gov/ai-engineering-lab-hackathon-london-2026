@@ -12,8 +12,11 @@ tags:
   - governance
   - hmrc
   - public-sector
+  - review
   - risk-boundaries
+  - rollout
   - security
+  - testing
   - validation
 ---
 
@@ -46,6 +49,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - explicit local constraints. They convert team norms and safety
 - boundaries into strict operational parameters.
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

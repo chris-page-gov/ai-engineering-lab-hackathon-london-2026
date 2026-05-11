@@ -9,27 +9,47 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
   - dark-data
+  - evaluation
   - governance
+  - review
+  - rollout
   - security
+  - testing
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 09
+# Slide 09 - Phase 04: Test
 
 ![AI-Native Engineering Blueprint Slide 09](../../assets/visuals/ai-native-engineering-blueprint/slide-09.jpg)
 
 ## Visual Description
 
-This is slide 09 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A testing slide with a feedback loop: feature spec, generated test, test fails for validation, agent builds feature and test passes. The side panel applies the delegate-review-own triad.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Makes validation the governing mechanism for autonomous builds. The agent can help write and maintain tests, but humans own adversarial thinking and test intent.
 
 ## Material Points Illustrated
+
+- Delegate edge-case suggestions, initial test suites, and updates to brittle tests after refactors.
+- Review for shortcuts, stubbed tests, and agent-run permissions.
+- Own adversarial thinking, user-experience alignment, and the intent of the tests.
+- Enforce test-first discipline: tests should fail before feature implementation, coverage expectations should live in `AGENTS.md`, and tools should be explicit.
+
+## Talk Path
+
+- Stage: Lifecycle phase.
+- Use in talk: Use this to underline the core talk line: fluent generated code is not proof; tests and evidence are the control surface.
+- Bridge: After tests, the review phase decides whether the change is actually acceptable.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - PHASE 04: Tests as the source of truth for autonomous builds
 - Effort Allocation Slider
@@ -48,11 +68,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - Supply explicit examples of code coverage tools.
 - A\ NotebookLV
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-08.md)
+- [Next slide](slide-10.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

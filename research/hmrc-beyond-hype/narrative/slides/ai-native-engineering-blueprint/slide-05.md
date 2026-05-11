@@ -9,26 +9,47 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
+  - design
   - governance
+  - operating-model
+  - operations
+  - responsibility
+  - review
   - security
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 05
+# Slide 05 - A New Operating System For Engineering Management
 
 ![AI-Native Engineering Blueprint Slide 05](../../assets/visuals/ai-native-engineering-blueprint/slide-05.jpg)
 
 ## Visual Description
 
-This is slide 05 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A triad diagram labelled delegate, review, and own, plus a cognitive-load shift showing implementation overhead moving towards initial generation and verification.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Introduces the control pattern for the rest of the deck: agents can take the first pass, but engineers still review output and own strategy, risk, and final decisions.
 
 ## Material Points Illustrated
+
+- Delegate: agents take first-pass scaffolding, boilerplate, rote wiring, and initial analysis.
+- Review: engineers assess architecture, design choices, security, and the shape of AI output.
+- Own: humans retain strategic decisions, prioritisation, complex abstractions, and long-term maintainability.
+- The intended gain is a cognitive-load shift away from implementation overhead and towards system architecture and domain reasoning.
+
+## Talk Path
+
+- Stage: Human operating model.
+- Use in talk: Use as the central safe-use message: the model does more work, but the engineer's accountability becomes more explicit.
+- Bridge: The rest of the deck walks this triad through the lifecycle, starting with planning.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - A new operating system for engineering management
 - True ownership remains with the engineer. Rote implementation is handed to the machine.
@@ -49,11 +70,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - Initial Generation, Verification A
 - A) NotebookLM
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-04.md)
+- [Next slide](slide-06.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

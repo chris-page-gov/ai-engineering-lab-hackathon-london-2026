@@ -9,9 +9,12 @@ import re
 import shutil
 import subprocess
 import tempfile
+import zipfile
 from dataclasses import dataclass
 from io import BytesIO
 from pathlib import Path
+from urllib.parse import quote
+from xml.etree import ElementTree
 
 from PIL import Image
 from pptx import Presentation
@@ -45,6 +48,15 @@ class VisualSource:
     narrative_function: str
     caveat: str
     related_targets: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class ImportTreatment:
+    filename: str
+    kind: str
+    treatment: str
+    treatment_path: Path
+    publication_status: str
 
 
 VISUAL_SOURCES = (
@@ -237,6 +249,14 @@ TAG_KEYWORDS = {
     "risk-boundaries": ("risk", "boundary", "limit", "critical", "safety"),
     "security": ("security", "secure", "threat", "credential", "permission"),
     "validation": ("validation", "test", "verify", "checks", "lint"),
+    "planning": ("plan", "planning", "feasibility", "dependency"),
+    "design": ("design", "mockup", "component", "accessibility"),
+    "build": ("build", "implementation", "scaffold", "code"),
+    "testing": ("test", "coverage", "tdd", "edge case"),
+    "review": ("review", "merge", "pull request", "pr"),
+    "documentation": ("document", "documentation", "changelog", "runbook"),
+    "operations": ("deploy", "maintain", "incident", "logs", "triage"),
+    "rollout": ("rollout", "ci/cd", "agents.md", "rules"),
 }
 
 
@@ -264,6 +284,446 @@ NOTE_LINKS = {
     "../challenge-2/wiki/index.md": REPO_ROOT / "challenge-2" / "wiki" / "index.md",
     "../challenge-2/wiki/workbench.md": REPO_ROOT / "challenge-2" / "wiki" / "workbench.md",
     "notes/clawpilot-project-lobster.md": NOTES_DIR / "clawpilot-project-lobster.md",
+}
+
+
+AI_CODING_ASSISTANTS_MARKDOWN = (
+    IMPORT_DIR / "AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md"
+)
+AI_CODING_ASSISTANTS_DOCX = (
+    IMPORT_DIR / "AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.docx"
+)
+AUDIO_SOURCE_NOTES = (
+    (
+        "Engineering_Accountability_in_Public_Sector_AI.m4a",
+        "engineering-accountability-audio.md",
+        "Engineering Accountability In Public Sector AI",
+        PACK_DIR / "transcripts" / "engineering-accountability-in-public-sector-ai.speakers.md",
+        PACK_DIR / "transcripts" / "engineering-accountability-in-public-sector-ai.txt",
+        (
+            "Use this dialogue as the accountability and assurance strand: generated output "
+            "is useful only when the team can show evidence, source grounding, review, and "
+            "ownership."
+        ),
+    ),
+    (
+        "Governing_agentic_AI_in_software_engineering.m4a",
+        "governing-agentic-ai-audio.md",
+        "Governing Agentic AI In Software Engineering",
+        PACK_DIR / "transcripts" / "governing-agentic-ai-in-software-engineering.speakers.md",
+        PACK_DIR / "transcripts" / "governing-agentic-ai-in-software-engineering.txt",
+        (
+            "Use this dialogue as the governance strand: agentic software engineering needs "
+            "explicit boundaries around autonomy, tools, approvals, and production authority."
+        ),
+    ),
+)
+
+
+AI_NATIVE_BLUEPRINT_SLIDES: dict[int, dict[str, object]] = {
+    1: {
+        "title": "Slide 01 - Building the AI-Native Engineering Team",
+        "stage": "Opening frame",
+        "tags": ("operating-model", "talk-demo"),
+        "visual_description": (
+            "Title slide for the AI-native engineering team story. The visible subtitle frames "
+            "coding agents as accelerators across the whole software lifecycle, from planning "
+            "through deployment."
+        ),
+        "narrative_function": (
+            "Sets the deck's scope: the issue is no longer only faster typing or inline code "
+            "completion, but a team operating model for steering agents across an end-to-end "
+            "engineering lifecycle."
+        ),
+        "material_points": (
+            "The subject is the engineering team and lifecycle, not a single IDE feature.",
+            "The lifecycle explicitly runs from planning to deployment.",
+            "The title is a clean transition from the talk's dark-data case study into the "
+            "broader agentic-engineering workflow.",
+        ),
+        "talk_use": (
+            "Use as the section opener after the Challenge 2 problem: this is where the talk "
+            "moves from what was built to how agentic coding changes the work."
+        ),
+        "bridge": "Next, explain why this shift is plausible: task horizons have lengthened.",
+    },
+    2: {
+        "title": "Slide 02 - The Multi-Hour Milestone Has Been Breached",
+        "stage": "Capability shift",
+        "tags": ("capability-trend", "risk-boundaries"),
+        "visual_description": (
+            "A capability-trend slide with a task-duration chart. It argues that frontier "
+            "systems are moving from short completion tasks towards multi-hour reasoning and "
+            "software-lifecycle work."
+        ),
+        "narrative_function": (
+            "Explains why coding assistants should now be discussed as agents: longer task "
+            "horizons make planning, tool use, verification, and handoff part of the product."
+        ),
+        "material_points": (
+            "The useful claim is the direction of travel: task horizons are lengthening.",
+            "Longer task horizons bring more of the software lifecycle into scope.",
+            "Exact model labels and numeric task-duration claims are imported-slide claims and "
+            "should be rechecked before quoting live.",
+        ),
+        "talk_use": (
+            "Frame this as a capability lens, not as a benchmark proof. The important point for "
+            "HMRC/public-sector teams is that longer tasks create new governance needs."
+        ),
+        "bridge": "Move from capability trend to workflow contrast: autocomplete versus agents.",
+    },
+    3: {
+        "title": "Slide 03 - From Inline Suggestions To Autonomous Workflows",
+        "stage": "Workflow contrast",
+        "tags": ("agentic-coding", "workflow"),
+        "visual_description": (
+            "A comparison table between the autocomplete era and the agent era. It contrasts "
+            "line suggestions and local IDE context with multi-step debugging, cloud/repo "
+            "execution, unified context, and structured execution."
+        ),
+        "narrative_function": (
+            "Makes the core talk distinction visible: coding assistants are shifting from "
+            "suggesting code inside an editor to operating across tools, context, tests, and "
+            "review loops."
+        ),
+        "material_points": (
+            "Autocomplete focuses on suggesting the next line or filling templates.",
+            "The agent era focuses on scaffolding projects, translating designs to code, and "
+            "multi-step debugging.",
+            "The execution environment expands from local IDE-only assistance to cloud or "
+            "repo-connected agent workflows.",
+            "The outcome shifts from static suggestions that need human runtime to structured "
+            "execution that can call compilers, scanners, and tests.",
+        ),
+        "talk_use": (
+            "Use this as the clearest mixed-audience explanation of what changed: the assistant "
+            "is not just in the editor anymore."
+        ),
+        "bridge": "Having defined the shift, explain the architectural pillars that make it work.",
+    },
+    4: {
+        "title": "Slide 04 - The Architectural Pillars Of Coding Agents",
+        "stage": "Agent architecture",
+        "tags": ("architecture", "evaluation", "validation"),
+        "visual_description": (
+            "A four-quadrant diagram around a core agent engine. The quadrants are unified "
+            "context, persistent memory, structured execution, and evaluation loops."
+        ),
+        "narrative_function": (
+            "Turns the term agent into an inspectable architecture: broad context, retained "
+            "state, tool execution, and measurable evaluation are what make agentic workflows "
+            "different from chat prompts."
+        ),
+        "material_points": (
+            "Unified context means the agent can read code, configuration, and related material "
+            "together.",
+            "Persistent memory means work can be followed from proposal to deployment, where "
+            "the tool and policy allow it.",
+            "Structured execution means direct calls to compilers, test runners, scanners, and "
+            "other tools.",
+            "Evaluation loops keep output grounded in measurable quality such as tests, "
+            "latency, style, or lint checks.",
+        ),
+        "talk_use": (
+            "Use this to anchor safety: any team adopting agents must decide what context, "
+            "memory, execution, and evaluation are allowed."
+        ),
+        "bridge": "Those pillars lead to the human operating model: delegate, review, own.",
+    },
+    5: {
+        "title": "Slide 05 - A New Operating System For Engineering Management",
+        "stage": "Human operating model",
+        "tags": ("governance", "operating-model", "responsibility"),
+        "visual_description": (
+            "A triad diagram labelled delegate, review, and own, plus a cognitive-load shift "
+            "showing implementation overhead moving towards initial generation and verification."
+        ),
+        "narrative_function": (
+            "Introduces the control pattern for the rest of the deck: agents can take the first "
+            "pass, but engineers still review output and own strategy, risk, and final decisions."
+        ),
+        "material_points": (
+            "Delegate: agents take first-pass scaffolding, boilerplate, rote wiring, and initial "
+            "analysis.",
+            "Review: engineers assess architecture, design choices, security, and the shape of "
+            "AI output.",
+            "Own: humans retain strategic decisions, prioritisation, complex abstractions, and "
+            "long-term maintainability.",
+            "The intended gain is a cognitive-load shift away from implementation overhead and "
+            "towards system architecture and domain reasoning.",
+        ),
+        "talk_use": (
+            "Use as the central safe-use message: the model does more work, but the engineer's "
+            "accountability becomes more explicit."
+        ),
+        "bridge": "The rest of the deck walks this triad through the lifecycle, starting with planning.",
+    },
+    6: {
+        "title": "Slide 06 - Phase 01: Plan",
+        "stage": "Lifecycle phase",
+        "tags": ("planning", "workflow", "governance"),
+        "visual_description": (
+            "A planning slide with a human-heavy effort split, the delegate-review-own cards, "
+            "a tooling map linking issue tracker, agent, and codebase, and an implementation "
+            "checklist."
+        ),
+        "narrative_function": (
+            "Shows planning as the first controlled agent workflow: use agents to analyse and "
+            "structure work, but keep prioritisation and sequencing with people."
+        ),
+        "material_points": (
+            "Delegate feasibility analysis, dependency mapping, and edge-case identification "
+            "from specs.",
+            "Review accuracy, completeness, and technical constraints.",
+            "Own story-point assignment, prioritisation, and long-term sequencing.",
+            "Connect issue trackers, agents, and codebases so work can be tagged, deduplicated, "
+            "split into subtasks, and triggered from ticket stage changes.",
+        ),
+        "talk_use": (
+            "Use this as a practical first-step example: start with planning support because it "
+            "is reviewable and low-risk compared with production action."
+        ),
+        "bridge": "Once work is framed, the next phase is translating design intent into code.",
+    },
+    7: {
+        "title": "Slide 07 - Phase 02: Design",
+        "stage": "Lifecycle phase",
+        "tags": ("design", "mcp", "workflow"),
+        "visual_description": (
+            "A design slide with a 50/50 human-agent effort split and a translation flow from "
+            "multimodal input through an MCP-connected agent to component stubs and style "
+            "application."
+        ),
+        "narrative_function": (
+            "Shows agents as design translators, not design owners: they can scaffold from "
+            "mockups and apply tokens, while humans retain UX and system-level judgement."
+        ),
+        "material_points": (
+            "Delegate project scaffolding, mockup translation, and design-token application.",
+            "Review design conventions, accessibility standards, and system integration.",
+            "Own the overarching design system, UX patterns, and final user experience.",
+            "Implementation depends on exposing design tools/component libraries and enforcing "
+            "typed languages such as TypeScript.",
+        ),
+        "talk_use": (
+            "Use this to show why MCP-style context matters: agents need controlled access to "
+            "the design system, not a screenshot alone."
+        ),
+        "bridge": "The same pattern then moves into implementation, where delegation can increase.",
+    },
+    8: {
+        "title": "Slide 08 - Phase 03: Build",
+        "stage": "Lifecycle phase",
+        "tags": ("build", "codex", "mcp", "workflow"),
+        "visual_description": (
+            "A build-phase slide with an AI-heavy effort split. It shows generated data models, "
+            "APIs, UI components, test suites, and a feature specification feeding the build."
+        ),
+        "narrative_function": (
+            "Shows the strongest productivity promise: turning clear plans and specs into "
+            "working code, while validating command execution and test feedback."
+        ),
+        "material_points": (
+            "AI can take more of the first-pass implementation work when plans and constraints "
+            "are explicit.",
+            "The slide cites a Cloudwalk case-study pattern where engineers, product managers, "
+            "and designers use Codex to turn specs into working code.",
+            "The workflow should use committed plans or planning tools, validate command "
+            "execution, and iterate on `AGENTS.md` so tests and linters guide the agent.",
+        ),
+        "talk_use": (
+            "Use this for the concrete productivity upside, then immediately connect it to tests "
+            "and validation so speed is not mistaken for correctness."
+        ),
+        "bridge": "Implementation only becomes usable when tests become the source of truth.",
+    },
+    9: {
+        "title": "Slide 09 - Phase 04: Test",
+        "stage": "Lifecycle phase",
+        "tags": ("testing", "evaluation", "validation"),
+        "visual_description": (
+            "A testing slide with a feedback loop: feature spec, generated test, test fails for "
+            "validation, agent builds feature and test passes. The side panel applies the "
+            "delegate-review-own triad."
+        ),
+        "narrative_function": (
+            "Makes validation the governing mechanism for autonomous builds. The agent can help "
+            "write and maintain tests, but humans own adversarial thinking and test intent."
+        ),
+        "material_points": (
+            "Delegate edge-case suggestions, initial test suites, and updates to brittle tests "
+            "after refactors.",
+            "Review for shortcuts, stubbed tests, and agent-run permissions.",
+            "Own adversarial thinking, user-experience alignment, and the intent of the tests.",
+            "Enforce test-first discipline: tests should fail before feature implementation, "
+            "coverage expectations should live in `AGENTS.md`, and tools should be explicit.",
+        ),
+        "talk_use": (
+            "Use this to underline the core talk line: fluent generated code is not proof; tests "
+            "and evidence are the control surface."
+        ),
+        "bridge": "After tests, the review phase decides whether the change is actually acceptable.",
+    },
+    10: {
+        "title": "Slide 10 - Phase 05: Review",
+        "stage": "Lifecycle phase",
+        "tags": ("review", "evaluation", "governance"),
+        "visual_description": (
+            "A code-review slide with a human-heavy effort split, a Sansan case-study inset, "
+            "and implementation guidance for review datasets, tuned models, and signal-to-noise "
+            "tracking."
+        ),
+        "narrative_function": (
+            "Positions agents as review amplifiers: useful for broad tracing and defect hints, "
+            "but not a replacement for final merge authority or production-readiness judgement."
+        ),
+        "material_points": (
+            "Delegate initial static/runtime review and tracing logic across files.",
+            "Review architectural alignment, composable patterns, and requirement matching.",
+            "Own final merge process, deployment readiness, and production reliability.",
+            "Curate gold-standard pull requests as an evaluation dataset, tune models for review, "
+            "and track comment reactions to measure signal-to-noise.",
+        ),
+        "talk_use": (
+            "Use this to explain that AI review can find issues humans miss, but the acceptance "
+            "decision remains a human engineering responsibility."
+        ),
+        "bridge": "Once a change is accepted, documentation should be generated as a byproduct.",
+    },
+    11: {
+        "title": "Slide 11 - Phase 06: Document",
+        "stage": "Lifecycle phase",
+        "tags": ("documentation", "workflow", "governance"),
+        "visual_description": (
+            "A documentation slide showing a pipeline from git commits to build pipeline, "
+            "SDK/agent run, Mermaid diagrams, and automated changelogs."
+        ),
+        "narrative_function": (
+            "Shows documentation as part of the delivery loop rather than an afterthought: "
+            "agents can draft evidence and diagrams, while humans retain public, critical, and "
+            "brand-sensitive documentation decisions."
+        ),
+        "material_points": (
+            "Delegate first-pass file summaries, dependency lists, PR overviews, and diagrams.",
+            "Review critical runbooks, public APIs, and core architecture documents.",
+            "Own documentation strategy, safety-critical external docs, and brand risk.",
+            "Embed documentation guidelines in `AGENTS.md` and wire generation scripts into "
+            "release-cycle workflows.",
+        ),
+        "talk_use": (
+            "Use this to connect the repo's Changelog/Context/Progress discipline to the broader "
+            "agentic engineering workflow."
+        ),
+        "bridge": "The lifecycle continues into operations, where context and authority become riskier.",
+    },
+    12: {
+        "title": "Slide 12 - Phase 07: Deploy And Maintain",
+        "stage": "Lifecycle phase",
+        "tags": ("operations", "mcp", "risk-boundaries", "governance"),
+        "visual_description": (
+            "An operations slide showing log aggregators and deployment history connected to an "
+            "agent through MCP servers, plus a case-study inset about operational investigation "
+            "inside the IDE."
+        ),
+        "narrative_function": (
+            "Draws the boundary for operational use: agents can help triage logs and propose "
+            "remediation, but production incidents and sensitive changes need human sign-off."
+        ),
+        "material_points": (
+            "Delegate log parsing, anomaly surfacing, hotfix proposals, and suspect-commit "
+            "identification.",
+            "Review diagnostics and approve remediation steps.",
+            "Own novel incidents, sensitive production changes, and final sign-off.",
+            "Controlled MCP access to logs, code, deployment history, and data platforms raises "
+            "the value of agents and the assurance burden.",
+        ),
+        "talk_use": (
+            "Use this as the strongest public-sector caution: the closer agents get to operations, "
+            "the more identity, audit, and approval controls matter."
+        ),
+        "bridge": "Having walked through the lifecycle, consolidate responsibilities in one matrix.",
+    },
+    13: {
+        "title": "Slide 13 - Responsibility Matrix",
+        "stage": "Consolidation",
+        "tags": ("responsibility", "operating-model", "governance"),
+        "visual_description": (
+            "A table organising phases against delegate, review, and own responsibilities. The "
+            "visible examples include AI-led scaffolding, human ownership of complex abstractions, "
+            "adversarial edge-case design, and final merge authority."
+        ),
+        "narrative_function": (
+            "Provides the deck's practical governance artefact: a team can decide, phase by "
+            "phase, what AI leads, what is shared, and what humans must own."
+        ),
+        "material_points": (
+            "The lifecycle should be governed as a responsibility matrix, not a vague adoption "
+            "policy.",
+            "AI can lead bounded delegation such as scaffolding and issue detection.",
+            "Humans must own complex abstractions, adversarial testing strategy, and final merge "
+            "authority.",
+            "The matrix gives teams a way to turn agent adoption into reviewable operating rules.",
+        ),
+        "talk_use": (
+            "Use this as the handout-style summary for teams asking 'where do we start and what "
+            "do we keep human-owned?'."
+        ),
+        "bridge": "The matrix explains control; the flywheel explains why disciplined control compounds.",
+    },
+    14: {
+        "title": "Slide 14 - The AI-Native Flywheel",
+        "stage": "Compounding loop",
+        "tags": ("flywheel", "workflow", "validation"),
+        "visual_description": (
+            "A circular flywheel with five connected stages: specs and edge cases, AI-generated "
+            "tests, autonomous implementation, AI code review, and automated release notes."
+        ),
+        "narrative_function": (
+            "Shows the higher-level productivity argument: the return is not just faster phases, "
+            "but a connected workflow where each stage creates context for the next."
+        ),
+        "material_points": (
+            "The loop starts with clear specs and edge cases.",
+            "Tests, implementation, review, and release notes become connected agent-assisted "
+            "steps.",
+            "The claimed gain is reduced context switching across phase transitions.",
+            "The flywheel works only if each stage leaves reviewable evidence for the next one.",
+        ),
+        "talk_use": (
+            "Use this as the closing concept before practical rollout: discipline compounds "
+            "when outputs are structured for the next agent or human review step."
+        ),
+        "bridge": "Close the deck with the concrete rollout steps.",
+    },
+    15: {
+        "title": "Slide 15 - Integration Architecture Rollout",
+        "stage": "Practical rollout",
+        "tags": ("rollout", "mcp", "governance", "validation"),
+        "visual_description": (
+            "A three-step rollout slide: systematise the rules, wire the context, and enforce "
+            "the loop. The visible examples include `AGENTS.md`, MCP context, CI/CD review, and "
+            "design-to-component workflows."
+        ),
+        "narrative_function": (
+            "Turns the deck into an action plan: write repo rules, connect bounded context, and "
+            "enforce validation loops before expanding agent authority."
+        ),
+        "material_points": (
+            "Systematise rules through `AGENTS.md`, test coverage expectations, documentation "
+            "templates, and style patterns.",
+            "Wire context through controlled access to component libraries, issue trackers, and "
+            "logging tools via MCP.",
+            "Enforce the loop through AI review for priority bugs in CI/CD and workflows that "
+            "map designs to component scaffolding.",
+            "The practical public-sector version is start narrow, make rules explicit, and keep "
+            "the validation loop visible.",
+        ),
+        "talk_use": (
+            "Use this as the call to action for the HMRC audience: do not begin with full "
+            "autonomy; begin with rules, context, and checks."
+        ),
+        "bridge": "Return to the talk's closing line: the productivity gain comes from discipline.",
+    },
 }
 
 
@@ -350,8 +810,17 @@ def title_from_text(default: str, item_label: str, text: str) -> str:
     return f"{default} - {item_label}"
 
 
-def tags_for(source: VisualSource, text: str) -> list[str]:
+def curated_slide(source: VisualSource, item_number: int) -> dict[str, object] | None:
+    if source.source_id != "ai-native-engineering-blueprint":
+        return None
+    return AI_NATIVE_BLUEPRINT_SLIDES.get(item_number)
+
+
+def tags_for(
+    source: VisualSource, text: str, extra_tags: tuple[str, ...] = ()
+) -> list[str]:
     found = set(source.base_tags)
+    found.update(extra_tags)
     text_lower = text.lower()
     for tag, needles in TAG_KEYWORDS.items():
         if any(needle in text_lower for needle in needles):
@@ -364,7 +833,7 @@ def rel_link(from_file: Path, target: Path) -> str:
 
 
 def markdown_link(from_file: Path, label: str, target: Path) -> str:
-    return f"[{label}]({rel_link(from_file, target)})"
+    return f"[{label}]({quote(rel_link(from_file, target), safe='/#._-')})"
 
 
 def ensure_dirs() -> None:
@@ -476,13 +945,19 @@ def sidecar_body(
     extracted_text: str,
     ocr_warning: str,
 ) -> str:
+    curated = curated_slide(source, item_number)
     fallback = (
         "The visual requires manual inspection because automated extraction produced little "
         "readable text."
     )
-    points = material_points(extracted_text, fallback)
-    tags = tags_for(source, extracted_text)
-    if source.kind == "pdf":
+    machine_points = material_points(extracted_text, fallback)
+    curated_tags: tuple[str, ...] = ()
+    if curated:
+        curated_tags = tuple(curated.get("tags", ()))  # type: ignore[arg-type]
+    tags = tags_for(source, extracted_text, curated_tags)
+    if curated:
+        title = str(curated["title"])
+    elif source.kind == "pdf":
         title = title_from_text(source.title, item_label, extracted_text)
     else:
         title = f"{source.title} - {item_label}"
@@ -491,6 +966,31 @@ def sidecar_body(
         markdown_link(sidecar_path, "Topic index", NARRATIVE_DIR / "topics.md"),
         markdown_link(sidecar_path, "Source material index", NARRATIVE_DIR / "source-materials.md"),
     ]
+    if curated:
+        source_index = sidecar_path.parent / "index.md"
+        guide_path = sidecar_path.parent / "narrative-guide.md"
+        related_links.extend(
+            [
+                markdown_link(sidecar_path, "AI-Native deck index", source_index),
+                markdown_link(sidecar_path, "AI-Native narrative guide", guide_path),
+            ]
+        )
+        if item_number > 1:
+            related_links.append(
+                markdown_link(
+                    sidecar_path,
+                    "Previous slide",
+                    sidecar_path.parent / f"slide-{item_number - 1:02d}.md",
+                )
+            )
+        if item_number < len(AI_NATIVE_BLUEPRINT_SLIDES):
+            related_links.append(
+                markdown_link(
+                    sidecar_path,
+                    "Next slide",
+                    sidecar_path.parent / f"slide-{item_number + 1:02d}.md",
+                )
+            )
     for key in source.related_targets:
         target = NOTE_LINKS[key]
         if target.exists():
@@ -504,7 +1004,34 @@ def sidecar_body(
     asset_link = rel_link(sidecar_path, asset_path)
     source_repo_path = source_path.relative_to(REPO_ROOT).as_posix()
     frontmatter_tags = "\n".join(f"  - {tag}" for tag in tags)
-    material = "\n".join(f"- {point}" for point in points)
+    if curated:
+        points = tuple(curated["material_points"])  # type: ignore[index]
+        material = "\n".join(f"- {point}" for point in points)
+        talk_path = (
+            "\n## Talk Path\n\n"
+            f"- Stage: {curated['stage']}.\n"
+            f"- Use in talk: {curated['talk_use']}\n"
+            f"- Bridge: {curated['bridge']}\n"
+        )
+        visual_description = str(curated["visual_description"])
+        narrative_function = str(curated["narrative_function"])
+        machine_material = "\n".join(f"- {point}" for point in machine_points)
+        ocr_checkpoint = (
+            "\n## OCR-Derived Checkpoints\n\n"
+            "These are preserved as a mechanical cross-check against the source image. "
+            "Prefer the curated material points above for navigation.\n\n"
+            f"{machine_material}\n"
+        )
+    else:
+        material = "\n".join(f"- {point}" for point in machine_points)
+        talk_path = ""
+        visual_description = (
+            f"This is {item_label.lower()} from `{source_repo_path}`. It is represented here "
+            "by a small derived image so the narrative can be browsed on GitHub without "
+            "publishing the raw import file."
+        )
+        narrative_function = source.narrative_function
+        ocr_checkpoint = ""
     related = "\n".join(f"- {link}" for link in related_links)
     caveat_text = "\n".join(f"- {caveat}" for caveat in caveats)
     extracted_block = (extracted_text or "(No reliable OCR or text extraction output.)").replace(
@@ -529,15 +1056,16 @@ tags:
 
 ## Visual Description
 
-This is {item_label.lower()} from `{source_repo_path}`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+{visual_description}
 
 ## Claim Or Narrative Function
 
-{source.narrative_function}
+{narrative_function}
 
 ## Material Points Illustrated
 
 {material}
+{talk_path}{ocr_checkpoint}
 
 ## Related Narrative Links
 
@@ -562,6 +1090,54 @@ This is {item_label.lower()} from `{source_repo_path}`. It is represented here b
 def write_file(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content.rstrip() + "\n", encoding="utf-8")
+
+
+def docx_paragraph_count(path: Path) -> int:
+    if not path.exists():
+        return 0
+    with zipfile.ZipFile(path) as archive:
+        document = ElementTree.fromstring(archive.read("word/document.xml"))
+    namespace = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    count = 0
+    for paragraph in document.iter(namespace + "p"):
+        text = "".join(node.text or "" for node in paragraph.iter(namespace + "t")).strip()
+        if text:
+            count += 1
+    return count
+
+
+def markdown_headings(path: Path) -> list[str]:
+    if not path.exists():
+        return []
+    headings = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        match = re.match(r"^(#{2,3})\s+(.+)$", line)
+        if match:
+            headings.append(match.group(2).strip())
+    return headings
+
+
+def import_file_names() -> list[str]:
+    return sorted(path.name for path in IMPORT_DIR.iterdir() if path.is_file())
+
+
+def visual_treatments() -> dict[str, ImportTreatment]:
+    treatments: dict[str, ImportTreatment] = {}
+    for source in VISUAL_SOURCES:
+        if source.source_id == "ai-native-engineering-blueprint":
+            treatment_path = SLIDES_DIR / source.source_id / "narrative-guide.md"
+            treatment = "curated 15-slide deck route plus slide sidecars"
+        else:
+            treatment_path = SLIDES_DIR / source.source_id / "index.md"
+            treatment = "visual sidecar index and item-level sidecars"
+        treatments[source.filename] = ImportTreatment(
+            filename=source.filename,
+            kind=source.kind,
+            treatment=treatment,
+            treatment_path=treatment_path,
+            publication_status="raw visual file remains local; derived sidecars/assets published",
+        )
+    return treatments
 
 
 def build_pptx(source: VisualSource) -> list[dict[str, str]]:
@@ -680,6 +1256,10 @@ def row_for(
     index: int,
 ) -> dict[str, str]:
     sidecar_text = sidecar_path.read_text(encoding="utf-8")
+    curated = curated_slide(source, index)
+    curated_tags: tuple[str, ...] = ()
+    if curated:
+        curated_tags = tuple(curated.get("tags", ()))  # type: ignore[arg-type]
     return {
         "source_id": source.source_id,
         "source_file": source_path.relative_to(REPO_ROOT).as_posix(),
@@ -687,17 +1267,40 @@ def row_for(
         "item_number": str(index),
         "sidecar_path": sidecar_path.relative_to(REPO_ROOT).as_posix(),
         "asset_path": asset_path.relative_to(REPO_ROOT).as_posix(),
-        "tags": ";".join(tags_for(source, sidecar_text)),
+        "tags": ";".join(tags_for(source, sidecar_text, curated_tags)),
         "publication_status": publication_status(source),
     }
 
 
 def write_source_index(source: VisualSource, rows: list[dict[str, str]]) -> None:
     index_path = SLIDES_DIR / source.source_id / "index.md"
-    links = "\n".join(
-        f"- {markdown_link(index_path, row['item_type'].replace('-', ' ').title() + ' ' + row['item_number'].zfill(2), REPO_ROOT / row['sidecar_path'])}"
-        for row in rows
-    )
+    if source.source_id == "ai-native-engineering-blueprint":
+        links = ai_native_slide_table(index_path, rows)
+        extra = f"""
+## Narrative Route
+
+Start with the {markdown_link(index_path, "AI-Native Engineering Blueprint narrative guide", index_path.parent / "narrative-guide.md")}.
+
+This deck is now organised as a complete route:
+
+- Slides 01-05: why coding assistants have become agentic workflows, and what humans still own.
+- Slides 06-12: the delegate/review/own model applied to plan, design, build, test, review, document, deploy, and maintain.
+- Slides 13-15: the responsibility matrix, flywheel, and rollout steps that turn the concept into team practice.
+
+## Slide-By-Slide Route
+
+{links}
+"""
+    else:
+        links = "\n".join(
+            f"- {markdown_link(index_path, row['item_type'].replace('-', ' ').title() + ' ' + row['item_number'].zfill(2), REPO_ROOT / row['sidecar_path'])}"
+            for row in rows
+        )
+        extra = f"""
+## Sidecars
+
+{links}
+"""
     tags = ", ".join(f"`{tag}`" for tag in source.base_tags)
     source_path = (IMPORT_DIR / source.filename).relative_to(REPO_ROOT).as_posix()
     write_file(
@@ -712,12 +1315,249 @@ Coverage: {len(rows)} item(s), all represented by Markdown sidecars and derived 
 Primary tags: {tags}
 
 Narrative function: {source.narrative_function}
-
-## Sidecars
-
-{links}
+{extra}
 """,
     )
+    if source.source_id == "ai-native-engineering-blueprint":
+        write_ai_native_guide(source, rows)
+
+
+def ai_native_slide_table(from_file: Path, rows: list[dict[str, str]]) -> str:
+    lines = [
+        "| Slide | Stage | Narrative job | Sidecar |",
+        "| ---: | --- | --- | --- |",
+    ]
+    for row in rows:
+        number = int(row["item_number"])
+        curated = AI_NATIVE_BLUEPRINT_SLIDES[number]
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    f"{number:02d}",
+                    str(curated["stage"]),
+                    str(curated["narrative_function"]),
+                    markdown_link(from_file, str(curated["title"]), REPO_ROOT / row["sidecar_path"]),
+                ]
+            )
+            + " |"
+        )
+    return "\n".join(lines)
+
+
+def write_ai_native_guide(source: VisualSource, rows: list[dict[str, str]]) -> None:
+    guide_path = SLIDES_DIR / source.source_id / "narrative-guide.md"
+    route_rows = ai_native_slide_table(guide_path, rows)
+    five_minute_route = "\n".join(
+        f"- {markdown_link(guide_path, str(AI_NATIVE_BLUEPRINT_SLIDES[number]['title']), guide_path.parent / f'slide-{number:02d}.md')}"
+        for number in (1, 3, 5, 8, 9, 10, 15)
+    )
+    full_route = "\n".join(
+        f"- {markdown_link(guide_path, str(AI_NATIVE_BLUEPRINT_SLIDES[int(row['item_number'])]['title']), REPO_ROOT / row['sidecar_path'])}"
+        for row in rows
+    )
+    write_file(
+        guide_path,
+        f"""{GENERATED_MARKER}
+# AI-Native Engineering Blueprint Narrative Guide
+
+This guide turns the `AI-Native_Engineering_Blueprint.pptx` sidecars into a navigable story for the HMRC talk. It is the preferred entry point for this deck.
+
+## Scope Note
+
+This guide covers the 15-slide PowerPoint deck. The import folder also contains related
+AI-native material: the 20-page `AI-Native-Engineering-Team-source_openAI.pdf`, the
+standalone `AI-Native Engineering Team Workflow.png`, and the broader AI Coding
+Assistants briefing. Those sources are covered separately through the source-material
+register and import inventory.
+
+## What This Deck Does
+
+The deck explains the transition from AI coding assistants as editor helpers to coding agents as workflow participants. Its central control model is `delegate -> review -> own`: agents can take first passes and call tools, humans review evidence and retain accountability for architecture, security, production readiness, and policy-sensitive decisions.
+
+## Recommended Talk Route
+
+For a short route through the deck, use:
+
+{five_minute_route}
+
+That route is enough to explain the capability shift, the human accountability model, the productivity upside, the validation requirement, and the practical rollout.
+
+## Full Narrative Route
+
+{full_route}
+
+## Slide-By-Slide Narrative Map
+
+{route_rows}
+
+## Public-Sector Reading
+
+- Treat specific market or benchmark numbers on the slides as imported visual claims unless separately validated before the talk.
+- Use the deck for operating-model structure, not as standalone procurement evidence.
+- The strongest reusable pattern is the responsibility split: delegate bounded work, review evidence, and keep ownership of final decisions with accountable humans.
+- The rollout should start with low-risk repositories, explicit `AGENTS.md` rules, controlled context exposure, and validation gates.
+
+## Related Documentation
+
+- [Narrative arc](../../narrative-arc.md)
+- [Topic index](../../topics.md)
+- [Source materials](../../source-materials.md)
+- [AI-Native Engineering Blueprint index](index.md)
+- [Agentic coding capabilities](../../../04_agentic_coding_capabilities.md)
+- [Operating model for public-sector engineering](../../../07_operating_model_for_public_sector_engineering.md)
+""",
+    )
+
+
+def build_ai_coding_assistants_note() -> None:
+    path = NOTES_DIR / "ai-coding-assistants-market-briefing.md"
+    source_link = markdown_link(
+        path,
+        "AI coding assistants Markdown briefing",
+        AI_CODING_ASSISTANTS_MARKDOWN,
+    )
+    headings = markdown_headings(AI_CODING_ASSISTANTS_MARKDOWN)
+    heading_lines = "\n".join(f"- {heading}" for heading in headings[:18])
+    if not heading_lines:
+        heading_lines = "- Source headings were not available during generation."
+    docx_paragraphs = docx_paragraph_count(AI_CODING_ASSISTANTS_DOCX)
+    write_file(
+        path,
+        f"""{GENERATED_MARKER}
+---
+tags:
+  - agentic-coding
+  - ai-assistants
+  - evaluation
+  - governance
+  - market-scan
+  - public-sector
+  - risk-boundaries
+  - workflow
+publication_status: "published narrative note; Markdown source tracked; DOCX companion remains local"
+---
+
+# AI Coding Assistants Market Briefing
+
+This note incorporates the imported {source_link} and its local DOCX companion:
+`research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.docx`.
+
+The briefing is a point-in-time 9 May 2026 market snapshot for the HMRC Data Science
+Academy audience. Use it as the category and Q&A backbone for the narrative, not as a
+replacement for source-by-source validation immediately before a live talk.
+
+## Source Coverage
+
+- Markdown source: `research/hmrc-beyond-hype/import/{AI_CODING_ASSISTANTS_MARKDOWN.name}`.
+- DOCX companion: `research/hmrc-beyond-hype/import/{AI_CODING_ASSISTANTS_DOCX.name}`.
+- DOCX extraction check: {docx_paragraphs} non-empty paragraph(s) were detected locally.
+- Visual companion: [AI Coding Assistants 2026 Evolution](../slides/ai-coding-assistants-2026-evolution/image.md).
+- Evaluation visual: [AI Benchmark Mastery Scoring Guide](../slides/ai-benchmark-mastery-scoring-guide/image.md).
+
+## Narrative Use
+
+- Use the market categories as the mixed-audience explanation: IDE autocomplete/chat,
+  repo or terminal agents, PR/review assistants, autonomous issue-to-PR agents, and
+  enterprise control layers.
+- Use the evidence synthesis to avoid a blanket productivity claim: gains are conditional
+  on task shape, repo maturity, user skill, and review burden.
+- Use the public-sector controls to connect tool capability to HMRC-safe adoption:
+  approved data classes, sandboxing, approvals, branch protection, logs, tests, security
+  scanning, and accountable ownership.
+- Use the Q&A section as preparation for questions about tool choice, sensitive data,
+  terminal access, repo instruction files, pilot metrics, and naming.
+
+## Content Map
+
+{heading_lines}
+
+## Key Talk Lines
+
+- AI coding assistants have moved materially beyond autocomplete.
+- The useful lens for HMRC is category first, vendor second.
+- The decisive question is not only which model is best; it is which workflow can be
+  governed.
+- Public-sector teams should start with supervised assistance inside controlled delivery
+  workflows, initially on lower-sensitivity or synthetic material.
+- Review burden, provenance, and approval are now central engineering work.
+
+## Caveats
+
+- The briefing is explicitly dated 9 May 2026; product claims, preview labels, pricing,
+  and benchmark standings may have moved.
+- Treat vendor capability claims as input evidence until each source is rechecked before
+  the live talk.
+- The local DOCX remains ignored by default because the Markdown source is the
+  GitHub-reviewable form.
+
+## Related Narrative Links
+
+- [Narrative arc](../narrative-arc.md)
+- [Topic index](../topics.md)
+- [Source materials](../source-materials.md)
+- [Import inventory](import-inventory.md)
+- [AI-Native Engineering Blueprint narrative guide](../slides/ai-native-engineering-blueprint/narrative-guide.md)
+""",
+    )
+
+
+def build_audio_source_notes() -> None:
+    for (
+        import_filename,
+        note_filename,
+        title,
+        speaker_transcript,
+        base_transcript,
+        narrative_use,
+    ) in AUDIO_SOURCE_NOTES:
+        path = NOTES_DIR / note_filename
+        write_file(
+            path,
+            f"""{GENERATED_MARKER}
+---
+tags:
+  - agentic-coding
+  - auditability
+  - governance
+  - public-sector
+  - risk-boundaries
+  - traceability
+publication_status: "published narrative note and transcript links; raw imported audio remains local"
+---
+
+# {title}
+
+This note represents the imported audio file
+`research/hmrc-beyond-hype/import/{import_filename}` in the narrative pack.
+
+## Narrative Use
+
+{narrative_use}
+
+## Transcript Links
+
+- [Speaker-attributed transcript]({rel_link(path, speaker_transcript)})
+- [Base Whisper transcript]({rel_link(path, base_transcript)})
+- {markdown_link(path, "Transcript runbook", PACK_DIR / "transcripts" / "README.md")}
+- {markdown_link(path, "Pyannote diarization report", PACK_DIR / "transcripts" / "pyannote_diarization_report.md")}
+
+## Talk Integration
+
+- Use as supporting preparation for the Q&A rather than as a slide-by-slide visual source.
+- Keep the invented `Trace` and `Query` names as diarization labels only; they are not
+  verified human identities.
+- Treat audio-derived wording as machine transcript evidence and check against the source
+  audio before quoting verbatim.
+
+## Related Narrative Links
+
+- [Narrative arc](../narrative-arc.md)
+- [Topic index](../topics.md)
+- [Source materials](../source-materials.md)
+- [Import inventory](import-inventory.md)
+""",
+        )
 
 
 def build_clawpilot_note() -> None:
@@ -778,6 +1618,136 @@ The local brief's most important distinction is that "ClawPilot" can refer to Mi
     )
 
 
+def import_treatments() -> list[ImportTreatment]:
+    treatments = visual_treatments()
+    ai_note = NOTES_DIR / "ai-coding-assistants-market-briefing.md"
+    treatments[AI_CODING_ASSISTANTS_MARKDOWN.name] = ImportTreatment(
+        filename=AI_CODING_ASSISTANTS_MARKDOWN.name,
+        kind="markdown",
+        treatment="market briefing source note and tracked Markdown source",
+        treatment_path=ai_note,
+        publication_status="Markdown source and narrative note published",
+    )
+    treatments[AI_CODING_ASSISTANTS_DOCX.name] = ImportTreatment(
+        filename=AI_CODING_ASSISTANTS_DOCX.name,
+        kind="docx",
+        treatment="DOCX companion covered by the AI coding assistants source note",
+        treatment_path=ai_note,
+        publication_status="raw DOCX remains local; Markdown equivalent and note published",
+    )
+    treatments["clawpilot.md"] = ImportTreatment(
+        filename="clawpilot.md",
+        kind="markdown",
+        treatment="ClawPilot / Project Lobster sidebar note",
+        treatment_path=NOTES_DIR / "clawpilot-project-lobster.md",
+        publication_status="Markdown source and narrative note published",
+    )
+    for import_filename, note_filename, title, *_rest in AUDIO_SOURCE_NOTES:
+        treatments[import_filename] = ImportTreatment(
+            filename=import_filename,
+            kind="audio",
+            treatment=f"{title} transcript source note",
+            treatment_path=NOTES_DIR / note_filename,
+            publication_status="raw audio remains local; transcripts and narrative note published",
+        )
+
+    actual = set(import_file_names())
+    missing = sorted(actual - set(treatments))
+    extra = sorted(set(treatments) - actual)
+    if missing:
+        raise AssertionError(
+            "Import files missing narrative treatment: " + ", ".join(missing)
+        )
+    if extra:
+        raise AssertionError(
+            "Narrative treatments refer to missing import files: " + ", ".join(extra)
+        )
+    return [treatments[name] for name in sorted(treatments)]
+
+
+def write_import_inventory() -> None:
+    inventory = import_treatments()
+    csv_path = DATA_DIR / "import_inventory.csv"
+    with csv_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=[
+                "filename",
+                "kind",
+                "treatment",
+                "treatment_path",
+                "publication_status",
+            ],
+            lineterminator="\n",
+        )
+        writer.writeheader()
+        for item in inventory:
+            writer.writerow(
+                {
+                    "filename": item.filename,
+                    "kind": item.kind,
+                    "treatment": item.treatment,
+                    "treatment_path": item.treatment_path.relative_to(REPO_ROOT).as_posix(),
+                    "publication_status": item.publication_status,
+                }
+            )
+
+    path = NOTES_DIR / "import-inventory.md"
+    rows = []
+    for item in inventory:
+        rows.append(
+            "| "
+            + " | ".join(
+                [
+                    f"`research/hmrc-beyond-hype/import/{item.filename}`",
+                    item.kind,
+                    item.treatment,
+                    markdown_link(path, "narrative treatment", item.treatment_path),
+                    item.publication_status,
+                ]
+            )
+            + " |"
+        )
+    write_file(
+        path,
+        f"""{GENERATED_MARKER}
+---
+tags:
+  - evidence
+  - governance
+  - import-inventory
+  - provenance
+  - traceability
+publication_status: "published inventory; raw ignored imports remain local unless explicitly selected"
+---
+
+# HMRC Talk Import Inventory
+
+Every file currently present in `research/hmrc-beyond-hype/import/` is treated as
+relevant to the narrative. This inventory records the publication-safe treatment for each
+file so no import source is silently ignored.
+
+Raw PPTX, PDF, PNG, DOCX, and audio files remain local by default. The GitHub-browsable
+pack publishes small visual derivatives, Markdown sidecars, transcripts, source notes, and
+tracked Markdown sources instead.
+
+| Import file | Kind | Narrative treatment | Link | Publication status |
+| --- | --- | --- | --- | --- |
+{chr(10).join(rows)}
+
+Machine-readable inventory: [import_inventory.csv](../data/import_inventory.csv).
+
+## Related Navigation
+
+- [Narrative arc](../narrative-arc.md)
+- [Topic index](../topics.md)
+- [Source materials](../source-materials.md)
+- [Visual coverage report](../data/visual_coverage.md)
+- [Narrative validation report](../data/narrative_validation_report.md)
+""",
+    )
+
+
 def write_core_narrative(rows: list[dict[str, str]]) -> None:
     by_source: dict[str, list[dict[str, str]]] = {}
     for row in rows:
@@ -802,8 +1772,10 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 
 - [Overview](overview.md)
 - [Narrative arc](narrative-arc.md)
+- [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
+- [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
 - [Narrative validation report](data/narrative_validation_report.md)
 - [Goal and acceptance criteria](README.md)
@@ -815,6 +1787,12 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 ## Current External Sidebar
 
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md)
+
+## Supporting Source Notes
+
+- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
+- [Engineering Accountability audio source](notes/engineering-accountability-audio.md)
+- [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md)
 """,
     )
 
@@ -834,8 +1812,11 @@ Use the pack as a browseable companion during or after the talk rather than as a
 ## Start Points
 
 - [Narrative arc](narrative-arc.md)
+- [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
+- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
+- [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
 """,
     )
@@ -855,7 +1836,10 @@ Use the pack as a browseable companion during or after the talk rather than as a
 
 ## Visual Evidence
 
+- [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
+- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
 - [Source material index](source-materials.md)
+- [Import inventory](notes/import-inventory.md)
 - [Topic index](topics.md)
 - [Visual coverage report](data/visual_coverage.md)
 """,
@@ -883,7 +1867,7 @@ Use the pack as a browseable companion during or after the talk rather than as a
         f"""{GENERATED_MARKER}
 # Source Materials
 
-This register lists the imported visual sources that have been turned into publication-safe sidecars. Raw imported binaries remain local unless explicitly selected for publication.
+This register lists the imported visual sources that have been turned into publication-safe sidecars. It also links the non-visual import notes so every file in the import folder has an explicit narrative treatment. Raw imported binaries remain local unless explicitly selected for publication.
 
 | Source | Local import path | Type | Covered items | Sidecars | Publication treatment |
 | --- | --- | --- | ---: | --- | --- |
@@ -891,8 +1875,16 @@ This register lists the imported visual sources that have been turned into publi
 
 ## External Narrative Inputs
 
+- [Full import inventory](notes/import-inventory.md) records the narrative treatment for every current file in `research/hmrc-beyond-hype/import/`.
+- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md) incorporates the imported Markdown briefing and DOCX companion.
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md) incorporates `research/hmrc-beyond-hype/import/clawpilot.md` and the shared ChatGPT thread as inputs, and marks secondary claims that need rechecking before live use.
 - `research/hmrc-beyond-hype/import/clawpilot.md` is a Markdown source input and is intended to be committed with the narrative pack.
+- [Engineering Accountability audio source](notes/engineering-accountability-audio.md) represents `research/hmrc-beyond-hype/import/Engineering_Accountability_in_Public_Sector_AI.m4a` through transcript links and caveats.
+- [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md) represents `research/hmrc-beyond-hype/import/Governing_agentic_AI_in_software_engineering.m4a` through transcript links and caveats.
+
+## Curated Deck Routes
+
+- [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md) is the preferred route through the AI-native operating-model deck.
 """,
     )
 
@@ -918,6 +1910,20 @@ def write_topics(rows: list[dict[str, str]]) -> None:
     sections.append(
         "## `identity`\n\n"
         "- [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md)"
+    )
+    sections.append(
+        "## `market-scan`\n\n"
+        "- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)\n"
+        "- [AI Coding Assistants 2026 Evolution](slides/ai-coding-assistants-2026-evolution/image.md)"
+    )
+    sections.append(
+        "## `audio-source`\n\n"
+        "- [Engineering Accountability audio source](notes/engineering-accountability-audio.md)\n"
+        "- [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md)"
+    )
+    sections.append(
+        "## `import-inventory`\n\n"
+        "- [HMRC Talk Import Inventory](notes/import-inventory.md)"
     )
     write_file(
         path,
@@ -1015,6 +2021,9 @@ def main() -> int:
         print(f"{source.filename}: {len(built)} item(s) covered")
 
     build_clawpilot_note()
+    build_ai_coding_assistants_note()
+    build_audio_source_notes()
+    write_import_inventory()
     write_core_narrative(rows)
     print(f"Total visual sidecars covered: {len(rows)}")
     return 0

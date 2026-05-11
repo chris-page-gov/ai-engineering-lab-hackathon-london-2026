@@ -9,25 +9,44 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - codex
+  - flywheel
   - governance
+  - review
+  - testing
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 14
+# Slide 14 - The AI-Native Flywheel
 
 ![AI-Native Engineering Blueprint Slide 14](../../assets/visuals/ai-native-engineering-blueprint/slide-14.jpg)
 
 ## Visual Description
 
-This is slide 14 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A circular flywheel with five connected stages: specs and edge cases, AI-generated tests, autonomous implementation, AI code review, and automated release notes.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Shows the higher-level productivity argument: the return is not just faster phases, but a connected workflow where each stage creates context for the next.
 
 ## Material Points Illustrated
+
+- The loop starts with clear specs and edge cases.
+- Tests, implementation, review, and release notes become connected agent-assisted steps.
+- The claimed gain is reduced context switching across phase transitions.
+- The flywheel works only if each stage leaves reviewable evidence for the next one.
+
+## Talk Path
+
+- Stage: Compounding loop.
+- Use in talk: Use this as the closing concept before practical rollout: discipline compounds when outputs are structured for the next agent or human review step.
+- Bridge: Close the deck with the concrete rollout steps.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - The Al-Native Flywheel: Compounding velocity
 - The true ROI is not faster individual phases, but a connected, agentic loop.
@@ -41,11 +60,16 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - Review) Implementation
 - Build)
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-13.md)
+- [Next slide](slide-15.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

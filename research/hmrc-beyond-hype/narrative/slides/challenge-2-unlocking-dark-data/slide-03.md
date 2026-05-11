@@ -7,9 +7,12 @@ item_number: 3
 asset: "assets/visuals/challenge-2-unlocking-dark-data/slide-03.jpg"
 publication_status: "publishable derived thumbnail and text sidecar; raw imported PowerPoint remains local"
 tags:
+  - build
   - challenge-2
   - dark-data
+  - documentation
   - evaluation
+  - planning
   - provenance
   - source-backed-answers
   - talk-demo
@@ -44,6 +47,7 @@ Frames the public-sector problem: guidance can exist but still be hard to find, 
 - documentation is not ready for
 - DatatSteucturel level retrieval-augmented generation (RAG).
 - A\ NotebookLV
+
 
 ## Related Narrative Links
 

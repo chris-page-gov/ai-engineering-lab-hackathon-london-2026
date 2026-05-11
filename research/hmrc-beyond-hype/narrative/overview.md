@@ -12,6 +12,9 @@ Use the pack as a browseable companion during or after the talk rather than as a
 ## Start Points
 
 - [Narrative arc](narrative-arc.md)
+- [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
+- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
+- [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)

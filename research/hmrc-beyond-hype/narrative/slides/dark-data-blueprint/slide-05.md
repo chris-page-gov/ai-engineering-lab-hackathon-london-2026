@@ -8,10 +8,13 @@ asset: "assets/visuals/dark-data-blueprint/slide-05.jpg"
 publication_status: "publishable derived thumbnail and text sidecar; raw imported PowerPoint remains local"
 tags:
   - auditability
+  - build
   - challenge-2
   - dark-data
+  - documentation
   - mcp
   - provenance
+  - review
   - traceability
   - validation
 ---
@@ -41,6 +44,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - headings and tables. provenance. draft vs. current).
 - Powered by deterministic tooling (challenge-2/tools/build_wiki.py)
 - A) NotebookLM
+
 
 ## Related Narrative Links
 

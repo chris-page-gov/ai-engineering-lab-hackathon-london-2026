@@ -9,27 +9,49 @@ publication_status: "publishable derived thumbnail and text sidecar; raw importe
 tags:
   - agentic-coding
   - ai-assistants
+  - build
   - challenge-2
   - codex
+  - design
+  - documentation
   - governance
   - mcp
+  - operations
+  - review
+  - rollout
+  - testing
   - validation
   - workflow
 ---
 
-# AI-Native Engineering Blueprint - Slide 15
+# Slide 15 - Integration Architecture Rollout
 
 ![AI-Native Engineering Blueprint Slide 15](../../assets/visuals/ai-native-engineering-blueprint/slide-15.jpg)
 
 ## Visual Description
 
-This is slide 15 from `research/hmrc-beyond-hype/import/AI-Native_Engineering_Blueprint.pptx`. It is represented here by a small derived image so the narrative can be browsed on GitHub without publishing the raw import file.
+A three-step rollout slide: systematise the rules, wire the context, and enforce the loop. The visible examples include `AGENTS.md`, MCP context, CI/CD review, and design-to-component workflows.
 
 ## Claim Or Narrative Function
 
-Shows the talk's main workflow shift: engineering moves from typing code towards framing intent, giving context, steering agents, and validating evidence.
+Turns the deck into an action plan: write repo rules, connect bounded context, and enforce validation loops before expanding agent authority.
 
 ## Material Points Illustrated
+
+- Systematise rules through `AGENTS.md`, test coverage expectations, documentation templates, and style patterns.
+- Wire context through controlled access to component libraries, issue trackers, and logging tools via MCP.
+- Enforce the loop through AI review for priority bugs in CI/CD and workflows that map designs to component scaffolding.
+- The practical public-sector version is start narrow, make rules explicit, and keep the validation loop visible.
+
+## Talk Path
+
+- Stage: Practical rollout.
+- Use in talk: Use this as the call to action for the HMRC audience: do not begin with full autonomy; begin with rules, context, and checks.
+- Bridge: Return to the talk's closing line: the productivity gain comes from discipline.
+
+## OCR-Derived Checkpoints
+
+These are preserved as a mechanical cross-check against the source image. Prefer the curated material points above for navigation.
 
 - The Integration Architecture Rollout
 - Tangible steps to deploy the framework today.
@@ -44,11 +66,15 @@ Shows the talk's main workflow shift: engineering moves from typing code towards
 - programmatically.
 - Design your end-to-end Al-native workflows with OpenAl.
 
+
 ## Related Narrative Links
 
 - [Narrative arc](../../narrative-arc.md)
 - [Topic index](../../topics.md)
 - [Source material index](../../source-materials.md)
+- [AI-Native deck index](index.md)
+- [AI-Native narrative guide](narrative-guide.md)
+- [Previous slide](slide-14.md)
 - [04 Agentic Coding Capabilities](../../../04_agentic_coding_capabilities.md)
 - [07 Operating Model For Public Sector Engineering](../../../07_operating_model_for_public_sector_engineering.md)
 - [Governing Agentic Ai In Software Engineering.Speakers](../../../transcripts/governing-agentic-ai-in-software-engineering.speakers.md)

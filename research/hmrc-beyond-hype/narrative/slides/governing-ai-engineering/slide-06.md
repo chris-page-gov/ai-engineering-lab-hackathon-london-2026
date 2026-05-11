@@ -11,9 +11,12 @@ tags:
   - auditability
   - governance
   - hmrc
+  - planning
   - public-sector
+  - review
   - risk-boundaries
   - security
+  - testing
   - validation
 ---
 
@@ -48,6 +51,7 @@ Sets the public-sector control frame: AI coding agents can accelerate work, but 
 - The most important failures are no longer single-line syntax errors;
 - they are structural workflow failures requiring new oversight models.
 - A\ NotebookLV
+
 
 ## Related Narrative Links
 

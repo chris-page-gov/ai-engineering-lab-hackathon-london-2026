@@ -10,9 +10,12 @@ tags:
   - auditability
   - challenge-2
   - dark-data
+  - design
   - evaluation
   - mcp
+  - operations
   - provenance
+  - review
   - traceability
 ---
 
@@ -40,6 +43,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - Auditability Black box | Human-readable Markdown traces
 - RAG matches words; Knowledge
 - layers match context and provenance.
+
 
 ## Related Narrative Links
 
