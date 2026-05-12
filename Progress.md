@@ -48,6 +48,8 @@ The current HMRC demo publication pass explicitly includes `research/hmrc-beyond
 
 The current workbench parity pass brings the visible SeeLinks/Micropedia web controls into `challenge-2/workbench` against the HMRC narrative and Challenge 2 packs. The parity matrix is `research/hmrc-beyond-hype/narrative/notes/seelinks-micropedia-parity-matrix.md`; it records implemented controls, local/configuration-only external-service surfaces, and regression coverage. The latest fix restores the intended facet accordion behaviour: facets default folded, inactive unpinned facets close when another opens, active selected/highlighted facets remain visible, pinned facets remain visible, and double-click value reduction keeps the chosen value active.
 
+The changelog now reserves `Unreleased` for pending work only; the accumulated HMRC/demo/workbench publication entries have been moved under the dated `2026-05-12` section before merging the SeeLinks/Micropedia parity PR.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.

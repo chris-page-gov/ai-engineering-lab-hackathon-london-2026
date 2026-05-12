@@ -6,6 +6,10 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ## Unreleased
 
+No pending changes.
+
+## 2026-05-12
+
 ### Added
 
 - 2026-05-12: Added `research/hmrc-beyond-hype/narrative/notes/seelinks-micropedia-parity-matrix.md` to compare the running SeeLinks/Micropedia UI with the Dark Data Workbench parity implementation.
@@ -143,6 +147,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Documentation
 
+- 2026-05-12: Reframed the changelog so `Unreleased` is reserved for pending work and the current HMRC/workbench publication work sits under a dated `2026-05-12` section.
 - 2026-05-11: Linked the HMRC talk narrative wiki entry point from the repository README and research brief, and recorded the sidecar coverage status in the narrative goal brief.
 - 2026-05-11: Documented the HMRC narrative SeeLinks datapack, workbench load path, facet set, card controls, and validation state across the narrative README, workbench README, Context, and Progress.
 - 2026-05-11: Linked the original SeeLinks UI reference and infographics from the HMRC narrative entry point, overview, narrative arc, source-material register, README, Context, and Progress.

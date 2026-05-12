@@ -189,4 +189,6 @@ Documentation is part of the product. Any meaningful change should update the re
 - `Progress.md` for changed status, blockers, validation, or next steps.
 - `README.md` or challenge briefs for user-facing changes.
 
+The changelog keeps `Unreleased` for genuinely pending work only. Merged, tagged, or demo-published work should move into dated sections so repository readers are not left with a permanent backlog of already-published changes.
+
 This rule is enforced through `AGENTS.md`, `.github/pull_request_template.md`, `tools/check_documentation_lockstep.py`, and the Documentation Lockstep GitHub Actions workflow. The check fails if required tracking files are missing or if meaningful changes omit a tracking-file update.
