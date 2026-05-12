@@ -11,6 +11,7 @@ type NarrativePackItem = {
   short_name?: string;
   icon?: string;
   image?: string;
+  images?: string[];
   category_path?: string;
   tile_subtitle?: string;
   info_text?: string;
@@ -18,9 +19,17 @@ type NarrativePackItem = {
   links?: WorkbenchLink[];
 };
 
+type NarrativePackCollection = {
+  id: string;
+  name: string;
+  item_ids?: string[];
+  sourceIds?: string[];
+};
+
 type NarrativePack = {
-  meta?: { title?: string };
+  meta?: { id?: string; title?: string; packKind?: string; version?: string };
   items: NarrativePackItem[];
+  collections?: NarrativePackCollection[];
 };
 
 const asStringArray = (value: unknown) => {
@@ -116,6 +125,10 @@ const loadNarrativeCorpusFromDisk = async (repoRoot = defaultRepoRoot()): Promis
         summary: item.info_text || extractSummary(noteText, item.name),
         noteText,
         searchText: '',
+        categoryPath: item.category_path ?? null,
+        tileSubtitle: item.tile_subtitle ?? null,
+        properties: props,
+        gallery: [...asStringArray(item.images), ...asStringArray(props.gallery)],
         thumbnailPath: item.image ?? item.icon ?? null,
         sourceFamilies,
         stages,
@@ -170,6 +183,10 @@ const loadNarrativeCorpusFromDisk = async (repoRoot = defaultRepoRoot()): Promis
   return {
     generatedAt: new Date().toISOString(),
     title: pack.meta?.title ?? 'HMRC Narrative Arc Workbench',
+    packId: pack.meta?.id ?? 'hmrc-narrative',
+    packKind: pack.meta?.packKind ?? 'hmrc-narrative',
+    version: pack.meta?.version ?? '1.0.0',
+    packMeta: pack.meta ?? {},
     sourceCount: sources.length,
     syntheticData: false,
     syntheticDataNotice:
@@ -184,16 +201,32 @@ const loadNarrativeCorpusFromDisk = async (repoRoot = defaultRepoRoot()): Promis
       { id: 'assetTypes', label: 'Asset Type', values: toFacetValues(countValues(sources.flatMap((source) => source.assetTypes ?? []))) },
       { id: 'evidenceRoles', label: 'Evidence Role', values: toFacetValues(countValues(sources.flatMap((source) => source.evidenceRoles ?? []))) },
       { id: 'governanceThemes', label: 'Governance Theme', values: toFacetValues(countValues(sources.flatMap((source) => source.governanceThemes ?? []))) },
-      { id: 'topicGroups', label: 'Topic Group', values: toFacetValues(countValues(sources.flatMap((source) => source.topicGroups ?? []))) },
-      { id: 'provenanceModes', label: 'Provenance Mode', values: toFacetValues(countValues(sources.flatMap((source) => source.provenanceModes ?? []))) },
+      { id: 'topicGroups', label: 'Topic Group', values: toFacetValues(countValues(sources.flatMap((source) => source.topicGroups ?? []))), metadata: true },
+      { id: 'provenanceModes', label: 'Provenance Mode', values: toFacetValues(countValues(sources.flatMap((source) => source.provenanceModes ?? []))), metadata: true },
       {
         id: 'screenfulls',
         label: 'Screenfulls',
         kind: 'measure',
+        metadata: true,
         values: toFacetValues(countValues(sources.flatMap((source) => (source.screenfulls ? [String(source.screenfulls)] : [])))),
       },
-      { id: 'topics', label: 'Tag', values: toFacetValues(topicCounts) },
+      { id: 'topics', label: 'Tag', values: toFacetValues(topicCounts), metadata: true },
     ],
+    collections: (pack.collections ?? []).map((collection) => ({
+      id: collection.id,
+      name: collection.name,
+      sourceIds: collection.sourceIds ?? collection.item_ids ?? [],
+      createdAt: new Date().toISOString(),
+    })),
+    graph: {
+      nodes: [
+        ...Object.entries(topicCounts).map(([id, count]) => ({ id, label: id, kind: 'topic', count })),
+        ...sources.map((source) => ({ id: source.sourceId, label: source.title, kind: 'source' })),
+      ],
+      edges: sources.flatMap((source) =>
+        source.topics.map((topic) => ({ source: topic, target: source.sourceId, kind: 'topic-source', count: 1 }))
+      ),
+    },
     stats,
   };
 };

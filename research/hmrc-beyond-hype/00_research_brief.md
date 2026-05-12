@@ -25,6 +25,8 @@ Treat the imported material as source input, not finished evidence. The Markdown
 
 The active follow-on goal is recorded in [narrative/README.md](narrative/README.md): build a GitHub-browsable narrative wiki with slide/image sidecars, topic navigation, valid links, no orphaned notes, and a coherent talk arc. The current import milestone is browseable from [narrative/index.md](narrative/index.md), with the 13-file sidecar-generation inventory represented in [narrative/notes/import-inventory.md](narrative/notes/import-inventory.md), 73 visual sidecars, and validation output under [narrative/data/](narrative/data/). `AI-Native_Engineering_Blueprint.pptx` itself has 15 slides; the additional AI-native material is covered separately through the AI-native PDF, workflow PNG, and AI Coding Assistants briefing notes.
 
+The SeeLinks/Micropedia UI alignment is now tracked in [narrative/notes/seelinks-micropedia-parity-matrix.md](narrative/notes/seelinks-micropedia-parity-matrix.md). That matrix records which original SeeLinks controls are implemented in Dark Data Workbench, which are local/configuration states, and how the regression tests cover the parity pass.
+
 ## 2026-05-12 Demo Deck Publication Note
 
 The selected slides for the 2026-05-12 presentation are [beyond_hype_coding_assistants_public_sector_engineering.pptx](import/beyond_hype_coding_assistants_public_sector_engineering.pptx). This is an explicit publication exception to the default raw-import rule: the deck is intentionally included so the public fork and release can point to the same presentation material used in the demo.

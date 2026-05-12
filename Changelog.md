@@ -8,6 +8,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
+- 2026-05-12: Added `research/hmrc-beyond-hype/narrative/notes/seelinks-micropedia-parity-matrix.md` to compare the running SeeLinks/Micropedia UI with the Dark Data Workbench parity implementation.
+- 2026-05-12: Added Dexie-backed Dark Data Workbench collections and Playwright coverage for SeeLinks-style order-by, metadata, facet pin/order, highlight reduction, rollup, collection, detail dock, tile text, outline, and timeline workflows.
 - 2026-05-12: Added `research/hmrc-beyond-hype/import/beyond_hype_coding_assistants_public_sector_engineering.pptx` as the explicitly selected presentation deck for the HMRC Beyond the Hype demo release.
 - 2026-05-12: Added a constrained Dark Data Workbench Markdown preview renderer with regression coverage for headings, lists, tables, code spans, local narrative assets, and unsafe-link escaping.
 - 2026-05-12: Added nine section-level HMRC narrative notes that decompose the 9 May 2026 AI Coding Assistants briefing into executive summary, market map, productivity evidence, failure modes, public-sector controls, repo case study, talk track, Q&A prep, and source-register/validation-limit pages.
@@ -76,6 +78,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
+- 2026-05-12: Extended Dark Data Workbench with SeeLinks/Micropedia parity surfaces: resizable rail, dynamic facets, order-by stack, metadata visibility, value ordering, links, collections, printing, AI export, tile text, local editing, grid/outline/graph/timeline/reading/table/checks views, docked detail, rollups, view history, per-pack preferences, and richer export metadata.
 - 2026-05-12: Linked the selected HMRC Beyond the Hype presentation deck from the repository README, research brief, narrative entry point, source-material register, import inventory, and narrative goal brief as an intentional raw-import publication exception.
 - 2026-05-12: Changed the Dark Data Workbench reader so source notes open in rendered Markdown preview by default, with a Text toggle that preserves access to the raw note body.
 - 2026-05-12: Cross-linked the AI Coding Assistants section notes from the narrative entry point, overview, narrative arc, source-material register, topic index, Q&A prep route, and SeeLinks datapack so the briefing is navigable by section instead of only through one long source note.
@@ -102,6 +105,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Fixed
 
+- 2026-05-12: Fixed SeeLinks-style facet accordion behaviour in Dark Data Workbench so facets default folded, opening one folds inactive unpinned siblings, selected/highlighted facets remain open, pinned facets stay open, and double-clicking a facet value reduces the view without losing the chosen value.
 - 2026-05-12: Fixed Dark Data Workbench pack switching so clicking between the Challenge 2 corpus and HMRC narrative pack refreshes route data and resets corpus-scoped UI state without requiring a manual browser reload.
 - 2026-05-12: Updated the Dark Data Workbench HMRC narrative unit and Playwright expectations to match the current 234-card SeeLinks datapack, fixing the `dark-data-workbench / workbench` pull-request check.
 - 2026-05-11: Added a repository Ruff configuration and VS Code Ruff setting so the workspace stops parsing nested external reference `pyproject.toml` files that contain unsupported Ruff rule selectors such as `W503`.
@@ -160,6 +164,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Validation
 
+- 2026-05-12: Verified the SeeLinks/Micropedia parity implementation with `pnpm check`, `pnpm test` (`22` passing Vitest tests), `pnpm build`, `pnpm test:ui` (`14` passing Playwright tests), Challenge 2 wiki-builder py_compile, documentation lockstep, and `git diff --check`; Playwright was run outside the sandbox after local server binding was blocked.
 - 2026-05-12: Verified the Dark Data Workbench pack-switch and Markdown preview fix with `pnpm check`, `pnpm test` (`19` passing Vitest tests), `pnpm build`, `pnpm test:ui` (`10` passing Playwright tests), Challenge 2 wiki-builder py_compile, documentation lockstep, and `git diff --check`.
 - 2026-05-12: Verified the Dark Data Workbench PR check fix with `pnpm check`, `pnpm test`, `pnpm build`, and `pnpm test:ui` in `challenge-2/workbench`; Playwright reported 9 passing browser tests against the HMRC narrative pack.
 - 2026-05-12: Verified the updated HMRC narrative section-note and semantic-lint route with the reproducible sidecar builder, SeeLinks datapack builder, narrative validator (`73` imported visual items, `109` reachable narrative Markdown files, `77` referenced assets, `0` orphaned narrative Markdown files), semantic lint (`0` errors, `0` warnings, `5` live external links OK), tool py_compile, and whitespace checks.

@@ -16,6 +16,7 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 - [Navigation and scope](notes/navigation-and-scope.md)
 - [Challenge 2 worked example](notes/challenge-2-worked-example.md)
 - [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
+- [SeeLinks Micropedia parity matrix](notes/seelinks-micropedia-parity-matrix.md)
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)

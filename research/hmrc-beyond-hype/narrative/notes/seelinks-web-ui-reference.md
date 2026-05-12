@@ -119,3 +119,5 @@ Source snapshot: original SeeLinks branch `datapacks`, commit `7983b2e` (`Add ge
 ## HMRC Workbench Implication
 
 The HMRC workbench should move closer to this model by keeping a dense left control rail, making the card grid the primary interaction surface, preserving visible state transitions, supporting facet-colour and rollup gestures, and treating source-card links, context export, and narrative thumbnails as outputs of the same card-selection workflow.
+
+The implemented parity pass is tracked in [SeeLinks Micropedia parity matrix](seelinks-micropedia-parity-matrix.md).
