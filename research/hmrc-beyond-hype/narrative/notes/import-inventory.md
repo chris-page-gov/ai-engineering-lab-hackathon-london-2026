@@ -17,7 +17,8 @@ file so no import source is silently ignored.
 
 Raw PPTX, PDF, PNG, DOCX, and audio files remain local by default. The GitHub-browsable
 pack publishes small visual derivatives, Markdown sidecars, transcripts, source notes, and
-tracked Markdown sources instead.
+tracked Markdown sources instead. The 2026-05-12 presentation deck is an explicit raw-PPTX
+publication exception.
 
 | Import file | Kind | Narrative treatment | Link | Publication status |
 | --- | --- | --- | --- | --- |
@@ -33,6 +34,7 @@ tracked Markdown sources instead.
 | `research/hmrc-beyond-hype/import/Engineering_Accountability_in_Public_Sector_AI.m4a` | audio | Engineering Accountability In Public Sector AI transcript source note | [narrative treatment](engineering-accountability-audio.md) | raw audio remains local; transcripts and narrative note published |
 | `research/hmrc-beyond-hype/import/Governing_AI_Engineering.pptx` | pptx | visual sidecar index and item-level sidecars | [narrative treatment](../slides/governing-ai-engineering/index.md) | raw visual file remains local; derived sidecars/assets published |
 | `research/hmrc-beyond-hype/import/Governing_agentic_AI_in_software_engineering.m4a` | audio | Governing Agentic AI In Software Engineering transcript source note | [narrative treatment](governing-agentic-ai-audio.md) | raw audio remains local; transcripts and narrative note published |
+| `research/hmrc-beyond-hype/import/beyond_hype_coding_assistants_public_sector_engineering.pptx` | pptx | selected presentation deck for the 2026-05-12 HMRC Beyond the Hype talk | [published deck](../../import/beyond_hype_coding_assistants_public_sector_engineering.pptx) | raw PPTX intentionally published as the demo slide deck; sidecars not generated in this pass |
 | `research/hmrc-beyond-hype/import/clawpilot.md` | markdown | ClawPilot / Project Lobster sidebar note | [narrative treatment](clawpilot-project-lobster.md) | Markdown source and narrative note published |
 
 Machine-readable inventory: [import_inventory.csv](../data/import_inventory.csv).

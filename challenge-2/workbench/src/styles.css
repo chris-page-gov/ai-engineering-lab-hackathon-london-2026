@@ -532,6 +532,7 @@ textarea {
 
 .command,
 .note-reader,
+.note-preview,
 .table-card pre {
   white-space: pre-wrap;
   overflow: auto;
@@ -539,6 +540,22 @@ textarea {
   border-radius: 8px;
   background: #f8faf9;
   padding: 0.75rem;
+}
+
+.note-viewer {
+  margin-top: 1rem;
+}
+
+.note-viewer-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.note-viewer-toolbar h3 {
+  margin: 0;
 }
 
 .status-message {
@@ -615,8 +632,90 @@ textarea {
   overflow-wrap: anywhere;
 }
 
-.note-reader {
+.note-reader,
+.note-preview {
   max-height: 68vh;
+}
+
+.note-preview {
+  white-space: normal;
+}
+
+.note-preview h1,
+.note-preview h2,
+.note-preview h3,
+.note-preview h4 {
+  margin: 1rem 0 0.45rem;
+  line-height: 1.2;
+}
+
+.note-preview h1:first-child,
+.note-preview h2:first-child,
+.note-preview h3:first-child {
+  margin-top: 0;
+}
+
+.note-preview p,
+.note-preview ul,
+.note-preview ol,
+.note-preview blockquote {
+  margin: 0.65rem 0;
+}
+
+.note-preview ul,
+.note-preview ol {
+  padding-left: 1.4rem;
+}
+
+.note-preview pre {
+  overflow: auto;
+  border: 1px solid #dbe3e5;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 0.75rem;
+}
+
+.note-preview code {
+  border-radius: 4px;
+  background: #edf1f2;
+  padding: 0.06rem 0.2rem;
+}
+
+.note-preview pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.note-preview img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #dbe3e5;
+  border-radius: 8px;
+  margin: 0.75rem 0;
+}
+
+.markdown-table-wrap {
+  overflow: auto;
+  margin: 0.75rem 0;
+}
+
+.note-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.note-preview th,
+.note-preview td {
+  border: 1px solid #dbe3e5;
+  padding: 0.4rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.note-preview th {
+  background: #edf1f2;
 }
 
 dl {

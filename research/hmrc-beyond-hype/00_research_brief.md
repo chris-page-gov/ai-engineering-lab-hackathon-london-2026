@@ -23,7 +23,11 @@ The local `research/hmrc-beyond-hype/import/` drop adds a richer market briefing
 
 Treat the imported material as source input, not finished evidence. The Markdown briefing is useful enough to track, but the larger binary/audio resources remain local by default until there is a clear publication decision. The two audio files have been transcribed under `research/hmrc-beyond-hype/transcripts/`, including pyannote `Trace` / `Query` voice-name diarization drafts. Promote individual claims into the main source register only after their external links, dates, and audio quotations have been revalidated.
 
-The active follow-on goal is recorded in [narrative/README.md](narrative/README.md): build a GitHub-browsable narrative wiki with slide/image sidecars, topic navigation, valid links, no orphaned notes, and a coherent talk arc. The current import milestone is browseable from [narrative/index.md](narrative/index.md), with all 13 current import files represented in [narrative/notes/import-inventory.md](narrative/notes/import-inventory.md), 73 visual sidecars, and validation output under [narrative/data/](narrative/data/). `AI-Native_Engineering_Blueprint.pptx` itself has 15 slides; the additional AI-native material is covered separately through the AI-native PDF, workflow PNG, and AI Coding Assistants briefing notes.
+The active follow-on goal is recorded in [narrative/README.md](narrative/README.md): build a GitHub-browsable narrative wiki with slide/image sidecars, topic navigation, valid links, no orphaned notes, and a coherent talk arc. The current import milestone is browseable from [narrative/index.md](narrative/index.md), with the 13-file sidecar-generation inventory represented in [narrative/notes/import-inventory.md](narrative/notes/import-inventory.md), 73 visual sidecars, and validation output under [narrative/data/](narrative/data/). `AI-Native_Engineering_Blueprint.pptx` itself has 15 slides; the additional AI-native material is covered separately through the AI-native PDF, workflow PNG, and AI Coding Assistants briefing notes.
+
+## 2026-05-12 Demo Deck Publication Note
+
+The selected slides for the 2026-05-12 presentation are [beyond_hype_coding_assistants_public_sector_engineering.pptx](import/beyond_hype_coding_assistants_public_sector_engineering.pptx). This is an explicit publication exception to the default raw-import rule: the deck is intentionally included so the public fork and release can point to the same presentation material used in the demo.
 
 ## One-page synthesis
 

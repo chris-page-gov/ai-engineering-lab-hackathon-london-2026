@@ -8,6 +8,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Added
 
+- 2026-05-12: Added `research/hmrc-beyond-hype/import/beyond_hype_coding_assistants_public_sector_engineering.pptx` as the explicitly selected presentation deck for the HMRC Beyond the Hype demo release.
+- 2026-05-12: Added a constrained Dark Data Workbench Markdown preview renderer with regression coverage for headings, lists, tables, code spans, local narrative assets, and unsafe-link escaping.
 - 2026-05-12: Added nine section-level HMRC narrative notes that decompose the 9 May 2026 AI Coding Assistants briefing into executive summary, market map, productivity evidence, failure modes, public-sector controls, repo case study, talk track, Q&A prep, and source-register/validation-limit pages.
 - 2026-05-12: Added `research/hmrc-beyond-hype/tools/lint_narrative_semantics.py` and generated semantic lint reports for stale-claim detection, documented-count contradiction checks, required concept/page coverage, and live external-link revalidation.
 - 2026-05-11: Added a generated HMRC talk narrative scaffold under `research/hmrc-beyond-hype/narrative/`, including an entry point, overview, narrative arc, topic index, source-material register, ClawPilot sidebar note, coverage reports, validation reports, and 73 visual sidecars with 73 small derived image assets for the current imported PPTX/PDF/PNG inventory.
@@ -74,6 +76,8 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
+- 2026-05-12: Linked the selected HMRC Beyond the Hype presentation deck from the repository README, research brief, narrative entry point, source-material register, import inventory, and narrative goal brief as an intentional raw-import publication exception.
+- 2026-05-12: Changed the Dark Data Workbench reader so source notes open in rendered Markdown preview by default, with a Text toggle that preserves access to the raw note body.
 - 2026-05-12: Cross-linked the AI Coding Assistants section notes from the narrative entry point, overview, narrative arc, source-material register, topic index, Q&A prep route, and SeeLinks datapack so the briefing is navigable by section instead of only through one long source note.
 - 2026-05-12: Promoted SeeLinks, ClawPilot, transcripts, and semantic lint outputs into the HMRC narrative topic/index routes so generated report pages and evidence sidebars are discoverable from the wiki entry point.
 - 2026-05-11: Updated the HMRC narrative goal status from planned to sidecar milestone complete, while keeping full narrative curation open.
@@ -98,6 +102,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Fixed
 
+- 2026-05-12: Fixed Dark Data Workbench pack switching so clicking between the Challenge 2 corpus and HMRC narrative pack refreshes route data and resets corpus-scoped UI state without requiring a manual browser reload.
 - 2026-05-12: Updated the Dark Data Workbench HMRC narrative unit and Playwright expectations to match the current 234-card SeeLinks datapack, fixing the `dark-data-workbench / workbench` pull-request check.
 - 2026-05-11: Added a repository Ruff configuration and VS Code Ruff setting so the workspace stops parsing nested external reference `pyproject.toml` files that contain unsupported Ruff rule selectors such as `W503`.
 - 2026-04-29: Fixed Dark Data Workbench Browser AI/MCP context exports so selected sources remain in the exported context even when current filters or search terms hide them.
@@ -155,6 +160,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Validation
 
+- 2026-05-12: Verified the Dark Data Workbench pack-switch and Markdown preview fix with `pnpm check`, `pnpm test` (`19` passing Vitest tests), `pnpm build`, `pnpm test:ui` (`10` passing Playwright tests), Challenge 2 wiki-builder py_compile, documentation lockstep, and `git diff --check`.
 - 2026-05-12: Verified the Dark Data Workbench PR check fix with `pnpm check`, `pnpm test`, `pnpm build`, and `pnpm test:ui` in `challenge-2/workbench`; Playwright reported 9 passing browser tests against the HMRC narrative pack.
 - 2026-05-12: Verified the updated HMRC narrative section-note and semantic-lint route with the reproducible sidecar builder, SeeLinks datapack builder, narrative validator (`73` imported visual items, `109` reachable narrative Markdown files, `77` referenced assets, `0` orphaned narrative Markdown files), semantic lint (`0` errors, `0` warnings, `5` live external links OK), tool py_compile, and whitespace checks.
 - 2026-05-11: Verified the HMRC talk narrative sidecar pack with the reproducible builder and validator: `73` imported visual items covered, `90` reachable narrative Markdown files, `73` referenced assets, `0` orphaned narrative Markdown files, and no validation errors.

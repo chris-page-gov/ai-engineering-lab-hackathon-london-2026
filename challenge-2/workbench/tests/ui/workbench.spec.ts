@@ -37,6 +37,18 @@ test.describe('Dark Data Workbench', () => {
     await expect(page.locator('.source-card')).toContainText('Discretionary Housing Payments');
   });
 
+  test('switches workbench packs through the header links without a manual reload', async ({ page }) => {
+    await page.getByRole('link', { name: 'HMRC narrative pack' }).click();
+    await expect(page.getByRole('heading', { name: 'HMRC Beyond The Hype Narrative Arc' })).toBeVisible();
+    expect(new URL(page.url()).searchParams.get('pack')).toBe('hmrc-narrative');
+    await expect(page.locator('.source-card')).toHaveCount(234);
+
+    await page.getByRole('link', { name: 'Challenge 2 corpus' }).click();
+    await expect(page.locator('.topbar h1')).toHaveText('Dark Data Workbench');
+    expect(new URL(page.url()).searchParams.get('pack')).toBeNull();
+    await expect(page.locator('.source-card')).toHaveCount(43);
+  });
+
   test('filters by status, topic, and department', async ({ page }) => {
     const currentStatus = page.getByRole('group', { name: /Facet Status/i }).getByRole('button', { name: /^current\b/i });
     await pressButton(currentStatus);
@@ -79,7 +91,7 @@ test.describe('Dark Data Workbench', () => {
     await expect(page.locator('.source-card')).toHaveCount(1);
     await page.locator('.source-card').getByRole('button', { name: 'Open' }).click();
 
-    await expect(page.getByRole('heading', { name: /Discretionary Housing Payments/i })).toBeVisible();
+    await expect(page.locator('.reader-heading h2')).toContainText('Discretionary Housing Payments');
     const readerMetadata = page.locator('.metadata-table');
     await expect(readerMetadata.getByText('Raw source')).toBeVisible();
     await expect(readerMetadata.getByText('structured_files/DOC-HB-002-discretionary-housing-payments.md')).toBeVisible();
@@ -90,6 +102,14 @@ test.describe('Dark Data Workbench', () => {
     const noteResponse = await page.request.get(new URL(noteHref!, page.url()).toString());
     expect(noteResponse.status()).toBe(200);
     expect(await noteResponse.text()).toContain('DOC-HB-002');
+
+    await expect(page.getByRole('button', { name: 'Preview', exact: true })).toHaveClass(/active/);
+    await expect(page.locator('.note-preview h1').first()).toContainText('Discretionary Housing Payments');
+    await expect(page.locator('.note-preview table').first()).toContainText('Source ID');
+    await expect(page.locator('.note-preview')).not.toContainText('source_id: "DOC-HB-002"');
+
+    await page.getByRole('button', { name: 'Text', exact: true }).click();
+    await expect(page.locator('.note-reader')).toContainText('source_id: "DOC-HB-002"');
   });
 
   test('runs the five no-AI saved checks with source-backed results', async ({ page }) => {
@@ -158,7 +178,7 @@ test.describe('Dark Data Workbench', () => {
     await expect(page.locator('.source-card')).toHaveCount(23);
 
     await page.locator('.source-card').first().getByRole('button', { name: 'Open', exact: true }).click();
-    await expect(page.getByRole('heading', { name: /Challenge 2 Unlocking Dark Data - Slide 01/i })).toBeVisible();
+    await expect(page.locator('.reader-heading h2')).toContainText('Challenge 2 Unlocking Dark Data - Slide 01');
     const narrativeNoteHref = await page.getByRole('link', { name: 'Open note' }).getAttribute('href');
     expect(narrativeNoteHref).toContain('/api/source-note/hmrc-challenge-2-unlocking-dark-data-01');
     const narrativeNoteResponse = await page.request.get(new URL(narrativeNoteHref!, page.url()).toString());

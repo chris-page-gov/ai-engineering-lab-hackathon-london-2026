@@ -29,7 +29,7 @@ This file is the durable replacement for the attempted `/goal` command. Future C
 
 Status: import-inventory, sidecar, SeeLinks datapack, original SeeLinks UI-reference, and semantic validation milestones complete; full editorial curation still in progress.
 
-The narrative wiki now has a GitHub-browsable scaffold, visual sidecars, source notes, full import inventory, coverage reports, derived image assets, a SeeLinks-style datapack, original SeeLinks UI infographics, a structural validation report, and a semantic lint report. Large imported binary/audio/PDF/PPTX materials remain local by default unless explicitly selected for publication.
+The narrative wiki now has a GitHub-browsable scaffold, visual sidecars, source notes, full import inventory, coverage reports, derived image assets, a SeeLinks-style datapack, original SeeLinks UI infographics, a structural validation report, and a semantic lint report. Large imported binary/audio/PDF/PPTX materials remain local by default unless explicitly selected for publication. The 2026-05-12 demo release explicitly selects [beyond_hype_coding_assistants_public_sector_engineering.pptx](../import/beyond_hype_coding_assistants_public_sector_engineering.pptx) as the public presentation deck.
 
 ## Source Inputs
 
@@ -48,6 +48,7 @@ Use the existing committed research pack:
 
 Also inspect the local import drop in `research/hmrc-beyond-hype/import/`, including:
 
+- `beyond_hype_coding_assistants_public_sector_engineering.pptx`, the selected 2026-05-12 presentation deck and explicit raw-binary publication exception
 - `AI-Native_Engineering_Blueprint.pptx`
 - `Challenge_2_Unlocking_Dark_Data.pptx`
 - `Dark_Data_Blueprint.pptx`
@@ -59,7 +60,7 @@ Also inspect the local import drop in `research/hmrc-beyond-hype/import/`, inclu
 - `clawpilot.md`, the local ClawPilot / OpenClaw research brief used for the current agentic-workplace sidebar
 - imported audio sources, represented through committed transcripts and audio source notes
 
-Do not commit raw imported binary/audio/PDF/PPTX material unless the user explicitly selects it for publication. Prefer committed derivatives that are small, reviewable, and useful on GitHub.
+Do not commit raw imported binary/audio/PDF/PPTX material unless the user explicitly selects it for publication. Prefer committed derivatives that are small, reviewable, and useful on GitHub. The current explicit exception is the selected presentation deck linked above.
 
 ## Target Output
 
@@ -100,7 +101,7 @@ Status: complete for the current `research/hmrc-beyond-hype/import/` visual inve
 
 Coverage achieved:
 
-- All 13 current top-level import files are represented in [notes/import-inventory.md](notes/import-inventory.md).
+- The 13 top-level import files present at sidecar-generation time are represented in [notes/import-inventory.md](notes/import-inventory.md); the 2026-05-12 presentation deck is linked there as a raw-PPTX publication exception.
 - 4 imported PowerPoint decks: 50 slide sidecars.
 - 1 imported PDF: 20 page sidecars.
 - 3 imported standalone PNG files: 3 image sidecars.

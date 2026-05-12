@@ -40,9 +40,11 @@ The current local branch now also includes `research/hmrc-beyond-hype/`, a compl
 
 The current local branch is `codex/hmrc-talk-transcripts`, continuing the HMRC talk preparation work. It adds a local import-resource review, tracks the lightweight imported Markdown briefing, keeps large raw media ignored by default, fixes the VS Code Ruff workspace configuration, and commits machine transcripts plus pyannote `Trace` / `Query` diarization drafts for the two imported prep-audio files. The latest update keeps the transcript words and timings unchanged while replacing only the generic diarization labels with AI voice names.
 
-The current local branch is `codex/hmrc-narrative-navigation`, building the HMRC talk narrative wiki and SeeLinks-style workbench datapack from the research pack, imported material, transcripts, Challenge 2 evidence, relevant conversation traces, and original SeeLinks UI reference material. The import and visual sidecar milestone is complete for the current import inventory: all 13 current import files have a narrative treatment, and the visual subset has 50 PowerPoint slide sidecars, 20 PDF page sidecars, and 3 standalone PNG sidecars with small derived image assets, topic/source navigation, coverage output, validation output, a 234-item workbench datapack, and four SeeLinks UI infographics. The 9 May 2026 AI Coding Assistants briefing is now split into section-level notes and linked from the talk arc, topic index, Q&A prep route, and datapack. Full editorial curation of the broader narrative remains open.
+The current local branch is `codex/hmrc-narrative-navigation`, building the HMRC talk narrative wiki and SeeLinks-style workbench datapack from the research pack, imported material, transcripts, Challenge 2 evidence, relevant conversation traces, and original SeeLinks UI reference material. The import and visual sidecar milestone is complete for the 13-file import inventory present at sidecar-generation time, and the visual subset has 50 PowerPoint slide sidecars, 20 PDF page sidecars, and 3 standalone PNG sidecars with small derived image assets, topic/source navigation, coverage output, validation output, a 234-item workbench datapack, and four SeeLinks UI infographics. The 9 May 2026 AI Coding Assistants briefing is now split into section-level notes and linked from the talk arc, topic index, Q&A prep route, and datapack. Full editorial curation of the broader narrative remains open.
 
-The current HMRC narrative pull request now includes a Dark Data Workbench check fix: the unit and Playwright tests expect the current 234-card HMRC narrative SeeLinks datapack rather than the earlier 225-card count.
+The current HMRC narrative pull request now includes a Dark Data Workbench UI fix: pack-switch links refresh the loaded corpus without a manual browser reload, and reader cards default to rendered Markdown preview while retaining raw Text view access.
+
+The current HMRC demo publication pass explicitly includes `research/hmrc-beyond-hype/import/beyond_hype_coding_assistants_public_sector_engineering.pptx` as the selected presentation deck for the 2026-05-12 release, linked from the repository README and HMRC narrative entry points as a deliberate exception to the default raw-import ignore policy.
 
 ## Completed
 
@@ -98,6 +100,9 @@ The current HMRC narrative pull request now includes a Dark Data Workbench check
 - Added `research/hmrc-beyond-hype/tools/build_narrative_sidecars.py` and `research/hmrc-beyond-hype/tools/validate_narrative_sidecars.py` so the sidecar pack can be regenerated and checked.
 - Added `research/hmrc-beyond-hype/tools/build_narrative_seelinks_pack.py` and generated `research/hmrc-beyond-hype/narrative/seelinks/pack.json` for browsing the HMRC talk narrative through Dark Data Workbench.
 - Extended Dark Data Workbench so `/?pack=hmrc-narrative` loads the HMRC narrative pack with slide thumbnails, source-note links, bounded facets, keep/dismiss marked cards, restore, graph data, and drag-facet-to-grid colouring.
+- Fixed Dark Data Workbench pack-switch route handling so Challenge 2 and HMRC narrative buttons update route data and reset corpus-scoped UI state without a manual reload.
+- Added a reader Markdown preview/Text toggle so source notes are readable as rendered Markdown by default while preserving exact raw note text.
+- Added the selected HMRC Beyond the Hype presentation deck `research/hmrc-beyond-hype/import/beyond_hype_coding_assistants_public_sector_engineering.pptx` to the demo publication set and linked it from the README, research brief, narrative index, source-material register, import inventory, and narrative goal brief.
 - Added `research/hmrc-beyond-hype/tools/build_seelinks_ui_infographics.py`, four generated SVG infographics, and `research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md` to document the original SeeLinks web UI before the HMRC workbench UI alignment pass.
 - Split `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md` into nine generated section-level narrative notes covering the executive summary, market map, productivity evidence, failure modes, public-sector controls, repo case study, talk track, Q&A prep, and source-register limitations.
 - Added repository-level Ruff configuration and VS Code settings so the workspace Ruff extension uses the repo config instead of parsing nested external reference `pyproject.toml` files.
@@ -143,6 +148,15 @@ The current HMRC narrative pull request now includes a Dark Data Workbench check
 
 ## Validation
 
+- Current Dark Data Workbench pack-switch and Markdown preview validation passed locally:
+  - ran `cd challenge-2/workbench && pnpm check`;
+  - ran `cd challenge-2/workbench && pnpm test` with `19` passing Vitest tests;
+  - ran `cd challenge-2/workbench && pnpm build`;
+  - ran `cd challenge-2/workbench && pnpm test:ui` outside the sandbox after the sandbox blocked Chromium launch; Playwright reported `10` passing browser tests;
+  - ran `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`;
+  - ran `python3 tools/check_documentation_lockstep.py`;
+  - ran `git diff --check`;
+  - live in-app browser verification confirmed Challenge 2/HMRC pack switching updates URL, heading, and card counts, and confirmed reader Preview/Text mode on `DOC-HB-002`.
 - Current HMRC Beyond the Hype talk research pack validation passed locally:
   - confirmed all `12` master-prompt deliverables exist under `research/hmrc-beyond-hype/`;
   - parsed `research/hmrc-beyond-hype/01_source_register.csv` as `50` source rows from `EXT-001` through `REPO-022`;

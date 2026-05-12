@@ -8,7 +8,7 @@ tags:
   - "challenge-2"
   - "dark-data-workbench"
   - "start-here"
-updated: "2026-04-16"
+updated: "2026-05-12"
 ---
 
 # Dark Data Workbench
@@ -32,6 +32,7 @@ Open the local URL printed by Vite. The default Playwright/dev port is `5174`.
 ## Main Modes
 
 - **No AI:** use the question box, search, facets, source cards, reader view, graph view, workbook table view, saved context sets, and deterministic demo checks.
+- **Reader:** source notes open as rendered Markdown preview by default, with a Text toggle for exact Markdown/frontmatter inspection and a local source-note endpoint for opening the Markdown directly.
 - **Browser AI:** copy or download the current context as JSON, copy a browser-AI prompt, or download a Markdown evidence bundle. The export includes the current question.
 - **MCP:** run `python3 challenge-2/tools/workbench_mcp.py` so desktop AI clients can search, read, and build context from the same source set.
 

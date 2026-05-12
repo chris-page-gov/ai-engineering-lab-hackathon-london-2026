@@ -13,12 +13,14 @@
     runSavedQuery,
     toggleFilterValue,
   } from '$lib/workbench/model';
+  import { renderMarkdownPreview } from '$lib/workbench/markdown';
   import { EMPTY_FILTERS, type ContextExport, type FilterState, type WorkbenchCorpus, type WorkbenchFacet, type WorkbenchSource } from '$lib/workbench/types';
   import type { PageData } from './$types';
 
   export let data: PageData;
 
   type ViewMode = 'grid' | 'reader' | 'graph' | 'table' | 'queries';
+  type ReaderNoteMode = 'preview' | 'text';
   type SavedContext = { name: string; sourceIds: string[] };
 
   const STORAGE_KEY = 'dark-data-workbench-contexts';
@@ -43,6 +45,32 @@
   let savedQueryId = SAVED_QUERIES[0].id;
   let savedQueryResults: WorkbenchSource[] = runSavedQuery(corpus, savedQueryId);
   let hydrated = false;
+  let readerNoteMode: ReaderNoteMode = 'preview';
+
+  const resetForCorpus = (nextCorpus: WorkbenchCorpus, nextPack: string) => {
+    corpus = nextCorpus;
+    pack = nextPack;
+    filters = { ...EMPTY_FILTERS };
+    query = '';
+    viewMode = 'grid';
+    selectedIds = new Set();
+    highlightedIds = new Set();
+    dismissedIds = new Set();
+    colorFacetId = '';
+    draggingFacetId = '';
+    dragOverGrid = false;
+    activeSourceId = nextCorpus.sources[0]?.sourceId ?? '';
+    savedQueryId = SAVED_QUERIES[0].id;
+    savedQueryResults = runSavedQuery(nextCorpus, savedQueryId);
+    readerNoteMode = 'preview';
+  };
+
+  $: {
+    const nextPack = data.pack ?? 'challenge-2';
+    if (data.corpus !== corpus || nextPack !== pack) {
+      resetForCorpus(data.corpus, nextPack);
+    }
+  }
 
   $: filteredSources = filterSources(corpus.sources, filters, query);
   $: visibleSources = filteredSources.filter((source) => !dismissedIds.has(source.sourceId));
@@ -535,7 +563,34 @@
                 {/each}
               </div>
             {/if}
-            <pre class="note-reader">{activeSource.noteText}</pre>
+            <div class="note-viewer">
+              <div class="note-viewer-toolbar">
+                <h3>Source note</h3>
+                <div class="segmented" aria-label="Source note view">
+                  <button
+                    type="button"
+                    class:active={readerNoteMode === 'preview'}
+                    aria-pressed={readerNoteMode === 'preview' ? 'true' : 'false'}
+                    on:click={() => (readerNoteMode = 'preview')}
+                  >
+                    Preview
+                  </button>
+                  <button
+                    type="button"
+                    class:active={readerNoteMode === 'text'}
+                    aria-pressed={readerNoteMode === 'text' ? 'true' : 'false'}
+                    on:click={() => (readerNoteMode = 'text')}
+                  >
+                    Text
+                  </button>
+                </div>
+              </div>
+              {#if readerNoteMode === 'preview'}
+                <div class="note-preview">{@html renderMarkdownPreview(activeSource.noteText)}</div>
+              {:else}
+                <pre class="note-reader">{activeSource.noteText}</pre>
+              {/if}
+            </div>
           {/if}
         </article>
       {:else if viewMode === 'graph'}

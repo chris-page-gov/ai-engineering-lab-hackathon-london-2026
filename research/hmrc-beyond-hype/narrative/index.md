@@ -5,6 +5,10 @@ This is the GitHub-browsable narrative pack for the HMRC Beyond the Hype talk.
 
 Start here, then follow the argument through the overview, narrative arc, topic index, source-material register, and visual sidecars.
 
+## Presentation Slides
+
+- [Beyond Hype: Coding Assistants And Public-Sector Engineering](../import/beyond_hype_coding_assistants_public_sector_engineering.pptx) is the selected slide deck for the 2026-05-12 presentation.
+
 ## Main Path
 
 - [Overview](overview.md)
