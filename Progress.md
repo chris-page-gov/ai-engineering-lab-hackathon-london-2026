@@ -46,6 +46,10 @@ The current HMRC narrative pull request now includes a Dark Data Workbench UI fi
 
 The current HMRC demo publication pass explicitly includes `research/hmrc-beyond-hype/import/beyond_hype_coding_assistants_public_sector_engineering.pptx` as the selected presentation deck for the 2026-05-12 release, linked from the repository README and HMRC narrative entry points as a deliberate exception to the default raw-import ignore policy.
 
+The current workbench parity pass brings the visible SeeLinks/Micropedia web controls into `challenge-2/workbench` against the HMRC narrative and Challenge 2 packs. The parity matrix is `research/hmrc-beyond-hype/narrative/notes/seelinks-micropedia-parity-matrix.md`; it records implemented controls, local/configuration-only external-service surfaces, and regression coverage. The latest fix restores the intended facet accordion behaviour: facets default folded, inactive unpinned facets close when another opens, active selected/highlighted facets remain visible, pinned facets remain visible, and double-click value reduction keeps the chosen value active.
+
+The changelog now reserves `Unreleased` for pending work only; the accumulated HMRC/demo/workbench publication entries have been moved under the dated `2026-05-12` section before merging the SeeLinks/Micropedia parity PR.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -104,6 +108,7 @@ The current HMRC demo publication pass explicitly includes `research/hmrc-beyond
 - Added a reader Markdown preview/Text toggle so source notes are readable as rendered Markdown by default while preserving exact raw note text.
 - Added the selected HMRC Beyond the Hype presentation deck `research/hmrc-beyond-hype/import/beyond_hype_coding_assistants_public_sector_engineering.pptx` to the demo publication set and linked it from the README, research brief, narrative index, source-material register, import inventory, and narrative goal brief.
 - Added `research/hmrc-beyond-hype/tools/build_seelinks_ui_infographics.py`, four generated SVG infographics, and `research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md` to document the original SeeLinks web UI before the HMRC workbench UI alignment pass.
+- Added `research/hmrc-beyond-hype/narrative/notes/seelinks-micropedia-parity-matrix.md` and implemented the Dark Data Workbench SeeLinks/Micropedia parity pass: dynamic facets, metadata toggle, order-by stack, facet/value ordering, link summaries, Dexie-backed collections, print/export/tile-text/edit panels, grid/outline/graph/timeline/reading/table/checks views, rollups, history reductions, and docked detail.
 - Split `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md` into nine generated section-level narrative notes covering the executive summary, market map, productivity evidence, failure modes, public-sector controls, repo case study, talk track, Q&A prep, and source-register limitations.
 - Added repository-level Ruff configuration and VS Code settings so the workspace Ruff extension uses the repo config instead of parsing nested external reference `pyproject.toml` files.
 - Published Version 1.1 from `main` with a GitHub tag and release.
@@ -148,6 +153,14 @@ The current HMRC demo publication pass explicitly includes `research/hmrc-beyond
 
 ## Validation
 
+- Current SeeLinks/Micropedia parity validation passed locally:
+  - ran `cd challenge-2/workbench && pnpm check`;
+  - ran `cd challenge-2/workbench && pnpm test` with `22` passing Vitest tests;
+  - ran `cd challenge-2/workbench && pnpm build`;
+  - ran `cd challenge-2/workbench && pnpm test:ui` outside the sandbox after local server binding was blocked; Playwright reported `14` passing browser tests, including folded-by-default facet accordion behaviour, active/pinned facet retention, double-click value reduction, order-by, metadata, facet pin/order, highlight reduction, rollup, collection, detail dock, tile text, outline, timeline, existing pack switching, reader Markdown preview/text, graph/table/checks, and mobile layout coverage.
+  - ran `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`;
+  - ran `python3 tools/check_documentation_lockstep.py`;
+  - ran `git diff --check`.
 - Current Dark Data Workbench pack-switch and Markdown preview validation passed locally:
   - ran `cd challenge-2/workbench && pnpm check`;
   - ran `cd challenge-2/workbench && pnpm test` with `19` passing Vitest tests;

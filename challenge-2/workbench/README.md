@@ -10,6 +10,8 @@ The same app can also load the HMRC Beyond the Hype narrative datapack:
 
 That pack is generated at `../../research/hmrc-beyond-hype/narrative/seelinks/pack.json` and presents the talk narrative as slide-thumbnail source cards, narrative notes, transcripts, Challenge 2 evidence, and conversation traces.
 
+The current SeeLinks/Micropedia parity matrix is `../../research/hmrc-beyond-hype/narrative/notes/seelinks-micropedia-parity-matrix.md`.
+
 ## Commands
 
 ```bash
@@ -37,4 +39,8 @@ The HMRC narrative pack uses bounded facets for source family, narrative stage, 
 
 The header pack buttons switch between the Challenge 2 corpus and the HMRC narrative pack through SvelteKit route data, so the URL and visible corpus stay in sync without a manual browser reload.
 
-Facet headings are draggable. Drag a facet name such as `Talk Section` onto the card grid to colour the visible cards by that facet. Category facets use high-contrast pastel fills; the `Screenfulls` measure uses a graded colour scale.
+The left rail now carries the SeeLinks-style controls: resizable rail, dataset/import status, multi-facet **Order by**, metadata toggle, facet pin/open/reorder controls, facet value ordering, Links, Collections, Printing, AI export, Tile Text, and browser-only Editing. Collections persist in IndexedDB via Dexie; per-pack UI preferences persist in `localStorage`.
+
+Facet headings are draggable. Drag a facet name such as `Talk Section` onto the card grid to colour the visible cards by that facet. Drag a facet value onto the grid to create a rollup card. Category facets use high-contrast pastel fills; the `Screenfulls` measure uses a graded colour scale.
+
+The main workspace has Grid, Outline, Graph, Timeline, Reading, Table, and Checks views. Double-click a grid card to open the docked detail panel with a tile strip, previous/next/close controls, Overview/Images tabs, source links, thumbnails, and metadata.

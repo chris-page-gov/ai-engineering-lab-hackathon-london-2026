@@ -24,6 +24,7 @@ This register lists the imported visual sources that have been turned into publi
 - [Navigation and scope](notes/navigation-and-scope.md) explains how to move between the narrative wiki and source evidence without turning every source into a navigation page.
 - [Challenge 2 worked example](notes/challenge-2-worked-example.md) is the narrative hub for the repo case-study evidence.
 - [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md) documents the original SeeLinks interface as the visual and interaction target for the HMRC workbench UI pass.
+- [SeeLinks Micropedia parity matrix](notes/seelinks-micropedia-parity-matrix.md) records the implemented Dark Data Workbench control parity against the original SeeLinks/Micropedia UI.
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md) incorporates the imported Markdown briefing and DOCX companion, with section-level notes for market context, evidence, public-sector controls, case study, Q&A prep, and validation limits.
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md) incorporates `research/hmrc-beyond-hype/import/clawpilot.md` and the shared ChatGPT thread as inputs, and marks secondary claims that need rechecking before live use.
 - `research/hmrc-beyond-hype/import/clawpilot.md` is a Markdown source input and is intended to be committed with the narrative pack.

@@ -131,6 +131,17 @@ export const createCorpus = (
       summary: '',
       noteText,
       searchText: '',
+      categoryPath: topics[0] ?? null,
+      tileSubtitle: [firstText(entry.department, 'Unknown'), firstText(entry.status, 'unknown')].filter(Boolean).join(' | '),
+      properties: {
+        department: firstText(entry.department, 'Unknown'),
+        status: firstText(entry.status, 'unknown'),
+        format: firstText(entry.source_format, 'unknown'),
+        document_type: firstText(entry.document_type, 'unknown'),
+        topics,
+        flags: uniqueSorted(entry.flags ?? []),
+      },
+      gallery: [],
     };
     source.summary = extractSummary(noteText, entry.title);
     source.searchText = [
@@ -165,6 +176,10 @@ export const createCorpus = (
   return {
     generatedAt,
     title: 'Dark Data Workbench',
+    packId: 'challenge-2',
+    packKind: 'challenge-2',
+    version: '1.0.0',
+    packMeta: { id: 'challenge-2', title: 'Dark Data Workbench', packKind: 'challenge-2', version: '1.0.0' },
     sourceCount: sources.length,
     syntheticData: true,
     syntheticDataNotice: SYNTHETIC_DATA_NOTICE,
@@ -174,10 +189,19 @@ export const createCorpus = (
     facets: [
       { id: 'departments', label: 'Department', values: toFacetValues(stats.departments) },
       { id: 'statuses', label: 'Status', values: toFacetValues(stats.statuses) },
-      { id: 'formats', label: 'Format', values: toFacetValues(stats.formats) },
+      { id: 'formats', label: 'Format', values: toFacetValues(stats.formats), metadata: true },
       { id: 'topics', label: 'Topic', values: toFacetValues(topicCounts) },
       { id: 'flags', label: 'Flag', values: toFacetValues(countValues(sources.flatMap((source) => source.flags))) },
     ],
+    graph: {
+      nodes: [
+        ...Object.entries(topicCounts).map(([id, count]) => ({ id, label: humanize(id), kind: 'topic', count })),
+        ...sources.map((source) => ({ id: source.sourceId, label: source.title, kind: 'source' })),
+      ],
+      edges: sources.flatMap((source) =>
+        source.topics.map((topic) => ({ source: topic, target: source.sourceId, kind: 'topic-source', count: 1 }))
+      ),
+    },
     stats,
   };
 };
@@ -277,6 +301,10 @@ export const buildContextExport = ({
   question,
   query,
   mode,
+  viewReduction,
+  sortBy = [],
+  activeCollection = null,
+  highlightFilters = {},
 }: {
   corpus: WorkbenchCorpus;
   visibleSources: WorkbenchSource[];
@@ -286,6 +314,10 @@ export const buildContextExport = ({
   question?: string;
   query: string;
   mode: ContextExport['mode'];
+  viewReduction?: string;
+  sortBy?: string[];
+  activeCollection?: string | null;
+  highlightFilters?: Record<string, string[]>;
 }): ContextExport => {
   const contextSources = selectedIds.size
     ? corpus.sources.filter((source) => selectedIds.has(source.sourceId))
@@ -305,6 +337,10 @@ export const buildContextExport = ({
       filters,
       selected_source_ids: Array.from(selectedIds).sort((a, b) => a.localeCompare(b)),
       highlighted_source_ids: Array.from(highlightedIds).sort((a, b) => a.localeCompare(b)),
+      view_reduction: viewReduction,
+      sort_by: sortBy,
+      active_collection: activeCollection,
+      highlight_filters: highlightFilters,
       total_in_view: visibleSources.length,
       total_in_corpus: corpus.sourceCount,
     },

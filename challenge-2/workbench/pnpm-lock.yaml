@@ -17,6 +17,9 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^6.2.1
         version: 6.2.4(svelte@5.55.4)(vite@6.4.2(@types/node@22.19.17))
+      dexie:
+        specifier: ^4.4.2
+        version: 4.4.2
       svelte:
         specifier: ^5.43.2
         version: 5.55.4
@@ -676,6 +679,9 @@ packages:
 
   devalue@5.7.1:
     resolution: {integrity: sha512-MUbZ586EgQqdRnC4yDrlod3BEdyvE4TapGYHMW2CiaW+KkkFmWEFqBUaLltEZCGi0iFXCEjRF0OjF0DV2QHjOA==}
+
+  dexie@4.4.2:
+    resolution: {integrity: sha512-zMtV8q79EFE5U8FKZvt0Y/77PCU/Hr/RDxv1EDeo228L+m/HTbeN2AjoQm674rhQCX8n3ljK87lajt7UQuZfvw==}
 
   dom-accessibility-api@0.5.16:
     resolution: {integrity: sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==}
@@ -1605,6 +1611,8 @@ snapshots:
   dequal@2.0.3: {}
 
   devalue@5.7.1: {}
+
+  dexie@4.4.2: {}
 
   dom-accessibility-api@0.5.16: {}
 

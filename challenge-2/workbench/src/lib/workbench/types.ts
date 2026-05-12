@@ -70,6 +70,10 @@ export type WorkbenchSource = {
   summary: string;
   noteText: string;
   searchText: string;
+  categoryPath?: string | null;
+  tileSubtitle?: string | null;
+  properties?: Record<string, unknown>;
+  gallery?: string[];
   thumbnailPath?: string | null;
   sourceFamilies?: string[];
   stages?: string[];
@@ -88,11 +92,28 @@ export type WorkbenchFacet = {
   label: string;
   values: Array<{ value: string; count: number }>;
   kind?: 'category' | 'measure';
+  metadata?: boolean;
+};
+
+export type WorkbenchCollection = {
+  id: string;
+  name: string;
+  sourceIds: string[];
+  createdAt: string;
+};
+
+export type WorkbenchGraph = {
+  nodes: Array<{ id: string; label: string; kind: string; count?: number }>;
+  edges: Array<{ source: string; target: string; kind: string; count?: number }>;
 };
 
 export type WorkbenchCorpus = {
   generatedAt: string;
   title: string;
+  packId?: string;
+  packKind?: string;
+  version?: string;
+  packMeta?: Record<string, unknown>;
   sourceCount: number;
   syntheticData: boolean;
   syntheticDataNotice: string;
@@ -100,6 +121,8 @@ export type WorkbenchCorpus = {
   topics: Array<{ id: string; label: string; count: number }>;
   entities: Array<{ id: string; label: string; count: number }>;
   facets: WorkbenchFacet[];
+  collections?: WorkbenchCollection[];
+  graph?: WorkbenchGraph;
   stats: {
     formats: Record<string, number>;
     statuses: Record<string, number>;
@@ -177,6 +200,10 @@ export type ContextExport = {
     filters: FilterState;
     selected_source_ids: string[];
     highlighted_source_ids: string[];
+    view_reduction?: string;
+    sort_by?: string[];
+    active_collection?: string | null;
+    highlight_filters?: Record<string, string[]>;
     total_in_view: number;
     total_in_corpus: number;
   };

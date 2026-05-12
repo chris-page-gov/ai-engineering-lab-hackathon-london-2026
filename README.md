@@ -41,6 +41,7 @@ For the Challenge 2 implementation:
 - [HMRC talk import inventory](research/hmrc-beyond-hype/narrative/notes/import-inventory.md): publication-safe treatment for every current file in the local talk-prep import folder.
 - [AI Coding Assistants market briefing](research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md): narrative note for the imported Markdown/DOCX briefing pair and the companion evolution visual.
 - [HMRC talk narrative wiki goal](research/hmrc-beyond-hype/narrative/README.md): durable definition of done and sidecar coverage status for the GitHub-browsable narrative pack.
+- [SeeLinks Micropedia parity matrix](research/hmrc-beyond-hype/narrative/notes/seelinks-micropedia-parity-matrix.md): side-by-side control inventory for the original SeeLinks/Micropedia UI and the Dark Data Workbench implementation.
 - [HMRC talk audio transcripts](research/hmrc-beyond-hype/transcripts/README.md): local Whisper transcripts and pyannote `Trace` / `Query` voice-name diarization drafts for the imported prep audio.
 - [LinkedIn announcement draft](output/doc/linkedin-version-1-1-announcement.md): publication post for Version 1.1.
 
@@ -150,6 +151,7 @@ Reports and publication artifacts:
 - `research/hmrc-beyond-hype/narrative/index.md`: GitHub-browsable entry point for the HMRC talk narrative scaffold, including links to sidecars, topics, source materials, and validation reports.
 - `research/hmrc-beyond-hype/narrative/notes/import-inventory.md`: generated coverage inventory showing the narrative treatment for every current import file.
 - `research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md`: source note for the imported AI Coding Assistants Markdown/DOCX briefing.
+- `research/hmrc-beyond-hype/narrative/notes/seelinks-micropedia-parity-matrix.md`: implemented parity matrix mapping SeeLinks/Micropedia controls to Dark Data Workbench behaviour and tests.
 - `research/hmrc-beyond-hype/narrative/README.md`: active goal brief, acceptance criteria, and sidecar completion status for the GitHub-browsable talk narrative wiki.
 - `research/hmrc-beyond-hype/transcripts/`: committed machine transcripts, SRT files, diarization evidence, and `Trace` / `Query` voice-name review drafts derived from the local audio import.
 - `research/hmrc-beyond-hype/tools/`: local reproducibility scripts for audio transcription, pyannote diarization, visual sidecar generation, and narrative validation.
