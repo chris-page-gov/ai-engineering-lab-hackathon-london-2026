@@ -6,6 +6,16 @@ Benchmarks show that model capability has moved beyond isolated function generat
 
 They do not show that a tool is ready for public-sector production work.
 
+## HMRC Talk Navigation
+
+This file is supporting evidence for the HMRC talk narrative:
+
+- [Narrative entry point](narrative/index.md)
+- [Navigation and scope](narrative/notes/navigation-and-scope.md)
+- [AI-Native Engineering Blueprint narrative guide](narrative/slides/ai-native-engineering-blueprint/narrative-guide.md)
+- [AI Coding Assistants market briefing](narrative/notes/ai-coding-assistants-market-briefing.md)
+- [Topic index](narrative/topics.md)
+
 ## HumanEval and early code-generation benchmarks
 
 HumanEval, introduced with the Codex paper, measured whether a model could generate Python function bodies from prompt/docstring-style tasks and pass tests [EXT-001]. It was valuable because it gave a concrete functional-correctness measure for code synthesis.

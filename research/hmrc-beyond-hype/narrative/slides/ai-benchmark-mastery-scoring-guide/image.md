@@ -76,6 +76,7 @@ Connects the talk demo to evaluation discipline: claims about assistant quality 
 - [03 Empirical Evidence Productivity](../../../03_empirical_evidence_productivity.md)
 - [06 Repo Case Study Codex Build](../../../06_repo_case_study_codex_build.md)
 - [Evaluation Benchmark](../../../../../challenge-2/wiki/evaluation-benchmark.md)
+- [Challenge 2 worked example](../../notes/challenge-2-worked-example.md)
 
 ## Publication Status
 

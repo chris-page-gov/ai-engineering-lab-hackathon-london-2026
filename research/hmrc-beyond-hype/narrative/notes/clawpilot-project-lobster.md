@@ -3,6 +3,7 @@
 tags:
   - agentic-coding
   - ai-assistants
+  - clawpilot
   - governance
   - identity
   - risk-boundaries

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+<title>SeeLinks facet and tile interactions</title>
+<rect width="100%" height="100%" fill="#f7faf8"/>
+<rect x="24" y="20" width="1552" height="78" rx="10" fill="#ffffff" stroke="#a9bdb8" stroke-width="2"/>
+<text x="48" y="55" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" letter-spacing="0" fill="#132f2a">Facet And Tile Interaction Model</text>
+<text x="48" y="82" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#3d5b55">The original SeeLinks UI is built around highlighting, reducing, ordering, colouring, and collecting visible records.</text>
+<rect x="48" y="132" width="340" height="180" rx="14" fill="#eef5f2" stroke="#9db9b2" stroke-width="2"/>
+<text x="72" y="168" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="0" fill="#1c2f2b">Facet header</text>
+<text x="72" y="202" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">Click opens or closes. Pin keeps</text>
+<text x="72" y="222" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">it open. Drag header reorders</text>
+<text x="72" y="242" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">facets. Drag facet name to the</text>
+<text x="72" y="262" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">grid pins it and colours tiles.</text>
+<rect x="424" y="132" width="340" height="180" rx="14" fill="#eef4fb" stroke="#9db9b2" stroke-width="2"/>
+<text x="448" y="168" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="0" fill="#1c2f2b">Facet value chip</text>
+<text x="448" y="202" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">Click sets primary highlight.</text>
+<text x="448" y="222" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">Right-click Adjust adds/removes</text>
+<text x="448" y="242" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">within the facet. Double-click</text>
+<text x="448" y="262" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">chooses that value. Drag reorders</text>
+<text x="448" y="282" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">values or creates grid rollup.</text>
+<rect x="800" y="132" width="340" height="180" rx="14" fill="#fff7e8" stroke="#9db9b2" stroke-width="2"/>
+<text x="824" y="168" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="0" fill="#1c2f2b">Tile grid</text>
+<text x="824" y="202" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">Single click selects. Double click</text>
+<text x="824" y="222" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">opens. Drop facet names for colour</text>
+<text x="824" y="242" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">legends. Drop facet values for</text>
+<text x="824" y="262" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">rollup cards.</text>
+<rect x="1176" y="132" width="340" height="180" rx="14" fill="#f7ecf1" stroke="#9db9b2" stroke-width="2"/>
+<text x="1200" y="168" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="0" fill="#1c2f2b">Toolbar/history</text>
+<text x="1200" y="202" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">Choose highlighted reduces to</text>
+<text x="1200" y="222" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">matches. Choose unhighlighted</text>
+<text x="1200" y="242" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">keeps non-matches. Undo view and</text>
+<text x="1200" y="262" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">history chips restore prior</text>
+<text x="1200" y="282" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#24413c">reductions.</text>
+<text x="56" y="374" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="0" fill="#1c2f2b">Core gestures</text>
+<rect x="74" y="396" width="204" height="42" rx="21" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="92" y="425" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#1c2f2b">Click chip</text>
+<line x1="284" y1="418" x2="330" y2="418" stroke="#33645d" stroke-width="2"/>
+<polygon points="330,418 320,412 320,424" fill="#33645d"/>
+<text x="348" y="424" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">highlight matching records; count shows</text>
+<text x="348" y="443" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">highlighted/total when active</text>
+<rect x="74" y="476" width="204" height="42" rx="21" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="92" y="505" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#1c2f2b">Right-click chip</text>
+<line x1="284" y1="498" x2="330" y2="498" stroke="#33645d" stroke-width="2"/>
+<polygon points="330,498 320,492 320,504" fill="#33645d"/>
+<text x="348" y="504" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">adjust additive highlights within the same</text>
+<text x="348" y="523" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">facet</text>
+<rect x="74" y="556" width="204" height="42" rx="21" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="92" y="585" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#1c2f2b">Double-click chip</text>
+<line x1="284" y1="578" x2="330" y2="578" stroke="#33645d" stroke-width="2"/>
+<polygon points="330,578 320,572 320,584" fill="#33645d"/>
+<text x="348" y="584" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">choose that value and reduce the current</text>
+<text x="348" y="603" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">view</text>
+<rect x="74" y="636" width="204" height="42" rx="21" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="92" y="665" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#1c2f2b">Drag chip</text>
+<line x1="284" y1="658" x2="330" y2="658" stroke="#33645d" stroke-width="2"/>
+<polygon points="330,658 320,652 320,664" fill="#33645d"/>
+<text x="348" y="664" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">reorder facet values or drop on grid to</text>
+<text x="348" y="683" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">create a rollup card</text>
+<rect x="74" y="716" width="204" height="42" rx="21" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="92" y="745" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#1c2f2b">Drag facet name</text>
+<line x1="284" y1="738" x2="330" y2="738" stroke="#33645d" stroke-width="2"/>
+<polygon points="330,738 320,732 320,744" fill="#33645d"/>
+<text x="348" y="744" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">drop on grid to pin facet and apply tile</text>
+<text x="348" y="763" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">colour legend</text>
+<rect x="74" y="796" width="204" height="42" rx="21" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="92" y="825" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#1c2f2b">Click tile</text>
+<line x1="284" y1="818" x2="330" y2="818" stroke="#33645d" stroke-width="2"/>
+<polygon points="330,818 320,812 320,824" fill="#33645d"/>
+<text x="348" y="824" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">toggle manual selection for collection,</text>
+<text x="348" y="843" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">print, or manual reduce</text>
+<rect x="74" y="876" width="204" height="42" rx="21" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="92" y="905" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#1c2f2b">Double-click tile</text>
+<line x1="284" y1="898" x2="330" y2="898" stroke="#33645d" stroke-width="2"/>
+<polygon points="330,898 320,892 320,904" fill="#33645d"/>
+<text x="348" y="904" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">open docked detail view with tile strip</text>
+<text x="348" y="923" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="0" fill="#24413c">and tabs</text>
+<rect x="760" y="370" width="780" height="286" rx="14" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="790" y="408" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="0" fill="#1c2f2b">Tile state vocabulary</text>
+<rect x="792" y="446" width="122" height="30" rx="15" fill="#e4f2ee" stroke="#31756c" stroke-width="2"/>
+<text x="806" y="466" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0" fill="#123630">Selected</text>
+<text x="932" y="458" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">manual selection set;</text>
+<text x="932" y="476" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">exported, printable,</text>
+<text x="932" y="494" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">collectable</text>
+<rect x="1152" y="446" width="158" height="30" rx="15" fill="#fff1d1" stroke="#31756c" stroke-width="2"/>
+<text x="1166" y="466" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0" fill="#123630">Highlighted</text>
+<text x="1292" y="458" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">matches current facet</text>
+<text x="1292" y="476" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">highlight expression</text>
+<rect x="792" y="508" width="158" height="30" rx="15" fill="#e6eefb" stroke="#31756c" stroke-width="2"/>
+<text x="806" y="528" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0" fill="#123630">Active/Open</text>
+<text x="932" y="520" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">current detail-card item</text>
+<rect x="1152" y="508" width="122" height="30" rx="15" fill="#fde7ef" stroke="#31756c" stroke-width="2"/>
+<text x="1166" y="528" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0" fill="#123630">Coloured</text>
+<text x="1292" y="520" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">tile background comes</text>
+<text x="1292" y="538" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">from active facet value</text>
+<text x="1292" y="556" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">order</text>
+<rect x="792" y="570" width="98" height="30" rx="15" fill="#eee8fb" stroke="#31756c" stroke-width="2"/>
+<text x="806" y="590" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0" fill="#123630">Rollup</text>
+<text x="932" y="582" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">facet-value summary card</text>
+<text x="932" y="600" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">dropped into the grid</text>
+<rect x="1152" y="570" width="182" height="30" rx="15" fill="#e9f4dd" stroke="#31756c" stroke-width="2"/>
+<text x="1166" y="590" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0" fill="#123630">Missing image</text>
+<text x="1292" y="582" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">visible badge for missing</text>
+<text x="1292" y="600" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#24413c">Micropedia media</text>
+<rect x="760" y="696" width="780" height="300" rx="14" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="790" y="734" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="0" fill="#1c2f2b">Reduction workflow</text>
+<rect x="800" y="812" width="118" height="72" rx="10" fill="#eef5f2" stroke="#7da69e" stroke-width="2"/>
+<text x="814" y="838" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#1c2f2b">1. Highlight</text>
+<text x="814" y="860" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">Use facet chip</text>
+<text x="814" y="876" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">click/Adjust or</text>
+<text x="814" y="892" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">link summary.</text>
+<line x1="920" y1="848" x2="936" y2="848" stroke="#33645d" stroke-width="2"/>
+<polygon points="936,848 926,842 926,854" fill="#33645d"/>
+<rect x="940" y="812" width="118" height="72" rx="10" fill="#eef5f2" stroke="#7da69e" stroke-width="2"/>
+<text x="954" y="838" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#1c2f2b">2. Choose</text>
+<text x="954" y="860" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">Keep highlighted</text>
+<text x="954" y="876" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">or keep</text>
+<text x="954" y="892" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">unhighlighted.</text>
+<line x1="1060" y1="848" x2="1076" y2="848" stroke="#33645d" stroke-width="2"/>
+<polygon points="1076,848 1066,842 1066,854" fill="#33645d"/>
+<rect x="1080" y="812" width="118" height="72" rx="10" fill="#eef5f2" stroke="#7da69e" stroke-width="2"/>
+<text x="1094" y="838" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#1c2f2b">3. Record</text>
+<text x="1094" y="860" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">Pushes a history</text>
+<text x="1094" y="876" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">entry with label,</text>
+<text x="1094" y="892" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">count, total, and</text>
+<text x="1094" y="908" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">highlight</text>
+<text x="1094" y="924" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">snapshot.</text>
+<line x1="1200" y1="848" x2="1216" y2="848" stroke="#33645d" stroke-width="2"/>
+<polygon points="1216,848 1206,842 1206,854" fill="#33645d"/>
+<rect x="1220" y="812" width="118" height="72" rx="10" fill="#eef5f2" stroke="#7da69e" stroke-width="2"/>
+<text x="1234" y="838" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#1c2f2b">4. Continue</text>
+<text x="1234" y="860" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">Repeat inside the</text>
+<text x="1234" y="876" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">smaller current</text>
+<text x="1234" y="892" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">view.</text>
+<line x1="1340" y1="848" x2="1356" y2="848" stroke="#33645d" stroke-width="2"/>
+<polygon points="1356,848 1346,842 1346,854" fill="#33645d"/>
+<rect x="1360" y="812" width="118" height="72" rx="10" fill="#eef5f2" stroke="#7da69e" stroke-width="2"/>
+<text x="1374" y="838" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#1c2f2b">5. Undo/reset</text>
+<text x="1374" y="860" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">Use history chip,</text>
+<text x="1374" y="876" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">Undo view, or</text>
+<text x="1374" y="892" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0" fill="#24413c">Reset.</text>
+<text x="36" y="1076" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#526963">Source: original SeeLinks web UI, branch datapacks, commit 7983b2e; observed from docs/ui-current.md, docs/ui-current-callouts.md, docs/user-guide.md, and apps/web/src/routes/+page.svelte.</text>
+</svg>

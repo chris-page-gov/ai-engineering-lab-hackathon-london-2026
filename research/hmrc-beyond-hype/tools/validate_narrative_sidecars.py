@@ -12,6 +12,7 @@ import sys
 from collections import deque
 from pathlib import Path
 from urllib.parse import unquote
+from xml.etree import ElementTree
 
 from build_narrative_sidecars import (
     ASSETS_DIR,
@@ -22,7 +23,10 @@ from build_narrative_sidecars import (
     REPO_ROOT,
     SLIDES_DIR,
     VISUAL_SOURCES,
+    is_import_source_file,
 )
+from build_narrative_seelinks_pack import PACK_PATH as SEELINKS_PACK_PATH
+from build_narrative_seelinks_pack import README_PATH as SEELINKS_README_PATH
 from pptx import Presentation
 from pypdf import PdfReader
 
@@ -36,6 +40,17 @@ REQUIRED_SIDECAR_FIELDS = (
     "asset:",
 )
 RAW_IMPORT_SUFFIXES = {".pptx", ".pdf", ".png", ".m4a", ".wav", ".docx"}
+DATAPACK_BOUNDED_FACETS = (
+    "source_family",
+    "narrative_stage",
+    "talk_section",
+    "asset_type",
+    "evidence_role",
+    "governance_theme",
+    "topic_group",
+    "provenance_mode",
+)
+ASSET_ROOT = ASSETS_DIR.parent
 
 
 def repo_relative(path: Path) -> str:
@@ -105,7 +120,7 @@ def validate_links() -> tuple[list[str], dict[Path, set[Path]], set[Path]]:
                 continue
             if resolved.suffix == ".md":
                 inbound.setdefault(resolved, set()).add(markdown_file)
-            if ASSETS_DIR in resolved.parents:
+            if ASSET_ROOT in resolved.parents:
                 referenced_assets.add(resolved)
     return errors, inbound, referenced_assets
 
@@ -148,6 +163,99 @@ def staged_raw_imports() -> list[str]:
     return staged
 
 
+def validate_seelinks_pack(visual_count: int) -> list[str]:
+    errors: list[str] = []
+    if not SEELINKS_PACK_PATH.exists():
+        return [f"Missing SeeLinks narrative datapack: {repo_relative(SEELINKS_PACK_PATH)}"]
+    if not SEELINKS_README_PATH.exists():
+        errors.append(
+            f"Missing SeeLinks narrative datapack README: {repo_relative(SEELINKS_README_PATH)}"
+        )
+    try:
+        pack = json.loads(SEELINKS_PACK_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return [f"Invalid SeeLinks narrative datapack JSON: {exc}"]
+
+    items = pack.get("items", [])
+    properties = pack.get("properties", [])
+    collections = pack.get("collections", [])
+    graph = pack.get("graph", {})
+    if not isinstance(items, list) or not items:
+        errors.append("SeeLinks narrative datapack has no items")
+        return errors
+    if not isinstance(properties, list) or len(properties) < 8:
+        errors.append("SeeLinks narrative datapack has fewer than eight property facets")
+    if not isinstance(collections, list) or len(collections) < 5:
+        errors.append("SeeLinks narrative datapack has too few talk-path collections")
+    if not isinstance(graph, dict) or not graph.get("nodes") or not graph.get("edges"):
+        errors.append("SeeLinks narrative datapack graph is missing nodes or edges")
+
+    item_ids: set[str] = set()
+    image_count = 0
+    source_note_links = 0
+    facet_values: dict[str, set[str]] = {facet: set() for facet in DATAPACK_BOUNDED_FACETS}
+    for item in items:
+        if not isinstance(item, dict):
+            errors.append("SeeLinks narrative datapack contains a non-object item")
+            continue
+        item_id = item.get("id")
+        if not isinstance(item_id, str) or not item_id:
+            errors.append("SeeLinks narrative datapack item missing id")
+            continue
+        if item_id in item_ids:
+            errors.append(f"Duplicate SeeLinks narrative datapack item id: {item_id}")
+        item_ids.add(item_id)
+        if not item.get("name"):
+            errors.append(f"SeeLinks narrative datapack item missing name: {item_id}")
+        if not (item.get("image") or item.get("icon")):
+            errors.append(f"SeeLinks narrative datapack item missing image/icon: {item_id}")
+        image = item.get("image") or item.get("icon")
+        if isinstance(image, str) and image.startswith("/api/narrative-asset/"):
+            asset = image.removeprefix("/api/narrative-asset/")
+            if asset != "assets/note-card.svg":
+                asset_path = NARRATIVE_DIR / asset
+                if not asset_path.exists():
+                    errors.append(
+                        f"SeeLinks datapack item {item_id} references missing asset: {asset}"
+                    )
+            if item.get("image"):
+                image_count += 1
+        properties_map = item.get("properties", {})
+        if not isinstance(properties_map, dict):
+            errors.append(f"SeeLinks narrative datapack item has invalid properties: {item_id}")
+            continue
+        for facet in DATAPACK_BOUNDED_FACETS:
+            raw = properties_map.get(facet)
+            values = raw if isinstance(raw, list) else [raw]
+            for value in values:
+                if value:
+                    facet_values[facet].add(str(value))
+        links = item.get("links", [])
+        if isinstance(links, list):
+            for link in links:
+                if isinstance(link, dict) and link.get("href") == f"/api/source-note/{item_id}":
+                    source_note_links += 1
+
+    if len(items) < visual_count:
+        errors.append(
+            f"SeeLinks narrative datapack has fewer items than visual sidecars: {len(items)} < {visual_count}"
+        )
+    if image_count < visual_count:
+        errors.append(
+            f"SeeLinks narrative datapack has fewer thumbnail cards than visual sidecars: {image_count} < {visual_count}"
+        )
+    if source_note_links != len(items):
+        errors.append(
+            f"SeeLinks narrative datapack source-note link mismatch: {source_note_links} links for {len(items)} items"
+        )
+    for facet, values in facet_values.items():
+        if not 5 <= len(values) <= 10:
+            errors.append(
+                f"SeeLinks narrative datapack facet {facet} should have 5-10 values; got {len(values)}"
+            )
+    return errors
+
+
 def validate() -> dict[str, object]:
     errors: list[str] = []
     required_files = [
@@ -156,6 +264,8 @@ def validate() -> dict[str, object]:
         NARRATIVE_DIR / "topics.md",
         NARRATIVE_DIR / "narrative-arc.md",
         NARRATIVE_DIR / "source-materials.md",
+        NARRATIVE_DIR / "notes" / "navigation-and-scope.md",
+        NARRATIVE_DIR / "notes" / "challenge-2-worked-example.md",
         NARRATIVE_DIR / "notes" / "import-inventory.md",
         NARRATIVE_DIR / "notes" / "ai-coding-assistants-market-briefing.md",
         NARRATIVE_DIR / "notes" / "engineering-accountability-audio.md",
@@ -164,13 +274,26 @@ def validate() -> dict[str, object]:
         DATA_DIR / "import_inventory.csv",
         DATA_DIR / "visual_coverage.md",
         DATA_DIR / "visual_coverage.csv",
+        SEELINKS_PACK_PATH,
+        SEELINKS_README_PATH,
     ]
     for path in required_files:
         if not path.exists():
             errors.append(f"Missing required narrative file: {repo_relative(path)}")
+    topics_path = NARRATIVE_DIR / "topics.md"
+    if topics_path.exists() and "## Table Of Contents" not in topics_path.read_text(
+        encoding="utf-8"
+    ):
+        errors.append(f"{repo_relative(topics_path)} missing table of contents")
+    coverage_path = DATA_DIR / "visual_coverage.md"
+    if coverage_path.exists() and "## Table Of Contents" not in coverage_path.read_text(
+        encoding="utf-8"
+    ):
+        errors.append(f"{repo_relative(coverage_path)} missing table of contents")
 
     expected = expected_counts()
     coverage = load_coverage()
+    errors.extend(validate_seelinks_pack(len(coverage)))
     by_source: dict[str, list[dict[str, str]]] = {}
     for row in coverage:
         by_source.setdefault(row["source_id"], []).append(row)
@@ -211,7 +334,7 @@ def validate() -> dict[str, object]:
                 )
 
     inventory = load_import_inventory()
-    import_files = sorted(path.name for path in IMPORT_DIR.iterdir() if path.is_file())
+    import_files = sorted(path.name for path in IMPORT_DIR.iterdir() if is_import_source_file(path))
     inventory_files = sorted(row["filename"] for row in inventory)
     if inventory_files != import_files:
         errors.append(
@@ -242,10 +365,21 @@ def validate() -> dict[str, object]:
         if not inbound_sources:
             errors.append(f"Sidecar has no inbound Markdown link: {repo_relative(sidecar)}")
 
-    actual_assets = {path.resolve() for path in ASSETS_DIR.rglob("*") if path.is_file()}
+    actual_assets = {
+        path.resolve()
+        for path in ASSET_ROOT.rglob("*")
+        if path.is_file() and not path.name.startswith(".")
+    }
     missing_asset_refs = sorted(actual_assets - {path.resolve() for path in referenced_assets})
     for asset in missing_asset_refs:
         errors.append(f"Derived asset is not referenced by Markdown: {repo_relative(asset)}")
+    for asset in sorted(actual_assets):
+        if asset.suffix.lower() != ".svg":
+            continue
+        try:
+            ElementTree.parse(asset)
+        except ElementTree.ParseError as exc:
+            errors.append(f"Invalid SVG asset {repo_relative(asset)}: {exc}")
 
     staged = staged_raw_imports()
     for path in staged:
@@ -258,6 +392,9 @@ def validate() -> dict[str, object]:
         "covered_items": len(coverage),
         "markdown_files": len(all_markdown),
         "asset_files": len(actual_assets),
+        "infographic_asset_files": len(
+            [path for path in (ASSET_ROOT / "infographics").rglob("*") if path.is_file()]
+        ),
         "import_files": len(import_files),
         "orphan_count": len(orphans),
         "sidecar_count": len(sidecar_paths),
@@ -291,6 +428,7 @@ Status: {status}.
 - Sidecar files: {result["sidecar_count"]}
 - Narrative Markdown files: {result["markdown_files"]}
 - Derived asset files: {result["asset_files"]}
+- Infographic asset files: {result["infographic_asset_files"]}
 - Import files represented: {result["import_files"]}
 - Orphaned Markdown files: {result["orphan_count"]}
 

@@ -9,11 +9,31 @@
 6. Give the practical first step: pick low-risk internal material, keep raw data immutable, ask for small reviewable changes, require tests, inspect diffs, and record decisions.
 7. Close on the main claim: coding agents are not just faster autocomplete; the productivity gain comes from disciplined workflow as much as model capability.
 
+## AI Coding Assistants Briefing Route
+
+Use this route when the talk needs detail behind the market, evidence, risk, Q&A, or source-validation claims:
+
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md)
+- [AI Coding Assistants Market Map](notes/ai-coding-assistants-market-map.md)
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md)
+- [AI Coding Assistants Talk Track](notes/ai-coding-assistants-talk-track.md)
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md)
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md)
+
 ## Visual Evidence
 
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
+- [AI Coding Assistants Q&A prep](notes/ai-coding-assistants-q-and-a.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
+- [Navigation and scope](notes/navigation-and-scope.md)
 - [Source material index](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Topic index](topics.md)
 - [Visual coverage report](data/visual_coverage.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
+- [Narrative semantic lint report](data/narrative_semantic_lint_report.md)

@@ -6,6 +6,15 @@ Treat generated code as untrusted until it has been reviewed, tested, scanned an
 
 This is not anti-AI. It is normal engineering discipline applied to a faster code producer.
 
+## HMRC Talk Navigation
+
+This file is supporting evidence for the HMRC talk narrative:
+
+- [Narrative entry point](narrative/index.md)
+- [Navigation and scope](narrative/notes/navigation-and-scope.md)
+- [Governing Agentic AI audio source](narrative/notes/governing-agentic-ai-audio.md)
+- [Topic index](narrative/topics.md)
+
 ## Risk taxonomy
 
 | Risk | What can go wrong | Relevant evidence |

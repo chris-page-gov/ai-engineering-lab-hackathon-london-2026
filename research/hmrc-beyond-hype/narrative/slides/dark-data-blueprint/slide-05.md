@@ -54,6 +54,7 @@ Explains the Challenge 2 architecture and why provenance, source preservation, a
 - [06 Repo Case Study Codex Build](../../../06_repo_case_study_codex_build.md)
 - [Architecture](../../../../../challenge-2/wiki/architecture.md)
 - [Index](../../../../../challenge-2/wiki/index.md)
+- [Challenge 2 worked example](../../notes/challenge-2-worked-example.md)
 
 ## Publication Status
 

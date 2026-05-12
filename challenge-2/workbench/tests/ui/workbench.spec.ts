@@ -21,7 +21,7 @@ test.describe('Dark Data Workbench', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await expect(page.getByRole('heading', { name: 'Dark Data Workbench' })).toBeVisible();
-    await expect(page.getByText('ready')).toBeVisible();
+    await expect(page.getByText('ready', { exact: true })).toBeVisible();
   });
 
   test('loads the Challenge 2 corpus and supports search', async ({ page }) => {
@@ -146,5 +146,39 @@ test.describe('Dark Data Workbench', () => {
     await switchView(page, 'Table', '.table-view');
     await expect(page.getByRole('heading', { name: 'Workbook Sources' })).toBeVisible();
     await expect(page.getByRole('heading', { name: /UF-PROCUREMENT-THRESHOLDS-2024-25/i })).toBeVisible();
+  });
+
+  test('loads the HMRC narrative datapack with thumbnails and SeeLinks-style highlight controls', async ({ page }) => {
+    await page.goto('/?pack=hmrc-narrative');
+    await expect(page.getByRole('heading', { name: 'HMRC Beyond The Hype Narrative Arc' })).toBeVisible();
+    await expect(page.locator('.source-card')).toHaveCount(234);
+    await expect(page.locator('.thumbnail-button img[src*="assets/visuals"]')).toHaveCount(73);
+
+    await page.getByRole('group', { name: /Facet Source Family/i }).getByRole('button', { name: /^Challenge 2 visuals\b/i }).click();
+    await expect(page.locator('.source-card')).toHaveCount(23);
+
+    await page.locator('.source-card').first().getByRole('button', { name: 'Open', exact: true }).click();
+    await expect(page.getByRole('heading', { name: /Challenge 2 Unlocking Dark Data - Slide 01/i })).toBeVisible();
+    const narrativeNoteHref = await page.getByRole('link', { name: 'Open note' }).getAttribute('href');
+    expect(narrativeNoteHref).toContain('/api/source-note/hmrc-challenge-2-unlocking-dark-data-01');
+    const narrativeNoteResponse = await page.request.get(new URL(narrativeNoteHref!, page.url()).toString());
+    expect(narrativeNoteResponse.status()).toBe(200);
+    expect(await narrativeNoteResponse.text()).toContain('Challenge 2 Unlocking Dark Data - Slide 01');
+    await page.getByRole('button', { name: 'Grid' }).click();
+
+    await page.locator('.source-card').first().getByRole('button', { name: 'Mark' }).click();
+    await expect(page.locator('.source-card').first()).toHaveClass(/highlighted/);
+    await page.getByRole('button', { name: 'Keep marked' }).click();
+    await expect(page.locator('.source-card')).toHaveCount(1);
+    await page.getByRole('button', { name: 'Restore' }).click();
+    await expect(page.locator('.source-card')).toHaveCount(23);
+
+    const dragPayload = await page.evaluateHandle(() => new DataTransfer());
+    await page.getByRole('heading', { name: 'Talk Section' }).dispatchEvent('dragstart', { dataTransfer: dragPayload });
+    await page.locator('.source-grid').dispatchEvent('dragenter', { dataTransfer: dragPayload });
+    await page.locator('.source-grid').dispatchEvent('dragover', { dataTransfer: dragPayload });
+    await page.locator('.source-grid').dispatchEvent('drop', { dataTransfer: dragPayload });
+    await expect(page.locator('.colour-legend')).toContainText('Talk Section');
+    await expect(page.locator('.source-card').first()).toHaveAttribute('style', /--source-card-bg/);
   });
 });

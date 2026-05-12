@@ -2,6 +2,15 @@
 
 This timeline covers the movement from code completion towards agentic software-engineering systems from 2021 to May 2026. Dates are taken from verified sources in [01_source_register.csv](01_source_register.csv). Vendor sources are used for release dates and documented capabilities, not independent proof of productivity or safety.
 
+## HMRC Talk Navigation
+
+This file is supporting evidence for the HMRC talk narrative:
+
+- [Narrative entry point](narrative/index.md)
+- [Navigation and scope](narrative/notes/navigation-and-scope.md)
+- [AI Coding Assistants market briefing](narrative/notes/ai-coding-assistants-market-briefing.md)
+- [Topic index](narrative/topics.md)
+
 ## 2021-2022: code generation and autocomplete
 
 | Date | Event | Source | Source type | What changed technically | Why it matters | Caveat |

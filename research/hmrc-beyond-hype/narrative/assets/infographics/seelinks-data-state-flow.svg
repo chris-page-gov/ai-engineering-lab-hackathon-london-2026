@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040">
+<title>SeeLinks data and state flow</title>
+<rect width="100%" height="100%" fill="#f7faf8"/>
+<rect x="24" y="20" width="1552" height="78" rx="10" fill="#ffffff" stroke="#a9bdb8" stroke-width="2"/>
+<text x="48" y="55" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" letter-spacing="0" fill="#132f2a">Data, State, And Export Flow</text>
+<text x="48" y="82" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="0" fill="#3d5b55">Packs feed records and property definitions; UI state transforms the current view; outputs preserve selection/highlight context.</text>
+<rect x="76" y="140" width="230" height="790" rx="14" fill="#eef4fb" stroke="#9bb8b2" stroke-width="2"/>
+<text x="102" y="178" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800" letter-spacing="0" fill="#1c2f2b">Inputs</text>
+<rect x="364" y="140" width="230" height="790" rx="14" fill="#eef5f2" stroke="#9bb8b2" stroke-width="2"/>
+<text x="390" y="178" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800" letter-spacing="0" fill="#1c2f2b">Normalization</text>
+<rect x="652" y="140" width="230" height="790" rx="14" fill="#fff7e8" stroke="#9bb8b2" stroke-width="2"/>
+<text x="678" y="178" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800" letter-spacing="0" fill="#1c2f2b">Interactive state</text>
+<rect x="1040" y="140" width="230" height="790" rx="14" fill="#f7ecf1" stroke="#9bb8b2" stroke-width="2"/>
+<text x="1066" y="178" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800" letter-spacing="0" fill="#1c2f2b">Outputs</text>
+<rect x="104" y="228" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="118" y="252" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Static packs</text>
+<rect x="104" y="330" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="118" y="354" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">URL pack query</text>
+<rect x="104" y="432" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="118" y="456" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">JSON/JSONL import</text>
+<rect x="104" y="534" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="118" y="558" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">OpenAPI import</text>
+<rect x="104" y="636" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="118" y="660" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">MCP resources</text>
+<rect x="104" y="738" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="118" y="762" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Intro markdown</text>
+<rect x="392" y="228" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="406" y="252" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Pack/item schema</text>
+<rect x="392" y="330" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="406" y="354" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Property definitions</text>
+<rect x="392" y="432" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="406" y="456" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Facet counts</text>
+<rect x="392" y="534" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="406" y="558" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Link summary</text>
+<rect x="392" y="636" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="406" y="660" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Tile labels</text>
+<rect x="392" y="738" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="406" y="762" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Pack-specific detail</text>
+<text x="406" y="781" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">layout</text>
+<rect x="680" y="228" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="694" y="252" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Query/filter/highlight</text>
+<rect x="680" y="330" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="694" y="354" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Current items</text>
+<rect x="680" y="432" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="694" y="456" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Selection set</text>
+<rect x="680" y="534" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="694" y="558" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Sort/order stack</text>
+<rect x="680" y="636" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="694" y="660" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Colour facet +</text>
+<text x="694" y="679" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">rollups</text>
+<rect x="680" y="738" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="694" y="762" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">History stack</text>
+<rect x="1068" y="228" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="1082" y="252" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Collections</text>
+<rect x="1068" y="330" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="1082" y="354" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Print worksheet</text>
+<rect x="1068" y="432" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="1082" y="456" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">AI context JSON</text>
+<rect x="1068" y="534" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="1082" y="558" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Detail</text>
+<text x="1082" y="577" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">reader/gallery</text>
+<rect x="1068" y="636" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="1082" y="660" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Graph/timeline/reading</text>
+<rect x="1068" y="738" width="174" height="54" rx="9" fill="#ffffff" stroke="#91afa9" stroke-width="2"/>
+<text x="1082" y="762" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0" fill="#24413c">Local preferences</text>
+<line x1="278" y1="255" x2="392" y2="255" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="392,255 382,249 382,261" fill="#2f6f65"/>
+<line x1="278" y1="357" x2="392" y2="255" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="392,255 382,249 382,261" fill="#2f6f65"/>
+<line x1="278" y1="459" x2="392" y2="255" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="392,255 382,249 382,261" fill="#2f6f65"/>
+<line x1="278" y1="561" x2="392" y2="255" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="392,255 382,249 382,261" fill="#2f6f65"/>
+<line x1="278" y1="663" x2="392" y2="255" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="392,255 382,249 382,261" fill="#2f6f65"/>
+<line x1="278" y1="765" x2="392" y2="765" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="392,765 382,759 382,771" fill="#2f6f65"/>
+<line x1="566" y1="255" x2="392" y2="357" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="392,357 402,351 402,363" fill="#2f6f65"/>
+<line x1="566" y1="357" x2="392" y2="459" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="392,459 402,453 402,465" fill="#2f6f65"/>
+<line x1="566" y1="459" x2="680" y2="255" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="680,255 670,249 670,261" fill="#2f6f65"/>
+<line x1="566" y1="561" x2="680" y2="255" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="680,255 670,249 670,261" fill="#2f6f65"/>
+<line x1="566" y1="663" x2="680" y2="357" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="680,357 670,351 670,363" fill="#2f6f65"/>
+<line x1="566" y1="765" x2="1068" y2="561" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="1068,561 1058,555 1058,567" fill="#2f6f65"/>
+<line x1="854" y1="255" x2="680" y2="357" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="680,357 690,351 690,363" fill="#2f6f65"/>
+<line x1="854" y1="357" x2="1068" y2="459" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="1068,459 1058,453 1058,465" fill="#2f6f65"/>
+<line x1="854" y1="459" x2="1068" y2="255" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="1068,255 1058,249 1058,261" fill="#2f6f65"/>
+<line x1="854" y1="459" x2="1068" y2="357" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="1068,357 1058,351 1058,363" fill="#2f6f65"/>
+<line x1="854" y1="561" x2="680" y2="357" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="680,357 690,351 690,363" fill="#2f6f65"/>
+<line x1="854" y1="663" x2="680" y2="357" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="680,357 690,351 690,363" fill="#2f6f65"/>
+<line x1="854" y1="765" x2="680" y2="357" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="680,357 690,351 690,363" fill="#2f6f65"/>
+<line x1="854" y1="357" x2="1068" y2="663" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="1068,663 1058,657 1058,669" fill="#2f6f65"/>
+<line x1="854" y1="357" x2="1068" y2="561" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="1068,561 1058,555 1058,567" fill="#2f6f65"/>
+<line x1="854" y1="561" x2="1068" y2="765" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="1068,765 1058,759 1058,771" fill="#2f6f65"/>
+<line x1="854" y1="663" x2="1068" y2="765" stroke="#2f6f65" stroke-width="2"/>
+<polygon points="1068,765 1058,759 1058,771" fill="#2f6f65"/>
+<rect x="76" y="956" width="1430" height="48" rx="10" fill="#ffffff" stroke="#9bb8b2" stroke-width="2"/>
+<text x="104" y="986" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#1c2f2b">Persistence: collections use IndexedDB; facet order, facet-value order, sort exclusions, sort stack, visibility, and tile text preferences use localStorage.</text>
+<text x="36" y="1016" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="0" fill="#526963">Source: original SeeLinks web UI, branch datapacks, commit 7983b2e; observed from docs/ui-current.md, docs/ui-current-callouts.md, docs/user-guide.md, and apps/web/src/routes/+page.svelte.</text>
+</svg>

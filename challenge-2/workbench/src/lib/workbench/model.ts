@@ -207,6 +207,15 @@ export const filterSources = (sources: WorkbenchSource[], filters: FilterState =
     if (!intersects(filters.formats, [source.format])) return false;
     if (!intersects(filters.topics, source.topics)) return false;
     if (!intersects(filters.flags, source.flags)) return false;
+    if (!intersects(filters.sourceFamilies, source.sourceFamilies ?? [])) return false;
+    if (!intersects(filters.stages, source.stages ?? [])) return false;
+    if (!intersects(filters.assetTypes, source.assetTypes ?? [])) return false;
+    if (!intersects(filters.evidenceRoles, source.evidenceRoles ?? [])) return false;
+    if (!intersects(filters.governanceThemes, source.governanceThemes ?? [])) return false;
+    if (!intersects(filters.talkSections, source.talkSections ?? [])) return false;
+    if (!intersects(filters.provenanceModes, source.provenanceModes ?? [])) return false;
+    if (!intersects(filters.topicGroups, source.topicGroups ?? [])) return false;
+    if (!intersects(filters.screenfulls, source.screenfulls ? [String(source.screenfulls)] : [])) return false;
     return true;
   });
 };
@@ -318,17 +327,24 @@ export const buildContextExport = ({
       excerpts: extractExcerpts(source, query),
       selected: selectedIds.has(source.sourceId),
       highlighted: highlightedIds.has(source.sourceId),
+      thumbnail_path: source.thumbnailPath ?? null,
+      source_families: source.sourceFamilies ?? [],
+      narrative_stages: source.stages ?? [],
+      talk_sections: source.talkSections ?? [],
+      evidence_roles: source.evidenceRoles ?? [],
+      governance_themes: source.governanceThemes ?? [],
+      links: source.links ?? [],
     })),
   };
 };
 
-export const buildBrowserPrompt = (context: ContextExport) => `You are answering questions about the Challenge 2 Dark Data Workbench context.
+export const buildBrowserPrompt = (context: ContextExport) => `You are answering questions about the ${context.corpus.title} context.
 
 Rules:
 - Use only the supplied context JSON.
 - Cite source_id for every factual claim.
 - If the context does not contain enough evidence, say what is missing.
-- The corpus is synthetic hackathon fixture data. Do not redact synthetic names, emails, roles, or contact-like values.
+${context.corpus.synthetic_data ? '- The corpus is synthetic hackathon fixture data. Do not redact synthetic names, emails, roles, or contact-like values.' : '- Treat imported claims as talk-preparation evidence, not as production assurance.'}
 
 Question: ${context.view.question || 'Use the question supplied by the user alongside this prompt.'}
 
@@ -336,7 +352,7 @@ Current context contains ${context.sources.length} source(s): ${context.sources.
 
 export const buildEvidenceMarkdown = (context: ContextExport) => {
   const lines = [
-    '# Dark Data Evidence Bundle',
+    `# ${context.corpus.title} Evidence Bundle`,
     '',
     `Exported: ${context.exported_at}`,
     `Sources: ${context.sources.length}`,

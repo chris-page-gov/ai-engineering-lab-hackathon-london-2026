@@ -1,5 +1,11 @@
 # Pyannote Diarization Report
 
+## HMRC Talk Navigation
+
+- [Narrative entry point](../narrative/index.md)
+- [Navigation and scope](../narrative/notes/navigation-and-scope.md)
+- [Transcript runbook](README.md)
+
 - Run ID: `pyannote_community1_mps_20260511T111450Z`
 - Model: `pyannote-community/speaker-diarization-community-1`
 - Device: `mps`

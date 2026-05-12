@@ -6,6 +6,15 @@ AI coding support is best understood as a conditional capability amplifier, not 
 
 The best available evidence is mixed because studies measure different things: single lab tasks, experienced maintainers on mature repositories, public benchmark tasks, product telemetry and self-reported adoption. These are not interchangeable.
 
+## HMRC Talk Navigation
+
+This file is supporting evidence for the HMRC talk narrative:
+
+- [Narrative entry point](narrative/index.md)
+- [Navigation and scope](narrative/notes/navigation-and-scope.md)
+- [AI Coding Assistants market briefing](narrative/notes/ai-coding-assistants-market-briefing.md)
+- [Topic index](narrative/topics.md)
+
 ## Evidence table
 
 | Study/source | Setting | Participants | Task type | Tool/model | Measured outcome | Result | Limitations | Relevance to public-sector engineering |

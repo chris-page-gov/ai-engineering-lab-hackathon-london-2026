@@ -19,6 +19,8 @@ This deck is now organised as a complete route:
 - Slides 06-12: the delegate/review/own model applied to plan, design, build, test, review, document, deploy, and maintain.
 - Slides 13-15: the responsibility matrix, flywheel, and rollout steps that turn the concept into team practice.
 
+Source status: imported visual claims are a point-in-time talk-prep snapshot; recheck model, benchmark, and product-state claims before quoting them live.
+
 ## Slide-By-Slide Route
 
 | Slide | Stage | Narrative job | Sidecar |

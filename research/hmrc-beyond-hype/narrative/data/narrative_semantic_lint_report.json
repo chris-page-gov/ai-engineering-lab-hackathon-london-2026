@@ -1,0 +1,684 @@
+{
+  "external_checks_live": true,
+  "external_links": [
+    {
+      "detail": null,
+      "sample_sources": [
+        "research/hmrc-beyond-hype/narrative/notes/clawpilot-project-lobster.md:17"
+      ],
+      "source_count": 1,
+      "status": "ok",
+      "status_code": 200,
+      "url": "https://chatgpt.com/s/t_6a01debc15888191acf04212b95dd8b2"
+    },
+    {
+      "detail": null,
+      "sample_sources": [
+        "research/hmrc-beyond-hype/narrative/notes/clawpilot-project-lobster.md:29"
+      ],
+      "source_count": 1,
+      "status": "ok",
+      "status_code": 200,
+      "url": "https://learn.microsoft.com/en-us/entra/agent-id/"
+    },
+    {
+      "detail": null,
+      "sample_sources": [
+        "research/hmrc-beyond-hype/narrative/notes/clawpilot-project-lobster.md:30"
+      ],
+      "source_count": 1,
+      "status": "ok",
+      "status_code": 200,
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-details?view=o365-worldwide#agent-instances"
+    },
+    {
+      "detail": null,
+      "sample_sources": [
+        "research/hmrc-beyond-hype/narrative/notes/clawpilot-project-lobster.md:31"
+      ],
+      "source_count": 1,
+      "status": "ok",
+      "status_code": 200,
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/"
+    },
+    {
+      "detail": null,
+      "sample_sources": [
+        "research/hmrc-beyond-hype/narrative/notes/clawpilot-project-lobster.md:28"
+      ],
+      "source_count": 1,
+      "status": "ok",
+      "status_code": 200,
+      "url": "https://www.omarknows.ai/p/lobster-got-hired"
+    }
+  ],
+  "findings": [
+    {
+      "check": "stale_claim",
+      "detail": "The pack should turn the current research material, imported AI-generated slides, imported images, imported PDFs, and transcripts into a short, focused, keyword-classified, highly interlinked Markdown corpus. The result should work like a small wiki: readers s",
+      "level": "info",
+      "line": 7,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "[Purpose](#purpose) [Current Status](#current-status) [Source Inputs](#source-inputs) [Target Output](#target-output) [Narrative Arc](#narrative-arc) [Slide And Image Sidecars](#slide-and-image-sidecars) [SeeLinks Datapack](#seelinks-datapack) [SeeLinks UI Ref",
+      "level": "info",
+      "line": 13,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The narrative wiki now has a GitHub-browsable scaffold, visual sidecars, source notes, full import inventory, coverage reports, derived image assets, a SeeLinks-style datapack, original SeeLinks UI infographics, a structural validation report, and a semantic l",
+      "level": "info",
+      "line": 32,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "`AI-Native_Engineering_Blueprint.pptx` `Challenge_2_Unlocking_Dark_Data.pptx` `Dark_Data_Blueprint.pptx` `Governing_AI_Engineering.pptx` `AI-Native-Engineering-Team-source_openAI.pdf` imported PNG images the imported AI-generated Markdown briefing the imported",
+      "level": "info",
+      "line": 51,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Status: complete for the current `research/hmrc-beyond-hype/import/` visual inventory as of 2026-05-11.",
+      "level": "info",
+      "line": 99,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "All 13 current top-level import files are represented in [notes/import-inventory.md](notes/import-inventory.md). 4 imported PowerPoint decks: 50 slide sidecars. 1 imported PDF: 20 page sidecars. 3 imported standalone PNG files: 3 image sidecars. Total: 73 visu",
+      "level": "info",
+      "line": 103,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Status: complete for the current narrative corpus as of 2026-05-11.",
+      "level": "info",
+      "line": 137,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Status: complete for the current original SeeLinks source snapshot as of 2026-05-11.",
+      "level": "info",
+      "line": 164,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The narrative includes all current import-folder material at source-treatment level: every file is represented in the import inventory, and every imported visual has a sidecar.",
+      "level": "info",
+      "line": 188,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The AI Coding Assistants 9 May 2026 briefing is included through [notes/ai-coding-assistants-market-briefing.md](notes/ai-coding-assistants-market-briefing.md), the tracked Markdown source, the DOCX extraction check, companion visuals, and nine short section-l",
+      "level": "info",
+      "line": 190,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Add new tags only when they improve navigation.",
+      "level": "info",
+      "line": 229,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/README.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-executive-summary.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source path: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. Source section: [Executive summary](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMRC%20Data%20Science%20",
+      "level": "info",
+      "line": 20,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-executive-summary.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-failure-modes.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source path: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. Source section: [Failure modes that matter in practice](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMRC",
+      "level": "info",
+      "line": 20,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-failure-modes.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "This note incorporates the imported [AI coding assistants Markdown briefing](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMRC%20Data%20Science%20Academy%20talk.md) and its local DOCX companion: `research/hmrc-beyond-hype/import/AI",
+      "level": "info",
+      "line": 17,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The briefing is a point-in-time 9 May 2026 market snapshot for the HMRC Data Science Academy audience. Use it as the category and Q&A backbone for the narrative, not as a replacement for source-by-source validation immediately before a live talk.",
+      "level": "info",
+      "line": 20,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Markdown source: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. DOCX companion: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.docx`.",
+      "level": "info",
+      "line": 26,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "AI coding assistants have moved materially beyond autocomplete. The useful lens for HMRC is category first, vendor second. The decisive question is not only which model is best; it is which workflow can be governed. Public-sector teams should start with superv",
+      "level": "info",
+      "line": 82,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The briefing is explicitly dated 9 May 2026; product claims, preview labels, pricing, and benchmark standings may have moved. Treat vendor capability claims as input evidence until each source is rechecked before the live talk. The local DOCX remains ignored b",
+      "level": "info",
+      "line": 92,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-map.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source path: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. Source section: [State of the market](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMRC%20Data%20Science%",
+      "level": "info",
+      "line": 19,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-map.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Explain the shift from suggest-code to complete-a-bounded-task. Tie each category to a different control posture: simple IDE use needs one set of guardrails; terminal agents and cloud agents need stronger approvals, sandboxing, logging, and branch protection. ",
+      "level": "info",
+      "line": 26,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-map.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-productivity-evidence.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source path: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. Source section: [Evidence on productivity and quality](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMRC%",
+      "level": "info",
+      "line": 20,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-productivity-evidence.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-public-sector-controls.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source path: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. Source section: [Public-sector constraints and controls](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMR",
+      "level": "info",
+      "line": 20,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-public-sector-controls.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-q-and-a.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source path: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. Source section: [Suggested Q&A answers](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMRC%20Data%20Scienc",
+      "level": "info",
+      "line": 20,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-q-and-a.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-repo-case-study.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source path: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. Source section: [Repo-anchored case study](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMRC%20Data%20Sci",
+      "level": "info",
+      "line": 20,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-repo-case-study.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-source-register.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Use this note as the evidence ledger. It separates official tool/product sources, productivity and benchmark sources, UK public-sector guidance, validation status, and open limitations for the 9 May 2026 snapshot.",
+      "level": "info",
+      "line": 16,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-source-register.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source path: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. Source section: [Source register and link validation](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMRC%2",
+      "level": "info",
+      "line": 20,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-source-register.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Recheck fast-moving product docs, preview labels, pricing, and roadmap claims before the live talk. Treat unresolved short-SHA commit links and any not-revalidated guidance URL as clearly caveated evidence. Keep the source register visible so the talk does not",
+      "level": "info",
+      "line": 27,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-source-register.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-talk-track.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source path: `research/hmrc-beyond-hype/import/AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md`. Source section: [What to say in the HMRC talk](../../import/AI%20coding%20assistants%20on%209%20May%202026%20for%20the%20HMRC%20Data%2",
+      "level": "info",
+      "line": 19,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-talk-track.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "<!-- Generated by research/hmrc-beyond-hype/tools/build_narrative_sidecars.py. --> --- publication_status: \"published narrative note; current claims require source recheck before live use\" ---",
+      "level": "info",
+      "line": 1,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/clawpilot-project-lobster.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The committed import brief records the working synthesis, source list, and public-sector evaluation lens: [local ClawPilot import brief](../../import/clawpilot.md). Omar Shahine's own write-up says he announced a Microsoft role focused on bringing OpenClaw and",
+      "level": "info",
+      "line": 27,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/clawpilot-project-lobster.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The \"ClawPilot\" and \"Project Lobster\" labels, and internal-adoption numbers such as more than 3,000 daily Microsoft users by 1 May 2026, appear in secondary reporting and in the shared ChatGPT research thread. Treat these as \"reported\" until checked against a ",
+      "level": "info",
+      "line": 35,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/clawpilot-project-lobster.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Every file currently present in `research/hmrc-beyond-hype/import/` is treated as relevant to the narrative. This inventory records the publication-safe treatment for each file so no import source is silently ignored.",
+      "level": "info",
+      "line": 14,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/import-inventory.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "the HMRC talk research brief and core research notes; every current file in `research/hmrc-beyond-hype/import/`, represented through visual sidecars, source notes, transcript notes, or tracked Markdown; the AI Coding Assistants 9 May 2026 briefing as a source ",
+      "level": "info",
+      "line": 43,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/navigation-and-scope.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source snapshot: original SeeLinks branch `datapacks`, commit `7983b2e` (`Add geography ontology graph + rollup UI`). The source files read for this note were `docs/ui-current.md`, `docs/ui-current-callouts.md`, `docs/user-guide.md`, and `apps/web/src/routes/+",
+      "level": "info",
+      "line": 16,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Click a facet header to open or close it. Pin a facet to keep it open. Drag a facet header to reorder facets. Drag a facet name onto the tile grid to pin that facet, open it, and colour tiles by that facet's value order. Click a facet value to set the primary ",
+      "level": "info",
+      "line": 67,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Choose highlighted reduces the current view to highlighted records. Choose unhighlighted reduces the current view to non-highlighted records. If no facet highlight is active, those commands operate on manual tile selection. Each reduction pushes a history entr",
+      "level": "info",
+      "line": 89,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Docked detail panel appears above the grid when an item is open. Tile strip supports quick stepping through the current set. Previous, Next, and Close controls sit in the detail header. Tabs: Overview and Images. Double-clicking a hero image opens the Images t",
+      "level": "info",
+      "line": 99,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Static local packs can be loaded from `/data/...`. URL `?pack=...` can choose a pack path. Drag/drop or file input can load JSON, JSONL, full `pack.json`, plain item arrays, or OpenAPI 3.x specs. MCP resources can be loaded when an MCP HTTP endpoint is configu",
+      "level": "info",
+      "line": 109,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The narrative pack keeps the imported visual material close to the evidence. Each slide, PDF page, and standalone image now has a sidecar note that describes the visible point, records tags and caveats, and links back into the research pack or repository artef",
+      "level": "info",
+      "line": 8,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/overview.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The 9 May 2026 AI Coding Assistants briefing is now split into section-level notes so the market scan, evidence base, public-sector controls, case study, talk track, Q&A preparation, and validation caveats can be read independently.",
+      "level": "info",
+      "line": 10,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/overview.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Source status: this overview reflects the current generated narrative pack and the 9 May 2026 AI Coding Assistants briefing; recheck fast-moving product and benchmark claims before live use.",
+      "level": "info",
+      "line": 14,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/overview.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Al Coding Assistants 2026: From Autocomplete to Governed Agents E- The New Era of Agentic Development Assistant Agent Review SNS + ill Bounded Work Mature Systems Local Policy & Human-in-the-loop Approvals Beyond Autocomplete to Bounded Tasks Variable Producti",
+      "level": "info",
+      "line": 42,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-coding-assistants-2026-evolution/image.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "This deck is now organised as a complete route:",
+      "level": "info",
+      "line": 16,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/index.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "[Slide 01 - Building the AI-Native Engineering Team](slide-01.md) [Slide 03 - From Inline Suggestions To Autonomous Workflows](slide-03.md) [Slide 05 - A New Operating System For Engineering Management](slide-05.md) [Slide 08 - Phase 03: Build](slide-08.md) [S",
+      "level": "info",
+      "line": 32,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/narrative-guide.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "[Slide 01 - Building the AI-Native Engineering Team](slide-01.md) [Slide 02 - The Multi-Hour Milestone Has Been Breached](slide-02.md) [Slide 03 - From Inline Suggestions To Autonomous Workflows](slide-03.md) [Slide 04 - The Architectural Pillars Of Coding Age",
+      "level": "info",
+      "line": 44,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/narrative-guide.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Explains why coding assistants should now be discussed as agents: longer task horizons make planning, tool use, verification, and handoff part of the product.",
+      "level": "info",
+      "line": 31,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/slide-02.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Stage: Capability shift. Use in talk: Frame this as a capability lens, not as a benchmark proof. The important point for HMRC/public-sector teams is that longer tasks create new governance needs. Bridge: Move from capability trend to workflow contrast: autocom",
+      "level": "info",
+      "line": 41,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/slide-02.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Frontier systems now sustain over a GPT-5.1-Codex-Max (2025): 2 hr 17 min ->@ two hours of continuous reasoning, 5 bringing the entire software ess e e + Geez 1 development lifecycle into scope. E35 2hours f c Bs 1h30m oy fo [Ots) , Task length capabilities ar",
+      "level": "info",
+      "line": 49,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/slide-02.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Slide 05 - A New Operating System For Engineering Management",
+      "level": "info",
+      "line": 25,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/slide-05.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "A new operating system for engineering management True ownership remains with the engineer. Rote implementation is handed to the machine. DELEGATE \\\\ ao) REVIEW == ow \\. The Engine) N i (The Filter) (The Core) The Triad Y/ Agents take the first pass. N yj Engi",
+      "level": "info",
+      "line": 54,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/slide-05.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The Integration Architecture Rollout Tangible steps to deploy the framework today. Step 1: Systematise the Rules Step 2: Wire the Context Step 3: Enforce the Loop mkdir guardrails > mcep install > run automation e Deploy an AGENTS.md file Expose component Impl",
+      "level": "info",
+      "line": 56,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-blueprint/slide-15.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The Al-Native Engineering Team: Accelerating the SDLC with Coding Agents GPT-4 / Claude 3 GS GPT-5.1 / Codex-Max 2 Hours 17 Minutes of Reasoning GPT-2/GPT-3 ste ie (2025+) Leading models now sustain continuous work with 6) (>) 50% confidence in correct task co",
+      "level": "info",
+      "line": 40,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/ai-native-engineering-team-workflow/image.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "AI chat interfaces fail without machine-readable foundations EAE 2 Machine-Readable | I Structured Content nes Activation Curve The Catalyst: oS The GOV.UK App is building chat le ip > capabilities. iapoe 2 & The Dependency: dal These capabilities fundamentall",
+      "level": "info",
+      "line": 35,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/challenge-2-unlocking-dark-data/slide-03.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The anatomy ofa ul Machine-Readable Structure provenance-first response Shows JSON toggle / schema indicator. aS EEE EES Cae eee # @ Schema Accounts @) Json v BS Fold ey version History ae The requested policy outlines the procedure for Supersession Sh data re",
+      "level": "info",
+      "line": 36,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/challenge-2-unlocking-dark-data/slide-08.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Branch: architecture | Commit: design-pivot The Design Pivot: Knowledge Base Before Answers Dimension Standard Vector RAG Obsidian-Style Knowledge Layer Source Preservation Shredded into chunks | Immutable raw files maintained Version History Lost in vectoriza",
+      "level": "info",
+      "line": 36,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/dark-data-blueprint/slide-03.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Branch: pipeline | Commit: build-flow The Provenance Pipeline 1. Inventory 2. Extract 3. Generate 4. Link 5. Lint sl ey I ee ee Scan 43 files, Convert DOCX, Create one source Auto-link IDs, Report broken fingerprint (SHA- PDF, and XLSX to note per document leg",
+      "level": "info",
+      "line": 36,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/dark-data-blueprint/slide-05.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Governing Al Coding Assistants in the Civil Service. TARGET: HMRC Data Science Academy A practical framework for SNAPSHOT: 9 May 2026 secure, source-backed STATUS: Empirical Evidence & engineering delivery. Policy Playbook 2 OWT TJ))yY2STYS +",
+      "level": "info",
+      "line": 37,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/governing-ai-engineering/slide-01.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "im HI 2024-2025 Step 1: Step 2: Step 3: 9 May 2026 Baseline Broader Context Execution Loops Tool Use Snapshot Single-file context & Repo-level Integrated command MCP-style (Model Full issue, branch, and isolated patch understanding and and test execution Conte",
+      "level": "info",
+      "line": 37,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/governing-ai-engineering/slide-02.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The engineering bottleneck has shifted to validation and governance 5. Proving 1.Steering 2.Reviewing 3.Testing 4.Governing Provenance Lae iL aie ae Typing Code Fast generation of boilerplate, Hy r The market's convergence on \"assistant + agent + review\" bundl",
+      "level": "info",
+      "line": 38,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/governing-ai-engineering/slide-03.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Workflow failures are the new operational risk surface of external tools or Model Ad BROAD_EDITS: Over-broad CHESS ESM CORTE AQ NoIsy_REVIEWS: Persuasive modifications spanning but under-evidenced unintended files. automated PR comments. UNSAFE_SHELL: Executio",
+      "level": "info",
+      "line": 37,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/governing-ai-engineering/slide-06.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "Moving beyond \"feels faster\" in pilot evaluations 7 AqA 7 Cycle Time & First-Pass Test Rework Rate Review Time Success GA How often human Time from spec to Does the code f y intervention is merge, including work immediately 7. required to fix 1) validation ove",
+      "level": "info",
+      "line": 39,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/governing-ai-engineering/slide-10.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "The new engineering mandate The engineering labour is shifting from manual code production towards steering, review, proof, and governance. For government, provenance is not an optional add-on to Al output; provenance is part of the product. AI coding assistan",
+      "level": "info",
+      "line": 36,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/slides/governing-ai-engineering/slide-12.md"
+    },
+    {
+      "check": "stale_claim",
+      "detail": "[Full import inventory](notes/import-inventory.md) records the narrative treatment for every current file in `research/hmrc-beyond-hype/import/`. [Navigation and scope](notes/navigation-and-scope.md) explains how to move between the narrative wiki and source e",
+      "level": "info",
+      "line": 19,
+      "message": "Stale-sensitive claim has an explicit caveat or source-status marker",
+      "path": "research/hmrc-beyond-hype/narrative/source-materials.md"
+    },
+    {
+      "check": "contradiction",
+      "level": "info",
+      "message": "No contradictory tracked counts found"
+    },
+    {
+      "check": "missing_concept",
+      "level": "info",
+      "message": "All required narrative concepts and indexed tags are represented"
+    },
+    {
+      "check": "external_link",
+      "level": "info",
+      "message": "All 5 unique external links passed live validation"
+    }
+  ],
+  "generated_at": "2026-05-12T04:35:57+00:00",
+  "markdown_files_checked": 108,
+  "scope": "research/hmrc-beyond-hype/narrative",
+  "summary": {
+    "by_check": {
+      "contradiction": {
+        "error": 0,
+        "info": 1,
+        "warning": 0
+      },
+      "external_link": {
+        "error": 0,
+        "info": 1,
+        "warning": 0
+      },
+      "missing_concept": {
+        "error": 0,
+        "info": 1,
+        "warning": 0
+      },
+      "stale_claim": {
+        "error": 0,
+        "info": 72,
+        "warning": 0
+      }
+    },
+    "counts": {
+      "error": 0,
+      "info": 75,
+      "warning": 0
+    },
+    "external_link_status_counts": {
+      "ok": 5
+    },
+    "status": "passed"
+  }
+}

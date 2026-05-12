@@ -49,6 +49,7 @@ Frames the public-sector problem: guidance can exist but still be hard to find, 
 - [06 Repo Case Study Codex Build](../../../06_repo_case_study_codex_build.md)
 - [Engineering Accountability In Public Sector Ai.Speakers](../../../transcripts/engineering-accountability-in-public-sector-ai.speakers.md)
 - [Workbench](../../../../../challenge-2/wiki/workbench.md)
+- [Challenge 2 worked example](../../notes/challenge-2-worked-example.md)
 
 ## Publication Status
 

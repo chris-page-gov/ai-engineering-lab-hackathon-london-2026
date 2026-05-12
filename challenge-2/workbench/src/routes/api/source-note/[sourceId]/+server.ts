@@ -1,17 +1,17 @@
 import { error } from '@sveltejs/kit';
-import { loadCorpusFromDisk } from '$lib/server/corpus';
+import { loadAllCorporaFromDisk } from '$lib/server/corpus';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
 export const entries = async () => {
-  const corpus = await loadCorpusFromDisk();
-  return corpus.sources.map((source) => ({ sourceId: source.sourceId }));
+  const corpora = await loadAllCorporaFromDisk();
+  return corpora.flatMap((corpus) => corpus.sources.map((source) => ({ sourceId: source.sourceId })));
 };
 
 export const GET: RequestHandler = async ({ params }) => {
-  const corpus = await loadCorpusFromDisk();
-  const source = corpus.sources.find((candidate) => candidate.sourceId === params.sourceId);
+  const corpora = await loadAllCorporaFromDisk();
+  const source = corpora.flatMap((corpus) => corpus.sources).find((candidate) => candidate.sourceId === params.sourceId);
   if (!source) {
     throw error(404, 'Source note not found');
   }

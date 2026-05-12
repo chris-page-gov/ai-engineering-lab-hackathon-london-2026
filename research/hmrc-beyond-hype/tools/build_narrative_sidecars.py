@@ -31,6 +31,7 @@ SLIDES_DIR = NARRATIVE_DIR / "slides"
 ASSETS_DIR = NARRATIVE_DIR / "assets" / "visuals"
 DATA_DIR = NARRATIVE_DIR / "data"
 NOTES_DIR = NARRATIVE_DIR / "notes"
+SEELINKS_DIR = NARRATIVE_DIR / "seelinks"
 
 THUMBNAIL_WIDTH = 960
 GENERATED_MARKER = (
@@ -57,6 +58,18 @@ class ImportTreatment:
     treatment: str
     treatment_path: Path
     publication_status: str
+
+
+@dataclass(frozen=True)
+class AiBriefingSection:
+    filename: str
+    title: str
+    source_heading: str
+    source_line_range: str
+    tags: tuple[str, ...]
+    summary: str
+    talk_use: tuple[str, ...]
+    linked_notes: tuple[str, ...]
 
 
 VISUAL_SOURCES = (
@@ -292,6 +305,304 @@ AI_CODING_ASSISTANTS_MARKDOWN = (
 )
 AI_CODING_ASSISTANTS_DOCX = (
     IMPORT_DIR / "AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.docx"
+)
+AI_BRIEFING_SECTIONS = (
+    AiBriefingSection(
+        filename="ai-coding-assistants-executive-summary.md",
+        title="AI Coding Assistants Executive Summary",
+        source_heading="Executive summary",
+        source_line_range="5-16",
+        tags=(
+            "agentic-coding",
+            "ai-assistants",
+            "governance",
+            "hmrc",
+            "market-scan",
+            "public-sector",
+            "workflow",
+        ),
+        summary=(
+            "Use this as the one-screen briefing for why the talk exists. The market has "
+            "moved beyond autocomplete towards repo-aware, tool-using assistants, but the "
+            "public-sector test is whether the workflow can be governed."
+        ),
+        talk_use=(
+            "Open the market context after the dark-data problem: the question is not only "
+            "which model is strongest, but which assisted workflow a team can control.",
+            "Frame the Challenge 2 repo as evidence of a source-backed, human-governed "
+            "workflow rather than a claim that AI can replace engineering ownership.",
+            "Keep the safe starting point explicit: supervised assistance on lower-risk, "
+            "synthetic, or sanitised material first.",
+        ),
+        linked_notes=(
+            "ai-coding-assistants-market-map.md",
+            "ai-coding-assistants-public-sector-controls.md",
+            "ai-coding-assistants-repo-case-study.md",
+        ),
+    ),
+    AiBriefingSection(
+        filename="ai-coding-assistants-market-map.md",
+        title="AI Coding Assistants Market Map",
+        source_heading="State of the market",
+        source_line_range="18-99",
+        tags=(
+            "agentic-coding",
+            "ai-assistants",
+            "market-scan",
+            "timeline",
+            "tooling",
+            "workflow",
+        ),
+        summary=(
+            "Use this note to explain the tool categories without turning the talk into a "
+            "vendor comparison. The useful categories are IDE chat, terminal or repo agents, "
+            "PR and CI review assistants, autonomous issue-to-PR agents, and enterprise "
+            "control layers."
+        ),
+        talk_use=(
+            "Explain the shift from suggest-code to complete-a-bounded-task.",
+            "Tie each category to a different control posture: simple IDE use needs one set "
+            "of guardrails; terminal agents and cloud agents need stronger approvals, "
+            "sandboxing, logging, and branch protection.",
+            "Treat feature, preview, benchmark, and autonomy claims as dated evidence rather "
+            "than stable product truths.",
+        ),
+        linked_notes=(
+            "ai-coding-assistants-productivity-evidence.md",
+            "ai-coding-assistants-failure-modes.md",
+            "ai-coding-assistants-source-register.md",
+        ),
+    ),
+    AiBriefingSection(
+        filename="ai-coding-assistants-productivity-evidence.md",
+        title="AI Coding Assistants Productivity Evidence",
+        source_heading="Evidence on productivity and quality",
+        source_line_range="100-127",
+        tags=(
+            "ai-assistants",
+            "evaluation",
+            "evidence",
+            "market-scan",
+            "productivity",
+            "testing",
+            "validation",
+        ),
+        summary=(
+            "Use this note to avoid both lazy extremes. The evidence supports real gains on "
+            "bounded, well-specified, easy-to-check work, but it does not support a blanket "
+            "claim that all developers are faster in all brownfield settings."
+        ),
+        talk_use=(
+            "Pair the 2023 Copilot speed evidence with the 2025 METR caution about mature "
+            "repos and experienced maintainers.",
+            "Use benchmark results as capability signals, not as assurance evidence for a "
+            "departmental estate.",
+            "Translate productivity into pilot measures: cycle time, review time, rework, "
+            "defects, security findings, and whether changes are kept.",
+        ),
+        linked_notes=(
+            "ai-coding-assistants-failure-modes.md",
+            "ai-coding-assistants-public-sector-controls.md",
+            "ai-coding-assistants-q-and-a.md",
+        ),
+    ),
+    AiBriefingSection(
+        filename="ai-coding-assistants-failure-modes.md",
+        title="AI Coding Assistants Failure Modes",
+        source_heading="Failure modes that matter in practice",
+        source_line_range="128-141",
+        tags=(
+            "agentic-coding",
+            "evaluation",
+            "review",
+            "risk-boundaries",
+            "security",
+            "testing",
+            "validation",
+        ),
+        summary=(
+            "Use this note for the risk pivot. The serious failures are workflow failures: "
+            "over-broad edits, unsafe commands, shallow legacy assumptions, tests that pass "
+            "for the wrong reason, dependency drift, and persuasive review noise."
+        ),
+        talk_use=(
+            "Make review burden part of the story rather than an afterthought.",
+            "Explain why checkpoints, approval workflows, instruction files, and review bots "
+            "exist: the market is building controls around its own failure modes.",
+            "Bridge directly into public-sector guardrails before discussing real data or "
+            "production systems.",
+        ),
+        linked_notes=(
+            "ai-coding-assistants-public-sector-controls.md",
+            "ai-coding-assistants-talk-track.md",
+            "ai-coding-assistants-q-and-a.md",
+        ),
+    ),
+    AiBriefingSection(
+        filename="ai-coding-assistants-public-sector-controls.md",
+        title="AI Coding Assistants Public-Sector Controls",
+        source_heading="Public-sector constraints and controls",
+        source_line_range="142-220",
+        tags=(
+            "auditability",
+            "governance",
+            "hmrc",
+            "public-sector",
+            "risk-boundaries",
+            "security",
+            "validation",
+        ),
+        summary=(
+            "Use this note as the HMRC-safe adoption page. It translates coding-agent "
+            "capability into controls for data classification, secrets, logging, retention, "
+            "prompt injection, secure SDLC, human accountability, and repo instructions."
+        ),
+        talk_use=(
+            "Give the audience practical first uses: tests, documentation, onboarding, typed "
+            "refactors, migration prep, PR summaries, and source-backed analysis over "
+            "synthetic or sanitised corpora.",
+            "Keep the no-go list visible: production database operations, privileged "
+            "infrastructure changes, sensitive casework logic, policy-significant rules, and "
+            "automatic merges.",
+            "Point teams at an `AGENTS.md`-style operating contract: allowed commands, "
+            "forbidden paths, required evidence, data rules, MCP/tool policy, and escalation.",
+        ),
+        linked_notes=(
+            "ai-coding-assistants-failure-modes.md",
+            "ai-coding-assistants-repo-case-study.md",
+            "ai-coding-assistants-q-and-a.md",
+        ),
+    ),
+    AiBriefingSection(
+        filename="ai-coding-assistants-repo-case-study.md",
+        title="AI Coding Assistants Repo Case Study",
+        source_heading="Repo-anchored case study",
+        source_line_range="221-324",
+        tags=(
+            "challenge-2",
+            "codex",
+            "dark-data",
+            "provenance",
+            "source-backed-answers",
+            "talk-demo",
+            "workflow",
+        ),
+        summary=(
+            "Use this note as the bridge from market discussion into the live repo. The case "
+            "study is useful because it demonstrates a governable, evidence-producing "
+            "assistant-led workflow: generated wiki, workbench, evidence export, evaluation "
+            "harness, MCP support, and documentation lockstep."
+        ),
+        talk_use=(
+            "Say that the repo does not prove AI replaces teams; it proves that a controlled "
+            "workflow can make source-backed work inspectable.",
+            "Use the Challenge 2 Workbench and evidence bundle as the concrete demo of "
+            "provenance as product.",
+            "Show tests, docs, MCP, and postmortem artefacts as engineering controls rather "
+            "than optional polish.",
+        ),
+        linked_notes=(
+            "challenge-2-worked-example.md",
+            "ai-coding-assistants-talk-track.md",
+            "ai-coding-assistants-q-and-a.md",
+        ),
+    ),
+    AiBriefingSection(
+        filename="ai-coding-assistants-talk-track.md",
+        title="AI Coding Assistants Talk Track",
+        source_heading="What to say in the HMRC talk",
+        source_line_range="326-346",
+        tags=(
+            "agentic-coding",
+            "hmrc",
+            "public-sector",
+            "risk-boundaries",
+            "talk-demo",
+            "workflow",
+        ),
+        summary=(
+            "Use this note as speaker guardrails. The talk should say the labour is shifting "
+            "towards steering, review, proof, and governance, while avoiding claims that "
+            "assistants make all developers faster or replace accountable review."
+        ),
+        talk_use=(
+            "Use the positive line: the repo shows human specification, constraints, docs, "
+            "tests, evidence export, and security review working together.",
+            "Use the boundary line: do not equate benchmark gains, enterprise licences, or "
+            "PR-review bots with safe departmental deployment.",
+            "Connect every claim back to evidence and provenance.",
+        ),
+        linked_notes=(
+            "ai-coding-assistants-executive-summary.md",
+            "ai-coding-assistants-repo-case-study.md",
+            "ai-coding-assistants-source-register.md",
+        ),
+    ),
+    AiBriefingSection(
+        filename="ai-coding-assistants-q-and-a.md",
+        title="AI Coding Assistants Q&A Prep",
+        source_heading="Suggested Q&A answers",
+        source_line_range="348-369",
+        tags=(
+            "ai-assistants",
+            "governance",
+            "hmrc",
+            "public-sector",
+            "q-and-a",
+            "risk-boundaries",
+            "security",
+        ),
+        summary=(
+            "Use this note as the compact answer bank for audience questions about whether "
+            "tools are more than autocomplete, which product to start with, sensitive data, "
+            "terminal access, repo instruction files, pilot measurement, and naming."
+        ),
+        talk_use=(
+            "Answer product-choice questions by starting with control pattern, not vendor.",
+            "Answer sensitive-data questions with explicit boundaries: approved tenancy, "
+            "bounded credentials, protected branches, and human review.",
+            "Answer replacement questions by reserving ownership and accountability language "
+            "for people and teams.",
+        ),
+        linked_notes=(
+            "ai-coding-assistants-public-sector-controls.md",
+            "ai-coding-assistants-productivity-evidence.md",
+            "ai-coding-assistants-talk-track.md",
+        ),
+    ),
+    AiBriefingSection(
+        filename="ai-coding-assistants-source-register.md",
+        title="AI Coding Assistants Source Register And Validation Limits",
+        source_heading="Source register and link validation",
+        source_line_range="371-540",
+        tags=(
+            "evidence",
+            "governance",
+            "market-scan",
+            "provenance",
+            "public-sector",
+            "source-register",
+            "validation",
+        ),
+        summary=(
+            "Use this note as the evidence ledger. It separates official tool/product sources, "
+            "productivity and benchmark sources, UK public-sector guidance, validation status, "
+            "and open limitations for the 9 May 2026 snapshot."
+        ),
+        talk_use=(
+            "Recheck fast-moving product docs, preview labels, pricing, and roadmap claims "
+            "before the live talk.",
+            "Treat unresolved short-SHA commit links and any not-revalidated guidance URL as "
+            "clearly caveated evidence.",
+            "Keep the source register visible so the talk does not depend on unsourced market "
+            "memory.",
+        ),
+        linked_notes=(
+            "ai-coding-assistants-market-map.md",
+            "ai-coding-assistants-productivity-evidence.md",
+            "ai-coding-assistants-talk-track.md",
+        ),
+    ),
 )
 AUDIO_SOURCE_NOTES = (
     (
@@ -836,6 +1147,20 @@ def markdown_link(from_file: Path, label: str, target: Path) -> str:
     return f"[{label}]({quote(rel_link(from_file, target), safe='/#._-')})"
 
 
+def markdown_link_with_anchor(from_file: Path, label: str, target: Path, anchor: str) -> str:
+    return (
+        f"[{label}]({quote(rel_link(from_file, target), safe='/#._-')}"
+        f"#{anchor_for_heading(anchor)})"
+    )
+
+
+def anchor_for_heading(value: str) -> str:
+    value = value.lower().replace("`", "")
+    value = re.sub(r"[^a-z0-9 _-]", "", value)
+    value = re.sub(r"\s+", "-", value.strip())
+    return value
+
+
 def ensure_dirs() -> None:
     for directory in (SLIDES_DIR, ASSETS_DIR, DATA_DIR, NOTES_DIR):
         directory.mkdir(parents=True, exist_ok=True)
@@ -996,6 +1321,18 @@ def sidecar_body(
         if target.exists():
             label = Path(key).stem.replace("-", " ").replace("_", " ").title()
             related_links.append(markdown_link(sidecar_path, label, target))
+    if source.source_id in {
+        "challenge-2-unlocking-dark-data",
+        "dark-data-blueprint",
+        "ai-benchmark-mastery-scoring-guide",
+    }:
+        related_links.append(
+            markdown_link(
+                sidecar_path,
+                "Challenge 2 worked example",
+                NOTES_DIR / "challenge-2-worked-example.md",
+            )
+        )
 
     caveats = [source.caveat]
     if ocr_warning:
@@ -1117,8 +1454,12 @@ def markdown_headings(path: Path) -> list[str]:
     return headings
 
 
+def is_import_source_file(path: Path) -> bool:
+    return path.is_file() and not path.name.startswith(("~$", ".")) and path.name != ".DS_Store"
+
+
 def import_file_names() -> list[str]:
-    return sorted(path.name for path in IMPORT_DIR.iterdir() if path.is_file())
+    return sorted(path.name for path in IMPORT_DIR.iterdir() if is_import_source_file(path))
 
 
 def visual_treatments() -> dict[str, ImportTreatment]:
@@ -1287,6 +1628,8 @@ This deck is now organised as a complete route:
 - Slides 06-12: the delegate/review/own model applied to plan, design, build, test, review, document, deploy, and maintain.
 - Slides 13-15: the responsibility matrix, flywheel, and rollout steps that turn the concept into team practice.
 
+Source status: imported visual claims are a point-in-time talk-prep snapshot; recheck model, benchmark, and product-state claims before quoting them live.
+
 ## Slide-By-Slide Route
 
 {links}
@@ -1363,6 +1706,16 @@ def write_ai_native_guide(source: VisualSource, rows: list[dict[str, str]]) -> N
 
 This guide turns the `AI-Native_Engineering_Blueprint.pptx` sidecars into a navigable story for the HMRC talk. It is the preferred entry point for this deck.
 
+## Table Of Contents
+
+- [Scope Note](#scope-note)
+- [What This Deck Does](#what-this-deck-does)
+- [Recommended Talk Route](#recommended-talk-route)
+- [Full Narrative Route](#full-narrative-route)
+- [Slide-By-Slide Narrative Map](#slide-by-slide-narrative-map)
+- [Public-Sector Reading](#public-sector-reading)
+- [Related Documentation](#related-documentation)
+
 ## Scope Note
 
 This guide covers the 15-slide PowerPoint deck. The import folder also contains related
@@ -1410,6 +1763,232 @@ That route is enough to explain the capability shift, the human accountability m
     )
 
 
+def build_navigation_note() -> None:
+    path = NOTES_DIR / "navigation-and-scope.md"
+    write_file(
+        path,
+        f"""{GENERATED_MARKER}
+---
+tags:
+  - navigation
+  - scope
+  - provenance
+  - traceability
+publication_status: "published narrative note"
+---
+
+# Navigation And Scope
+
+This note records the navigation contract for the HMRC talk narrative pack.
+
+Source status: the scope description is a point-in-time snapshot of the local talk-prep corpus; recheck import-folder contents before publishing or presenting the link.
+
+## Navigation Rule
+
+The narrative wiki should remain browseable from
+{markdown_link(path, "the narrative entry point", NARRATIVE_DIR / "index.md")}.
+Curated HMRC talk notes and transcript notes should link back here or to the main
+narrative. Raw or imported source files can remain source material rather than becoming
+navigational pages.
+
+## Why Not Backlink Every File
+
+Do not add narrative chrome to every generated or source file in the repository. That would
+blur the boundary between the talk narrative and the evidence base, and it would also make
+regenerated source material harder to compare. Instead:
+
+- add backlinks to curated HMRC talk research pages and transcript notes;
+- route Challenge 2 evidence through the
+  {markdown_link(path, "Challenge 2 worked-example hub", NOTES_DIR / "challenge-2-worked-example.md")};
+- keep imported Markdown, raw media, generated source notes, and binary-derived material as
+  evidence that is reached through sidecars or source notes;
+- keep the narrative scope explicit when a source is represented by a summary note, a
+  section-level note set, or a sidecar rather than by editing the source file itself.
+
+## Scope Boundary
+
+The current narrative covers:
+
+- the HMRC talk research brief and core research notes;
+- every current file in `research/hmrc-beyond-hype/import/`, represented through visual
+  sidecars, source notes, transcript notes, or tracked Markdown;
+- the AI Coding Assistants 9 May 2026 briefing as a source note plus section-level notes
+  for the market map, evidence, failure modes, public-sector controls, repo case study,
+  talk track, Q&A prep, and source-register limitations;
+- the Challenge 2 worked example as a case-study hub linked to the generated wiki,
+  workbench, evaluation benchmark, and relevant sidecars.
+
+The narrative does not claim that every long source document has been rewritten line by
+line. Where a source remains long, the narrative provides a route into it, records the
+source slice being represented, and keeps the source file unchanged.
+
+## Related Navigation
+
+- [Overview](../overview.md)
+- [Narrative arc](../narrative-arc.md)
+- [Topic index](../topics.md)
+- [Source materials](../source-materials.md)
+- [Import inventory](import-inventory.md)
+""",
+    )
+
+
+def build_challenge_2_note() -> None:
+    path = NOTES_DIR / "challenge-2-worked-example.md"
+    write_file(
+        path,
+        f"""{GENERATED_MARKER}
+---
+tags:
+  - challenge-2
+  - dark-data
+  - provenance
+  - source-backed-answers
+  - talk-demo
+  - validation
+publication_status: "published narrative note"
+---
+
+# Challenge 2 Worked Example
+
+This is the narrative hub for the repo's worked example. Use it when the talk moves from
+market claims about coding agents to concrete evidence from the AI Engineering Lab Codex
+build.
+
+## What It Shows
+
+- Government-style guidance can exist while still being hard to find, structure, and trust.
+- The useful engineering product is not a fluent answer; it is a source-backed answer path.
+- Codex was useful when the work was framed, constrained, reviewed, documented, and
+  validated.
+- The example uses synthetic Challenge 2 material; it is not production assurance for real
+  HMRC data.
+
+## Demonstration Route
+
+- {markdown_link(path, "Challenge 2 demonstration guide", REPO_ROOT / "challenge-2" / "wiki" / "demonstration-guide.md")}
+- {markdown_link(path, "Challenge 2 wiki index", REPO_ROOT / "challenge-2" / "wiki" / "index.md")}
+- {markdown_link(path, "Challenge 2 architecture", REPO_ROOT / "challenge-2" / "wiki" / "architecture.md")}
+- {markdown_link(path, "Dark Data Workbench guide", REPO_ROOT / "challenge-2" / "wiki" / "workbench.md")}
+- {markdown_link(path, "Challenge 2 evaluation benchmark", REPO_ROOT / "challenge-2" / "wiki" / "evaluation-benchmark.md")}
+
+## Narrative Evidence
+
+- {markdown_link(path, "Repo case study", PACK_DIR / "06_repo_case_study_codex_build.md")}
+- {markdown_link(path, "Challenge 2 Unlocking Dark Data sidecars", SLIDES_DIR / "challenge-2-unlocking-dark-data" / "index.md")}
+- {markdown_link(path, "Dark Data Blueprint sidecars", SLIDES_DIR / "dark-data-blueprint" / "index.md")}
+- {markdown_link(path, "AI Benchmark Mastery Scoring Guide", SLIDES_DIR / "ai-benchmark-mastery-scoring-guide" / "image.md")}
+
+## Talk Use
+
+Use this hub as the re-entry point whenever a reader follows a Challenge 2 evidence link out
+of the narrative. It keeps the case study connected to the talk's main line: provenance,
+review, validation, and accountable human ownership.
+
+## Related Narrative Links
+
+- [Narrative arc](../narrative-arc.md)
+- [Topic index](../topics.md)
+- [Source materials](../source-materials.md)
+- [Navigation and scope](navigation-and-scope.md)
+""",
+    )
+
+
+def ai_briefing_section_links(path: Path) -> str:
+    return "\n".join(
+        f"- {markdown_link(path, section.title, NOTES_DIR / section.filename)}"
+        for section in AI_BRIEFING_SECTIONS
+    )
+
+
+def build_ai_briefing_section_notes() -> None:
+    source_path_text = (
+        "research/hmrc-beyond-hype/import/"
+        f"{AI_CODING_ASSISTANTS_MARKDOWN.name}"
+    )
+    for index, section in enumerate(AI_BRIEFING_SECTIONS):
+        path = NOTES_DIR / section.filename
+        prev_link = ""
+        if index > 0:
+            previous = AI_BRIEFING_SECTIONS[index - 1]
+            prev_link = (
+                f"- Previous: {markdown_link(path, previous.title, NOTES_DIR / previous.filename)}"
+            )
+        next_link = ""
+        if index < len(AI_BRIEFING_SECTIONS) - 1:
+            next_section = AI_BRIEFING_SECTIONS[index + 1]
+            next_link = (
+                f"- Next: {markdown_link(path, next_section.title, NOTES_DIR / next_section.filename)}"
+            )
+        sequence_links = "\n".join(link for link in (prev_link, next_link) if link)
+        related_links: list[str] = []
+        seen: set[str] = set()
+        for note_filename in section.linked_notes:
+            if note_filename in seen:
+                continue
+            seen.add(note_filename)
+            related_path = NOTES_DIR / note_filename
+            if related_path.exists() or note_filename in {
+                item.filename for item in AI_BRIEFING_SECTIONS
+            }:
+                label = next(
+                    (
+                        item.title
+                        for item in AI_BRIEFING_SECTIONS
+                        if item.filename == note_filename
+                    ),
+                    note_filename.removesuffix(".md").replace("-", " ").title(),
+                )
+                related_links.append(
+                    f"- {markdown_link(path, label, related_path)}"
+                )
+        talk_use = "\n".join(f"- {line}" for line in section.talk_use)
+        tag_block = "\n".join(f"  - {tag}" for tag in section.tags)
+        related_block = "\n".join(related_links) or "- No additional section links."
+        write_file(
+            path,
+            f"""{GENERATED_MARKER}
+---
+tags:
+{tag_block}
+publication_status: "published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing"
+---
+
+# {section.title}
+
+{section.summary}
+
+## Source Slice
+
+- Source path: `{source_path_text}`.
+- Source section: {markdown_link_with_anchor(path, section.source_heading, AI_CODING_ASSISTANTS_MARKDOWN, section.source_heading)}.
+- Source line range in the current import file: `{section.source_line_range}`.
+- Source status: point-in-time public-source snapshot dated 9 May 2026; recheck fast-moving product claims before live use.
+
+## Talk Use
+
+{talk_use}
+
+## Route
+
+- Hub: [AI Coding Assistants market briefing](ai-coding-assistants-market-briefing.md)
+{sequence_links}
+
+## Related Notes
+
+{related_block}
+
+## Narrative Navigation
+
+- [Narrative arc](../narrative-arc.md)
+- [Topic index](../topics.md)
+- [Q&A prep](ai-coding-assistants-q-and-a.md)
+- [Source materials](../source-materials.md)
+""",
+        )
+
+
 def build_ai_coding_assistants_note() -> None:
     path = NOTES_DIR / "ai-coding-assistants-market-briefing.md"
     source_link = markdown_link(
@@ -1422,6 +2001,7 @@ def build_ai_coding_assistants_note() -> None:
     if not heading_lines:
         heading_lines = "- Source headings were not available during generation."
     docx_paragraphs = docx_paragraph_count(AI_CODING_ASSISTANTS_DOCX)
+    section_links = ai_briefing_section_links(path)
     write_file(
         path,
         f"""{GENERATED_MARKER}
@@ -1454,6 +2034,12 @@ replacement for source-by-source validation immediately before a live talk.
 - DOCX extraction check: {docx_paragraphs} non-empty paragraph(s) were detected locally.
 - Visual companion: [AI Coding Assistants 2026 Evolution](../slides/ai-coding-assistants-2026-evolution/image.md).
 - Evaluation visual: [AI Benchmark Mastery Scoring Guide](../slides/ai-benchmark-mastery-scoring-guide/image.md).
+
+## Section-Level Notes
+
+The 540-line source briefing is decomposed into the following shorter, cross-linked notes:
+
+{section_links}
 
 ## Narrative Use
 
@@ -1495,6 +2081,7 @@ replacement for source-by-source validation immediately before a live talk.
 
 - [Narrative arc](../narrative-arc.md)
 - [Topic index](../topics.md)
+- [Q&A prep](ai-coding-assistants-q-and-a.md)
 - [Source materials](../source-materials.md)
 - [Import inventory](import-inventory.md)
 - [AI-Native Engineering Blueprint narrative guide](../slides/ai-native-engineering-blueprint/narrative-guide.md)
@@ -1522,6 +2109,7 @@ tags:
   - governance
   - public-sector
   - risk-boundaries
+  - transcripts
   - traceability
 publication_status: "published narrative note and transcript links; raw imported audio remains local"
 ---
@@ -1571,6 +2159,7 @@ def build_clawpilot_note() -> None:
 tags:
   - agentic-coding
   - ai-assistants
+  - clawpilot
   - governance
   - identity
   - risk-boundaries
@@ -1744,6 +2333,7 @@ Machine-readable inventory: [import_inventory.csv](../data/import_inventory.csv)
 - [Source materials](../source-materials.md)
 - [Visual coverage report](../data/visual_coverage.md)
 - [Narrative validation report](../data/narrative_validation_report.md)
+- [Narrative semantic lint report](../data/narrative_semantic_lint_report.md)
 """,
     )
 
@@ -1754,6 +2344,7 @@ def write_core_narrative(rows: list[dict[str, str]]) -> None:
         by_source.setdefault(row["source_id"], []).append(row)
 
     index_path = NARRATIVE_DIR / "index.md"
+    ai_section_links_for_index = ai_briefing_section_links(index_path)
     source_links = "\n".join(
         f"- {markdown_link(index_path, source.title, SLIDES_DIR / source.source_id / 'index.md')} "
         f"({len(by_source.get(source.source_id, []))} item(s))"
@@ -1772,12 +2363,17 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 
 - [Overview](overview.md)
 - [Narrative arc](narrative-arc.md)
+- [Navigation and scope](notes/navigation-and-scope.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
 - [Narrative validation report](data/narrative_validation_report.md)
+- [Narrative semantic lint report](data/narrative_semantic_lint_report.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
 - [Goal and acceptance criteria](README.md)
 
 ## Visual Source Sidecars
@@ -1788,16 +2384,25 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md)
 
+## AI Coding Assistants Briefing Route
+
+- [AI Coding Assistants market briefing hub](notes/ai-coding-assistants-market-briefing.md)
+{ai_section_links_for_index}
+
 ## Supporting Source Notes
 
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
+- [AI Coding Assistants Q&A prep](notes/ai-coding-assistants-q-and-a.md)
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
 - [Engineering Accountability audio source](notes/engineering-accountability-audio.md)
 - [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md)
 """,
     )
 
+    overview_path = NARRATIVE_DIR / "overview.md"
+    ai_section_links_for_overview = ai_briefing_section_links(overview_path)
     write_file(
-        NARRATIVE_DIR / "overview.md",
+        overview_path,
         f"""{GENERATED_MARKER}
 # Overview
 
@@ -1807,22 +2412,37 @@ The concrete case study is Challenge 2 from the AI Engineering Lab Codex build: 
 
 The narrative pack keeps the imported visual material close to the evidence. Each slide, PDF page, and standalone image now has a sidecar note that describes the visible point, records tags and caveats, and links back into the research pack or repository artefacts.
 
+The 9 May 2026 AI Coding Assistants briefing is now split into section-level notes so the market scan, evidence base, public-sector controls, case study, talk track, Q&A preparation, and validation caveats can be read independently.
+
 Use the pack as a browseable companion during or after the talk rather than as a replacement for the live demo.
+
+Source status: this overview reflects the current generated narrative pack and the 9 May 2026 AI Coding Assistants briefing; recheck fast-moving product and benchmark claims before live use.
 
 ## Start Points
 
 - [Narrative arc](narrative-arc.md)
+- [Navigation and scope](notes/navigation-and-scope.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
+- [Narrative semantic lint report](data/narrative_semantic_lint_report.md)
+
+## AI Coding Assistants Briefing Route
+
+{ai_section_links_for_overview}
 """,
     )
 
+    arc_path = NARRATIVE_DIR / "narrative-arc.md"
+    ai_section_links_for_arc = ai_briefing_section_links(arc_path)
     write_file(
-        NARRATIVE_DIR / "narrative-arc.md",
+        arc_path,
         f"""{GENERATED_MARKER}
 # Narrative Arc
 
@@ -1834,14 +2454,26 @@ Use the pack as a browseable companion during or after the talk rather than as a
 6. Give the practical first step: pick low-risk internal material, keep raw data immutable, ask for small reviewable changes, require tests, inspect diffs, and record decisions.
 7. Close on the main claim: coding agents are not just faster autocomplete; the productivity gain comes from disciplined workflow as much as model capability.
 
+## AI Coding Assistants Briefing Route
+
+Use this route when the talk needs detail behind the market, evidence, risk, Q&A, or source-validation claims:
+
+{ai_section_links_for_arc}
+
 ## Visual Evidence
 
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
+- [AI Coding Assistants Q&A prep](notes/ai-coding-assistants-q-and-a.md)
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md)
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
+- [Navigation and scope](notes/navigation-and-scope.md)
 - [Source material index](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Topic index](topics.md)
 - [Visual coverage report](data/visual_coverage.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
+- [Narrative semantic lint report](data/narrative_semantic_lint_report.md)
 """,
     )
 
@@ -1876,11 +2508,16 @@ This register lists the imported visual sources that have been turned into publi
 ## External Narrative Inputs
 
 - [Full import inventory](notes/import-inventory.md) records the narrative treatment for every current file in `research/hmrc-beyond-hype/import/`.
-- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md) incorporates the imported Markdown briefing and DOCX companion.
+- [Navigation and scope](notes/navigation-and-scope.md) explains how to move between the narrative wiki and source evidence without turning every source into a navigation page.
+- [Challenge 2 worked example](notes/challenge-2-worked-example.md) is the narrative hub for the repo case-study evidence.
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md) documents the original SeeLinks interface as the visual and interaction target for the HMRC workbench UI pass.
+- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md) incorporates the imported Markdown briefing and DOCX companion, with section-level notes for market context, evidence, public-sector controls, case study, Q&A prep, and validation limits.
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md) incorporates `research/hmrc-beyond-hype/import/clawpilot.md` and the shared ChatGPT thread as inputs, and marks secondary claims that need rechecking before live use.
 - `research/hmrc-beyond-hype/import/clawpilot.md` is a Markdown source input and is intended to be committed with the narrative pack.
 - [Engineering Accountability audio source](notes/engineering-accountability-audio.md) represents `research/hmrc-beyond-hype/import/Engineering_Accountability_in_Public_Sector_AI.m4a` through transcript links and caveats.
 - [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md) represents `research/hmrc-beyond-hype/import/Governing_agentic_AI_in_software_engineering.m4a` through transcript links and caveats.
+- [SeeLinks narrative datapack](seelinks/README.md) exposes the narrative as a workbench-ready card, thumbnail, facet, collection, and graph pack.
+- [Narrative semantic lint report](data/narrative_semantic_lint_report.md) records stale-claim, contradiction, missing-concept, and live external-link checks.
 
 ## Curated Deck Routes
 
@@ -1898,23 +2535,48 @@ def write_topics(rows: list[dict[str, str]]) -> None:
         for tag in row["tags"].split(";"):
             topics.setdefault(tag, []).append(row)
 
+    topic_notes: dict[str, list[tuple[str, Path, str]]] = {}
+    for section in AI_BRIEFING_SECTIONS:
+        for tag in section.tags:
+            topic_notes.setdefault(tag, []).append(
+                (section.title, NOTES_DIR / section.filename, AI_CODING_ASSISTANTS_MARKDOWN.name)
+            )
+    topic_notes.setdefault("market-scan", []).append(
+        (
+            "AI Coding Assistants market briefing",
+            NOTES_DIR / "ai-coding-assistants-market-briefing.md",
+            AI_CODING_ASSISTANTS_MARKDOWN.name,
+        )
+    )
+    topic_notes.setdefault("market-scan", []).append(
+        (
+            "AI Coding Assistants 2026 Evolution",
+            SLIDES_DIR / "ai-coding-assistants-2026-evolution" / "image.md",
+            "AI Coding Assistants 2026 Evolution.png",
+        )
+    )
+
     path = NARRATIVE_DIR / "topics.md"
     sections: list[str] = []
-    for tag in sorted(topics):
-        links = "\n".join(
+    for tag in sorted(set(topics) | set(topic_notes)):
+        visual_links = "\n".join(
             f"- {markdown_link(path, Path(row['sidecar_path']).stem.replace('-', ' ').title(), REPO_ROOT / row['sidecar_path'])} "
             f"({Path(row['source_file']).name})"
-            for row in topics[tag]
+            for row in topics.get(tag, [])
         )
+        note_links = "\n".join(
+            f"- {markdown_link(path, title, note_path)} ({source_name})"
+            for title, note_path, source_name in topic_notes.get(tag, [])
+        )
+        links = "\n".join(link for link in (visual_links, note_links) if link)
         sections.append(f"## `{tag}`\n\n{links}")
     sections.append(
         "## `identity`\n\n"
         "- [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md)"
     )
     sections.append(
-        "## `market-scan`\n\n"
-        "- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)\n"
-        "- [AI Coding Assistants 2026 Evolution](slides/ai-coding-assistants-2026-evolution/image.md)"
+        "## `clawpilot`\n\n"
+        "- [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md)"
     )
     sections.append(
         "## `audio-source`\n\n"
@@ -1922,8 +2584,29 @@ def write_topics(rows: list[dict[str, str]]) -> None:
         "- [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md)"
     )
     sections.append(
+        "## `transcripts`\n\n"
+        "- [Engineering Accountability audio source](notes/engineering-accountability-audio.md)\n"
+        "- [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md)"
+    )
+    sections.append(
         "## `import-inventory`\n\n"
         "- [HMRC Talk Import Inventory](notes/import-inventory.md)"
+    )
+    sections.append(
+        "## `seelinks`\n\n"
+        "- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)\n"
+        "- [SeeLinks narrative datapack](seelinks/README.md)"
+    )
+    sections.append(
+        "## `navigation`\n\n"
+        "- [Navigation and scope](notes/navigation-and-scope.md)\n"
+        "- [Challenge 2 worked example](notes/challenge-2-worked-example.md)\n"
+        "- [SeeLinks narrative datapack](seelinks/README.md)"
+    )
+    topic_toc = "\n".join(
+        f"- [`{match.group(1)}`](#{anchor_for_heading(match.group(1))})"
+        for section in sections
+        if (match := re.match(r"## `(.+)`", section))
     )
     write_file(
         path,
@@ -1931,6 +2614,10 @@ def write_topics(rows: list[dict[str, str]]) -> None:
 # Topic Index
 
 Use these tags to jump into the visual sidecars and supporting narrative notes.
+
+## Table Of Contents
+
+{topic_toc}
 
 {chr(10).join(sections)}
 """,
@@ -1977,10 +2664,17 @@ def write_coverage(rows: list[dict[str, str]]) -> None:
             )
             + " |"
         )
-    item_links = "\n".join(
-        f"- {markdown_link(md_path, row['source_id'] + ' ' + row['item_type'] + ' ' + row['item_number'].zfill(2), REPO_ROOT / row['sidecar_path'])}"
-        for row in rows
+    source_toc = "\n".join(
+        f"- [{source.title}](#{anchor_for_heading(source.title)})"
+        for source in VISUAL_SOURCES
     )
+    item_sections = []
+    for source in VISUAL_SOURCES:
+        links = "\n".join(
+            f"- {markdown_link(md_path, row['source_id'] + ' ' + row['item_type'] + ' ' + row['item_number'].zfill(2), REPO_ROOT / row['sidecar_path'])}"
+            for row in by_source.get(source.source_id, [])
+        )
+        item_sections.append(f"### {source.title}\n\n{links}")
     write_file(
         md_path,
         f"""{GENERATED_MARKER}
@@ -1990,13 +2684,21 @@ Coverage target: every imported PowerPoint slide, PDF page, and standalone image
 
 Total covered items: {len(rows)}.
 
+## Table Of Contents
+
+- [Coverage Summary](#coverage-summary)
+- [Item-Level Coverage](#item-level-coverage)
+{source_toc}
+
+## Coverage Summary
+
 | Source | Type | Expected items | Covered sidecars | Source index | Coverage |
 | --- | --- | ---: | ---: | --- | ---: |
 {chr(10).join(source_rows)}
 
 ## Item-Level Coverage
 
-{item_links}
+{chr(10).join(item_sections)}
 
 Machine-readable coverage is recorded in [visual_coverage.csv](visual_coverage.csv).
 """,
@@ -2021,6 +2723,9 @@ def main() -> int:
         print(f"{source.filename}: {len(built)} item(s) covered")
 
     build_clawpilot_note()
+    build_navigation_note()
+    build_challenge_2_note()
+    build_ai_briefing_section_notes()
     build_ai_coding_assistants_note()
     build_audio_source_notes()
     write_import_inventory()

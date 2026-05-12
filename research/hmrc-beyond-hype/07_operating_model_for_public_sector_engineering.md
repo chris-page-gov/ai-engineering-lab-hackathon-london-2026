@@ -4,6 +4,16 @@ This operating model is designed for public-sector teams that want to try coding
 
 Repo-local citations use the format `path:line` followed by a GitHub permalink to that exact line where available.
 
+## HMRC Talk Navigation
+
+This file is supporting evidence for the HMRC talk narrative:
+
+- [Narrative entry point](narrative/index.md)
+- [Navigation and scope](narrative/notes/navigation-and-scope.md)
+- [AI-Native Engineering Blueprint narrative guide](narrative/slides/ai-native-engineering-blueprint/narrative-guide.md)
+- [Challenge 2 worked example](narrative/notes/challenge-2-worked-example.md)
+- [Topic index](narrative/topics.md)
+
 ## The Five-Layer Model
 
 ### 1. Task Selection
