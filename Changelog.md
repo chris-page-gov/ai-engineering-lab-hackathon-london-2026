@@ -98,6 +98,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Fixed
 
+- 2026-05-12: Updated the Dark Data Workbench HMRC narrative unit and Playwright expectations to match the current 234-card SeeLinks datapack, fixing the `dark-data-workbench / workbench` pull-request check.
 - 2026-05-11: Added a repository Ruff configuration and VS Code Ruff setting so the workspace stops parsing nested external reference `pyproject.toml` files that contain unsupported Ruff rule selectors such as `W503`.
 - 2026-04-29: Fixed Dark Data Workbench Browser AI/MCP context exports so selected sources remain in the exported context even when current filters or search terms hide them.
 - 2026-04-29: Fixed Dark Data Workbench reader `Open note` links that previously resolved to missing `/wiki/...` paths in the app.
@@ -154,6 +155,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ### Validation
 
+- 2026-05-12: Verified the Dark Data Workbench PR check fix with `pnpm check`, `pnpm test`, `pnpm build`, and `pnpm test:ui` in `challenge-2/workbench`; Playwright reported 9 passing browser tests against the HMRC narrative pack.
 - 2026-05-12: Verified the updated HMRC narrative section-note and semantic-lint route with the reproducible sidecar builder, SeeLinks datapack builder, narrative validator (`73` imported visual items, `109` reachable narrative Markdown files, `77` referenced assets, `0` orphaned narrative Markdown files), semantic lint (`0` errors, `0` warnings, `5` live external links OK), tool py_compile, and whitespace checks.
 - 2026-05-11: Verified the HMRC talk narrative sidecar pack with the reproducible builder and validator: `73` imported visual items covered, `90` reachable narrative Markdown files, `73` referenced assets, `0` orphaned narrative Markdown files, and no validation errors.
 - 2026-05-11: Verified the expanded HMRC talk narrative import pack with all `13` current import files represented, `73` imported visual items covered, `95` reachable narrative Markdown files, `73` referenced assets, `0` orphaned narrative Markdown files, and no validation errors.

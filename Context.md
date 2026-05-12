@@ -12,6 +12,8 @@ Repo-local GitHub permalinks in the HMRC talk pack are pinned to the clean talk-
 
 The HMRC talk prep area also has a local import drop under `research/hmrc-beyond-hype/import/`. Large raw decks, images, PDFs, and audio files stay local by default; distilled Markdown inputs and generated transcript artefacts are the publishable Git materials unless a later review explicitly selects a binary source for publication.
 
+The HMRC narrative SeeLinks datapack is currently expected to expose 234 workbench cards. Dark Data Workbench unit and Playwright coverage use that count as a regression check for the committed narrative pack.
+
 ## Current Prototype Focus
 
 The active build work has focused on Challenge 2: Unlocking the dark data.

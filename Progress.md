@@ -42,6 +42,8 @@ The current local branch is `codex/hmrc-talk-transcripts`, continuing the HMRC t
 
 The current local branch is `codex/hmrc-narrative-navigation`, building the HMRC talk narrative wiki and SeeLinks-style workbench datapack from the research pack, imported material, transcripts, Challenge 2 evidence, relevant conversation traces, and original SeeLinks UI reference material. The import and visual sidecar milestone is complete for the current import inventory: all 13 current import files have a narrative treatment, and the visual subset has 50 PowerPoint slide sidecars, 20 PDF page sidecars, and 3 standalone PNG sidecars with small derived image assets, topic/source navigation, coverage output, validation output, a 234-item workbench datapack, and four SeeLinks UI infographics. The 9 May 2026 AI Coding Assistants briefing is now split into section-level notes and linked from the talk arc, topic index, Q&A prep route, and datapack. Full editorial curation of the broader narrative remains open.
 
+The current HMRC narrative pull request now includes a Dark Data Workbench check fix: the unit and Playwright tests expect the current 234-card HMRC narrative SeeLinks datapack rather than the earlier 225-card count.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -180,6 +182,7 @@ The current local branch is `codex/hmrc-narrative-navigation`, building the HMRC
   - ran `cd challenge-2/workbench && pnpm test`;
   - ran `cd challenge-2/workbench && pnpm build`;
   - ran `cd challenge-2/workbench && pnpm test:ui`;
+  - reran the same workbench check sequence after the PR-check fix, including 16 passing Vitest tests and 9 passing Playwright tests;
   - ran `python3 tools/check_documentation_lockstep.py`;
   - ran `git diff --check`.
 - Challenge 2 strict build previously passed with `43 sources, 81 notes, 0 lint issues`.
