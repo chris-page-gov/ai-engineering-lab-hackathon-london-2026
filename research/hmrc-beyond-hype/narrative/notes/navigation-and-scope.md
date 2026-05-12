@@ -12,6 +12,8 @@ publication_status: "published narrative note"
 
 This note records the navigation contract for the HMRC talk narrative pack.
 
+Source status: the scope description is a point-in-time snapshot of the local talk-prep corpus; recheck import-folder contents before publishing or presenting the link.
+
 ## Navigation Rule
 
 The narrative wiki should remain browseable from
@@ -31,8 +33,8 @@ regenerated source material harder to compare. Instead:
   [Challenge 2 worked-example hub](challenge-2-worked-example.md);
 - keep imported Markdown, raw media, generated source notes, and binary-derived material as
   evidence that is reached through sidecars or source notes;
-- keep the narrative scope explicit when a source is represented by a summary note rather
-  than fully decomposed into short notes.
+- keep the narrative scope explicit when a source is represented by a summary note, a
+  section-level note set, or a sidecar rather than by editing the source file itself.
 
 ## Scope Boundary
 
@@ -41,14 +43,15 @@ The current narrative covers:
 - the HMRC talk research brief and core research notes;
 - every current file in `research/hmrc-beyond-hype/import/`, represented through visual
   sidecars, source notes, transcript notes, or tracked Markdown;
-- the AI Coding Assistants 9 May 2026 briefing as a source note and linked source, not yet
-  as a fully exploded set of short topic notes;
+- the AI Coding Assistants 9 May 2026 briefing as a source note plus section-level notes
+  for the market map, evidence, failure modes, public-sector controls, repo case study,
+  talk track, Q&A prep, and source-register limitations;
 - the Challenge 2 worked example as a case-study hub linked to the generated wiki,
   workbench, evaluation benchmark, and relevant sidecars.
 
-The narrative does not yet claim that every long source document has been rewritten into a
-short focused page. Where a source remains long, the narrative provides a route into it and
-records the limitation.
+The narrative does not claim that every long source document has been rewritten line by
+line. Where a source remains long, the narrative provides a route into it, records the
+source slice being represented, and keeps the source file unchanged.
 
 ## Related Navigation
 

@@ -29,6 +29,20 @@ replacement for source-by-source validation immediately before a live talk.
 - Visual companion: [AI Coding Assistants 2026 Evolution](../slides/ai-coding-assistants-2026-evolution/image.md).
 - Evaluation visual: [AI Benchmark Mastery Scoring Guide](../slides/ai-benchmark-mastery-scoring-guide/image.md).
 
+## Section-Level Notes
+
+The 540-line source briefing is decomposed into the following shorter, cross-linked notes:
+
+- [AI Coding Assistants Executive Summary](ai-coding-assistants-executive-summary.md)
+- [AI Coding Assistants Market Map](ai-coding-assistants-market-map.md)
+- [AI Coding Assistants Productivity Evidence](ai-coding-assistants-productivity-evidence.md)
+- [AI Coding Assistants Failure Modes](ai-coding-assistants-failure-modes.md)
+- [AI Coding Assistants Public-Sector Controls](ai-coding-assistants-public-sector-controls.md)
+- [AI Coding Assistants Repo Case Study](ai-coding-assistants-repo-case-study.md)
+- [AI Coding Assistants Talk Track](ai-coding-assistants-talk-track.md)
+- [AI Coding Assistants Q&A Prep](ai-coding-assistants-q-and-a.md)
+- [AI Coding Assistants Source Register And Validation Limits](ai-coding-assistants-source-register.md)
+
 ## Narrative Use
 
 - Use the market categories as the mixed-audience explanation: IDE autocomplete/chat,
@@ -86,6 +100,7 @@ replacement for source-by-source validation immediately before a live talk.
 
 - [Narrative arc](../narrative-arc.md)
 - [Topic index](../topics.md)
+- [Q&A prep](ai-coding-assistants-q-and-a.md)
 - [Source materials](../source-materials.md)
 - [Import inventory](import-inventory.md)
 - [AI-Native Engineering Blueprint narrative guide](../slides/ai-native-engineering-blueprint/narrative-guide.md)

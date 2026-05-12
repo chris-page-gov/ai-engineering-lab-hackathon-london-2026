@@ -49,7 +49,7 @@ describe('workbench corpus model', () => {
     const corpus = await loadCorpusFromDisk(challengeRoot, 'hmrc-narrative');
 
     expect(corpus.title).toBe('HMRC Beyond The Hype Narrative Arc');
-    expect(corpus.sourceCount).toBe(224);
+    expect(corpus.sourceCount).toBe(225);
     expect(corpus.syntheticData).toBe(false);
     expect(corpus.sources.filter((source) => source.thumbnailPath).length).toBeGreaterThanOrEqual(73);
     expect(corpus.facets.map((facet) => facet.id)).toEqual(

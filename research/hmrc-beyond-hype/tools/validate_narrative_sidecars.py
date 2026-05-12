@@ -12,6 +12,7 @@ import sys
 from collections import deque
 from pathlib import Path
 from urllib.parse import unquote
+from xml.etree import ElementTree
 
 from build_narrative_sidecars import (
     ASSETS_DIR,
@@ -49,6 +50,7 @@ DATAPACK_BOUNDED_FACETS = (
     "topic_group",
     "provenance_mode",
 )
+ASSET_ROOT = ASSETS_DIR.parent
 
 
 def repo_relative(path: Path) -> str:
@@ -118,7 +120,7 @@ def validate_links() -> tuple[list[str], dict[Path, set[Path]], set[Path]]:
                 continue
             if resolved.suffix == ".md":
                 inbound.setdefault(resolved, set()).add(markdown_file)
-            if ASSETS_DIR in resolved.parents:
+            if ASSET_ROOT in resolved.parents:
                 referenced_assets.add(resolved)
     return errors, inbound, referenced_assets
 
@@ -363,10 +365,21 @@ def validate() -> dict[str, object]:
         if not inbound_sources:
             errors.append(f"Sidecar has no inbound Markdown link: {repo_relative(sidecar)}")
 
-    actual_assets = {path.resolve() for path in ASSETS_DIR.rglob("*") if path.is_file()}
+    actual_assets = {
+        path.resolve()
+        for path in ASSET_ROOT.rglob("*")
+        if path.is_file() and not path.name.startswith(".")
+    }
     missing_asset_refs = sorted(actual_assets - {path.resolve() for path in referenced_assets})
     for asset in missing_asset_refs:
         errors.append(f"Derived asset is not referenced by Markdown: {repo_relative(asset)}")
+    for asset in sorted(actual_assets):
+        if asset.suffix.lower() != ".svg":
+            continue
+        try:
+            ElementTree.parse(asset)
+        except ElementTree.ParseError as exc:
+            errors.append(f"Invalid SVG asset {repo_relative(asset)}: {exc}")
 
     staged = staged_raw_imports()
     for path in staged:
@@ -379,6 +392,9 @@ def validate() -> dict[str, object]:
         "covered_items": len(coverage),
         "markdown_files": len(all_markdown),
         "asset_files": len(actual_assets),
+        "infographic_asset_files": len(
+            [path for path in (ASSET_ROOT / "infographics").rglob("*") if path.is_file()]
+        ),
         "import_files": len(import_files),
         "orphan_count": len(orphans),
         "sidecar_count": len(sidecar_paths),
@@ -412,6 +428,7 @@ Status: {status}.
 - Sidecar files: {result["sidecar_count"]}
 - Narrative Markdown files: {result["markdown_files"]}
 - Derived asset files: {result["asset_files"]}
+- Infographic asset files: {result["infographic_asset_files"]}
 - Import files represented: {result["import_files"]}
 - Orphaned Markdown files: {result["orphan_count"]}
 

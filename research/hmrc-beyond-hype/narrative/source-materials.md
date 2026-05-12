@@ -19,12 +19,14 @@ This register lists the imported visual sources that have been turned into publi
 - [Full import inventory](notes/import-inventory.md) records the narrative treatment for every current file in `research/hmrc-beyond-hype/import/`.
 - [Navigation and scope](notes/navigation-and-scope.md) explains how to move between the narrative wiki and source evidence without turning every source into a navigation page.
 - [Challenge 2 worked example](notes/challenge-2-worked-example.md) is the narrative hub for the repo case-study evidence.
-- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md) incorporates the imported Markdown briefing and DOCX companion.
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md) documents the original SeeLinks interface as the visual and interaction target for the HMRC workbench UI pass.
+- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md) incorporates the imported Markdown briefing and DOCX companion, with section-level notes for market context, evidence, public-sector controls, case study, Q&A prep, and validation limits.
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md) incorporates `research/hmrc-beyond-hype/import/clawpilot.md` and the shared ChatGPT thread as inputs, and marks secondary claims that need rechecking before live use.
 - `research/hmrc-beyond-hype/import/clawpilot.md` is a Markdown source input and is intended to be committed with the narrative pack.
 - [Engineering Accountability audio source](notes/engineering-accountability-audio.md) represents `research/hmrc-beyond-hype/import/Engineering_Accountability_in_Public_Sector_AI.m4a` through transcript links and caveats.
 - [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md) represents `research/hmrc-beyond-hype/import/Governing_agentic_AI_in_software_engineering.m4a` through transcript links and caveats.
 - [SeeLinks narrative datapack](seelinks/README.md) exposes the narrative as a workbench-ready card, thumbnail, facet, collection, and graph pack.
+- [Narrative semantic lint report](data/narrative_semantic_lint_report.md) records stale-claim, contradiction, missing-concept, and live external-link checks.
 
 ## Curated Deck Routes
 

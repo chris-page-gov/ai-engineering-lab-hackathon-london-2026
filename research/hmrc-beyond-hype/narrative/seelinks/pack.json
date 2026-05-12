@@ -139,7 +139,8 @@
         "hmrc-doc-194-conv-005-codex-postmortem-publication-asse",
         "hmrc-doc-195-ext-karpathy-gist-llm-wiki",
         "hmrc-doc-196-ext-karpathy-x-idea-file",
-        "hmrc-doc-197-ext-karpathy-x-llm-knowledge-bases"
+        "hmrc-doc-197-ext-karpathy-x-llm-knowledge-bases",
+        "hmrc-doc-218-ai-coding-assistants-repo-case-study"
       ],
       "name": "Talk path: Repo"
     },
@@ -152,7 +153,10 @@
         "hmrc-ai-native-engineering-blueprint-02",
         "hmrc-ai-native-engineering-blueprint-03",
         "hmrc-ai-native-engineering-blueprint-04",
-        "hmrc-ai-native-engineering-blueprint-05"
+        "hmrc-ai-native-engineering-blueprint-05",
+        "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "hmrc-doc-214-ai-coding-assistants-market-map"
       ],
       "name": "Talk path: Workflow"
     },
@@ -237,7 +241,9 @@
         "hmrc-ai-native-engineering-team-workflow-01",
         "hmrc-doc-200-02-timeline-ai-software-engineering",
         "hmrc-doc-202-04-agentic-coding-capabilities",
-        "hmrc-doc-205-07-operating-model-for-public-sector-engin"
+        "hmrc-doc-205-07-operating-model-for-public-sector-engin",
+        "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "hmrc-doc-216-ai-coding-assistants-public-sector-control"
       ],
       "name": "Talk path: Limits"
     },
@@ -265,15 +271,15 @@
         "hmrc-doc-206-readme",
         "hmrc-doc-209-index",
         "hmrc-doc-210-narrative-arc",
-        "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "hmrc-doc-212-challenge-2-worked-example",
-        "hmrc-doc-213-clawpilot-project-lobster",
-        "hmrc-doc-214-engineering-accountability-audio",
-        "hmrc-doc-215-governing-agentic-ai-audio",
-        "hmrc-doc-216-import-inventory",
-        "hmrc-doc-217-navigation-and-scope",
-        "hmrc-doc-218-overview",
-        "hmrc-doc-219-source-materials"
+        "hmrc-doc-221-challenge-2-worked-example",
+        "hmrc-doc-222-clawpilot-project-lobster",
+        "hmrc-doc-223-engineering-accountability-audio",
+        "hmrc-doc-224-governing-agentic-ai-audio",
+        "hmrc-doc-225-import-inventory",
+        "hmrc-doc-226-navigation-and-scope",
+        "hmrc-doc-227-seelinks-web-ui-reference",
+        "hmrc-doc-228-overview",
+        "hmrc-doc-229-source-materials"
       ],
       "name": "Talk path: Close"
     },
@@ -288,11 +294,15 @@
         "hmrc-doc-201-03-empirical-evidence-productivity",
         "hmrc-doc-203-05-security-governance-public-sector",
         "hmrc-doc-204-06-repo-case-study-codex-build",
-        "hmrc-doc-220-topics",
-        "hmrc-doc-221-readme",
-        "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "hmrc-doc-224-pyannote-diarization-report"
+        "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "hmrc-doc-219-ai-coding-assistants-source-register",
+        "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "hmrc-doc-230-topics",
+        "hmrc-doc-231-readme",
+        "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "hmrc-doc-234-pyannote-diarization-report"
       ],
       "name": "Talk path: Q&A"
     }
@@ -15962,12 +15972,6 @@
       },
       {
         "from": "hmrc-doc-207-narrative-validation-report",
-        "id": "hmrc-doc-207-narrative-validation-report->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-207-narrative-validation-report",
         "id": "hmrc-doc-207-narrative-validation-report->governance_theme:data-handling",
         "kind": "tagged_with",
         "to": "governance_theme:data-handling"
@@ -16100,6 +16104,12 @@
       },
       {
         "from": "hmrc-doc-209-index",
+        "id": "hmrc-doc-209-index->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-209-index",
         "id": "hmrc-doc-209-index->governance_theme:validation",
         "kind": "tagged_with",
         "to": "governance_theme:validation"
@@ -16121,12 +16131,6 @@
         "id": "hmrc-doc-209-index->governance_theme:operating-model",
         "kind": "tagged_with",
         "to": "governance_theme:operating-model"
-      },
-      {
-        "from": "hmrc-doc-209-index",
-        "id": "hmrc-doc-209-index->governance_theme:source-backed-answers",
-        "kind": "tagged_with",
-        "to": "governance_theme:source-backed-answers"
       },
       {
         "from": "hmrc-doc-210-narrative-arc",
@@ -16225,1142 +16229,1988 @@
         "to": "governance_theme:data-handling"
       },
       {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->source_family:narrative-guide",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->source_family:hmrc-talk-research",
         "kind": "has_category",
-        "to": "source_family:narrative-guide"
+        "to": "source_family:hmrc-talk-research"
       },
       {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->narrative_stage:navigation",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->narrative_stage:workflow-shift",
         "kind": "has_category",
-        "to": "narrative_stage:navigation"
+        "to": "narrative_stage:workflow-shift"
       },
       {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->talk_section:close",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->talk_section:workflow",
         "kind": "has_category",
-        "to": "talk_section:close"
+        "to": "talk_section:workflow"
       },
       {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->evidence_role:source-trail",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->evidence_role:claim-support",
         "kind": "has_category",
-        "to": "evidence_role:source-trail"
+        "to": "evidence_role:claim-support"
       },
       {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->topic_group:evidence-and-provenance",
-        "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->topic_group:agent-workflow",
-        "kind": "tagged_with",
-        "to": "topic_group:agent-workflow"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->topic_group:governance-and-risk",
-        "kind": "tagged_with",
-        "to": "topic_group:governance-and-risk"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->topic_group:evaluation-and-testing",
-        "kind": "tagged_with",
-        "to": "topic_group:evaluation-and-testing"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->topic_group:operating-model",
-        "kind": "tagged_with",
-        "to": "topic_group:operating-model"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->topic_group:tool-market",
-        "kind": "tagged_with",
-        "to": "topic_group:tool-market"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->topic_group:talk-delivery",
-        "kind": "tagged_with",
-        "to": "topic_group:talk-delivery"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->governance_theme:provenance",
-        "kind": "tagged_with",
-        "to": "governance_theme:provenance"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->governance_theme:validation",
-        "kind": "tagged_with",
-        "to": "governance_theme:validation"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->governance_theme:security",
-        "kind": "tagged_with",
-        "to": "governance_theme:security"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->governance_theme:data-handling",
-        "kind": "tagged_with",
-        "to": "governance_theme:data-handling"
-      },
-      {
-        "from": "hmrc-doc-211-ai-coding-assistants-market-briefing",
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing->governance_theme:human-review",
-        "kind": "tagged_with",
-        "to": "governance_theme:human-review"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->source_family:narrative-guide",
-        "kind": "has_category",
-        "to": "source_family:narrative-guide"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->narrative_stage:navigation",
-        "kind": "has_category",
-        "to": "narrative_stage:navigation"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->talk_section:close",
-        "kind": "has_category",
-        "to": "talk_section:close"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->evidence_role:source-trail",
-        "kind": "has_category",
-        "to": "evidence_role:source-trail"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->topic_group:challenge-2-demo",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->topic_group:challenge-2-demo",
         "kind": "tagged_with",
         "to": "topic_group:challenge-2-demo"
       },
       {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->topic_group:evidence-and-provenance",
-        "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->topic_group:agent-workflow",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->topic_group:agent-workflow",
         "kind": "tagged_with",
         "to": "topic_group:agent-workflow"
       },
       {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->topic_group:evaluation-and-testing",
-        "kind": "tagged_with",
-        "to": "topic_group:evaluation-and-testing"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->topic_group:operating-model",
-        "kind": "tagged_with",
-        "to": "topic_group:operating-model"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->topic_group:talk-delivery",
-        "kind": "tagged_with",
-        "to": "topic_group:talk-delivery"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->governance_theme:provenance",
-        "kind": "tagged_with",
-        "to": "governance_theme:provenance"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->governance_theme:validation",
-        "kind": "tagged_with",
-        "to": "governance_theme:validation"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->governance_theme:data-handling",
-        "kind": "tagged_with",
-        "to": "governance_theme:data-handling"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->governance_theme:human-review",
-        "kind": "tagged_with",
-        "to": "governance_theme:human-review"
-      },
-      {
-        "from": "hmrc-doc-212-challenge-2-worked-example",
-        "id": "hmrc-doc-212-challenge-2-worked-example->governance_theme:source-backed-answers",
-        "kind": "tagged_with",
-        "to": "governance_theme:source-backed-answers"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->source_family:narrative-guide",
-        "kind": "has_category",
-        "to": "source_family:narrative-guide"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->narrative_stage:navigation",
-        "kind": "has_category",
-        "to": "narrative_stage:navigation"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->talk_section:close",
-        "kind": "has_category",
-        "to": "talk_section:close"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->evidence_role:source-trail",
-        "kind": "has_category",
-        "to": "evidence_role:source-trail"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->topic_group:evidence-and-provenance",
-        "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->topic_group:agent-workflow",
-        "kind": "tagged_with",
-        "to": "topic_group:agent-workflow"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->topic_group:governance-and-risk",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->topic_group:governance-and-risk",
         "kind": "tagged_with",
         "to": "topic_group:governance-and-risk"
       },
       {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->topic_group:evaluation-and-testing",
-        "kind": "tagged_with",
-        "to": "topic_group:evaluation-and-testing"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->topic_group:operating-model",
-        "kind": "tagged_with",
-        "to": "topic_group:operating-model"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->topic_group:tool-market",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->topic_group:tool-market",
         "kind": "tagged_with",
         "to": "topic_group:tool-market"
       },
       {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->topic_group:talk-delivery",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->topic_group:talk-delivery",
         "kind": "tagged_with",
         "to": "topic_group:talk-delivery"
       },
       {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->governance_theme:provenance",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->governance_theme:provenance",
         "kind": "tagged_with",
         "to": "governance_theme:provenance"
       },
       {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->governance_theme:validation",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->governance_theme:validation",
         "kind": "tagged_with",
         "to": "governance_theme:validation"
       },
       {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->governance_theme:security",
-        "kind": "tagged_with",
-        "to": "governance_theme:security"
-      },
-      {
-        "from": "hmrc-doc-213-clawpilot-project-lobster",
-        "id": "hmrc-doc-213-clawpilot-project-lobster->governance_theme:data-handling",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->governance_theme:data-handling",
         "kind": "tagged_with",
         "to": "governance_theme:data-handling"
       },
       {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->source_family:narrative-guide",
-        "kind": "has_category",
-        "to": "source_family:narrative-guide"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->narrative_stage:navigation",
-        "kind": "has_category",
-        "to": "narrative_stage:navigation"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->talk_section:close",
-        "kind": "has_category",
-        "to": "talk_section:close"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->evidence_role:source-trail",
-        "kind": "has_category",
-        "to": "evidence_role:source-trail"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->topic_group:evidence-and-provenance",
-        "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->topic_group:agent-workflow",
-        "kind": "tagged_with",
-        "to": "topic_group:agent-workflow"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->topic_group:governance-and-risk",
-        "kind": "tagged_with",
-        "to": "topic_group:governance-and-risk"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->topic_group:operating-model",
-        "kind": "tagged_with",
-        "to": "topic_group:operating-model"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->topic_group:talk-delivery",
-        "kind": "tagged_with",
-        "to": "topic_group:talk-delivery"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->governance_theme:provenance",
-        "kind": "tagged_with",
-        "to": "governance_theme:provenance"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->governance_theme:human-review",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->governance_theme:human-review",
         "kind": "tagged_with",
         "to": "governance_theme:human-review"
       },
       {
-        "from": "hmrc-doc-214-engineering-accountability-audio",
-        "id": "hmrc-doc-214-engineering-accountability-audio->governance_theme:risk-boundaries",
-        "kind": "tagged_with",
-        "to": "governance_theme:risk-boundaries"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->source_family:narrative-guide",
-        "kind": "has_category",
-        "to": "source_family:narrative-guide"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->narrative_stage:navigation",
-        "kind": "has_category",
-        "to": "narrative_stage:navigation"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->talk_section:close",
-        "kind": "has_category",
-        "to": "talk_section:close"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->evidence_role:source-trail",
-        "kind": "has_category",
-        "to": "evidence_role:source-trail"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->topic_group:evidence-and-provenance",
-        "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->topic_group:agent-workflow",
-        "kind": "tagged_with",
-        "to": "topic_group:agent-workflow"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->topic_group:governance-and-risk",
-        "kind": "tagged_with",
-        "to": "topic_group:governance-and-risk"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->topic_group:talk-delivery",
-        "kind": "tagged_with",
-        "to": "topic_group:talk-delivery"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->governance_theme:provenance",
-        "kind": "tagged_with",
-        "to": "governance_theme:provenance"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->governance_theme:human-review",
-        "kind": "tagged_with",
-        "to": "governance_theme:human-review"
-      },
-      {
-        "from": "hmrc-doc-215-governing-agentic-ai-audio",
-        "id": "hmrc-doc-215-governing-agentic-ai-audio->governance_theme:risk-boundaries",
-        "kind": "tagged_with",
-        "to": "governance_theme:risk-boundaries"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->source_family:narrative-guide",
-        "kind": "has_category",
-        "to": "source_family:narrative-guide"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->narrative_stage:navigation",
-        "kind": "has_category",
-        "to": "narrative_stage:navigation"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->talk_section:close",
-        "kind": "has_category",
-        "to": "talk_section:close"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->evidence_role:source-trail",
-        "kind": "has_category",
-        "to": "evidence_role:source-trail"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->topic_group:challenge-2-demo",
-        "kind": "tagged_with",
-        "to": "topic_group:challenge-2-demo"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->topic_group:evidence-and-provenance",
-        "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->topic_group:agent-workflow",
-        "kind": "tagged_with",
-        "to": "topic_group:agent-workflow"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->topic_group:governance-and-risk",
-        "kind": "tagged_with",
-        "to": "topic_group:governance-and-risk"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->topic_group:evaluation-and-testing",
-        "kind": "tagged_with",
-        "to": "topic_group:evaluation-and-testing"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->topic_group:talk-delivery",
-        "kind": "tagged_with",
-        "to": "topic_group:talk-delivery"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->governance_theme:provenance",
-        "kind": "tagged_with",
-        "to": "governance_theme:provenance"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->governance_theme:validation",
-        "kind": "tagged_with",
-        "to": "governance_theme:validation"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->governance_theme:data-handling",
-        "kind": "tagged_with",
-        "to": "governance_theme:data-handling"
-      },
-      {
-        "from": "hmrc-doc-216-import-inventory",
-        "id": "hmrc-doc-216-import-inventory->governance_theme:operating-model",
+        "from": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary->governance_theme:operating-model",
         "kind": "tagged_with",
         "to": "governance_theme:operating-model"
       },
       {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->source_family:narrative-guide",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->source_family:hmrc-talk-research",
         "kind": "has_category",
-        "to": "source_family:narrative-guide"
+        "to": "source_family:hmrc-talk-research"
       },
       {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->narrative_stage:navigation",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->narrative_stage:governance-boundaries",
         "kind": "has_category",
-        "to": "narrative_stage:navigation"
+        "to": "narrative_stage:governance-boundaries"
       },
       {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->talk_section:close",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->talk_section:limits",
         "kind": "has_category",
-        "to": "talk_section:close"
+        "to": "talk_section:limits"
       },
       {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->evidence_role:source-trail",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->evidence_role:control-risk",
         "kind": "has_category",
-        "to": "evidence_role:source-trail"
+        "to": "evidence_role:control-risk"
       },
       {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->topic_group:challenge-2-demo",
-        "kind": "tagged_with",
-        "to": "topic_group:challenge-2-demo"
-      },
-      {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->topic_group:evidence-and-provenance",
-        "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
-      },
-      {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->topic_group:evaluation-and-testing",
-        "kind": "tagged_with",
-        "to": "topic_group:evaluation-and-testing"
-      },
-      {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->topic_group:talk-delivery",
-        "kind": "tagged_with",
-        "to": "topic_group:talk-delivery"
-      },
-      {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->governance_theme:provenance",
-        "kind": "tagged_with",
-        "to": "governance_theme:provenance"
-      },
-      {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->governance_theme:validation",
-        "kind": "tagged_with",
-        "to": "governance_theme:validation"
-      },
-      {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-217-navigation-and-scope",
-        "id": "hmrc-doc-217-navigation-and-scope->governance_theme:risk-boundaries",
-        "kind": "tagged_with",
-        "to": "governance_theme:risk-boundaries"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->source_family:narrative-guide",
-        "kind": "has_category",
-        "to": "source_family:narrative-guide"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->narrative_stage:navigation",
-        "kind": "has_category",
-        "to": "narrative_stage:navigation"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->talk_section:close",
-        "kind": "has_category",
-        "to": "talk_section:close"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->evidence_role:source-trail",
-        "kind": "has_category",
-        "to": "evidence_role:source-trail"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->topic_group:challenge-2-demo",
-        "kind": "tagged_with",
-        "to": "topic_group:challenge-2-demo"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->topic_group:evidence-and-provenance",
-        "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->topic_group:agent-workflow",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->topic_group:agent-workflow",
         "kind": "tagged_with",
         "to": "topic_group:agent-workflow"
       },
       {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->topic_group:evaluation-and-testing",
-        "kind": "tagged_with",
-        "to": "topic_group:evaluation-and-testing"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->topic_group:talk-delivery",
-        "kind": "tagged_with",
-        "to": "topic_group:talk-delivery"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->governance_theme:provenance",
-        "kind": "tagged_with",
-        "to": "governance_theme:provenance"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->governance_theme:validation",
-        "kind": "tagged_with",
-        "to": "governance_theme:validation"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->governance_theme:data-handling",
-        "kind": "tagged_with",
-        "to": "governance_theme:data-handling"
-      },
-      {
-        "from": "hmrc-doc-218-overview",
-        "id": "hmrc-doc-218-overview->governance_theme:source-backed-answers",
-        "kind": "tagged_with",
-        "to": "governance_theme:source-backed-answers"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->source_family:narrative-guide",
-        "kind": "has_category",
-        "to": "source_family:narrative-guide"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->narrative_stage:navigation",
-        "kind": "has_category",
-        "to": "narrative_stage:navigation"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->talk_section:close",
-        "kind": "has_category",
-        "to": "talk_section:close"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->evidence_role:source-trail",
-        "kind": "has_category",
-        "to": "evidence_role:source-trail"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->topic_group:challenge-2-demo",
-        "kind": "tagged_with",
-        "to": "topic_group:challenge-2-demo"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->topic_group:agent-workflow",
-        "kind": "tagged_with",
-        "to": "topic_group:agent-workflow"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->topic_group:operating-model",
-        "kind": "tagged_with",
-        "to": "topic_group:operating-model"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->topic_group:talk-delivery",
-        "kind": "tagged_with",
-        "to": "topic_group:talk-delivery"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->governance_theme:provenance",
-        "kind": "tagged_with",
-        "to": "governance_theme:provenance"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->governance_theme:validation",
-        "kind": "tagged_with",
-        "to": "governance_theme:validation"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->governance_theme:data-handling",
-        "kind": "tagged_with",
-        "to": "governance_theme:data-handling"
-      },
-      {
-        "from": "hmrc-doc-219-source-materials",
-        "id": "hmrc-doc-219-source-materials->governance_theme:operating-model",
-        "kind": "tagged_with",
-        "to": "governance_theme:operating-model"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->source_family:narrative-guide",
-        "kind": "has_category",
-        "to": "source_family:narrative-guide"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->narrative_stage:navigation",
-        "kind": "has_category",
-        "to": "narrative_stage:navigation"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->talk_section:q-a",
-        "kind": "has_category",
-        "to": "talk_section:q-a"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->evidence_role:source-trail",
-        "kind": "has_category",
-        "to": "evidence_role:source-trail"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->topic_group:challenge-2-demo",
-        "kind": "tagged_with",
-        "to": "topic_group:challenge-2-demo"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->topic_group:evidence-and-provenance",
-        "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->topic_group:agent-workflow",
-        "kind": "tagged_with",
-        "to": "topic_group:agent-workflow"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->topic_group:governance-and-risk",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->topic_group:governance-and-risk",
         "kind": "tagged_with",
         "to": "topic_group:governance-and-risk"
       },
       {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->topic_group:evaluation-and-testing",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->topic_group:evaluation-and-testing",
         "kind": "tagged_with",
         "to": "topic_group:evaluation-and-testing"
       },
       {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->topic_group:operating-model",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->topic_group:operating-model",
         "kind": "tagged_with",
         "to": "topic_group:operating-model"
       },
       {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->topic_group:tool-market",
-        "kind": "tagged_with",
-        "to": "topic_group:tool-market"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->topic_group:talk-delivery",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->topic_group:talk-delivery",
         "kind": "tagged_with",
         "to": "topic_group:talk-delivery"
       },
       {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->governance_theme:provenance",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->governance_theme:provenance",
         "kind": "tagged_with",
         "to": "governance_theme:provenance"
       },
       {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->governance_theme:validation",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->governance_theme:validation",
         "kind": "tagged_with",
         "to": "governance_theme:validation"
       },
       {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->governance_theme:security",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->governance_theme:security",
         "kind": "tagged_with",
         "to": "governance_theme:security"
       },
       {
-        "from": "hmrc-doc-220-topics",
-        "id": "hmrc-doc-220-topics->governance_theme:data-handling",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->governance_theme:data-handling",
         "kind": "tagged_with",
         "to": "governance_theme:data-handling"
       },
       {
-        "from": "hmrc-doc-221-readme",
-        "id": "hmrc-doc-221-readme->source_family:audio-dialogue",
-        "kind": "has_category",
-        "to": "source_family:audio-dialogue"
-      },
-      {
-        "from": "hmrc-doc-221-readme",
-        "id": "hmrc-doc-221-readme->narrative_stage:question-preparation",
-        "kind": "has_category",
-        "to": "narrative_stage:question-preparation"
-      },
-      {
-        "from": "hmrc-doc-221-readme",
-        "id": "hmrc-doc-221-readme->talk_section:q-a",
-        "kind": "has_category",
-        "to": "talk_section:q-a"
-      },
-      {
-        "from": "hmrc-doc-221-readme",
-        "id": "hmrc-doc-221-readme->evidence_role:q-a-prep",
-        "kind": "has_category",
-        "to": "evidence_role:q-a-prep"
-      },
-      {
-        "from": "hmrc-doc-221-readme",
-        "id": "hmrc-doc-221-readme->topic_group:operating-model",
-        "kind": "tagged_with",
-        "to": "topic_group:operating-model"
-      },
-      {
-        "from": "hmrc-doc-221-readme",
-        "id": "hmrc-doc-221-readme->topic_group:talk-delivery",
-        "kind": "tagged_with",
-        "to": "topic_group:talk-delivery"
-      },
-      {
-        "from": "hmrc-doc-221-readme",
-        "id": "hmrc-doc-221-readme->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-221-readme",
-        "id": "hmrc-doc-221-readme->governance_theme:human-review",
+        "from": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes->governance_theme:human-review",
         "kind": "tagged_with",
         "to": "governance_theme:human-review"
       },
       {
-        "from": "hmrc-doc-221-readme",
-        "id": "hmrc-doc-221-readme->governance_theme:risk-boundaries",
-        "kind": "tagged_with",
-        "to": "governance_theme:risk-boundaries"
-      },
-      {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->source_family:audio-dialogue",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->source_family:hmrc-talk-research",
         "kind": "has_category",
-        "to": "source_family:audio-dialogue"
+        "to": "source_family:hmrc-talk-research"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->narrative_stage:question-preparation",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->narrative_stage:workflow-shift",
         "kind": "has_category",
-        "to": "narrative_stage:question-preparation"
+        "to": "narrative_stage:workflow-shift"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->talk_section:q-a",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->talk_section:workflow",
         "kind": "has_category",
-        "to": "talk_section:q-a"
+        "to": "talk_section:workflow"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->evidence_role:q-a-prep",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->evidence_role:claim-support",
         "kind": "has_category",
-        "to": "evidence_role:q-a-prep"
+        "to": "evidence_role:claim-support"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->topic_group:evidence-and-provenance",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->topic_group:evidence-and-provenance",
         "kind": "tagged_with",
         "to": "topic_group:evidence-and-provenance"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->topic_group:agent-workflow",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->topic_group:agent-workflow",
         "kind": "tagged_with",
         "to": "topic_group:agent-workflow"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->topic_group:governance-and-risk",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->topic_group:governance-and-risk",
         "kind": "tagged_with",
         "to": "topic_group:governance-and-risk"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->topic_group:evaluation-and-testing",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->topic_group:evaluation-and-testing",
         "kind": "tagged_with",
         "to": "topic_group:evaluation-and-testing"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->topic_group:operating-model",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->topic_group:operating-model",
         "kind": "tagged_with",
         "to": "topic_group:operating-model"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->topic_group:tool-market",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->topic_group:tool-market",
         "kind": "tagged_with",
         "to": "topic_group:tool-market"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->topic_group:talk-delivery",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->topic_group:talk-delivery",
         "kind": "tagged_with",
         "to": "topic_group:talk-delivery"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->governance_theme:provenance",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->governance_theme:provenance",
         "kind": "tagged_with",
         "to": "governance_theme:provenance"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->governance_theme:validation",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->governance_theme:validation",
         "kind": "tagged_with",
         "to": "governance_theme:validation"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->governance_theme:security",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->governance_theme:security",
         "kind": "tagged_with",
         "to": "governance_theme:security"
       },
       {
-        "from": "hmrc-doc-222-engineering-accountability-in-public-secto",
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto->governance_theme:data-handling",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->governance_theme:data-handling",
         "kind": "tagged_with",
         "to": "governance_theme:data-handling"
       },
       {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->source_family:audio-dialogue",
-        "kind": "has_category",
-        "to": "source_family:audio-dialogue"
-      },
-      {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->narrative_stage:question-preparation",
-        "kind": "has_category",
-        "to": "narrative_stage:question-preparation"
-      },
-      {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->talk_section:q-a",
-        "kind": "has_category",
-        "to": "talk_section:q-a"
-      },
-      {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->evidence_role:q-a-prep",
-        "kind": "has_category",
-        "to": "evidence_role:q-a-prep"
-      },
-      {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->topic_group:evidence-and-provenance",
+        "from": "hmrc-doc-213-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing->governance_theme:human-review",
         "kind": "tagged_with",
-        "to": "topic_group:evidence-and-provenance"
+        "to": "governance_theme:human-review"
       },
       {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->topic_group:agent-workflow",
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->source_family:hmrc-talk-research",
+        "kind": "has_category",
+        "to": "source_family:hmrc-talk-research"
+      },
+      {
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->narrative_stage:workflow-shift",
+        "kind": "has_category",
+        "to": "narrative_stage:workflow-shift"
+      },
+      {
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->talk_section:workflow",
+        "kind": "has_category",
+        "to": "talk_section:workflow"
+      },
+      {
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->evidence_role:claim-support",
+        "kind": "has_category",
+        "to": "evidence_role:claim-support"
+      },
+      {
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->topic_group:agent-workflow",
         "kind": "tagged_with",
         "to": "topic_group:agent-workflow"
       },
       {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->topic_group:governance-and-risk",
-        "kind": "tagged_with",
-        "to": "topic_group:governance-and-risk"
-      },
-      {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->topic_group:evaluation-and-testing",
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->topic_group:evaluation-and-testing",
         "kind": "tagged_with",
         "to": "topic_group:evaluation-and-testing"
       },
       {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->topic_group:operating-model",
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->topic_group:operating-model",
         "kind": "tagged_with",
         "to": "topic_group:operating-model"
       },
       {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->topic_group:talk-delivery",
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->topic_group:tool-market",
+        "kind": "tagged_with",
+        "to": "topic_group:tool-market"
+      },
+      {
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->topic_group:talk-delivery",
         "kind": "tagged_with",
         "to": "topic_group:talk-delivery"
       },
       {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->governance_theme:provenance",
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->governance_theme:provenance",
         "kind": "tagged_with",
         "to": "governance_theme:provenance"
       },
       {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->governance_theme:validation",
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->governance_theme:validation",
         "kind": "tagged_with",
         "to": "governance_theme:validation"
       },
       {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->governance_theme:auditability",
-        "kind": "tagged_with",
-        "to": "governance_theme:auditability"
-      },
-      {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->governance_theme:security",
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->governance_theme:security",
         "kind": "tagged_with",
         "to": "governance_theme:security"
       },
       {
-        "from": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri->governance_theme:data-handling",
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->governance_theme:data-handling",
         "kind": "tagged_with",
         "to": "governance_theme:data-handling"
       },
       {
-        "from": "hmrc-doc-224-pyannote-diarization-report",
-        "id": "hmrc-doc-224-pyannote-diarization-report->source_family:audio-dialogue",
-        "kind": "has_category",
-        "to": "source_family:audio-dialogue"
+        "from": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map->governance_theme:human-review",
+        "kind": "tagged_with",
+        "to": "governance_theme:human-review"
       },
       {
-        "from": "hmrc-doc-224-pyannote-diarization-report",
-        "id": "hmrc-doc-224-pyannote-diarization-report->narrative_stage:question-preparation",
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->source_family:hmrc-talk-research",
+        "kind": "has_category",
+        "to": "source_family:hmrc-talk-research"
+      },
+      {
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->narrative_stage:question-preparation",
         "kind": "has_category",
         "to": "narrative_stage:question-preparation"
       },
       {
-        "from": "hmrc-doc-224-pyannote-diarization-report",
-        "id": "hmrc-doc-224-pyannote-diarization-report->talk_section:q-a",
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->talk_section:q-a",
         "kind": "has_category",
         "to": "talk_section:q-a"
       },
       {
-        "from": "hmrc-doc-224-pyannote-diarization-report",
-        "id": "hmrc-doc-224-pyannote-diarization-report->evidence_role:q-a-prep",
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->evidence_role:claim-support",
         "kind": "has_category",
-        "to": "evidence_role:q-a-prep"
+        "to": "evidence_role:claim-support"
       },
       {
-        "from": "hmrc-doc-224-pyannote-diarization-report",
-        "id": "hmrc-doc-224-pyannote-diarization-report->topic_group:talk-delivery",
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->topic_group:tool-market",
+        "kind": "tagged_with",
+        "to": "topic_group:tool-market"
+      },
+      {
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->topic_group:talk-delivery",
         "kind": "tagged_with",
         "to": "topic_group:talk-delivery"
       },
       {
-        "from": "hmrc-doc-224-pyannote-diarization-report",
-        "id": "hmrc-doc-224-pyannote-diarization-report->governance_theme:validation",
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->governance_theme:validation",
         "kind": "tagged_with",
         "to": "governance_theme:validation"
       },
       {
-        "from": "hmrc-doc-224-pyannote-diarization-report",
-        "id": "hmrc-doc-224-pyannote-diarization-report->governance_theme:auditability",
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->governance_theme:security",
+        "kind": "tagged_with",
+        "to": "governance_theme:security"
+      },
+      {
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence->governance_theme:human-review",
+        "kind": "tagged_with",
+        "to": "governance_theme:human-review"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->source_family:hmrc-talk-research",
+        "kind": "has_category",
+        "to": "source_family:hmrc-talk-research"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->narrative_stage:governance-boundaries",
+        "kind": "has_category",
+        "to": "narrative_stage:governance-boundaries"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->talk_section:limits",
+        "kind": "has_category",
+        "to": "talk_section:limits"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->evidence_role:control-risk",
+        "kind": "has_category",
+        "to": "evidence_role:control-risk"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->governance_theme:security",
+        "kind": "tagged_with",
+        "to": "governance_theme:security"
+      },
+      {
+        "from": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->source_family:hmrc-talk-research",
+        "kind": "has_category",
+        "to": "source_family:hmrc-talk-research"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->narrative_stage:question-preparation",
+        "kind": "has_category",
+        "to": "narrative_stage:question-preparation"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->talk_section:q-a",
+        "kind": "has_category",
+        "to": "talk_section:q-a"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->evidence_role:q-a-prep",
+        "kind": "has_category",
+        "to": "evidence_role:q-a-prep"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->topic_group:tool-market",
+        "kind": "tagged_with",
+        "to": "topic_group:tool-market"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->governance_theme:security",
+        "kind": "tagged_with",
+        "to": "governance_theme:security"
+      },
+      {
+        "from": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->source_family:hmrc-talk-research",
+        "kind": "has_category",
+        "to": "source_family:hmrc-talk-research"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->narrative_stage:worked-example",
+        "kind": "has_category",
+        "to": "narrative_stage:worked-example"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->talk_section:repo",
+        "kind": "has_category",
+        "to": "talk_section:repo"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->evidence_role:demo-object",
+        "kind": "has_category",
+        "to": "evidence_role:demo-object"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->topic_group:challenge-2-demo",
+        "kind": "tagged_with",
+        "to": "topic_group:challenge-2-demo"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->governance_theme:operating-model",
+        "kind": "tagged_with",
+        "to": "governance_theme:operating-model"
+      },
+      {
+        "from": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study->governance_theme:source-backed-answers",
+        "kind": "tagged_with",
+        "to": "governance_theme:source-backed-answers"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->source_family:hmrc-talk-research",
+        "kind": "has_category",
+        "to": "source_family:hmrc-talk-research"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->narrative_stage:question-preparation",
+        "kind": "has_category",
+        "to": "narrative_stage:question-preparation"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->talk_section:q-a",
+        "kind": "has_category",
+        "to": "talk_section:q-a"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->topic_group:tool-market",
+        "kind": "tagged_with",
+        "to": "topic_group:tool-market"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register->governance_theme:human-review",
+        "kind": "tagged_with",
+        "to": "governance_theme:human-review"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->source_family:hmrc-talk-research",
+        "kind": "has_category",
+        "to": "source_family:hmrc-talk-research"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->narrative_stage:question-preparation",
+        "kind": "has_category",
+        "to": "narrative_stage:question-preparation"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->talk_section:q-a",
+        "kind": "has_category",
+        "to": "talk_section:q-a"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->evidence_role:q-a-prep",
+        "kind": "has_category",
+        "to": "evidence_role:q-a-prep"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->topic_group:challenge-2-demo",
+        "kind": "tagged_with",
+        "to": "topic_group:challenge-2-demo"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->governance_theme:security",
+        "kind": "tagged_with",
+        "to": "governance_theme:security"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track->governance_theme:human-review",
+        "kind": "tagged_with",
+        "to": "governance_theme:human-review"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->talk_section:close",
+        "kind": "has_category",
+        "to": "talk_section:close"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->topic_group:challenge-2-demo",
+        "kind": "tagged_with",
+        "to": "topic_group:challenge-2-demo"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->governance_theme:human-review",
+        "kind": "tagged_with",
+        "to": "governance_theme:human-review"
+      },
+      {
+        "from": "hmrc-doc-221-challenge-2-worked-example",
+        "id": "hmrc-doc-221-challenge-2-worked-example->governance_theme:source-backed-answers",
+        "kind": "tagged_with",
+        "to": "governance_theme:source-backed-answers"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->talk_section:close",
+        "kind": "has_category",
+        "to": "talk_section:close"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->topic_group:tool-market",
+        "kind": "tagged_with",
+        "to": "topic_group:tool-market"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->governance_theme:security",
+        "kind": "tagged_with",
+        "to": "governance_theme:security"
+      },
+      {
+        "from": "hmrc-doc-222-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->talk_section:close",
+        "kind": "has_category",
+        "to": "talk_section:close"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->governance_theme:human-review",
+        "kind": "tagged_with",
+        "to": "governance_theme:human-review"
+      },
+      {
+        "from": "hmrc-doc-223-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio->governance_theme:risk-boundaries",
+        "kind": "tagged_with",
+        "to": "governance_theme:risk-boundaries"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->talk_section:close",
+        "kind": "has_category",
+        "to": "talk_section:close"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->governance_theme:human-review",
+        "kind": "tagged_with",
+        "to": "governance_theme:human-review"
+      },
+      {
+        "from": "hmrc-doc-224-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio->governance_theme:risk-boundaries",
+        "kind": "tagged_with",
+        "to": "governance_theme:risk-boundaries"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->talk_section:close",
+        "kind": "has_category",
+        "to": "talk_section:close"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->topic_group:challenge-2-demo",
+        "kind": "tagged_with",
+        "to": "topic_group:challenge-2-demo"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-225-import-inventory",
+        "id": "hmrc-doc-225-import-inventory->governance_theme:operating-model",
+        "kind": "tagged_with",
+        "to": "governance_theme:operating-model"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->talk_section:close",
+        "kind": "has_category",
+        "to": "talk_section:close"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->topic_group:challenge-2-demo",
+        "kind": "tagged_with",
+        "to": "topic_group:challenge-2-demo"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-226-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope->governance_theme:risk-boundaries",
+        "kind": "tagged_with",
+        "to": "governance_theme:risk-boundaries"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->talk_section:close",
+        "kind": "has_category",
+        "to": "talk_section:close"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->topic_group:tool-market",
+        "kind": "tagged_with",
+        "to": "topic_group:tool-market"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->governance_theme:operating-model",
+        "kind": "tagged_with",
+        "to": "governance_theme:operating-model"
+      },
+      {
+        "from": "hmrc-doc-227-seelinks-web-ui-reference",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference->governance_theme:source-backed-answers",
+        "kind": "tagged_with",
+        "to": "governance_theme:source-backed-answers"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->talk_section:close",
+        "kind": "has_category",
+        "to": "talk_section:close"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->topic_group:challenge-2-demo",
+        "kind": "tagged_with",
+        "to": "topic_group:challenge-2-demo"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-228-overview",
+        "id": "hmrc-doc-228-overview->governance_theme:source-backed-answers",
+        "kind": "tagged_with",
+        "to": "governance_theme:source-backed-answers"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->talk_section:close",
+        "kind": "has_category",
+        "to": "talk_section:close"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->topic_group:challenge-2-demo",
+        "kind": "tagged_with",
+        "to": "topic_group:challenge-2-demo"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-229-source-materials",
+        "id": "hmrc-doc-229-source-materials->governance_theme:operating-model",
+        "kind": "tagged_with",
+        "to": "governance_theme:operating-model"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->source_family:narrative-guide",
+        "kind": "has_category",
+        "to": "source_family:narrative-guide"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->narrative_stage:navigation",
+        "kind": "has_category",
+        "to": "narrative_stage:navigation"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->talk_section:q-a",
+        "kind": "has_category",
+        "to": "talk_section:q-a"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->evidence_role:source-trail",
+        "kind": "has_category",
+        "to": "evidence_role:source-trail"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->topic_group:challenge-2-demo",
+        "kind": "tagged_with",
+        "to": "topic_group:challenge-2-demo"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->topic_group:tool-market",
+        "kind": "tagged_with",
+        "to": "topic_group:tool-market"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->governance_theme:security",
+        "kind": "tagged_with",
+        "to": "governance_theme:security"
+      },
+      {
+        "from": "hmrc-doc-230-topics",
+        "id": "hmrc-doc-230-topics->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-231-readme",
+        "id": "hmrc-doc-231-readme->source_family:audio-dialogue",
+        "kind": "has_category",
+        "to": "source_family:audio-dialogue"
+      },
+      {
+        "from": "hmrc-doc-231-readme",
+        "id": "hmrc-doc-231-readme->narrative_stage:question-preparation",
+        "kind": "has_category",
+        "to": "narrative_stage:question-preparation"
+      },
+      {
+        "from": "hmrc-doc-231-readme",
+        "id": "hmrc-doc-231-readme->talk_section:q-a",
+        "kind": "has_category",
+        "to": "talk_section:q-a"
+      },
+      {
+        "from": "hmrc-doc-231-readme",
+        "id": "hmrc-doc-231-readme->evidence_role:q-a-prep",
+        "kind": "has_category",
+        "to": "evidence_role:q-a-prep"
+      },
+      {
+        "from": "hmrc-doc-231-readme",
+        "id": "hmrc-doc-231-readme->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-231-readme",
+        "id": "hmrc-doc-231-readme->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-231-readme",
+        "id": "hmrc-doc-231-readme->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-231-readme",
+        "id": "hmrc-doc-231-readme->governance_theme:human-review",
+        "kind": "tagged_with",
+        "to": "governance_theme:human-review"
+      },
+      {
+        "from": "hmrc-doc-231-readme",
+        "id": "hmrc-doc-231-readme->governance_theme:risk-boundaries",
+        "kind": "tagged_with",
+        "to": "governance_theme:risk-boundaries"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->source_family:audio-dialogue",
+        "kind": "has_category",
+        "to": "source_family:audio-dialogue"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->narrative_stage:question-preparation",
+        "kind": "has_category",
+        "to": "narrative_stage:question-preparation"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->talk_section:q-a",
+        "kind": "has_category",
+        "to": "talk_section:q-a"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->evidence_role:q-a-prep",
+        "kind": "has_category",
+        "to": "evidence_role:q-a-prep"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->topic_group:tool-market",
+        "kind": "tagged_with",
+        "to": "topic_group:tool-market"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->governance_theme:security",
+        "kind": "tagged_with",
+        "to": "governance_theme:security"
+      },
+      {
+        "from": "hmrc-doc-232-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->source_family:audio-dialogue",
+        "kind": "has_category",
+        "to": "source_family:audio-dialogue"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->narrative_stage:question-preparation",
+        "kind": "has_category",
+        "to": "narrative_stage:question-preparation"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->talk_section:q-a",
+        "kind": "has_category",
+        "to": "talk_section:q-a"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->evidence_role:q-a-prep",
+        "kind": "has_category",
+        "to": "evidence_role:q-a-prep"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->topic_group:evidence-and-provenance",
+        "kind": "tagged_with",
+        "to": "topic_group:evidence-and-provenance"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->topic_group:agent-workflow",
+        "kind": "tagged_with",
+        "to": "topic_group:agent-workflow"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->topic_group:governance-and-risk",
+        "kind": "tagged_with",
+        "to": "topic_group:governance-and-risk"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->topic_group:evaluation-and-testing",
+        "kind": "tagged_with",
+        "to": "topic_group:evaluation-and-testing"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->topic_group:operating-model",
+        "kind": "tagged_with",
+        "to": "topic_group:operating-model"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->governance_theme:provenance",
+        "kind": "tagged_with",
+        "to": "governance_theme:provenance"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->governance_theme:auditability",
+        "kind": "tagged_with",
+        "to": "governance_theme:auditability"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->governance_theme:security",
+        "kind": "tagged_with",
+        "to": "governance_theme:security"
+      },
+      {
+        "from": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri->governance_theme:data-handling",
+        "kind": "tagged_with",
+        "to": "governance_theme:data-handling"
+      },
+      {
+        "from": "hmrc-doc-234-pyannote-diarization-report",
+        "id": "hmrc-doc-234-pyannote-diarization-report->source_family:audio-dialogue",
+        "kind": "has_category",
+        "to": "source_family:audio-dialogue"
+      },
+      {
+        "from": "hmrc-doc-234-pyannote-diarization-report",
+        "id": "hmrc-doc-234-pyannote-diarization-report->narrative_stage:question-preparation",
+        "kind": "has_category",
+        "to": "narrative_stage:question-preparation"
+      },
+      {
+        "from": "hmrc-doc-234-pyannote-diarization-report",
+        "id": "hmrc-doc-234-pyannote-diarization-report->talk_section:q-a",
+        "kind": "has_category",
+        "to": "talk_section:q-a"
+      },
+      {
+        "from": "hmrc-doc-234-pyannote-diarization-report",
+        "id": "hmrc-doc-234-pyannote-diarization-report->evidence_role:q-a-prep",
+        "kind": "has_category",
+        "to": "evidence_role:q-a-prep"
+      },
+      {
+        "from": "hmrc-doc-234-pyannote-diarization-report",
+        "id": "hmrc-doc-234-pyannote-diarization-report->topic_group:talk-delivery",
+        "kind": "tagged_with",
+        "to": "topic_group:talk-delivery"
+      },
+      {
+        "from": "hmrc-doc-234-pyannote-diarization-report",
+        "id": "hmrc-doc-234-pyannote-diarization-report->governance_theme:validation",
+        "kind": "tagged_with",
+        "to": "governance_theme:validation"
+      },
+      {
+        "from": "hmrc-doc-234-pyannote-diarization-report",
+        "id": "hmrc-doc-234-pyannote-diarization-report->governance_theme:auditability",
         "kind": "tagged_with",
         "to": "governance_theme:auditability"
       }
@@ -19057,7 +19907,7 @@
         "id": "hmrc-doc-207-narrative-validation-report",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
-        "summary": "Status: failed.",
+        "summary": "Status: passed.",
         "title": "Narrative Validation Report"
       },
       {
@@ -19087,77 +19937,147 @@
         "title": "Narrative Arc"
       },
       {
-        "id": "hmrc-doc-211-ai-coding-assistants-market-briefing",
+        "id": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - agentic-coding - ai-assistants - governance - hmrc - market-scan - public-sector - workflow publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+        "title": "AI Coding Assistants Executive Summary"
+      },
+      {
+        "id": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - agentic-coding - evaluation - review - risk-boundaries - security - testing - validation publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+        "title": "AI Coding Assistants Failure Modes"
+      },
+      {
+        "id": "hmrc-doc-213-ai-coding-assistants-market-briefing",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "Use the market categories as the mixed-audience explanation: IDE autocomplete/chat, repo or terminal agents, PR/review assistants, autonomous issue-to-PR agents, and enterprise control layers. Use the evidence synthesis to avoid a blanket productivity claim: gains are conditional on task shape, repo maturity, user skill, and review burden. Use the public-sector controls to connect tool capability to HMRC-safe adoption: approved data classes, sandboxing, approvals, branch protection, logs, tests, security scanning, and accountable ownership. Use the Q&A section as preparation for questions about tool choice, sensitive data, terminal access, repo instruction files, pilot metrics, and naming.",
         "title": "AI Coding Assistants Market Briefing"
       },
       {
-        "id": "hmrc-doc-212-challenge-2-worked-example",
+        "id": "hmrc-doc-214-ai-coding-assistants-market-map",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - agentic-coding - ai-assistants - market-scan - timeline - tooling - workflow publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+        "title": "AI Coding Assistants Market Map"
+      },
+      {
+        "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - ai-assistants - evaluation - evidence - market-scan - productivity - testing - validation publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+        "title": "AI Coding Assistants Productivity Evidence"
+      },
+      {
+        "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - auditability - governance - hmrc - public-sector - risk-boundaries - security - validation publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+        "title": "AI Coding Assistants Public-Sector Controls"
+      },
+      {
+        "id": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - ai-assistants - governance - hmrc - public-sector - q-and-a - risk-boundaries - security publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+        "title": "AI Coding Assistants Q&A Prep"
+      },
+      {
+        "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - challenge-2 - codex - dark-data - provenance - source-backed-answers - talk-demo - workflow publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+        "title": "AI Coding Assistants Repo Case Study"
+      },
+      {
+        "id": "hmrc-doc-219-ai-coding-assistants-source-register",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - evidence - governance - market-scan - provenance - public-sector - source-register - validation publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+        "title": "AI Coding Assistants Source Register And Validation Limits"
+      },
+      {
+        "id": "hmrc-doc-220-ai-coding-assistants-talk-track",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - agentic-coding - hmrc - public-sector - risk-boundaries - talk-demo - workflow publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+        "title": "AI Coding Assistants Talk Track"
+      },
+      {
+        "id": "hmrc-doc-221-challenge-2-worked-example",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "--- tags: - challenge-2 - dark-data - provenance - source-backed-answers - talk-demo - validation publication_status: \"published narrative note\" ---",
         "title": "Challenge 2 Worked Example"
       },
       {
-        "id": "hmrc-doc-213-clawpilot-project-lobster",
+        "id": "hmrc-doc-222-clawpilot-project-lobster",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "Use this as a short \"where agents are heading\" sidebar in the HMRC talk. The useful point is not a product prediction; it is the enterprise pattern: persistent agents need identity, permissions, channels, observability, revocation, and evidence. The local brief's most important distinction is that \"ClawPilot\" can refer to Microsoft's internal Project Lobster work and also to unrelated public/commercial Clawpilot services. Do not collapse those into one product claim.",
         "title": "ClawPilot / Project Lobster Signal"
       },
       {
-        "id": "hmrc-doc-214-engineering-accountability-audio",
+        "id": "hmrc-doc-223-engineering-accountability-audio",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "Use this dialogue as the accountability and assurance strand: generated output is useful only when the team can show evidence, source grounding, review, and ownership.",
         "title": "Engineering Accountability In Public Sector AI"
       },
       {
-        "id": "hmrc-doc-215-governing-agentic-ai-audio",
+        "id": "hmrc-doc-224-governing-agentic-ai-audio",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "Use this dialogue as the governance strand: agentic software engineering needs explicit boundaries around autonomy, tools, approvals, and production authority.",
         "title": "Governing Agentic AI In Software Engineering"
       },
       {
-        "id": "hmrc-doc-216-import-inventory",
+        "id": "hmrc-doc-225-import-inventory",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "--- tags: - evidence - governance - import-inventory - provenance - traceability publication_status: \"published inventory; raw ignored imports remain local unless explicitly selected\" ---",
         "title": "HMRC Talk Import Inventory"
       },
       {
-        "id": "hmrc-doc-217-navigation-and-scope",
+        "id": "hmrc-doc-226-navigation-and-scope",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "--- tags: - navigation - scope - provenance - traceability publication_status: \"published narrative note\" ---",
         "title": "Navigation And Scope"
       },
       {
-        "id": "hmrc-doc-218-overview",
+        "id": "hmrc-doc-227-seelinks-web-ui-reference",
+        "image": "/api/narrative-asset/assets/note-card.svg",
+        "kind": "source",
+        "summary": "--- tags: - seelinks - datapack - design - navigation - workflow publication_status: \"published UI reference generated from original SeeLinks source snapshot\" ---",
+        "title": "SeeLinks Web UI Reference"
+      },
+      {
+        "id": "hmrc-doc-228-overview",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "The talk is about the shift from typing code to steering agents in public-sector engineering.",
         "title": "Overview"
       },
       {
-        "id": "hmrc-doc-219-source-materials",
+        "id": "hmrc-doc-229-source-materials",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "This register lists the imported visual sources that have been turned into publication-safe sidecars. It also links the non-visual import notes so every file in the import folder has an explicit narrative treatment. Raw imported binaries remain local unless explicitly selected for publication.",
         "title": "Source Materials"
       },
       {
-        "id": "hmrc-doc-220-topics",
+        "id": "hmrc-doc-230-topics",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "Use these tags to jump into the visual sidecars and supporting narrative notes.",
         "title": "Topic Index"
       },
       {
-        "id": "hmrc-doc-221-readme",
+        "id": "hmrc-doc-231-readme",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "Generated locally from the two M4A files in `research/hmrc-beyond-hype/import/` using `ffmpeg`, `whisper-cli`, and pyannote diarization.",
@@ -19169,21 +20089,21 @@
         "title": "Audio dialogue"
       },
       {
-        "id": "hmrc-doc-222-engineering-accountability-in-public-secto",
+        "id": "hmrc-doc-232-engineering-accountability-in-public-secto",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "Source audio: `research/hmrc-beyond-hype/import/Engineering_Accountability_in_Public_Sector_AI.m4a` Base transcript: `research/hmrc-beyond-hype/transcripts/engineering-accountability-in-public-sector-ai.txt` Subtitle timing: `research/hmrc-beyond-hype/transcripts/engineering-accountability-in-public-sector-ai.srt` Diarization model: `pyannote-community/speaker-diarization-community-1` Device: `mps` Voice names: `Trace` / `Query` from pyannote diarization",
         "title": "Engineering Accountability In Public Sector Ai"
       },
       {
-        "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
+        "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "Source audio: `research/hmrc-beyond-hype/import/Governing_agentic_AI_in_software_engineering.m4a` Base transcript: `research/hmrc-beyond-hype/transcripts/governing-agentic-ai-in-software-engineering.txt` Subtitle timing: `research/hmrc-beyond-hype/transcripts/governing-agentic-ai-in-software-engineering.srt` Diarization model: `pyannote-community/speaker-diarization-community-1` Device: `mps` Voice names: `Trace` / `Query` from pyannote diarization",
         "title": "Governing Agentic Ai In Software Engineering"
       },
       {
-        "id": "hmrc-doc-224-pyannote-diarization-report",
+        "id": "hmrc-doc-234-pyannote-diarization-report",
         "image": "/api/narrative-asset/assets/note-card.svg",
         "kind": "source",
         "summary": "## HMRC Talk Navigation",
@@ -31062,7 +31982,7 @@
         "provenance_mode": "Generated note",
         "publication_status": "tracked source material",
         "repo_path": "research/hmrc-beyond-hype/narrative/README.md",
-        "screenfulls": 5,
+        "screenfulls": 6,
         "source_family": "Narrative guide",
         "source_path": "research/hmrc-beyond-hype/narrative/README.md",
         "tags": [
@@ -31104,7 +32024,7 @@
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
       "id": "hmrc-doc-207-narrative-validation-report",
-      "info_text": "Status: failed.",
+      "info_text": "Status: passed.",
       "links": [
         {
           "href": "/api/source-note/hmrc-doc-207-narrative-validation-report",
@@ -31124,7 +32044,6 @@
         "evidence_role": "Validation",
         "governance_theme": [
           "Validation",
-          "Auditability",
           "Data handling",
           "Operating model"
         ],
@@ -31226,17 +32145,17 @@
         "asset_type": "Narrative note",
         "evidence_role": "Source trail",
         "governance_theme": [
+          "Provenance",
           "Validation",
           "Auditability",
           "Data handling",
-          "Operating model",
-          "Source-backed answers"
+          "Operating model"
         ],
         "narrative_stage": "Navigation",
         "provenance_mode": "Generated note",
         "publication_status": "tracked source material",
         "repo_path": "research/hmrc-beyond-hype/narrative/index.md",
-        "screenfulls": 1,
+        "screenfulls": 2,
         "source_family": "Narrative guide",
         "source_path": "research/hmrc-beyond-hype/narrative/index.md",
         "tags": [],
@@ -31303,13 +32222,111 @@
       "tile_subtitle": "Close | Navigation"
     },
     {
-      "category_path": "Narrative guide/Narrative note",
+      "category_path": "HMRC talk research/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-211-ai-coding-assistants-market-briefing",
+      "id": "hmrc-doc-211-ai-coding-assistants-executive-summary",
+      "info_text": "--- tags: - agentic-coding - ai-assistants - governance - hmrc - market-scan - public-sector - workflow publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-211-ai-coding-assistants-executive-summary",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-executive-summary.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "AI Coding Assistants Executive Summary",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Claim support",
+        "governance_theme": [
+          "Provenance",
+          "Validation",
+          "Data handling",
+          "Human review",
+          "Operating model"
+        ],
+        "narrative_stage": "Workflow shift",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-executive-summary.md",
+        "screenfulls": 1,
+        "source_family": "HMRC talk research",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-executive-summary.md",
+        "tags": [],
+        "talk_section": "Workflow",
+        "topic_group": [
+          "Challenge 2 demo",
+          "Agent workflow",
+          "Governance and risk",
+          "Tool market",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "AI Coding Assistants Executive Summary",
+      "tile_subtitle": "Workflow | Workflow shift"
+    },
+    {
+      "category_path": "HMRC talk research/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-212-ai-coding-assistants-failure-modes",
+      "info_text": "--- tags: - agentic-coding - evaluation - review - risk-boundaries - security - testing - validation publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-212-ai-coding-assistants-failure-modes",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-failure-modes.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "AI Coding Assistants Failure Modes",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Control/risk",
+        "governance_theme": [
+          "Provenance",
+          "Validation",
+          "Security",
+          "Data handling",
+          "Human review"
+        ],
+        "narrative_stage": "Governance boundaries",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-failure-modes.md",
+        "screenfulls": 1,
+        "source_family": "HMRC talk research",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-failure-modes.md",
+        "tags": [],
+        "talk_section": "Limits",
+        "topic_group": [
+          "Agent workflow",
+          "Governance and risk",
+          "Evaluation and testing",
+          "Operating model",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "AI Coding Assistants Failure Modes",
+      "tile_subtitle": "Limits | Governance boundaries"
+    },
+    {
+      "category_path": "HMRC talk research/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-213-ai-coding-assistants-market-briefing",
       "info_text": "Use the market categories as the mixed-audience explanation: IDE autocomplete/chat, repo or terminal agents, PR/review assistants, autonomous issue-to-PR agents, and enterprise control layers. Use the evidence synthesis to avoid a blanket productivity claim: gains are conditional on task shape, repo maturity, user skill, and review burden. Use the public-sector controls to connect tool capability to HMRC-safe adoption: approved data classes, sandboxing, approvals, branch protection, logs, tests, security scanning, and accountable ownership. Use the Q&A section as preparation for questions about tool choice, sensitive data, terminal access, repo instruction files, pilot metrics, and naming.",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-211-ai-coding-assistants-market-briefing",
+          "href": "/api/source-note/hmrc-doc-213-ai-coding-assistants-market-briefing",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31323,7 +32340,7 @@
       "properties": {
         "asset_path": "",
         "asset_type": "Narrative note",
-        "evidence_role": "Source trail",
+        "evidence_role": "Claim support",
         "governance_theme": [
           "Provenance",
           "Validation",
@@ -31331,15 +32348,15 @@
           "Data handling",
           "Human review"
         ],
-        "narrative_stage": "Navigation",
+        "narrative_stage": "Workflow shift",
         "provenance_mode": "Generated note",
         "publication_status": "tracked source material",
         "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md",
         "screenfulls": 2,
-        "source_family": "Narrative guide",
+        "source_family": "HMRC talk research",
         "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-briefing.md",
         "tags": [],
-        "talk_section": "Close",
+        "talk_section": "Workflow",
         "topic_group": [
           "Evidence and provenance",
           "Agent workflow",
@@ -31351,16 +32368,362 @@
         ]
       },
       "short_name": "AI Coding Assistants Market Briefing",
-      "tile_subtitle": "Close | Navigation"
+      "tile_subtitle": "Workflow | Workflow shift"
+    },
+    {
+      "category_path": "HMRC talk research/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-214-ai-coding-assistants-market-map",
+      "info_text": "--- tags: - agentic-coding - ai-assistants - market-scan - timeline - tooling - workflow publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-214-ai-coding-assistants-market-map",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-map.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "AI Coding Assistants Market Map",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Claim support",
+        "governance_theme": [
+          "Provenance",
+          "Validation",
+          "Security",
+          "Data handling",
+          "Human review"
+        ],
+        "narrative_stage": "Workflow shift",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-map.md",
+        "screenfulls": 1,
+        "source_family": "HMRC talk research",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-market-map.md",
+        "tags": [],
+        "talk_section": "Workflow",
+        "topic_group": [
+          "Agent workflow",
+          "Evaluation and testing",
+          "Operating model",
+          "Tool market",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "AI Coding Assistants Market Map",
+      "tile_subtitle": "Workflow | Workflow shift"
+    },
+    {
+      "category_path": "HMRC talk research/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+      "info_text": "--- tags: - ai-assistants - evaluation - evidence - market-scan - productivity - testing - validation publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-215-ai-coding-assistants-productivity-evidence",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-productivity-evidence.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "AI Coding Assistants Productivity Evidence",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Claim support",
+        "governance_theme": [
+          "Provenance",
+          "Validation",
+          "Security",
+          "Data handling",
+          "Human review"
+        ],
+        "narrative_stage": "Question preparation",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-productivity-evidence.md",
+        "screenfulls": 1,
+        "source_family": "HMRC talk research",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-productivity-evidence.md",
+        "tags": [],
+        "talk_section": "Q&A",
+        "topic_group": [
+          "Governance and risk",
+          "Evaluation and testing",
+          "Operating model",
+          "Tool market",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "AI Coding Assistants Productivity Evidence",
+      "tile_subtitle": "Q&A | Question preparation"
+    },
+    {
+      "category_path": "HMRC talk research/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-216-ai-coding-assistants-public-sector-control",
+      "info_text": "--- tags: - auditability - governance - hmrc - public-sector - risk-boundaries - security - validation publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-216-ai-coding-assistants-public-sector-control",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-public-sector-controls.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "AI Coding Assistants Public-Sector Controls",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Control/risk",
+        "governance_theme": [
+          "Provenance",
+          "Validation",
+          "Auditability",
+          "Security",
+          "Data handling"
+        ],
+        "narrative_stage": "Governance boundaries",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-public-sector-controls.md",
+        "screenfulls": 1,
+        "source_family": "HMRC talk research",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-public-sector-controls.md",
+        "tags": [],
+        "talk_section": "Limits",
+        "topic_group": [
+          "Evidence and provenance",
+          "Agent workflow",
+          "Governance and risk",
+          "Evaluation and testing",
+          "Operating model",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "AI Coding Assistants Public-Sector Controls",
+      "tile_subtitle": "Limits | Governance boundaries"
+    },
+    {
+      "category_path": "HMRC talk research/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-217-ai-coding-assistants-q-and-a",
+      "info_text": "--- tags: - ai-assistants - governance - hmrc - public-sector - q-and-a - risk-boundaries - security publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-217-ai-coding-assistants-q-and-a",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-q-and-a.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "AI Coding Assistants Q&A Prep",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Q&A prep",
+        "governance_theme": [
+          "Provenance",
+          "Validation",
+          "Auditability",
+          "Security",
+          "Data handling"
+        ],
+        "narrative_stage": "Question preparation",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-q-and-a.md",
+        "screenfulls": 1,
+        "source_family": "HMRC talk research",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-q-and-a.md",
+        "tags": [],
+        "talk_section": "Q&A",
+        "topic_group": [
+          "Governance and risk",
+          "Evaluation and testing",
+          "Operating model",
+          "Tool market",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "AI Coding Assistants Q&A Prep",
+      "tile_subtitle": "Q&A | Question preparation"
+    },
+    {
+      "category_path": "HMRC talk research/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-218-ai-coding-assistants-repo-case-study",
+      "info_text": "--- tags: - challenge-2 - codex - dark-data - provenance - source-backed-answers - talk-demo - workflow publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-218-ai-coding-assistants-repo-case-study",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-repo-case-study.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "AI Coding Assistants Repo Case Study",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Demo object",
+        "governance_theme": [
+          "Provenance",
+          "Validation",
+          "Data handling",
+          "Operating model",
+          "Source-backed answers"
+        ],
+        "narrative_stage": "Worked example",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-repo-case-study.md",
+        "screenfulls": 1,
+        "source_family": "HMRC talk research",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-repo-case-study.md",
+        "tags": [],
+        "talk_section": "Repo",
+        "topic_group": [
+          "Challenge 2 demo",
+          "Evidence and provenance",
+          "Agent workflow",
+          "Evaluation and testing",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "AI Coding Assistants Repo Case Study",
+      "tile_subtitle": "Repo | Worked example"
+    },
+    {
+      "category_path": "HMRC talk research/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-219-ai-coding-assistants-source-register",
+      "info_text": "--- tags: - evidence - governance - market-scan - provenance - public-sector - source-register - validation publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-219-ai-coding-assistants-source-register",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-source-register.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "AI Coding Assistants Source Register And Validation Limits",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Source trail",
+        "governance_theme": [
+          "Provenance",
+          "Validation",
+          "Data handling",
+          "Human review"
+        ],
+        "narrative_stage": "Question preparation",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-source-register.md",
+        "screenfulls": 1,
+        "source_family": "HMRC talk research",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-source-register.md",
+        "tags": [],
+        "talk_section": "Q&A",
+        "topic_group": [
+          "Evidence and provenance",
+          "Governance and risk",
+          "Evaluation and testing",
+          "Operating model",
+          "Tool market",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "AI Coding Assistants Source Register And Validation Limits",
+      "tile_subtitle": "Q&A | Question preparation"
+    },
+    {
+      "category_path": "HMRC talk research/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-220-ai-coding-assistants-talk-track",
+      "info_text": "--- tags: - agentic-coding - hmrc - public-sector - risk-boundaries - talk-demo - workflow publication_status: \"published section-level narrative note from the 9 May 2026 AI Coding Assistants briefing\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-220-ai-coding-assistants-talk-track",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-talk-track.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "AI Coding Assistants Talk Track",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Q&A prep",
+        "governance_theme": [
+          "Provenance",
+          "Validation",
+          "Security",
+          "Data handling",
+          "Human review"
+        ],
+        "narrative_stage": "Question preparation",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-talk-track.md",
+        "screenfulls": 1,
+        "source_family": "HMRC talk research",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/ai-coding-assistants-talk-track.md",
+        "tags": [],
+        "talk_section": "Q&A",
+        "topic_group": [
+          "Challenge 2 demo",
+          "Evidence and provenance",
+          "Agent workflow",
+          "Governance and risk",
+          "Evaluation and testing",
+          "Operating model",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "AI Coding Assistants Talk Track",
+      "tile_subtitle": "Q&A | Question preparation"
     },
     {
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-212-challenge-2-worked-example",
+      "id": "hmrc-doc-221-challenge-2-worked-example",
       "info_text": "--- tags: - challenge-2 - dark-data - provenance - source-backed-answers - talk-demo - validation publication_status: \"published narrative note\" ---",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-212-challenge-2-worked-example",
+          "href": "/api/source-note/hmrc-doc-221-challenge-2-worked-example",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31406,11 +32769,11 @@
     {
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-213-clawpilot-project-lobster",
+      "id": "hmrc-doc-222-clawpilot-project-lobster",
       "info_text": "Use this as a short \"where agents are heading\" sidebar in the HMRC talk. The useful point is not a product prediction; it is the enterprise pattern: persistent agents need identity, permissions, channels, observability, revocation, and evidence. The local brief's most important distinction is that \"ClawPilot\" can refer to Microsoft's internal Project Lobster work and also to unrelated public/commercial Clawpilot services. Do not collapse those into one product claim.",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-213-clawpilot-project-lobster",
+          "href": "/api/source-note/hmrc-doc-222-clawpilot-project-lobster",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31457,11 +32820,11 @@
     {
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-214-engineering-accountability-audio",
+      "id": "hmrc-doc-223-engineering-accountability-audio",
       "info_text": "Use this dialogue as the accountability and assurance strand: generated output is useful only when the team can show evidence, source grounding, review, and ownership.",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-214-engineering-accountability-audio",
+          "href": "/api/source-note/hmrc-doc-223-engineering-accountability-audio",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31505,11 +32868,11 @@
     {
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-215-governing-agentic-ai-audio",
+      "id": "hmrc-doc-224-governing-agentic-ai-audio",
       "info_text": "Use this dialogue as the governance strand: agentic software engineering needs explicit boundaries around autonomy, tools, approvals, and production authority.",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-215-governing-agentic-ai-audio",
+          "href": "/api/source-note/hmrc-doc-224-governing-agentic-ai-audio",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31552,11 +32915,11 @@
     {
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-216-import-inventory",
+      "id": "hmrc-doc-225-import-inventory",
       "info_text": "--- tags: - evidence - governance - import-inventory - provenance - traceability publication_status: \"published inventory; raw ignored imports remain local unless explicitly selected\" ---",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-216-import-inventory",
+          "href": "/api/source-note/hmrc-doc-225-import-inventory",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31602,11 +32965,11 @@
     {
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-217-navigation-and-scope",
+      "id": "hmrc-doc-226-navigation-and-scope",
       "info_text": "--- tags: - navigation - scope - provenance - traceability publication_status: \"published narrative note\" ---",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-217-navigation-and-scope",
+          "href": "/api/source-note/hmrc-doc-226-navigation-and-scope",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31631,7 +32994,7 @@
         "provenance_mode": "Generated note",
         "publication_status": "tracked source material",
         "repo_path": "research/hmrc-beyond-hype/narrative/notes/navigation-and-scope.md",
-        "screenfulls": 1,
+        "screenfulls": 2,
         "source_family": "Narrative guide",
         "source_path": "research/hmrc-beyond-hype/narrative/notes/navigation-and-scope.md",
         "tags": [],
@@ -31649,11 +33012,59 @@
     {
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-218-overview",
+      "id": "hmrc-doc-227-seelinks-web-ui-reference",
+      "info_text": "--- tags: - seelinks - datapack - design - navigation - workflow publication_status: \"published UI reference generated from original SeeLinks source snapshot\" ---",
+      "links": [
+        {
+          "href": "/api/source-note/hmrc-doc-227-seelinks-web-ui-reference",
+          "kind": "seelinks-note",
+          "label": "Open narrative note"
+        },
+        {
+          "href": "research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md",
+          "kind": "repo-path",
+          "label": "Repository path"
+        }
+      ],
+      "name": "SeeLinks Web UI Reference",
+      "properties": {
+        "asset_path": "",
+        "asset_type": "Narrative note",
+        "evidence_role": "Source trail",
+        "governance_theme": [
+          "Auditability",
+          "Data handling",
+          "Operating model",
+          "Source-backed answers"
+        ],
+        "narrative_stage": "Navigation",
+        "provenance_mode": "Generated note",
+        "publication_status": "tracked source material",
+        "repo_path": "research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md",
+        "screenfulls": 3,
+        "source_family": "Narrative guide",
+        "source_path": "research/hmrc-beyond-hype/narrative/notes/seelinks-web-ui-reference.md",
+        "tags": [
+          "datapacks"
+        ],
+        "talk_section": "Close",
+        "topic_group": [
+          "Agent workflow",
+          "Tool market",
+          "Talk delivery"
+        ]
+      },
+      "short_name": "SeeLinks Web UI Reference",
+      "tile_subtitle": "Close | Navigation"
+    },
+    {
+      "category_path": "Narrative guide/Narrative note",
+      "icon": "/api/narrative-asset/assets/note-card.svg",
+      "id": "hmrc-doc-228-overview",
       "info_text": "The talk is about the shift from typing code to steering agents in public-sector engineering.",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-218-overview",
+          "href": "/api/source-note/hmrc-doc-228-overview",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31679,7 +33090,7 @@
         "provenance_mode": "Generated note",
         "publication_status": "tracked source material",
         "repo_path": "research/hmrc-beyond-hype/narrative/overview.md",
-        "screenfulls": 1,
+        "screenfulls": 2,
         "source_family": "Narrative guide",
         "source_path": "research/hmrc-beyond-hype/narrative/overview.md",
         "tags": [],
@@ -31698,11 +33109,11 @@
     {
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-219-source-materials",
+      "id": "hmrc-doc-229-source-materials",
       "info_text": "This register lists the imported visual sources that have been turned into publication-safe sidecars. It also links the non-visual import notes so every file in the import folder has an explicit narrative treatment. Raw imported binaries remain local unless explicitly selected for publication.",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-219-source-materials",
+          "href": "/api/source-note/hmrc-doc-229-source-materials",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31736,6 +33147,7 @@
         "topic_group": [
           "Challenge 2 demo",
           "Agent workflow",
+          "Evaluation and testing",
           "Operating model",
           "Talk delivery"
         ]
@@ -31746,11 +33158,11 @@
     {
       "category_path": "Narrative guide/Narrative note",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-220-topics",
+      "id": "hmrc-doc-230-topics",
       "info_text": "Use these tags to jump into the visual sidecars and supporting narrative notes.",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-220-topics",
+          "href": "/api/source-note/hmrc-doc-230-topics",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31788,16 +33200,16 @@
           "build",
           "capability-trend",
           "challenge-2",
+          "clawpilot",
           "codex",
           "dark-data",
           "design",
           "documentation",
           "evaluation",
+          "evidence",
           "flywheel",
           "governance",
-          "hmrc",
-          "identity",
-          "import-inventory"
+          "hmrc"
         ],
         "talk_section": "Q&A",
         "topic_group": [
@@ -31817,11 +33229,11 @@
     {
       "category_path": "Audio dialogue/Transcript",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-221-readme",
+      "id": "hmrc-doc-231-readme",
       "info_text": "Generated locally from the two M4A files in `research/hmrc-beyond-hype/import/` using `ffmpeg`, `whisper-cli`, and pyannote diarization.",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-221-readme",
+          "href": "/api/source-note/hmrc-doc-231-readme",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31865,11 +33277,11 @@
     {
       "category_path": "Audio dialogue/Transcript",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-222-engineering-accountability-in-public-secto",
+      "id": "hmrc-doc-232-engineering-accountability-in-public-secto",
       "info_text": "Source audio: `research/hmrc-beyond-hype/import/Engineering_Accountability_in_Public_Sector_AI.m4a` Base transcript: `research/hmrc-beyond-hype/transcripts/engineering-accountability-in-public-sector-ai.txt` Subtitle timing: `research/hmrc-beyond-hype/transcripts/engineering-accountability-in-public-sector-ai.srt` Diarization model: `pyannote-community/speaker-diarization-community-1` Device: `mps` Voice names: `Trace` / `Query` from pyannote diarization",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-222-engineering-accountability-in-public-secto",
+          "href": "/api/source-note/hmrc-doc-232-engineering-accountability-in-public-secto",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31919,11 +33331,11 @@
     {
       "category_path": "Audio dialogue/Transcript",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
+      "id": "hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
       "info_text": "Source audio: `research/hmrc-beyond-hype/import/Governing_agentic_AI_in_software_engineering.m4a` Base transcript: `research/hmrc-beyond-hype/transcripts/governing-agentic-ai-in-software-engineering.txt` Subtitle timing: `research/hmrc-beyond-hype/transcripts/governing-agentic-ai-in-software-engineering.srt` Diarization model: `pyannote-community/speaker-diarization-community-1` Device: `mps` Voice names: `Trace` / `Query` from pyannote diarization",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-223-governing-agentic-ai-in-software-engineeri",
+          "href": "/api/source-note/hmrc-doc-233-governing-agentic-ai-in-software-engineeri",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },
@@ -31972,11 +33384,11 @@
     {
       "category_path": "Audio dialogue/Transcript",
       "icon": "/api/narrative-asset/assets/note-card.svg",
-      "id": "hmrc-doc-224-pyannote-diarization-report",
+      "id": "hmrc-doc-234-pyannote-diarization-report",
       "info_text": "## HMRC Talk Navigation",
       "links": [
         {
-          "href": "/api/source-note/hmrc-doc-224-pyannote-diarization-report",
+          "href": "/api/source-note/hmrc-doc-234-pyannote-diarization-report",
           "kind": "seelinks-note",
           "label": "Open narrative note"
         },

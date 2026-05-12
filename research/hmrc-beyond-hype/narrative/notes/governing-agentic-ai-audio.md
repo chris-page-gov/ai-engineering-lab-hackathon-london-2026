@@ -6,6 +6,7 @@ tags:
   - governance
   - public-sector
   - risk-boundaries
+  - transcripts
   - traceability
 publication_status: "published narrative note and transcript links; raw imported audio remains local"
 ---

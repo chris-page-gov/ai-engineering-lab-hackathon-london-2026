@@ -17,31 +17,39 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [`design`](#design)
 - [`documentation`](#documentation)
 - [`evaluation`](#evaluation)
+- [`evidence`](#evidence)
 - [`flywheel`](#flywheel)
 - [`governance`](#governance)
 - [`hmrc`](#hmrc)
+- [`market-scan`](#market-scan)
 - [`mcp`](#mcp)
 - [`operating-model`](#operating-model)
 - [`operations`](#operations)
 - [`planning`](#planning)
+- [`productivity`](#productivity)
 - [`provenance`](#provenance)
 - [`public-sector`](#public-sector)
+- [`q-and-a`](#q-and-a)
 - [`responsibility`](#responsibility)
 - [`review`](#review)
 - [`risk-boundaries`](#risk-boundaries)
 - [`rollout`](#rollout)
 - [`security`](#security)
 - [`source-backed-answers`](#source-backed-answers)
+- [`source-register`](#source-register)
 - [`talk-demo`](#talk-demo)
 - [`testing`](#testing)
 - [`timeline`](#timeline)
+- [`tooling`](#tooling)
 - [`traceability`](#traceability)
 - [`validation`](#validation)
 - [`workflow`](#workflow)
 - [`identity`](#identity)
-- [`market-scan`](#market-scan)
+- [`clawpilot`](#clawpilot)
 - [`audio-source`](#audio-source)
+- [`transcripts`](#transcripts)
 - [`import-inventory`](#import-inventory)
+- [`seelinks`](#seelinks)
 - [`navigation`](#navigation)
 
 ## `agentic-coding`
@@ -97,6 +105,10 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Market Map](notes/ai-coding-assistants-market-map.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Talk Track](notes/ai-coding-assistants-talk-track.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `ai-assistants`
 
 - [Slide 01](slides/ai-native-engineering-blueprint/slide-01.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -172,6 +184,10 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Market Map](notes/ai-coding-assistants-market-map.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `architecture`
 
 - [Slide 04](slides/ai-native-engineering-blueprint/slide-04.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -217,6 +233,7 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `build`
 
 - [Slide 01](slides/ai-native-engineering-blueprint/slide-01.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -325,6 +342,7 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Slide 05](slides/governing-ai-engineering/slide-05.md) (Governing_AI_Engineering.pptx)
 - [Slide 11](slides/governing-ai-engineering/slide-11.md) (Governing_AI_Engineering.pptx)
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `codex`
 
 - [Slide 01](slides/ai-native-engineering-blueprint/slide-01.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -342,6 +360,7 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Slide 13](slides/ai-native-engineering-blueprint/slide-13.md) (AI-Native_Engineering_Blueprint.pptx)
 - [Slide 14](slides/ai-native-engineering-blueprint/slide-14.md) (AI-Native_Engineering_Blueprint.pptx)
 - [Slide 15](slides/ai-native-engineering-blueprint/slide-15.md) (AI-Native_Engineering_Blueprint.pptx)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `dark-data`
 
 - [Slide 01](slides/ai-native-engineering-blueprint/slide-01.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -417,6 +436,7 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `design`
 
 - [Slide 03](slides/ai-native-engineering-blueprint/slide-03.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -513,6 +533,12 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+## `evidence`
+
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `flywheel`
 
 - [Slide 14](slides/ai-native-engineering-blueprint/slide-14.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -584,6 +610,10 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `hmrc`
 
 - [Slide 01](slides/governing-ai-engineering/slide-01.md) (Governing_AI_Engineering.pptx)
@@ -598,6 +628,18 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Slide 10](slides/governing-ai-engineering/slide-10.md) (Governing_AI_Engineering.pptx)
 - [Slide 11](slides/governing-ai-engineering/slide-11.md) (Governing_AI_Engineering.pptx)
 - [Slide 12](slides/governing-ai-engineering/slide-12.md) (Governing_AI_Engineering.pptx)
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Talk Track](notes/ai-coding-assistants-talk-track.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+## `market-scan`
+
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Market Map](notes/ai-coding-assistants-market-map.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants 2026 Evolution](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 ## `mcp`
 
 - [Slide 07](slides/ai-native-engineering-blueprint/slide-07.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -718,6 +760,9 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Page 18](slides/ai-native-engineering-team-source-openai/page-18.md) (AI-Native-Engineering-Team-source_openAI.pdf)
 - [Page 19](slides/ai-native-engineering-team-source-openai/page-19.md) (AI-Native-Engineering-Team-source_openAI.pdf)
 - [Page 20](slides/ai-native-engineering-team-source-openai/page-20.md) (AI-Native-Engineering-Team-source_openAI.pdf)
+## `productivity`
+
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `provenance`
 
 - [Slide 01](slides/challenge-2-unlocking-dark-data/slide-01.md) (Challenge_2_Unlocking_Dark_Data.pptx)
@@ -750,6 +795,8 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Slide 12](slides/governing-ai-engineering/slide-12.md) (Governing_AI_Engineering.pptx)
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `public-sector`
 
 - [Slide 01](slides/governing-ai-engineering/slide-01.md) (Governing_AI_Engineering.pptx)
@@ -764,6 +811,14 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Slide 10](slides/governing-ai-engineering/slide-10.md) (Governing_AI_Engineering.pptx)
 - [Slide 11](slides/governing-ai-engineering/slide-11.md) (Governing_AI_Engineering.pptx)
 - [Slide 12](slides/governing-ai-engineering/slide-12.md) (Governing_AI_Engineering.pptx)
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Talk Track](notes/ai-coding-assistants-talk-track.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+## `q-and-a`
+
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `responsibility`
 
 - [Slide 05](slides/ai-native-engineering-blueprint/slide-05.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -843,6 +898,7 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `risk-boundaries`
 
 - [Slide 02](slides/ai-native-engineering-blueprint/slide-02.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -879,6 +935,10 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Talk Track](notes/ai-coding-assistants-talk-track.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `rollout`
 
 - [Slide 08](slides/ai-native-engineering-blueprint/slide-08.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -916,6 +976,9 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Page 18](slides/ai-native-engineering-team-source-openai/page-18.md) (AI-Native-Engineering-Team-source_openAI.pdf)
 - [Page 19](slides/ai-native-engineering-team-source-openai/page-19.md) (AI-Native-Engineering-Team-source_openAI.pdf)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `source-backed-answers`
 
 - [Slide 01](slides/challenge-2-unlocking-dark-data/slide-01.md) (Challenge_2_Unlocking_Dark_Data.pptx)
@@ -928,6 +991,10 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Slide 08](slides/challenge-2-unlocking-dark-data/slide-08.md) (Challenge_2_Unlocking_Dark_Data.pptx)
 - [Slide 09](slides/challenge-2-unlocking-dark-data/slide-09.md) (Challenge_2_Unlocking_Dark_Data.pptx)
 - [Slide 10](slides/challenge-2-unlocking-dark-data/slide-10.md) (Challenge_2_Unlocking_Dark_Data.pptx)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+## `source-register`
+
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `talk-demo`
 
 - [Slide 01](slides/ai-native-engineering-blueprint/slide-01.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -942,6 +1009,8 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Slide 09](slides/challenge-2-unlocking-dark-data/slide-09.md) (Challenge_2_Unlocking_Dark_Data.pptx)
 - [Slide 10](slides/challenge-2-unlocking-dark-data/slide-10.md) (Challenge_2_Unlocking_Dark_Data.pptx)
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Talk Track](notes/ai-coding-assistants-talk-track.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `testing`
 
 - [Slide 03](slides/ai-native-engineering-blueprint/slide-03.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -983,9 +1052,15 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `timeline`
 
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
+- [AI Coding Assistants Market Map](notes/ai-coding-assistants-market-map.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+## `tooling`
+
+- [AI Coding Assistants Market Map](notes/ai-coding-assistants-market-map.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `traceability`
 
 - [Slide 01](slides/dark-data-blueprint/slide-01.md) (Dark_Data_Blueprint.pptx)
@@ -1076,6 +1151,10 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Image](slides/ai-benchmark-mastery-scoring-guide/image.md) (AI Benchmark Mastery Scoring Guide.png)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `workflow`
 
 - [Slide 01](slides/ai-native-engineering-blueprint/slide-01.md) (AI-Native_Engineering_Blueprint.pptx)
@@ -1115,20 +1194,31 @@ Use these tags to jump into the visual sidecars and supporting narrative notes.
 - [Page 20](slides/ai-native-engineering-team-source-openai/page-20.md) (AI-Native-Engineering-Team-source_openAI.pdf)
 - [Image](slides/ai-coding-assistants-2026-evolution/image.md) (AI Coding Assistants 2026 Evolution.png)
 - [Image](slides/ai-native-engineering-team-workflow/image.md) (AI-Native Engineering Team Workflow.png)
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Market Map](notes/ai-coding-assistants-market-map.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
+- [AI Coding Assistants Talk Track](notes/ai-coding-assistants-talk-track.md) (AI coding assistants on 9 May 2026 for the HMRC Data Science Academy talk.md)
 ## `identity`
 
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md)
-## `market-scan`
+## `clawpilot`
 
-- [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
-- [AI Coding Assistants 2026 Evolution](slides/ai-coding-assistants-2026-evolution/image.md)
+- [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md)
 ## `audio-source`
+
+- [Engineering Accountability audio source](notes/engineering-accountability-audio.md)
+- [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md)
+## `transcripts`
 
 - [Engineering Accountability audio source](notes/engineering-accountability-audio.md)
 - [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md)
 ## `import-inventory`
 
 - [HMRC Talk Import Inventory](notes/import-inventory.md)
+## `seelinks`
+
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
+- [SeeLinks narrative datapack](seelinks/README.md)
 ## `navigation`
 
 - [Navigation and scope](notes/navigation-and-scope.md)

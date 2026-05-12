@@ -151,7 +151,7 @@ test.describe('Dark Data Workbench', () => {
   test('loads the HMRC narrative datapack with thumbnails and SeeLinks-style highlight controls', async ({ page }) => {
     await page.goto('/?pack=hmrc-narrative');
     await expect(page.getByRole('heading', { name: 'HMRC Beyond The Hype Narrative Arc' })).toBeVisible();
-    await expect(page.locator('.source-card')).toHaveCount(224);
+    await expect(page.locator('.source-card')).toHaveCount(225);
     await expect(page.locator('.thumbnail-button img[src*="assets/visuals"]')).toHaveCount(73);
 
     await page.getByRole('group', { name: /Facet Source Family/i }).getByRole('button', { name: /^Challenge 2 visuals\b/i }).click();

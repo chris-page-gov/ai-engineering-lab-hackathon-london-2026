@@ -11,11 +11,11 @@ AI coding assistants to agents talk narrative.
 
 ## Coverage
 
-- Items: 224
+- Items: 234
 - Facets: 10
 - Collections: 9
-- Graph nodes: 275
-- Graph edges: 2844
+- Graph nodes: 285
+- Graph edges: 2984
 
 ## Source Families
 
@@ -27,7 +27,7 @@ AI coding assistants to agents talk narrative.
 | Challenge 2 visuals | 23 |
 | Conversation traces | 118 |
 | Governance and assurance visuals | 12 |
-| HMRC talk research | 8 |
+| HMRC talk research | 18 |
 | Market and evaluation visuals | 2 |
 | Narrative guide | 15 |
 

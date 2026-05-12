@@ -7,13 +7,18 @@ The concrete case study is Challenge 2 from the AI Engineering Lab Codex build: 
 
 The narrative pack keeps the imported visual material close to the evidence. Each slide, PDF page, and standalone image now has a sidecar note that describes the visible point, records tags and caveats, and links back into the research pack or repository artefacts.
 
+The 9 May 2026 AI Coding Assistants briefing is now split into section-level notes so the market scan, evidence base, public-sector controls, case study, talk track, Q&A preparation, and validation caveats can be read independently.
+
 Use the pack as a browseable companion during or after the talk rather than as a replacement for the live demo.
+
+Source status: this overview reflects the current generated narrative pack and the 9 May 2026 AI Coding Assistants briefing; recheck fast-moving product and benchmark claims before live use.
 
 ## Start Points
 
 - [Narrative arc](narrative-arc.md)
 - [Navigation and scope](notes/navigation-and-scope.md)
 - [Challenge 2 worked example](notes/challenge-2-worked-example.md)
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
 - [Topic index](topics.md)
@@ -21,3 +26,16 @@ Use the pack as a browseable companion during or after the talk rather than as a
 - [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
 - [SeeLinks narrative datapack](seelinks/README.md)
+- [Narrative semantic lint report](data/narrative_semantic_lint_report.md)
+
+## AI Coding Assistants Briefing Route
+
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md)
+- [AI Coding Assistants Market Map](notes/ai-coding-assistants-market-map.md)
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md)
+- [AI Coding Assistants Talk Track](notes/ai-coding-assistants-talk-track.md)
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md)
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md)

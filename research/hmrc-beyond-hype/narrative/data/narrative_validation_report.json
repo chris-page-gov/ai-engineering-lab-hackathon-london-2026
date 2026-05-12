@@ -1,5 +1,5 @@
 {
-  "asset_files": 73,
+  "asset_files": 77,
   "covered_items": 73,
   "errors": [],
   "expected_counts": {
@@ -13,7 +13,8 @@
     "governing-ai-engineering": 12
   },
   "import_files": 13,
-  "markdown_files": 98,
+  "infographic_asset_files": 4,
+  "markdown_files": 109,
   "ok": true,
   "orphan_count": 0,
   "sidecar_count": 73

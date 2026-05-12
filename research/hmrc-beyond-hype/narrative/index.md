@@ -11,12 +11,14 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 - [Narrative arc](narrative-arc.md)
 - [Navigation and scope](notes/navigation-and-scope.md)
 - [Challenge 2 worked example](notes/challenge-2-worked-example.md)
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
 - [AI-Native Engineering Blueprint narrative guide](slides/ai-native-engineering-blueprint/narrative-guide.md)
 - [Topic index](topics.md)
 - [Source materials](source-materials.md)
 - [Import inventory](notes/import-inventory.md)
 - [Visual coverage report](data/visual_coverage.md)
 - [Narrative validation report](data/narrative_validation_report.md)
+- [Narrative semantic lint report](data/narrative_semantic_lint_report.md)
 - [SeeLinks narrative datapack](seelinks/README.md)
 - [Goal and acceptance criteria](README.md)
 
@@ -35,8 +37,23 @@ Start here, then follow the argument through the overview, narrative arc, topic 
 
 - [ClawPilot / Project Lobster signal](notes/clawpilot-project-lobster.md)
 
+## AI Coding Assistants Briefing Route
+
+- [AI Coding Assistants market briefing hub](notes/ai-coding-assistants-market-briefing.md)
+- [AI Coding Assistants Executive Summary](notes/ai-coding-assistants-executive-summary.md)
+- [AI Coding Assistants Market Map](notes/ai-coding-assistants-market-map.md)
+- [AI Coding Assistants Productivity Evidence](notes/ai-coding-assistants-productivity-evidence.md)
+- [AI Coding Assistants Failure Modes](notes/ai-coding-assistants-failure-modes.md)
+- [AI Coding Assistants Public-Sector Controls](notes/ai-coding-assistants-public-sector-controls.md)
+- [AI Coding Assistants Repo Case Study](notes/ai-coding-assistants-repo-case-study.md)
+- [AI Coding Assistants Talk Track](notes/ai-coding-assistants-talk-track.md)
+- [AI Coding Assistants Q&A Prep](notes/ai-coding-assistants-q-and-a.md)
+- [AI Coding Assistants Source Register And Validation Limits](notes/ai-coding-assistants-source-register.md)
+
 ## Supporting Source Notes
 
 - [AI Coding Assistants market briefing](notes/ai-coding-assistants-market-briefing.md)
+- [AI Coding Assistants Q&A prep](notes/ai-coding-assistants-q-and-a.md)
+- [SeeLinks Web UI reference](notes/seelinks-web-ui-reference.md)
 - [Engineering Accountability audio source](notes/engineering-accountability-audio.md)
 - [Governing Agentic AI audio source](notes/governing-agentic-ai-audio.md)

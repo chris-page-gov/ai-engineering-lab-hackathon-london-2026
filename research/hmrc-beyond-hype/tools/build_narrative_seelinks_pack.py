@@ -276,6 +276,88 @@ def source_doc_from_path(path: Path) -> SourceDoc:
     if path.suffix.lower() == ".md":
         tags = tuple(parse_frontmatter_tags(read_text(path)))
 
+    if "/narrative/notes/ai-coding-assistants-" in lower:
+        if lower.endswith("ai-coding-assistants-q-and-a.md"):
+            return SourceDoc(
+                path,
+                "HMRC talk research",
+                "Narrative note",
+                "Generated note",
+                "Question preparation",
+                "Q&A",
+                "Q&A prep",
+                explicit_tags=tags,
+            )
+        if lower.endswith("ai-coding-assistants-repo-case-study.md"):
+            return SourceDoc(
+                path,
+                "HMRC talk research",
+                "Narrative note",
+                "Generated note",
+                "Worked example",
+                "Repo",
+                "Demo object",
+                explicit_tags=tags,
+            )
+        if lower.endswith(
+            (
+                "ai-coding-assistants-failure-modes.md",
+                "ai-coding-assistants-public-sector-controls.md",
+            )
+        ):
+            return SourceDoc(
+                path,
+                "HMRC talk research",
+                "Narrative note",
+                "Generated note",
+                "Governance boundaries",
+                "Limits",
+                "Control/risk",
+                explicit_tags=tags,
+            )
+        if lower.endswith("ai-coding-assistants-talk-track.md"):
+            return SourceDoc(
+                path,
+                "HMRC talk research",
+                "Narrative note",
+                "Generated note",
+                "Question preparation",
+                "Q&A",
+                "Q&A prep",
+                explicit_tags=tags,
+            )
+        if lower.endswith("ai-coding-assistants-productivity-evidence.md"):
+            return SourceDoc(
+                path,
+                "HMRC talk research",
+                "Narrative note",
+                "Generated note",
+                "Question preparation",
+                "Q&A",
+                "Claim support",
+                explicit_tags=tags,
+            )
+        if lower.endswith("ai-coding-assistants-source-register.md"):
+            return SourceDoc(
+                path,
+                "HMRC talk research",
+                "Narrative note",
+                "Generated note",
+                "Question preparation",
+                "Q&A",
+                "Source trail",
+                explicit_tags=tags,
+            )
+        return SourceDoc(
+            path,
+            "HMRC talk research",
+            "Narrative note",
+            "Generated note",
+            "Workflow shift",
+            "Workflow",
+            "Claim support",
+            explicit_tags=tags,
+        )
     if "/narrative/notes/" in lower or lower.endswith("/narrative/readme.md"):
         return SourceDoc(path, "Narrative guide", "Narrative note", "Generated note", "Navigation", "Close", "Source trail", explicit_tags=tags)
     if "/narrative/data/" in lower:
@@ -420,7 +502,7 @@ def doc_items(start_index: int) -> list[dict[str, Any]]:
         talk_section = doc.talk_section
         stage = doc.stage
         evidence_role = doc.evidence_role
-        if doc.source_family == "HMRC talk research":
+        if doc.source_family == "HMRC talk research" and doc.asset_type != "Narrative note":
             talk_section = infer_talk_section("", None, tags, text)
             stage = infer_stage("", None, tags, text)
             evidence_role = infer_evidence_role(tags, text, doc.asset_type)
