@@ -13,6 +13,8 @@ tags:
 
 # 0013. With the comments, fix and reject so the ones you've addressed or rejected are not shown as left
 
+Previous: [EX-0012](0012-20260416084939-implement-these-fixes.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0014](0014-20260416084939-review-and-fix-the-comments-make-sure-you-don-t-change-sources-or-redact-anything-from-the.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -87,3 +89,5 @@ No new code changes were needed in this turn. The only remaining local modificat
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0012](0012-20260416084939-implement-these-fixes.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0014](0014-20260416084939-review-and-fix-the-comments-make-sure-you-don-t-change-sources-or-redact-anything-from-the.md)

@@ -22,6 +22,10 @@ The full Challenge 2 wiki evaluation report now lives at `challenge-2/evaluation
 
 The postmortem release includes a private generated Codex collaboration postmortem archive under ignored `postmortem/` and a GitHub-safe public derivative under `postmortem-public/`. The publication line now treats the public derivative and reports as part of the Version 1.1 baseline, with the full 100-question AI comparison still outstanding.
 
+The postmortem navigation pass now adds start-to-finish Markdown reader pages for every curated Codex conversation in both the private archive and public derivative. `postmortem-public/wiki/index.md` links those readers before the exchange table, each exchange has previous/next reader navigation, and the builder now uses an explicit curated session list so evaluation-question runs and incidental local Codex sessions are not swept into the public corpus by accident.
+
+Copilot reviewed the postmortem reader pull request with no blocking findings. The follow-up remediation hardens the implementation by removing username-specific sanitizer assumptions, precomputing exchange navigation neighbours, removing source-note dependence on module-level exchange state, and adding regression coverage for fenced blocks that close at EOF.
+
 The postmortem artifacts have been reviewed for publication readiness. The review found no obvious credential-shaped secrets or email-address pattern hits in the postmortem scan, but it blocks public release until local paths, local assistant configuration references, copied third-party source bodies, private workflow references, and local-only evidence are redacted or repackaged. A follow-up license check found no explicit redistribution license in the localized Karpathy X/gist copies, so public releases should use citation metadata and short excerpts unless permission or an explicit license is obtained.
 
 The attached contribution-modes proposal has been converted to Markdown under `output/doc/`, and a government-security assessment has been added. The assessment concludes that Codex was strongest for Explorer, Builder, Refiner, and Verifier work; useful with human steering for Framer, Architect, and Experience Shaper work; assistant-only for Security Steward work; and not suitable as an autonomous Operator for production government services.
@@ -79,6 +83,8 @@ The changelog now reserves `Unreleased` for pending work only; the accumulated H
 - Added `postmortem/publication-readiness-report.md` with required redaction and packaging changes before public postmortem release.
 - Added localized-source licensing findings to the publication-readiness report.
 - Added `postmortem-public/` as the GitHub-safe postmortem replacement, with redacted exchange notes, conversation summaries, citation-only external source notes, public repository evidence links, decision registers, and publication lint output.
+- Added generated start-to-finish postmortem conversation readers under `wiki/readers/` for both private and public postmortem outputs, plus previous/next navigation on exchange notes and curated-session scoping in the postmortem builder.
+- Addressed Copilot's postmortem reader review observations by making sanitizer paths username-agnostic, precomputing previous/next exchange links, passing built exchanges through source-note generation, and adding regression tests for EOF-closing fenced blocks.
 - Added `.gitignore` coverage for the private `postmortem/` archive so the public derivative is the only postmortem folder intended for GitHub.
 - Created the local `v1-challenge-2` tag at commit `326a82a8f17440d49471dab6a11d2b725b879359` before starting postmortem work on `codex/postmortem-wiki`.
 - Converted the attached `Contribution Modes Proposal.docx` to `output/doc/contribution-modes-proposal.md` with extracted media.
@@ -161,6 +167,12 @@ The changelog now reserves `Unreleased` for pending work only; the accumulated H
   - ran `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`;
   - ran `python3 tools/check_documentation_lockstep.py`;
   - ran `git diff --check`.
+- Current postmortem reader validation passed locally:
+  - ran `python3 -m py_compile tools/build_codex_postmortem.py`;
+  - ran `python3 -m unittest tests.test_build_codex_postmortem` with `13` passing tests;
+  - regenerated the curated private and public postmortem corpus with `python3 tools/build_codex_postmortem.py`, producing `5` conversations, `113` exchanges, and `3` external sources;
+  - confirmed `postmortem-public/wiki/data/publication-lint-report.json` reports `0` broken internal links and `0` forbidden publication hits;
+  - reran `python3 tools/check_documentation_lockstep.py` and `git diff --check`.
 - Current Dark Data Workbench pack-switch and Markdown preview validation passed locally:
   - ran `cd challenge-2/workbench && pnpm check`;
   - ran `cd challenge-2/workbench && pnpm test` with `19` passing Vitest tests;

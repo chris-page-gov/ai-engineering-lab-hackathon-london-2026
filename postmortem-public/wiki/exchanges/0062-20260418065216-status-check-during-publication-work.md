@@ -13,6 +13,8 @@ tags:
 
 # 0062. Status Check During Publication Work
 
+Previous: [EX-0061](0061-20260418065216-turn-aborted.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0063](0063-20260418065216-the-pr-says-5-conversations-i-thought-we-added-this-which-would-be-six.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -259,3 +261,5 @@ Commit: `655c22369603b8a9953ca16f57eff2c0b4a9f97c`
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0061](0061-20260418065216-turn-aborted.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0063](0063-20260418065216-the-pr-says-5-conversations-i-thought-we-added-this-which-would-be-six.md)

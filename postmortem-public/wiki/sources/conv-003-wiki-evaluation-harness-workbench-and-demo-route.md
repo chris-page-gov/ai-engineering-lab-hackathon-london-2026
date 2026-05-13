@@ -16,6 +16,7 @@ This source note summarizes a local Codex conversation without publishing the ra
 - Conversation source ID: `CONV-003`
 - Start timestamp: `2026-04-16T11:27:03.987Z`
 - Updated at: `2026-04-16T11:31:43.803909Z`
+- Start-to-finish reader: [conversation reader](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md)
 - User visible messages: 15
 - Codex visible messages: 82
 - Private evidence hash: `e91fed3ddaa4146bb05b283fd6e5e1293c0ffa620ade5a5add35887cfb241084`

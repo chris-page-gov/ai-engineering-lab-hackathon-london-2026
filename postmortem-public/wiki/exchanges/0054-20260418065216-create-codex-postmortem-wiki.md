@@ -13,6 +13,8 @@ tags:
 
 # 0054. Create Codex Postmortem Wiki
 
+Previous: [EX-0053](0053-20260418065216-create-codex-postmortem-wiki.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0055](0055-20260418065216-check-the-licensing-on-the-localised-sources.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -118,3 +120,5 @@ I did not commit or stage anything. Current untracked local state still includes
 
 - User contribution: Defined the evidence-preservation goal and requested a research wiki plus analysis.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0053](0053-20260418065216-create-codex-postmortem-wiki.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0055](0055-20260418065216-check-the-licensing-on-the-localised-sources.md)

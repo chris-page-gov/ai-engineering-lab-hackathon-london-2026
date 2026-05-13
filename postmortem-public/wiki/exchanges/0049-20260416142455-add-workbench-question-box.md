@@ -13,6 +13,8 @@ tags:
 
 # 0049. Add Workbench Question Box
 
+Conversation reader: [start-to-finish](../readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md) | Next: [EX-0050](0050-20260416142455-check-publication-branch-status.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -136,3 +138,5 @@ The local dev server is running at [http://127.0.0.1:5174](http://127.0.0.1:5174
 
 - User contribution: Identified a user-facing gap in the workbench export flow.
 - Codex contribution: Implemented and validated user-facing workbench behavior.
+
+Conversation reader: [start-to-finish](../readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md) | Next: [EX-0050](0050-20260416142455-check-publication-branch-status.md)

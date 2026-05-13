@@ -13,6 +13,8 @@ tags:
 
 # 0063. The PR says 5 conversations, I thought we added this, which would be six?
 
+Previous: [EX-0062](0062-20260418065216-status-check-during-publication-work.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0064](0064-20260418065216-we-now-have-a-command-line-github-copilot-and-a-microsoft-copilot-app-can-you-investigate.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -54,3 +56,5 @@ I agree with your instinct: merge this PR first so `main` is the stable Version 
 
 - User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0062](0062-20260418065216-status-check-during-publication-work.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0064](0064-20260418065216-we-now-have-a-command-line-github-copilot-and-a-microsoft-copilot-app-can-you-investigate.md)

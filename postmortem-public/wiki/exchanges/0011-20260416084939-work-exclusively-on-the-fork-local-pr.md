@@ -13,6 +13,8 @@ tags:
 
 # 0011. Work exclusively on the Fork-Local PR.
 
+Previous: [EX-0010](0010-20260416084939-along-with-the-code-can-you-draft-a-io-webpage-for-our-architecture-explaining-it-to-a-per.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0012](0012-20260416084939-implement-these-fixes.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -99,3 +101,5 @@ My understanding before making changes:
 
 - User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0010](0010-20260416084939-along-with-the-code-can-you-draft-a-io-webpage-for-our-architecture-explaining-it-to-a-per.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0012](0012-20260416084939-implement-these-fixes.md)

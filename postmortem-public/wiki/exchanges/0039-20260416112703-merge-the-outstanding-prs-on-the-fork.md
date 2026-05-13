@@ -13,6 +13,8 @@ tags:
 
 # 0039. merge the outstanding PRs on the fork
 
+Previous: [EX-0038](0038-20260416112703-is-their-a-pr-on-the-fork.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0040](0040-20260416112703-is-this-referring-to-the-fork-branch.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -65,3 +67,5 @@ I left the local `challenge-2/.obsidian/workspace.json` change untouched. The up
 
 - User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0038](0038-20260416112703-is-their-a-pr-on-the-fork.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0040](0040-20260416112703-is-this-referring-to-the-fork-branch.md)

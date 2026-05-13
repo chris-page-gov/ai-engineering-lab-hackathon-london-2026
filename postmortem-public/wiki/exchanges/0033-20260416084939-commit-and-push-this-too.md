@@ -13,6 +13,8 @@ tags:
 
 # 0033. Commit and push this too
 
+Previous: [EX-0032](0032-20260416084939-can-we-review-and-clean-include-dropping-the-pr-on-the-original-repo-that-we-forked.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -73,3 +75,5 @@ Local `main` is now aligned with `origin/main`. The only remaining files shown b
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0032](0032-20260416084939-can-we-review-and-clean-include-dropping-the-pr-on-the-original-repo-that-we-forked.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md)

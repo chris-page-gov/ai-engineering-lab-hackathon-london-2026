@@ -7,7 +7,8 @@
     "private_evidence_sha256": "1de492a53a5cdf302beceee8575b008e7641cbf3865b7d3ce823c90a21175942",
     "user_message_count": 2,
     "assistant_message_count": 11,
-    "public_source_path": "postmortem-public/wiki/sources/conv-001-deep-research-prompt-and-copilot-review.md"
+    "public_source_path": "postmortem-public/wiki/sources/conv-001-deep-research-prompt-and-copilot-review.md",
+    "public_reader_path": "postmortem-public/wiki/readers/conv-001-deep-research-prompt-and-copilot-review.md"
   },
   {
     "source_id": "CONV-002",
@@ -17,7 +18,8 @@
     "private_evidence_sha256": "95d59249ee6d806223f13acf0e2b85a2f544f7582714d36fcee26a24b3fce84f",
     "user_message_count": 31,
     "assistant_message_count": 266,
-    "public_source_path": "postmortem-public/wiki/sources/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md"
+    "public_source_path": "postmortem-public/wiki/sources/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md",
+    "public_reader_path": "postmortem-public/wiki/readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md"
   },
   {
     "source_id": "CONV-003",
@@ -27,7 +29,8 @@
     "private_evidence_sha256": "e91fed3ddaa4146bb05b283fd6e5e1293c0ffa620ade5a5add35887cfb241084",
     "user_message_count": 15,
     "assistant_message_count": 82,
-    "public_source_path": "postmortem-public/wiki/sources/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md"
+    "public_source_path": "postmortem-public/wiki/sources/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md",
+    "public_reader_path": "postmortem-public/wiki/readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md"
   },
   {
     "source_id": "CONV-004",
@@ -37,16 +40,18 @@
     "private_evidence_sha256": "edab234caf05d81f1fd32fe744805a136a33a765fc6a74e42bd8b95e63b2f48c",
     "user_message_count": 5,
     "assistant_message_count": 33,
-    "public_source_path": "postmortem-public/wiki/sources/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md"
+    "public_source_path": "postmortem-public/wiki/sources/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md",
+    "public_reader_path": "postmortem-public/wiki/readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md"
   },
   {
     "source_id": "CONV-005",
     "title": "Codex Postmortem, Publication Assessment, and Version 1.1 PR",
     "start_timestamp": "2026-04-18T06:52:16.557Z",
     "updated_at": "2026-04-18T06:52:24.081005Z",
-    "private_evidence_sha256": "6d1aca528518655df2ed7e5a92e4fdd293e2a2d31447fd76091369a4cb71cf64",
-    "user_message_count": 15,
-    "assistant_message_count": 99,
-    "public_source_path": "postmortem-public/wiki/sources/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md"
+    "private_evidence_sha256": "4987d07c544d1112416ab35db1dbbf2fdd758438a624a399e8e0f5b2db2ffe42",
+    "user_message_count": 62,
+    "assistant_message_count": 576,
+    "public_source_path": "postmortem-public/wiki/sources/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md",
+    "public_reader_path": "postmortem-public/wiki/readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md"
   }
 ]

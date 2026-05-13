@@ -13,6 +13,8 @@ tags:
 
 # 0052. I've added a section to the md file # Challenge 2 Obsidian Knowledge Base Plan
 
+Previous: [EX-0051](0051-20260416142455-excellent-i-need-to-write-this-up-in-full-detail-as-a-report-to-colleagues-what-we-did-the.md) | Conversation reader: [start-to-finish](../readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -108,3 +110,5 @@ Checks passed:
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0051](0051-20260416142455-excellent-i-need-to-write-this-up-in-full-detail-as-a-report-to-colleagues-what-we-did-the.md) | Conversation reader: [start-to-finish](../readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md)

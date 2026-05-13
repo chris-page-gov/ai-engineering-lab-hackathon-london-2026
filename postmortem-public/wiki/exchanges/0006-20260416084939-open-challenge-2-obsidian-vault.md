@@ -13,6 +13,8 @@ tags:
 
 # 0006. Open Challenge 2 Obsidian Vault
 
+Previous: [EX-0005](0005-20260416084939-which-folder-do-i-open-in-obsidian-to-browse.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0007](0007-20260416084939-commit-and-push.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -59,3 +61,5 @@ That is the main entry point for the generated Challenge 2 knowledge base.
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0005](0005-20260416084939-which-folder-do-i-open-in-obsidian-to-browse.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0007](0007-20260416084939-commit-and-push.md)

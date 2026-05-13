@@ -13,6 +13,8 @@ tags:
 
 # 0009. Write the PR and trigger a code review
 
+Previous: [EX-0008](0008-20260416084939-include-these.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0010](0010-20260416084939-along-with-the-code-can-you-draft-a-io-webpage-for-our-architecture-explaining-it-to-a-per.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -112,3 +114,5 @@ I verified the GitHub API shows `Copilot` as a requested reviewer on the fork-lo
 
 - User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0008](0008-20260416084939-include-these.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0010](0010-20260416084939-along-with-the-code-can-you-draft-a-io-webpage-for-our-architecture-explaining-it-to-a-per.md)

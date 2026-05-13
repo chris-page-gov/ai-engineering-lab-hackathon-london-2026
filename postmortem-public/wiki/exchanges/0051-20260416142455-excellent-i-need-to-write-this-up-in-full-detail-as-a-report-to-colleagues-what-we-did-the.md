@@ -13,6 +13,8 @@ tags:
 
 # 0051. Excellent. I need to write this up in full detail as a report to colleagues: what we did, the or
 
+Previous: [EX-0050](0050-20260416142455-check-publication-branch-status.md) | Conversation reader: [start-to-finish](../readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md) | Next: [EX-0052](0052-20260416142455-i-ve-added-a-section-to-the-md-file-challenge-2-obsidian-knowledge-base-plan.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -164,3 +166,5 @@ I stopped the temporary Vite server after capturing the screenshot. The working 
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0050](0050-20260416142455-check-publication-branch-status.md) | Conversation reader: [start-to-finish](../readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md) | Next: [EX-0052](0052-20260416142455-i-ve-added-a-section-to-the-md-file-challenge-2-obsidian-knowledge-base-plan.md)

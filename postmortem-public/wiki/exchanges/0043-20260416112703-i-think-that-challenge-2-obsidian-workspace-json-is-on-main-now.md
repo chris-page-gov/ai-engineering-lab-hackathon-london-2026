@@ -13,6 +13,8 @@ tags:
 
 # 0043. I think that challenge-2/.obsidian/workspace.json is on main now
 
+Previous: [EX-0042](0042-20260416112703-is-this-clean-and-up-to-date.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0044](0044-20260416112703-we-should-be-clean-now.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -84,3 +86,5 @@ So the precise answer is: **it is on fork main, but your current checkout has a 
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0042](0042-20260416112703-is-this-clean-and-up-to-date.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0044](0044-20260416112703-we-should-be-clean-now.md)

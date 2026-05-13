@@ -16,6 +16,7 @@ This source note summarizes a local Codex conversation without publishing the ra
 - Conversation source ID: `CONV-004`
 - Start timestamp: `2026-04-16T14:24:55.443Z`
 - Updated at: `2026-04-16T14:25:45.045261Z`
+- Start-to-finish reader: [conversation reader](../readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md)
 - User visible messages: 5
 - Codex visible messages: 33
 - Private evidence hash: `edab234caf05d81f1fd32fe744805a136a33a765fc6a74e42bd8b95e63b2f48c`

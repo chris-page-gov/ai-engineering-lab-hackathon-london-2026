@@ -13,6 +13,8 @@ tags:
 
 # 0066. Ensure you close the comments you address with apropriate comments
 
+Previous: [EX-0065](0065-20260418065216-first-fix-the-current-pr-comments-ensuring-that-you-consider-each-as-indicating-a-class-of.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0067](0067-20260418065216-merge.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -102,7 +104,89 @@ The targeted tests, Python compile checks, documentation lockstep, diff whitespa
 Bandit is unchanged at 17 low, 1 medium, 0 high. The broader publication scan found textual historical mentions of Finder state files inside the public exchange notes; they are not actual files, but I’m redacting that local-state marker in the public sanitizer too so the public derivative stays clean under simple grep checks.
 ````
 
+### Response 10 (commentary)
+
+- Timestamp: `2026-04-18T12:25:01.046Z`
+
+````text
+The public postmortem rebuild is clean again and I removed regenerated Finder state files from the workspace. I’m rerunning the final scans after that sanitizer change.
+````
+
+### Response 11 (commentary)
+
+- Timestamp: `2026-04-18T12:25:25.371Z`
+
+````text
+The code and regenerated evidence now show the intended fixes: the deep-research prompt exchange is no longer classified as PR workflow, the X source notes use single Jina Reader URLs, and public lint is clean. I’m doing one last Bandit rerun, then I’ll stage, commit, push, and resolve the two PR review threads with explanatory replies.
+````
+
+### Response 12 (commentary)
+
+- Timestamp: `2026-04-18T12:25:36.388Z`
+
+````text
+Everything is staged and whitespace-clean. I’m committing the PR-comment fixes now.
+````
+
+### Response 13 (commentary)
+
+- Timestamp: `2026-04-18T12:25:44.000Z`
+
+````text
+The fix commit is pushed to the PR branch. I’m now replying on each review thread with what changed and resolving the addressed threads.
+````
+
+### Response 14 (commentary)
+
+- Timestamp: `2026-04-18T12:26:16.080Z`
+
+````text
+Both review threads now have explanatory replies and are marked resolved. I’m checking the PR status and remote checks one more time.
+````
+
+### Response 15 (final_answer)
+
+- Timestamp: `2026-04-18T12:26:30.960Z`
+
+````text
+Finished. I fixed and pushed the PR-comment changes to PR #5:
+
+[PR #5: Publish Challenge 2 postmortem and evidence pack](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/pull/5)
+
+What I addressed:
+- Fixed the `pr` substring classifier so words like `prompt` no longer get treated as PR workflow.
+- Treated that as a class of error and also tightened the related `git` classifier so words like `legitimate` do not imply Git workflow.
+- Fixed both Karpathy X `fetch_url` values to use a single Jina Reader prefix.
+- Added regression tests in [tests/test_build_codex_postmortem.py]([LOCAL_REPO]/tests/test_build_codex_postmortem.py).
+- Regenerated `postmortem-public/`; it now records 5 local Codex conversation sources and 66 exchanges.
+- Hardened public sanitisation for bare local path markers and local state-file mentions found during rebuild.
+
+GitHub review handling:
+- Replied to both review threads with the concrete fix details.
+- Marked both review threads resolved.
+- The PR check `documentation-lockstep` is passing.
+
+Validation run:
+- `python3 tools/build_codex_postmortem.py`
+- `python3 -m unittest tests/test_build_codex_postmortem.py tests/test_challenge2_workbench_mcp.py tests/test_challenge2_eval_mcp.py`
+- `python3 -m py_compile ...`
+- `python3 tools/check_documentation_lockstep.py`
+- `git diff --check`
+- publication scan for duplicate Jina prefixes, local paths, EMF links, and local state markers
+- Bandit: unchanged residual profile, `17 low`, `1 medium`, `0 high`
+
+Commit pushed: `bc0b7cd059ac0bbb05fa47dcb24937415b6f6878`
+
+Working tree is clean.
+
+::git-stage{cwd="[LOCAL_REPO]"}
+::git-commit{cwd="[LOCAL_REPO]"}
+::git-push{cwd="[LOCAL_REPO]" branch="codex/postmortem-wiki"}
+````
+
 ## Contribution Reading
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0065](0065-20260418065216-first-fix-the-current-pr-comments-ensuring-that-you-consider-each-as-indicating-a-class-of.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0067](0067-20260418065216-merge.md)

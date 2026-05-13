@@ -13,6 +13,8 @@ tags:
 
 # 0001. Update Deep Research Prompt
 
+Conversation reader: [start-to-finish](../readers/conv-001-deep-research-prompt-and-copilot-review.md) | Next: [EX-0002](0002-20260416024008-there-are-some-claude-artifacts-in-the-local-reference-repo-claude-folder-s.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -107,3 +109,5 @@ No tests were run; this was a documentation-only change.
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Conversation reader: [start-to-finish](../readers/conv-001-deep-research-prompt-and-copilot-review.md) | Next: [EX-0002](0002-20260416024008-there-are-some-claude-artifacts-in-the-local-reference-repo-claude-folder-s.md)

@@ -13,6 +13,8 @@ tags:
 
 # 0035. Link into the Wiki - does theed a path change?
 
+Previous: [EX-0034](0034-20260416112703-add-documentation-lockstep-and-evaluation-notes.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0036](0036-20260416112703-build-the-harness-that-will-allow-us-to-push-the-questions-into-the-various-ais-with-the-i.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -76,3 +78,5 @@ Verified the moved benchmark still has `100` questions. I left the unrelated dir
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Performed repo analysis, implementation, validation, or synthesis in response.
+
+Previous: [EX-0034](0034-20260416112703-add-documentation-lockstep-and-evaluation-notes.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0036](0036-20260416112703-build-the-harness-that-will-allow-us-to-push-the-questions-into-the-various-ais-with-the-i.md)

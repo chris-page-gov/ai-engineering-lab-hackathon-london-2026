@@ -33,6 +33,7 @@ For the Challenge 2 implementation:
 - [Evaluation benchmark](challenge-2/wiki/evaluation-benchmark.md): 100 source-backed questions with scoring guidance.
 - [Realtime delivery report](output/doc/challenge-2-realtime-delivery-report.md): narrative reconstruction of the build.
 - [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem.
+- [Postmortem conversation readers](postmortem-public/wiki/index.md#start-to-finish-conversation-readers): start-to-finish Markdown readers for the curated Codex conversations.
 - [Contribution modes and security assessment](output/doc/codex-contribution-modes-security-assessment.md): assessment of Codex, contribution modes, and security findings.
 - [MCP research wiki](challenge-2/MCP-Wiki/index.md): research, candidates, licensing posture, and implementation planning for a purpose-built Wiki MCP server.
 - [HMRC Beyond the Hype talk research pack](research/hmrc-beyond-hype/00_research_brief.md): evidence-backed preparation for a mixed-audience talk on moving from coding assistants to coding agents.
@@ -91,9 +92,9 @@ This branch also contains a public postmortem derivative:
 
 - `postmortem/` is the private local evidence archive and is gitignored.
 - [postmortem-public/](postmortem-public/) is the GitHub-safe derivative.
-- [tools/build_codex_postmortem.py](tools/build_codex_postmortem.py) regenerates both the private archive and the public derivative.
+- [tools/build_codex_postmortem.py](tools/build_codex_postmortem.py) regenerates both the private archive and the public derivative from the curated Codex session list.
 
-The public postmortem preserves sequence, decisions, artifact links, and contribution evidence while excluding raw transcripts, local-only paths, and unlicensed copied third-party source bodies.
+The public postmortem preserves sequence, decisions, artifact links, and contribution evidence while excluding raw transcripts, local-only paths, and unlicensed copied third-party source bodies. Its `wiki/readers/` pages are the standard GitHub-friendly route for following each curated conversation from start to finish.
 
 ## Original Hackathon Context
 
@@ -156,6 +157,7 @@ Reports and publication artifacts:
 - `research/hmrc-beyond-hype/transcripts/`: committed machine transcripts, SRT files, diarization evidence, and `Trace` / `Query` voice-name review drafts derived from the local audio import.
 - `research/hmrc-beyond-hype/tools/`: local reproducibility scripts for audio transcription, pyannote diarization, visual sidecar generation, and narrative validation.
 - `postmortem-public/wiki/index.md`: public Codex collaboration postmortem entry point.
+- `postmortem-public/wiki/readers/`: generated start-to-finish Markdown readers for curated Codex conversations.
 - `postmortem-public/wiki/decisions.md`: publication decision register.
 - `postmortem-public/wiki/data/publication-lint-report.json`: machine-readable publication lint output.
 

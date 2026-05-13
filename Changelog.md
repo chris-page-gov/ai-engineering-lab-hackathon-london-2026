@@ -6,7 +6,28 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ## Unreleased
 
-No pending changes.
+No undated pending changes.
+
+## 2026-05-13
+
+### Added
+
+- 2026-05-13: Added generated start-to-finish Markdown conversation readers for the private and public Codex postmortem outputs, linked from the public postmortem index, conversation summaries, source notes, and per-exchange previous/next navigation.
+
+### Changed
+
+- 2026-05-13: Updated `tools/build_codex_postmortem.py` so the standard postmortem build uses an explicit curated Codex session list and does not accidentally publish evaluation-question runs or incidental local sessions.
+- 2026-05-13: Hardened postmortem link validation so Markdown links inside nested fenced transcript/code blocks are not treated as generated wiki links.
+- 2026-05-13: Addressed Copilot's postmortem reader review observations by making public path sanitisation username-agnostic, precomputing exchange navigation neighbours, and passing the built exchange list into source-note generation instead of relying on global exchange state.
+
+### Documentation
+
+- 2026-05-13: Documented the postmortem reader workflow, curated-session publication boundary, and absence of a separate repo skill across `README.md`, `Context.md`, `Progress.md`, and the generated postmortem operating docs.
+
+### Validation
+
+- 2026-05-13: Verified the postmortem reader workflow with `python3 -m py_compile tools/build_codex_postmortem.py`, `python3 -m unittest tests.test_build_codex_postmortem`, `python3 tools/build_codex_postmortem.py`, and the generated public publication lint report showing `0` broken links and `0` forbidden publication hits.
+- 2026-05-13: Revalidated the Copilot review remediation with `13` postmortem builder unit tests, including username-agnostic sanitizer coverage and a fenced-block EOF regression case.
 
 ## 2026-05-12
 

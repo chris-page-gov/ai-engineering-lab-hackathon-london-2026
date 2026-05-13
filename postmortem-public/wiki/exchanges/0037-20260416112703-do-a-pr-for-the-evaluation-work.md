@@ -13,6 +13,8 @@ tags:
 
 # 0037. Do a PR for the evaluation work
 
+Previous: [EX-0036](0036-20260416112703-build-the-harness-that-will-allow-us-to-push-the-questions-into-the-various-ais-with-the-i.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0038](0038-20260416112703-is-their-a-pr-on-the-fork.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -115,3 +117,5 @@ One local file remains dirty and was intentionally left out of the commit: `chal
 
 - User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0036](0036-20260416112703-build-the-harness-that-will-allow-us-to-push-the-questions-into-the-various-ais-with-the-i.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0038](0038-20260416112703-is-their-a-pr-on-the-fork.md)

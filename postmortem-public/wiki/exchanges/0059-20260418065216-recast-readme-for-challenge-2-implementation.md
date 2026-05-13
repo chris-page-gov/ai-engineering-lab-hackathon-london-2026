@@ -13,6 +13,8 @@ tags:
 
 # 0059. Recast README for Challenge 2 Implementation
 
+Previous: [EX-0058](0058-20260418065216-check-publication-branch-status.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0060](0060-20260418065216-prepare-version-1-1-publication-pr.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -87,3 +89,5 @@ The working tree has no unstaged changes and no untracked files; everything rema
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0058](0058-20260418065216-check-publication-branch-status.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0060](0060-20260418065216-prepare-version-1-1-publication-pr.md)

@@ -16,6 +16,7 @@ This source note summarizes a local Codex conversation without publishing the ra
 - Conversation source ID: `CONV-002`
 - Start timestamp: `2026-04-16T08:49:39.697Z`
 - Updated at: `2026-04-16T08:51:31.647341Z`
+- Start-to-finish reader: [conversation reader](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md)
 - User visible messages: 31
 - Codex visible messages: 266
 - Private evidence hash: `95d59249ee6d806223f13acf0e2b85a2f544f7582714d36fcee26a24b3fce84f`

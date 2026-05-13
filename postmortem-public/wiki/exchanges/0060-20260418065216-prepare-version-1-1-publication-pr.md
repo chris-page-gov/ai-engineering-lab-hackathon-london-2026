@@ -13,6 +13,8 @@ tags:
 
 # 0060. Prepare Version 1.1 Publication PR
 
+Previous: [EX-0059](0059-20260418065216-recast-readme-for-challenge-2-implementation.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0061](0061-20260418065216-turn-aborted.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -47,3 +49,5 @@ I’ll fold this thread into the postmortem trace, refresh the public/private po
 
 - User contribution: Defined the evidence-preservation goal and requested a research wiki plus analysis.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0059](0059-20260418065216-recast-readme-for-challenge-2-implementation.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0061](0061-20260418065216-turn-aborted.md)

@@ -13,6 +13,8 @@ tags:
 
 # 0038. Is their a PR on the fork?
 
+Previous: [EX-0037](0037-20260416112703-do-a-pr-for-the-evaluation-work.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0039](0039-20260416112703-merge-the-outstanding-prs-on-the-fork.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -70,3 +72,5 @@ That one is already merged.
 
 - User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0037](0037-20260416112703-do-a-pr-for-the-evaluation-work.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0039](0039-20260416112703-merge-the-outstanding-prs-on-the-fork.md)

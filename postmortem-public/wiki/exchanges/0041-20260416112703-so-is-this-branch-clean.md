@@ -13,6 +13,8 @@ tags:
 
 # 0041. so is this branch clean?
 
+Previous: [EX-0040](0040-20260416112703-is-this-referring-to-the-fork-branch.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0042](0042-20260416112703-is-this-clean-and-up-to-date.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -84,3 +86,5 @@ So: **the branch is pushed and merged into the fork, but the local checkout is n
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0040](0040-20260416112703-is-this-referring-to-the-fork-branch.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0042](0042-20260416112703-is-this-clean-and-up-to-date.md)

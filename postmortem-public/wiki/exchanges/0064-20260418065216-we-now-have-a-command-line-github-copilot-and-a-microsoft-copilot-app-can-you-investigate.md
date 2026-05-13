@@ -13,6 +13,8 @@ tags:
 
 # 0064. We now have a command line GitHub Copilot and a Microsoft Copilot app. Can you investigate addin
 
+Previous: [EX-0063](0063-20260418065216-the-pr-says-5-conversations-i-thought-we-added-this-which-would-be-six.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0065](0065-20260418065216-first-fix-the-current-pr-comments-ensuring-that-you-consider-each-as-indicating-a-class-of.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -164,3 +166,5 @@ No repo files were changed in this investigation.
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0063](0063-20260418065216-the-pr-says-5-conversations-i-thought-we-added-this-which-would-be-six.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0065](0065-20260418065216-first-fix-the-current-pr-comments-ensuring-that-you-consider-each-as-indicating-a-class-of.md)

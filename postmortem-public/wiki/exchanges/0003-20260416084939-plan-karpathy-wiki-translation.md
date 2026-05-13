@@ -13,6 +13,8 @@ tags:
 
 # 0003. Plan Karpathy Wiki Translation
 
+Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0004](0004-20260416084939-implement-karpathy-wiki-vault.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -186,3 +188,5 @@ sensitivity:
 
 - User contribution: Set the strategic goal and named the Karpathy Wiki method as the design frame.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0004](0004-20260416084939-implement-karpathy-wiki-vault.md)

@@ -13,6 +13,8 @@ tags:
 
 # 0012. Implement these fixes
 
+Previous: [EX-0011](0011-20260416084939-work-exclusively-on-the-fork-local-pr.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0013](0013-20260416084939-with-the-comments-fix-and-reject-so-the-ones-you-ve-addressed-or-rejected-are-not-shown-as.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -157,3 +159,5 @@ Validation:
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0011](0011-20260416084939-work-exclusively-on-the-fork-local-pr.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0013](0013-20260416084939-with-the-comments-fix-and-reject-so-the-ones-you-ve-addressed-or-rejected-are-not-shown-as.md)

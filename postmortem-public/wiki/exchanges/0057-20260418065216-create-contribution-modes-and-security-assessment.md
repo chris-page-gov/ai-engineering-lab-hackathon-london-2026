@@ -13,6 +13,8 @@ tags:
 
 # 0057. Create Contribution Modes and Security Assessment
 
+Previous: [EX-0056](0056-20260418065216-create-codex-postmortem-wiki.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0058](0058-20260418065216-check-publication-branch-status.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -174,3 +176,5 @@ Official sources used for the assessment include [UK Government Secure by Design
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0056](0056-20260418065216-create-codex-postmortem-wiki.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0058](0058-20260418065216-check-publication-branch-status.md)

@@ -13,6 +13,8 @@ tags:
 
 # 0058. Check Publication Branch Status
 
+Previous: [EX-0057](0057-20260418065216-create-contribution-modes-and-security-assessment.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0059](0059-20260418065216-recast-readme-for-challenge-2-implementation.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -58,3 +60,5 @@ The staged set is large: 130 files, including `output/`, `postmortem-public/`, `
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0057](0057-20260418065216-create-contribution-modes-and-security-assessment.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0059](0059-20260418065216-recast-readme-for-challenge-2-implementation.md)

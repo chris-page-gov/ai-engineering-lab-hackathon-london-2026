@@ -13,6 +13,8 @@ tags:
 
 # 0005. Which folder do I open in Obsidian to browse
 
+Previous: [EX-0004](0004-20260416084939-implement-karpathy-wiki-vault.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0006](0006-20260416084939-open-challenge-2-obsidian-vault.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -48,3 +50,5 @@ Then start here:
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Performed repo analysis, implementation, validation, or synthesis in response.
+
+Previous: [EX-0004](0004-20260416084939-implement-karpathy-wiki-vault.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0006](0006-20260416084939-open-challenge-2-obsidian-vault.md)
