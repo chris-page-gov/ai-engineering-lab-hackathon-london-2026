@@ -40,11 +40,11 @@ Team attribution: the Challenge 2 implementation work was done by Team DSIT A.
 
 ## Timeline
 
-- `2026-04-16T02:40:08.652Z`: [Deep Research Prompt and Copilot Review](sources/conv-001-deep-research-prompt-and-copilot-review.md)
-- `2026-04-16T08:49:39.697Z`: [Karpathy Wiki Planning and Challenge 2 Vault Build](sources/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md)
-- `2026-04-16T11:27:03.987Z`: [Wiki Evaluation Harness, Workbench, and Demo Route](sources/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md)
-- `2026-04-16T14:24:55.443Z`: [SeeLinks Question Box, PR Hygiene, and Baseline Cleanup](sources/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md)
-- `2026-04-18T06:52:16.557Z`: [Codex Postmortem, Publication Assessment, and Version 1.1 PR](sources/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md)
+- `2026-04-16T02:40:08.652Z`: [Deep Research Prompt and Copilot Review](readers/conv-001-deep-research-prompt-and-copilot-review.md)
+- `2026-04-16T08:49:39.697Z`: [Karpathy Wiki Planning and Challenge 2 Vault Build](readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md)
+- `2026-04-16T11:27:03.987Z`: [Wiki Evaluation Harness, Workbench, and Demo Route](readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md)
+- `2026-04-16T14:24:55.443Z`: [SeeLinks Question Box, PR Hygiene, and Baseline Cleanup](readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md)
+- `2026-04-18T06:52:16.557Z`: [Codex Postmortem, Publication Assessment, and Version 1.1 PR](readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md)
 
 ## Lessons
 
@@ -56,6 +56,7 @@ Team attribution: the Challenge 2 implementation work was done by Team DSIT A.
 ## Start Points
 
 - [Conversation Summary](conversation-summary.md)
+- [Start-to-Finish Conversation Readers](index.md)
 - [Publication Decision Register](decisions.md)
 - [Methodology Sources](methodology.md)
 - [Repository Evidence](repository-evidence.md)

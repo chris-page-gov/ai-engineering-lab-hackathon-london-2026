@@ -13,6 +13,8 @@ tags:
 
 # 0031. Incomplete Update Request
 
+Previous: [EX-0030](0030-20260416084939-fix-it.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0032](0032-20260416084939-can-we-review-and-clean-include-dropping-the-pr-on-the-original-repo-that-we-forked.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -42,3 +44,5 @@ What should I update? The message cuts off after “Update the”.
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Performed repo analysis, implementation, validation, or synthesis in response.
+
+Previous: [EX-0030](0030-20260416084939-fix-it.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0032](0032-20260416084939-can-we-review-and-clean-include-dropping-the-pr-on-the-original-repo-that-we-forked.md)

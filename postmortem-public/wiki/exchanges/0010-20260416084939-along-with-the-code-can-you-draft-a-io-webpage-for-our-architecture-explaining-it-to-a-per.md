@@ -13,6 +13,8 @@ tags:
 
 # 0010. Along with the code, can you draft a io webpage for our architecture explaining it to a person w
 
+Previous: [EX-0009](0009-20260416084939-write-the-pr-and-trigger-a-code-review.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0011](0011-20260416084939-work-exclusively-on-the-fork-local-pr.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -172,3 +174,5 @@ One local note: Obsidian changed `challenge-2/.obsidian/workspace.json` again in
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0009](0009-20260416084939-write-the-pr-and-trigger-a-code-review.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0011](0011-20260416084939-work-exclusively-on-the-fork-local-pr.md)

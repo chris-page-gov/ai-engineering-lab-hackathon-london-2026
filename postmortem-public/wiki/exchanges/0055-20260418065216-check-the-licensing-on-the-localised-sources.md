@@ -13,6 +13,8 @@ tags:
 
 # 0055. Check the licensing on the localised sources
 
+Previous: [EX-0054](0054-20260418065216-create-codex-postmortem-wiki.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0056](0056-20260418065216-create-codex-postmortem-wiki.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -90,3 +92,5 @@ No files were staged or committed.
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0054](0054-20260418065216-create-codex-postmortem-wiki.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0056](0056-20260418065216-create-codex-postmortem-wiki.md)

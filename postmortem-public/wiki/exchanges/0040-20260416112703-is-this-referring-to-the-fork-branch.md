@@ -13,6 +13,8 @@ tags:
 
 # 0040. is this referring to the fork branch
 
+Previous: [EX-0039](0039-20260416112703-merge-the-outstanding-prs-on-the-fork.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0041](0041-20260416112703-so-is-this-branch-clean.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -61,3 +63,5 @@ The confusing bit is that both PRs used the same branch name, `codex/hackathon-w
 
 - User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0039](0039-20260416112703-merge-the-outstanding-prs-on-the-fork.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0041](0041-20260416112703-so-is-this-branch-clean.md)

@@ -13,6 +13,8 @@ tags:
 
 # 0014. Review and fix the comments, make sure you don't change sources or redact anything from the synt
 
+Previous: [EX-0013](0013-20260416084939-with-the-comments-fix-and-reject-so-the-ones-you-ve-addressed-or-rejected-are-not-shown-as.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0015](0015-20260416084939-merge-to-the-fork.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -101,3 +103,5 @@ No code changes were needed in this turn, no raw source files were changed, and 
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0013](0013-20260416084939-with-the-comments-fix-and-reject-so-the-ones-you-ve-addressed-or-rejected-are-not-shown-as.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0015](0015-20260416084939-merge-to-the-fork.md)

@@ -16,6 +16,7 @@ This source note summarizes a local Codex conversation without publishing the ra
 - Conversation source ID: `CONV-001`
 - Start timestamp: `2026-04-16T02:40:08.652Z`
 - Updated at: `2026-04-16T02:44:44.455484Z`
+- Start-to-finish reader: [conversation reader](../readers/conv-001-deep-research-prompt-and-copilot-review.md)
 - User visible messages: 2
 - Codex visible messages: 11
 - Private evidence hash: `1de492a53a5cdf302beceee8575b008e7641cbf3865b7d3ce823c90a21175942`

@@ -13,6 +13,8 @@ tags:
 
 # 0029. Is the obsidian file changed every time I use Obsidian - can it be gitignored?
 
+Previous: [EX-0028](0028-20260416084939-merge-the-pr.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0030](0030-20260416084939-fix-it.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -66,3 +68,5 @@ But the repo-wide `.gitignore` plus `git rm --cached` approach is cleaner for th
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0028](0028-20260416084939-merge-the-pr.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0030](0030-20260416084939-fix-it.md)

@@ -13,6 +13,8 @@ tags:
 
 # 0050. Check Publication Branch Status
 
+Previous: [EX-0049](0049-20260416142455-add-workbench-question-box.md) | Conversation reader: [start-to-finish](../readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md) | Next: [EX-0051](0051-20260416142455-excellent-i-need-to-write-this-up-in-full-detail-as-a-report-to-colleagues-what-we-did-the.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -68,3 +70,5 @@ I did not fetch from the remote, so this confirms cleanliness against the locall
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0049](0049-20260416142455-add-workbench-question-box.md) | Conversation reader: [start-to-finish](../readers/conv-004-seelinks-question-box-pr-hygiene-and-baseline-cleanup.md) | Next: [EX-0051](0051-20260416142455-excellent-i-need-to-write-this-up-in-full-detail-as-a-report-to-colleagues-what-we-did-the.md)

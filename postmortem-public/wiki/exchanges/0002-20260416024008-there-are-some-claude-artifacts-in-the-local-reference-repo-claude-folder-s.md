@@ -13,6 +13,8 @@ tags:
 
 # 0002. There are some claude artifacts in the [LOCAL_REFERENCE_REPO]/.claude/ folder,  s
 
+Previous: [EX-0001](0001-20260416024008-update-deep-research-prompt.md) | Conversation reader: [start-to-finish](../readers/conv-001-deep-research-prompt-and-copilot-review.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -72,3 +74,5 @@ Git is not showing it because `.claude/` is ignored via `[LOCAL_REPO]/.git/info/
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0001](0001-20260416024008-update-deep-research-prompt.md) | Conversation reader: [start-to-finish](../readers/conv-001-deep-research-prompt-and-copilot-review.md)

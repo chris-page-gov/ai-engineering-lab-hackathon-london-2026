@@ -13,6 +13,8 @@ tags:
 
 # 0018. Add tracking files to the repo, Changelog.md (best practice change tracking showing dated change
 
+Previous: [EX-0017](0017-20260416084939-fix-obsidian-mermaid-architecture-diagram.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0019](0019-20260416084939-commit-push-and-pr-to-the-fork.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -119,3 +121,5 @@ No raw challenge source files were changed, and nothing was redacted from synthe
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0017](0017-20260416084939-fix-obsidian-mermaid-architecture-diagram.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0019](0019-20260416084939-commit-push-and-pr-to-the-fork.md)

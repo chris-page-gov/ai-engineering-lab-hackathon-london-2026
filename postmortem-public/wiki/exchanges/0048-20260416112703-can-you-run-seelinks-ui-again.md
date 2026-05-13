@@ -13,6 +13,8 @@ tags:
 
 # 0048. can you run seelinks UI again
 
+Previous: [EX-0047](0047-20260416112703-commit-all-changes-including-all-untracked-files.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -54,3 +56,5 @@ The dev server is still active in this thread.
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Performed repo analysis, implementation, validation, or synthesis in response.
+
+Previous: [EX-0047](0047-20260416112703-commit-all-changes-including-all-untracked-files.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md)

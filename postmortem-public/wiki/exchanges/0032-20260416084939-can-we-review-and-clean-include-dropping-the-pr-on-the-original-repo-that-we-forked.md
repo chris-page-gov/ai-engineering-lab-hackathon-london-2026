@@ -13,6 +13,8 @@ tags:
 
 # 0032. Can we review and clean, include dropping the PR on the original repo that we forked
 
+Previous: [EX-0031](0031-20260416084939-incomplete-update-request.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0033](0033-20260416084939-commit-and-push-this-too.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -99,3 +101,5 @@ I left that commit unpushed because it is separate from the PR clean-up and look
 
 - User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0031](0031-20260416084939-incomplete-update-request.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0033](0033-20260416084939-commit-and-push-this-too.md)

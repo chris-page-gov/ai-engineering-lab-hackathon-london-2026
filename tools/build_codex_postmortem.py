@@ -3,7 +3,8 @@
 
 The builder reads local Codex rollout JSONL files for this repository, fetches
 the external methodology references used during the build, and regenerates a
-Markdown source archive plus a navigable postmortem wiki.
+Markdown source archive plus a navigable postmortem wiki with start-to-finish
+conversation reader pages.
 """
 
 from __future__ import annotations
@@ -37,6 +38,7 @@ CONVERSATION_SOURCES_DIR = SOURCES_DIR / "conversations"
 EXTERNAL_SOURCES_DIR = SOURCES_DIR / "external"
 WIKI_DIR = POSTMORTEM_ROOT / "wiki"
 EXCHANGES_DIR = WIKI_DIR / "exchanges"
+READERS_DIR = WIKI_DIR / "readers"
 WIKI_SOURCES_DIR = WIKI_DIR / "sources"
 TOPICS_DIR = WIKI_DIR / "topics"
 ENTITIES_DIR = WIKI_DIR / "entities"
@@ -44,6 +46,7 @@ MAPS_DIR = WIKI_DIR / "maps"
 DATA_DIR = WIKI_DIR / "data"
 PUBLIC_WIKI_DIR = POSTMORTEM_PUBLIC_ROOT / "wiki"
 PUBLIC_EXCHANGES_DIR = PUBLIC_WIKI_DIR / "exchanges"
+PUBLIC_READERS_DIR = PUBLIC_WIKI_DIR / "readers"
 PUBLIC_SOURCES_DIR = PUBLIC_WIKI_DIR / "sources"
 PUBLIC_TOPICS_DIR = PUBLIC_WIKI_DIR / "topics"
 PUBLIC_MAPS_DIR = PUBLIC_WIKI_DIR / "maps"
@@ -68,6 +71,7 @@ TITLE_OVERRIDES = {
     "019d96ae-4082-79d2-bb12-74ea871e8c5e": "SeeLinks Question Box, PR Hygiene, and Baseline Cleanup",
     "019d9f5c-8f1e-72c1-88a7-7a777db6d3e3": "Codex Postmortem, Publication Assessment, and Version 1.1 PR",
 }
+CURATED_SESSION_IDS = set(TITLE_OVERRIDES)
 
 ARTIFACT_PATHS = [
     "AGENTS.md",
@@ -149,6 +153,8 @@ EXTERNAL_REFERENCES = [
     },
 ]
 
+FENCED_BLOCK_PATTERN = re.compile(r"(^|\n)(`{3,}|~{3,})[^\n]*\n.*?\n\2[ \t]*(?=\n|$)", re.DOTALL)
+
 
 @dataclass
 class Message:
@@ -225,14 +231,17 @@ def rel_link(from_path: Path, target: Path, label: str) -> str:
     return f"[{label}]({rel})"
 
 
+def strip_fenced_blocks(text: str) -> str:
+    return FENCED_BLOCK_PATTERN.sub("\n", text)
+
+
 def write_text(path: Path, text: str, *, read_only: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
         path.chmod(0o644)
     if path.suffix == ".md":
         text = re.sub(r"[ \t]+$", "", text, flags=re.MULTILINE)
-        if not text.endswith("\n"):
-            text += "\n"
+        text = text.rstrip() + "\n"
     path.write_text(text, encoding="utf-8")
     if read_only:
         path.chmod(0o444)
@@ -249,6 +258,7 @@ def reset_generated_dirs() -> None:
         CONVERSATION_SOURCES_DIR,
         EXTERNAL_SOURCES_DIR,
         EXCHANGES_DIR,
+        READERS_DIR,
         WIKI_SOURCES_DIR,
         TOPICS_DIR,
         ENTITIES_DIR,
@@ -265,6 +275,7 @@ def reset_public_dirs() -> None:
         shutil.rmtree(POSTMORTEM_PUBLIC_ROOT)
     for directory in [
         PUBLIC_EXCHANGES_DIR,
+        PUBLIC_READERS_DIR,
         PUBLIC_SOURCES_DIR,
         PUBLIC_TOPICS_DIR,
         PUBLIC_MAPS_DIR,
@@ -401,7 +412,11 @@ def parse_session(path: Path, index: dict[str, dict[str, Any]]) -> Session | Non
 
 def discover_sessions() -> list[Session]:
     index = load_session_index()
-    sessions = [session for path in session_paths() if (session := parse_session(path, index))]
+    sessions = [
+        session
+        for path in session_paths()
+        if (session := parse_session(path, index)) and session.session_id in CURATED_SESSION_IDS
+    ]
     sessions.sort(key=lambda item: (item.start_timestamp, item.session_id))
     for number, session in enumerate(sessions, start=1):
         session.source_id = f"CONV-{number:03d}"
@@ -586,6 +601,65 @@ def compact_date(timestamp: str) -> str:
     return re.sub(r"[^0-9]", "", timestamp[:19])
 
 
+def exchange_path(exchange: Exchange) -> Path:
+    session_date = compact_date(exchange.session.start_timestamp)
+    return EXCHANGES_DIR / f"{exchange.global_sequence:04d}-{session_date}-{exchange.slug}.md"
+
+
+def conversation_reader_path(session: Session) -> Path:
+    return READERS_DIR / f"{session.source_id.lower()}-{slugify(session.title)}.md"
+
+
+def public_conversation_reader_path(session: Session) -> Path:
+    return PUBLIC_READERS_DIR / f"{session.source_id.lower()}-{slugify(session.title)}.md"
+
+
+def exchange_anchor(exchange: Exchange) -> str:
+    return f"ex-{exchange.global_sequence:04d}"
+
+
+def grouped_exchanges_by_session(sessions: list[Session], exchanges: list[Exchange]) -> dict[str, list[Exchange]]:
+    return {
+        session.session_id: sorted(
+            [exchange for exchange in exchanges if exchange.session.session_id == session.session_id],
+            key=lambda exchange: exchange.session_sequence,
+        )
+        for session in sessions
+    }
+
+
+def neighboring_exchanges(exchange: Exchange, exchanges: list[Exchange]) -> tuple[Exchange | None, Exchange | None]:
+    session_exchanges = sorted(
+        [candidate for candidate in exchanges if candidate.session.session_id == exchange.session.session_id],
+        key=lambda candidate: candidate.session_sequence,
+    )
+    try:
+        position = session_exchanges.index(exchange)
+    except ValueError:
+        return None, None
+    previous_exchange = session_exchanges[position - 1] if position > 0 else None
+    next_exchange = session_exchanges[position + 1] if position + 1 < len(session_exchanges) else None
+    return previous_exchange, next_exchange
+
+
+def exchange_navigation(
+    current_path: Path,
+    reader_path: Path,
+    previous_exchange: Exchange | None,
+    next_exchange: Exchange | None,
+    *,
+    public: bool = False,
+) -> str:
+    path_for_exchange = public_exchange_path if public else exchange_path
+    links = []
+    if previous_exchange:
+        links.append(f"Previous: {rel_link(current_path, path_for_exchange(previous_exchange), previous_exchange.exchange_id)}")
+    links.append(f"Conversation reader: {rel_link(current_path, reader_path, 'start-to-finish')}")
+    if next_exchange:
+        links.append(f"Next: {rel_link(current_path, path_for_exchange(next_exchange), next_exchange.exchange_id)}")
+    return " | ".join(links) + "\n\n"
+
+
 def fetch_url(url: str) -> tuple[int | None, dict[str, str], bytes, str | None]:
     parsed = urllib.parse.urlparse(url)
     if parsed.scheme != "https" or parsed.hostname not in ALLOWED_EXTERNAL_SOURCE_HOSTS:
@@ -682,9 +756,9 @@ def build_artifact_register(commit: str) -> list[dict[str, Any]]:
 
 def write_exchange_files(exchanges: list[Exchange]) -> None:
     for exchange in exchanges:
-        session_date = compact_date(exchange.session.start_timestamp)
-        path = EXCHANGES_DIR / f"{exchange.global_sequence:04d}-{session_date}-{exchange.slug}.md"
+        path = exchange_path(exchange)
         exchange.output_path = path
+        previous_exchange, next_exchange = neighboring_exchanges(exchange, exchanges)
         response_count = len(exchange.assistant_messages)
         fields = {
             "exchange_id": exchange.exchange_id,
@@ -700,13 +774,13 @@ def write_exchange_files(exchanges: list[Exchange]) -> None:
         parts = [
             frontmatter(fields),
             f"# {exchange.global_sequence:04d}. {exchange.title}\n\n",
+            exchange_navigation(path, conversation_reader_path(exchange.session), previous_exchange, next_exchange),
             "## Source\n\n",
             f"- Conversation source: {rel_link(path, exchange.session.output_path or path, exchange.session.source_id)}\n",
             f"- Original thread: {exchange.session.title}\n\n",
             "## User Prompt\n\n",
-            "```text\n",
-            exchange.user_message.text.rstrip(),
-            "\n```\n\n",
+            fenced_text(exchange.user_message.text),
+            "\n",
             "## Codex Response\n\n",
         ]
         if exchange.assistant_messages:
@@ -714,9 +788,8 @@ def write_exchange_files(exchanges: list[Exchange]) -> None:
                 phase = f" ({message.phase})" if message.phase else ""
                 parts.append(f"### Response {number}{phase}\n\n")
                 parts.append(f"- Timestamp: `{message.timestamp}`\n\n")
-                parts.append("```text\n")
-                parts.append(message.text.rstrip())
-                parts.append("\n```\n\n")
+                parts.append(fenced_text(message.text))
+                parts.append("\n")
         else:
             parts.append("No Codex response was recorded before the next user message.\n\n")
         parts.extend(
@@ -724,8 +797,66 @@ def write_exchange_files(exchanges: list[Exchange]) -> None:
                 "## Contribution Reading\n\n",
                 "- User contribution: supplied intent, constraints, acceptance criteria, source context, or review direction.\n",
                 "- Codex contribution: translated that prompt into repo inspection, implementation choices, file edits, validation, or written analysis.\n",
+                "\n",
+                exchange_navigation(path, conversation_reader_path(exchange.session), previous_exchange, next_exchange),
             ]
         )
+        write_text(path, "".join(parts))
+
+
+def write_conversation_readers(sessions: list[Session], exchanges: list[Exchange]) -> None:
+    grouped = grouped_exchanges_by_session(sessions, exchanges)
+    for session in sessions:
+        path = conversation_reader_path(session)
+        session_exchanges = grouped.get(session.session_id, [])
+        source_note = WIKI_SOURCES_DIR / f"{session.source_id.lower()}-{slugify(session.title)}.md"
+        fields = {
+            "source_id": session.source_id,
+            "title": f"{session.title} Reader",
+            "reader_type": "start_to_finish_conversation",
+            "session_id": session.session_id,
+            "exchange_count": len(session_exchanges),
+            "tags": ["reader", "conversation", "codex-postmortem"],
+        }
+        parts = [
+            frontmatter(fields),
+            f"# {session.source_id}: {session.title}\n\n",
+            "This reader inlines the prompt-response exchanges for one conversation in chronological order. Use it when you want to follow the conversation from start to finish without opening each exchange note separately.\n\n",
+            "## Navigation\n\n",
+            f"- Index: {rel_link(path, WIKI_DIR / 'index.md', 'Codex Postmortem Wiki')}\n",
+            f"- Conversation source note: {rel_link(path, source_note, session.source_id)}\n",
+            f"- Read-only transcript: {rel_link(path, session.output_path or source_note, 'source transcript')}\n\n",
+            "## Exchange Map\n\n",
+            "| Exchange | Prompt | Standalone Note |\n",
+            "|---|---|---|\n",
+        ]
+        for exchange in session_exchanges:
+            parts.append(
+                f"| [{exchange.exchange_id}](#{exchange_anchor(exchange)}) | {exchange.title} | {rel_link(path, exchange.output_path or exchange_path(exchange), 'note')} |\n"
+            )
+        parts.append("\n## Conversation\n\n")
+        for exchange in session_exchanges:
+            parts.extend(
+                [
+                    f'<a id="{exchange_anchor(exchange)}"></a>\n\n',
+                    f"### {exchange.exchange_id}: {exchange.title}\n\n",
+                    f"- User timestamp: `{exchange.user_message.timestamp}`\n",
+                    f"- Standalone note: {rel_link(path, exchange.output_path or exchange_path(exchange), exchange.exchange_id)}\n\n",
+                    "#### User Prompt\n\n",
+                    fenced_text(exchange.user_message.text),
+                    "\n#### Codex Response\n\n",
+                ]
+            )
+            if exchange.assistant_messages:
+                for number, message in enumerate(exchange.assistant_messages, start=1):
+                    phase = f" ({message.phase})" if message.phase else ""
+                    parts.append(f"##### Response {number}{phase}\n\n")
+                    parts.append(f"- Timestamp: `{message.timestamp}`\n\n")
+                    parts.append(fenced_text(message.text))
+                    parts.append("\n")
+            else:
+                parts.append("No Codex response was recorded before the next user message.\n\n")
+            parts.append(f"[Back to exchange map](#exchange-map)\n\n")
         write_text(path, "".join(parts))
 
 
@@ -754,6 +885,7 @@ def write_source_notes(sessions: list[Session], external_records: list[dict[str,
             ),
             f"# {session.title}\n\n",
             f"- Read-only transcript: {rel_link(path, conversation_path, conversation_path.name)}\n",
+            f"- Start-to-finish reader: {rel_link(path, conversation_reader_path(session), 'conversation reader')}\n",
             f"- Local JSONL hash at extraction: `{session.source_sha256}`\n",
             f"- User visible messages: {sum(1 for item in session.messages if item.role == 'user')}\n",
             f"- Codex visible messages: {sum(1 for item in session.messages if item.role == 'assistant')}\n\n",
@@ -893,6 +1025,7 @@ def write_data_registers(
                 "source_jsonl_path": str(session.source_path),
                 "source_jsonl_sha256": session.source_sha256,
                 "source_markdown_path": str((session.output_path or Path()).relative_to(REPO_ROOT)),
+                "reader_path": str(conversation_reader_path(session).relative_to(REPO_ROOT)),
                 "user_message_count": sum(1 for message in session.messages if message.role == "user"),
                 "assistant_message_count": sum(1 for message in session.messages if message.role == "assistant"),
                 "tool_counts": session.tool_counts,
@@ -996,13 +1129,15 @@ def write_maps(sessions: list[Session], exchanges: list[Exchange]) -> None:
     parts = [
         frontmatter({"title": "Conversation Map", "tags": ["map", "conversation", "codex-postmortem"]}),
         "# Conversation Map\n\n",
-        "| Source | Conversation | Exchange Count | Transcript |\n",
-        "|---|---|---:|---|\n",
+        "| Source | Conversation | Reader | Exchange Count | Transcript |\n",
+        "|---|---|---|---:|---|\n",
     ]
     for session in sessions:
         count = sum(1 for exchange in exchanges if exchange.session.session_id == session.session_id)
         source_note = WIKI_SOURCES_DIR / f"{session.source_id.lower()}-{slugify(session.title)}.md"
-        parts.append(f"| {session.source_id} | {rel_link(MAPS_DIR / 'conversation-map.md', source_note, session.title)} | {count} | {rel_link(MAPS_DIR / 'conversation-map.md', session.output_path or source_note, 'source')} |\n")
+        parts.append(
+            f"| {session.source_id} | {rel_link(MAPS_DIR / 'conversation-map.md', source_note, session.title)} | {rel_link(MAPS_DIR / 'conversation-map.md', conversation_reader_path(session), 'read')} | {count} | {rel_link(MAPS_DIR / 'conversation-map.md', session.output_path or source_note, 'source')} |\n"
+        )
     write_text(MAPS_DIR / "conversation-map.md", "".join(parts))
 
     chronology = [
@@ -1022,12 +1157,13 @@ def write_architecture() -> None:
         """\
         # Postmortem Wiki Architecture
 
-        This folder mirrors the Challenge 2 wiki pattern. Local Codex conversations and external methodology references are immutable source material. The generated wiki then separates prompt-response exchanges, topic synthesis, entity pages, maps, and machine-readable registers.
+        This folder mirrors the Challenge 2 wiki pattern. Local Codex conversations and external methodology references are immutable source material. The generated wiki then separates prompt-response exchanges, start-to-finish conversation readers, topic synthesis, entity pages, maps, and machine-readable registers.
 
         ```mermaid
         flowchart LR
           Raw["Read-only sources\\nconversations and external snapshots"] --> Builder["tools/build_codex_postmortem.py"]
           Builder --> Wiki["postmortem/wiki\\nexchange notes, topics, maps"]
+          Wiki --> Readers["conversation readers\\nstart-to-finish Markdown"]
           Builder --> Data["postmortem/wiki/data\\nregisters and verification"]
           Wiki --> Postmortem["Detailed postmortem"]
           Data --> Postmortem
@@ -1139,13 +1275,15 @@ def write_index(sessions: list[Session], exchanges: list[Exchange], external_rec
         f"- {rel_link(WIKI_DIR / 'index.md', MAPS_DIR / 'conversation-map.md', 'Conversation Map')}\n",
         f"- {rel_link(WIKI_DIR / 'index.md', MAPS_DIR / 'build-chronology.md', 'Build Chronology')}\n\n",
         "## Conversation Sources\n\n",
-        "| Source | Conversation | Exchanges | Read-only Transcript |\n",
-        "|---|---|---:|---|\n",
+        "| Source | Conversation | Reader | Exchanges | Read-only Transcript |\n",
+        "|---|---|---|---:|---|\n",
     ]
     for session in sessions:
         count = sum(1 for exchange in exchanges if exchange.session.session_id == session.session_id)
         source_note = WIKI_SOURCES_DIR / f"{session.source_id.lower()}-{slugify(session.title)}.md"
-        parts.append(f"| {session.source_id} | {rel_link(WIKI_DIR / 'index.md', source_note, session.title)} | {count} | {rel_link(WIKI_DIR / 'index.md', session.output_path or source_note, 'source')} |\n")
+        parts.append(
+            f"| {session.source_id} | {rel_link(WIKI_DIR / 'index.md', source_note, session.title)} | {rel_link(WIKI_DIR / 'index.md', conversation_reader_path(session), 'read')} | {count} | {rel_link(WIKI_DIR / 'index.md', session.output_path or source_note, 'source')} |\n"
+        )
     parts.extend(
         [
             "\n## Prompt-Response Exchanges\n\n",
@@ -1174,7 +1312,8 @@ def write_index(sessions: list[Session], exchanges: list[Exchange], external_rec
             f"- {rel_link(WIKI_DIR / 'index.md', DATA_DIR / 'external-source-verification.json', 'External source verification')}\n",
             f"- {rel_link(WIKI_DIR / 'index.md', DATA_DIR / 'source-register.json', 'Combined source register')}\n\n",
             "## Scope Notes\n\n",
-            f"- Project conversations were selected by exact Codex session `cwd`: `{TARGET_CWD}`.\n",
+            f"- Candidate conversations must match Codex session `cwd`: `{TARGET_CWD}`.\n",
+            "- Published postmortem conversations are restricted to the curated session IDs named in `tools/build_codex_postmortem.py`; evaluation runs and incidental local sessions are excluded unless deliberately promoted into that curated list.\n",
             f"- Baseline repository permalinks use commit `{artifacts[0]['baseline_commit'] if artifacts else 'unknown'}` in the `chris-page-gov` fork.\n",
             "- The active postmortem thread is captured as of the builder run; later messages can be incorporated by rerunning the builder.\n",
         ]
@@ -1188,6 +1327,7 @@ def write_log(captured_at: str, sessions: list[Session], exchanges: list[Exchang
         "# Postmortem Log\n\n",
         f"## [{captured_at}] build | Codex postmortem wiki\n\n",
         f"- Conversation sources: {len(sessions)}\n",
+        f"- Start-to-finish readers: {len(sessions)}\n",
         f"- Prompt-response exchanges: {len(exchanges)}\n",
         f"- External sources localised: {len(external_records)}\n",
         f"- Builder: `tools/build_codex_postmortem.py`\n",
@@ -1204,7 +1344,7 @@ def write_readme() -> None:
 
         - `sources/conversations/` contains read-only Markdown transcripts extracted from local Codex rollout JSONL files for this repository.
         - `sources/external/` contains localised methodology references and verification metadata.
-        - `wiki/` contains exchange-level prompt/response notes, source notes, topic/entity/map pages, data registers, and the detailed postmortem.
+        - `wiki/` contains exchange-level prompt/response notes, start-to-finish conversation readers, source notes, topic/entity/map pages, data registers, and the detailed postmortem.
         - `publication-readiness-report.md` records redaction and packaging changes required before public release.
 
         Start at `wiki/index.md`.
@@ -1214,6 +1354,8 @@ def write_readme() -> None:
         ```bash
         python3 tools/build_codex_postmortem.py
         ```
+
+        The standard build uses the curated session IDs in `tools/build_codex_postmortem.py`; add a session there before regenerating if a new conversation should become part of the postmortem corpus.
 
         The committed Challenge 2 baseline is tagged locally as `{BASELINE_TAG}`. Git does not preserve the read-only bit for source Markdown files, so the files also carry `read_only_intent: true` in frontmatter.
         """
@@ -1232,6 +1374,7 @@ def write_agents() -> None:
 
         - Treat `sources/conversations/` and `sources/external/` as read-only evidence.
         - Do not edit generated source files by hand. Regenerate them with `python3 tools/build_codex_postmortem.py`.
+        - Add new conversation session IDs to the curated list in `tools/build_codex_postmortem.py` before regenerating; do not publish incidental local sessions or evaluation-question runs by accident.
         - Keep conversation source notes tied to local Codex JSONL hashes.
         - Keep repository artifact links as commit-specific GitHub permalinks whenever the file was tracked at the baseline commit.
 
@@ -1239,6 +1382,7 @@ def write_agents() -> None:
 
         - `wiki/index.md` is the entry point.
         - `wiki/exchanges/` contains one note per user prompt and Codex response sequence.
+        - `wiki/readers/` contains one start-to-finish Markdown reader per conversation and is the standard route for following a conversation end to end.
         - `wiki/sources/` contains source notes for conversations, external references, and repository artifacts.
         - `wiki/topics/`, `wiki/entities/`, and `wiki/maps/` contain synthesis pages.
         - `wiki/data/` contains machine-readable registers.
@@ -1255,9 +1399,8 @@ def write_agents() -> None:
 def validate_internal_links() -> list[str]:
     issues: list[str] = []
     link_pattern = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
-    fence_pattern = re.compile(r"```.*?```", re.DOTALL)
     for path in WIKI_DIR.rglob("*.md"):
-        text = fence_pattern.sub("", path.read_text(encoding="utf-8"))
+        text = strip_fenced_blocks(path.read_text(encoding="utf-8"))
         for raw in link_pattern.findall(text):
             if raw.startswith(("http://", "https://", "#", "mailto:", "/")):
                 continue
@@ -1418,6 +1561,7 @@ def write_public_exchange_files(exchanges: list[Exchange]) -> None:
     for exchange in exchanges:
         path = public_exchange_path(exchange)
         title = public_sanitize_text(exchange.title)
+        previous_exchange, next_exchange = neighboring_exchanges(exchange, exchanges)
         fields = {
             "exchange_id": exchange.exchange_id,
             "title": title,
@@ -1431,6 +1575,13 @@ def write_public_exchange_files(exchanges: list[Exchange]) -> None:
         parts = [
             frontmatter(fields),
             f"# {exchange.global_sequence:04d}. {title}\n\n",
+            exchange_navigation(
+                path,
+                public_conversation_reader_path(exchange.session),
+                previous_exchange,
+                next_exchange,
+                public=True,
+            ),
             "## Publication Boundary\n\n",
             "This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.\n\n",
             "## Source\n\n",
@@ -1454,8 +1605,74 @@ def write_public_exchange_files(exchanges: list[Exchange]) -> None:
                 "## Contribution Reading\n\n",
                 f"- User contribution: {infer_user_contribution(exchange)}\n",
                 f"- Codex contribution: {infer_codex_contribution(exchange)}\n",
+                "\n",
+                exchange_navigation(
+                    path,
+                    public_conversation_reader_path(exchange.session),
+                    previous_exchange,
+                    next_exchange,
+                    public=True,
+                ),
             ]
         )
+        write_text(path, "".join(parts))
+
+
+def write_public_conversation_readers(sessions: list[Session], exchanges: list[Exchange]) -> None:
+    grouped = grouped_exchanges_by_session(sessions, exchanges)
+    for session in sessions:
+        path = public_conversation_reader_path(session)
+        session_exchanges = grouped.get(session.session_id, [])
+        source_note = public_conversation_source_path(session)
+        fields = {
+            "source_id": session.source_id,
+            "title": f"{public_sanitize_text(session.title)} Reader",
+            "reader_type": "redacted_start_to_finish_conversation",
+            "publication_status": "redacted-public-derivative",
+            "exchange_count": len(session_exchanges),
+            "tags": ["reader", "conversation", "codex-postmortem-public"],
+        }
+        parts = [
+            frontmatter(fields),
+            f"# {session.source_id}: {public_sanitize_text(session.title)}\n\n",
+            "This redacted public reader inlines the prompt-response exchanges for one conversation in chronological order. It is the standard GitHub-friendly route for reading the conversation from start to finish without opening each exchange note separately.\n\n",
+            "## Navigation\n\n",
+            f"- Index: {rel_link(path, PUBLIC_WIKI_DIR / 'index.md', 'Public Codex Postmortem')}\n",
+            f"- Conversation source note: {rel_link(path, source_note, session.source_id)}\n",
+            "- Raw transcript: retained only in the private local evidence archive.\n\n",
+            "## Exchange Map\n\n",
+            "| Exchange | Prompt | Standalone Note |\n",
+            "|---|---|---|\n",
+        ]
+        for exchange in session_exchanges:
+            title = public_sanitize_text(exchange.title)
+            parts.append(
+                f"| [{exchange.exchange_id}](#{exchange_anchor(exchange)}) | {title} | {rel_link(path, public_exchange_path(exchange), 'note')} |\n"
+            )
+        parts.append("\n## Conversation\n\n")
+        for exchange in session_exchanges:
+            title = public_sanitize_text(exchange.title)
+            parts.extend(
+                [
+                    f'<a id="{exchange_anchor(exchange)}"></a>\n\n',
+                    f"### {exchange.exchange_id}: {title}\n\n",
+                    f"- User timestamp: `{exchange.user_message.timestamp}`\n",
+                    f"- Standalone note: {rel_link(path, public_exchange_path(exchange), exchange.exchange_id)}\n\n",
+                    "#### User Prompt\n\n",
+                    fenced_text(public_sanitize_text(exchange.user_message.text)),
+                    "\n#### Codex Response\n\n",
+                ]
+            )
+            if exchange.assistant_messages:
+                for number, message in enumerate(exchange.assistant_messages, start=1):
+                    phase = f" ({message.phase})" if message.phase else ""
+                    parts.append(f"##### Response {number}{phase}\n\n")
+                    parts.append(f"- Timestamp: `{message.timestamp}`\n\n")
+                    parts.append(fenced_text(public_sanitize_text(message.text)))
+                    parts.append("\n")
+            else:
+                parts.append("No Codex response was recorded before the next user message.\n\n")
+            parts.append(f"[Back to exchange map](#exchange-map)\n\n")
         write_text(path, "".join(parts))
 
 
@@ -1483,6 +1700,7 @@ def write_public_sources(
             f"- Conversation source ID: `{session.source_id}`\n",
             f"- Start timestamp: `{session.start_timestamp}`\n",
             f"- Updated at: `{session.updated_at}`\n",
+            f"- Start-to-finish reader: {rel_link(path, public_conversation_reader_path(session), 'conversation reader')}\n",
             f"- User visible messages: {sum(1 for item in session.messages if item.role == 'user')}\n",
             f"- Codex visible messages: {sum(1 for item in session.messages if item.role == 'assistant')}\n",
             f"- Private evidence hash: `{session.source_sha256}`\n",
@@ -1565,6 +1783,7 @@ def write_public_data_registers(
             "user_message_count": sum(1 for message in session.messages if message.role == "user"),
             "assistant_message_count": sum(1 for message in session.messages if message.role == "assistant"),
             "public_source_path": str(public_conversation_source_path(session).relative_to(REPO_ROOT)),
+            "public_reader_path": str(public_conversation_reader_path(session).relative_to(REPO_ROOT)),
         }
         for session in sessions
     ]
@@ -1658,14 +1877,14 @@ def write_public_conversation_summary(sessions: list[Session], exchanges: list[E
         frontmatter({"title": "Conversation Summary", "tags": ["conversation", "codex-postmortem-public"]}),
         "# Conversation Summary\n\n",
         "Raw transcripts are retained in the private local evidence archive. Public evidence is published as redacted exchange notes.\n\n",
-        "| Source | Conversation | Start | Exchanges | Public Source Note |\n",
-        "|---|---|---|---:|---|\n",
+        "| Source | Conversation | Start | Exchanges | Reader | Public Source Note |\n",
+        "|---|---|---|---:|---|---|\n",
     ]
     for session in sessions:
         count = sum(1 for exchange in exchanges if exchange.session.session_id == session.session_id)
         source_note = public_conversation_source_path(session)
         parts.append(
-            f"| {session.source_id} | {session.title} | `{session.start_timestamp}` | {count} | {rel_link(PUBLIC_WIKI_DIR / 'conversation-summary.md', source_note, 'open')} |\n"
+            f"| {session.source_id} | {session.title} | `{session.start_timestamp}` | {count} | {rel_link(PUBLIC_WIKI_DIR / 'conversation-summary.md', public_conversation_reader_path(session), 'read')} | {rel_link(PUBLIC_WIKI_DIR / 'conversation-summary.md', source_note, 'open')} |\n"
         )
     write_text(PUBLIC_WIKI_DIR / "conversation-summary.md", "".join(parts))
 
@@ -1725,7 +1944,7 @@ def write_public_postmortem(sessions: list[Session], artifacts: list[dict[str, A
         "## Timeline\n\n",
     ]
     for session in sessions:
-        parts.append(f"- `{session.start_timestamp}`: {rel_link(PUBLIC_WIKI_DIR / 'postmortem.md', public_conversation_source_path(session), session.title)}\n")
+        parts.append(f"- `{session.start_timestamp}`: {rel_link(PUBLIC_WIKI_DIR / 'postmortem.md', public_conversation_reader_path(session), session.title)}\n")
     parts.extend(
         [
             "\n## Lessons\n\n",
@@ -1735,6 +1954,7 @@ def write_public_postmortem(sessions: list[Session], artifacts: list[dict[str, A
             "4. A public postmortem needs a separate publication layer; raw assistant transcripts are valuable evidence but poor public artifacts.\n\n",
             "## Start Points\n\n",
             f"- {rel_link(PUBLIC_WIKI_DIR / 'postmortem.md', PUBLIC_WIKI_DIR / 'conversation-summary.md', 'Conversation Summary')}\n",
+            f"- {rel_link(PUBLIC_WIKI_DIR / 'postmortem.md', PUBLIC_WIKI_DIR / 'index.md', 'Start-to-Finish Conversation Readers')}\n",
             f"- {rel_link(PUBLIC_WIKI_DIR / 'postmortem.md', PUBLIC_WIKI_DIR / 'decisions.md', 'Publication Decision Register')}\n",
             f"- {rel_link(PUBLIC_WIKI_DIR / 'postmortem.md', PUBLIC_WIKI_DIR / 'methodology.md', 'Methodology Sources')}\n",
             f"- {rel_link(PUBLIC_WIKI_DIR / 'postmortem.md', PUBLIC_WIKI_DIR / 'repository-evidence.md', 'Repository Evidence')}\n",
@@ -1753,11 +1973,12 @@ def write_public_architecture() -> None:
           Private["Ignored private postmortem archive"] --> Builder["tools/build_codex_postmortem.py"]
           Builder --> Public["postmortem-public"]
           Public --> Exchanges["Redacted exchange notes"]
+          Public --> Readers["Markdown conversation readers"]
           Public --> Citations["Citation-only external sources"]
           Public --> Evidence["GitHub permalinks and registers"]
         ```
 
-        The public folder is intentionally a derivative. It keeps the useful timeline, contribution analysis, and repository evidence while excluding raw local transcripts and full third-party copied source bodies.
+        The public folder is intentionally a derivative. It keeps the useful timeline, contribution analysis, start-to-finish Markdown readers, and repository evidence while excluding raw local transcripts and full third-party copied source bodies.
         """
     )
     write_text(PUBLIC_WIKI_DIR / "architecture.md", frontmatter({"title": "Architecture", "tags": ["architecture", "codex-postmortem-public"]}) + text)
@@ -1776,14 +1997,29 @@ def write_public_index(
         "## Start Here\n\n",
         f"- {rel_link(PUBLIC_WIKI_DIR / 'index.md', PUBLIC_WIKI_DIR / 'postmortem.md', 'Public Postmortem')}\n",
         f"- {rel_link(PUBLIC_WIKI_DIR / 'index.md', PUBLIC_WIKI_DIR / 'conversation-summary.md', 'Conversation Summary')}\n",
+        "- [Start-to-Finish Conversation Readers](#start-to-finish-conversation-readers)\n",
         f"- {rel_link(PUBLIC_WIKI_DIR / 'index.md', PUBLIC_WIKI_DIR / 'decisions.md', 'Publication Decision Register')}\n",
         f"- {rel_link(PUBLIC_WIKI_DIR / 'index.md', PUBLIC_WIKI_DIR / 'methodology.md', 'Methodology Sources')}\n",
         f"- {rel_link(PUBLIC_WIKI_DIR / 'index.md', PUBLIC_WIKI_DIR / 'repository-evidence.md', 'Repository Evidence')}\n",
         f"- {rel_link(PUBLIC_WIKI_DIR / 'index.md', PUBLIC_WIKI_DIR / 'architecture.md', 'Public Postmortem Architecture')}\n\n",
-        "## Redacted Prompt-Response Exchanges\n\n",
-        "| Sequence | Exchange | Source |\n",
-        "|---:|---|---|\n",
+        "## Start-to-Finish Conversation Readers\n\n",
+        "| Source | Conversation | Exchanges | Reader | Source Note |\n",
+        "|---|---|---:|---|---|\n",
     ]
+    for session in sessions:
+        count = sum(1 for exchange in exchanges if exchange.session.session_id == session.session_id)
+        source_note = public_conversation_source_path(session)
+        parts.append(
+            f"| {session.source_id} | {public_sanitize_text(session.title)} | {count} | {rel_link(PUBLIC_WIKI_DIR / 'index.md', public_conversation_reader_path(session), 'read')} | {rel_link(PUBLIC_WIKI_DIR / 'index.md', source_note, 'source')} |\n"
+        )
+    parts.extend(
+        [
+            "\n",
+            "## Redacted Prompt-Response Exchanges\n\n",
+            "| Sequence | Exchange | Source |\n",
+            "|---:|---|---|\n",
+        ]
+    )
     for exchange in exchanges:
         parts.append(f"| {exchange.global_sequence} | {rel_link(PUBLIC_WIKI_DIR / 'index.md', public_exchange_path(exchange), public_sanitize_text(exchange.title))} | {exchange.session.source_id} |\n")
     parts.extend(
@@ -1793,6 +2029,8 @@ def write_public_index(
             f"- Redacted prompt-response exchanges: {len(exchanges)}\n",
             f"- External citations: {len(external_records)}\n",
             f"- Repository artifacts registered: {len(artifacts)}\n",
+            "\n## Scope Notes\n\n",
+            "- Public conversations are restricted to the curated session IDs named in `tools/build_codex_postmortem.py`; evaluation runs and incidental local sessions are excluded unless deliberately promoted into that curated list.\n",
         ]
     )
     write_text(PUBLIC_WIKI_DIR / "index.md", "".join(parts))
@@ -1808,6 +2046,7 @@ def write_public_readme() -> None:
         It includes:
 
         - redacted prompt-response exchange notes that preserve sequence and contribution evidence;
+        - start-to-finish Markdown conversation readers for efficient GitHub browsing;
         - conversation summaries instead of raw Codex transcripts;
         - citation-only external methodology notes instead of full copied third-party source bodies;
         - repository artifact notes with commit-specific GitHub permalinks where available;
@@ -1820,6 +2059,8 @@ def write_public_readme() -> None:
         ```bash
         python3 tools/build_codex_postmortem.py
         ```
+
+        The standard build uses the curated session IDs in `tools/build_codex_postmortem.py`; add a session there before regenerating if a new conversation should become part of the public postmortem corpus.
         """
     )
     write_text(POSTMORTEM_PUBLIC_ROOT / "README.md", text)
@@ -1836,7 +2077,9 @@ def write_public_agents() -> None:
         - Do not add full copied third-party methodology source bodies unless licensing or permission is recorded.
         - Keep local filesystem paths, screenshot paths, and private reference repositories redacted.
         - Preserve commit-specific GitHub permalinks for tracked repository artifacts.
+        - Add new conversation session IDs to the curated list in `tools/build_codex_postmortem.py` before regenerating public output.
         - Regenerate with `python3 tools/build_codex_postmortem.py` rather than hand-editing generated exchange notes.
+        - Treat `wiki/readers/` as the standard GitHub-friendly route for following conversations from start to finish.
         """
     )
     write_text(POSTMORTEM_PUBLIC_ROOT / "AGENTS.md", text)
@@ -1848,6 +2091,7 @@ def write_public_log(captured_at: str, sessions: list[Session], exchanges: list[
         "# Public Postmortem Log\n\n",
         f"## [{captured_at}] build | Public Codex postmortem\n\n",
         f"- Conversation summaries: {len(sessions)}\n",
+        f"- Start-to-finish readers: {len(sessions)}\n",
         f"- Redacted prompt-response exchanges: {len(exchanges)}\n",
         f"- Citation-only external sources: {len(external_records)}\n",
         "- Private source archive: ignored `postmortem/` folder.\n",
@@ -1858,9 +2102,8 @@ def write_public_log(captured_at: str, sessions: list[Session], exchanges: list[
 def validate_public_internal_links() -> list[str]:
     issues: list[str] = []
     link_pattern = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
-    fence_pattern = re.compile(r"```.*?```", re.DOTALL)
     for path in PUBLIC_WIKI_DIR.rglob("*.md"):
-        text = fence_pattern.sub("", path.read_text(encoding="utf-8"))
+        text = strip_fenced_blocks(path.read_text(encoding="utf-8"))
         for raw in link_pattern.findall(text):
             if raw.startswith(("http://", "https://", "#", "mailto:", "/")):
                 continue
@@ -1933,6 +2176,7 @@ def build_public_postmortem(
 ) -> None:
     reset_public_dirs()
     write_public_exchange_files(exchanges)
+    write_public_conversation_readers(sessions, exchanges)
     write_public_sources(sessions, exchanges, external_records, artifacts)
     write_public_data_registers(sessions, exchanges, external_records, artifacts)
     write_public_decisions()
@@ -1963,6 +2207,7 @@ def build() -> None:
     write_conversation_sources(sessions)
     ALL_EXCHANGES = build_exchanges(sessions)
     write_exchange_files(ALL_EXCHANGES)
+    write_conversation_readers(sessions, ALL_EXCHANGES)
     external_records = write_external_sources(captured_at)
     try:
         baseline_commit = run_git(["rev-parse", f"{BASELINE_TAG}^{{}}"])

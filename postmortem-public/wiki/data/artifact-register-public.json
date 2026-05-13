@@ -282,12 +282,12 @@
   {
     "path": "tests/test_build_codex_postmortem.py",
     "tracked_at_baseline": false,
-    "tracked_in_publication_branch": false,
+    "tracked_in_publication_branch": true,
     "baseline_commit": "326a82a8f17440d49471dab6a11d2b725b879359",
     "github_permalink": null,
     "publication_branch": "codex/postmortem-wiki",
-    "publication_branch_url": null,
-    "publication_status": "local-only-reference"
+    "publication_branch_url": "https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/tests/test_build_codex_postmortem.py",
+    "publication_status": "publication-branch-link"
   },
   {
     "path": "output/doc/challenge-2-realtime-delivery-report.md",

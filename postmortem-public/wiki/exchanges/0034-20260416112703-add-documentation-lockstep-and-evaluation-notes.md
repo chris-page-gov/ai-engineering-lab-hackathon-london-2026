@@ -13,6 +13,8 @@ tags:
 
 # 0034. Add Documentation Lockstep and Evaluation Notes
 
+Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0035](0035-20260416112703-link-into-the-wiki-does-theed-a-path-change.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -105,3 +107,5 @@ Verification done:
 
 - User contribution: Constrained the task to documentation and evaluation design.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0035](0035-20260416112703-link-into-the-wiki-does-theed-a-path-change.md)

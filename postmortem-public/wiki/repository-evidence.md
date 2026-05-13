@@ -44,6 +44,7 @@ Commit-specific GitHub permalinks are used where files were tracked at the tagge
 
 ## Version 1.1 Publication Branch Evidence
 
+- [tests/test_build_codex_postmortem.py](sources/artifact-tests-test-build-codex-postmortem-py.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/tests/test_build_codex_postmortem.py)
 - [output/doc/challenge-2-realtime-delivery-report.md](sources/artifact-output-doc-challenge-2-realtime-delivery-report-md.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/challenge-2-realtime-delivery-report.md)
 - [output/doc/challenge-2-realtime-delivery-report.docx](sources/artifact-output-doc-challenge-2-realtime-delivery-report-docx.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/challenge-2-realtime-delivery-report.docx)
 - [output/doc/contribution-modes-proposal.md](sources/artifact-output-doc-contribution-modes-proposal-md.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/contribution-modes-proposal.md)
@@ -59,7 +60,3 @@ Commit-specific GitHub permalinks are used where files were tracked at the tagge
 - [output/doc/assets/contribution-modes-proposal/mode-authority.svg](sources/artifact-output-doc-assets-contribution-modes-proposal-mode-authority-svg.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/mode-authority.svg)
 - [output/doc/assets/contribution-modes-proposal/mode-anatomy.svg](sources/artifact-output-doc-assets-contribution-modes-proposal-mode-anatomy-svg.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/mode-anatomy.svg)
 - [output/doc/assets/contribution-modes-proposal/hackathon-stages.svg](sources/artifact-output-doc-assets-contribution-modes-proposal-hackathon-stages-svg.md): [publication branch](https://github.com/chris-page-gov/ai-engineering-lab-hackathon-london-2026/blob/codex%2Fpostmortem-wiki/output/doc/assets/contribution-modes-proposal/hackathon-stages.svg)
-
-## Local-Only Evidence
-
-- `tests/test_build_codex_postmortem.py`: not tracked at the tagged baseline

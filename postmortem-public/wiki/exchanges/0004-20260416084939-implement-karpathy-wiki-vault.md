@@ -13,6 +13,8 @@ tags:
 
 # 0004. Implement Karpathy Wiki Vault
 
+Previous: [EX-0003](0003-20260416084939-plan-karpathy-wiki-translation.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0005](0005-20260416084939-which-folder-do-i-open-in-obsidian-to-browse.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -255,3 +257,5 @@ The raw `structured_files/` and `unstructured_files/` folders were not modified.
 
 - User contribution: Approved implementation and supplied a detailed acceptance plan.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0003](0003-20260416084939-plan-karpathy-wiki-translation.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0005](0005-20260416084939-which-folder-do-i-open-in-obsidian-to-browse.md)

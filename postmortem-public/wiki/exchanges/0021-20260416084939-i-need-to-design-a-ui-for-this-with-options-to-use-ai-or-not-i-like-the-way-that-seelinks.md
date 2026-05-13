@@ -13,6 +13,8 @@ tags:
 
 # 0021. I need to design a UI for this with options to use AI or not. I like the way that SeeLinks pulls
 
+Previous: [EX-0020](0020-20260416084939-fix-comments.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0022](0022-20260416084939-dark-data-workbench-is-good-create-a-plan-to-implement-this-with-a-full-test-suite-includi.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -316,3 +318,5 @@ That gives you a demoable UI without depending on any runtime model access, whil
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0020](0020-20260416084939-fix-comments.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0022](0022-20260416084939-dark-data-workbench-is-good-create-a-plan-to-implement-this-with-a-full-test-suite-includi.md)

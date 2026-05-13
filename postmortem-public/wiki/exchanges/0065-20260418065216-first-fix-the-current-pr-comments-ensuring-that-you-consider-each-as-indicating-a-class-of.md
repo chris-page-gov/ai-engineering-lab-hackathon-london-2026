@@ -13,6 +13,8 @@ tags:
 
 # 0065. First, fix the current PR comments, ensuring that you consider each as indicating a class of err
 
+Previous: [EX-0064](0064-20260418065216-we-now-have-a-command-line-github-copilot-and-a-microsoft-copilot-app-can-you-investigate.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0066](0066-20260418065216-ensure-you-close-the-comments-you-address-with-apropriate-comments.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -66,3 +68,5 @@ For the first thread, the exact bug is `pr` matching inside `prompt`, but the br
 
 - User contribution: Asked Codex to inspect GitHub state and unblock the repository workflow.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0064](0064-20260418065216-we-now-have-a-command-line-github-copilot-and-a-microsoft-copilot-app-can-you-investigate.md) | Conversation reader: [start-to-finish](../readers/conv-005-codex-postmortem-publication-assessment-and-version-1-1-pr.md) | Next: [EX-0066](0066-20260418065216-ensure-you-close-the-comments-you-address-with-apropriate-comments.md)

@@ -13,6 +13,8 @@ tags:
 
 # 0045. That's okay, we live on the fork
 
+Previous: [EX-0044](0044-20260416112703-we-should-be-clean-now.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0046](0046-20260416112703-now-i-need-you-to-create-a-page-in-the-wiki-which-will-demonstrate-all-functionality-inclu.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -47,3 +49,5 @@ Understood. Current working baseline is the fork:
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0044](0044-20260416112703-we-should-be-clean-now.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0046](0046-20260416112703-now-i-need-you-to-create-a-page-in-the-wiki-which-will-demonstrate-all-functionality-inclu.md)

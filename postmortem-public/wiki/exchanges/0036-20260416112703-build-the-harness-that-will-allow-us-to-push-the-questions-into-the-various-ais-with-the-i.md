@@ -13,6 +13,8 @@ tags:
 
 # 0036. Build the harness that will allow us to push the questions into the various AIs with the instruc
 
+Previous: [EX-0035](0035-20260416112703-link-into-the-wiki-does-theed-a-path-change.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0037](0037-20260416112703-do-a-pr-for-the-evaluation-work.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -203,3 +205,5 @@ Note: `challenge-2/.obsidian/workspace.json` is still dirty local Obsidian works
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0035](0035-20260416112703-link-into-the-wiki-does-theed-a-path-change.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0037](0037-20260416112703-do-a-pr-for-the-evaluation-work.md)

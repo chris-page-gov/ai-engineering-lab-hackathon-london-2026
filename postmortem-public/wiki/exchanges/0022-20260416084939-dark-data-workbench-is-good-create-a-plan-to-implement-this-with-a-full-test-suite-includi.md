@@ -13,6 +13,8 @@ tags:
 
 # 0022. Dark Data Workbench is good, create a plan to implement this with a full test suite including pl
 
+Previous: [EX-0021](0021-20260416084939-i-need-to-design-a-ui-for-this-with-options-to-use-ai-or-not-i-like-the-way-that-seelinks.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0023](0023-20260416084939-implement-this-plan-on-a-new-branch-codex-seelinks.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -172,3 +174,5 @@ The v1 implementation will not require a model API. It will preserve synthetic d
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0021](0021-20260416084939-i-need-to-design-a-ui-for-this-with-options-to-use-ai-or-not-i-like-the-way-that-seelinks.md) | Conversation reader: [start-to-finish](../readers/conv-002-karpathy-wiki-planning-and-challenge-2-vault-build.md) | Next: [EX-0023](0023-20260416084939-implement-this-plan-on-a-new-branch-codex-seelinks.md)

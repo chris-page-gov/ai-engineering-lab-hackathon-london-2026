@@ -13,6 +13,8 @@ tags:
 
 # 0042. Is this clean and up to date?
 
+Previous: [EX-0041](0041-20260416112703-so-is-this-branch-clean.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0043](0043-20260416112703-i-think-that-challenge-2-obsidian-workspace-json-is-on-main-now.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -77,3 +79,5 @@ Also, note the branch changed from the earlier `codex/hackathon-work` context. Y
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Inspected repository/GitHub state and adjusted branch or PR hygiene.
+
+Previous: [EX-0041](0041-20260416112703-so-is-this-branch-clean.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0043](0043-20260416112703-i-think-that-challenge-2-obsidian-workspace-json-is-on-main-now.md)

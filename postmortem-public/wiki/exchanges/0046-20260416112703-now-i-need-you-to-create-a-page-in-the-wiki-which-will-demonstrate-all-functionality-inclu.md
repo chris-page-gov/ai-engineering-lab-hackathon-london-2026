@@ -13,6 +13,8 @@ tags:
 
 # 0046. Now I need you to create a page in the wiki which will demonstrate all functionality including h
 
+Previous: [EX-0045](0045-20260416112703-that-s-okay-we-live-on-the-fork.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0047](0047-20260416112703-commit-all-changes-including-all-untracked-files.md)
+
 ## Publication Boundary
 
 This is a redacted public derivative. It preserves sequence and contribution evidence, but it is not the raw Codex transcript.
@@ -191,3 +193,5 @@ Current working tree is intentionally not clean because of these docs changes. O
 
 - User contribution: Supplied task direction, constraints, or review feedback.
 - Codex contribution: Mapped the request into repeatable generation, linting, and source-backed wiki artifacts.
+
+Previous: [EX-0045](0045-20260416112703-that-s-okay-we-live-on-the-fork.md) | Conversation reader: [start-to-finish](../readers/conv-003-wiki-evaluation-harness-workbench-and-demo-route.md) | Next: [EX-0047](0047-20260416112703-commit-all-changes-including-all-untracked-files.md)

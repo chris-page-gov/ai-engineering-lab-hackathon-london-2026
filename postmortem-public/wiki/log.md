@@ -7,9 +7,10 @@ tags:
 
 # Public Postmortem Log
 
-## [2026-04-18T12:24:43+00:00] build | Public Codex postmortem
+## [2026-05-13T13:49:08+00:00] build | Public Codex postmortem
 
 - Conversation summaries: 5
-- Redacted prompt-response exchanges: 66
+- Start-to-finish readers: 5
+- Redacted prompt-response exchanges: 113
 - Citation-only external sources: 3
 - Private source archive: ignored `postmortem/` folder.
