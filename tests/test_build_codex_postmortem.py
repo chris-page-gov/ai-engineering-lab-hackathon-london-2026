@@ -77,6 +77,14 @@ class BuildCodexPostmortemContributionInferenceTest(unittest.TestCase):
         self.assertIn("before", stripped)
         self.assertIn("after", stripped)
 
+    def test_fence_stripper_handles_closing_fence_at_eof(self) -> None:
+        text = "before\n```text\n[not a link](missing.md)\n```"
+
+        stripped = strip_fenced_blocks(text)
+
+        self.assertNotIn("missing.md", stripped)
+        self.assertIn("before", stripped)
+
     def test_prompt_substring_does_not_infer_pr_workflow(self) -> None:
         contribution = infer_user_contribution(make_exchange("Update the deep research prompt"))
 
@@ -102,6 +110,22 @@ class BuildCodexPostmortemContributionInferenceTest(unittest.TestCase):
 
         self.assertNotIn("/Users/", sanitized)
         self.assertIn("[LOCAL_USER_PATH]", sanitized)
+
+    def test_public_sanitizer_handles_username_agnostic_repo_paths(self) -> None:
+        sanitized = public_sanitize_text(
+            "See /Users/example/repos/seelinks/README.md and /Users/example/Downloads/Hackathon 20260416.docx"
+        )
+
+        self.assertIn("[PRIVATE_REFERENCE_REPO]/README.md", sanitized)
+        self.assertIn("[LOCAL_SOURCE_WRITEUP]", sanitized)
+        self.assertNotIn("/Users/", sanitized)
+        self.assertNotIn("example", sanitized)
+
+    def test_public_sanitizer_handles_current_home_repo_paths(self) -> None:
+        sanitized = public_sanitize_text(f"Check {Path.home()}/repos/mcp-geo/README.md")
+
+        self.assertIn("[LOCAL_PRIOR_WORK_REPO]/README.md", sanitized)
+        self.assertNotIn(str(Path.home()), sanitized)
 
     def test_public_sanitizer_removes_local_state_filename(self) -> None:
         sanitized = public_sanitize_text("Remove .DS_Store before committing.")

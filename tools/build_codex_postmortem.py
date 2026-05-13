@@ -628,18 +628,22 @@ def grouped_exchanges_by_session(sessions: list[Session], exchanges: list[Exchan
     }
 
 
+def exchange_neighbors_by_id(exchanges: list[Exchange]) -> dict[str, tuple[Exchange | None, Exchange | None]]:
+    neighbors: dict[str, tuple[Exchange | None, Exchange | None]] = {}
+    exchanges_by_session: dict[str, list[Exchange]] = {}
+    for exchange in exchanges:
+        exchanges_by_session.setdefault(exchange.session.session_id, []).append(exchange)
+    for session_exchanges in exchanges_by_session.values():
+        session_exchanges.sort(key=lambda candidate: candidate.session_sequence)
+        for position, exchange in enumerate(session_exchanges):
+            previous_exchange = session_exchanges[position - 1] if position > 0 else None
+            next_exchange = session_exchanges[position + 1] if position + 1 < len(session_exchanges) else None
+            neighbors[exchange.exchange_id] = (previous_exchange, next_exchange)
+    return neighbors
+
+
 def neighboring_exchanges(exchange: Exchange, exchanges: list[Exchange]) -> tuple[Exchange | None, Exchange | None]:
-    session_exchanges = sorted(
-        [candidate for candidate in exchanges if candidate.session.session_id == exchange.session.session_id],
-        key=lambda candidate: candidate.session_sequence,
-    )
-    try:
-        position = session_exchanges.index(exchange)
-    except ValueError:
-        return None, None
-    previous_exchange = session_exchanges[position - 1] if position > 0 else None
-    next_exchange = session_exchanges[position + 1] if position + 1 < len(session_exchanges) else None
-    return previous_exchange, next_exchange
+    return exchange_neighbors_by_id(exchanges).get(exchange.exchange_id, (None, None))
 
 
 def exchange_navigation(
@@ -755,10 +759,11 @@ def build_artifact_register(commit: str) -> list[dict[str, Any]]:
 
 
 def write_exchange_files(exchanges: list[Exchange]) -> None:
+    neighbors = exchange_neighbors_by_id(exchanges)
     for exchange in exchanges:
         path = exchange_path(exchange)
         exchange.output_path = path
-        previous_exchange, next_exchange = neighboring_exchanges(exchange, exchanges)
+        previous_exchange, next_exchange = neighbors[exchange.exchange_id]
         response_count = len(exchange.assistant_messages)
         fields = {
             "exchange_id": exchange.exchange_id,
@@ -860,19 +865,20 @@ def write_conversation_readers(sessions: list[Session], exchanges: list[Exchange
         write_text(path, "".join(parts))
 
 
-def write_source_notes(sessions: list[Session], external_records: list[dict[str, Any]], artifacts: list[dict[str, Any]]) -> None:
+def write_source_notes(
+    sessions: list[Session],
+    exchanges: list[Exchange],
+    external_records: list[dict[str, Any]],
+    artifacts: list[dict[str, Any]],
+) -> None:
+    grouped = grouped_exchanges_by_session(sessions, exchanges)
     for session in sessions:
         path = WIKI_SOURCES_DIR / f"{session.source_id.lower()}-{slugify(session.title)}.md"
         conversation_path = session.output_path or path
-        exchanges = [exchange for exchange in build_exchanges([session]) if not is_context_only(exchange.user_message.text)]
         exchange_links = []
-        for exchange in exchanges:
-            global_match = next(
-                (candidate for candidate in ALL_EXCHANGES if candidate.session.session_id == session.session_id and candidate.session_sequence == exchange.session_sequence),
-                None,
-            )
-            if global_match and global_match.output_path:
-                exchange_links.append(f"- {rel_link(path, global_match.output_path, f'{global_match.exchange_id}: {global_match.title}')}\n")
+        for exchange in grouped.get(session.session_id, []):
+            if exchange.output_path:
+                exchange_links.append(f"- {rel_link(path, exchange.output_path, f'{exchange.exchange_id}: {exchange.title}')}\n")
         parts = [
             frontmatter(
                 {
@@ -1435,26 +1441,44 @@ def public_sanitize_text(text: str) -> str:
     """Remove local/private details while preserving useful public evidence."""
     text = text.replace("https://github.com/chris-page-gov/seelinks.git", "[PRIVATE_REFERENCE_REPO_URL]")
     text = text.replace("https://github.com/chris-page-gov/seelinks", "[PRIVATE_REFERENCE_REPO_URL]")
+    home = Path.home()
     replacements = [
-        ("/Users/crpage/repos/ai-engineering-lab-hackathon-london-2026", "[LOCAL_REPO]"),
-        ("/Users/crpage/repos/AI-Lab-Hackathons", "[LOCAL_REFERENCE_REPO]"),
-        ("/Users/crpage/repos/seelinks", "[PRIVATE_REFERENCE_REPO]"),
-        ("/Users/crpage/repos/mcp-geo", "[LOCAL_PRIOR_WORK_REPO]"),
-        ("/Users/crpage/Downloads/Hackathon 20260416.docx", "[LOCAL_SOURCE_WRITEUP]"),
-        ("/Users/crpage/Downloads", "[LOCAL_DOWNLOADS]"),
+        (str(REPO_ROOT), "[LOCAL_REPO]"),
+        (str(home / "repos" / "AI-Lab-Hackathons"), "[LOCAL_REFERENCE_REPO]"),
+        (str(home / "repos" / "seelinks"), "[PRIVATE_REFERENCE_REPO]"),
+        (str(home / "repos" / "mcp-geo"), "[LOCAL_PRIOR_WORK_REPO]"),
+        (str(home / "Downloads" / "Hackathon 20260416.docx"), "[LOCAL_SOURCE_WRITEUP]"),
+        (str(home / "Downloads"), "[LOCAL_DOWNLOADS]"),
     ]
-    for before, after in replacements:
+    for before, after in sorted(replacements, key=lambda item: len(item[0]), reverse=True):
         text = text.replace(before, after)
+    mac_home = r"/Users/[^/\s`)]+"
+    mac_replacements = [
+        (rf"{mac_home}/repos/ai-engineering-lab-hackathon-london-2026", "[LOCAL_REPO]"),
+        (rf"{mac_home}/repos/AI-Lab-Hackathons", "[LOCAL_REFERENCE_REPO]"),
+        (rf"{mac_home}/repos/seelinks", "[PRIVATE_REFERENCE_REPO]"),
+        (rf"{mac_home}/repos/mcp-geo", "[LOCAL_PRIOR_WORK_REPO]"),
+        (rf"{mac_home}/Downloads/Hackathon 20260416\.docx", "[LOCAL_SOURCE_WRITEUP]"),
+        (rf"{mac_home}/Downloads", "[LOCAL_DOWNLOADS]"),
+    ]
+    for pattern, after in mac_replacements:
+        text = re.sub(pattern, after, text)
     text = text.replace("~/.codex/sessions", "[CODEX_SESSION_JSONL_DIR]")
     text = text.replace("~/.codex", "[LOCAL_ASSISTANT_HOME]")
-    text = re.sub(r"/Users/crpage/\.codex/sessions/[^\s`)]+", "[CODEX_SESSION_JSONL]", text)
-    text = re.sub(r"/Users/crpage/\.codex/[^\s`)]+", "[LOCAL_ASSISTANT_HOME]", text)
-    text = re.sub(r"/Users/crpage/Desktop/[^\n`)]+", "[DESKTOP_SCREENSHOT]", text)
+    current_home = re.escape(str(home))
+    text = re.sub(rf"{current_home}/\.codex/sessions/[^\s`)]+", "[CODEX_SESSION_JSONL]", text)
+    text = re.sub(rf"{current_home}/\.codex/[^\s`)]+", "[LOCAL_ASSISTANT_HOME]", text)
+    text = re.sub(rf"{current_home}/Desktop/[^\n`)]+", "[DESKTOP_SCREENSHOT]", text)
+    text = re.sub(rf"{mac_home}/\.codex/sessions/[^\s`)]+", "[CODEX_SESSION_JSONL]", text)
+    text = re.sub(rf"{mac_home}/\.codex/[^\s`)]+", "[LOCAL_ASSISTANT_HOME]", text)
+    text = re.sub(rf"{mac_home}/Desktop/[^\n`)]+", "[DESKTOP_SCREENSHOT]", text)
+    text = re.sub(rf"file://{current_home}[^\s`)]+", "[LOCAL_FILE_URL]", text)
     text = re.sub(r"file:///Users/(?:[^\s`)]+)?", "[LOCAL_FILE_URL]", text)
     text = re.sub(r"/Users/(?:[^\s`)]+)?", "[LOCAL_USER_PATH]", text)
+    text = re.sub(rf"{current_home}/[^\s`)]+", "[LOCAL_USER_PATH]", text)
     text = re.sub(r"/var/folders/[^\n`)]+", "[TEMP_SCREENSHOT]", text)
     text = text.replace(".DS_Store", "[LOCAL_STATE_FILE]")
-    text = text.replace("/Users/crpage", "[LOCAL_HOME]")
+    text = text.replace(str(home), "[LOCAL_HOME]")
     text = re.sub(r"base64_chars=\d+; sha256=[a-f0-9]+", "base64 omitted", text)
     text = text.replace("only has `READ` permission", "did not have enough upstream permission")
     return text
@@ -1558,10 +1582,11 @@ def publication_decisions() -> list[dict[str, str]]:
 
 
 def write_public_exchange_files(exchanges: list[Exchange]) -> None:
+    neighbors = exchange_neighbors_by_id(exchanges)
     for exchange in exchanges:
         path = public_exchange_path(exchange)
         title = public_sanitize_text(exchange.title)
-        previous_exchange, next_exchange = neighboring_exchanges(exchange, exchanges)
+        previous_exchange, next_exchange = neighbors[exchange.exchange_id]
         fields = {
             "exchange_id": exchange.exchange_id,
             "title": title,
@@ -2194,44 +2219,40 @@ def build_public_postmortem(
         raise RuntimeError("Public postmortem publication lint failed:\n" + "\n".join(public_issues))
 
 
-ALL_EXCHANGES: list[Exchange] = []
-
-
 def build() -> None:
-    global ALL_EXCHANGES
     captured_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     reset_generated_dirs()
     sessions = discover_sessions()
     if not sessions:
         raise RuntimeError(f"No Codex sessions found for cwd {TARGET_CWD}")
     write_conversation_sources(sessions)
-    ALL_EXCHANGES = build_exchanges(sessions)
-    write_exchange_files(ALL_EXCHANGES)
-    write_conversation_readers(sessions, ALL_EXCHANGES)
+    exchanges = build_exchanges(sessions)
+    write_exchange_files(exchanges)
+    write_conversation_readers(sessions, exchanges)
     external_records = write_external_sources(captured_at)
     try:
         baseline_commit = run_git(["rev-parse", f"{BASELINE_TAG}^{{}}"])
     except subprocess.CalledProcessError:
         baseline_commit = run_git(["rev-parse", "HEAD"])
     artifacts = build_artifact_register(baseline_commit)
-    write_source_notes(sessions, external_records, artifacts)
-    write_data_registers(sessions, ALL_EXCHANGES, external_records, artifacts)
-    write_topic_pages(ALL_EXCHANGES, artifacts)
+    write_source_notes(sessions, exchanges, external_records, artifacts)
+    write_data_registers(sessions, exchanges, external_records, artifacts)
+    write_topic_pages(exchanges, artifacts)
     write_entities()
-    write_maps(sessions, ALL_EXCHANGES)
+    write_maps(sessions, exchanges)
     write_architecture()
     write_methodology_page(external_records)
-    write_postmortem(sessions, ALL_EXCHANGES, artifacts)
-    write_index(sessions, ALL_EXCHANGES, external_records, artifacts)
-    write_log(captured_at, sessions, ALL_EXCHANGES, external_records)
+    write_postmortem(sessions, exchanges, artifacts)
+    write_index(sessions, exchanges, external_records, artifacts)
+    write_log(captured_at, sessions, exchanges, external_records)
     write_readme()
     write_agents()
-    build_public_postmortem(captured_at, sessions, ALL_EXCHANGES, external_records, artifacts)
+    build_public_postmortem(captured_at, sessions, exchanges, external_records, artifacts)
     issues = validate_internal_links()
     lint = {
         "captured_at": captured_at,
         "conversation_sources": len(sessions),
-        "exchanges": len(ALL_EXCHANGES),
+        "exchanges": len(exchanges),
         "external_sources": len(external_records),
         "artifact_sources": len(artifacts),
         "broken_internal_links": issues,
@@ -2242,7 +2263,7 @@ def build() -> None:
         frontmatter({"title": "Postmortem Lint Report", "tags": ["lint", "codex-postmortem"]})
         + "# Postmortem Lint Report\n\n"
         + f"- Conversation sources: {len(sessions)}\n"
-        + f"- Prompt-response exchanges: {len(ALL_EXCHANGES)}\n"
+        + f"- Prompt-response exchanges: {len(exchanges)}\n"
         + f"- External sources: {len(external_records)}\n"
         + f"- Repository artifact sources: {len(artifacts)}\n"
         + f"- Broken internal links: {len(issues)}\n",
@@ -2252,7 +2273,7 @@ def build() -> None:
         raise RuntimeError("Broken internal links:\n" + "\n".join(issues))
     print(
         f"Built Codex postmortem wiki: {len(sessions)} conversations, "
-        f"{len(ALL_EXCHANGES)} exchanges, {len(external_records)} external sources."
+        f"{len(exchanges)} exchanges, {len(external_records)} external sources."
     )
 
 

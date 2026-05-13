@@ -18,7 +18,7 @@ This public source note intentionally does not include the localized full-text c
 
 - Canonical URL: [https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 - Source kind: `gist_raw_markdown`
-- Captured at: `2026-05-13T13:49:08+00:00`
+- Captured at: `2026-05-13T15:03:49+00:00`
 - Fetch status: `200`; direct status: `200`
 - Private archive SHA-256: `dc3efe98ae62f23dd08acad13aba2e95287beb20b6bec2f4af0423557fe37401`
 - License status: `no-explicit-license`
