@@ -30,7 +30,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - Dark Data Workbench provides a browser UI over the generated wiki so users can filter sources, build explicit context sets, inspect evidence without AI, or export the same context to browser AI and MCP clients.
 - The Codex collaboration postmortem applies the same wiki pattern to the build conversations themselves so the human and Codex contributions can be traced from prompts, responses, repository artifacts, and external methodology sources.
 - The MCP research wiki applies the same separation principle to follow-on engineering work: MCP research, source/license registers, candidate implementation reviews, specifications, and future server implementation notes live under `challenge-2/MCP-Wiki/` rather than being folded into the Challenge 2 corpus wiki or postmortem wiki.
-- The publishable wiki bundles now follow the local OKF v0.1 profile used in recent wiki repos: Markdown files keep OKF frontmatter, root bundle indexes declare `okf_version`, root `viewer.html` is generated from `postmortem-public/wiki/**/*.md` and `challenge-2/wiki/**/*.md` rather than hand-maintained, and GitHub Pages publishes the generated viewer plus public wiki Markdown from an ignored `_site/` build. The viewer opens on the public AI coding-assistant postmortem first, with Challenge 2 available as a second corpus.
+- The publishable wiki bundles now follow the local OKF v0.1 profile used in recent wiki repos: Markdown files keep OKF frontmatter, root bundle indexes declare `okf_version`, root `viewer.html` is generated from `postmortem-public/wiki/**/*.md` and `challenge-2/wiki/**/*.md` rather than hand-maintained, and GitHub Pages publishes the generated viewer plus public wiki Markdown from an ignored `_site/` build. The viewer opens on the public AI coding-assistant postmortem first, with Challenge 2 available as a second corpus, collapsible navigation for better reading space, and self-contained Mermaid flowchart rendering for the Architecture pages.
 
 ## Data Assumptions
 
@@ -50,7 +50,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `tools/check_documentation_lockstep.py`: local and CI check that required tracking docs exist and move with meaningful changes.
 - `challenge-2/AGENTS.md`: Challenge 2 LLM Wiki operating schema.
 - `challenge-2/tools/build_wiki.py`: repeatable Challenge 2 wiki builder.
-- `viewer.html`: generated self-contained HTML graph and reader for publishing the public postmortem and Challenge 2 wiki on GitHub.
+- `viewer.html`: generated self-contained HTML graph and reader for publishing the public postmortem and Challenge 2 wiki on GitHub, including a collapsible current-page navigation rail and rendered Mermaid flowcharts.
 - `scripts/update_viewer.py`: regenerates `viewer.html` from `postmortem-public/wiki/**/*.md` and `challenge-2/wiki/**/*.md`.
 - `scripts/check_wiki_viewer.py`: verifies `viewer.html` is synchronized with both public wiki corpora.
 - `scripts/check_okf_conformance.py`: validates OKF frontmatter for `challenge-2/wiki/` and `postmortem-public/wiki/`.

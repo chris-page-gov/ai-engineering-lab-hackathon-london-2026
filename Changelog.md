@@ -23,12 +23,15 @@ No undated pending changes.
 - 2026-06-27: Normalized `challenge-2/wiki/` and `postmortem-public/wiki/` Markdown frontmatter to include OKF `type`, `description`, `timestamp`, and root `okf_version` metadata.
 - 2026-06-27: Ignored `_site/` as reproducible local Pages output, matching the publication pattern used by recent OKF wiki repos.
 - 2026-06-27: Changed `viewer.html` from a Challenge 2-only viewer to a postmortem-first multi-corpus viewer with a Challenge 2 switcher, visible focus graph, scrollable side panels, image rendering, and a local Workbench link.
+- 2026-06-27: Changed the generated wiki viewer so the left navigation can collapse into a narrow current-page rail, preserving screen width for the graph and Markdown reader.
+- 2026-06-27: Added self-contained Mermaid flowchart rendering to the generated wiki viewer for the committed `flowchart`/`graph` Markdown fences.
 - 2026-06-27: Updated `scripts/build_site.py` to publish reusable walkthrough image assets alongside the Markdown corpora.
 
 ### Fixed
 
 - 2026-06-27: Fixed the Challenge 2 demonstration guide's stale Spending Controls source-note link after the strict wiki rebuild exposed the current generated filename.
 - 2026-06-27: Fixed the Codex postmortem builder so missing external methodology fetches create private placeholder evidence files rather than leaving broken ignored-archive links.
+- 2026-06-27: Fixed the public viewer's Architecture pages so Mermaid diagrams render as diagrams instead of explanatory code blocks.
 
 ### Documentation
 
@@ -41,6 +44,7 @@ No undated pending changes.
 - 2026-06-27: Verified the publication workflow with the strict Challenge 2 wiki rebuild, OKF conformance checker, viewer generator, viewer synchronization checker, documentation lockstep, and Python compile checks for the changed scripts.
 - 2026-06-27: Verified the Pages publication bundle with `python3 scripts/build_site.py`.
 - 2026-06-27: Verified the repaired viewer with a Playwright smoke test covering postmortem-first load, side-panel scrolling, visible graph rendering, walkthrough image rendering, local Workbench link, and Challenge 2 corpus switching.
+- 2026-06-27: Verified the viewer navigation-rail and Mermaid rendering fix in Chromium: Architecture renders one Mermaid SVG with seven nodes and six edges, and collapsing the navigation rail expands the graph pane from `580px` to `878px` at a `1440px` viewport.
 
 ## 2026-05-13
 
