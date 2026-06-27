@@ -14,8 +14,11 @@ from tools.build_codex_postmortem import (  # noqa: E402
     Session,
     conversation_reader_path,
     exchange_anchor,
+    external_license_status,
     infer_codex_contribution,
     infer_user_contribution,
+    public_external_related_section,
+    public_external_source_path,
     public_conversation_reader_path,
     public_sanitize_text,
     strip_fenced_blocks,
@@ -132,6 +135,34 @@ class BuildCodexPostmortemContributionInferenceTest(unittest.TestCase):
 
         self.assertNotIn(".DS_Store", sanitized)
         self.assertIn("[LOCAL_STATE_FILE]", sanitized)
+
+    def test_google_okf_license_and_public_related_sources_are_preserved(self) -> None:
+        karpathy = {
+            "source_id": "EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES",
+            "title": "Karpathy X Post: LLM Knowledge Bases",
+            "kind": "x_post_readable_snapshot",
+            "related_public_sources": [
+                {
+                    "source_id": "EXT-GOOGLE-OKF-STANDARD-GITHUB",
+                    "note": "Google Cloud's OKF v0.1 repository formalizes the pattern.",
+                }
+            ],
+        }
+        google = {
+            "source_id": "EXT-GOOGLE-OKF-STANDARD-GITHUB",
+            "title": "Google OKF Standard (GitHub)",
+            "kind": "github_okf_standard",
+        }
+
+        section = public_external_related_section(
+            public_external_source_path(karpathy),
+            karpathy,
+            {karpathy["source_id"]: karpathy, google["source_id"]: google},
+        )
+
+        self.assertEqual(external_license_status(google), "Apache-2.0")
+        self.assertIn("Google OKF Standard (GitHub)", section)
+        self.assertIn("ext-google-okf-standard-github.md", section)
 
 
 if __name__ == "__main__":

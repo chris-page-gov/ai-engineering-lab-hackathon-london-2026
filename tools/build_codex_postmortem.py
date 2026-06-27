@@ -59,8 +59,11 @@ PUBLICATION_BRANCH = "codex/postmortem-wiki"
 TEAM_NAME = "Team DSIT A"
 OKF_VERSION = "0.1"
 ALLOWED_EXTERNAL_SOURCE_HOSTS = {
+    "cloud.google.com",
     "gist.github.com",
     "gist.githubusercontent.com",
+    "github.com",
+    "raw.githubusercontent.com",
     "r.jina.ai",
     "x.com",
 }
@@ -131,6 +134,16 @@ EXTERNAL_REFERENCES = [
         "filename": "karpathy-x-2039805659525644595-llm-knowledge-bases.md",
         "kind": "x_post_readable_snapshot",
         "citation_note": "Readable Markdown snapshot from Jina AI over the public X URL; direct X URL is verified separately.",
+        "related_public_sources": [
+            {
+                "source_id": "EXT-GOOGLE-OKF-STANDARD-GITHUB",
+                "note": "Google Cloud's OKF v0.1 repository formalizes the Markdown plus YAML-frontmatter knowledge-bundle pattern that this postmortem adapted from the LLM wiki discussion.",
+            },
+            {
+                "source_id": "EXT-GOOGLE-CLOUD-OKF-BLOG",
+                "note": "Google Cloud's announcement explicitly frames OKF as a portable standard for the LLM-wiki pattern and links the standard to Karpathy's LLM wiki work.",
+            },
+        ],
     },
     {
         "source_id": "EXT-KARPATHY-X-IDEA-FILE",
@@ -151,6 +164,54 @@ EXTERNAL_REFERENCES = [
         "filename": "karpathy-llm-wiki-gist.raw.md",
         "kind": "gist_raw_markdown",
         "citation_note": "Raw GitHub gist content fetched directly from gist.githubusercontent.com.",
+    },
+    {
+        "source_id": "EXT-GOOGLE-OKF-STANDARD-GITHUB",
+        "title": "Google OKF Standard (GitHub)",
+        "canonical_url": "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf",
+        "fetch_url": "https://raw.githubusercontent.com/GoogleCloudPlatform/knowledge-catalog/main/okf/SPEC.md",
+        "direct_url": "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf",
+        "filename": "googlecloudplatform-okf-spec.md",
+        "kind": "github_okf_standard",
+        "citation_note": "GoogleCloudPlatform repository subtree containing the OKF v0.1 README, specification, tools, and sample bundles.",
+        "related_public_sources": [
+            {
+                "source_id": "EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES",
+                "note": "Methodology predecessor for the LLM-wiki / knowledge-base pattern used in the postmortem.",
+            },
+            {
+                "source_id": "EXT-KARPATHY-GIST-LLM-WIKI",
+                "note": "Original LLM Wiki gist cited by the Google Cloud blog.",
+            },
+            {
+                "source_id": "EXT-GOOGLE-CLOUD-OKF-BLOG",
+                "note": "Google Cloud's narrative explanation of why OKF formalizes the LLM-wiki pattern.",
+            },
+        ],
+    },
+    {
+        "source_id": "EXT-GOOGLE-CLOUD-OKF-BLOG",
+        "title": "Google Cloud Blog: How the Open Knowledge Format can improve data sharing",
+        "canonical_url": "https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/",
+        "fetch_url": "https://r.jina.ai/http://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/",
+        "direct_url": "https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/",
+        "filename": "google-cloud-okf-blog.md",
+        "kind": "google_cloud_blog_post",
+        "citation_note": "Google Cloud Data Cloud team blog announcement for Open Knowledge Format, published 2026-06-12.",
+        "related_public_sources": [
+            {
+                "source_id": "EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES",
+                "note": "Methodology predecessor for the LLM-wiki / knowledge-base pattern used in the postmortem.",
+            },
+            {
+                "source_id": "EXT-KARPATHY-GIST-LLM-WIKI",
+                "note": "Original LLM Wiki gist cited by the Google Cloud blog.",
+            },
+            {
+                "source_id": "EXT-GOOGLE-OKF-STANDARD-GITHUB",
+                "note": "GoogleCloudPlatform repository subtree containing the OKF v0.1 README, specification, tools, and sample bundles.",
+            },
+        ],
     },
 ]
 
@@ -1586,6 +1647,10 @@ def external_license_status(record: dict[str, Any]) -> str:
         return "terms-only-platform-use"
     if record["kind"] == "gist_raw_markdown":
         return "no-explicit-license"
+    if record["kind"] == "github_okf_standard":
+        return "Apache-2.0"
+    if record["kind"] == "google_cloud_blog_post":
+        return "public-web-citation"
     return "permission-required"
 
 
@@ -1594,7 +1659,30 @@ def external_public_disposition(record: dict[str, Any]) -> str:
         return "Citation metadata only; do not publish the full localized readable snapshot."
     if record["kind"] == "gist_raw_markdown":
         return "Citation metadata only unless the author grants permission or adds an explicit license."
+    if record["kind"] == "github_okf_standard":
+        return "Citation metadata only; link to the GoogleCloudPlatform OKF subtree and specification rather than copying the full spec."
+    if record["kind"] == "google_cloud_blog_post":
+        return "Citation metadata only; use the blog as the narrative bridge from Karpathy's LLM-wiki pattern to OKF."
     return "Citation metadata only unless rights are cleared."
+
+
+def public_external_related_section(
+    path: Path,
+    record: dict[str, Any],
+    records_by_id: dict[str, dict[str, Any]],
+) -> str:
+    related = record.get("related_public_sources") or []
+    if not related:
+        return ""
+    lines = ["\n## Related Sources\n\n"]
+    for item in related:
+        target = records_by_id.get(item.get("source_id"))
+        if not target:
+            continue
+        note = str(item.get("note") or "").strip()
+        label = rel_link(path, public_external_source_path(target), target["title"])
+        lines.append(f"- {label}: {note}\n" if note else f"- {label}\n")
+    return "".join(lines) if len(lines) > 1 else ""
 
 
 def publication_decisions() -> list[dict[str, str]]:
@@ -1829,6 +1917,7 @@ def write_public_sources(
             parts.append(f"- {rel_link(path, public_exchange_path(exchange), f'{exchange.exchange_id}: {public_sanitize_text(exchange.title)}')}\n")
         write_text(path, "".join(parts))
 
+    external_records_by_id = {record["source_id"]: record for record in external_records}
     for record in external_records:
         path = public_external_source_path(record)
         parts = [
@@ -1853,8 +1942,11 @@ def write_public_sources(
             f"- License status: `{external_license_status(record)}`\n",
             f"- Publication disposition: {external_public_disposition(record)}\n",
         ]
+        if record.get("citation_note"):
+            parts.append(f"- Citation note: {record['citation_note']}\n")
         if record.get("fetch_etag"):
             parts.append(f"- ETag: `{record['fetch_etag']}`\n")
+        parts.append(public_external_related_section(path, record, external_records_by_id))
         write_text(path, "".join(parts))
 
     for record in artifacts:
@@ -1985,7 +2077,7 @@ def write_public_methodology(external_records: list[dict[str, Any]]) -> None:
             f"| {rel_link(PUBLIC_WIKI_DIR / 'methodology.md', source_note, record['title'])} | [open]({record['canonical_url']}) | `{external_license_status(record)}` | {external_public_disposition(record)} |\n"
         )
     parts.append(
-        "\nThe implementation translated the cited LLM Wiki pattern into a reproducible Challenge 2 wiki builder: raw sources stay immutable, generated notes carry provenance, indexes and logs make navigation explicit, and linting catches broken links or missing coverage.\n"
+        "\nThe implementation translated the cited LLM Wiki pattern into a reproducible Challenge 2 wiki builder: raw sources stay immutable, generated notes carry provenance, indexes and logs make navigation explicit, and linting catches broken links or missing coverage. The newer Google OKF sources are recorded as methodology context because they formalize the same Markdown/frontmatter/wiki pattern as a portable knowledge-bundle standard.\n"
     )
     write_text(PUBLIC_WIKI_DIR / "methodology.md", "".join(parts))
 

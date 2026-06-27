@@ -159,6 +159,7 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
 - Updated the generated root `viewer.html` so its left navigation can collapse into a narrow current-page rail and its Markdown reader renders committed Mermaid flowcharts as inline SVG diagrams.
 - Updated the generated root `viewer.html` so postmortem exchanges have Narrative, Timeline, Graph, and Links stage views. Narrative view foregrounds the user prompt and final answer, then lists commentary responses below in timestamp order.
 - Updated the generated root `viewer.html` so Markdown pipe tables render as tables, internal links participate in browser-like back/forward history, exchange hashes such as `#ex-0003` resolve as route aliases, graph relationships expose derived relationship types on click, and commit hashes/repo-relative code references open GitHub permalinks where inferable.
+- Added citation-only public postmortem source notes for the GoogleCloudPlatform OKF GitHub subtree and Google Cloud's OKF announcement blog, then linked them bidirectionally with the Karpathy X LLM Knowledge Bases methodology source. The postmortem builder now carries those related-source links so regeneration preserves the Karpathy-to-OKF graph.
 - Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
 - Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
 - Addressed the latest PR review comment as a reproducibility bug class: the `codex-mcp` spawned Wiki MCP server now receives configured server args, including `semantic_model_id`, so live MCP retrieval uses the same semantic model recorded for the prompt context-pack seed.
@@ -186,6 +187,12 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
   - confirmed reader-local `#EX-0003` links route to the exchange page and the new back/forward controls restore the reader and exchange views;
   - confirmed the postmortem index graph exposes typed relationship detail on edge click across `284` rendered edges;
   - confirmed a fenced transcript commit reference links to a GitHub commit permalink.
+- Current OKF methodology cross-link validation passed locally:
+  - ran `python3 -m unittest tests.test_build_codex_postmortem`, covering the new Google OKF license classification and public related-source rendering;
+  - ran `python3 -m py_compile tools/build_codex_postmortem.py scripts/update_viewer.py`;
+  - ran `python3 -m json.tool postmortem-public/wiki/data/external-source-citations.json`;
+  - ran `python3 scripts/update_viewer.py`, updating root `viewer.html` to `182` postmortem pages and `887` links;
+  - ran `python3 scripts/check_okf_conformance.py` and `python3 scripts/check_wiki_viewer.py`.
 - Current postmortem exchange-view validation passed locally:
   - ran a Chromium smoke test against local `viewer.html` at a `1920x1080` viewport;
   - confirmed `exchanges/0053-20260418065216-create-codex-postmortem-wiki.md` opens in Narrative view with one prompt card, one final-answer card, and `13` commentary event cards;

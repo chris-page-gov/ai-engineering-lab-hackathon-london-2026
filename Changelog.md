@@ -16,6 +16,7 @@ No undated pending changes.
 - 2026-06-27: Added `scripts/update_viewer.py`, `scripts/check_wiki_viewer.py`, and `scripts/check_okf_conformance.py` to make the OKF/static-viewer publication workflow reproducible.
 - 2026-06-27: Added `scripts/build_site.py` and `.github/workflows/pages.yml` to publish the OKF wiki viewer through GitHub Pages from generated `_site/` output.
 - 2026-06-27: Added `postmortem-public/wiki/walkthrough.md` as an illustrated first-reader route through the AI coding-assistant postmortem, Challenge 2 wiki, and local SeeLinks-style workbench.
+- 2026-06-27: Added citation-only public postmortem source notes for the GoogleCloudPlatform OKF GitHub subtree and the Google Cloud OKF announcement blog post.
 
 ### Changed
 
@@ -28,6 +29,7 @@ No undated pending changes.
 - 2026-06-27: Added explicit Narrative, Timeline, Graph, and Links stage views to the generated wiki viewer, with postmortem exchange pages opening in Narrative view by default.
 - 2026-06-27: Updated `scripts/build_site.py` to publish reusable walkthrough image assets alongside the Markdown corpora.
 - 2026-06-27: Enhanced the generated wiki viewer with browser-like back/forward controls, rendered Markdown pipe tables in both reader panels, typed graph relationship inspection, and GitHub permalinking for commit hashes and repo-relative code references.
+- 2026-06-27: Linked the Karpathy X LLM Knowledge Bases source note bidirectionally with the Google OKF GitHub standard and Google Cloud OKF blog source notes, and taught the postmortem builder to preserve those related-source links.
 
 ### Fixed
 
@@ -51,6 +53,7 @@ No undated pending changes.
 - 2026-06-27: Verified the viewer navigation-rail and Mermaid rendering fix in Chromium: Architecture renders one Mermaid SVG with seven nodes and six edges, and collapsing the navigation rail expands the graph pane from `580px` to `878px` at a `1440px` viewport.
 - 2026-06-27: Verified the postmortem exchange view in Chromium: the `Create Codex Postmortem Wiki` exchange opens in Narrative view with prompt and final-answer cards, `13` commentary events, `15` timeline items, two link columns, and a dense graph reduced to one visible label across `28` nodes.
 - 2026-06-27: Verified the viewer interaction repair in Chromium: direct `#ex-0003` load, rendered decision-register tables in both panels, internal EX-link back/forward navigation, graph relationship inspection across `284` edges, and GitHub commit permalink rendering all pass.
+- 2026-06-27: Verified the OKF methodology cross-link update with the postmortem builder unit tests, OKF conformance, viewer sync validation, and JSON validation for the public external-source citation register.
 
 ## 2026-05-13
 

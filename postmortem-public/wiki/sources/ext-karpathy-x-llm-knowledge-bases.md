@@ -26,3 +26,8 @@ This public source note intentionally does not include the localized full-text c
 - Private archive SHA-256: `8294d120f6bad7f1b9b9e1e70eed6a7563bd4ff245054921f686fba62e976cf6`
 - License status: `terms-only-platform-use`
 - Publication disposition: Citation metadata only; do not publish the full localized readable snapshot.
+
+## Related Sources
+
+- [Google OKF Standard (GitHub)](ext-google-okf-standard-github.md): Google Cloud's OKF v0.1 repository formalizes the Markdown plus YAML-frontmatter knowledge-bundle pattern that this postmortem adapted from the LLM wiki discussion.
+- [Google Cloud Blog: How the Open Knowledge Format can improve data sharing](ext-google-cloud-okf-blog.md): Google Cloud's announcement explicitly frames OKF as a portable standard for the LLM-wiki pattern and links the standard to Karpathy's LLM wiki work.

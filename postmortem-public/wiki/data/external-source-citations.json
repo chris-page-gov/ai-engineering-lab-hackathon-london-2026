@@ -37,5 +37,31 @@
     "license_status": "no-explicit-license",
     "publication_disposition": "Citation metadata only unless the author grants permission or adds an explicit license.",
     "public_source_path": "postmortem-public/wiki/sources/ext-karpathy-gist-llm-wiki.md"
+  },
+  {
+    "source_id": "EXT-GOOGLE-OKF-STANDARD-GITHUB",
+    "title": "Google OKF Standard (GitHub)",
+    "canonical_url": "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf",
+    "kind": "github_okf_standard",
+    "captured_at": "2026-06-27T23:39:20+00:00",
+    "fetch_status": 200,
+    "direct_status": 200,
+    "private_archive_sha256": "b9655e607346dbbdc6de21190e9a953313eda6a7eba68d4d272a65975940ad6e",
+    "license_status": "Apache-2.0",
+    "publication_disposition": "Citation metadata only; link to the GoogleCloudPlatform OKF subtree and specification rather than copying the full spec.",
+    "public_source_path": "postmortem-public/wiki/sources/ext-google-okf-standard-github.md"
+  },
+  {
+    "source_id": "EXT-GOOGLE-CLOUD-OKF-BLOG",
+    "title": "Google Cloud Blog: How the Open Knowledge Format can improve data sharing",
+    "canonical_url": "https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/",
+    "kind": "google_cloud_blog_post",
+    "captured_at": "2026-06-27T23:39:20+00:00",
+    "fetch_status": 200,
+    "direct_status": 200,
+    "private_archive_sha256": "8286857f9a1a2137098faca00e134a425b7a9e3ba6125f63b9c325f828453c11",
+    "license_status": "public-web-citation",
+    "publication_disposition": "Citation metadata only; use the blog as the narrative bridge from Karpathy's LLM-wiki pattern to OKF.",
+    "public_source_path": "postmortem-public/wiki/sources/ext-google-cloud-okf-blog.md"
   }
 ]
