@@ -54,7 +54,7 @@ The current workbench parity pass brings the visible SeeLinks/Micropedia web con
 
 The changelog now reserves `Unreleased` for pending work only; the accumulated HMRC/demo/workbench publication entries have been moved under the dated `2026-05-12` section before merging the SeeLinks/Micropedia parity PR.
 
-The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-public/wiki/` with the local OKF v0.1 profile used in recent wiki repos. The generated root `viewer.html` now opens on the public AI coding-assistant postmortem, supports switching to the Challenge 2 wiki, has scrollable side panels, a collapsible current-page navigation rail, rendered Mermaid flowcharts, a visible focus graph, a reproducible `_site/` builder, and a GitHub Pages workflow matching the publication pattern used by recent OKF wiki repos.
+The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-public/wiki/` with the local OKF v0.1 profile used in recent wiki repos. The generated root `viewer.html` now opens on the public AI coding-assistant postmortem, supports switching to the Challenge 2 wiki, has scrollable side panels, a collapsible current-page navigation rail, rendered Mermaid flowcharts, Narrative/Timeline/Graph/Links stage views, reduced labels on dense exchange graphs, a reproducible `_site/` builder, and a GitHub Pages workflow matching the publication pattern used by recent OKF wiki repos.
 
 ## Completed
 
@@ -157,6 +157,7 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
 - Added `scripts/build_site.py`, `.github/workflows/pages.yml`, and `_site/` ignore coverage so the wiki can be published through GitHub Pages with root `viewer.html` as the site index.
 - Added `postmortem-public/wiki/walkthrough.md`, an illustrated reader route using the current reusable screenshot assets and recording the missing full UI screenshot set.
 - Updated the generated root `viewer.html` so its left navigation can collapse into a narrow current-page rail and its Markdown reader renders committed Mermaid flowcharts as inline SVG diagrams.
+- Updated the generated root `viewer.html` so postmortem exchanges have Narrative, Timeline, Graph, and Links stage views. Narrative view foregrounds the user prompt and final answer, then lists commentary responses below in timestamp order.
 - Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
 - Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
 - Addressed the latest PR review comment as a reproducibility bug class: the `codex-mcp` spawned Wiki MCP server now receives configured server args, including `semantic_model_id`, so live MCP retrieval uses the same semantic model recorded for the prompt context-pack seed.
@@ -177,6 +178,10 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
   - ran a Chromium smoke test against local `viewer.html` at a `1440x900` viewport;
   - confirmed the Postmortem Architecture page renders one Mermaid SVG with `7` nodes and `6` edges, with no visible fallback `flowchart LR` code block;
   - confirmed collapsing the left navigation leaves the `Architecture` current-page rail visible, reduces the navigation width to `42px`, and expands the graph pane from `580px` to `878px`.
+- Current postmortem exchange-view validation passed locally:
+  - ran a Chromium smoke test against local `viewer.html` at a `1920x1080` viewport;
+  - confirmed `exchanges/0053-20260418065216-create-codex-postmortem-wiki.md` opens in Narrative view with one prompt card, one final-answer card, and `13` commentary event cards;
+  - confirmed Timeline view shows `15` events with one final-answer item, Links view shows two link columns, and dense Graph view renders `28` nodes with only one visible label to avoid overlap.
 - Current SeeLinks/Micropedia parity validation passed locally:
   - ran `cd challenge-2/workbench && pnpm check`;
   - ran `cd challenge-2/workbench && pnpm test` with `22` passing Vitest tests;
