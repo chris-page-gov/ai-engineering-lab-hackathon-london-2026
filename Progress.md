@@ -158,6 +158,7 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
 - Added `postmortem-public/wiki/walkthrough.md`, an illustrated reader route using the current reusable screenshot assets and recording the missing full UI screenshot set.
 - Updated the generated root `viewer.html` so its left navigation can collapse into a narrow current-page rail and its Markdown reader renders committed Mermaid flowcharts as inline SVG diagrams.
 - Updated the generated root `viewer.html` so postmortem exchanges have Narrative, Timeline, Graph, and Links stage views. Narrative view foregrounds the user prompt and final answer, then lists commentary responses below in timestamp order.
+- Updated the generated root `viewer.html` so Markdown pipe tables render as tables, internal links participate in browser-like back/forward history, exchange hashes such as `#ex-0003` resolve as route aliases, graph relationships expose derived relationship types on click, and commit hashes/repo-relative code references open GitHub permalinks where inferable.
 - Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
 - Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
 - Addressed the latest PR review comment as a reproducibility bug class: the `codex-mcp` spawned Wiki MCP server now receives configured server args, including `semantic_model_id`, so live MCP retrieval uses the same semantic model recorded for the prompt context-pack seed.
@@ -170,7 +171,7 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;
   - ran `python3 scripts/check_okf_conformance.py`, checking `264` Markdown documents across `challenge-2/wiki/` and `postmortem-public/wiki/`;
-  - ran `python3 scripts/update_viewer.py`, generating root `viewer.html` from the postmortem corpus (`180` pages, `763` links) and Challenge 2 wiki (`84` pages, `637` links);
+  - ran `python3 scripts/update_viewer.py`, generating root `viewer.html` from the postmortem corpus (`180` pages, `877` typed links) and Challenge 2 wiki (`84` pages, `668` typed links);
   - ran `python3 scripts/check_wiki_viewer.py`, confirming `viewer.html` is synchronized;
   - ran `python3 scripts/build_site.py`, building the ignored `_site/` GitHub Pages bundle with `310` files;
   - ran a Playwright browser smoke test against local `viewer.html`, confirming the postmortem corpus opens first, both side panels scroll, the focus graph renders visible nodes and edges, the walkthrough renders four images, and the Challenge 2 corpus switch works.
@@ -178,6 +179,13 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
   - ran a Chromium smoke test against local `viewer.html` at a `1440x900` viewport;
   - confirmed the Postmortem Architecture page renders one Mermaid SVG with `7` nodes and `6` edges, with no visible fallback `flowchart LR` code block;
   - confirmed collapsing the left navigation leaves the `Architecture` current-page rail visible, reduces the navigation width to `42px`, and expands the graph pane from `580px` to `878px`.
+- Current viewer interaction validation passed locally:
+  - ran a Chromium smoke test against local `viewer.html`;
+  - confirmed `?corpus=postmortem#ex-0003` opens `Plan Karpathy Wiki Translation` directly;
+  - confirmed the publication decision register renders Markdown tables in both the detail panel and Narrative stage;
+  - confirmed reader-local `#EX-0003` links route to the exchange page and the new back/forward controls restore the reader and exchange views;
+  - confirmed the postmortem index graph exposes typed relationship detail on edge click across `284` rendered edges;
+  - confirmed a fenced transcript commit reference links to a GitHub commit permalink.
 - Current postmortem exchange-view validation passed locally:
   - ran a Chromium smoke test against local `viewer.html` at a `1920x1080` viewport;
   - confirmed `exchanges/0053-20260418065216-create-codex-postmortem-wiki.md` opens in Narrative view with one prompt card, one final-answer card, and `13` commentary event cards;

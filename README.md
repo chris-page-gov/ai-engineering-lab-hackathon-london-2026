@@ -27,7 +27,7 @@ New to the repo or arriving from LinkedIn? Start with the [reader guide](START-H
 For the Challenge 2 implementation:
 
 - [Challenge 2 brief](challenge-02-unlocking-the-dark-data.md): the original problem statement.
-- [Interactive public wiki viewer](viewer.html): self-contained HTML viewer for GitHub publication, opening first on the AI coding-assistant postmortem with Narrative, Timeline, Graph, and Links views.
+- [Interactive public wiki viewer](viewer.html): self-contained HTML viewer for GitHub publication, opening first on the AI coding-assistant postmortem with Narrative, Timeline, Graph, Links, browser-style back/forward, rendered Markdown tables, typed graph relationship inspection, and hash-routed exchange links.
 - [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem following the conversations with the AI coding assistant.
 - [Postmortem reader walkthrough](postmortem-public/wiki/walkthrough.md): first route through the postmortem, Challenge 2 wiki, and local SeeLinks-style workbench.
 - [Challenge 2 wiki index](challenge-2/wiki/index.md): generated Obsidian-friendly knowledge base.
@@ -61,7 +61,7 @@ The Challenge 2 wiki turns raw source material into structured Markdown and mach
 - topic, entity, and map notes make the corpus navigable
 - JSON and table exports support tool use
 - lint output checks generated coverage, links, metadata, and known challenge flags
-- OKF-compatible Markdown frontmatter and root `viewer.html` make the public postmortem and Challenge 2 wiki publishable as a static GitHub-friendly viewer with Narrative, Timeline, Graph, and Links views, a collapsible navigation rail, self-contained Mermaid flowchart rendering, and graph-label collision control
+- OKF-compatible Markdown frontmatter and root `viewer.html` make the public postmortem and Challenge 2 wiki publishable as a static GitHub-friendly viewer with Narrative, Timeline, Graph, and Links views, a collapsible navigation rail, self-contained Mermaid flowchart rendering, rendered Markdown tables, browser-style history navigation, typed graph relationship inspection, hash-routed exchange links, GitHub permalinks for commit hashes and repo-relative code references, and graph-label collision control
 - `scripts/build_site.py` and `.github/workflows/pages.yml` publish the viewer and public wiki Markdown through GitHub Pages in the same pattern as recent OKF wiki repos
 
 The repeatable builder is [challenge-2/tools/build_wiki.py](challenge-2/tools/build_wiki.py).

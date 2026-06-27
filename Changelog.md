@@ -27,6 +27,7 @@ No undated pending changes.
 - 2026-06-27: Added self-contained Mermaid flowchart rendering to the generated wiki viewer for the committed `flowchart`/`graph` Markdown fences.
 - 2026-06-27: Added explicit Narrative, Timeline, Graph, and Links stage views to the generated wiki viewer, with postmortem exchange pages opening in Narrative view by default.
 - 2026-06-27: Updated `scripts/build_site.py` to publish reusable walkthrough image assets alongside the Markdown corpora.
+- 2026-06-27: Enhanced the generated wiki viewer with browser-like back/forward controls, rendered Markdown pipe tables in both reader panels, typed graph relationship inspection, and GitHub permalinking for commit hashes and repo-relative code references.
 
 ### Fixed
 
@@ -34,6 +35,7 @@ No undated pending changes.
 - 2026-06-27: Fixed the Codex postmortem builder so missing external methodology fetches create private placeholder evidence files rather than leaving broken ignored-archive links.
 - 2026-06-27: Fixed the public viewer's Architecture pages so Mermaid diagrams render as diagrams instead of explanatory code blocks.
 - 2026-06-27: Fixed dense postmortem exchange graphs so node labels no longer overlap across the whole graph; dense graphs now label the selected node and keep the rest available through hover titles and view navigation.
+- 2026-06-27: Fixed generated viewer hash routes so direct public links such as `?corpus=postmortem#ex-0003` and reader-local `#EX-0003` links resolve to the exchange page, with route-alias collision checks in the generator.
 
 ### Documentation
 
@@ -48,6 +50,7 @@ No undated pending changes.
 - 2026-06-27: Verified the repaired viewer with a Playwright smoke test covering postmortem-first load, side-panel scrolling, visible graph rendering, walkthrough image rendering, local Workbench link, and Challenge 2 corpus switching.
 - 2026-06-27: Verified the viewer navigation-rail and Mermaid rendering fix in Chromium: Architecture renders one Mermaid SVG with seven nodes and six edges, and collapsing the navigation rail expands the graph pane from `580px` to `878px` at a `1440px` viewport.
 - 2026-06-27: Verified the postmortem exchange view in Chromium: the `Create Codex Postmortem Wiki` exchange opens in Narrative view with prompt and final-answer cards, `13` commentary events, `15` timeline items, two link columns, and a dense graph reduced to one visible label across `28` nodes.
+- 2026-06-27: Verified the viewer interaction repair in Chromium: direct `#ex-0003` load, rendered decision-register tables in both panels, internal EX-link back/forward navigation, graph relationship inspection across `284` edges, and GitHub commit permalink rendering all pass.
 
 ## 2026-05-13
 
