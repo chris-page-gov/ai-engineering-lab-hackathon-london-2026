@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0055: Check the licensing on the localised sources."
+description: "Redacted prompt-response exchange EX-0055 from the public Codex postmortem."
 timestamp: "2026-04-18T07:37:59.156Z"
 ---
 

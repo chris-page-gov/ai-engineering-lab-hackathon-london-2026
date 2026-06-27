@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0080: The Wiki is also available over GitHub, would that solve the Can't access local paths problem?."
+description: "Redacted prompt-response exchange EX-0080 from the public Codex postmortem."
 timestamp: "2026-04-19T16:53:02.423Z"
 ---
 

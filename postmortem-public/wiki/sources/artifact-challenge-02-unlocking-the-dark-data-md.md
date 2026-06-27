@@ -9,7 +9,7 @@ tags:
   - "repository-artifact"
   - "codex-postmortem-public"
 description: "challenge-02-unlocking-the-dark-data.md"
-timestamp: "2026-06-27"
+timestamp: "2026-06-27T18:01:54+00:00"
 ---
 
 # challenge-02-unlocking-the-dark-data.md

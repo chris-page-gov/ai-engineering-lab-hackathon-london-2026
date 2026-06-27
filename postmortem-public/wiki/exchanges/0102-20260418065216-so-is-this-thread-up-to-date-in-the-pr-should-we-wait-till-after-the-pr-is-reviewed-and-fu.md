@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0102: So, is this thread up to date in the PR? Should we wait till after the PR is reviewed and fully ."
+description: "Redacted prompt-response exchange EX-0102 from the public Codex postmortem."
 timestamp: "2026-04-20T07:45:47.135Z"
 ---
 

@@ -4,8 +4,8 @@ title: "Conversation Summary"
 tags:
   - "conversation"
   - "codex-postmortem-public"
-description: "Raw transcripts are retained in the private local evidence archive. Public evidence is published as redacted exchange notes."
-timestamp: "2026-06-27"
+description: "Conversation Summary"
+timestamp: "2026-06-27T18:01:55+00:00"
 ---
 
 # Conversation Summary

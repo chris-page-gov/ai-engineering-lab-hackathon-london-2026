@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0046: Now I need you to create a page in the wiki which will demonstrate all functionality including h."
+description: "Redacted prompt-response exchange EX-0046 from the public Codex postmortem."
 timestamp: "2026-04-16T14:17:21.842Z"
 ---
 

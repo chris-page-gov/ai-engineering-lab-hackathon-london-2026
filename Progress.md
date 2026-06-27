@@ -54,7 +54,7 @@ The current workbench parity pass brings the visible SeeLinks/Micropedia web con
 
 The changelog now reserves `Unreleased` for pending work only; the accumulated HMRC/demo/workbench publication entries have been moved under the dated `2026-05-12` section before merging the SeeLinks/Micropedia parity PR.
 
-The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-public/wiki/` with the local OKF v0.1 profile used in recent wiki repos. The Challenge 2 wiki now has a generated root `viewer.html` static graph/reader, a reproducible `_site/` builder, and a GitHub Pages workflow matching the publication pattern used by recent OKF wiki repos.
+The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-public/wiki/` with the local OKF v0.1 profile used in recent wiki repos. The generated root `viewer.html` now opens on the public AI coding-assistant postmortem, supports switching to the Challenge 2 wiki, has scrollable side panels, a visible focus graph, a reproducible `_site/` builder, and a GitHub Pages workflow matching the publication pattern used by recent OKF wiki repos.
 
 ## Completed
 
@@ -153,8 +153,9 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
 - Fixed Dark Data Workbench context export selection so selected sources remain exported even when the active search or filters hide them.
 - Added pnpm workspace build-approval config for the workbench `esbuild` dependency.
 - Added OKF frontmatter conformance across the Challenge 2 wiki and public postmortem wiki, including root `okf_version` metadata.
-- Added `scripts/update_viewer.py`, `scripts/check_wiki_viewer.py`, and `scripts/check_okf_conformance.py` plus root `viewer.html` generated from the Challenge 2 wiki.
+- Added `scripts/update_viewer.py`, `scripts/check_wiki_viewer.py`, and `scripts/check_okf_conformance.py` plus root `viewer.html` generated from the public postmortem and Challenge 2 wiki.
 - Added `scripts/build_site.py`, `.github/workflows/pages.yml`, and `_site/` ignore coverage so the wiki can be published through GitHub Pages with root `viewer.html` as the site index.
+- Added `postmortem-public/wiki/walkthrough.md`, an illustrated reader route using the current reusable screenshot assets and recording the missing full UI screenshot set.
 - Addressed the current PR review comments as bug classes: all byte-budgeted MCP excerpts now truncate by UTF-8 bytes, including the Workbench MCP reader, and Wiki MCP HTTP notifications now return no content instead of `{}`.
 - Addressed the follow-up PR review comments as bug classes: all local MCP handlers now validate non-object JSON-RPC requests and invalid `params` / `arguments` envelopes, Workbench MCP stdio now returns parse errors without terminating, and Challenge 2 evaluation repo-state capture no longer aborts if Git is missing from `PATH`.
 - Addressed the latest PR review comment as a reproducibility bug class: the `codex-mcp` spawned Wiki MCP server now receives configured server args, including `semantic_model_id`, so live MCP retrieval uses the same semantic model recorded for the prompt context-pack seed.
@@ -166,10 +167,11 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;
-  - ran `python3 scripts/check_okf_conformance.py`, checking `263` Markdown documents across `challenge-2/wiki/` and `postmortem-public/wiki/`;
-  - ran `python3 scripts/update_viewer.py`, generating root `viewer.html` from `84` Challenge 2 wiki pages and `637` links;
+  - ran `python3 scripts/check_okf_conformance.py`, checking `264` Markdown documents across `challenge-2/wiki/` and `postmortem-public/wiki/`;
+  - ran `python3 scripts/update_viewer.py`, generating root `viewer.html` from the postmortem corpus (`180` pages, `763` links) and Challenge 2 wiki (`84` pages, `637` links);
   - ran `python3 scripts/check_wiki_viewer.py`, confirming `viewer.html` is synchronized;
-  - ran `python3 scripts/build_site.py`, building the ignored `_site/` GitHub Pages bundle.
+  - ran `python3 scripts/build_site.py`, building the ignored `_site/` GitHub Pages bundle with `310` files;
+  - ran a Playwright browser smoke test against local `viewer.html`, confirming the postmortem corpus opens first, both side panels scroll, the focus graph renders visible nodes and edges, the walkthrough renders four images, and the Challenge 2 corpus switch works.
 - Current SeeLinks/Micropedia parity validation passed locally:
   - ran `cd challenge-2/workbench && pnpm check`;
   - ran `cd challenge-2/workbench && pnpm test` with `22` passing Vitest tests;

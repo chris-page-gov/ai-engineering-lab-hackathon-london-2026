@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0002: There are some claude artifacts in the [LOCAL_REFERENCE_REPO]/.claude/ folder,  s."
+description: "Redacted prompt-response exchange EX-0002 from the public Codex postmortem."
 timestamp: "2026-04-16T06:55:53.282Z"
 ---
 

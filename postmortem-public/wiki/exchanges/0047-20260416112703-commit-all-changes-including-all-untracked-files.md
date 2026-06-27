@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0047: Commit all changes including all untracked files."
+description: "Redacted prompt-response exchange EX-0047 from the public Codex postmortem."
 timestamp: "2026-04-16T14:28:03.023Z"
 ---
 

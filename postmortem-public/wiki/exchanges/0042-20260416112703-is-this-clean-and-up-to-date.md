@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0042: Is this clean and up to date?."
+description: "Redacted prompt-response exchange EX-0042 from the public Codex postmortem."
 timestamp: "2026-04-16T13:50:29.885Z"
 ---
 

@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0085: The idea is to allow the AI to use the Wiki as a knowledge base - what is the best strategy for ."
+description: "Redacted prompt-response exchange EX-0085 from the public Codex postmortem."
 timestamp: "2026-04-19T17:27:16.134Z"
 ---
 

@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0079: Allow Claude to use the local settings file which is specifying the model (managed by DSIT) so t."
+description: "Redacted prompt-response exchange EX-0079 from the public Codex postmortem."
 timestamp: "2026-04-19T16:43:29.640Z"
 ---
 

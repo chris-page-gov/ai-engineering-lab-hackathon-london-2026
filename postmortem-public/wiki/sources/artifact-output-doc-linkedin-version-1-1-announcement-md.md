@@ -9,7 +9,7 @@ tags:
   - "repository-artifact"
   - "codex-postmortem-public"
 description: "output/doc/linkedin-version-1-1-announcement.md"
-timestamp: "2026-06-27"
+timestamp: "2026-06-27T18:01:54+00:00"
 ---
 
 # output/doc/linkedin-version-1-1-announcement.md

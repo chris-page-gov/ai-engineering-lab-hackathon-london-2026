@@ -27,14 +27,15 @@ New to the repo or arriving from LinkedIn? Start with the [reader guide](START-H
 For the Challenge 2 implementation:
 
 - [Challenge 2 brief](challenge-02-unlocking-the-dark-data.md): the original problem statement.
+- [Interactive public wiki viewer](viewer.html): self-contained HTML graph and reader for GitHub publication, opening first on the AI coding-assistant postmortem.
+- [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem following the conversations with the AI coding assistant.
+- [Postmortem reader walkthrough](postmortem-public/wiki/walkthrough.md): first route through the postmortem, Challenge 2 wiki, and local SeeLinks-style workbench.
 - [Challenge 2 wiki index](challenge-2/wiki/index.md): generated Obsidian-friendly knowledge base.
-- [Interactive Challenge 2 wiki viewer](viewer.html): self-contained HTML graph and reader for GitHub publication.
-- GitHub Pages publication uses `viewer.html` as both the root site `index.html` and the interactive wiki reader, with the Markdown wiki copied beside it.
+- GitHub Pages publication uses `viewer.html` as both the root site `index.html` and the interactive wiki reader, with the public postmortem and Challenge 2 Markdown corpora copied beside it.
 - [Demonstration guide](challenge-2/wiki/demonstration-guide.md): end-to-end walkthrough of the prototype.
 - [Dark Data Workbench guide](challenge-2/wiki/workbench.md): how to run and use the browser workbench.
 - [Evaluation benchmark](challenge-2/wiki/evaluation-benchmark.md): 100 source-backed questions with scoring guidance.
 - [Realtime delivery report](output/doc/challenge-2-realtime-delivery-report.md): narrative reconstruction of the build.
-- [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem.
 - [Postmortem conversation readers](postmortem-public/wiki/index.md#start-to-finish-conversation-readers): start-to-finish Markdown readers for the curated Codex conversations.
 - [Contribution modes and security assessment](output/doc/codex-contribution-modes-security-assessment.md): assessment of Codex, contribution modes, and security findings.
 - [MCP research wiki](challenge-2/MCP-Wiki/index.md): research, candidates, licensing posture, and implementation planning for a purpose-built Wiki MCP server.
@@ -60,7 +61,7 @@ The Challenge 2 wiki turns raw source material into structured Markdown and mach
 - topic, entity, and map notes make the corpus navigable
 - JSON and table exports support tool use
 - lint output checks generated coverage, links, metadata, and known challenge flags
-- OKF-compatible Markdown frontmatter and root `viewer.html` make the wiki publishable as a static GitHub-friendly graph and reader
+- OKF-compatible Markdown frontmatter and root `viewer.html` make the public postmortem and Challenge 2 wiki publishable as a static GitHub-friendly graph and reader
 - `scripts/build_site.py` and `.github/workflows/pages.yml` publish the viewer and public wiki Markdown through GitHub Pages in the same pattern as recent OKF wiki repos
 
 The repeatable builder is [challenge-2/tools/build_wiki.py](challenge-2/tools/build_wiki.py).
@@ -133,7 +134,7 @@ Challenge 2 implementation:
 - `challenge-2/unstructured_files/`: synthetic binary-format starter documents.
 - `challenge-2/tools/build_wiki.py`: repeatable wiki builder.
 - `challenge-2/wiki/`: generated Obsidian-friendly knowledge base.
-- `viewer.html`: generated static Challenge 2 wiki graph and reader for GitHub publication.
+- `viewer.html`: generated static postmortem-first wiki graph and reader for GitHub publication, with a corpus switcher for Challenge 2.
 - `scripts/update_viewer.py`, `scripts/check_wiki_viewer.py`, `scripts/check_okf_conformance.py`, and `scripts/build_site.py`: OKF, static-viewer, and GitHub Pages publication workflow.
 - `.github/workflows/pages.yml`: GitHub Actions Pages deployment for the generated static wiki site.
 - `_site/`: ignored local GitHub Pages build output.
@@ -165,6 +166,7 @@ Reports and publication artifacts:
 - `research/hmrc-beyond-hype/transcripts/`: committed machine transcripts, SRT files, diarization evidence, and `Trace` / `Query` voice-name review drafts derived from the local audio import.
 - `research/hmrc-beyond-hype/tools/`: local reproducibility scripts for audio transcription, pyannote diarization, visual sidecar generation, and narrative validation.
 - `postmortem-public/wiki/index.md`: public Codex collaboration postmortem entry point.
+- `postmortem-public/wiki/walkthrough.md`: illustrated reader walkthrough and current screenshot coverage note.
 - `postmortem-public/wiki/readers/`: generated start-to-finish Markdown readers for curated Codex conversations.
 - `postmortem-public/wiki/decisions.md`: publication decision register.
 - `postmortem-public/wiki/data/publication-lint-report.json`: machine-readable publication lint output.

@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0095: Continue and include the lint check after the links have been resolved. Ensure extensive cross-l."
+description: "Redacted prompt-response exchange EX-0095 from the public Codex postmortem."
 timestamp: "2026-04-19T20:46:26.762Z"
 ---
 

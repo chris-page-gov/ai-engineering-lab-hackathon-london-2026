@@ -9,8 +9,8 @@ tags:
   - "reader"
   - "conversation"
   - "codex-postmortem-public"
-description: "Start-to-finish reader for Karpathy Wiki Planning and Challenge 2 Vault Build Reader."
-timestamp: "2026-06-27"
+description: "Start-to-finish Markdown reader for a curated Codex postmortem conversation."
+timestamp: "2026-06-27T18:01:54+00:00"
 ---
 
 # CONV-002: Karpathy Wiki Planning and Challenge 2 Vault Build

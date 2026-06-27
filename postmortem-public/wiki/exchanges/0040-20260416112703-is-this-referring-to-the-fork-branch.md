@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0040: is this referring to the fork branch."
+description: "Redacted prompt-response exchange EX-0040 from the public Codex postmortem."
 timestamp: "2026-04-16T12:31:48.443Z"
 ---
 

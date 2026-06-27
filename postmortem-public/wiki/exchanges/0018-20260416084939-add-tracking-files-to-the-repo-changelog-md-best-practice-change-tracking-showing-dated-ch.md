@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0018: Add tracking files to the repo, Changelog.md (best practice change tracking showing dated change."
+description: "Redacted prompt-response exchange EX-0018 from the public Codex postmortem."
 timestamp: "2026-04-16T11:26:49.500Z"
 ---
 

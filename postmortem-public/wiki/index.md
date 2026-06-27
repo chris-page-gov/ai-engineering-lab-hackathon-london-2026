@@ -1,12 +1,12 @@
 ---
 type: "Index"
 title: "Public Codex Postmortem"
+okf_version: "0.1"
 tags:
   - "index"
   - "codex-postmortem-public"
-okf_version: "0.1"
-description: "Navigation entry point for Public Codex Postmortem."
-timestamp: "2026-06-27"
+description: "Navigation entry point for the Codex collaboration postmortem wiki."
+timestamp: "2026-06-27T18:01:55+00:00"
 ---
 
 # Public Codex Postmortem
@@ -16,6 +16,7 @@ This folder is the GitHub-safe derivative of the private Codex postmortem eviden
 ## Start Here
 
 - [Public Postmortem](postmortem.md)
+- [Reader Walkthrough](walkthrough.md)
 - [Conversation Summary](conversation-summary.md)
 - [Start-to-Finish Conversation Readers](#start-to-finish-conversation-readers)
 - [Publication Decision Register](decisions.md)

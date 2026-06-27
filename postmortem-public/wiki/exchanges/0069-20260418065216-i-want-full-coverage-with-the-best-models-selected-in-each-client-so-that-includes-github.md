@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0069: I want full coverage with the best models selected in each client so that includes GitHub Copilo."
+description: "Redacted prompt-response exchange EX-0069 from the public Codex postmortem."
 timestamp: "2026-04-18T12:58:44.898Z"
 ---
 

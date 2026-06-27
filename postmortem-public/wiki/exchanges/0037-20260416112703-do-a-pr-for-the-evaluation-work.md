@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0037: Do a PR for the evaluation work."
+description: "Redacted prompt-response exchange EX-0037 from the public Codex postmortem."
 timestamp: "2026-04-16T12:11:10.024Z"
 ---
 

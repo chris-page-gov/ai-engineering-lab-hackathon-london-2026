@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0101: Do human rubric scoring in this PR."
+description: "Redacted prompt-response exchange EX-0101 from the public Codex postmortem."
 timestamp: "2026-04-20T06:25:05.228Z"
 ---
 

@@ -9,7 +9,7 @@ tags:
   - "repository-artifact"
   - "codex-postmortem-public"
 description: "output/doc/codex-contribution-modes-security-assessment.md"
-timestamp: "2026-06-27"
+timestamp: "2026-06-27T18:01:54+00:00"
 ---
 
 # output/doc/codex-contribution-modes-security-assessment.md

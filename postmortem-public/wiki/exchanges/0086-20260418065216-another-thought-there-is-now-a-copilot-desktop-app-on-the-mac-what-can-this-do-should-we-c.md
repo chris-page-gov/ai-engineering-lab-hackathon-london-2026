@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0086: Another thought, there is now a Copilot desktop app on the Mac, what can this do? Should we cons."
+description: "Redacted prompt-response exchange EX-0086 from the public Codex postmortem."
 timestamp: "2026-04-19T17:31:19.057Z"
 ---
 

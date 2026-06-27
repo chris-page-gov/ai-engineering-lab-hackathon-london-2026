@@ -12,29 +12,35 @@ No undated pending changes.
 
 ### Added
 
-- 2026-06-27: Added root `viewer.html`, generated from `challenge-2/wiki/**/*.md`, as a self-contained static graph and reader for publishing the Challenge 2 wiki on GitHub.
+- 2026-06-27: Added root `viewer.html` as a self-contained static graph and reader for publishing the public wiki corpora on GitHub.
 - 2026-06-27: Added `scripts/update_viewer.py`, `scripts/check_wiki_viewer.py`, and `scripts/check_okf_conformance.py` to make the OKF/static-viewer publication workflow reproducible.
 - 2026-06-27: Added `scripts/build_site.py` and `.github/workflows/pages.yml` to publish the OKF wiki viewer through GitHub Pages from generated `_site/` output.
+- 2026-06-27: Added `postmortem-public/wiki/walkthrough.md` as an illustrated first-reader route through the AI coding-assistant postmortem, Challenge 2 wiki, and local SeeLinks-style workbench.
 
 ### Changed
 
 - 2026-06-27: Updated the Challenge 2 wiki builder and Codex postmortem builder so generated Markdown carries OKF-compatible frontmatter while preserving existing repo metadata.
 - 2026-06-27: Normalized `challenge-2/wiki/` and `postmortem-public/wiki/` Markdown frontmatter to include OKF `type`, `description`, `timestamp`, and root `okf_version` metadata.
 - 2026-06-27: Ignored `_site/` as reproducible local Pages output, matching the publication pattern used by recent OKF wiki repos.
+- 2026-06-27: Changed `viewer.html` from a Challenge 2-only viewer to a postmortem-first multi-corpus viewer with a Challenge 2 switcher, visible focus graph, scrollable side panels, image rendering, and a local Workbench link.
+- 2026-06-27: Updated `scripts/build_site.py` to publish reusable walkthrough image assets alongside the Markdown corpora.
 
 ### Fixed
 
 - 2026-06-27: Fixed the Challenge 2 demonstration guide's stale Spending Controls source-note link after the strict wiki rebuild exposed the current generated filename.
+- 2026-06-27: Fixed the Codex postmortem builder so missing external methodology fetches create private placeholder evidence files rather than leaving broken ignored-archive links.
 
 ### Documentation
 
 - 2026-06-27: Documented the OKF conformance and viewer synchronization workflow in the repository operating rules, Challenge 2 wiki rules, README, Context, and Progress.
 - 2026-06-27: Documented the GitHub Pages publishing workflow and local static-site build path.
+- 2026-06-27: Documented the postmortem-first viewer, local SeeLinks-style Workbench limitation, and current screenshot coverage.
 
 ### Validation
 
 - 2026-06-27: Verified the publication workflow with the strict Challenge 2 wiki rebuild, OKF conformance checker, viewer generator, viewer synchronization checker, documentation lockstep, and Python compile checks for the changed scripts.
 - 2026-06-27: Verified the Pages publication bundle with `python3 scripts/build_site.py`.
+- 2026-06-27: Verified the repaired viewer with a Playwright smoke test covering postmortem-first load, side-panel scrolling, visible graph rendering, walkthrough image rendering, local Workbench link, and Challenge 2 corpus switching.
 
 ## 2026-05-13
 

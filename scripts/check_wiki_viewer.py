@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate that root viewer.html is synchronized with the Challenge 2 wiki."""
+"""Validate that root viewer.html is synchronized with the public wiki corpora."""
 
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ def main() -> int:
             print(f"- {error}", file=sys.stderr)
         return 1
 
-    print(f"Wiki viewer validation passed: {len(graph['nodes'])} pages, {len(graph['edges'])} links")
+    print(f"Wiki viewer validation passed: {update_viewer.graph_stats(graph)}")
     return 0
 
 

@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0024: Implement Karpathy Wiki Vault."
+description: "Redacted prompt-response exchange EX-0024 from the public Codex postmortem."
 timestamp: "2026-04-16T12:36:14.314Z"
 ---
 

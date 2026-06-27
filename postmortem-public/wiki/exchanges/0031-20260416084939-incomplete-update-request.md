@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0031: Incomplete Update Request."
+description: "Redacted prompt-response exchange EX-0031 from the public Codex postmortem."
 timestamp: "2026-04-16T15:00:40.062Z"
 ---
 

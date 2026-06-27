@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0094: Agree, add all [LOCAL_STATE_FILE] to gitignore. Note that you have two other equivalent reports, the docx."
+description: "Redacted prompt-response exchange EX-0094 from the public Codex postmortem."
 timestamp: "2026-04-19T20:37:01.069Z"
 ---
 

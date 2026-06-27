@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0104: Okay, more comments to fix as before."
+description: "Redacted prompt-response exchange EX-0104 from the public Codex postmortem."
 timestamp: "2026-04-20T08:41:50.348Z"
 ---
 

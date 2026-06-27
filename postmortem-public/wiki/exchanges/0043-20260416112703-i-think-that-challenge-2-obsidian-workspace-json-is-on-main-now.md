@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0043: I think that challenge-2/.obsidian/workspace.json is on main now."
+description: "Redacted prompt-response exchange EX-0043 from the public Codex postmortem."
 timestamp: "2026-04-16T13:58:32.159Z"
 ---
 

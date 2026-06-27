@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0078: There were a few \\\"Can I trust this folder\\\" prompts holding things up. I want all to use the best."
+description: "Redacted prompt-response exchange EX-0078 from the public Codex postmortem."
 timestamp: "2026-04-19T16:33:20.033Z"
 ---
 

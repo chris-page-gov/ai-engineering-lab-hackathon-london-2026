@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0013: With the comments, fix and reject so the ones you've addressed or rejected are not shown as left."
+description: "Redacted prompt-response exchange EX-0013 from the public Codex postmortem."
 timestamp: "2026-04-16T10:35:49.937Z"
 ---
 

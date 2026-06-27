@@ -9,7 +9,7 @@ tags:
   - "conversation"
   - "codex-postmortem-public"
 description: "Source note for CONV-003: Wiki Evaluation Harness, Workbench, and Demo Route."
-timestamp: "2026-06-27"
+timestamp: "2026-06-27T18:01:54+00:00"
 ---
 
 # Wiki Evaluation Harness, Workbench, and Demo Route

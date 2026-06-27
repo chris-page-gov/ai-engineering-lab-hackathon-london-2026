@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0012: Implement these fixes."
+description: "Redacted prompt-response exchange EX-0012 from the public Codex postmortem."
 timestamp: "2026-04-16T10:00:27.594Z"
 ---
 

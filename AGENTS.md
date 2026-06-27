@@ -13,7 +13,7 @@ Keep repository documentation in lockstep with implementation changes.
 - If a change genuinely does not need one of these updates, say why in the PR or final response.
 - Run `python3 tools/check_documentation_lockstep.py` before submitting changes that touch code, generated artefacts, challenge docs, or repository operations.
 - For published wiki Markdown changes, keep OKF frontmatter in place and run `python3 scripts/check_okf_conformance.py`.
-- If `challenge-2/wiki/**/*.md` changes, run `python3 scripts/update_viewer.py` and `python3 scripts/check_wiki_viewer.py` so root `viewer.html` stays synchronized for GitHub publication.
+- If `challenge-2/wiki/**/*.md` or `postmortem-public/wiki/**/*.md` changes, run `python3 scripts/update_viewer.py` and `python3 scripts/check_wiki_viewer.py` so root `viewer.html` stays synchronized for GitHub publication.
 - Before publishing the wiki site, run `python3 scripts/build_site.py`; `_site/` is generated output and should not be committed.
 
 ## Source Data

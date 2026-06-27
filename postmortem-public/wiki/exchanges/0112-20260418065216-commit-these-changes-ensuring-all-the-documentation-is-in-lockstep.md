@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0112: Commit these changes, ensuring all the documentation is in lockstep."
+description: "Redacted prompt-response exchange EX-0112 from the public Codex postmortem."
 timestamp: "2026-05-09T10:06:16.296Z"
 ---
 

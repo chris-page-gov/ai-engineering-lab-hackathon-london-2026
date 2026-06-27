@@ -9,8 +9,8 @@ tags:
   - "reader"
   - "conversation"
   - "codex-postmortem-public"
-description: "Start-to-finish reader for Deep Research Prompt and Copilot Review Reader."
-timestamp: "2026-06-27"
+description: "Start-to-finish Markdown reader for a curated Codex postmortem conversation."
+timestamp: "2026-06-27T18:01:54+00:00"
 ---
 
 # CONV-001: Deep Research Prompt and Copilot Review

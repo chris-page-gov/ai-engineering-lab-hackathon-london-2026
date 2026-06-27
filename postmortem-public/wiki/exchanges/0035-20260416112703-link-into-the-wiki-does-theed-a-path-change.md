@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0035: Link into the Wiki - does theed a path change?."
+description: "Redacted prompt-response exchange EX-0035 from the public Codex postmortem."
 timestamp: "2026-04-16T11:45:13.253Z"
 ---
 

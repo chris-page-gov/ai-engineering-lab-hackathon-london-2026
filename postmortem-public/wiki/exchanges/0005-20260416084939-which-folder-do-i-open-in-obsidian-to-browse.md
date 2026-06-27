@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0005: Which folder do I open in Obsidian to browse."
+description: "Redacted prompt-response exchange EX-0005 from the public Codex postmortem."
 timestamp: "2026-04-16T09:09:08.792Z"
 ---
 

@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0041: so is this branch clean?."
+description: "Redacted prompt-response exchange EX-0041 from the public Codex postmortem."
 timestamp: "2026-04-16T12:32:33.014Z"
 ---
 

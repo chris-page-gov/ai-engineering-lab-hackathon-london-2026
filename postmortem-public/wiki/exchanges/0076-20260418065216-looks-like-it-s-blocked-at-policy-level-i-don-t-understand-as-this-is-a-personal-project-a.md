@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0076: Looks like it's blocked at policy level, I don't understand as this is a personal project and is."
+description: "Redacted prompt-response exchange EX-0076 from the public Codex postmortem."
 timestamp: "2026-04-19T15:25:50.904Z"
 ---
 

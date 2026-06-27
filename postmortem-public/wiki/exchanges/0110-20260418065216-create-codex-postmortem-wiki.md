@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0110: Create Codex Postmortem Wiki."
+description: "Redacted prompt-response exchange EX-0110 from the public Codex postmortem."
 timestamp: "2026-05-09T10:02:05.842Z"
 ---
 

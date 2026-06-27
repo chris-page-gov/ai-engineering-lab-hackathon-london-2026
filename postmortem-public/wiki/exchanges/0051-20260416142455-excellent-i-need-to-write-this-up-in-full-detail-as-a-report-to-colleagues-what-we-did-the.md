@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0051: Excellent. I need to write this up in full detail as a report to colleagues: what we did, the or."
+description: "Redacted prompt-response exchange EX-0051 from the public Codex postmortem."
 timestamp: "2026-04-17T14:33:36.925Z"
 ---
 

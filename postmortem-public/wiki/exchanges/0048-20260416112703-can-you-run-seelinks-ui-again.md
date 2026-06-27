@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0048: can you run seelinks UI again."
+description: "Redacted prompt-response exchange EX-0048 from the public Codex postmortem."
 timestamp: "2026-04-16T14:30:57.476Z"
 ---
 

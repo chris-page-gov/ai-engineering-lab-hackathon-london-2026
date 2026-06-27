@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0066: Ensure you close the comments you address with apropriate comments."
+description: "Redacted prompt-response exchange EX-0066 from the public Codex postmortem."
 timestamp: "2026-04-18T12:20:01.720Z"
 ---
 

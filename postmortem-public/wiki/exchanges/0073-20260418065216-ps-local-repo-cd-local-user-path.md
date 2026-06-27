@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0073: PS [LOCAL_REPO]> cd [LOCAL_USER_PATH]."
+description: "Redacted prompt-response exchange EX-0073 from the public Codex postmortem."
 timestamp: "2026-04-18T13:39:26.881Z"
 ---
 

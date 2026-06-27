@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0022: Dark Data Workbench is good, create a plan to implement this with a full test suite including pl."
+description: "Redacted prompt-response exchange EX-0022 from the public Codex postmortem."
 timestamp: "2026-04-16T12:06:52.509Z"
 ---
 

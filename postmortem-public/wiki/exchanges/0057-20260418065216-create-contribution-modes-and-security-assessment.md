@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0057: Create Contribution Modes and Security Assessment."
+description: "Redacted prompt-response exchange EX-0057 from the public Codex postmortem."
 timestamp: "2026-04-18T08:30:43.517Z"
 ---
 

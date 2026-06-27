@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0016: Do a review on how far we meet the evaluation/judging criteria?."
+description: "Redacted prompt-response exchange EX-0016 from the public Codex postmortem."
 timestamp: "2026-04-16T11:16:03.975Z"
 ---
 

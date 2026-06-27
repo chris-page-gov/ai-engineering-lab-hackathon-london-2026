@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0063: The PR says 5 conversations, I thought we added this, which would be six?."
+description: "Redacted prompt-response exchange EX-0063 from the public Codex postmortem."
 timestamp: "2026-04-18T12:05:57.757Z"
 ---
 

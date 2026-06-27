@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0006: Open Challenge 2 Obsidian Vault."
+description: "Redacted prompt-response exchange EX-0006 from the public Codex postmortem."
 timestamp: "2026-04-16T09:10:11.443Z"
 ---
 

@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0010: Along with the code, can you draft a io webpage for our architecture explaining it to a person w."
+description: "Redacted prompt-response exchange EX-0010 from the public Codex postmortem."
 timestamp: "2026-04-16T09:29:43.723Z"
 ---
 

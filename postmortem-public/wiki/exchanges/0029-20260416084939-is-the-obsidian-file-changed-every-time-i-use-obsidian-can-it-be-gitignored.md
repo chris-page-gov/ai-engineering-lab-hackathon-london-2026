@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0029: Is the obsidian file changed every time I use Obsidian - can it be gitignored?."
+description: "Redacted prompt-response exchange EX-0029 from the public Codex postmortem."
 timestamp: "2026-04-16T14:02:29.377Z"
 ---
 

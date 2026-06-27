@@ -25,6 +25,7 @@ PUBLIC_ROOT_FILES = [
 ]
 PUBLIC_TREES = [
     "challenge-2/wiki",
+    "output/doc/assets",
     "postmortem-public",
 ]
 FORBIDDEN_NAMES = {".DS_Store"}

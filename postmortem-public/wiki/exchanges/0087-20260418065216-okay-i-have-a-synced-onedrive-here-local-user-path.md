@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0087: Okay, I have a synced OneDrive here [LOCAL_USER_PATH]."
+description: "Redacted prompt-response exchange EX-0087 from the public Codex postmortem."
 timestamp: "2026-04-19T17:38:00.476Z"
 ---
 

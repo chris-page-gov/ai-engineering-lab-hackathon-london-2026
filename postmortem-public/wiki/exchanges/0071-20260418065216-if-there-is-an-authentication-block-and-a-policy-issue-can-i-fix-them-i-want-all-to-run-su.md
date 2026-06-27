@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0071: If there is an authentication block and a policy issue, can I fix them? I want all to run succes."
+description: "Redacted prompt-response exchange EX-0071 from the public Codex postmortem."
 timestamp: "2026-04-18T13:17:43.521Z"
 ---
 

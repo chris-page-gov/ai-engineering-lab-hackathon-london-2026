@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0100: Should we do both of these within the current PR or only the first, discuss."
+description: "Redacted prompt-response exchange EX-0100 from the public Codex postmortem."
 timestamp: "2026-04-20T06:22:10.217Z"
 ---
 

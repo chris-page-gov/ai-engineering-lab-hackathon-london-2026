@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0062: Status Check During Publication Work."
+description: "Redacted prompt-response exchange EX-0062 from the public Codex postmortem."
 timestamp: "2026-04-18T11:36:55.366Z"
 ---
 

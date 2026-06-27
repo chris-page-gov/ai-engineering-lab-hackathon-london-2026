@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0068: Do we need a plan or are we ready to implement the evaluation on a new branch? I want to make su."
+description: "Redacted prompt-response exchange EX-0068 from the public Codex postmortem."
 timestamp: "2026-04-18T12:43:33.825Z"
 ---
 

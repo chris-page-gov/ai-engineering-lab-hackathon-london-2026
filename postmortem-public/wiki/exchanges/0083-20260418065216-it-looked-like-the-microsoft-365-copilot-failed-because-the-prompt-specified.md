@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0083: It looked like the Microsoft 365 Copilot failed because the prompt specified:."
+description: "Redacted prompt-response exchange EX-0083 from the public Codex postmortem."
 timestamp: "2026-04-19T17:19:06.583Z"
 ---
 

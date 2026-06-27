@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0039: merge the outstanding PRs on the fork."
+description: "Redacted prompt-response exchange EX-0039 from the public Codex postmortem."
 timestamp: "2026-04-16T12:15:00.135Z"
 ---
 

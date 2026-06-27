@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0036: Build the harness that will allow us to push the questions into the various AIs with the instruc."
+description: "Redacted prompt-response exchange EX-0036 from the public Codex postmortem."
 timestamp: "2026-04-16T11:49:26.469Z"
 ---
 

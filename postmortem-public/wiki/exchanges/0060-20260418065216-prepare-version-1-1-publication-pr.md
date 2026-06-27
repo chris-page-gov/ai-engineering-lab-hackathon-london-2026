@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0060: Prepare Version 1.1 Publication PR."
+description: "Redacted prompt-response exchange EX-0060 from the public Codex postmortem."
 timestamp: "2026-04-18T09:00:36.253Z"
 ---
 

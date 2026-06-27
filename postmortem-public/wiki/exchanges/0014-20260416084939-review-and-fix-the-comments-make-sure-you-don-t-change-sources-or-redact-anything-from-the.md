@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0014: Review and fix the comments, make sure you don't change sources or redact anything from the synt."
+description: "Redacted prompt-response exchange EX-0014 from the public Codex postmortem."
 timestamp: "2026-04-16T10:44:40.587Z"
 ---
 

@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0105: More comments to fix as before, your being sloppy?."
+description: "Redacted prompt-response exchange EX-0105 from the public Codex postmortem."
 timestamp: "2026-04-20T09:24:21.923Z"
 ---
 

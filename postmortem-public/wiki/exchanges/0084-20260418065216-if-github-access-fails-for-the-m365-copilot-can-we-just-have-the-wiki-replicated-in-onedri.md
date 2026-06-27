@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0084: If GitHub access fails for the M365 Copilot, can we just have the Wiki replicated in OneDrive - ."
+description: "Redacted prompt-response exchange EX-0084 from the public Codex postmortem."
 timestamp: "2026-04-19T17:21:56.612Z"
 ---
 

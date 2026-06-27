@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0034: Add Documentation Lockstep and Evaluation Notes."
+description: "Redacted prompt-response exchange EX-0034 from the public Codex postmortem."
 timestamp: "2026-04-16T11:31:37.948Z"
 ---
 

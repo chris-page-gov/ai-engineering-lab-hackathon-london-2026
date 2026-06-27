@@ -4,8 +4,8 @@ title: "Methodology Sources"
 tags:
   - "methodology"
   - "codex-postmortem-public"
-description: "The public package cites the methodology sources without redistributing full copied third-party source bodies."
-timestamp: "2026-06-27"
+description: "Methodology Sources"
+timestamp: "2026-06-27T18:01:55+00:00"
 ---
 
 # Methodology Sources

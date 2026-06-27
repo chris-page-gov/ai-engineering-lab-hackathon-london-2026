@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0017: Fix Obsidian Mermaid Architecture Diagram."
+description: "Redacted prompt-response exchange EX-0017 from the public Codex postmortem."
 timestamp: "2026-04-16T11:19:31.418Z"
 ---
 

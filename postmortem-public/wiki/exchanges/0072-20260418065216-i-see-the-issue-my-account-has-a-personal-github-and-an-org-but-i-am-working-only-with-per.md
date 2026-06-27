@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0072: I see the issue, my account has a personal GitHub and an Org but I am working only with personal."
+description: "Redacted prompt-response exchange EX-0072 from the public Codex postmortem."
 timestamp: "2026-04-18T13:25:19.469Z"
 ---
 

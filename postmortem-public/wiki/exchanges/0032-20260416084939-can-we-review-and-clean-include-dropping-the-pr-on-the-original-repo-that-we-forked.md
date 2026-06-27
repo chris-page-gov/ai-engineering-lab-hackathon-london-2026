@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0032: Can we review and clean, include dropping the PR on the original repo that we forked."
+description: "Redacted prompt-response exchange EX-0032 from the public Codex postmortem."
 timestamp: "2026-04-16T15:03:18.556Z"
 ---
 

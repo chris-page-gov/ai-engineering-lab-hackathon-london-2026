@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0058: Check Publication Branch Status."
+description: "Redacted prompt-response exchange EX-0058 from the public Codex postmortem."
 timestamp: "2026-04-18T08:49:01.158Z"
 ---
 

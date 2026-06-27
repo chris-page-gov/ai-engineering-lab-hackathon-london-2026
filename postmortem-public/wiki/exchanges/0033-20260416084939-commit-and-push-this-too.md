@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0033: Commit and push this too."
+description: "Redacted prompt-response exchange EX-0033 from the public Codex postmortem."
 timestamp: "2026-04-16T15:09:10.753Z"
 ---
 

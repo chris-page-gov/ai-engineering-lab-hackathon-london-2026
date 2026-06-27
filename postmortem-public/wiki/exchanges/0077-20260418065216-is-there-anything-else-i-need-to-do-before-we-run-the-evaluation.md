@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0077: Is there anything else I need to do before we run the evaluation."
+description: "Redacted prompt-response exchange EX-0077 from the public Codex postmortem."
 timestamp: "2026-04-19T15:54:09.219Z"
 ---
 

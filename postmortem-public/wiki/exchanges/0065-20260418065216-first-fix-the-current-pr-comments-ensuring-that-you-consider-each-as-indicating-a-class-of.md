@@ -10,7 +10,7 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
-description: "Prompt-response exchange EX-0065: First, fix the current PR comments, ensuring that you consider each as indicating a class of err."
+description: "Redacted prompt-response exchange EX-0065 from the public Codex postmortem."
 timestamp: "2026-04-18T12:19:13.397Z"
 ---
 
