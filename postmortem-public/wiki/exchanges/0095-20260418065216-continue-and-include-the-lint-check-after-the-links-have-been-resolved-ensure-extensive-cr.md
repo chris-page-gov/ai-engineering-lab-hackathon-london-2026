@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0095"
 title: "Continue and include the lint check after the links have been resolved. Ensure extensive cross-l"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0095: Continue and include the lint check after the links have been resolved. Ensure extensive cross-l."
+timestamp: "2026-04-19T20:46:26.762Z"
 ---
 
 # 0095. Continue and include the lint check after the links have been resolved. Ensure extensive cross-l

@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0071"
 title: "If there is an authentication block and a policy issue, can I fix them? I want all to run succes"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0071: If there is an authentication block and a policy issue, can I fix them? I want all to run succes."
+timestamp: "2026-04-18T13:17:43.521Z"
 ---
 
 # 0071. If there is an authentication block and a policy issue, can I fix them? I want all to run succes

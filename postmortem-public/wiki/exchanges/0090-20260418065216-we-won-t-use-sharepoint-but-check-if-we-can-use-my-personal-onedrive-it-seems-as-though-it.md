@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0090"
 title: "We won't use SharePoint but check if we can use my personal OneDrive, it seems as though it has "
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0090: We won't use SharePoint but check if we can use my personal OneDrive, it seems as though it has ."
+timestamp: "2026-04-19T18:06:39.953Z"
 ---
 
 # 0090. We won't use SharePoint but check if we can use my personal OneDrive, it seems as though it has

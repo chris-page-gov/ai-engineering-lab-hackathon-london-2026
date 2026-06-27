@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0022"
 title: "Dark Data Workbench is good, create a plan to implement this with a full test suite including pl"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0022: Dark Data Workbench is good, create a plan to implement this with a full test suite including pl."
+timestamp: "2026-04-16T12:06:52.509Z"
 ---
 
 # 0022. Dark Data Workbench is good, create a plan to implement this with a full test suite including pl

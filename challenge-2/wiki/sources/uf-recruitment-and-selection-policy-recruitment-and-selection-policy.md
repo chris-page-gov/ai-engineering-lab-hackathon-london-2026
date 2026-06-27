@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-RECRUITMENT-AND-SELECTION-POLICY"
 title: "Recruitment and Selection Policy"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Recruitment_and_Selection_Policy.pdf"
 source_format: "pdf"
 document_type: "policy"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -36,6 +37,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL"
+description: "Source note for UF-RECRUITMENT-AND-SELECTION-POLICY: Recruitment and Selection Policy."
+timestamp: "2026-06-27"
 ---
 
 # Recruitment and Selection Policy
@@ -43,7 +46,7 @@ sensitivity:
 
 - Source: [Recruitment_and_Selection_Policy.pdf](../../unstructured_files/Recruitment_and_Selection_Policy.pdf)
 - Extraction: `pdftotext-layout` with `medium` quality.
-- Extract: OFFICIAL Recruitment and Selection Policy Department for Work and Pensions December 2023 Document control: Version 6.0 Owner: Resourcing Team, HR Directorate Review date: December 2025 1. Principles All recruitment to DWP must be conducted in accordance with the Civil Service Commission’s Recruitment Principles. Appointment must be on merit on the basis of fair and open competition. Exceptions to fair and open competition include: • Managed moves within the Civil Service • Loans and secondments • Redeployment (including as a reasonable adjustment) • Permitted exceptions as defined by the Civil Service Commission 2. Approval to Recruit Before...
+- Extract: OFFICIAL Recruitment and Selection Policy [GOVERNMENT DEPARTMENT C] December 2023 Document control: Version 6.0 Owner: Resourcing Team, HR Directorate Review date: December 2025 1. Principles [DEPT-C] All recruitment to must be conducted in accordance with the Civil Service Commission’s Recruitment Principles. Appointment must be on merit on the basis of fair and open competition. Exceptions to fair and open competition include: • Managed moves within the Civil Service • Loans and secondments • Redeployment (including as a reasonable adjustment) • Permitted exceptions as defined by the Civil Service Commission 2. Approval to Recruit Before...
 
 ## Metadata
 
@@ -54,7 +57,7 @@ sensitivity:
 | Raw source | [Recruitment_and_Selection_Policy.pdf](../../unstructured_files/Recruitment_and_Selection_Policy.pdf) |
 | Format | pdf |
 | Document type | policy |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -65,14 +68,12 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 5b18bfd8df2e6b375880b6bced4b29d95bca7a41b4a7bff56f50bdcde379fce3 |
+| SHA-256 | 8600dd530591cc2125cb57e24d771a48f3c7680135904e5c61186eeb9b4e40fa |
 
 ## Navigation
 
 - Topic: [Procurement And Spending Controls](../topics/procurement-and-spending-controls.md)
 - Topic: [People Policies](../topics/people-policies.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
-- Entity: [Cabinet Office](../entities/cabinet-office.md)
 
 ## Extracted Tables
 
@@ -84,7 +85,6 @@ sensitivity:
 | HEO to SEO | Grade 6 | Business case (1 page) |
 | Grade 7 | SCS1 (Director) | Business case + WFP approval |
 | Grade 6 | SCS2 (Director General) | Business case + ExCo notification |
-| SCS | Permanent Secretary | Business case + Cabinet Office approval |
 
 ### Table 2
 
@@ -97,12 +97,6 @@ sensitivity:
 
 ### Table 3
 
-| Role type | Minimum clearance | Processing time |
-| --- | --- | --- |
-| Most DWP roles | Baseline Personnel Security Standard 1-2 |  |
-
-### Table 4
-
 | Roles accessing sensitive systems | Security Check (SC) | 6-8 weeks |
 | --- | --- | --- |
 | Roles accessing TOP SECRET materialDeveloped Vetting (DV) | 6-9 months |  |
@@ -112,16 +106,16 @@ sensitivity:
 OFFICIAL
 
 
-                     Recruitment and Selection Policy
-Department for Work and Pensions | December 2023
+                      Recruitment and Selection Policy
+[GOVERNMENT DEPARTMENT C]                  | December 2023
 
 Document control: Version 6.0 | Owner: Resourcing Team, HR Directorate | Review date:
 December 2025
 
 
 1. Principles
-
-All recruitment to DWP must be conducted in accordance with the Civil Service Commission’s Recruitment
+                 [DEPT-C]
+All recruitment to     must be conducted in accordance with the Civil Service Commission’s Recruitment
 Principles. Appointment must be on merit on the basis of fair and open competition.
 
 Exceptions to fair and open competition include:
@@ -149,8 +143,8 @@ Before any vacancy can be advertised, approval must be obtained from the Workfor
       Grade 7                    SCS1 (Director)              Business case + WFP approval
 
       Grade 6                    SCS2 (Director General)      Business case + ExCo notification
-
-      SCS                        Permanent Secretary          Business case + Cabinet Office approval
+                                                                                [Central Government Body]
+      SCS                        Permanent Secretary          Business case +                               approval
 
       Note: These approval levels differ from the procurement approval matrix (see Spending Controls
       Guidance). Recruitment costs should be considered separately from procurement — the Procurement
@@ -197,8 +191,8 @@ criminal record check (DBS Basic as minimum; enhanced for specific roles), emplo
 verification, health declaration, qualification verification.
 
       Role type                            Minimum clearance                        Processing time
-
-      Most DWP roles                       Baseline Personnel Security Standard 1-2
+             [DEPT-C]
+      Most              roles              Baseline Personnel Security Standard 1-2
                                                                                 (BPSS)
                                                                                     weeks
 
@@ -236,8 +230,8 @@ diversity of applicants, shortlisted candidates, and appointees, cost per hire, 
 
 Candidates who believe the recruitment process was unfair may complain to: the Resourcing Team (for
 process complaints) or the Civil Service Commission (for complaints about the merit principle).
-
-Contact: recruitment@dwp.gov.uk
+                       [DEPT-C
+Contact: recruitment@]           .gov.uk
 
 Civil Service Commission: https://civilservicecommission.independent.gov.uk
 
@@ -250,7 +244,7 @@ Civil Service Commission: https://civilservicecommission.independent.gov.uk
 | Creator | (unspecified) |
 | Custom Metadata | no |
 | Encrypted | no |
-| File size | 6914 bytes |
+| File size | 6586 bytes |
 | Form | none |
 | JavaScript | no |
 | Keywords |  |
@@ -270,11 +264,11 @@ Civil Service Commission: https://civilservicecommission.independent.gov.uk
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Recruitment_and_Selection_Policy.pdf |
 | exif_FilePermissions | -rw-r--r-- |
-| exif_FileSize | 6.9 kB |
+| exif_FileSize | 6.6 kB |
 | exif_FileType | PDF |
 | exif_FileTypeExtension | pdf |
 | exif_Linearized | No |

@@ -28,6 +28,9 @@ This folder is an Obsidian vault for Challenge 2. It follows the Karpathy LLM Wi
 - `wiki/index.md` is the content catalogue and primary navigation entrypoint.
 - `wiki/architecture.md` is the plain-English architecture page for first-time readers and must stay prominent in `wiki/index.md`.
 - `wiki/log.md` is an append-only chronological record of ingest, query, and lint events.
+- Published wiki notes must keep OKF-compatible frontmatter: `type`, `title`, `description`, `timestamp`, and root `okf_version` on `wiki/index.md`.
+- The repository root `viewer.html` is generated from `challenge-2/wiki/**/*.md` and is the GitHub-friendly static reader for the wiki.
+- The GitHub Pages site is built into ignored `_site/` output by `scripts/build_site.py` and published by `.github/workflows/pages.yml`.
 
 ## Source Note Frontmatter
 
@@ -65,8 +68,11 @@ sensitivity:
 
 1. Run `uv run challenge-2/tools/build_wiki.py` from the repository root.
 2. Review `wiki/lint-report.md`.
-3. Open `challenge-2/` as an Obsidian vault and start from `wiki/index.md`.
-4. When adding new source documents, rerun the builder and check that `wiki/log.md` records the ingest.
+3. Run `python3 scripts/check_okf_conformance.py`.
+4. Run `python3 scripts/update_viewer.py` and `python3 scripts/check_wiki_viewer.py`.
+5. Run `python3 scripts/build_site.py` before publishing the static site.
+6. Open `challenge-2/` as an Obsidian vault and start from `wiki/index.md`, or open root `viewer.html` for the static browser view.
+7. When adding new source documents, rerun the builder and check that `wiki/log.md` records the ingest.
 
 ## Linking And Provenance
 

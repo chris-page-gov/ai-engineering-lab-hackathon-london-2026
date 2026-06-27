@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0060"
 title: "Prepare Version 1.1 Publication PR"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0060: Prepare Version 1.1 Publication PR."
+timestamp: "2026-04-18T09:00:36.253Z"
 ---
 
 # 0060. Prepare Version 1.1 Publication PR

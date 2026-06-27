@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-008"
 title: "SUMMARY OF RESPONSES TO THE CONSULTATION ON DISCRETIONARY HOUSING PAYMENTS REFORM"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-008-dhp-consultation-responses.txt"
 source_format: "txt"
 document_type: "guidance"
-department: "DLUHC"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -39,6 +40,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-HB-008: SUMMARY OF RESPONSES TO THE CONSULTATION ON DISCRETIONARY HOUSING PAYMENTS REFORM."
+timestamp: "15/11/2025"
 ---
 
 # SUMMARY OF RESPONSES TO THE CONSULTATION ON DISCRETIONARY HOUSING PAYMENTS REFORM
@@ -46,7 +49,7 @@ sensitivity:
 
 - Source: [DOC-HB-008-dhp-consultation-responses.txt](../../structured_files/DOC-HB-008-dhp-consultation-responses.txt)
 - Extraction: `plain-text-regex` with `medium` quality.
-- Extract: SUMMARY OF RESPONSES TO THE CONSULTATION ON DISCRETIONARY HOUSING PAYMENTS REFORM Department for Levelling Up, Housing and Communities Date of Publication: 15/11/2025 INTRODUCTION This document summarises the responses received to the public consultation on the reform of Discretionary Housing Payments (DHP), which ran from 1 June 2025 to 31 August 2025. The consultation received 342 responses from local authorities, housing associations, voluntary sector organisations, individual claimants, and other interested parties. Responses were received via the online consultation portal, by email, and by post. This summary should be read alongside...
+- Extract: SUMMARY OF RESPONSES TO THE CONSULTATION ON DISCRETIONARY HOUSING PAYMENTS REFORM [Government Department A] Date of Publication: 15/11/2025 INTRODUCTION This document summarises the responses received to the public consultation on the reform of Discretionary Housing Payments (DHP), which ran from 1 June 2025 to 31 August 2025. The consultation received 342 responses from local authorities, housing associations, voluntary sector organisations, individual claimants, and other interested parties. Responses were received via the online consultation portal, by email, and by post. This summary should be read alongside the original consultation...
 
 ## Metadata
 
@@ -57,7 +60,7 @@ sensitivity:
 | Raw source | [DOC-HB-008-dhp-consultation-responses.txt](../../structured_files/DOC-HB-008-dhp-consultation-responses.txt) |
 | Format | txt |
 | Document type | guidance |
-| Department | DLUHC |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -68,7 +71,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 79d6f92475499d526d6d44ef6e2dc35061eebbb7c6067157a4cd7bdc8d5e0e43 |
+| SHA-256 | 460446908678b9fad8d0e29a62db9fbe20f27a0e6584c72a5d8d4823c67883a2 |
 
 ## Related Sources
 
@@ -79,13 +82,12 @@ sensitivity:
 - Topic: [Housing Benefit](../topics/housing-benefit.md)
 - Topic: [Discretionary Housing Payments](../topics/discretionary-housing-payments.md)
 - Topic: [Homelessness And Social Housing](../topics/homelessness-and-social-housing.md)
-- Entity: [Department For Levelling Up Housing And Communities](../entities/dluhc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
 
 SUMMARY OF RESPONSES TO THE CONSULTATION ON DISCRETIONARY HOUSING PAYMENTS REFORM
-Department for Levelling Up, Housing and Communities
+[Government Department A]
 Date of Publication: 15/11/2025
 
 
@@ -147,8 +149,8 @@ The Department will publish a formal response setting out its conclusions and an
 
 | Field | Value |
 | --- | --- |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-008-dhp-consultation-responses.txt |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 5.6 kB |
@@ -158,7 +160,7 @@ The Department will publish a formal response setting out its conclusions and an
 | exif_MIMEEncoding | us-ascii |
 | exif_MIMEType | text/plain |
 | exif_Newlines | Unix LF |
-| exif_WordCount | 789 |
+| exif_WordCount | 785 |
 | published | 15/11/2025 |
 
 ## Related Notes

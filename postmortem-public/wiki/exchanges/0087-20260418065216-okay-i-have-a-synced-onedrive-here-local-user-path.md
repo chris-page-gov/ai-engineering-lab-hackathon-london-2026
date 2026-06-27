@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0087"
 title: "Okay, I have a synced OneDrive here [LOCAL_USER_PATH]"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0087: Okay, I have a synced OneDrive here [LOCAL_USER_PATH]."
+timestamp: "2026-04-19T17:38:00.476Z"
 ---
 
 # 0087. Okay, I have a synced OneDrive here [LOCAL_USER_PATH]

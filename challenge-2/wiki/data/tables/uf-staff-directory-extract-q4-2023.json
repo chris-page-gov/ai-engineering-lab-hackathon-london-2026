@@ -36,7 +36,7 @@
           "HEO",
           "Digital",
           "Leeds",
-          "j.smith@dwp.gov.uk",
+          "j.smith@[department].gov.uk",
           "0113 XXX 1234",
           "Product Manager"
         ],
@@ -45,7 +45,7 @@
           "SEO",
           "Digital",
           "Sheffield",
-          "a.patel@dwp.gov.uk",
+          "a.patel@[department].gov.uk",
           null,
           "Senior Developer"
         ],
@@ -54,7 +54,7 @@
           "Grade 7",
           "HR",
           "London",
-          "k.obrien@dwp.gov.uk",
+          "k.obrien@[department].gov.uk",
           "020 XXXX 5678",
           "Head of Reward"
         ],
@@ -72,7 +72,7 @@
           "G6",
           "Finance",
           "Leeds",
-          "l.chen@dwp.gov.uk",
+          "l.chen@[department].gov.uk",
           "0113 XXX 3456",
           "Deputy Director, Financial Control"
         ],
@@ -81,7 +81,7 @@
           "AO",
           "Operations",
           "Glasgow",
-          "r.mcdonald@dwp.gov.uk",
+          "r.mcdonald@[department].gov.uk",
           "0141 XXX 7890",
           "Administrative Officer"
         ],
@@ -90,7 +90,7 @@
           "SEO",
           "Policy",
           "London",
-          "m.johnson@dwp.gov.uk",
+          "m.johnson@[department].gov.uk",
           "020 XXXX 2345",
           "Policy Adviser"
         ],
@@ -99,7 +99,7 @@
           "HEO",
           "Commercial",
           "Newcastle",
-          "e.taylor@dwp.gov.uk",
+          "e.taylor@[department].gov.uk",
           "0191 XXX 6789",
           "Contract Manager"
         ],
@@ -108,7 +108,7 @@
           null,
           "Digital",
           "Leeds",
-          "d.brown@dwp.gov.uk",
+          "d.brown@[department].gov.uk",
           "0113 XXX 0123",
           "Developer"
         ],
@@ -117,7 +117,7 @@
           "Grade 7",
           "Policy",
           "London",
-          "p.singh@dwp.gov.uk",
+          "p.singh@[department].gov.uk",
           "020 XXXX 4567",
           "Head of Disability Policy"
         ],
@@ -126,7 +126,7 @@
           "EO",
           "Operations",
           "Birmingham",
-          "m.wilson@dwp.gov.uk",
+          "m.wilson@[department].gov.uk",
           "0121 XXX 8901",
           "Caseworker"
         ],
@@ -135,7 +135,7 @@
           "SCS1",
           "Digital",
           "London",
-          "f.khan@dwp.gov.uk",
+          "f.khan@[department].gov.uk",
           "020 XXXX 2345",
           "Director, Digital Services"
         ],
@@ -144,7 +144,7 @@
           "HEO",
           "HR",
           "Sheffield",
-          "a.davies@dwp.gov.uk",
+          "a.davies@[department].gov.uk",
           "0114 XXX 6789",
           "HR Business Partner"
         ],
@@ -153,7 +153,7 @@
           "SEO",
           "Finance",
           "Leeds",
-          "t.robinson@dwp.gov.uk",
+          "t.robinson@[department].gov.uk",
           "0113 XXX 0123",
           "Management Accountant"
         ],
@@ -162,7 +162,7 @@
           "Grade 6",
           "Operations",
           "Sheffield",
-          "n.hughes@dwp.gov.uk",
+          "n.hughes@[department].gov.uk",
           "0114 XXX 4567",
           "Head of Service Centre Operations"
         ]

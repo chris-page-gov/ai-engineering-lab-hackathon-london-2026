@@ -1,4 +1,5 @@
 ---
+type: "Source"
 title: "AGENTS.md"
 source_type: "repository_artifact"
 tracked_at_baseline: true
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "repository-artifact"
   - "codex-postmortem-public"
+description: "AGENTS.md"
+timestamp: "2026-06-27"
 ---
 
 # AGENTS.md

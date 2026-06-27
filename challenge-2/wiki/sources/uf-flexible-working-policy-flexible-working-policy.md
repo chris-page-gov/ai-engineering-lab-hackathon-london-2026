@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-FLEXIBLE-WORKING-POLICY"
 title: "Flexible Working Policy"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/flexible-working-policy.pdf"
 source_format: "pdf"
 document_type: "policy"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -34,6 +35,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL"
+description: "Source note for UF-FLEXIBLE-WORKING-POLICY: Flexible Working Policy."
+timestamp: "2026-06-27"
 ---
 
 # Flexible Working Policy
@@ -41,7 +44,7 @@ sensitivity:
 
 - Source: [flexible-working-policy.pdf](../../unstructured_files/flexible-working-policy.pdf)
 - Extraction: `pdftotext-layout` with `medium` quality.
-- Extract: OFFICIAL Flexible Working Policy Department for Work and Pensions Effective: November 2023 1. Policy statement DWP is committed to enabling flexible working arrangements that support both business needs and employee wellbeing. All employees have the right to request flexible working from their first day of employment. 2. Types of flexible working The department supports the following arrangements: a) Part-time working b) Job sharing c) Compressed hours d) Flexitime e) Hybrid working (combination of office and home) f) Term-time working g) Annualised hours 3. Hybrid working The department’s standard expectation is a minimum of 60% office...
+- Extract: OFFICIAL Flexible Working Policy [GOVERNMENT DEPARTMENT C] Effective: November 2023 1. Policy statement [DEPT-C] is committed to enabling flexible working arrangements that support both business needs and employee wellbeing. All employees have the right to request flexible working from their first day of employment. 2. Types of flexible working The department supports the following arrangements: a) Part-time working b) Job sharing c) Compressed hours d) Flexitime e) Hybrid working (combination of office and home) f) Term-time working g) Annualised hours 3. Hybrid working The department’s standard expectation is a minimum of 60% office...
 
 ## Metadata
 
@@ -52,7 +55,7 @@ sensitivity:
 | Raw source | [flexible-working-policy.pdf](../../unstructured_files/flexible-working-policy.pdf) |
 | Format | pdf |
 | Document type | policy |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -63,12 +66,11 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | da0f80cd632026a87da0fdec8c2afe4342b04935fe106832f42e4db95bf01f21 |
+| SHA-256 | ac4833307c46684f67a92b1d1bcc2de3dbc13c18e58d164fa5d8c46ce03c02eb |
 
 ## Navigation
 
 - Topic: [Employment Rights And Flexible Working](../topics/employment-rights-and-flexible-working.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 - Entity: [Employment Rights Act 1996](../entities/employment-rights-act-1996.md)
 
 ## Extracted Content
@@ -76,13 +78,13 @@ sensitivity:
 OFFICIAL
 
 
-                             Flexible Working Policy
-Department for Work and Pensions | Effective: November 2023
+                                  Flexible Working Policy
+[GOVERNMENT DEPARTMENT C]                   | Effective: November 2023
 
 
 1. Policy statement
-
-DWP is committed to enabling flexible working arrangements that support both business needs and
+[DEPT-C]
+     is committed to enabling flexible working arrangements that support both business needs and
 employee wellbeing. All employees have the right to request flexible working from their first day of
 employment.
 
@@ -92,19 +94,19 @@ employment.
 
 The department supports the following arrangements:
 
-      a) Part-time working
+           a) Part-time working
 
-      b) Job sharing
+           b) Job sharing
 
-      c) Compressed hours
+           c) Compressed hours
 
-      d) Flexitime
+           d) Flexitime
 
-      e) Hybrid working (combination of office and home)
+           e) Hybrid working (combination of office and home)
 
-      f) Term-time working
+           f) Term-time working
 
-      g) Annualised hours
+           g) Annualised hours
 
 
 
@@ -125,11 +127,11 @@ but this must be documented and approved by the relevant Grade 6.
 
 To request a flexible working arrangement:
 
-      1. Discuss informally with your line manager
+           1. Discuss informally with your line manager
 
-      2. Submit a formal request through HR Online
+           2. Submit a formal request through HR Online
 
-      3. Your manager will respond within 28 days
+           3. Your manager will respond within 28 days
       4. If approved, the arrangement will be confirmed in writing
 
       5. A trial period of 3 months applies to all new arrangements
@@ -165,8 +167,8 @@ occupational health assessment.
 7. Review
 
 This policy was last reviewed in November 2023. Next review: November 2024.
-
-Contact: flexible.working@dwp.gov.uk
+                          [DEPT-C
+Contact: flexible.working@]         .gov.uk
 
 ## Raw Metadata
 
@@ -177,7 +179,7 @@ Contact: flexible.working@dwp.gov.uk
 | Creator | (unspecified) |
 | Custom Metadata | no |
 | Encrypted | no |
-| File size | 4249 bytes |
+| File size | 4087 bytes |
 | Form | none |
 | JavaScript | no |
 | Keywords |  |
@@ -197,11 +199,11 @@ Contact: flexible.working@dwp.gov.uk
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | flexible-working-policy.pdf |
 | exif_FilePermissions | -rw-r--r-- |
-| exif_FileSize | 4.2 kB |
+| exif_FileSize | 4.1 kB |
 | exif_FileType | PDF |
 | exif_FileTypeExtension | pdf |
 | exif_Linearized | No |

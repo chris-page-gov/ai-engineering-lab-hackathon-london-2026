@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-010"
 title: "Right to Buy: Guidance for Tenants and Social Landlords"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-010-right-to-buy.md"
 source_format: "md"
 document_type: "guidance"
-department: "DLUHC"
+department: "[DEPT-A]"
 owner: null
 status: "current"
 version: null
@@ -38,6 +39,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-HB-010: Right to Buy: Guidance for Tenants and Social Landlords."
+timestamp: "2025-10-15"
 ---
 
 # Right to Buy: Guidance for Tenants and Social Landlords
@@ -56,7 +59,7 @@ sensitivity:
 | Raw source | [DOC-HB-010-right-to-buy.md](../../structured_files/DOC-HB-010-right-to-buy.md) |
 | Format | md |
 | Document type | guidance |
-| Department | DLUHC |
+| Department | [DEPT-A] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -67,7 +70,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 98c28f0d11ea7a8230d6e9df3c91d68de611fb9aab08389ca222f51349095029 |
+| SHA-256 | f39518b132eca4689a4f33faa8ec6c3eddd5b92be72993e77e33703a8caecccc |
 
 ## Related Sources
 
@@ -176,10 +179,10 @@ These changes are intended to support the retention of social housing stock and 
 | Field | Value |
 | --- | --- |
 | audience | Tenants and social landlords |
-| department | DLUHC |
+| department | [DEPT-A] |
 | document_id | DOC-HB-010 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-010-right-to-buy.md |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 6.5 kB |

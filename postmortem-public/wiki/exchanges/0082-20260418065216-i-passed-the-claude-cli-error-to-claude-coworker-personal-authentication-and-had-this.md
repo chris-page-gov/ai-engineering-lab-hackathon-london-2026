@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0082"
 title: "I passed the claude CLI error to Claude Coworker (personal authentication) and had this:"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0082: I passed the claude CLI error to Claude Coworker (personal authentication) and had this:."
+timestamp: "2026-04-19T17:09:20.530Z"
 ---
 
 # 0082. I passed the claude CLI error to Claude Coworker (personal authentication) and had this:

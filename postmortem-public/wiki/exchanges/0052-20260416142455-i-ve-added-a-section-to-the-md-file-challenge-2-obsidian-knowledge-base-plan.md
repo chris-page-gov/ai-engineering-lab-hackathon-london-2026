@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0052"
 title: "I've added a section to the md file # Challenge 2 Obsidian Knowledge Base Plan"
 source_id: "CONV-004"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0052: I've added a section to the md file # Challenge 2 Obsidian Knowledge Base Plan."
+timestamp: "2026-04-17T15:49:26.267Z"
 ---
 
 # 0052. I've added a section to the md file # Challenge 2 Obsidian Knowledge Base Plan

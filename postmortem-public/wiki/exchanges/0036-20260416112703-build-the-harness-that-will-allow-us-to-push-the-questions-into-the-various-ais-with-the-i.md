@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0036"
 title: "Build the harness that will allow us to push the questions into the various AIs with the instruc"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0036: Build the harness that will allow us to push the questions into the various AIs with the instruc."
+timestamp: "2026-04-16T11:49:26.469Z"
 ---
 
 # 0036. Build the harness that will allow us to push the questions into the various AIs with the instruc

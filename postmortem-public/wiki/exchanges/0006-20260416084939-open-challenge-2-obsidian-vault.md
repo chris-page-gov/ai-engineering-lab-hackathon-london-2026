@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0006"
 title: "Open Challenge 2 Obsidian Vault"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0006: Open Challenge 2 Obsidian Vault."
+timestamp: "2026-04-16T09:10:11.443Z"
 ---
 
 # 0006. Open Challenge 2 Obsidian Vault

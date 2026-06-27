@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "CONV-004"
 title: "SeeLinks Question Box, PR Hygiene, and Baseline Cleanup"
 source_type: "redacted_conversation_summary"
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "conversation"
   - "codex-postmortem-public"
+description: "Source note for CONV-004: SeeLinks Question Box, PR Hygiene, and Baseline Cleanup."
+timestamp: "2026-06-27"
 ---
 
 # SeeLinks Question Box, PR Hygiene, and Baseline Cleanup

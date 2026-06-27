@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-SB-010"
 title: "Small Business Survey 2025: annual findings"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-SB-010-small-business-survey-2025.html"
 source_format: "html"
 document_type: "statistical-bulletin"
-department: "Department for Business and Trade"
+department: "[Government Department B]"
 owner: null
 status: "current"
 version: null
@@ -37,6 +38,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-SB-010: Small Business Survey 2025: annual findings."
+timestamp: "2026-02-15"
 ---
 
 # Small Business Survey 2025: annual findings
@@ -55,7 +58,7 @@ sensitivity:
 | Raw source | [DOC-SB-010-small-business-survey-2025.html](../../structured_files/DOC-SB-010-small-business-survey-2025.html) |
 | Format | html |
 | Document type | statistical-bulletin |
-| Department | Department for Business and Trade |
+| Department | [Government Department B] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -66,7 +69,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 3a0296a2c4ccf38f47e5116fc4629e7a7d309210dcc78907f4bd8f2bcacb4008 |
+| SHA-256 | bd0113111b9a62c3410bf47e8eb1bee266ae960814b59ce1bfcbba676518f2b8 |
 
 ## Related Sources
 
@@ -76,7 +79,6 @@ sensitivity:
 ## Navigation
 
 - Topic: [Small Business And Self-employment](../topics/small-business-and-self-employment.md)
-- Entity: [Department For Business And Trade](../entities/dbt.md)
 
 ## Extracted Content
 
@@ -147,7 +149,7 @@ SME Business Confidence Index by English region, 2025 {.govuk-table}
 
 ## Methodology
 
-The Small Business Survey is conducted annually by the Department for Business and Trade. The 2025 survey was administered online and by telephone between 4 September and 28 November 2025. The sample was drawn from the Inter-Departmental Business Register (IDBR) and stratified by size band, sector, and region to ensure representativeness.
+The Small Business Survey is conducted annually by the \[Government Department B\]. The 2025 survey was administered online and by telephone between 4 September and 28 November 2025. The sample was drawn from the Inter-Departmental Business Register (IDBR) and stratified by size band, sector, and region to ensure representativeness.
 
 A total of 8,472 valid responses were received, representing an overall response rate of 28.3%. Results have been weighted to reflect the known population of SMEs in England based on the latest Business Population Estimates. Confidence intervals for headline figures are within +/- 1.5 percentage points at the 95% confidence level.
 
@@ -165,7 +167,7 @@ Users of these statistics should note the following caveats:
 - Year-on-year comparisons should take account of changes to the survey methodology introduced in 2024, including the addition of an online response option and revisions to the sampling strategy.
 - Some respondents may have been affected by seasonal factors at the time of completing the survey (September to November), particularly in sectors such as retail and construction.
 
-For further information on the methodology and data quality, contact the DBT Small Business Statistics team at <sbs.statistics@businessandtrade.gov.uk>.
+For further information on the methodology and data quality, contact the \[DEPT-B\] Small Business Statistics team at <%5Bstatistics-team%5D@%5Bdepartment%5D.gov.uk>.
 
 </div>
 
@@ -183,13 +185,13 @@ For further information on the methodology and data quality, contact the DBT Sma
 | Field | Value |
 | --- | --- |
 | audience | Policy officials, business support organisations, researchers |
-| department | Department for Business and Trade |
+| department | [Government Department B] |
 | document-id | DOC-SB-010 |
 | exif_Audience | Policy officials, business support organisations, researchers |
-| exif_Department | Department for Business and Trade |
+| exif_Department | [Government Department B] |
 | exif_DocumentId | DOC-SB-010 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-SB-010-small-business-survey-2025.html |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 12 kB |

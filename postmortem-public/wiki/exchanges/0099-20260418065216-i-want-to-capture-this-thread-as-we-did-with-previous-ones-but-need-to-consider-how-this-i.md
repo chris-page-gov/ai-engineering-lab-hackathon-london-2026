@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0099"
 title: "I want to capture this thread as we did with previous ones but need to consider how this is best"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0099: I want to capture this thread as we did with previous ones but need to consider how this is best."
+timestamp: "2026-04-20T06:10:13.209Z"
 ---
 
 # 0099. I want to capture this thread as we did with previous ones but need to consider how this is best

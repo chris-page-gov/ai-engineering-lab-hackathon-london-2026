@@ -1,8 +1,11 @@
 ---
+type: "Postmortem"
 title: "Public Codex Collaboration Postmortem"
 tags:
   - "postmortem"
   - "codex-postmortem-public"
+description: "This public postmortem explains how Team DSIT A built the Challenge 2 prototype with Codex while keeping the raw local evidence archive out of Git. The human team supplied the goal, constraints, review direction, and qua"
+timestamp: "2026-06-27"
 ---
 
 # Public Codex Collaboration Postmortem

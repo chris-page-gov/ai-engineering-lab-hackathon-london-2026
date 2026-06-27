@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0080"
 title: "The Wiki is also available over GitHub, would that solve the Can't access local paths problem?"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0080: The Wiki is also available over GitHub, would that solve the Can't access local paths problem?."
+timestamp: "2026-04-19T16:53:02.423Z"
 ---
 
 # 0080. The Wiki is also available over GitHub, would that solve the Can't access local paths problem?

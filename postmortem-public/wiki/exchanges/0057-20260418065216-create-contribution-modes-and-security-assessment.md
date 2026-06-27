@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0057"
 title: "Create Contribution Modes and Security Assessment"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0057: Create Contribution Modes and Security Assessment."
+timestamp: "2026-04-18T08:30:43.517Z"
 ---
 
 # 0057. Create Contribution Modes and Security Assessment

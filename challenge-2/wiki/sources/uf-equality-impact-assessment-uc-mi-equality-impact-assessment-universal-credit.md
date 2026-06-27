@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-EQUALITY-IMPACT-ASSESSMENT-UC-MIGRATION"
 title: "Equality Impact Assessment Universal Credit"
 aliases:
@@ -36,6 +37,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL"
+description: "Source note for UF-EQUALITY-IMPACT-ASSESSMENT-UC-MIGRATION: Equality Impact Assessment Universal Credit."
+timestamp: "September 2023 | SRO: [REDACTED] | Lead analyst: [REDACTED]"
 ---
 
 # Equality Impact Assessment Universal Credit
@@ -213,7 +216,7 @@ Distribution: Programme Board, Equality and Diversity Committee, Public
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_ExifToolVersion | 13.5 |
+| exif_ExifToolVersion | 13.55 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Equality_Impact_Assessment_UC_Migration.pdf |
 | exif_FilePermissions | -rw-r--r-- |

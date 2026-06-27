@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0070"
 title: "override and use GPT-5.4 on Copilot as I found contradictory documentation and this was from a m"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0070: override and use GPT-5.4 on Copilot as I found contradictory documentation and this was from a m."
+timestamp: "2026-04-18T13:01:31.481Z"
 ---
 
 # 0070. override and use GPT-5.4 on Copilot as I found contradictory documentation and this was from a m

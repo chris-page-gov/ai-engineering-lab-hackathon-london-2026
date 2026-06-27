@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-SB-008"
 title: "Employer duties under the Homelessness Reduction Act 2017"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-SB-008-employer-duties-homelessness.html"
 source_format: "html"
 document_type: "guidance"
-department: "DLUHC / DBT"
+department: "[DEPT-A] / [DEPT-B]"
 owner: null
 status: "current"
 version: null
@@ -45,6 +46,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-SB-008: Employer duties under the Homelessness Reduction Act 2017."
+timestamp: "15/11/2025"
 ---
 
 # Employer duties under the Homelessness Reduction Act 2017
@@ -52,7 +55,7 @@ sensitivity:
 
 - Source: [DOC-SB-008-employer-duties-homelessness.html](../../structured_files/DOC-SB-008-employer-duties-homelessness.html)
 - Extraction: `pandoc-html` with `high` quality.
-- Extract: <div id="overview" class="section"> Overview The Homelessness Reduction Act 2017 introduced a "duty to refer" for specified public authorities. While private-sector employers are not subject to the statutory duty to refer, the government strongly encourages all employers to play an active role in identifying and supporting employees who may be experiencing or at risk of homelessness. This guidance explains when and how employers should make referrals, what support is available, and what rights employees have when facing housing difficulties. It is jointly published by the Department for Levelling Up, Housing and Communities and the...
+- Extract: <div id="overview" class="section"> Overview The Homelessness Reduction Act 2017 introduced a "duty to refer" for specified public authorities. While private-sector employers are not subject to the statutory duty to refer, the government strongly encourages all employers to play an active role in identifying and supporting employees who may be experiencing or at risk of homelessness. This guidance explains when and how employers should make referrals, what support is available, and what rights employees have when facing housing difficulties. It is jointly published by the \[Government Department A\] and the \[Government Department B\] to...
 
 ## Metadata
 
@@ -63,7 +66,7 @@ sensitivity:
 | Raw source | [DOC-SB-008-employer-duties-homelessness.html](../../structured_files/DOC-SB-008-employer-duties-homelessness.html) |
 | Format | html |
 | Document type | guidance |
-| Department | DLUHC / DBT |
+| Department | [DEPT-A] / [DEPT-B] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -74,7 +77,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 3da9e2d659fe8dff9a03c6ee4c2893c2a1f75372f4158934ff6b4d33ee13b837 |
+| SHA-256 | bf90eee8b8467509229342bf018c4786ff143607f2e1fd4759f561062a4e01c1 |
 
 ## Related Sources
 
@@ -88,8 +91,6 @@ sensitivity:
 - Topic: [FOI And Transparency](../topics/foi-and-transparency.md)
 - Topic: [People Policies](../topics/people-policies.md)
 - Topic: [Incident Risk And Assurance](../topics/incident-risk-and-assurance.md)
-- Entity: [Department For Levelling Up Housing And Communities](../entities/dluhc.md)
-- Entity: [Department For Business And Trade](../entities/dbt.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 - Entity: [Homelessness Reduction Act 2017](../entities/homelessness-reduction-act-2017.md)
 
@@ -101,7 +102,7 @@ sensitivity:
 
 The Homelessness Reduction Act 2017 introduced a "duty to refer" for specified public authorities. While private-sector employers are not subject to the statutory duty to refer, the government strongly encourages all employers to play an active role in identifying and supporting employees who may be experiencing or at risk of homelessness.
 
-This guidance explains when and how employers should make referrals, what support is available, and what rights employees have when facing housing difficulties. It is jointly published by the Department for Levelling Up, Housing and Communities and the Department for Business and Trade to ensure that both housing and employment perspectives are covered.
+This guidance explains when and how employers should make referrals, what support is available, and what rights employees have when facing housing difficulties. It is jointly published by the \[Government Department A\] and the \[Government Department B\] to ensure that both housing and employment perspectives are covered.
 
 </div>
 
@@ -161,16 +162,16 @@ Dismissing an employee or subjecting them to a detriment because they are homele
 | Field | Value |
 | --- | --- |
 | audience | Employers and employees |
-| department | DLUHC / DBT |
+| department | [DEPT-A] / [DEPT-B] |
 | document-id | DOC-SB-008 |
 | exif_Audience | Employers and employees |
-| exif_Department | DLUHC / DBT |
+| exif_Department | [DEPT-A] / [DEPT-B] |
 | exif_DocumentId | DOC-SB-008 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-SB-008-employer-duties-homelessness.html |
 | exif_FilePermissions | -rw-r--r-- |
-| exif_FileSize | 7.0 kB |
+| exif_FileSize | 6.9 kB |
 | exif_FileType | HTML |
 | exif_FileTypeExtension | html |
 | exif_MIMEType | text/html |

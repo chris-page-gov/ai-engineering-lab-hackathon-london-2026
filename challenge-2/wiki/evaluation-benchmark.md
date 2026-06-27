@@ -1,4 +1,5 @@
 ---
+type: "Evaluation"
 title: "Challenge 2 Wiki Evaluation Benchmark"
 note_type: "evaluation-benchmark"
 tags:
@@ -7,6 +8,8 @@ tags:
   - "llm-wiki"
   - "documentation"
 updated: "2026-04-16"
+description: "This benchmark is documentation only. It is designed to test how well an AI coding agent can use the Challenge 2 wiki as a source-backed knowledge base, not how much it already knows about government policy."
+timestamp: "2026-04-16"
 ---
 
 # Challenge 2 Wiki Evaluation Benchmark

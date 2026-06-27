@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0014"
 title: "Review and fix the comments, make sure you don't change sources or redact anything from the synt"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0014: Review and fix the comments, make sure you don't change sources or redact anything from the synt."
+timestamp: "2026-04-16T10:44:40.587Z"
 ---
 
 # 0014. Review and fix the comments, make sure you don't change sources or redact anything from the synt

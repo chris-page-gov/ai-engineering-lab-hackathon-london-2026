@@ -1,4 +1,5 @@
 ---
+type: "Reader"
 source_id: "CONV-005"
 title: "Codex Postmortem, Publication Assessment, and Version 1.1 PR Reader"
 reader_type: "redacted_start_to_finish_conversation"
@@ -8,6 +9,8 @@ tags:
   - "reader"
   - "conversation"
   - "codex-postmortem-public"
+description: "Start-to-finish reader for Codex Postmortem, Publication Assessment, and Version 1.1 PR Reader."
+timestamp: "2026-06-27"
 ---
 
 # CONV-005: Codex Postmortem, Publication Assessment, and Version 1.1 PR

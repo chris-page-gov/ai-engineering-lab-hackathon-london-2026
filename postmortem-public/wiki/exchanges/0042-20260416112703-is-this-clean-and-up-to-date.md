@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0042"
 title: "Is this clean and up to date?"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0042: Is this clean and up to date?."
+timestamp: "2026-04-16T13:50:29.885Z"
 ---
 
 # 0042. Is this clean and up to date?

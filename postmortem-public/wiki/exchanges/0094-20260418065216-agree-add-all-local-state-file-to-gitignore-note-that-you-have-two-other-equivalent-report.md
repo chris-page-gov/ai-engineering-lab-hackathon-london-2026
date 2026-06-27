@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0094"
 title: "Agree, add all [LOCAL_STATE_FILE] to gitignore. Note that you have two other equivalent reports, the docx"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0094: Agree, add all [LOCAL_STATE_FILE] to gitignore. Note that you have two other equivalent reports, the docx."
+timestamp: "2026-04-19T20:37:01.069Z"
 ---
 
 # 0094. Agree, add all [LOCAL_STATE_FILE] to gitignore. Note that you have two other equivalent reports, the docx

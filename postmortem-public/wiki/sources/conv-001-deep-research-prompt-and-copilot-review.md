@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "CONV-001"
 title: "Deep Research Prompt and Copilot Review"
 source_type: "redacted_conversation_summary"
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "conversation"
   - "codex-postmortem-public"
+description: "Source note for CONV-001: Deep Research Prompt and Copilot Review."
+timestamp: "2026-06-27"
 ---
 
 # Deep Research Prompt and Copilot Review

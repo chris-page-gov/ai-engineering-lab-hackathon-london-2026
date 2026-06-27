@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-007"
 title: "Housing Benefit Caseload Statistics: Quarter 3 2025/26"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-007-housing-benefit-statistics-q3.html"
 source_format: "html"
 document_type: "statistical-bulletin"
-department: "DLUHC"
+department: "[DEPT-A]"
 owner: null
 status: "current"
 version: null
@@ -37,6 +38,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL"
+description: "Source note for DOC-HB-007: Housing Benefit Caseload Statistics: Quarter 3 2025/26."
+timestamp: "2026-01-28"
 ---
 
 # Housing Benefit Caseload Statistics: Quarter 3 2025/26
@@ -44,7 +47,7 @@ sensitivity:
 
 - Source: [DOC-HB-007-housing-benefit-statistics-q3.html](../../structured_files/DOC-HB-007-housing-benefit-statistics-q3.html)
 - Extraction: `pandoc-html` with `high` quality.
-- Extract: <div> Department for Levelling Up, Housing and Communities Housing Benefit Caseload Statistics: Quarter 3 2025/26 Official statistics — published 28 January 2026 Reference: DOC-HB-007 </div> Contents - Summary - Regional Caseload - Expenditure Summary - Methodology - Data Quality Statement - Revision History <div id="summary" class="section"> Summary This bulletin presents national and regional statistics on Housing Benefit caseload and expenditure for the third quarter of 2025/26 (October to December 2025). As outlined in the Housing Benefit Regulations Overview (DOC-HB-001), Housing Benefit helps eligible claimants with rental costs in...
+- Extract: <div> \[Government Department A\] Housing Benefit Caseload Statistics: Quarter 3 2025/26 Official statistics — published 28 January 2026 Reference: DOC-HB-007 </div> Contents - Summary - Regional Caseload - Expenditure Summary - Methodology - Data Quality Statement - Revision History <div id="summary" class="section"> Summary This bulletin presents national and regional statistics on Housing Benefit caseload and expenditure for the third quarter of 2025/26 (October to December 2025). As outlined in the Housing Benefit Regulations Overview (DOC-HB-001), Housing Benefit helps eligible claimants with rental costs in both the social and private...
 
 ## Metadata
 
@@ -55,7 +58,7 @@ sensitivity:
 | Raw source | [DOC-HB-007-housing-benefit-statistics-q3.html](../../structured_files/DOC-HB-007-housing-benefit-statistics-q3.html) |
 | Format | html |
 | Document type | statistical-bulletin |
-| Department | DLUHC |
+| Department | [DEPT-A] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -66,7 +69,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | d14cc57b535a88c1d441db8c9f2dbe10509efb57db74931c739ad8ecb170429b |
+| SHA-256 | bc1ac80dd8591d3a2916a8c67de4f19e5cc9fdcd46b0ea350077f6c5c24a5714 |
 
 ## Related Sources
 
@@ -76,15 +79,13 @@ sensitivity:
 
 - Topic: [Housing Benefit](../topics/housing-benefit.md)
 - Topic: [Council Tax Reduction](../topics/council-tax-reduction.md)
-- Entity: [Department For Levelling Up Housing And Communities](../entities/dluhc.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
 
 <div>
 
-Department for Levelling Up, Housing and Communities
+\[Government Department A\]
 
 # Housing Benefit Caseload Statistics: Quarter 3 2025/26
 
@@ -169,7 +170,7 @@ These statistics are derived from the Single Housing Benefit Extract (SHBE), a m
 
 Caseload figures represent the number of live claims at the snapshot date (last working day of the quarter). Average weekly award is the arithmetic mean of weekly entitlements across all live claims at the snapshot date. Expenditure estimates are based on aggregate weekly entitlements multiplied by the number of weeks in the quarter, adjusted for the timing of payments.
 
-Users should note that Housing Benefit statistics exclude the housing costs element of Universal Credit. A combined statistical series is published separately by the Department for Work and Pensions.
+Users should note that Housing Benefit statistics exclude the housing costs element of Universal Credit. A combined statistical series is published separately by the \[Government Department C\].
 
 </div>
 
@@ -197,7 +198,7 @@ Revision history {border="1" cellpadding="6" cellspacing="0" summary="Revision h
 
 </div>
 
-Crown copyright 2026. Published by the Department for Levelling Up, Housing and Communities.
+Crown copyright 2026. Published by the \[Government Department A\].
 
 Related publications: Housing Benefit Regulations Overview ([DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md)).
 
@@ -206,16 +207,16 @@ Related publications: Housing Benefit Regulations Overview ([DOC-HB-001](doc-hb-
 | Field | Value |
 | --- | --- |
 | date-published | 2026-01-28 |
-| department | DLUHC |
+| department | [DEPT-A] |
 | document-id | DOC-HB-007 |
 | exif_DatePublished | 2026-01-28 |
-| exif_Department | DLUHC |
+| exif_Department | [DEPT-A] |
 | exif_DocumentId | DOC-HB-007 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-007-housing-benefit-statistics-q3.html |
 | exif_FilePermissions | -rw-r--r-- |
-| exif_FileSize | 8.8 kB |
+| exif_FileSize | 8.7 kB |
 | exif_FileType | HTML |
 | exif_FileTypeExtension | html |
 | exif_Frequency | quarterly |

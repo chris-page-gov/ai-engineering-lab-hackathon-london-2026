@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0023"
 title: "Implement this plan on a new branch codex/SeeLinks"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0023: Implement this plan on a new branch codex/SeeLinks."
+timestamp: "2026-04-16T12:35:14.997Z"
 ---
 
 # 0023. Implement this plan on a new branch codex/SeeLinks

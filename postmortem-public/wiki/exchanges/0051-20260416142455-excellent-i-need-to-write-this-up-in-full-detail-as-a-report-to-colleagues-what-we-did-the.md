@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0051"
 title: "Excellent. I need to write this up in full detail as a report to colleagues: what we did, the or"
 source_id: "CONV-004"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0051: Excellent. I need to write this up in full detail as a report to colleagues: what we did, the or."
+timestamp: "2026-04-17T14:33:36.925Z"
 ---
 
 # 0051. Excellent. I need to write this up in full detail as a report to colleagues: what we did, the or

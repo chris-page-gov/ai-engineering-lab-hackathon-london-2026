@@ -8,6 +8,34 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 No undated pending changes.
 
+## 2026-06-27
+
+### Added
+
+- 2026-06-27: Added root `viewer.html`, generated from `challenge-2/wiki/**/*.md`, as a self-contained static graph and reader for publishing the Challenge 2 wiki on GitHub.
+- 2026-06-27: Added `scripts/update_viewer.py`, `scripts/check_wiki_viewer.py`, and `scripts/check_okf_conformance.py` to make the OKF/static-viewer publication workflow reproducible.
+- 2026-06-27: Added `scripts/build_site.py` and `.github/workflows/pages.yml` to publish the OKF wiki viewer through GitHub Pages from generated `_site/` output.
+
+### Changed
+
+- 2026-06-27: Updated the Challenge 2 wiki builder and Codex postmortem builder so generated Markdown carries OKF-compatible frontmatter while preserving existing repo metadata.
+- 2026-06-27: Normalized `challenge-2/wiki/` and `postmortem-public/wiki/` Markdown frontmatter to include OKF `type`, `description`, `timestamp`, and root `okf_version` metadata.
+- 2026-06-27: Ignored `_site/` as reproducible local Pages output, matching the publication pattern used by recent OKF wiki repos.
+
+### Fixed
+
+- 2026-06-27: Fixed the Challenge 2 demonstration guide's stale Spending Controls source-note link after the strict wiki rebuild exposed the current generated filename.
+
+### Documentation
+
+- 2026-06-27: Documented the OKF conformance and viewer synchronization workflow in the repository operating rules, Challenge 2 wiki rules, README, Context, and Progress.
+- 2026-06-27: Documented the GitHub Pages publishing workflow and local static-site build path.
+
+### Validation
+
+- 2026-06-27: Verified the publication workflow with the strict Challenge 2 wiki rebuild, OKF conformance checker, viewer generator, viewer synchronization checker, documentation lockstep, and Python compile checks for the changed scripts.
+- 2026-06-27: Verified the Pages publication bundle with `python3 scripts/build_site.py`.
+
 ## 2026-05-13
 
 ### Added

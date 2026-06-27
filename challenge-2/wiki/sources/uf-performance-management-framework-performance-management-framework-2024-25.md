@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-PERFORMANCE-MANAGEMENT-FRAMEWORK-2024-25"
 title: "Performance Management Framework 2024–25"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Performance_Management_Framework_2024-25.docx"
 source_format: "docx"
 document_type: "framework"
-department: "DWP"
+department: null
 owner: "Talent & Performance Team"
 status: "unknown"
 version: null
@@ -36,6 +37,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-PERFORMANCE-MANAGEMENT-FRAMEWORK-2024-25: Performance Management Framework 2024–25."
+timestamp: "2026-06-27"
 ---
 
 # Performance Management Framework 2024–25
@@ -43,7 +46,7 @@ sensitivity:
 
 - Source: [Performance_Management_Framework_2024-25.docx](../../unstructured_files/Performance_Management_Framework_2024-25.docx)
 - Extraction: `pandoc-docx` with `high` quality.
-- Extract: Performance Management Framework 2024–25 Department for Work and Pensions \ Version 2.1 \ Effective from 1 April 2024 Owner: Talent & Performance Team 1\. Overview This framework sets out how individual performance is managed across DWP. It applies to all employees at AA to Grade 6. SCS performance is managed under a separate Cabinet Office framework. 2\. Performance Year The performance year runs from 1 April to 31 March. All staff must have a performance agreement in place by 30 April each year. 3\. Objectives Each employee must have between 3 and 5 objectives agreed with their line manager. Objectives must be SMART (Specific, Measurable,...
+- Extract: Performance Management Framework 2024–25 \[Government Department C\] \ Version 2.1 \ Effective from 1 April 2024 Owner: Talent & Performance Team 1\. Overview This framework sets out how individual performance is managed across \[DEPT-C\]. It applies to all employees at AA to Grade 6. SCS performance is managed under a separate \[Central Government Body\] framework. 2\. Performance Year The performance year runs from 1 April to 31 March. All staff must have a performance agreement in place by 30 April each year. 3\. Objectives Each employee must have between 3 and 5 objectives agreed with their line manager. Objectives must be SMART...
 
 ## Metadata
 
@@ -54,7 +57,7 @@ sensitivity:
 | Raw source | [Performance_Management_Framework_2024-25.docx](../../unstructured_files/Performance_Management_Framework_2024-25.docx) |
 | Format | docx |
 | Document type | framework |
-| Department | DWP |
+| Department |  |
 | Owner | Talent & Performance Team |
 | Status | unknown |
 | Version |  |
@@ -65,26 +68,24 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | d16165dd4a14bd5f70d1718608c6dbde1562229d099c08579c962161609e5d45 |
+| SHA-256 | 6d65f8a6b0e95119bfdc617972bd8254f38e93913087953217dabf27fd41ddef |
 
 ## Navigation
 
 - Topic: [People Policies](../topics/people-policies.md)
 - Topic: [Welsh Language Standards](../topics/welsh-language-standards.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
-- Entity: [Cabinet Office](../entities/cabinet-office.md)
 
 ## Extracted Content
 
 **Performance Management Framework 2024–25**
 
-Department for Work and Pensions \| Version 2.1 \| Effective from 1 April 2024
+\[Government Department C\] \| Version 2.1 \| Effective from 1 April 2024
 
 Owner: Talent & Performance Team
 
 1\. Overview
 
-This framework sets out how individual performance is managed across DWP. It applies to all employees at AA to Grade 6. SCS performance is managed under a separate Cabinet Office framework.
+This framework sets out how individual performance is managed across \[DEPT-C\]. It applies to all employees at AA to Grade 6. SCS performance is managed under a separate \[Central Government Body\] framework.
 
 2\. Performance Year
 
@@ -185,7 +186,7 @@ This framework is reviewed annually before the start of each performance year.
 
 Last reviewed: March 2024 \| Next review: March 2025
 
-Contact: performance.management@dwp.gov.uk
+Contact: performance.management@\[department\].gov.uk
 
 ## Raw Metadata
 
@@ -195,8 +196,8 @@ Contact: performance.management@dwp.gov.uk
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.821Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Performance_Management_Framework_2024-25.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 12 kB |

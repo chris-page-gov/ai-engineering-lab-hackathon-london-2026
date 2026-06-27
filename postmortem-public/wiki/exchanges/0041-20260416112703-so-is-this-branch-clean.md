@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0041"
 title: "so is this branch clean?"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0041: so is this branch clean?."
+timestamp: "2026-04-16T12:32:33.014Z"
 ---
 
 # 0041. so is this branch clean?

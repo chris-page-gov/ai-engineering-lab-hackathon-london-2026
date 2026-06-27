@@ -1,4 +1,5 @@
 ---
+type: "Source"
 title: "challenge-2/tools/summarise_wiki_eval.py"
 source_type: "repository_artifact"
 tracked_at_baseline: true
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "repository-artifact"
   - "codex-postmortem-public"
+description: "challenge-2/tools/summarise_wiki_eval.py"
+timestamp: "2026-06-27"
 ---
 
 # challenge-2/tools/summarise_wiki_eval.py

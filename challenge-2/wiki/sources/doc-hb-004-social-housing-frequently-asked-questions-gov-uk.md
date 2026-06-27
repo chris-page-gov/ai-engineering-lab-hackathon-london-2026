@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-004"
 title: "Social Housing: Frequently Asked Questions - GOV.UK"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-004-social-housing-faq.html"
 source_format: "html"
 document_type: "FAQ"
-department: "DLUHC"
+department: "[DEPT-A]"
 owner: null
 status: "current"
 version: null
@@ -47,6 +48,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-HB-004: Social Housing: Frequently Asked Questions - GOV.UK."
+timestamp: "2025-08-10"
 ---
 
 # Social Housing: Frequently Asked Questions - GOV.UK
@@ -54,7 +57,7 @@ sensitivity:
 
 - Source: [DOC-HB-004-social-housing-faq.html](../../structured_files/DOC-HB-004-social-housing-faq.html)
 - Extraction: `pandoc-html` with `high` quality.
-- Extract: <div class="govuk-breadcrumbs" style="margin-bottom: 20px; font-size: 0.9em;"> Home \> Housing \> Social housing </div> Social Housing: Frequently Asked Questions <div class="publication-info"> Last updated 10 August 2025\ From: Department for Levelling Up, Housing and Communities </div> This page answers common questions about applying for and living in social housing in England. Social housing includes homes owned and managed by local councils and by housing associations (also known as registered providers of social housing). Your questions answered <div class="faq-item"> 1. What is social housing and who provides it? Social housing is...
+- Extract: <div class="govuk-breadcrumbs" style="margin-bottom: 20px; font-size: 0.9em;"> Home \> Housing \> Social housing </div> Social Housing: Frequently Asked Questions <div class="publication-info"> Last updated 10 August 2025\ From: \[Government Department A\] </div> This page answers common questions about applying for and living in social housing in England. Social housing includes homes owned and managed by local councils and by housing associations (also known as registered providers of social housing). Your questions answered <div class="faq-item"> 1. What is social housing and who provides it? Social housing is affordable rented...
 
 ## Metadata
 
@@ -65,7 +68,7 @@ sensitivity:
 | Raw source | [DOC-HB-004-social-housing-faq.html](../../structured_files/DOC-HB-004-social-housing-faq.html) |
 | Format | html |
 | Document type | FAQ |
-| Department | DLUHC |
+| Department | [DEPT-A] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -76,7 +79,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | e6ceb90ddb47499be1262d09df88ed2571880ac80cb26383b3c27a2a9de7e621 |
+| SHA-256 | 118e10465b16b57701aa15b4c7c5285bd8a53cbadc22aca4e05a8d6dcb6e84be |
 
 ## Related Sources
 
@@ -87,7 +90,6 @@ sensitivity:
 
 - Topic: [Housing Benefit](../topics/housing-benefit.md)
 - Topic: [Homelessness And Social Housing](../topics/homelessness-and-social-housing.md)
-- Entity: [Department For Levelling Up Housing And Communities](../entities/dluhc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
@@ -103,7 +105,7 @@ Home \> Housing \> Social housing
 <div class="publication-info">
 
 Last updated 10 August 2025\
-From: **Department for Levelling Up, Housing and Communities**
+From: **\[Government Department A\]**
 
 </div>
 
@@ -250,19 +252,19 @@ Your landlord must provide you with a written tenancy agreement setting out both
 | Field | Value |
 | --- | --- |
 | audience | Citizens |
-| author | Department for Levelling Up, Housing and Communities (DLUHC) |
-| department | DLUHC |
+| author | [Government Department A] ([DEPT-A]) |
+| department | [DEPT-A] |
 | description | Common questions about applying for social housing, council housing waiting lists, allocation policies, and your rights as a social housing tenant. |
 | document-id | DOC-HB-004 |
 | document-type | FAQ |
 | exif_Audience | Citizens |
-| exif_Author | Department for Levelling Up, Housing and Communities (DLUHC) |
-| exif_Department | DLUHC |
+| exif_Author | [Government Department A] ([DEPT-A]) |
+| exif_Department | [DEPT-A] |
 | exif_Description | Common questions about applying for social housing, council housing waiting lists, allocation policies, and your rights as a social housing tenant. |
 | exif_DocumentId | DOC-HB-004 |
 | exif_DocumentType | FAQ |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-004-social-housing-faq.html |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 11 kB |

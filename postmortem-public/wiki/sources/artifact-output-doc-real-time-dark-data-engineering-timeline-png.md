@@ -1,4 +1,5 @@
 ---
+type: "Source"
 title: "output/doc/Real-Time Dark Data Engineering Timeline.png"
 source_type: "repository_artifact"
 tracked_at_baseline: false
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "repository-artifact"
   - "codex-postmortem-public"
+description: "output/doc/Real-Time Dark Data Engineering Timeline.png"
+timestamp: "2026-06-27"
 ---
 
 # output/doc/Real-Time Dark Data Engineering Timeline.png

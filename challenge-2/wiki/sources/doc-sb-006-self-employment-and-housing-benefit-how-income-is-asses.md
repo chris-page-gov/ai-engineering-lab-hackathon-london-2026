@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-SB-006"
 title: "Self-employment and Housing Benefit: how income is assessed"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-SB-006-self-employment-housing-benefit.md"
 source_format: "md"
 document_type: "guidance"
-department: "Department for Levelling Up, Housing and Communities"
+department: "[Government Department A]"
 owner: null
 status: "current"
 version: null
@@ -42,6 +43,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-SB-006: Self-employment and Housing Benefit: how income is assessed."
+timestamp: "2025-12-01"
 ---
 
 # Self-employment and Housing Benefit: how income is assessed
@@ -60,7 +63,7 @@ sensitivity:
 | Raw source | [DOC-SB-006-self-employment-housing-benefit.md](../../structured_files/DOC-SB-006-self-employment-housing-benefit.md) |
 | Format | md |
 | Document type | guidance |
-| Department | Department for Levelling Up, Housing and Communities |
+| Department | [Government Department A] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -71,13 +74,13 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | aad7693fce18aa98f87a56fd143c7394b3f4bb94085f0e5910498b2573801dc6 |
+| SHA-256 | fbf0a0392e0675d7ee88e11cde3f24e26d2289f3c2cf8128b12bd20cbbe3d0d9 |
 
 ## Related Sources
 
 - [DOC-HB-001](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md) - Housing Benefit: Check if you're eligible - GOV.UK
 - [DOC-SB-001](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md) - Starting a Business in the UK: Step by Step
-- [DOC-SB-002](doc-sb-002-registering-as-self-employed-with-hmrc.md) - Registering as Self-Employed with HMRC
+- [DOC-SB-002](doc-sb-002-registering-as-self-employed-with-dept-d.md) - Registering as Self-Employed with [DEPT-D]
 
 ## Navigation
 
@@ -153,18 +156,18 @@ Local authorities may request additional evidence where the information provided
 
 - [DOC-HB-001: Housing Benefit eligibility and rates](doc-hb-001-housing-benefit-check-if-you-re-eligible-gov-uk.md) -- for general eligibility criteria and current benefit rates
 - [DOC-SB-001: Starting a small business in the UK](doc-sb-001-starting-a-business-in-the-uk-step-by-step.md) -- for guidance on business registration and record-keeping obligations
-- [DOC-SB-002: Tax obligations for the self-employed](doc-sb-002-registering-as-self-employed-with-hmrc.md) -- for information on self-assessment, National Insurance, and VAT thresholds
+- [DOC-SB-002: Tax obligations for the self-employed](doc-sb-002-registering-as-self-employed-with-dept-d.md) -- for information on self-assessment, National Insurance, and VAT thresholds
 
 ## Raw Metadata
 
 | Field | Value |
 | --- | --- |
 | audience | Self-employed Housing Benefit claimants and local authority assessors |
-| department | Department for Levelling Up, Housing and Communities |
+| department | [Government Department A] |
 | document_id | DOC-SB-006 |
 | exif_ByteOrderMark | No |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-SB-006-self-employment-housing-benefit.md |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 4.7 kB |
@@ -174,7 +177,7 @@ Local authorities may request additional evidence where the information provided
 | exif_MIMEEncoding | utf-8 |
 | exif_MIMEType | text/plain |
 | exif_Newlines | Unix LF |
-| exif_WordCount | 704 |
+| exif_WordCount | 700 |
 | last_updated | 2025-12-01 |
 | publication_date | 2025-05-15 |
 | status | current |

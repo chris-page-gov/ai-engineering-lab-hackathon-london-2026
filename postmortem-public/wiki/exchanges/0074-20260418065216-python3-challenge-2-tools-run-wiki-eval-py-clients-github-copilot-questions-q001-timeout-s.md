@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0074"
 title: "python3 challenge-2/tools/run_wiki_eval.py --clients github-copilot --questions Q001 --timeout-s"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0074: python3 challenge-2/tools/run_wiki_eval.py --clients github-copilot --questions Q001 --timeout-s."
+timestamp: "2026-04-18T13:42:05.407Z"
 ---
 
 # 0074. python3 challenge-2/tools/run_wiki_eval.py --clients github-copilot --questions Q001 --timeout-s

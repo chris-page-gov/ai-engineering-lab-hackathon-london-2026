@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "EXT-KARPATHY-X-IDEA-FILE"
 title: "Karpathy X Post: LLM Wiki Idea File"
 source_type: "external_citation"
@@ -10,6 +11,8 @@ tags:
   - "external"
   - "methodology"
   - "codex-postmortem-public"
+description: "Source note for EXT-KARPATHY-X-IDEA-FILE: Karpathy X Post: LLM Wiki Idea File."
+timestamp: "2026-06-27"
 ---
 
 # Karpathy X Post: LLM Wiki Idea File

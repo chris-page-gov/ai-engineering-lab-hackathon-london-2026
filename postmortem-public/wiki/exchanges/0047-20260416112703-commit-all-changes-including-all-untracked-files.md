@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0047"
 title: "Commit all changes including all untracked files"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0047: Commit all changes including all untracked files."
+timestamp: "2026-04-16T14:28:03.023Z"
 ---
 
 # 0047. Commit all changes including all untracked files

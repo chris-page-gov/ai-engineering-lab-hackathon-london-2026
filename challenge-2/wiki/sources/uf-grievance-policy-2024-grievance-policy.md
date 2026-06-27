@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-GRIEVANCE-POLICY-2024"
 title: "Grievance Policy"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Grievance_Policy_2024.docx"
 source_format: "docx"
 document_type: "policy"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -34,6 +35,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-GRIEVANCE-POLICY-2024: Grievance Policy."
+timestamp: "2026-06-27"
 ---
 
 # Grievance Policy
@@ -41,7 +44,7 @@ sensitivity:
 
 - Source: [Grievance_Policy_2024.docx](../../unstructured_files/Grievance_Policy_2024.docx)
 - Extraction: `pandoc-docx` with `high` quality.
-- Extract: Grievance Policy Department for Work and Pensions \ January 2024 Document control: Version 5.0 \ Owner: Employee Relations Team Approval: DWP People Committee, 8 January 2024 \ Review date: January 2026 1\. Introduction This policy provides a framework for employees to raise and resolve workplace grievances. It applies to all DWP employees. 2\. Informal resolution Employees are encouraged to resolve concerns informally where possible. This may involve: - Discussing the issue with their line manager - Seeking support from a trade union representative - Using the mediation service 3\. Formal process If informal resolution is not possible or...
+- Extract: Grievance Policy \[Government Department C\] \ January 2024 Document control: Version 5.0 \ Owner: Employee Relations Team Approval: \[DEPT-C\] People Committee, 8 January 2024 \ Review date: January 2026 1\. Introduction This policy provides a framework for employees to raise and resolve workplace grievances. It applies to all \[DEPT-C\] employees. 2\. Informal resolution Employees are encouraged to resolve concerns informally where possible. This may involve: - Discussing the issue with their line manager - Seeking support from a trade union representative - Using the mediation service 3\. Formal process If informal resolution is not...
 
 ## Metadata
 
@@ -52,7 +55,7 @@ sensitivity:
 | Raw source | [Grievance_Policy_2024.docx](../../unstructured_files/Grievance_Policy_2024.docx) |
 | Format | docx |
 | Document type | policy |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -63,26 +66,25 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 523010df292cc605773f567b7b240d49f0efb9fdcc7ac72af79b72836ed2e8a8 |
+| SHA-256 | ca7650be9f49abd4bb480be1acaef73c27dacd49b02231b25c7895f9267ddf53 |
 
 ## Navigation
 
 - Topic: [People Policies](../topics/people-policies.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 
 ## Extracted Content
 
 **Grievance Policy**
 
-Department for Work and Pensions \| January 2024
+\[Government Department C\] \| January 2024
 
 Document control: Version 5.0 \| Owner: Employee Relations Team
 
-Approval: DWP People Committee, 8 January 2024 \| Review date: January 2026
+Approval: \[DEPT-C\] People Committee, 8 January 2024 \| Review date: January 2026
 
 1\. Introduction
 
-This policy provides a framework for employees to raise and resolve workplace grievances. It applies to all DWP employees.
+This policy provides a framework for employees to raise and resolve workplace grievances. It applies to all \[DEPT-C\] employees.
 
 2\. Informal resolution
 
@@ -130,7 +132,7 @@ Employees involved in a grievance process can access:
 
 - Trade union representation
 
-- HR casework advice: hrcase@dwp.gov.uk
+- HR casework advice: hrcase@\[department\].gov.uk
 
 7\. Monitoring
 
@@ -144,8 +146,8 @@ The Employee Relations team produces quarterly reports on grievance volumes, out
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.725Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Grievance_Policy_2024.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 10 kB |

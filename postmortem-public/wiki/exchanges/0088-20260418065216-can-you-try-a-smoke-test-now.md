@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0088"
 title: "Can you try a smoke test now"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0088: Can you try a smoke test now."
+timestamp: "2026-04-19T17:49:43.290Z"
 ---
 
 # 0088. Can you try a smoke test now

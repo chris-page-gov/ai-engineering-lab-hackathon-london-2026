@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-MINISTERS-QUESTIONS-BRIEFING-PACK-12MARCH"
 title: "MINISTERIAL QUESTIONS BRIEFING"
 aliases:
@@ -34,6 +35,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL-SENSITIVE"
+description: "Source note for UF-MINISTERS-QUESTIONS-BRIEFING-PACK-12MARCH: MINISTERIAL QUESTIONS BRIEFING."
+timestamp: "2026-06-27"
 ---
 
 # MINISTERIAL QUESTIONS BRIEFING
@@ -41,7 +44,7 @@ sensitivity:
 
 - Source: [Ministers_Questions_Briefing_Pack_12March.pdf](../../unstructured_files/Ministers_Questions_Briefing_Pack_12March.pdf)
 - Extraction: `pdftotext-layout` with `medium` quality.
-- Extract: OFFICIAL-SENSITIVE MINISTERIAL QUESTIONS BRIEFING 12 March 2O24 Prepared by: Parliamentary Branch For: Secretary of State [OCR QUALITY: LOW — This document was scanned from a printed copy. Some text may be incorrectly recognised.] QUESTION 1: Universal Credit Processing Times From: Maria Thompson MP (Lab, Birmingham Ladywood) Question: To ask the Secretary of State for Work and Pensions what the average processing time for new Universal Credit claims was in each of the last 12 months. Suggested answer: The Department is committed to processing Universal Credit claims as quickly as possible. The most recent published data shows: Month Average...
+- Extract: OFFICIAL-SENSITIVE MINISTERIAL QUESTIONS BRIEFING 12 March 2O24 Prepared by: Parliamentary Branch For: Secretary of State [OCR QUALITY: LOW — This document was scanned from a printed copy. Some text may be incorrectly recognised.] QUESTION 1: Universal Credit Processing Times From: Maria Thompson MP (Lab, Birmingham Ladywood) Question: To ask the Secretary of State for [Government Department C] what the average processing time for new Universal Credit claims was in each of the last 12 months. Suggested answer: The Department is committed to processing Universal Credit claims as quickly as possible. The most recent published data shows: Month...
 
 ## Metadata
 
@@ -63,12 +66,11 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | c6eb10f9db4945b7cd6b1ae307222b498dacf5660b3d039b8b4a40342cc66a69 |
+| SHA-256 | 4f16527fa11b611da06baa0dab897709dd7fc77f19d7e470e62f198a872c722d |
 
 ## Navigation
 
 - Topic: [FOI And Transparency](../topics/foi-and-transparency.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 
 ## Extracted Tables
 
@@ -107,7 +109,7 @@ QUESTION 1: Universal Credit Processing Times
 
 From: Maria Thompson MP (Lab, Birmingham Ladywood)
 
-Question: To ask the Secretary of State for Work and Pensions what the average processing time for new
+Question: To ask the Secretary of State for [Government Department C] what the average processing time for new
 Universal Credit claims was in each of the last 12 months.
 
 
@@ -116,31 +118,31 @@ Suggested answer:
 The Department is committed to processing Universal Credit claims as quickly as possible. The most
 recent published data shows:
 
-             Month                                Average days to first payment
+             Month                                   Average days to first payment
 
-             Mar 2023                             31
+             Mar 2023                                31
 
-             Apr 2023                             29
+             Apr 2023                                29
 
-             May 2O23                             28
+             May 2O23                                28
 
-             Jun 2023                             30
+             Jun 2023                                30
 
-             Jul 2023                             32
+             Jul 2023                                32
 
-             Aug 2023                             33
+             Aug 2023                                33
 
-             Sep 2O23                             30
+             Sep 2O23                                30
 
-             Oct 2023                             28
+             Oct 2023                                28
 
-             Nov 2023                             27
+             Nov 2023                                27
 
-             Dec 2023                             35
+             Dec 2023                                35
 
-             Jan 2024                             31
+             Jan 2024                                31
 
-             Feb 2O24                             29
+             Feb 2O24                                29
 
 
 
@@ -157,7 +159,7 @@ Background notes:
 
 Sensitivities:
 
-     • NAO report on UC published January 2024 flagged regional variations
+     • [REG-B] report on UC published January 2024 flagged regional variations
 
      • Staff unions have raised concerns about caseload per processor
 
@@ -179,7 +181,7 @@ QUESTION 2: PIP Assessment Wait Times
 | Creator | (unspecified) |
 | Custom Metadata | no |
 | Encrypted | no |
-| File size | 4305 bytes |
+| File size | 4182 bytes |
 | Form | none |
 | JavaScript | no |
 | Keywords |  |
@@ -199,11 +201,11 @@ QUESTION 2: PIP Assessment Wait Times
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Ministers_Questions_Briefing_Pack_12March.pdf |
 | exif_FilePermissions | -rw-r--r-- |
-| exif_FileSize | 4.3 kB |
+| exif_FileSize | 4.2 kB |
 | exif_FileType | PDF |
 | exif_FileTypeExtension | pdf |
 | exif_Linearized | No |

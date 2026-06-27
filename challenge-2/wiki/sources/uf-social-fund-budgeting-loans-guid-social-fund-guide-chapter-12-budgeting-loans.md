@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-SOCIAL-FUND-BUDGETING-LOANS-GUIDANCE-CHAPTER12"
 title: "Social Fund Guide Chapter 12: Budgeting Loans"
 aliases:
@@ -34,6 +35,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL"
+description: "Source note for UF-SOCIAL-FUND-BUDGETING-LOANS-GUIDANCE-CHAPTER12: Social Fund Guide Chapter 12: Budgeting Loans."
+timestamp: "2026-06-27"
 ---
 
 # Social Fund Guide Chapter 12: Budgeting Loans
@@ -230,7 +233,7 @@ review within 28 days of the decision.
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_ExifToolVersion | 13.5 |
+| exif_ExifToolVersion | 13.55 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | social_fund_budgeting_loans_guidance_chapter12.pdf |
 | exif_FilePermissions | -rw-r--r-- |

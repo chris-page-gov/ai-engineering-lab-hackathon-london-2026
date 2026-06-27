@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "EXT-KARPATHY-GIST-LLM-WIKI"
 title: "Karpathy Gist: LLM Wiki"
 source_type: "external_citation"
@@ -10,6 +11,8 @@ tags:
   - "external"
   - "methodology"
   - "codex-postmortem-public"
+description: "Source note for EXT-KARPATHY-GIST-LLM-WIKI: Karpathy Gist: LLM Wiki."
+timestamp: "2026-06-27"
 ---
 
 # Karpathy Gist: LLM Wiki

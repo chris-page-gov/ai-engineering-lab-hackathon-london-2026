@@ -1,4 +1,5 @@
 ---
+type: "Entity"
 title: "People Services"
 aliases:
   - "People Services"
@@ -8,7 +9,9 @@ tags:
   - "challenge-2"
   - "people-services"
 source_count: 1
-updated: "2026-04-16"
+updated: "2026-06-27"
+description: "Entity page for Challenge 2 sources that mention People Services."
+timestamp: "2026-06-27"
 ---
 
 # People Services
@@ -17,9 +20,9 @@ This entity appears in 1 source documents.
 
 | Source | Status | Format | Department | Flags |
 | --- | --- | --- | --- | --- |
-| [UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0](../sources/uf-travel-and-subsistence-policy-v2-travel-and-subsistence-policy.md) | unknown | docx | DWP | past review: next review was April 2022 |
+| [UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0](../sources/uf-travel-and-subsistence-policy-v2-government-department-c.md) | unknown | docx |  | past review: next review was April 2022 |
 
 ## Related Notes
 
-- [UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0](../sources/uf-travel-and-subsistence-policy-v2-travel-and-subsistence-policy.md)
+- [UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0](../sources/uf-travel-and-subsistence-policy-v2-government-department-c.md)
 - [Knowledge base index](../index.md)

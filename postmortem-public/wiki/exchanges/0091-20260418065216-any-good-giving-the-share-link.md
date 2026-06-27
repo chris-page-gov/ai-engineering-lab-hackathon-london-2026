@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0091"
 title: "Any good giving the share link?"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0091: Any good giving the share link?."
+timestamp: "2026-04-19T18:32:28.654Z"
 ---
 
 # 0091. Any good giving the share link?

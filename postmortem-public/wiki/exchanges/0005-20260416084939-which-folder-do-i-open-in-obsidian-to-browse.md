@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0005"
 title: "Which folder do I open in Obsidian to browse"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0005: Which folder do I open in Obsidian to browse."
+timestamp: "2026-04-16T09:09:08.792Z"
 ---
 
 # 0005. Which folder do I open in Obsidian to browse

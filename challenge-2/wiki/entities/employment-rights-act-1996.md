@@ -1,4 +1,5 @@
 ---
+type: "Entity"
 title: "Employment Rights Act 1996"
 aliases:
   - "ERA 1996"
@@ -8,7 +9,9 @@ tags:
   - "challenge-2"
   - "employment-rights-act-1996"
 source_count: 4
-updated: "2026-04-16"
+updated: "2026-06-27"
+description: "Entity page for Challenge 2 sources that mention Employment Rights Act 1996."
+timestamp: "2026-06-27"
 ---
 
 # Employment Rights Act 1996
@@ -17,10 +20,10 @@ This entity appears in 4 source documents.
 
 | Source | Status | Format | Department | Flags |
 | --- | --- | --- | --- | --- |
-| [DOC-SB-003](../sources/doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md) | current | html | Department for Business and Trade |  |
-| [DOC-SB-005](../sources/doc-sb-005-employment-rights-act-1996-plain-english-summary.md) | current | md | Department for Business and Trade |  |
-| [DOC-SB-009](../sources/doc-sb-009-right-to-request-flexible-working-frequently-asked-ques.md) | current | md | Department for Business and Trade |  |
-| [UF-FLEXIBLE-WORKING-POLICY](../sources/uf-flexible-working-policy-flexible-working-policy.md) | unknown | pdf | DWP |  |
+| [DOC-SB-003](../sources/doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md) | current | html | [Government Department B] |  |
+| [DOC-SB-005](../sources/doc-sb-005-employment-rights-act-1996-plain-english-summary.md) | current | md | [Government Department B] |  |
+| [DOC-SB-009](../sources/doc-sb-009-right-to-request-flexible-working-frequently-asked-ques.md) | current | md | [Government Department B] |  |
+| [UF-FLEXIBLE-WORKING-POLICY](../sources/uf-flexible-working-policy-flexible-working-policy.md) | unknown | pdf |  |  |
 
 ## Related Notes
 

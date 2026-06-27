@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-SB-001"
 title: "Starting a Business in the UK: Step by Step"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-SB-001-starting-a-business.html"
 source_format: "html"
 document_type: "guidance"
-department: "Department for Business and Trade"
+department: "[Government Department B]"
 owner: null
 status: "current"
 version: null
@@ -47,6 +48,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-SB-001: Starting a Business in the UK: Step by Step."
+timestamp: "2026-01-10"
 ---
 
 # Starting a Business in the UK: Step by Step
@@ -54,7 +57,7 @@ sensitivity:
 
 - Source: [DOC-SB-001-starting-a-business.html](../../structured_files/DOC-SB-001-starting-a-business.html)
 - Extraction: `pandoc-html` with `high` quality.
-- Extract: <div class="section"> Steps to start your business Follow these steps in order. Some steps may not apply depending on the type of business you are setting up. 1. Choose your business structure Your legal structure affects how much tax you pay, the records you must keep, and your personal liability for business debts. The three most common structures are sole trader, limited company, and partnership. Review the comparison below before deciding. 2. Register your business All businesses must register with HM Revenue and Customs (HMRC). If you are a sole trader, you must register for Self Assessment. Limited companies must be incorporated with...
+- Extract: <div class="section"> Steps to start your business Follow these steps in order. Some steps may not apply depending on the type of business you are setting up. 1. Choose your business structure Your legal structure affects how much tax you pay, the records you must keep, and your personal liability for business debts. The three most common structures are sole trader, limited company, and partnership. Review the comparison below before deciding. 2. Register your business All businesses must register with \[Government Department D\] (\[DEPT-D\]). If you are a sole trader, you must register for Self Assessment. Limited companies must be...
 
 ## Metadata
 
@@ -65,7 +68,7 @@ sensitivity:
 | Raw source | [DOC-SB-001-starting-a-business.html](../../structured_files/DOC-SB-001-starting-a-business.html) |
 | Format | html |
 | Document type | guidance |
-| Department | Department for Business and Trade |
+| Department | [Government Department B] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -76,11 +79,11 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 324a50acdfc4e09208909da81dcb21ca045d72cbbb67ecda41de6b7c37de8810 |
+| SHA-256 | 3a63575d5a612c4496a753636be84f6db1ed19239926edc9cbb62f28158e1715 |
 
 ## Related Sources
 
-- [DOC-SB-002](doc-sb-002-registering-as-self-employed-with-hmrc.md) - Registering as Self-Employed with HMRC
+- [DOC-SB-002](doc-sb-002-registering-as-self-employed-with-dept-d.md) - Registering as Self-Employed with [DEPT-D]
 - [DOC-SB-003](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md) - National Minimum Wage and National Living Wage: Employer Guidance
 - [DOC-SB-004](doc-sb-004-workplace-pensions-auto-enrolment-duties-for-employers.md) - WORKPLACE PENSIONS: AUTO-ENROLMENT DUTIES FOR EMPLOYERS
 - [DOC-SB-006](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md) - Self-employment and Housing Benefit: how income is assessed
@@ -89,7 +92,6 @@ sensitivity:
 
 - Topic: [Small Business And Self-employment](../topics/small-business-and-self-employment.md)
 - Topic: [Employment Rights And Flexible Working](../topics/employment-rights-and-flexible-working.md)
-- Entity: [HM Revenue And Customs](../entities/hmrc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
@@ -106,7 +108,7 @@ Follow these steps in order. Some steps may not apply depending on the type of b
 
 2.  ### Register your business
 
-    All businesses must register with HM Revenue and Customs (HMRC). If you are a sole trader, you must register for Self Assessment. Limited companies must be incorporated with Companies House. Partnerships must also register with HMRC and nominate a partner to file the partnership tax return. You must register within three months of starting to trade, or you may face penalties.
+    All businesses must register with \[Government Department D\] (\[DEPT-D\]). If you are a sole trader, you must register for Self Assessment. Limited companies must be incorporated with \[Regulatory Body D\]. Partnerships must also register with \[DEPT-D\] and nominate a partner to file the partnership tax return. You must register within three months of starting to trade, or you may face penalties.
 
 3.  ### Set up your business tax
 
@@ -114,7 +116,7 @@ Follow these steps in order. Some steps may not apply depending on the type of b
 
 4.  ### Understand employer duties
 
-    If you employ staff, you must register as an employer with HMRC, operate PAYE to deduct Income Tax and National Insurance from employee wages, provide a workplace pension scheme under auto-enrolment rules, and ensure you comply with National Minimum Wage legislation. You must also obtain Employers' Liability insurance with a minimum cover of 5 million pounds.
+    If you employ staff, you must register as an employer with \[DEPT-D\], operate PAYE to deduct Income Tax and National Insurance from employee wages, provide a workplace pension scheme under auto-enrolment rules, and ensure you comply with National Minimum Wage legislation. You must also obtain Employers' Liability insurance with a minimum cover of 5 million pounds.
 
 5.  ### Get the licences and insurance you need
 
@@ -130,9 +132,9 @@ The table below summarises the key differences between the most common legal str
 
 | Structure | Liability | Tax Treatment | Registration Requirement |
 |----|----|----|----|
-| Sole Trader | Unlimited personal liability for all business debts | Income Tax and Class 2/4 National Insurance via Self Assessment | Register with HMRC for Self Assessment |
-| Limited Company | Liability limited to the value of shares held | Corporation Tax on profits; directors pay Income Tax on salary and dividends | Incorporate with Companies House and register with HMRC for Corporation Tax |
-| Partnership | Each partner has unlimited personal liability (unless a Limited Liability Partnership) | Each partner pays Income Tax on their share of profits via Self Assessment | Register the partnership and each partner individually with HMRC |
+| Sole Trader | Unlimited personal liability for all business debts | Income Tax and Class 2/4 National Insurance via Self Assessment | Register with \[DEPT-D\] for Self Assessment |
+| Limited Company | Liability limited to the value of shares held | Corporation Tax on profits; directors pay Income Tax on salary and dividends | Incorporate with \[Regulatory Body D\] and register with \[DEPT-D\] for Corporation Tax |
+| Partnership | Each partner has unlimited personal liability (unless a Limited Liability Partnership) | Each partner pays Income Tax on their share of profits via Self Assessment | Register the partnership and each partner individually with \[DEPT-D\] |
 
 </div>
 
@@ -140,7 +142,7 @@ The table below summarises the key differences between the most common legal str
 
 ## Related guidance
 
-- [Registering as self-employed with HMRC (DOC-SB-002)](doc-sb-002-registering-as-self-employed-with-hmrc.md)
+- [Registering as self-employed with \[DEPT-D\] ([DOC-SB-002](doc-sb-002-registering-as-self-employed-with-dept-d.md))]([DOC-SB-002](doc-sb-002-registering-as-self-employed-with-dept-d.md)-registering-self-employed.md)
 - [National Minimum Wage rates and employer guidance (DOC-SB-003)](doc-sb-003-national-minimum-wage-and-national-living-wage-employer.md)
 - [Workplace pensions and auto-enrolment duties (DOC-SB-004)](doc-sb-004-workplace-pensions-auto-enrolment-duties-for-employers.md)
 - [Understanding business rates (DOC-SB-006)](doc-sb-006-self-employment-and-housing-benefit-how-income-is-asses.md)
@@ -152,20 +154,20 @@ The table below summarises the key differences between the most common legal str
 | Field | Value |
 | --- | --- |
 | audience | Citizens starting a business |
-| author | Department for Business and Trade |
+| author | [Government Department B] |
 | description | A step-by-step guide to starting a business in the UK, covering registration, legal structures, tax obligations, and employer duties. |
 | document-id | DOC-SB-001 |
 | document-type | guidance |
 | exif_Audience | Citizens starting a business |
-| exif_Author | Department for Business and Trade |
+| exif_Author | [Government Department B] |
 | exif_Description | A step-by-step guide to starting a business in the UK, covering registration, legal structures, tax obligations, and employer duties. |
 | exif_DocumentId | DOC-SB-001 |
 | exif_DocumentType | guidance |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-SB-001-starting-a-business.html |
 | exif_FilePermissions | -rw-r--r-- |
-| exif_FileSize | 6.4 kB |
+| exif_FileSize | 6.5 kB |
 | exif_FileType | HTML |
 | exif_FileTypeExtension | html |
 | exif_LastUpdated | 2026-01-10 |

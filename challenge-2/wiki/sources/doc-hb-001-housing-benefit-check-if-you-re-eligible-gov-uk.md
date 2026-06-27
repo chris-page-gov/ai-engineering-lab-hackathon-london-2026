@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-001"
 title: "Housing Benefit: Check if you're eligible - GOV.UK"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-001-housing-benefit-eligibility.html"
 source_format: "html"
 document_type: "guidance"
-department: "DLUHC"
+department: "[DEPT-A]"
 owner: null
 status: "current"
 version: null
@@ -51,6 +52,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-HB-001: Housing Benefit: Check if you're eligible - GOV.UK."
+timestamp: "2025-11-20"
 ---
 
 # Housing Benefit: Check if you're eligible - GOV.UK
@@ -58,7 +61,7 @@ sensitivity:
 
 - Source: [DOC-HB-001-housing-benefit-eligibility.html](../../structured_files/DOC-HB-001-housing-benefit-eligibility.html)
 - Extraction: `pandoc-html` with `high` quality.
-- Extract: <div class="govuk-breadcrumbs"> Home \> Benefits \> Housing Benefit </div> Housing Benefit: Check if you're eligible <div class="publication-info"> Published 15 June 2025 \ Last updated 20 November 2025\ From: Department for Levelling Up, Housing and Communities </div> Overview Housing Benefit can help you pay your rent if you are on a low income. It is administered by your local council. Housing Benefit is being replaced by Universal Credit for most working-age claimants, but you may still be able to make a new claim in certain circumstances. If you have reached State Pension age you can still make a new claim for Housing Benefit. You may...
+- Extract: <div class="govuk-breadcrumbs"> Home \> Benefits \> Housing Benefit </div> Housing Benefit: Check if you're eligible <div class="publication-info"> Published 15 June 2025 \ Last updated 20 November 2025\ From: \[Government Department A\] </div> Overview Housing Benefit can help you pay your rent if you are on a low income. It is administered by your local council. Housing Benefit is being replaced by Universal Credit for most working-age claimants, but you may still be able to make a new claim in certain circumstances. If you have reached State Pension age you can still make a new claim for Housing Benefit. You may be eligible for Housing...
 
 ## Metadata
 
@@ -69,7 +72,7 @@ sensitivity:
 | Raw source | [DOC-HB-001-housing-benefit-eligibility.html](../../structured_files/DOC-HB-001-housing-benefit-eligibility.html) |
 | Format | html |
 | Document type | guidance |
-| Department | DLUHC |
+| Department | [DEPT-A] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -80,7 +83,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | fab4f4b3a0e2672b2dc5023fef0f23c8836a4dad9d2a488329b5b4d4f6275372 |
+| SHA-256 | 8a7f48549beb00a37bd01da89682f912e46819db8503e8eabcec3bdd8e171d7c |
 
 ## Related Sources
 
@@ -96,7 +99,6 @@ sensitivity:
 - Topic: [Council Tax Reduction](../topics/council-tax-reduction.md)
 - Topic: [Homelessness And Social Housing](../topics/homelessness-and-social-housing.md)
 - Topic: [Overpayment Recovery](../topics/overpayment-recovery.md)
-- Entity: [Department For Levelling Up Housing And Communities](../entities/dluhc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
@@ -112,7 +114,7 @@ Home \> Benefits \> Housing Benefit
 <div class="publication-info">
 
 Published 15 June 2025 \| Last updated 20 November 2025\
-From: **Department for Levelling Up, Housing and Communities**
+From: **\[Government Department A\]**
 
 </div>
 
@@ -174,19 +176,19 @@ If your circumstances change after you have made a claim, such as a change in in
 | Field | Value |
 | --- | --- |
 | audience | Citizens |
-| author | Department for Levelling Up, Housing and Communities (DLUHC) |
-| department | DLUHC |
+| author | [Government Department A] ([DEPT-A]) |
+| department | [DEPT-A] |
 | description | Find out if you can get Housing Benefit to help pay your rent. Includes eligibility criteria, income thresholds, and how to apply through your local council. |
 | document-id | DOC-HB-001 |
 | document-type | guidance |
 | exif_Audience | Citizens |
-| exif_Author | Department for Levelling Up, Housing and Communities (DLUHC) |
-| exif_Department | DLUHC |
+| exif_Author | [Government Department A] ([DEPT-A]) |
+| exif_Department | [DEPT-A] |
 | exif_Description | Find out if you can get Housing Benefit to help pay your rent. Includes eligibility criteria, income thresholds, and how to apply through your local council. |
 | exif_DocumentId | DOC-HB-001 |
 | exif_DocumentType | guidance |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-001-housing-benefit-eligibility.html |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 8.1 kB |

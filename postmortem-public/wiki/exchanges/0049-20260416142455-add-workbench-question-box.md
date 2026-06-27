@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0049"
 title: "Add Workbench Question Box"
 source_id: "CONV-004"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0049: Add Workbench Question Box."
+timestamp: "2026-04-16T14:25:36.228Z"
 ---
 
 # 0049. Add Workbench Question Box

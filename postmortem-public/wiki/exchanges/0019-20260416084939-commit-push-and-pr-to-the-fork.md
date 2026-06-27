@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0019"
 title: "Commit, push and PR to the fork"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0019: Commit, push and PR to the fork."
+timestamp: "2026-04-16T11:32:58.068Z"
 ---
 
 # 0019. Commit, push and PR to the fork

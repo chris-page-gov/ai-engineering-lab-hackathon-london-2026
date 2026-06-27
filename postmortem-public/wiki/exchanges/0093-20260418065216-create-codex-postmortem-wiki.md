@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0093"
 title: "Create Codex Postmortem Wiki"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0093: Create Codex Postmortem Wiki."
+timestamp: "2026-04-19T20:25:35.115Z"
 ---
 
 # 0093. Create Codex Postmortem Wiki

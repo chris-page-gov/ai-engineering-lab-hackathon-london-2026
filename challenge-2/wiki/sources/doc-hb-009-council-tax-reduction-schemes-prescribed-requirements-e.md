@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-009"
 title: "COUNCIL TAX REDUCTION SCHEMES (PRESCRIBED REQUIREMENTS) (ENGLAND) (AMENDMENT) REGULATIONS 2025 — SUMMARY AND GUIDANCE"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-009-council-tax-reduction-updated.txt"
 source_format: "txt"
 document_type: "guidance"
-department: "DLUHC"
+department: null
 owner: null
 status: "current"
 version: null
@@ -38,6 +39,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-HB-009: COUNCIL TAX REDUCTION SCHEMES (PRESCRIBED REQUIREMENTS) (ENGLAND) (AMENDMENT) REGULATIONS 2025 — SUMMARY AND GUIDANCE."
+timestamp: "September 2025"
 ---
 
 # COUNCIL TAX REDUCTION SCHEMES (PRESCRIBED REQUIREMENTS) (ENGLAND) (AMENDMENT) REGULATIONS 2025 — SUMMARY AND GUIDANCE
@@ -45,7 +48,7 @@ sensitivity:
 
 - Source: [DOC-HB-009-council-tax-reduction-updated.txt](../../structured_files/DOC-HB-009-council-tax-reduction-updated.txt)
 - Extraction: `plain-text-regex` with `medium` quality.
-- Extract: COUNCIL TAX REDUCTION SCHEMES (PRESCRIBED REQUIREMENTS) (ENGLAND) (AMENDMENT) REGULATIONS 2025 — SUMMARY AND GUIDANCE Department for Levelling Up, Housing and Communities Published: September 2025 Status: Current This document provides a summary of the key provisions of the Council Tax Reduction Schemes (Prescribed Requirements) (England) (Amendment) Regulations 2025 and guidance for local authorities on their implementation. It replaces the version published in March 2024, which reflected the previous regulatory position prior to the enactment of the Finance Act 2025. For the overarching regulatory framework governing Housing Benefit and...
+- Extract: COUNCIL TAX REDUCTION SCHEMES (PRESCRIBED REQUIREMENTS) (ENGLAND) (AMENDMENT) REGULATIONS 2025 — SUMMARY AND GUIDANCE [Government Department A] Published: September 2025 Status: Current This document provides a summary of the key provisions of the Council Tax Reduction Schemes (Prescribed Requirements) (England) (Amendment) Regulations 2025 and guidance for local authorities on their implementation. It replaces the version published in March 2024, which reflected the previous regulatory position prior to the enactment of the Finance Act 2025. For the overarching regulatory framework governing Housing Benefit and related local authority...
 
 ## Metadata
 
@@ -56,7 +59,7 @@ sensitivity:
 | Raw source | [DOC-HB-009-council-tax-reduction-updated.txt](../../structured_files/DOC-HB-009-council-tax-reduction-updated.txt) |
 | Format | txt |
 | Document type | guidance |
-| Department | DLUHC |
+| Department |  |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -67,7 +70,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 805dfca0463139735c0badf4fcbb9b32e2cb9e22d78ab00dec1f124f60b73205 |
+| SHA-256 | 616f6fc606876403831222ab35e91dd3f1f390b4ea407e423b5f800c80bd4581 |
 
 ## Related Sources
 
@@ -77,14 +80,13 @@ sensitivity:
 
 - Topic: [Housing Benefit](../topics/housing-benefit.md)
 - Topic: [Council Tax Reduction](../topics/council-tax-reduction.md)
-- Entity: [Department For Levelling Up Housing And Communities](../entities/dluhc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
 
 COUNCIL TAX REDUCTION SCHEMES (PRESCRIBED REQUIREMENTS) (ENGLAND) (AMENDMENT) REGULATIONS 2025 — SUMMARY AND GUIDANCE
 
-Department for Levelling Up, Housing and Communities
+[Government Department A]
 Published: September 2025
 Status: Current
 
@@ -163,8 +165,8 @@ For the overarching regulatory framework governing Housing Benefit and related l
 | Field | Value |
 | --- | --- |
 | exif_ByteOrderMark | No |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-009-council-tax-reduction-updated.txt |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 5.2 kB |
@@ -174,7 +176,7 @@ For the overarching regulatory framework governing Housing Benefit and related l
 | exif_MIMEEncoding | utf-8 |
 | exif_MIMEType | text/plain |
 | exif_Newlines | Unix LF |
-| exif_WordCount | 800 |
+| exif_WordCount | 796 |
 | published | September 2025 |
 | status | Current |
 

@@ -1,8 +1,11 @@
 ---
+type: "Decision Register"
 title: "Publication Decision Register"
 tags:
   - "decisions"
   - "codex-postmortem-public"
+description: "These decisions use inclusion-forward defaults. Each row includes the question to revisit if a stricter publication posture is needed."
+timestamp: "2026-06-27"
 ---
 
 # Publication Decision Register

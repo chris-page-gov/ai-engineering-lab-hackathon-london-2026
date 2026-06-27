@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-005"
 title: "Homelessness Prevention and Relief: Local Authority Duties and Assessment Procedures"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-005-homelessness-prevention.txt"
 source_format: "txt"
 document_type: "assessment"
-department: "DLUHC"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -44,6 +45,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-HB-005: Homelessness Prevention and Relief: Local Authority Duties and Assessment Procedures."
+timestamp: "January 2025"
 ---
 
 # Homelessness Prevention and Relief: Local Authority Duties and Assessment Procedures
@@ -51,7 +54,7 @@ sensitivity:
 
 - Source: [DOC-HB-005-homelessness-prevention.txt](../../structured_files/DOC-HB-005-homelessness-prevention.txt)
 - Extraction: `plain-text-regex` with `medium` quality.
-- Extract: Homelessness Prevention and Relief: Local Authority Duties and Assessment Procedures Department for Levelling Up, Housing and Communities Published: January 2025 Document ID: DOC-HB-005 LOCAL AUTHORITY DUTIES UNDER HOMELESSNESS LEGISLATION Local authorities in England have a range of statutory duties towards people who are homeless or threatened with homelessness. These duties are principally contained in Part 7 of the Housing Act 1996, as significantly amended by the Homelessness Reduction Act 2017. The 2017 Act introduced new prevention and relief duties that substantially expanded the obligations placed on local authorities and extended...
+- Extract: Homelessness Prevention and Relief: Local Authority Duties and Assessment Procedures [Government Department A] Published: January 2025 Document ID: DOC-HB-005 LOCAL AUTHORITY DUTIES UNDER HOMELESSNESS LEGISLATION Local authorities in England have a range of statutory duties towards people who are homeless or threatened with homelessness. These duties are principally contained in Part 7 of the Housing Act 1996, as significantly amended by the Homelessness Reduction Act 2017. The 2017 Act introduced new prevention and relief duties that substantially expanded the obligations placed on local authorities and extended the period during which a...
 
 ## Metadata
 
@@ -62,7 +65,7 @@ sensitivity:
 | Raw source | [DOC-HB-005-homelessness-prevention.txt](../../structured_files/DOC-HB-005-homelessness-prevention.txt) |
 | Format | txt |
 | Document type | assessment |
-| Department | DLUHC |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -73,7 +76,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 91fd209b81329038a636e437b621796a6c480e9b8229c0a87bd6b7c90ad14ea3 |
+| SHA-256 | 3e6c147f5162a94f8937def5bff15de1347d59bec2c93e2265bafa9a4ff60412 |
 
 ## Related Sources
 
@@ -88,7 +91,6 @@ sensitivity:
 - Topic: [Discretionary Housing Payments](../topics/discretionary-housing-payments.md)
 - Topic: [Homelessness And Social Housing](../topics/homelessness-and-social-housing.md)
 - Topic: [Incident Risk And Assurance](../topics/incident-risk-and-assurance.md)
-- Entity: [Department For Levelling Up Housing And Communities](../entities/dluhc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 - Entity: [Housing Act 1996](../entities/housing-act-1996.md)
 - Entity: [Homelessness Reduction Act 2017](../entities/homelessness-reduction-act-2017.md)
@@ -96,7 +98,7 @@ sensitivity:
 ## Extracted Content
 
 Homelessness Prevention and Relief: Local Authority Duties and Assessment Procedures
-Department for Levelling Up, Housing and Communities
+[Government Department A]
 Published: January 2025
 Document ID: DOC-HB-005
 
@@ -116,8 +118,8 @@ If the relief duty comes to an end without the applicant having secured accommod
 | Field | Value |
 | --- | --- |
 | document_id | DOC-HB-005 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-005-homelessness-prevention.txt |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 7.3 kB |
@@ -127,7 +129,7 @@ If the relief duty comes to an end without the applicant having secured accommod
 | exif_MIMEEncoding | us-ascii |
 | exif_MIMEType | text/plain |
 | exif_Newlines | Unix LF |
-| exif_WordCount | 1111 |
+| exif_WordCount | 1107 |
 | published | January 2025 |
 
 ## Related Notes

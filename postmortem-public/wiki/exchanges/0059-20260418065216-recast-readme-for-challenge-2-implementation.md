@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0059"
 title: "Recast README for Challenge 2 Implementation"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0059: Recast README for Challenge 2 Implementation."
+timestamp: "2026-04-18T08:53:09.759Z"
 ---
 
 # 0059. Recast README for Challenge 2 Implementation

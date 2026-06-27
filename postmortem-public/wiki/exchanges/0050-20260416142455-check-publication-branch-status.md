@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0050"
 title: "Check Publication Branch Status"
 source_id: "CONV-004"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0050: Check Publication Branch Status."
+timestamp: "2026-04-17T11:37:50.770Z"
 ---
 
 # 0050. Check Publication Branch Status

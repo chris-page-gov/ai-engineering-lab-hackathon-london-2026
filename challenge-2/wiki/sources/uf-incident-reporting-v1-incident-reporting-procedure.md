@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-INCIDENT-REPORTING-V1"
 title: "INCIDENT REPORTING PROCEDURE"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/incident-reporting-v1.docx"
 source_format: "docx"
 document_type: "report"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: "1.0 \\| January 2023"
@@ -34,6 +35,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-INCIDENT-REPORTING-V1: INCIDENT REPORTING PROCEDURE."
+timestamp: "2026-06-27"
 ---
 
 # INCIDENT REPORTING PROCEDURE
@@ -41,7 +44,7 @@ sensitivity:
 
 - Source: [incident-reporting-v1.docx](../../unstructured_files/incident-reporting-v1.docx)
 - Extraction: `pandoc-docx` with `high` quality.
-- Extract: INCIDENT REPORTING PROCEDURE Version 1.0 \ January 2023 Department for Work and Pensions — Health and Safety Team Purpose This procedure describes how to report workplace incidents, near misses, and hazards. It applies to all DWP premises including Jobcentres, service centres, and corporate offices. Definitions Incident: An event that results in injury, ill health, or damage to property. Near miss: An event that could have resulted in an incident but did not. Hazard: A condition or situation with the potential to cause harm. RIDDOR: Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013. Reporting process All incidents...
+- Extract: INCIDENT REPORTING PROCEDURE Version 1.0 \ January 2023 \[Government Department C\] — Health and Safety Team Purpose This procedure describes how to report workplace incidents, near misses, and hazards. It applies to all \[DEPT-C\] premises including Jobcentres, service centres, and corporate offices. Definitions Incident: An event that results in injury, ill health, or damage to property. Near miss: An event that could have resulted in an incident but did not. Hazard: A condition or situation with the potential to cause harm. RIDDOR: Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013. Reporting process All incidents...
 
 ## Metadata
 
@@ -52,7 +55,7 @@ sensitivity:
 | Raw source | [incident-reporting-v1.docx](../../unstructured_files/incident-reporting-v1.docx) |
 | Format | docx |
 | Document type | report |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version | 1.0 \\| January 2023 |
@@ -63,12 +66,11 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | c9684718f41c4d1a77aa89620793c59a85f00eee4787ba05f88c473a917baf26 |
+| SHA-256 | cd0af73a286f6c969d864024110243f9cefb0cb32373b6b5576a1a2d467a1efd |
 
 ## Navigation
 
 - Topic: [Incident Risk And Assurance](../topics/incident-risk-and-assurance.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 
 ## Extracted Content
 
@@ -76,11 +78,11 @@ sensitivity:
 
 Version 1.0 \| January 2023
 
-Department for Work and Pensions — Health and Safety Team
+\[Government Department C\] — Health and Safety Team
 
 Purpose
 
-This procedure describes how to report workplace incidents, near misses, and hazards. It applies to all DWP premises including Jobcentres, service centres, and corporate offices.
+This procedure describes how to report workplace incidents, near misses, and hazards. It applies to all \[DEPT-C\] premises including Jobcentres, service centres, and corporate offices.
 
 Definitions
 
@@ -122,11 +124,11 @@ All incident records must be retained for a minimum of 3 years. RIDDOR records m
 
 Contact
 
-H&S Team: health.safety@dwp.gov.uk
+H&S Team: health.safety@\[department\].gov.uk
 
 Emergency: 999
 
-DWP Security Control Room: 0800 XXX XXXX (24/7)
+\[DEPT-C\] Security Control Room: 0800 XXX XXXX (24/7)
 
 ## Raw Metadata
 
@@ -136,8 +138,8 @@ DWP Security Control Room: 0800 XXX XXXX (24/7)
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.596Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | incident-reporting-v1.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 10 kB |

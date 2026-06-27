@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0012"
 title: "Implement these fixes"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0012: Implement these fixes."
+timestamp: "2026-04-16T10:00:27.594Z"
 ---
 
 # 0012. Implement these fixes

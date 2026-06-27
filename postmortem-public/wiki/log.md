@@ -1,8 +1,11 @@
 ---
+type: "Log"
 title: "Public Postmortem Log"
 tags:
   - "log"
   - "codex-postmortem-public"
+description: "Public Postmortem Log"
+timestamp: "2026-06-27"
 ---
 
 # Public Postmortem Log

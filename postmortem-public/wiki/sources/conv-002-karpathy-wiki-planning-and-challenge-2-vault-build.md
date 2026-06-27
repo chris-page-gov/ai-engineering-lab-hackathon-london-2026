@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "CONV-002"
 title: "Karpathy Wiki Planning and Challenge 2 Vault Build"
 source_type: "redacted_conversation_summary"
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "conversation"
   - "codex-postmortem-public"
+description: "Source note for CONV-002: Karpathy Wiki Planning and Challenge 2 Vault Build."
+timestamp: "2026-06-27"
 ---
 
 # Karpathy Wiki Planning and Challenge 2 Vault Build

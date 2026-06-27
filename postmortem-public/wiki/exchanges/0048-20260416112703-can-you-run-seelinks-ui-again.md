@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0048"
 title: "can you run seelinks UI again"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0048: can you run seelinks UI again."
+timestamp: "2026-04-16T14:30:57.476Z"
 ---
 
 # 0048. can you run seelinks UI again

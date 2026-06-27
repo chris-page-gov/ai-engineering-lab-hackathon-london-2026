@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-INFORMATION-SECURITY-POLICY-DRAFT-V0-8"
 title: "DRAFT — NOT FOR DISTRIBUTION"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Information Security Policy - DRAFT v0.8.docx"
 source_format: "docx"
 document_type: "policy"
-department: "DWP"
+department: null
 owner: null
 status: "draft"
 version: "0.8 — DRAFT \\| February 2024"
@@ -37,6 +38,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL-SENSITIVE"
+description: "Source note for UF-INFORMATION-SECURITY-POLICY-DRAFT-V0-8: DRAFT — NOT FOR DISTRIBUTION."
+timestamp: "2026-06-27"
 ---
 
 # DRAFT — NOT FOR DISTRIBUTION
@@ -45,7 +48,7 @@ sensitivity:
 - Source: [Information Security Policy - DRAFT v0.8.docx](../../unstructured_files/Information%20Security%20Policy%20-%20DRAFT%20v0.8.docx)
 - Extraction: `pandoc-docx` with `high` quality.
 - Flags: draft.
-- Extract: > DRAFT — NOT FOR DISTRIBUTION Information Security Policy Version 0.8 — DRAFT \ February 2024 This document is a draft and has not been approved for publication. Do not distribute outside the Information Security team. 1\. Introduction This policy establishes the information security requirements for all DWP systems, data, and personnel. It replaces the Information Security Policy v4.1 (June 2022). > \[REVIEWERS NOTE: Section 2 needs legal review before publication. The DPIA requirements may conflict with the updated UK GDPR guidance from ICO published in January 2024.\] 2\. Classification All information must be classified according to the...
+- Extract: > DRAFT — NOT FOR DISTRIBUTION Information Security Policy Version 0.8 — DRAFT \ February 2024 This document is a draft and has not been approved for publication. Do not distribute outside the Information Security team. 1\. Introduction This policy establishes the information security requirements for all \[DEPT-C\] systems, data, and personnel. It replaces the Information Security Policy v4.1 (June 2022). > \[REVIEWERS NOTE: Section 2 needs legal review before publication. The DPIA requirements may conflict with the updated UK GDPR guidance from \[REG-A\] published in January 2024.\] 2\. Classification All information must be classified...
 
 ## Metadata
 
@@ -56,7 +59,7 @@ sensitivity:
 | Raw source | [Information Security Policy - DRAFT v0.8.docx](../../unstructured_files/Information%20Security%20Policy%20-%20DRAFT%20v0.8.docx) |
 | Format | docx |
 | Document type | policy |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | draft |
 | Version | 0.8 — DRAFT \\| February 2024 |
@@ -67,13 +70,12 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 944fff5377415f4ec113e6893d455d2fa9c547561d9bfe1fba05333715912f76 |
+| SHA-256 | af5299c5250931b54a6c06487e918a4d10aa68546cbcba068323d672c4425e6b |
 
 ## Navigation
 
 - Topic: [Data Protection And Information Security](../topics/data-protection-and-information-security.md)
 - Topic: [Incident Risk And Assurance](../topics/incident-risk-and-assurance.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 
 ## Extracted Content
 
@@ -87,9 +89,9 @@ This document is a draft and has not been approved for publication. Do not distr
 
 1\. Introduction
 
-This policy establishes the information security requirements for all DWP systems, data, and personnel. It replaces the Information Security Policy v4.1 (June 2022).
+This policy establishes the information security requirements for all \[DEPT-C\] systems, data, and personnel. It replaces the Information Security Policy v4.1 (June 2022).
 
-> *\[REVIEWERS NOTE: Section 2 needs legal review before publication. The DPIA requirements may conflict with the updated UK GDPR guidance from ICO published in January 2024.\]*
+> *\[REVIEWERS NOTE: Section 2 needs legal review before publication. The DPIA requirements may conflict with the updated UK GDPR guidance from \[REG-A\] published in January 2024.\]*
 
 2\. Classification
 
@@ -139,7 +141,7 @@ Personal devices must not be used to access departmental systems or data unless 
 
 All security incidents must be reported to the Security Operations Centre (SOC) immediately.
 
-SOC contact: soc@dwp.gov.uk / 0800 XXX XXXX (24/7)
+SOC contact: soc@\[department\].gov.uk / 0800 XXX XXXX (24/7)
 
 Severity classification:
 
@@ -165,8 +167,8 @@ All staff must complete Responsible for Information (RfI) training annually. Sta
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.618Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Information Security Policy - DRAFT v0.8.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 10 kB |

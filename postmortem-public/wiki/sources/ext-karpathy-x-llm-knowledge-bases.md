@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES"
 title: "Karpathy X Post: LLM Knowledge Bases"
 source_type: "external_citation"
@@ -10,6 +11,8 @@ tags:
   - "external"
   - "methodology"
   - "codex-postmortem-public"
+description: "Source note for EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES: Karpathy X Post: LLM Knowledge Bases."
+timestamp: "2026-06-27"
 ---
 
 # Karpathy X Post: LLM Knowledge Bases

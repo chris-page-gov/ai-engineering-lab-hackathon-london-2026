@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0043"
 title: "I think that challenge-2/.obsidian/workspace.json is on main now"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0043: I think that challenge-2/.obsidian/workspace.json is on main now."
+timestamp: "2026-04-16T13:58:32.159Z"
 ---
 
 # 0043. I think that challenge-2/.obsidian/workspace.json is on main now

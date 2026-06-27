@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0107"
 title: "You still have two comments not closed but I believe you fixed before they were \"visible\" and yo"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0107: You still have two comments not closed but I believe you fixed before they were \\\"visible\\\" and yo."
+timestamp: "2026-04-20T10:06:07.506Z"
 ---
 
 # 0107. You still have two comments not closed but I believe you fixed before they were "visible" and yo

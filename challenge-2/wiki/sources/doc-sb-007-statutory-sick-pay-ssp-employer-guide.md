@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-SB-007"
 title: "Statutory Sick Pay (SSP): employer guide"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-SB-007-statutory-sick-pay.html"
 source_format: "html"
 document_type: "guidance"
-department: "HM Revenue and Customs"
+department: "[Government Department D]"
 owner: null
 status: "current"
 version: null
@@ -41,6 +42,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-SB-007: Statutory Sick Pay (SSP): employer guide."
+timestamp: "2025-09-01"
 ---
 
 # Statutory Sick Pay (SSP): employer guide
@@ -59,7 +62,7 @@ sensitivity:
 | Raw source | [DOC-SB-007-statutory-sick-pay.html](../../structured_files/DOC-SB-007-statutory-sick-pay.html) |
 | Format | html |
 | Document type | guidance |
-| Department | HM Revenue and Customs |
+| Department | [Government Department D] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -70,7 +73,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | f456e630e694f1dad36875166b1a2d124b856840a93d910155ced7ddf088c2b3 |
+| SHA-256 | 0ba8d55e8bfd65b9e1418ebfb0877102d752696f0cff5afcd2f3206a76edfbe1 |
 
 ## Related Sources
 
@@ -82,7 +85,6 @@ sensitivity:
 - Topic: [Housing Benefit](../topics/housing-benefit.md)
 - Topic: [Council Tax Reduction](../topics/council-tax-reduction.md)
 - Topic: [Employment Rights And Flexible Working](../topics/employment-rights-and-flexible-working.md)
-- Entity: [HM Revenue And Customs](../entities/hmrc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
@@ -137,7 +139,7 @@ Employers must pay SSP to qualifying employees from the fourth qualifying day of
 
 Employers should note that employees have **up to 28 days to provide notification of incapacity**, after which SSP may be withheld. Employers must not withhold SSP on the grounds of late notification if the employee has provided notice within this period, unless the employer has a contractual notification procedure and the employee has unreasonably failed to follow it.
 
-If an employer decides to withhold SSP, they must issue the employee with form SSP1 explaining the reasons. The employee can then apply to HMRC for a formal decision.
+If an employer decides to withhold SSP, they must issue the employee with form SSP1 explaining the reasons. The employee can then apply to \[DEPT-D\] for a formal decision.
 
 </div>
 
@@ -145,7 +147,7 @@ If an employer decides to withhold SSP, they must issue the employee with form S
 
 ## Record-keeping
 
-Employers are no longer required to keep specific SSP records (the previous requirement to maintain form SSP2 was abolished in 2014). However, HMRC strongly recommends that employers maintain records of:
+Employers are no longer required to keep specific SSP records (the previous requirement to maintain form SSP2 was abolished in 2014). However, \[DEPT-D\] strongly recommends that employers maintain records of:
 
 - Dates of each employee's period of incapacity for work
 - The amount of SSP paid and the dates of payment
@@ -189,13 +191,13 @@ Employers are not required to notify the local authority that an employee is rec
 | Field | Value |
 | --- | --- |
 | audience | Employers |
-| department | HM Revenue and Customs |
+| department | [Government Department D] |
 | document-id | DOC-SB-007 |
 | exif_Audience | Employers |
-| exif_Department | HM Revenue and Customs |
+| exif_Department | [Government Department D] |
 | exif_DocumentId | DOC-SB-007 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-SB-007-statutory-sick-pay.html |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 8.2 kB |

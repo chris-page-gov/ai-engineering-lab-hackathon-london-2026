@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-003"
 title: "COUNCIL TAX REDUCTION SCHEMES: REGULATORY FRAMEWORK AND LOCAL AUTHORITY OBLIGATIONS"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-003-council-tax-reduction-regulations.txt"
 source_format: "txt"
 document_type: "framework"
-department: "Department for Levelling Up, Housing and Communities"
+department: "[Government Department A]"
 owner: null
 status: "current"
 version: null
@@ -43,6 +44,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-HB-003: COUNCIL TAX REDUCTION SCHEMES: REGULATORY FRAMEWORK AND LOCAL AUTHORITY OBLIGATIONS."
+timestamp: "March 2024"
 ---
 
 # COUNCIL TAX REDUCTION SCHEMES: REGULATORY FRAMEWORK AND LOCAL AUTHORITY OBLIGATIONS
@@ -51,7 +54,7 @@ sensitivity:
 - Source: [DOC-HB-003-council-tax-reduction-regulations.txt](../../structured_files/DOC-HB-003-council-tax-reduction-regulations.txt)
 - Extraction: `plain-text-regex` with `medium` quality.
 - Flags: stale/conflicted: DOC-HB-009 says it replaces the March 2024 version.
-- Extract: COUNCIL TAX REDUCTION SCHEMES: REGULATORY FRAMEWORK AND LOCAL AUTHORITY OBLIGATIONS Document ID: DOC-HB-003 Published: March 2024 Department: Department for Levelling Up, Housing and Communities Status: Current Audience: Local authority revenues and benefits officers 1. Introduction and statutory basis 1.1 This document provides a summary of the regulatory framework governing Council Tax Reduction (CTR) schemes in England. CTR replaced the national Council Tax Benefit scheme with effect from 1 April 2013 pursuant to the provisions of the Local Government Finance Act 2012. Each billing authority in England is required under section 13A(2) of...
+- Extract: COUNCIL TAX REDUCTION SCHEMES: REGULATORY FRAMEWORK AND LOCAL AUTHORITY OBLIGATIONS Document ID: DOC-HB-003 Published: March 2024 Department: [Government Department A] Status: Current Audience: Local authority revenues and benefits officers 1. Introduction and statutory basis 1.1 This document provides a summary of the regulatory framework governing Council Tax Reduction (CTR) schemes in England. CTR replaced the national Council Tax Benefit scheme with effect from 1 April 2013 pursuant to the provisions of the Local Government Finance Act 2012. Each billing authority in England is required under section 13A(2) of the Local Government...
 
 ## Metadata
 
@@ -62,7 +65,7 @@ sensitivity:
 | Raw source | [DOC-HB-003-council-tax-reduction-regulations.txt](../../structured_files/DOC-HB-003-council-tax-reduction-regulations.txt) |
 | Format | txt |
 | Document type | framework |
-| Department | Department for Levelling Up, Housing and Communities |
+| Department | [Government Department A] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -73,7 +76,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 655e48b3b3c15d211ed285ace9fab16145ab789a0bf0a7e2334ac4b53a55413c |
+| SHA-256 | 107a852fbcdc525dc4815e528be968308dde25d50a97d8e671b20dcf1cdbed9a |
 
 ## Related Sources
 
@@ -85,7 +88,6 @@ sensitivity:
 - Topic: [Council Tax Reduction](../topics/council-tax-reduction.md)
 - Topic: [Incident Risk And Assurance](../topics/incident-risk-and-assurance.md)
 - Topic: [Overpayment Recovery](../topics/overpayment-recovery.md)
-- Entity: [Department For Levelling Up Housing And Communities](../entities/dluhc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
@@ -94,7 +96,7 @@ COUNCIL TAX REDUCTION SCHEMES: REGULATORY FRAMEWORK AND LOCAL AUTHORITY OBLIGATI
 
 Document ID: DOC-HB-003
 Published: March 2024
-Department: Department for Levelling Up, Housing and Communities
+Department: [Government Department A]
 Status: Current
 Audience: Local authority revenues and benefits officers
 
@@ -150,10 +152,10 @@ Audience: Local authority revenues and benefits officers
 | Field | Value |
 | --- | --- |
 | audience | Local authority revenues and benefits officers |
-| department | Department for Levelling Up, Housing and Communities |
+| department | [Government Department A] |
 | document_id | DOC-HB-003 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-003-council-tax-reduction-regulations.txt |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 7.3 kB |
@@ -163,7 +165,7 @@ Audience: Local authority revenues and benefits officers
 | exif_MIMEEncoding | us-ascii |
 | exif_MIMEType | text/plain |
 | exif_Newlines | Unix LF |
-| exif_WordCount | 1082 |
+| exif_WordCount | 1078 |
 | published | March 2024 |
 | status | Current |
 

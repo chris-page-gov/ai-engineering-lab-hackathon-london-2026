@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-SOCIAL-MEDIA-GUIDANCE-FOR-STAFF"
 title: "Social Media Guidance for Staff"
 aliases:
@@ -7,7 +8,7 @@ aliases:
 source_path: "../../unstructured_files/SOCIAL MEDIA GUIDANCE FOR STAFF.docx"
 source_format: "docx"
 document_type: "policy"
-department: "DWP"
+department: null
 owner: "Internal Communications Team"
 status: "unknown"
 version: null
@@ -33,6 +34,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL-SENSITIVE"
+description: "Source note for UF-SOCIAL-MEDIA-GUIDANCE-FOR-STAFF: Social Media Guidance for Staff."
+timestamp: "2026-06-27"
 ---
 
 # Social Media Guidance for Staff
@@ -40,7 +43,7 @@ sensitivity:
 
 - Source: [SOCIAL MEDIA GUIDANCE FOR STAFF.docx](../../unstructured_files/SOCIAL%20MEDIA%20GUIDANCE%20FOR%20STAFF.docx)
 - Extraction: `pandoc-docx` with `high` quality.
-- Extract: Social Media Guidance for Staff Department for Work and Pensions \ September 2021 Owner: Internal Communications Team About this guidance This guidance helps DWP employees understand how to use social media responsibly, both in their professional and personal capacities. It supplements the Acceptable Use Policy for IT Systems. 1\. Official DWP social media accounts The department maintains official accounts on the following platforms: - Twitter: @DWPgovuk - LinkedIn: Department for Work and Pensions - Facebook: DWP - YouTube: DWP Digital Only authorised staff in the Communications Directorate may post on behalf of DWP. Requests to create new...
+- Extract: Social Media Guidance for Staff \[Government Department C\] \ September 2021 Owner: Internal Communications Team About this guidance This guidance helps \[DEPT-C\] employees understand how to use social media responsibly, both in their professional and personal capacities. It supplements the Acceptable Use Policy for IT Systems. 1\. Official \[DEPT-C\] social media accounts The department maintains official accounts on the following platforms: - Twitter: @\[DeptGovUK\] - LinkedIn: \[Government Department C\] - Facebook: \[DEPT-C\] - YouTube: \[DEPT-C\] Digital Only authorised staff in the Communications Directorate may post on behalf of...
 
 ## Metadata
 
@@ -51,7 +54,7 @@ sensitivity:
 | Raw source | [SOCIAL MEDIA GUIDANCE FOR STAFF.docx](../../unstructured_files/SOCIAL%20MEDIA%20GUIDANCE%20FOR%20STAFF.docx) |
 | Format | docx |
 | Document type | policy |
-| Department | DWP |
+| Department |  |
 | Owner | Internal Communications Team |
 | Status | unknown |
 | Version |  |
@@ -62,38 +65,37 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 4b3c9380769a5b5ce121251e90374a70dd8d5239fcb6b97091fa0542fe253031 |
+| SHA-256 | 408286c80155ae71ef98b652e886617b972c528cf9c227e43dcb19eabb4e1abd |
 
 ## Navigation
 
 - Topic: [Data Protection And Information Security](../topics/data-protection-and-information-security.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 
 ## Extracted Content
 
 **Social Media Guidance for Staff**
 
-Department for Work and Pensions \| September 2021
+\[Government Department C\] \| September 2021
 
 Owner: Internal Communications Team
 
 About this guidance
 
-This guidance helps DWP employees understand how to use social media responsibly, both in their professional and personal capacities. It supplements the Acceptable Use Policy for IT Systems.
+This guidance helps \[DEPT-C\] employees understand how to use social media responsibly, both in their professional and personal capacities. It supplements the Acceptable Use Policy for IT Systems.
 
-1\. Official DWP social media accounts
+1\. Official \[DEPT-C\] social media accounts
 
 The department maintains official accounts on the following platforms:
 
-- Twitter: @DWPgovuk
+- Twitter: @\[DeptGovUK\]
 
-- LinkedIn: Department for Work and Pensions
+- LinkedIn: \[Government Department C\]
 
-- Facebook: DWP
+- Facebook: \[DEPT-C\]
 
-- YouTube: DWP Digital
+- YouTube: \[DEPT-C\] Digital
 
-Only authorised staff in the Communications Directorate may post on behalf of DWP. Requests to create new departmental social media accounts must be approved by the Head of Digital Communications.
+Only authorised staff in the Communications Directorate may post on behalf of \[DEPT-C\]. Requests to create new departmental social media accounts must be approved by the Head of Digital Communications.
 
 2\. Personal use of social media
 
@@ -119,7 +121,7 @@ You are free to use social media in your personal time. However, as a civil serv
 
 - Comment on government policy in a way that could compromise your impartiality
 
-- Use your DWP email address to register for personal social media accounts
+- Use your \[DEPT-C\] email address to register for personal social media accounts
 
 - Engage with media enquiries on social media — refer these to the Press Office
 
@@ -140,27 +142,27 @@ If in doubt, seek advice from your HR Business Partner before posting political 
 
 - If you accidentally post something you shouldn’t have: delete it immediately and report it to your line manager
 
-- If you see DWP information shared inappropriately on social media: report it to the Security Operations Centre (soc@dwp.gov.uk)
+- If you see \[DEPT-C\] information shared inappropriately on social media: report it to the Security Operations Centre (soc@\[department\].gov.uk)
 
-- If you are approached by a journalist via social media: do not respond; forward the approach to the DWP Press Office
+- If you are approached by a journalist via social media: do not respond; forward the approach to the \[DEPT-C\] Press Office
 
 5\. Social media during working hours
 
-Access to social media platforms is restricted on the DWP network (see Acceptable Use Policy, section 6). Staff with an approved business need may request access through the IT Service Desk.
+Access to social media platforms is restricted on the \[DEPT-C\] network (see Acceptable Use Policy, section 6). Staff with an approved business need may request access through the IT Service Desk.
 
 Personal social media use on personal devices during breaks is permitted, provided it does not breach this guidance.
 
 6\. Useful contacts
 
-Digital Communications Team: digital.comms@dwp.gov.uk
+Digital Communications Team: digital.comms@\[department\].gov.uk
 
-Press Office: press.office@dwp.gov.uk
+Press Office: press.office@\[department\].gov.uk
 
-Security Operations Centre: soc@dwp.gov.uk
+Security Operations Centre: soc@\[department\].gov.uk
 
 This guidance was last updated in September 2021. Social media platforms and their features change frequently. If you encounter a situation not covered by this guidance, contact the Digital Communications team.
 
-> *\[NOTE: This guidance predates the rebranding of Twitter to X (October 2023). References to ‘Twitter’ throughout should be read as ‘X’. The department’s handle on X remains @DWPgovuk.\]*
+> *\[NOTE: This guidance predates the rebranding of Twitter to X (October 2023). References to ‘Twitter’ throughout should be read as ‘X’. The department’s handle on X remains @\[DeptGovUK\].\]*
 
 ## Raw Metadata
 
@@ -170,8 +172,8 @@ This guidance was last updated in September 2021. Social media platforms and the
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.842Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | SOCIAL MEDIA GUIDANCE FOR STAFF.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 11 kB |

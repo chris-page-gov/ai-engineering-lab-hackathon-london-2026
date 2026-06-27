@@ -1,11 +1,14 @@
 ---
+type: "Data Index"
 title: "Generated Table Exports"
 note_type: "data-readme"
 tags:
   - "data"
   - "challenge-2"
   - "synthetic-fixtures"
-updated: "2026-04-16"
+updated: "2026-06-27"
+description: "Index for generated table exports derived from synthetic Challenge 2 spreadsheet sources."
+timestamp: "2026-06-27"
 ---
 
 # Generated Table Exports

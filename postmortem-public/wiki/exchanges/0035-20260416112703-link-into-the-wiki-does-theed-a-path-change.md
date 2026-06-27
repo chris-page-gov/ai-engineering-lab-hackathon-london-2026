@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0035"
 title: "Link into the Wiki - does theed a path change?"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0035: Link into the Wiki - does theed a path change?."
+timestamp: "2026-04-16T11:45:13.253Z"
 ---
 
 # 0035. Link into the Wiki - does theed a path change?

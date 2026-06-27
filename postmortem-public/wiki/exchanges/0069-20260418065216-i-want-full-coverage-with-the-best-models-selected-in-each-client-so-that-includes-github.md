@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0069"
 title: "I want full coverage with the best models selected in each client so that includes GitHub Copilo"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0069: I want full coverage with the best models selected in each client so that includes GitHub Copilo."
+timestamp: "2026-04-18T12:58:44.898Z"
 ---
 
 # 0069. I want full coverage with the best models selected in each client so that includes GitHub Copilo

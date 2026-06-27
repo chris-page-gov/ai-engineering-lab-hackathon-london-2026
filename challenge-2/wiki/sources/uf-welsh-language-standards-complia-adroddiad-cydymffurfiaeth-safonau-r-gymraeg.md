@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-WELSH-LANGUAGE-STANDARDS-COMPLIANCE-REPORT-2023"
 title: "Adroddiad Cydymffurfiaeth Safonau’r Gymraeg"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Welsh_Language_Standards_Compliance_Report_2023.pdf"
 source_format: "pdf"
 document_type: "report"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -36,6 +37,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL"
+description: "Source note for UF-WELSH-LANGUAGE-STANDARDS-COMPLIANCE-REPORT-2023: Adroddiad Cydymffurfiaeth Safonau’r Gymraeg."
+timestamp: "2026-06-27"
 ---
 
 # Adroddiad Cydymffurfiaeth Safonau’r Gymraeg
@@ -43,7 +46,7 @@ sensitivity:
 
 - Source: [Welsh_Language_Standards_Compliance_Report_2023.pdf](../../unstructured_files/Welsh_Language_Standards_Compliance_Report_2023.pdf)
 - Extraction: `pdftotext-layout` with `medium` quality.
-- Extract: OFFICIAL Adroddiad Cydymffurfiaeth Safonau’r Gymraeg 2022–23 Welsh Language Standards Compliance Report 2022–23 Adran Gwaith a Phensiynau / Department for Work and Pensions Cyhoeddwyd / Published: March 2024 Perchennog / Owner: Welsh Language Unit 1. Cyflwyniad / Introduction This report sets out DWP’s compliance with the Welsh Language Standards during the reporting period 1 April 2022 to 31 March 2023. It is published in accordance with the Welsh Language (Wales) Measure 2011 and the compliance notice issued to DWP by the Welsh Language Commissioner. Mae’r adroddiad hwn yn nodi cydymffurfiaeth yr Adran â Safonau’r Gymraeg yn ystod y cyfnod...
+- Extract: OFFICIAL Adroddiad Cydymffurfiaeth Safonau’r Gymraeg 2022–23 Welsh Language Standards Compliance Report 2022–23 [Adran y Llywodraeth C] / [GOVERNMENT DEPARTMENT C] Cyhoeddwyd / Published: March 2024 Perchennog / Owner: Welsh Language Unit 1. Cyflwyniad / Introduction [DEPT-C] This report sets out ’s compliance with the Welsh Language Standards during the reporting period 1 April 2022 to 31 March 2023. It is published in accordance with the Welsh Language (Wales) Measure [DEPT-C] 2011 and the compliance notice issued to by the Welsh Language Commissioner. Mae’r adroddiad hwn yn nodi cydymffurfiaeth yr Adran â Safonau’r Gymraeg yn ystod y...
 
 ## Metadata
 
@@ -54,7 +57,7 @@ sensitivity:
 | Raw source | [Welsh_Language_Standards_Compliance_Report_2023.pdf](../../unstructured_files/Welsh_Language_Standards_Compliance_Report_2023.pdf) |
 | Format | pdf |
 | Document type | report |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -65,13 +68,12 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 0e9fb9e5bf31517f74ceba88c73f23c47f8448569cfd87f2b84f4764a80deb21 |
+| SHA-256 | eac9d5e1d7428b6f41d11c88164956a77bab10da352a2d3d52e2a3626942ba1e |
 
 ## Navigation
 
 - Topic: [Incident Risk And Assurance](../topics/incident-risk-and-assurance.md)
 - Topic: [Welsh Language Standards](../topics/welsh-language-standards.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 
 ## Extracted Tables
 
@@ -97,24 +99,31 @@ sensitivity:
 | Digital service localisation | £198,000 |
 | Other | £50,000 |
 
+### Table 3
+
+| Uned y Gymraeg / Welsh Language Unit: welsh.language@] | .gov.uk |
+| --- | --- |
+| Swyddfa’r Comisiynydd y Gymraeg / Office of the Welsh Language | Commissioner: |
+
 ## Extracted Content
 
 OFFICIAL
 
 
-      Adroddiad Cydymffurfiaeth Safonau’r Gymraeg
-     2022–23 Welsh Language Standards Compliance
-                    Report 2022–23
-Adran Gwaith a Phensiynau / Department for Work and Pensions
+       Adroddiad Cydymffurfiaeth Safonau’r Gymraeg
+      2022–23 Welsh Language Standards Compliance
+                     Report 2022–23
+[Adran y Llywodraeth C]                     / [GOVERNMENT DEPARTMENT C]
 
 Cyhoeddwyd / Published: March 2024 | Perchennog / Owner: Welsh Language Unit
 
 
 1. Cyflwyniad / Introduction
-
-This report sets out DWP’s compliance with the Welsh Language Standards during the reporting period 1
+                          [DEPT-C]
+This report sets out    ’s compliance with the Welsh Language Standards during the reporting period 1
 April 2022 to 31 March 2023. It is published in accordance with the Welsh Language (Wales) Measure
-2011 and the compliance notice issued to DWP by the Welsh Language Commissioner.
+                                         [DEPT-C]
+2011 and the compliance notice issued to          by the Welsh Language Commissioner.
 
 Mae’r adroddiad hwn yn nodi cydymffurfiaeth yr Adran â Safonau’r Gymraeg yn ystod y cyfnod adrodd 1
 Ebrill 2022 i 31 Mawrth 2023.
@@ -123,18 +132,18 @@ Ebrill 2022 i 31 Mawrth 2023.
 
 2. Summary of compliance
 
-      Standard category       Number of standards
-                                                Fully compliant    Partially compliant Non-compliant
+       Standard category               Number of standards
+                                                         Fully compliant   Partially compliant Non-compliant
 
-      Service delivery        84                71                 9                  4
+       Service delivery                84                71                9                 4
 
-      Policy making           18                16                 2                  0
+       Policy making                   18                16                2                 0
 
-      Operational             34                30                 3                  1
+       Operational                     34                30                3                 1
 
-      Record keeping          12                12                 0                  0
+       Record keeping                  12                12                0                 0
 
-      Total                   148               129 (87%)          14 (9%)            5 (3%)
+       Total                           148               129 (87%)         14 (9%)           5 (3%)
 
 
 
@@ -142,17 +151,17 @@ Ebrill 2022 i 31 Mawrth 2023.
 3. Areas of non-compliance
 
 3.1 Telephone services
-
-Standard 8 requires DWP to offer a Welsh language option on all telephone helplines serving Wales.
+                            [DEPT-C]
+Standard 8 requires          to offer a Welsh language option on all telephone helplines serving Wales.
 During the reporting period, 4 helplines did not provide this option:
 
-      • Universal Credit helpline (Welsh callers routed to English-speaking agents)
+       • Universal Credit helpline (Welsh callers routed to English-speaking agents)
 
-      • Disability benefits helpline
+       • Disability benefits helpline
 
-      • Carer’s Allowance helpline
+       • Carer’s Allowance helpline
 
-      • Debt Management helpline
+       • Debt Management helpline
 Remedial action: Welsh language advisers are being recruited. Target for full compliance: September
 2023.
 
@@ -173,8 +182,8 @@ Both services now have Welsh language versions (delivered January and March 2023
 
 
 3.3 Signage
-
-Standard 61 requires bilingual signage at all DWP sites in Wales. An audit in February 2023 found that 3 of
+                                                       [DEPT-C]
+Standard 61 requires bilingual signage at all sites in Wales. An audit in February 2023 found that 3 of
 47 Jobcentre Plus sites in Wales had English-only signage: Rhyl Jobcentre, Bangor Jobcentre,
 Aberystwyth Jobcentre.
 
@@ -183,8 +192,8 @@ All three sites were rectified by April 2023.
 
 
 4. Complaints
-
-During the reporting period, DWP received 23 complaints related to Welsh language provision. Of these:
+                                  [DEPT-C]
+During the reporting period,                 received 23 complaints related to Welsh language provision. Of these:
 
       • 14 related to telephone services (inability to conduct business in Welsh)
 
@@ -200,8 +209,8 @@ notified of 2 complaints that required formal investigation.
 
 
 5. Welsh language skills
-
-As at 31 March 2023, DWP employed 3,247 staff in Wales, of whom:
+                       [DEPT-C]
+As at 31 March 2023,              employed 3,247 staff in Wales, of whom:
 
       • 412 (12.7%) self-reported as Welsh speakers
 
@@ -215,19 +224,19 @@ the reporting period, 34 staff enrolled in Welsh language courses.
 
 Total expenditure on Welsh language compliance during 2022-23: £1,247,000
 
-                   Category                                         Amount
+                   Category                                              Amount
 
-                   Translation services                             £489,000
+                   Translation services                                  £489,000
 
-                   Bilingual signage and print                      £67,000
+                   Bilingual signage and print                           £67,000
 
-                   Welsh language training                          £31,000
+                   Welsh language training                               £31,000
 
-                   Welsh language adviser salaries                  £412,000
+                   Welsh language adviser salaries                       £412,000
 
-                   Digital service localisation                     £198,000
+                   Digital service localisation                          £198,000
 
-                   Other                                            £50,000
+                   Other                                                 £50,000
 
 
 
@@ -247,8 +256,8 @@ Total expenditure on Welsh language compliance during 2022-23: £1,247,000
 
 
 Contact:
-
-Uned y Gymraeg / Welsh Language Unit: welsh.language@dwp.gov.uk
+                                                               [DEPT-C
+Uned y Gymraeg / Welsh Language Unit: welsh.language@]                   .gov.uk
 
 Swyddfa’r Comisiynydd y Gymraeg / Office of the Welsh Language                                   Commissioner:
 www.comisiynyddygymraeg.cymru / www.welshlanguagecommissioner.wales
@@ -262,7 +271,7 @@ www.comisiynyddygymraeg.cymru / www.welshlanguagecommissioner.wales
 | Creator | (unspecified) |
 | Custom Metadata | no |
 | Encrypted | no |
-| File size | 7227 bytes |
+| File size | 7185 bytes |
 | Form | none |
 | JavaScript | no |
 | Keywords |  |
@@ -282,8 +291,8 @@ www.comisiynyddygymraeg.cymru / www.welshlanguagecommissioner.wales
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Welsh_Language_Standards_Compliance_Report_2023.pdf |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 7.2 kB |

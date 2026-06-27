@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-SB-009"
 title: "Right to request flexible working: frequently asked questions"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-SB-009-flexible-working.md"
 source_format: "md"
 document_type: "faq"
-department: "Department for Business and Trade"
+department: "[Government Department B]"
 owner: null
 status: "current"
 version: null
@@ -38,6 +39,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-SB-009: Right to request flexible working: frequently asked questions."
+timestamp: "2025-10-01"
 ---
 
 # Right to request flexible working: frequently asked questions
@@ -56,7 +59,7 @@ sensitivity:
 | Raw source | [DOC-SB-009-flexible-working.md](../../structured_files/DOC-SB-009-flexible-working.md) |
 | Format | md |
 | Document type | faq |
-| Department | Department for Business and Trade |
+| Department | [Government Department B] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -67,7 +70,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | eae06e471d5183ba1586f08224aa9bfd4655f8b46ce01ae04e964b49e831b998 |
+| SHA-256 | 73ecad42b16c3226698541ee97fa48f06fe095e42c98d4313cbf66b76eac3ca0 |
 
 ## Related Sources
 
@@ -168,10 +171,10 @@ Once an employer has agreed to a flexible working request, the change becomes a 
 | Field | Value |
 | --- | --- |
 | audience | Employees and employers |
-| department | Department for Business and Trade |
+| department | [Government Department B] |
 | document_id | DOC-SB-009 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-SB-009-flexible-working.md |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 5.2 kB |
@@ -181,7 +184,7 @@ Once an employer has agreed to a flexible working request, the change becomes a 
 | exif_MIMEEncoding | us-ascii |
 | exif_MIMEType | text/plain |
 | exif_Newlines | Unix LF |
-| exif_WordCount | 836 |
+| exif_WordCount | 834 |
 | publication_date | 2025-10-01 |
 | status | current |
 | title | Right to request flexible working: frequently asked questions |

@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0016"
 title: "Do a review on how far we meet the evaluation/judging criteria?"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0016: Do a review on how far we meet the evaluation/judging criteria?."
+timestamp: "2026-04-16T11:16:03.975Z"
 ---
 
 # 0016. Do a review on how far we meet the evaluation/judging criteria?

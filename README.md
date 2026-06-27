@@ -28,6 +28,8 @@ For the Challenge 2 implementation:
 
 - [Challenge 2 brief](challenge-02-unlocking-the-dark-data.md): the original problem statement.
 - [Challenge 2 wiki index](challenge-2/wiki/index.md): generated Obsidian-friendly knowledge base.
+- [Interactive Challenge 2 wiki viewer](viewer.html): self-contained HTML graph and reader for GitHub publication.
+- GitHub Pages publication uses `viewer.html` as both the root site `index.html` and the interactive wiki reader, with the Markdown wiki copied beside it.
 - [Demonstration guide](challenge-2/wiki/demonstration-guide.md): end-to-end walkthrough of the prototype.
 - [Dark Data Workbench guide](challenge-2/wiki/workbench.md): how to run and use the browser workbench.
 - [Evaluation benchmark](challenge-2/wiki/evaluation-benchmark.md): 100 source-backed questions with scoring guidance.
@@ -58,6 +60,8 @@ The Challenge 2 wiki turns raw source material into structured Markdown and mach
 - topic, entity, and map notes make the corpus navigable
 - JSON and table exports support tool use
 - lint output checks generated coverage, links, metadata, and known challenge flags
+- OKF-compatible Markdown frontmatter and root `viewer.html` make the wiki publishable as a static GitHub-friendly graph and reader
+- `scripts/build_site.py` and `.github/workflows/pages.yml` publish the viewer and public wiki Markdown through GitHub Pages in the same pattern as recent OKF wiki repos
 
 The repeatable builder is [challenge-2/tools/build_wiki.py](challenge-2/tools/build_wiki.py).
 
@@ -129,6 +133,10 @@ Challenge 2 implementation:
 - `challenge-2/unstructured_files/`: synthetic binary-format starter documents.
 - `challenge-2/tools/build_wiki.py`: repeatable wiki builder.
 - `challenge-2/wiki/`: generated Obsidian-friendly knowledge base.
+- `viewer.html`: generated static Challenge 2 wiki graph and reader for GitHub publication.
+- `scripts/update_viewer.py`, `scripts/check_wiki_viewer.py`, `scripts/check_okf_conformance.py`, and `scripts/build_site.py`: OKF, static-viewer, and GitHub Pages publication workflow.
+- `.github/workflows/pages.yml`: GitHub Actions Pages deployment for the generated static wiki site.
+- `_site/`: ignored local GitHub Pages build output.
 - `challenge-2/wiki/demonstration-guide.md`: end-to-end demo route.
 - `challenge-2/wiki/evaluation-benchmark.md`: 100-question benchmark.
 - `challenge-2/workbench/`: SvelteKit Dark Data Workbench.
@@ -167,6 +175,8 @@ Recent local validation for this branch includes:
 
 - Challenge 2 workbench typecheck, unit/component tests, production build, and Playwright tests.
 - Python compile checks for the wiki builder, MCP tools, evaluation client, postmortem builder, and documentation lockstep tool.
+- OKF conformance and static viewer synchronization checks for the published wiki bundles.
+- Static GitHub Pages build validation for the published wiki site.
 - MCP unit tests for the workbench and evaluation layer.
 - Documentation lockstep validation.
 - `git diff --check` / staged whitespace validation.

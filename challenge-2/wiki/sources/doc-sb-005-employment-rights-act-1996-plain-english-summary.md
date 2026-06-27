@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-SB-005"
 title: "Employment Rights Act 1996: Plain-English Summary"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-SB-005-employment-rights-era-1996.md"
 source_format: "md"
 document_type: "legislation-summary"
-department: "Department for Business and Trade"
+department: "[Government Department B]"
 owner: null
 status: "current"
 version: "1.2"
@@ -51,6 +52,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-SB-005: Employment Rights Act 1996: Plain-English Summary."
+timestamp: "2025-08-01"
 ---
 
 # Employment Rights Act 1996: Plain-English Summary
@@ -69,7 +72,7 @@ sensitivity:
 | Raw source | [DOC-SB-005-employment-rights-era-1996.md](../../structured_files/DOC-SB-005-employment-rights-era-1996.md) |
 | Format | md |
 | Document type | legislation-summary |
-| Department | Department for Business and Trade |
+| Department | [Government Department B] |
 | Owner |  |
 | Status | current |
 | Version | 1.2 |
@@ -80,7 +83,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | ca50ee08d426b38d8f4b61012603499b88e186ead40a8a8fc6cd200fb182980a |
+| SHA-256 | defc1e23e9b0fc2ff2e49812855ddefc9bb07af4241cc7f4eeaa9326a6c6ed4e |
 
 ## Related Sources
 
@@ -160,10 +163,10 @@ Under Section 1 of the Act, an employer must provide every employee and worker w
 
 | Field | Value |
 | --- | --- |
-| department | Department for Business and Trade |
+| department | [Government Department B] |
 | document_id | DOC-SB-005 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-SB-005-employment-rights-era-1996.md |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 6.0 kB |
@@ -173,7 +176,7 @@ Under Section 1 of the Act, an employer must provide every employee and worker w
 | exif_MIMEEncoding | us-ascii |
 | exif_MIMEType | text/plain |
 | exif_Newlines | Unix LF |
-| exif_WordCount | 937 |
+| exif_WordCount | 935 |
 | publication_date | 2025-08-01 |
 | status | current |
 | title | Employment Rights Act 1996: Plain-English Summary |

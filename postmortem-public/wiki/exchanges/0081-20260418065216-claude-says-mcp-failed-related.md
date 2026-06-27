@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0081"
 title: "Claude says MCP Failed - related?"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0081: Claude says MCP Failed - related?."
+timestamp: "2026-04-19T16:56:32.081Z"
 ---
 
 # 0081. Claude says MCP Failed - related?

@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-DATA-PROTECTION-GUIDANCE-FOR-STAFF-MARCH-2024"
 title: "Data Protection Guidance for Staff"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Data Protection Guidance for Staff - March 2024.pdf"
 source_format: "pdf"
 document_type: "guidance"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -38,6 +39,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL-SENSITIVE"
+description: "Source note for UF-DATA-PROTECTION-GUIDANCE-FOR-STAFF-MARCH-2024: Data Protection Guidance for Staff."
+timestamp: "March 2024 | Owner: Information Governance Directorate"
 ---
 
 # Data Protection Guidance for Staff
@@ -56,7 +59,7 @@ sensitivity:
 | Raw source | [Data Protection Guidance for Staff - March 2024.pdf](../../unstructured_files/Data%20Protection%20Guidance%20for%20Staff%20-%20March%202024.pdf) |
 | Format | pdf |
 | Document type | guidance |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -67,14 +70,21 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 632fde214d1d3ab614bcb5f28c0cd08010c6d7267cf4601ac11ac3ca748ee068 |
+| SHA-256 | 1fd0b0e819b9c2fe85b820a39620b87fd662171634a473fcfd893b3870809be4 |
 
 ## Navigation
 
 - Topic: [Council Tax Reduction](../topics/council-tax-reduction.md)
 - Topic: [Data Protection And Information Security](../topics/data-protection-and-information-security.md)
 - Topic: [FOI And Transparency](../topics/foi-and-transparency.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
+
+## Extracted Tables
+
+### Table 1
+
+| IG Helpdesk: ig.helpdesk@] | .gov.uk, ext. 74231 |
+| --- | --- |
+| [REG-A] | [regulatory-body].org. |
 
 ## Extracted Content
 
@@ -188,14 +198,14 @@ Examples:
       • A cyber attack that exposes personal data
 
 All breaches must be reported to the Data Protection Officer within 24 hours using the breach reporting
-form on the intranet. Serious breaches must be reported to the Information Commissioner’s Office within
+form on the intranet. Serious breaches must be reported to the [Regulatory Body A]               within
 72 hours — the DPO will handle this.
 5. Subject access requests
 
 Individuals have the right to request a copy of the personal data we hold about them. These requests are
 known as Subject Access Requests (SARs).
-
-If you receive a SAR, forward it immediately to the SAR team at sar@dwp.gov.uk. Do not attempt to
+                                                                                                        [DEPT-C
+If you receive a SAR, forward it immediately to the SAR team at sar@]                                             .gov.uk. Do not attempt to
 respond directly.
 
 The department has 30 calendar days to respond to a SAR from receipt.
@@ -203,21 +213,21 @@ The department has 30 calendar days to respond to a SAR from receipt.
 
 
 Annex A — Key contacts
-
-Data Protection Officer: Sarah Mitchell, sarah.mitchell@dwp.gov.uk
-
-SAR Team: sar@dwp.gov.uk
-
-IG Helpdesk: ig.helpdesk@dwp.gov.uk, ext. 74231
-
-ICO: ico.org.uk
+                                                                                    [DEPT-C
+Data Protection Officer: Sarah Mitchell, sarah.mitchell@]                                     .gov.uk
+                                     [DEPT-C
+SAR Team: sar@]                                .gov.uk
+                                                    [DEPT-C
+IG Helpdesk: ig.helpdesk@]                                    .gov.uk, ext. 74231
+[REG-A]     [regulatory-body].org.
+          : uk
 
 
 
 Annex B — Decision flowchart
 
-      [This annex contains a flowchart image that cannot be extracted as text. Teams should note this as an
-      example of content loss during extraction.]
+                 [This annex contains a flowchart image that cannot be extracted as text. Teams should note this as an
+                 example of content loss during extraction.]
 
 ## Raw Metadata
 
@@ -228,7 +238,7 @@ Annex B — Decision flowchart
 | Creator | (unspecified) |
 | Custom Metadata | no |
 | Encrypted | no |
-| File size | 6378 bytes |
+| File size | 6488 bytes |
 | Form | none |
 | JavaScript | no |
 | Keywords |  |
@@ -248,11 +258,11 @@ Annex B — Decision flowchart
 | exif_Author | (anonymous) |
 | exif_CreateDate | 2026:04:14 08:58:50+00:00 |
 | exif_Creator | (unspecified) |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Data Protection Guidance for Staff - March 2024.pdf |
 | exif_FilePermissions | -rw-r--r-- |
-| exif_FileSize | 6.4 kB |
+| exif_FileSize | 6.5 kB |
 | exif_FileType | PDF |
 | exif_FileTypeExtension | pdf |
 | exif_Linearized | No |

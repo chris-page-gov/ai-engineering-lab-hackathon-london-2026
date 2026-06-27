@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0039"
 title: "merge the outstanding PRs on the fork"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0039: merge the outstanding PRs on the fork."
+timestamp: "2026-04-16T12:15:00.135Z"
 ---
 
 # 0039. merge the outstanding PRs on the fork

@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0077"
 title: "Is there anything else I need to do before we run the evaluation"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0077: Is there anything else I need to do before we run the evaluation."
+timestamp: "2026-04-19T15:54:09.219Z"
 ---
 
 # 0077. Is there anything else I need to do before we run the evaluation

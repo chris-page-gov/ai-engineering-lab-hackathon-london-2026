@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0100"
 title: "Should we do both of these within the current PR or only the first, discuss"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0100: Should we do both of these within the current PR or only the first, discuss."
+timestamp: "2026-04-20T06:22:10.217Z"
 ---
 
 # 0100. Should we do both of these within the current PR or only the first, discuss

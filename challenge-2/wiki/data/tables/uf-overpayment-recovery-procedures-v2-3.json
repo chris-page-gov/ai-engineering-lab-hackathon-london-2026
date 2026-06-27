@@ -14,7 +14,7 @@
       "populated_rows": 12,
       "rows": [
         [
-          "DWP Overpayment Recovery Procedures — Version 2.3",
+          "[DEPT-C] Overpayment Recovery Procedures — Version 2.3",
           null,
           null,
           null,
@@ -74,7 +74,7 @@
           "Varies by LA",
           "Varies by LA",
           "Varies by LA",
-          "Recovered by the local authority, not DWP"
+          "Recovered by the local authority, not [DEPT-C]"
         ],
         [
           "PIP / DLA",
@@ -88,14 +88,14 @@
           "Cannot be recovered from CB directly",
           null,
           null,
-          "Recovery via HMRC"
+          "Recovery via [DEPT-D]"
         ],
         [
           "Tax Credits",
           null,
           null,
           null,
-          "HMRC responsibility — not DWP"
+          "[DEPT-D] responsibility — not [DEPT-C]"
         ]
       ]
     },
@@ -160,7 +160,7 @@
           "Immediate"
         ],
         [
-          "[NOTE: The threshold at £65 was set in 2009 and has never been uprated. In real terms this is approximately £45 in 2009 prices. A review was recommended by the NAO in 2019 but has not been actioned.]",
+          "[NOTE: The threshold at £65 was set in 2009 and has never been uprated. In real terms this is approximately £45 in 2009 prices. A review was recommended by the [REG-B] in 2019 but has not been actioned.]",
           null,
           null,
           null
@@ -205,7 +205,7 @@
         ],
         [
           "Official error",
-          "DWP made a mistake in calculating the benefit",
+          "[DEPT-C] made a mistake in calculating the benefit",
           "Recovery only where claimant could reasonably have been expected to know they were being overpaid",
           "6 years — but see note below"
         ],
@@ -216,7 +216,7 @@
           "No fixed policy — legal advice required"
         ],
         [
-          "[IMPORTANT: The limitation period for recovery of official error overpayments is contentious. DWP's legal position is that the 6-year limit applies, but Upper Tribunal decisions in 2022 and 2023 have cast doubt on this. Await outcome of Court of Appeal case expected Q2 2024 before relying on this table.]",
+          "[IMPORTANT: The limitation period for recovery of official error overpayments is contentious. [DEPT-C]'s legal position is that the 6-year limit applies, but Upper Tribunal decisions in 2022 and 2023 have cast doubt on this. Await outcome of Court of Appeal case expected Q2 2024 before relying on this table.]",
           null,
           null,
           null
@@ -262,7 +262,7 @@
         [
           "Cheque",
           "£5",
-          "Payable to 'DWP Debt Management' — note: cheques being phased out, target removal date December 2024"
+          "Payable to '[DEPT-C] Debt Management' — note: cheques being phased out, target removal date December 2024"
         ],
         [
           "Direct Earnings Attachment",
@@ -289,7 +289,7 @@
           "Monday to Friday, 08:00 – 18:00"
         ],
         [
-          "Email: debt.management@dwp.gov.uk"
+          "Email: debt.management@[department].gov.uk"
         ],
         [
           "This document was last updated in November 2023. Recovery rates for UC are updated each April in line with the standard allowance. JSA/ESA/PC fixed rates are updated annually — the rates shown here are 2023-24 rates."

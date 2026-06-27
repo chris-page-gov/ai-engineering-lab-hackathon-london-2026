@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0079"
 title: "Allow Claude to use the local settings file which is specifying the model (managed by DSIT) so t"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0079: Allow Claude to use the local settings file which is specifying the model (managed by DSIT) so t."
+timestamp: "2026-04-19T16:43:29.640Z"
 ---
 
 # 0079. Allow Claude to use the local settings file which is specifying the model (managed by DSIT) so t

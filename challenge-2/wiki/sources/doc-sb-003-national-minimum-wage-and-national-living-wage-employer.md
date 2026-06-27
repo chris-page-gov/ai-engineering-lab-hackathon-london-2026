@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-SB-003"
 title: "National Minimum Wage and National Living Wage: Employer Guidance"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-SB-003-national-minimum-wage.html"
 source_format: "html"
 document_type: "guidance"
-department: "Department for Business and Trade"
+department: "[Government Department B]"
 owner: null
 status: "current"
 version: null
@@ -51,6 +52,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-SB-003: National Minimum Wage and National Living Wage: Employer Guidance."
+timestamp: "2025-04-01"
 ---
 
 # National Minimum Wage and National Living Wage: Employer Guidance
@@ -69,7 +72,7 @@ sensitivity:
 | Raw source | [DOC-SB-003-national-minimum-wage.html](../../structured_files/DOC-SB-003-national-minimum-wage.html) |
 | Format | html |
 | Document type | guidance |
-| Department | Department for Business and Trade |
+| Department | [Government Department B] |
 | Owner |  |
 | Status | current |
 | Version |  |
@@ -80,7 +83,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 5f92cb8c95b6407b7d59e1c7bb2e406a4d839119a5a48e2204f13e85b93d40c4 |
+| SHA-256 | 268008f0f1016f8486c8667947bb880a2aed602dfcb12d645ccc16e4b2b9228b |
 
 ## Related Sources
 
@@ -93,7 +96,6 @@ sensitivity:
 - Topic: [Employment Rights And Flexible Working](../topics/employment-rights-and-flexible-working.md)
 - Topic: [People Policies](../topics/people-policies.md)
 - Topic: [Incident Risk And Assurance](../topics/incident-risk-and-assurance.md)
-- Entity: [HM Revenue And Customs](../entities/hmrc.md)
 - Entity: [Employment Rights Act 1996](../entities/employment-rights-act-1996.md)
 
 ## Extracted Content
@@ -141,7 +143,7 @@ Most workers in the UK are entitled to be paid at least the National Minimum Wag
 
 ## Common errors in calculating minimum wage pay
 
-HMRC regularly investigates employers who underpay their workers. The following are the most frequently identified errors.
+\[DEPT-D\] regularly investigates employers who underpay their workers. The following are the most frequently identified errors.
 
 1.  **Deducting costs for uniforms or equipment.** If you require workers to purchase a uniform or specific tools, and those deductions bring their effective hourly pay below the minimum wage, you are in breach of the law. The deduction itself may be lawful, but the resulting pay must still meet the minimum rate.
 2.  **Not paying for all working time.** Time spent travelling between assignments, mandatory training, time spent opening or closing premises, and time when a worker is required to be on the employer's premises and available for work all count as working time. Failing to pay for these hours is one of the most common sources of underpayment.
@@ -155,7 +157,7 @@ HMRC regularly investigates employers who underpay their workers. The following 
 
 ## Enforcement and penalties
 
-HMRC enforces minimum wage legislation. If you are found to have underpaid workers, you will be required to pay all arrears owed and may face a financial penalty of up to 200 percent of the total underpayment, up to a maximum of 20,000 pounds per worker. Employers who repeatedly or deliberately fail to pay the minimum wage may also be publicly named by the government, prosecuted, and disqualified from acting as a company director for up to 15 years.
+\[DEPT-D\] enforces minimum wage legislation. If you are found to have underpaid workers, you will be required to pay all arrears owed and may face a financial penalty of up to 200 percent of the total underpayment, up to a maximum of 20,000 pounds per worker. Employers who repeatedly or deliberately fail to pay the minimum wage may also be publicly named by the government, prosecuted, and disqualified from acting as a company director for up to 15 years.
 
 </div>
 
@@ -173,17 +175,17 @@ HMRC enforces minimum wage legislation. If you are found to have underpaid worke
 | Field | Value |
 | --- | --- |
 | audience | Employers |
-| author | Department for Business and Trade |
+| author | [Government Department B] |
 | description | Current National Minimum Wage and National Living Wage rates, employer obligations, and common errors in calculating pay. |
 | document-id | DOC-SB-003 |
 | document-type | guidance |
 | exif_Audience | Employers |
-| exif_Author | Department for Business and Trade |
+| exif_Author | [Government Department B] |
 | exif_Description | Current National Minimum Wage and National Living Wage rates, employer obligations, and common errors in calculating pay. |
 | exif_DocumentId | DOC-SB-003 |
 | exif_DocumentType | guidance |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-SB-003-national-minimum-wage.html |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 8.1 kB |

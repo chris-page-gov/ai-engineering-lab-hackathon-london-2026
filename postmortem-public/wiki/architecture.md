@@ -1,8 +1,11 @@
 ---
+type: "Architecture"
 title: "Architecture"
 tags:
   - "architecture"
   - "codex-postmortem-public"
+description: "```mermaid flowchart LR Private[\"Ignored private postmortem archive\"] --> Builder[\"tools/build_codex_postmortem.py\"] Builder --> Public[\"postmortem-public\"] Public --> Exchanges[\"Redacted exchange notes\"] Public --> Read"
+timestamp: "2026-06-27"
 ---
 
 # Public Postmortem Architecture

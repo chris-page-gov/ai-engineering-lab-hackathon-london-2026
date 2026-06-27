@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0078"
 title: "There were a few \"Can I trust this folder\" prompts holding things up. I want all to use the best"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0078: There were a few \\\"Can I trust this folder\\\" prompts holding things up. I want all to use the best."
+timestamp: "2026-04-19T16:33:20.033Z"
 ---
 
 # 0078. There were a few "Can I trust this folder" prompts holding things up. I want all to use the best

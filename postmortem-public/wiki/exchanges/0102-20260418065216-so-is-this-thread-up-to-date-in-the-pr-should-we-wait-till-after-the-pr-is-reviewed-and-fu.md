@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0102"
 title: "So, is this thread up to date in the PR? Should we wait till after the PR is reviewed and fully "
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0102: So, is this thread up to date in the PR? Should we wait till after the PR is reviewed and fully ."
+timestamp: "2026-04-20T07:45:47.135Z"
 ---
 
 # 0102. So, is this thread up to date in the PR? Should we wait till after the PR is reviewed and fully

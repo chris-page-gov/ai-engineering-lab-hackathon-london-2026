@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0063"
 title: "The PR says 5 conversations, I thought we added this, which would be six?"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0063: The PR says 5 conversations, I thought we added this, which would be six?."
+timestamp: "2026-04-18T12:05:57.757Z"
 ---
 
 # 0063. The PR says 5 conversations, I thought we added this, which would be six?

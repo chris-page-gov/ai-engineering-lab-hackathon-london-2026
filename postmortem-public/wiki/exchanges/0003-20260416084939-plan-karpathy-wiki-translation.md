@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0003"
 title: "Plan Karpathy Wiki Translation"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0003: Plan Karpathy Wiki Translation."
+timestamp: "2026-04-16T08:51:25.593Z"
 ---
 
 # 0003. Plan Karpathy Wiki Translation

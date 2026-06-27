@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0076"
 title: "Looks like it's blocked at policy level, I don't understand as this is a personal project and is"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0076: Looks like it's blocked at policy level, I don't understand as this is a personal project and is."
+timestamp: "2026-04-19T15:25:50.904Z"
 ---
 
 # 0076. Looks like it's blocked at policy level, I don't understand as this is a personal project and is

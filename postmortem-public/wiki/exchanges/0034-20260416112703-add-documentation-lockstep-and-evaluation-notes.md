@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0034"
 title: "Add Documentation Lockstep and Evaluation Notes"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0034: Add Documentation Lockstep and Evaluation Notes."
+timestamp: "2026-04-16T11:31:37.948Z"
 ---
 
 # 0034. Add Documentation Lockstep and Evaluation Notes

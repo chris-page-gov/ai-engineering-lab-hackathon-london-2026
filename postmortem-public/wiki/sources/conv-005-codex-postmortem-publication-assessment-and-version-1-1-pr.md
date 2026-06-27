@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "CONV-005"
 title: "Codex Postmortem, Publication Assessment, and Version 1.1 PR"
 source_type: "redacted_conversation_summary"
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "conversation"
   - "codex-postmortem-public"
+description: "Source note for CONV-005: Codex Postmortem, Publication Assessment, and Version 1.1 PR."
+timestamp: "2026-06-27"
 ---
 
 # Codex Postmortem, Publication Assessment, and Version 1.1 PR

@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-PROCUREMENT-THRESHOLDS-2024-25"
 title: "Procurement Thresholds 2024-25"
 aliases:
@@ -7,7 +8,7 @@ aliases:
 source_path: "../../unstructured_files/Procurement Thresholds 2024-25.xlsx"
 source_format: "xlsx"
 document_type: "spreadsheet"
-department: "Cabinet Office"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -33,6 +34,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-PROCUREMENT-THRESHOLDS-2024-25: Procurement Thresholds 2024-25."
+timestamp: "2026-06-27"
 ---
 
 # Procurement Thresholds 2024-25
@@ -51,7 +54,7 @@ sensitivity:
 | Raw source | [Procurement Thresholds 2024-25.xlsx](../../unstructured_files/Procurement%20Thresholds%202024-25.xlsx) |
 | Format | xlsx |
 | Document type | spreadsheet |
-| Department | Cabinet Office |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -62,12 +65,11 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | bbd55b42b6309bdf705e653394261441aeead218ea9e34a81db4128821c4de09 |
+| SHA-256 | 3b0e5668e1b96786d6c011146742601aaf4f9b630af52bc1a5336fdd5214816b |
 
 ## Navigation
 
 - Topic: [Procurement And Spending Controls](../topics/procurement-and-spending-controls.md)
-- Entity: [Cabinet Office](../entities/cabinet-office.md)
 
 ## Extracted Content
 
@@ -99,7 +101,7 @@ sensitivity:
 
 | Note 1: All values exclude VAT |
 | --- |
-| Note 2: FTS thresholds are updated every two years by the Cabinet Office |
+| Note 2: FTS thresholds are updated every two years by the [Central Government Body] |
 | Note 3: For framework call-offs, follow the framework's own competition rules |
 | Note 4: Emergency procurements — contact the Commercial Helpdesk immediately |
 | Note 5: These thresholds replace the 2023-24 thresholds (FTS was £138,760) |
@@ -117,11 +119,11 @@ sensitivity:
 | exif_Application | Microsoft Excel Compatible / Openpyxl 3.1.5 |
 | exif_CreateDate | 2026:04:14 08:54:51Z |
 | exif_Creator | openpyxl |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Procurement Thresholds 2024-25.xlsx |
 | exif_FilePermissions | -rw-r--r-- |
-| exif_FileSize | 7.1 kB |
+| exif_FileSize | 7.2 kB |
 | exif_FileType | XLSX |
 | exif_FileTypeExtension | xlsx |
 | exif_MIMEType | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet |

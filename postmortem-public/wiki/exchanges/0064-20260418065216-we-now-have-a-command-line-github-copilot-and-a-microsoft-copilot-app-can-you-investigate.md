@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0064"
 title: "We now have a command line GitHub Copilot and a Microsoft Copilot app. Can you investigate addin"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0064: We now have a command line GitHub Copilot and a Microsoft Copilot app. Can you investigate addin."
+timestamp: "2026-04-18T12:09:12.119Z"
 ---
 
 # 0064. We now have a command line GitHub Copilot and a Microsoft Copilot app. Can you investigate addin

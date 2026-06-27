@@ -7,6 +7,9 @@
 __pycache__/
 *.py[cod]
 
+# Generated GitHub Pages output.
+_site/
+
 # Private Codex postmortem evidence archive. The GitHub-safe derivative lives in
 # postmortem-public/.
 postmortem/

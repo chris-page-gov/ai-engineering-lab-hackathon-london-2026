@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0101"
 title: "Do human rubric scoring in this PR"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0101: Do human rubric scoring in this PR."
+timestamp: "2026-04-20T06:25:05.228Z"
 ---
 
 # 0101. Do human rubric scoring in this PR

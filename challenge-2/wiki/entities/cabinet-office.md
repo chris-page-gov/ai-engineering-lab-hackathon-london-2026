@@ -1,4 +1,5 @@
 ---
+type: "Entity"
 title: "Cabinet Office"
 aliases:
   - "Cabinet Office"
@@ -7,25 +8,16 @@ tags:
   - "entity"
   - "challenge-2"
   - "cabinet-office"
-source_count: 4
-updated: "2026-04-16"
+source_count: 0
+updated: "2026-06-27"
+description: "Entity page for Challenge 2 sources that mention Cabinet Office."
+timestamp: "2026-06-27"
 ---
 
 # Cabinet Office
 
-This entity appears in 4 source documents.
-
-| Source | Status | Format | Department | Flags |
-| --- | --- | --- | --- | --- |
-| [UF-PERFORMANCE-MANAGEMENT-FRAMEWORK-2024-25](../sources/uf-performance-management-framework-performance-management-framework-2024-25.md) | unknown | docx | DWP |  |
-| [UF-PROCUREMENT-THRESHOLDS-2024-25](../sources/uf-procurement-thresholds-2024-25-procurement-thresholds-2024-25.md) | unknown | xlsx | Cabinet Office |  |
-| [UF-RECRUITMENT-AND-SELECTION-POLICY](../sources/uf-recruitment-and-selection-policy-recruitment-and-selection-policy.md) | unknown | pdf | DWP |  |
-| [UF-SPENDING-CONTROLS-GUIDANCE](../sources/uf-spending-controls-guidance-dwp-spending-controls-guidance.md) | unknown | pdf | DWP |  |
+This entity appears in 0 source documents.
 
 ## Related Notes
 
-- [UF-PERFORMANCE-MANAGEMENT-FRAMEWORK-2024-25](../sources/uf-performance-management-framework-performance-management-framework-2024-25.md)
-- [UF-PROCUREMENT-THRESHOLDS-2024-25](../sources/uf-procurement-thresholds-2024-25-procurement-thresholds-2024-25.md)
-- [UF-RECRUITMENT-AND-SELECTION-POLICY](../sources/uf-recruitment-and-selection-policy-recruitment-and-selection-policy.md)
-- [UF-SPENDING-CONTROLS-GUIDANCE](../sources/uf-spending-controls-guidance-dwp-spending-controls-guidance.md)
 - [Knowledge base index](../index.md)

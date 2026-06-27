@@ -1,4 +1,5 @@
 ---
+type: "Source"
 title: "tests/test_challenge2_eval_questions.py"
 source_type: "repository_artifact"
 tracked_at_baseline: true
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "repository-artifact"
   - "codex-postmortem-public"
+description: "tests/test_challenge2_eval_questions.py"
+timestamp: "2026-06-27"
 ---
 
 # tests/test_challenge2_eval_questions.py

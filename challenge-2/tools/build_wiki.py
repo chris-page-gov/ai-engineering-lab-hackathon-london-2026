@@ -48,6 +48,20 @@ TABLES_DIR = DATA_DIR / "tables"
 
 TODAY = dt.date.today().isoformat()
 BUILD_TS = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
+OKF_VERSION = "0.1"
+OKF_TYPE_BY_NOTE_TYPE = {
+    "architecture": "Architecture",
+    "data-readme": "Data Index",
+    "demo-guide": "Guide",
+    "entity": "Entity",
+    "evaluation-benchmark": "Evaluation",
+    "index": "Index",
+    "interface": "Interface",
+    "lint-report": "Lint Report",
+    "log": "Log",
+    "map": "Map",
+    "topic": "Topic",
+}
 
 
 TOPIC_DEFS = [
@@ -340,7 +354,64 @@ def yaml_dump(data: dict[str, Any], indent: int = 0) -> str:
 
 
 def frontmatter(data: dict[str, Any]) -> str:
+    data = okf_frontmatter(data)
     return "---\n" + yaml_dump(data) + "\n---\n\n"
+
+
+def okf_type(data: dict[str, Any]) -> str:
+    if data.get("type"):
+        return str(data["type"])
+    note_type = str(data.get("note_type") or "")
+    if note_type in OKF_TYPE_BY_NOTE_TYPE:
+        return OKF_TYPE_BY_NOTE_TYPE[note_type]
+    if data.get("source_id"):
+        return "Source"
+    return "Document"
+
+
+def okf_description(data: dict[str, Any]) -> str:
+    if data.get("description"):
+        return str(data["description"])
+    title = str(data.get("title") or "").strip()
+    note_type = str(data.get("note_type") or "")
+    source_id = data.get("source_id")
+    if source_id:
+        return f"Source note for {source_id}: {title}."
+    if note_type == "index":
+        return "Navigation entry point for the Challenge 2 generated LLM Wiki."
+    if note_type == "architecture":
+        return "Architecture, data flow, and maintenance model for the Challenge 2 generated LLM Wiki."
+    if note_type == "log":
+        return "Chronological ingest and maintenance log for the Challenge 2 generated LLM Wiki."
+    if note_type == "lint-report":
+        return "Generated quality, link, and metadata report for the Challenge 2 generated LLM Wiki."
+    if note_type == "topic" and title:
+        return f"Synthesis page for Challenge 2 sources about {title}."
+    if note_type == "entity" and title:
+        return f"Entity page for Challenge 2 sources that mention {title}."
+    if note_type == "map" and title:
+        return f"Map of content for Challenge 2 sources related to {title}."
+    if note_type == "data-readme":
+        return "Index for generated table exports derived from synthetic Challenge 2 spreadsheet sources."
+    return title or "Challenge 2 generated LLM Wiki page."
+
+
+def okf_timestamp(data: dict[str, Any]) -> str:
+    for key in ("timestamp", "updated", "generated_at", "last_updated", "publication_date"):
+        value = data.get(key)
+        if value:
+            return str(value)
+    return TODAY
+
+
+def okf_frontmatter(data: dict[str, Any]) -> dict[str, Any]:
+    normalized: dict[str, Any] = {
+        "type": okf_type(data),
+    }
+    normalized.update(data)
+    normalized.setdefault("description", okf_description(normalized))
+    normalized.setdefault("timestamp", okf_timestamp(normalized))
+    return normalized
 
 
 def parse_simple_frontmatter(text: str) -> tuple[dict[str, Any], str]:
@@ -1226,7 +1297,7 @@ def write_data(records: list[SourceRecord]) -> None:
             for ws in r.worksheets:
                 csv_path = TABLES_DIR / f"{slugify(r.source_id)}-{slugify(ws['name'])}.csv"
                 with csv_path.open("w", encoding="utf-8", newline="") as f:
-                    writer = csv.writer(f)
+                    writer = csv.writer(f, lineterminator="\n")
                     writer.writerows(ws["rows"])
     (DATA_DIR / "source-register.json").write_text(json.dumps(register, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
 
@@ -1365,6 +1436,7 @@ def write_index(records: list[SourceRecord]) -> None:
         "title": "Challenge 2 Knowledge Base Index",
         "aliases": ["Challenge 2 Wiki", "Dark Data Wiki"],
         "note_type": "index",
+        "okf_version": OKF_VERSION,
         "tags": ["index", "challenge-2", "llm-wiki"],
         "source_count": len(records),
         "updated": TODAY,
@@ -1375,7 +1447,8 @@ def write_index(records: list[SourceRecord]) -> None:
     bits.append(f"- {rel_link(note, WIKI_DIR / 'architecture.md', 'Architecture overview')}\n")
     bits.append(f"- {rel_link(note, WIKI_DIR / 'lint-report.md', 'Lint report')}\n")
     bits.append(f"- {rel_link(note, WIKI_DIR / 'log.md', 'Ingest log')}\n")
-    bits.append(f"- {rel_link(note, DATA_DIR / 'source-register.json', 'Machine-readable source register')}\n\n")
+    bits.append(f"- {rel_link(note, DATA_DIR / 'source-register.json', 'Machine-readable source register')}\n")
+    bits.append("- [Interactive HTML viewer](../../viewer.html)\n\n")
     bits.append("## Maps Of Content\n\n")
     for m in MAP_DEFS:
         bits.append(f"- {rel_link(note, MAPS_DIR / (m['slug'] + '.md'), m['title'])}\n")

@@ -1,4 +1,5 @@
 ---
+type: "Interface"
 title: "Dark Data Workbench"
 aliases:
   - "Challenge 2 Workbench"
@@ -9,6 +10,8 @@ tags:
   - "dark-data-workbench"
   - "start-here"
 updated: "2026-05-12"
+description: "Dark Data Workbench is the browser interface for the Challenge 2 knowledge base. It sits alongside the Obsidian vault and uses the generated source register and wiki notes as its data source."
+timestamp: "2026-05-12"
 ---
 
 # Dark Data Workbench

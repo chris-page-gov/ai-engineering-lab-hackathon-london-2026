@@ -1,4 +1,5 @@
 ---
+type: "Guide"
 title: "Challenge 2 Demonstration Guide"
 aliases:
   - "Demo Guide"
@@ -10,6 +11,8 @@ tags:
   - "llm-wiki"
   - "dark-data-workbench"
 updated: "2026-04-16"
+description: "This page is the end-to-end demonstration route for Challenge 2. It shows how the wiki, Obsidian vault, SeeLinks-style workbench, browser AI export, benchmark, harness, and audit trail fit the challenge brief: make gover"
+timestamp: "2026-04-16"
 ---
 
 # Challenge 2 Demonstration Guide
@@ -50,7 +53,7 @@ Useful source examples:
 | Superseded operational form guidance | [DOC-HB-006](sources/doc-hb-006-housing-benefit-claim-form-hb1-completion-instructions.md) | Demonstrates superseded-source handling. |
 | Draft policy | [UF-INFORMATION-SECURITY-POLICY-DRAFT-V0-8](sources/uf-information-security-policy-draf-draft-not-for-distribution.md) | Demonstrates draft caveats and risk flags. |
 | Synthetic staff directory | [UF-STAFF-DIRECTORY-EXTRACT-Q4-2023](sources/uf-staff-directory-extract-q4-2023-staff-directory-extract-q4-2023.md) | Demonstrates synthetic fixture identifiers and FOI/audit sensitivity handling. |
-| IT hardware approval | [UF-SPENDING-CONTROLS-GUIDANCE](sources/uf-spending-controls-guidance-dwp-spending-controls-guidance.md) and [UF-PROCUREMENT-THRESHOLDS-2024-25](sources/uf-procurement-thresholds-2024-25-procurement-thresholds-2024-25.md) | Demonstrates multi-source evidence and spreadsheet/PDF extraction. |
+| IT hardware approval | [UF-SPENDING-CONTROLS-GUIDANCE](sources/uf-spending-controls-guidance-dept-c.md) and [UF-PROCUREMENT-THRESHOLDS-2024-25](sources/uf-procurement-thresholds-2024-25-procurement-thresholds-2024-25.md) | Demonstrates multi-source evidence and spreadsheet/PDF extraction. |
 | FOI response workflow | [UF-FOI-RESPONSE-TEMPLATE](sources/uf-foi-response-template-template-freedom-of-information-act-2000-response.md) | Demonstrates how audit packs support disclosure and reconstruction. |
 
 The build logic is documented in [Architecture Overview](architecture.md). In short, `build_wiki.py` extracts metadata and text from the raw corpus, preserves the raw source path, generates source notes, derives topic/entity/map notes, writes machine-readable registers, then runs lint checks for metadata coverage, broken links, stale/draft/superseded flags, and known challenge traps.

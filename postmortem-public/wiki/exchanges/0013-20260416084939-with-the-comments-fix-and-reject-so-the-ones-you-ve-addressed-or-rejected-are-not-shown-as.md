@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0013"
 title: "With the comments, fix and reject so the ones you've addressed or rejected are not shown as left"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0013: With the comments, fix and reject so the ones you've addressed or rejected are not shown as left."
+timestamp: "2026-04-16T10:35:49.937Z"
 ---
 
 # 0013. With the comments, fix and reject so the ones you've addressed or rejected are not shown as left

@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-PROGRAMME-BOARD-MINUTES-14-FEB-2024"
 title: "UC Managed Migration Programme Board"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Programme Board Minutes 14 Feb 2024.docx"
 source_format: "docx"
 document_type: "minutes"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -38,6 +39,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-PROGRAMME-BOARD-MINUTES-14-FEB-2024: UC Managed Migration Programme Board."
+timestamp: "2026-06-27"
 ---
 
 # UC Managed Migration Programme Board
@@ -56,7 +59,7 @@ sensitivity:
 | Raw source | [Programme Board Minutes 14 Feb 2024.docx](../../unstructured_files/Programme%20Board%20Minutes%2014%20Feb%202024.docx) |
 | Format | docx |
 | Document type | minutes |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -67,14 +70,13 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 31151eef4a9b02dea4efe5dece594b7014453e2587d16ab886baf4c2e034b5a9 |
+| SHA-256 | d9333d5deb31b69e38fb9ad1b827f56ad1d91ee44ded732adbb661040e7a48ef |
 
 ## Navigation
 
 - Topic: [Discretionary Housing Payments](../topics/discretionary-housing-payments.md)
 - Topic: [Incident Risk And Assurance](../topics/incident-risk-and-assurance.md)
 - Topic: [Overpayment Recovery](../topics/overpayment-recovery.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 - Entity: [Universal Credit Migration](../entities/universal-credit-migration.md)
 
 ## Extracted Content
@@ -113,7 +115,7 @@ SRO presented the programme dashboard. Key points:
 
 - Call volumes: 34% increase in Migration Helpline calls compared to December. Average wait time now 22 minutes (target: 10 minutes).
 
-Discussion: Board member A asked whether the shortfall in notices was a capacity issue or a policy choice. SRO clarified that DWP had deliberately slowed the notice rate in late January due to the NAO report and associated media coverage. Board member B questioned whether this was an appropriate reason to deviate from the plan. SRO noted the Permanent Secretary had been briefed and was comfortable with the approach.
+Discussion: Board member A asked whether the shortfall in notices was a capacity issue or a policy choice. SRO clarified that \[DEPT-C\] had deliberately slowed the notice rate in late January due to the \[REG-B\] report and associated media coverage. Board member B questioned whether this was an appropriate reason to deviate from the plan. SRO noted the Permanent Secretary had been briefed and was comfortable with the approach.
 
 Chair noted that the programme is now 4 months behind the published completion date of March 2025 and asked for a revised timeline. SRO committed to presenting a rebaselined plan at the March board.
 
@@ -169,8 +171,8 @@ Approved by: Chair, 19 February 2024
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.917Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Programme Board Minutes 14 Feb 2024.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 11 kB |

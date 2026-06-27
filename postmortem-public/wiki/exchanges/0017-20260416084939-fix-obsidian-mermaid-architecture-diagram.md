@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0017"
 title: "Fix Obsidian Mermaid Architecture Diagram"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0017: Fix Obsidian Mermaid Architecture Diagram."
+timestamp: "2026-04-16T11:19:31.418Z"
 ---
 
 # 0017. Fix Obsidian Mermaid Architecture Diagram

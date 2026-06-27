@@ -1,8 +1,12 @@
 ---
+type: "Index"
 title: "Public Codex Postmortem"
 tags:
   - "index"
   - "codex-postmortem-public"
+okf_version: "0.1"
+description: "Navigation entry point for Public Codex Postmortem."
+timestamp: "2026-06-27"
 ---
 
 # Public Codex Postmortem

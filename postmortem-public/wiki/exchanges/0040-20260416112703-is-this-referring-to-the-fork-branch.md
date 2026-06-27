@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0040"
 title: "is this referring to the fork branch"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0040: is this referring to the fork branch."
+timestamp: "2026-04-16T12:31:48.443Z"
 ---
 
 # 0040. is this referring to the fork branch

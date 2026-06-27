@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0024"
 title: "Implement Karpathy Wiki Vault"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0024: Implement Karpathy Wiki Vault."
+timestamp: "2026-04-16T12:36:14.314Z"
 ---
 
 # 0024. Implement Karpathy Wiki Vault

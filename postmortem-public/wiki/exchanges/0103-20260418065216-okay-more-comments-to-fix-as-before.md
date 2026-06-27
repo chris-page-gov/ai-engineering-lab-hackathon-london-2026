@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0103"
 title: "Okay, more comments to fix as before"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0103: Okay, more comments to fix as before."
+timestamp: "2026-04-20T08:22:11.824Z"
 ---
 
 # 0103. Okay, more comments to fix as before

@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-ELIGIBILITY-CRITERIA-HOUSING-BENEFIT"
 title: "Housing Benefit: Eligibility Criteria"
 aliases:
@@ -34,6 +35,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-ELIGIBILITY-CRITERIA-HOUSING-BENEFIT: Housing Benefit: Eligibility Criteria."
+timestamp: "June 2019 \\| Owner: Benefits Policy Division"
 ---
 
 # Housing Benefit: Eligibility Criteria
@@ -152,7 +155,7 @@ For social tenants, eligible rent is normally the actual rent charged, but may b
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.695Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
+| exif_ExifToolVersion | 13.55 |
 | exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
 | exif_FileName | Eligibility_Criteria_Housing_Benefit.docx |
 | exif_FilePermissions | -rw-r--r-- |

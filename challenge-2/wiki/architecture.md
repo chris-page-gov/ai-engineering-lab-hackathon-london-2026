@@ -1,4 +1,5 @@
 ---
+type: "Architecture"
 title: "Challenge 2 Architecture"
 aliases:
   - "Architecture Overview"
@@ -11,7 +12,9 @@ tags:
   - "llm-wiki"
   - "start-here"
 source_count: 43
-updated: "2026-04-16"
+updated: "2026-06-27"
+description: "Architecture, data flow, and maintenance model for the Challenge 2 generated LLM Wiki."
+timestamp: "2026-06-27"
 ---
 
 # Challenge 2 Architecture
@@ -23,8 +26,6 @@ This page explains the knowledge-base architecture for someone seeing it for the
 Challenge 2 starts with a messy document collection: HTML, Markdown, text files, PDFs, Word documents, and spreadsheets. The architecture translates those documents into an Obsidian-friendly knowledge base without changing the source files. The result is a wiki with source notes, topic pages, entity pages, maps of content, a source register, and a lint report.
 
 The design follows the LLM Wiki pattern: raw sources are the source of truth, generated Markdown is the navigable knowledge layer, and explicit operating rules tell future agents how to maintain it.
-
-The browser interface for this layer is [Dark Data Workbench](workbench.md). It lets users filter the generated source register, build an explicit context set, inspect evidence without AI, or export the same context to browser AI and local MCP clients.
 
 ## System At A Glance
 
@@ -40,7 +41,6 @@ flowchart LR
   Synthesis --> Vault
   Lint --> Vault
   Vault --> Users["Users\nbrowse, search, follow links, demo answers"]
-  Vault --> Workbench["Dark Data Workbench\nfilter, context, export, MCP"]
 ```
 
 ## Ingest And Validation Flow
@@ -97,11 +97,11 @@ flowchart TB
 ## Demo Walkthrough
 
 1. Open the `challenge-2/` folder as the Obsidian vault.
-2. Start at [the knowledge base index](index.md) or [Dark Data Workbench](workbench.md).
+2. Start at [the knowledge base index](index.md).
 3. Use [Housing And Benefits Map](maps/housing-and-benefits.md) to show how policy documents connect.
 4. Use [Procurement And Spending Controls](topics/procurement-and-spending-controls.md) to answer the IT hardware approval question.
 5. Use [the lint report](lint-report.md) to show why metadata, provenance, and versioning matter.
-6. Use [the source register](data/source-register.json) or Dark Data Workbench exports to show the same knowledge base can also feed machine consumers.
+6. Use [the source register](data/source-register.json) to show the same knowledge base can also feed machine consumers.
 
 ## Why The Architecture Matters
 
@@ -118,7 +118,6 @@ flowchart TB
 | --- | --- |
 | Architecture | The way the raw files, extraction script, generated notes, data files, and Obsidian vault fit together. |
 | Corpus | The complete set of Challenge 2 source documents being processed. |
-| Dark Data Workbench | The browser UI for filtering the wiki corpus, building context sets, browsing evidence, and exporting that context to browser AI or MCP. |
 | Entity page | A generated note about a department, law, form, team, or programme that appears across sources. |
 | Extraction | The process of reading content and metadata from source formats such as PDF, DOCX, HTML, Markdown, text, and XLSX. |
 | Frontmatter | YAML metadata at the top of a Markdown note, used by Obsidian and scripts for filtering and navigation. |

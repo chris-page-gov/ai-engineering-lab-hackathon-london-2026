@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0083"
 title: "It looked like the Microsoft 365 Copilot failed because the prompt specified:"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0083: It looked like the Microsoft 365 Copilot failed because the prompt specified:."
+timestamp: "2026-04-19T17:19:06.583Z"
 ---
 
 # 0083. It looked like the Microsoft 365 Copilot failed because the prompt specified:

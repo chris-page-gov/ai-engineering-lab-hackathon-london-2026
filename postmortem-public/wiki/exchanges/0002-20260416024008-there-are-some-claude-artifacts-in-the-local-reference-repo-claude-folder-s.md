@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0002"
 title: "There are some claude artifacts in the [LOCAL_REFERENCE_REPO]/.claude/ folder,  s"
 source_id: "CONV-001"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0002: There are some claude artifacts in the [LOCAL_REFERENCE_REPO]/.claude/ folder,  s."
+timestamp: "2026-04-16T06:55:53.282Z"
 ---
 
 # 0002. There are some claude artifacts in the [LOCAL_REFERENCE_REPO]/.claude/ folder,  s

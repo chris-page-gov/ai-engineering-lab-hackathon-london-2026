@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-FOI-RESPONSE-TEMPLATE"
 title: "TEMPLATE — FREEDOM OF INFORMATION ACT 2000 RESPONSE"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/FOI_Response_Template.docx"
 source_format: "docx"
 document_type: "template"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -36,6 +37,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-FOI-RESPONSE-TEMPLATE: TEMPLATE — FREEDOM OF INFORMATION ACT 2000 RESPONSE."
+timestamp: "2026-06-27"
 ---
 
 # TEMPLATE — FREEDOM OF INFORMATION ACT 2000 RESPONSE
@@ -54,7 +57,7 @@ sensitivity:
 | Raw source | [FOI_Response_Template.docx](../../unstructured_files/FOI_Response_Template.docx) |
 | Format | docx |
 | Document type | template |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -65,13 +68,12 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 8e5ec989e30881db60253762e29b39a9f58469850c2148872756f778fdaa58dc |
+| SHA-256 | dda2c117151309a17abc2ad5de006de8a4d1fa59ab59aef5532d1326acd3bcfe |
 
 ## Navigation
 
 - Topic: [Data Protection And Information Security](../topics/data-protection-and-information-security.md)
 - Topic: [FOI And Transparency](../topics/foi-and-transparency.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 
 ## Extracted Content
 
@@ -121,7 +123,7 @@ If you are not satisfied with this response, you may request an internal review 
 
 FOI Internal Review Team
 
-Department for Work and Pensions
+\[Government Department C\]
 
 Caxton House
 
@@ -129,11 +131,11 @@ Tothill Street
 
 London SW1H 9NA
 
-Email: foi.internalreview@dwp.gov.uk
+Email: foi.internalreview@\[department\].gov.uk
 
-If you remain dissatisfied after internal review, you may complain to the Information Commissioner’s Office:
+If you remain dissatisfied after internal review, you may complain to the \[Regulatory Body A\]:
 
-Information Commissioner’s Office
+\[Regulatory Body A\]
 
 Wycliffe House
 
@@ -143,7 +145,7 @@ Wilmslow
 
 Cheshire SK9 5AF
 
-www.ico.org.uk
+www.\[regulatory-body\].org.uk
 
 Yours sincerely,
 
@@ -153,7 +155,7 @@ Yours sincerely,
 
 Freedom of Information Team
 
-Department for Work and Pensions
+\[Government Department C\]
 
 ## Raw Metadata
 
@@ -163,8 +165,8 @@ Department for Work and Pensions
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.809Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | FOI_Response_Template.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 9.7 kB |

@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0038"
 title: "Is their a PR on the fork?"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0038: Is their a PR on the fork?."
+timestamp: "2026-04-16T12:14:07.704Z"
 ---
 
 # 0038. Is their a PR on the fork?

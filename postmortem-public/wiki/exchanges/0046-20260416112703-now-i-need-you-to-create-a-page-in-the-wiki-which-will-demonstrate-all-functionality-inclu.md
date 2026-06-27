@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0046"
 title: "Now I need you to create a page in the wiki which will demonstrate all functionality including h"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0046: Now I need you to create a page in the wiki which will demonstrate all functionality including h."
+timestamp: "2026-04-16T14:17:21.842Z"
 ---
 
 # 0046. Now I need you to create a page in the wiki which will demonstrate all functionality including h

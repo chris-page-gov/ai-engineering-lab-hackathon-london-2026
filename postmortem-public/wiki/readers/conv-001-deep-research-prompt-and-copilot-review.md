@@ -1,4 +1,5 @@
 ---
+type: "Reader"
 source_id: "CONV-001"
 title: "Deep Research Prompt and Copilot Review Reader"
 reader_type: "redacted_start_to_finish_conversation"
@@ -8,6 +9,8 @@ tags:
   - "reader"
   - "conversation"
   - "codex-postmortem-public"
+description: "Start-to-finish reader for Deep Research Prompt and Copilot Review Reader."
+timestamp: "2026-06-27"
 ---
 
 # CONV-001: Deep Research Prompt and Copilot Review

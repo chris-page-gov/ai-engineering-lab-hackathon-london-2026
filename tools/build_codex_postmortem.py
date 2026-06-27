@@ -57,6 +57,7 @@ BASELINE_TAG = "v1-challenge-2"
 PUBLICATION_VERSION = "1.1"
 PUBLICATION_BRANCH = "codex/postmortem-wiki"
 TEAM_NAME = "Team DSIT A"
+OKF_VERSION = "0.1"
 ALLOWED_EXTERNAL_SOURCE_HOSTS = {
     "gist.github.com",
     "gist.githubusercontent.com",
@@ -520,6 +521,7 @@ def build_exchanges(sessions: list[Session]) -> list[Exchange]:
 
 
 def frontmatter(fields: dict[str, Any]) -> str:
+    fields = okf_frontmatter(fields)
     lines = ["---"]
     for key, value in fields.items():
         if isinstance(value, list):
@@ -536,6 +538,81 @@ def frontmatter(fields: dict[str, Any]) -> str:
             lines.append(f"{key}: {yaml_string(str(value))}")
     lines.append("---")
     return "\n".join(lines) + "\n\n"
+
+
+def okf_type(fields: dict[str, Any]) -> str:
+    if fields.get("type"):
+        return str(fields["type"])
+    tags = {str(tag) for tag in fields.get("tags", []) if tag}
+    if "index" in tags:
+        return "Index"
+    if "log" in tags:
+        return "Log"
+    if "source" in tags:
+        return "Source"
+    if "exchange" in tags:
+        return "Exchange"
+    if "reader" in tags:
+        return "Reader"
+    if "map" in tags:
+        return "Map"
+    if "topic" in tags:
+        return "Topic"
+    if "entity" in tags:
+        return "Entity"
+    if "architecture" in tags:
+        return "Architecture"
+    if "lint" in tags:
+        return "Lint Report"
+    if "decisions" in tags:
+        return "Decision Register"
+    if "methodology" in tags:
+        return "Methodology"
+    if "postmortem" in tags:
+        return "Postmortem"
+    if "evidence" in tags:
+        return "Evidence"
+    if fields.get("source_type"):
+        return "Source"
+    if fields.get("reader_type"):
+        return "Reader"
+    if fields.get("exchange_id"):
+        return "Exchange"
+    return "Document"
+
+
+def okf_description(fields: dict[str, Any]) -> str:
+    if fields.get("description"):
+        return str(fields["description"])
+    title = str(fields.get("title") or "").strip()
+    page_type = okf_type(fields)
+    if page_type == "Source" and fields.get("source_id"):
+        return f"Source note for {fields['source_id']}: {title}."
+    if page_type == "Exchange" and fields.get("exchange_id"):
+        return f"Redacted prompt-response exchange {fields['exchange_id']} from the public Codex postmortem."
+    if page_type == "Reader":
+        return "Start-to-finish Markdown reader for a curated Codex postmortem conversation."
+    if page_type == "Index":
+        return "Navigation entry point for the Codex collaboration postmortem wiki."
+    if title:
+        return title
+    return "Codex collaboration postmortem wiki page."
+
+
+def okf_timestamp(fields: dict[str, Any]) -> str:
+    for key in ("timestamp", "start_timestamp", "user_timestamp", "captured_at", "updated_at"):
+        value = fields.get(key)
+        if value:
+            return str(value)
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def okf_frontmatter(fields: dict[str, Any]) -> dict[str, Any]:
+    normalized: dict[str, Any] = {"type": okf_type(fields)}
+    normalized.update(fields)
+    normalized.setdefault("description", okf_description(normalized))
+    normalized.setdefault("timestamp", okf_timestamp(normalized))
+    return normalized
 
 
 def write_conversation_sources(sessions: list[Session]) -> None:
@@ -1270,7 +1347,7 @@ def write_postmortem(sessions: list[Session], exchanges: list[Exchange], artifac
 
 def write_index(sessions: list[Session], exchanges: list[Exchange], external_records: list[dict[str, Any]], artifacts: list[dict[str, Any]]) -> None:
     parts = [
-        frontmatter({"title": "Codex Postmortem Wiki", "tags": ["index", "codex-postmortem"]}),
+        frontmatter({"title": "Codex Postmortem Wiki", "okf_version": OKF_VERSION, "tags": ["index", "codex-postmortem"]}),
         "# Codex Postmortem Wiki\n\n",
         "This wiki reconstructs the Challenge 2 Codex collaboration from local conversation evidence, repository artifacts, and verified external methodology sources.\n\n",
         "## Start Here\n\n",
@@ -2016,7 +2093,7 @@ def write_public_index(
     artifacts: list[dict[str, Any]],
 ) -> None:
     parts = [
-        frontmatter({"title": "Public Codex Postmortem", "tags": ["index", "codex-postmortem-public"]}),
+        frontmatter({"title": "Public Codex Postmortem", "okf_version": OKF_VERSION, "tags": ["index", "codex-postmortem-public"]}),
         "# Public Codex Postmortem\n\n",
         f"This folder is the GitHub-safe derivative of the private Codex postmortem evidence archive for {TEAM_NAME}'s Challenge 2 work.\n\n",
         "## Start Here\n\n",
@@ -2105,6 +2182,7 @@ def write_public_agents() -> None:
         - Add new conversation session IDs to the curated list in `tools/build_codex_postmortem.py` before regenerating public output.
         - Regenerate with `python3 tools/build_codex_postmortem.py` rather than hand-editing generated exchange notes.
         - Treat `wiki/readers/` as the standard GitHub-friendly route for following conversations from start to finish.
+        - Keep generated `wiki/` Markdown OKF-compatible for publication; validate with `python3 scripts/check_okf_conformance.py` after regeneration.
         """
     )
     write_text(POSTMORTEM_PUBLIC_ROOT / "AGENTS.md", text)

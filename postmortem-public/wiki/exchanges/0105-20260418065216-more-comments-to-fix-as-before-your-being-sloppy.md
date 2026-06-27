@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0105"
 title: "More comments to fix as before, your being sloppy?"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0105: More comments to fix as before, your being sloppy?."
+timestamp: "2026-04-20T09:24:21.923Z"
 ---
 
 # 0105. More comments to fix as before, your being sloppy?

@@ -1,8 +1,11 @@
 ---
+type: "Evidence"
 title: "Repository Evidence"
 tags:
   - "evidence"
   - "codex-postmortem-public"
+description: "Commit-specific GitHub permalinks are used where files were tracked at the tagged Challenge 2 baseline. Version 1.1 publication artifacts that did not exist at that baseline use publication-branch links until the PR is m"
+timestamp: "2026-06-27"
 ---
 
 # Repository Evidence

@@ -1,4 +1,5 @@
 ---
+type: "Source"
 title: "output/doc/challenge-2-realtime-delivery-report.docx"
 source_type: "repository_artifact"
 tracked_at_baseline: false
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "repository-artifact"
   - "codex-postmortem-public"
+description: "output/doc/challenge-2-realtime-delivery-report.docx"
+timestamp: "2026-06-27"
 ---
 
 # output/doc/challenge-2-realtime-delivery-report.docx

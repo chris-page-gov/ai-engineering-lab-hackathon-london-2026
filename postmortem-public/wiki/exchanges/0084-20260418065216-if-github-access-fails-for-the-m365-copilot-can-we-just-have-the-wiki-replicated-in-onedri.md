@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0084"
 title: "If GitHub access fails for the M365 Copilot, can we just have the Wiki replicated in OneDrive - "
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0084: If GitHub access fails for the M365 Copilot, can we just have the Wiki replicated in OneDrive - ."
+timestamp: "2026-04-19T17:21:56.612Z"
 ---
 
 # 0084. If GitHub access fails for the M365 Copilot, can we just have the Wiki replicated in OneDrive -

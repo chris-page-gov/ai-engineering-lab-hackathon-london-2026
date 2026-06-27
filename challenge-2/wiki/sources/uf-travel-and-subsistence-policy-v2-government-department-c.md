@@ -1,14 +1,15 @@
 ---
+type: "Source"
 source_id: "UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0"
-title: "Travel and Subsistence Policy"
+title: "\\[GOVERNMENT DEPARTMENT C\\]"
 aliases:
   - "UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0"
-  - "Travel and Subsistence Policy"
+  - "\\[GOVERNMENT DEPARTMENT C\\]"
   - "travel-and-subsistence-policy-v2.0"
 source_path: "../../unstructured_files/travel-and-subsistence-policy-v2.0.docx"
 source_format: "docx"
 document_type: "policy"
-department: "DWP"
+department: null
 owner: "People Services"
 status: "unknown"
 version: "2.0"
@@ -35,26 +36,28 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: "OFFICIAL"
+description: "Source note for UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0: \\[GOVERNMENT DEPARTMENT C\\]."
+timestamp: "April 2021"
 ---
 
-# Travel and Subsistence Policy
+# \[GOVERNMENT DEPARTMENT C\]
 ## Summary
 
 - Source: [travel-and-subsistence-policy-v2.0.docx](../../unstructured_files/travel-and-subsistence-policy-v2.0.docx)
 - Extraction: `pandoc-docx` with `high` quality.
 - Flags: past review: next review was April 2022.
-- Extract: DEPARTMENT FOR WORK AND PENSIONS Travel and Subsistence Policy Version 2.0 Date: April 2021 Owner: People Services 1\. Introduction This document sets out the Department’s policy on travel and subsistence. All staff must comply with this policy when travelling on official business. 2\. Travel 2.1 Rail Standard class is the default. First class may be used where the journey is over 3 hours and the traveller needs to work during the journey. 2.2 Air Flights within the UK mainland are not normally approved. Economy class for all international travel. 2.3 Car Mileage rates: ------------- --------------------------------------------- Vehicle Rate...
+- Extract: \[GOVERNMENT DEPARTMENT C\] Travel and Subsistence Policy Version 2.0 Date: April 2021 Owner: People Services 1\. Introduction This document sets out the Department’s policy on travel and subsistence. All staff must comply with this policy when travelling on official business. 2\. Travel 2.1 Rail Standard class is the default. First class may be used where the journey is over 3 hours and the traveller needs to work during the journey. 2.2 Air Flights within the UK mainland are not normally approved. Economy class for all international travel. 2.3 Car Mileage rates: ------------- --------------------------------------------- Vehicle Rate Car...
 
 ## Metadata
 
 | Field | Value |
 | --- | --- |
 | Source ID | UF-TRAVEL-AND-SUBSISTENCE-POLICY-V2-0 |
-| Title | Travel and Subsistence Policy |
+| Title | \[GOVERNMENT DEPARTMENT C\] |
 | Raw source | [travel-and-subsistence-policy-v2.0.docx](../../unstructured_files/travel-and-subsistence-policy-v2.0.docx) |
 | Format | docx |
 | Document type | policy |
-| Department | DWP |
+| Department |  |
 | Owner | People Services |
 | Status | unknown |
 | Version | 2.0 |
@@ -65,17 +68,16 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 381d004b7d44b64881bf7e7fc8868fac1d833bf8768e6149936a30944b5cbdb6 |
+| SHA-256 | 7ed007ba6f6150261734fb147fc57dfc7afc58f5fb352dd2b2607469d79c359d |
 
 ## Navigation
 
 - Topic: [People Policies](../topics/people-policies.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 - Entity: [People Services](../entities/people-services.md)
 
 ## Extracted Content
 
-**DEPARTMENT FOR WORK AND PENSIONS**
+**\[GOVERNMENT DEPARTMENT C\]**
 
 **Travel and Subsistence Policy**
 
@@ -138,8 +140,8 @@ Next review: April 2022
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.439Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | travel-and-subsistence-policy-v2.0.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 9.8 kB |

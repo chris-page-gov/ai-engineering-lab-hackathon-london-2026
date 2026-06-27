@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0010"
 title: "Along with the code, can you draft a io webpage for our architecture explaining it to a person w"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0010: Along with the code, can you draft a io webpage for our architecture explaining it to a person w."
+timestamp: "2026-04-16T09:29:43.723Z"
 ---
 
 # 0010. Along with the code, can you draft a io webpage for our architecture explaining it to a person w

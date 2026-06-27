@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0037"
 title: "Do a PR for the evaluation work"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0037: Do a PR for the evaluation work."
+timestamp: "2026-04-16T12:11:10.024Z"
 ---
 
 # 0037. Do a PR for the evaluation work

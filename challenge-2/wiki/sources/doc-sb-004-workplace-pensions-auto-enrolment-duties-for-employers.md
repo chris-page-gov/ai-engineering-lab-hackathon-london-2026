@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-SB-004"
 title: "WORKPLACE PENSIONS: AUTO-ENROLMENT DUTIES FOR EMPLOYERS"
 aliases:
@@ -40,6 +41,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-SB-004: WORKPLACE PENSIONS: AUTO-ENROLMENT DUTIES FOR EMPLOYERS."
+timestamp: "2025-11-20"
 ---
 
 # WORKPLACE PENSIONS: AUTO-ENROLMENT DUTIES FOR EMPLOYERS
@@ -69,7 +72,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 185f2931c5d540d0df5f4d9ba64ac278982db533ae608ccba18d236451fc3816 |
+| SHA-256 | 6e9adca52428130373b4b74747cb05af06b88e8f0ff20c77dfa03969c8111664 |
 
 ## Related Sources
 
@@ -240,28 +243,28 @@ Last Updated: 2025-11-20
 
 5. COMPLIANCE AND PENALTIES
 
-5.1 The Pensions Regulator's powers
+5.1 [Regulatory Body C]'s powers
 
-    The Pensions Regulator (TPR) is responsible for ensuring employers
-    comply with their auto-enrolment duties. TPR has a range of
+    [Regulatory Body C] ([REG-C]) is responsible for ensuring employers
+    comply with their auto-enrolment duties. [REG-C] has a range of
     enforcement tools available, escalating in severity.
 
 5.2 Penalty structure
 
     5.2.1 Compliance notice
 
-        TPR may issue a compliance notice requiring you to take specific
+        [REG-C] may issue a compliance notice requiring you to take specific
         actions (such as enrolling workers or paying contributions) by
         a stated deadline.
 
     5.2.2 Fixed penalty notice
 
-        If you do not comply with a compliance notice, TPR may issue a
+        If you do not comply with a compliance notice, [REG-C] may issue a
         fixed penalty notice of 400 pounds.
 
     5.2.3 Escalating penalty notice
 
-        If non-compliance continues after a fixed penalty notice, TPR
+        If non-compliance continues after a fixed penalty notice, [REG-C]
         may issue an escalating daily penalty. The daily rate depends
         on the number of workers in your PAYE scheme:
 
@@ -276,7 +279,7 @@ Last Updated: 2025-11-20
     5.2.4 Criminal prosecution
 
         In the most serious cases, particularly where an employer
-        wilfully fails to comply or induces workers to opt out, TPR
+        wilfully fails to comply or induces workers to opt out, [REG-C]
         may pursue criminal prosecution.
 
 ------------------------------------------------------------------------
@@ -287,7 +290,7 @@ Last Updated: 2025-11-20
     years. This includes the names and addresses of enrolled workers,
     the dates of enrolment and any opt-outs, contribution amounts paid,
     and the pension scheme reference numbers. Failure to keep adequate
-    records may itself result in a compliance notice from TPR.
+    records may itself result in a compliance notice from [REG-C].
 
 ------------------------------------------------------------------------
 
@@ -298,18 +301,18 @@ CROSS-REFERENCES
 
 ------------------------------------------------------------------------
 
-Published by: The Pensions Regulator
+Published by: [Regulatory Body C]
 
 ## Raw Metadata
 
 | Field | Value |
 | --- | --- |
 | document_id | DOC-SB-004 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-SB-004-workplace-pensions.txt |
 | exif_FilePermissions | -rw-r--r-- |
-| exif_FileSize | 8.3 kB |
+| exif_FileSize | 8.4 kB |
 | exif_FileType | TXT |
 | exif_FileTypeExtension | txt |
 | exif_LineCount | 215 |

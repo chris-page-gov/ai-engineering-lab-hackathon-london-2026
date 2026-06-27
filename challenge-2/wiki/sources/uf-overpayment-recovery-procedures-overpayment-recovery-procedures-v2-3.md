@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-OVERPAYMENT-RECOVERY-PROCEDURES-V2-3"
 title: "Overpayment Recovery Procedures v2.3"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Overpayment_Recovery_Procedures_v2.3.xlsx"
 source_format: "xlsx"
 document_type: "spreadsheet"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -36,6 +37,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-OVERPAYMENT-RECOVERY-PROCEDURES-V2-3: Overpayment Recovery Procedures v2.3."
+timestamp: "2026-06-27"
 ---
 
 # Overpayment Recovery Procedures v2.3
@@ -43,7 +46,7 @@ sensitivity:
 
 - Source: [Overpayment_Recovery_Procedures_v2.3.xlsx](../../unstructured_files/Overpayment_Recovery_Procedures_v2.3.xlsx)
 - Extraction: `openpyxl-workbook` with `high` quality.
-- Extract: Worksheet: Recovery Rates DWP Overpayment Recovery Procedures — Version 2.3 --- --- --- --- --- Owner: Debt Management Team \ November 2023 Benefit type Standard recovery rate Maximum recovery rate Hardship rate Notes Universal Credit 15% of standard allowance 25% of standard allowance 5% of standard allowance Deducted at source from ongoing UC payments Jobseeker's Allowance £11.10 per week £22.20 per week £3.70 per week Fixed amounts regardless of benefit rate Employment and Support Allowance £11.10 per week £22.20 per week £3.70 per week Same rates as JSA State Pension 15% of weekly pension 25% of weekly pension 5% of weekly pension...
+- Extract: Worksheet: Recovery Rates [DEPT-C] Overpayment Recovery Procedures — Version 2.3 --- --- --- --- --- Owner: Debt Management Team \ November 2023 Benefit type Standard recovery rate Maximum recovery rate Hardship rate Notes Universal Credit 15% of standard allowance 25% of standard allowance 5% of standard allowance Deducted at source from ongoing UC payments Jobseeker's Allowance £11.10 per week £22.20 per week £3.70 per week Fixed amounts regardless of benefit rate Employment and Support Allowance £11.10 per week £22.20 per week £3.70 per week Same rates as JSA State Pension 15% of weekly pension 25% of weekly pension 5% of weekly pension...
 
 ## Metadata
 
@@ -54,7 +57,7 @@ sensitivity:
 | Raw source | [Overpayment_Recovery_Procedures_v2.3.xlsx](../../unstructured_files/Overpayment_Recovery_Procedures_v2.3.xlsx) |
 | Format | xlsx |
 | Document type | spreadsheet |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -65,21 +68,19 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | ab4d55947ec2df65a1cd38281eeddf2f9841259fe2979207d8cfa654ead19c12 |
+| SHA-256 | 735c5f2b844febac28910eb90c22116197f6d10d9448bc1e55484cc30e3c72a3 |
 
 ## Navigation
 
 - Topic: [Housing Benefit](../topics/housing-benefit.md)
 - Topic: [Overpayment Recovery](../topics/overpayment-recovery.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
-- Entity: [HM Revenue And Customs](../entities/hmrc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
 
 ## Worksheet: Recovery Rates
 
-| DWP Overpayment Recovery Procedures — Version 2.3 |  |  |  |  |
+| [DEPT-C] Overpayment Recovery Procedures — Version 2.3 |  |  |  |  |
 | --- | --- | --- | --- | --- |
 | Owner: Debt Management Team \| November 2023 |  |  |  |  |
 | Benefit type | Standard recovery rate | Maximum recovery rate | Hardship rate | Notes |
@@ -88,10 +89,10 @@ sensitivity:
 | Employment and Support Allowance | £11.10 per week | £22.20 per week | £3.70 per week | Same rates as JSA |
 | State Pension | 15% of weekly pension | 25% of weekly pension | 5% of weekly pension |  |
 | Pension Credit | £11.10 per week | £22.20 per week | £3.70 per week |  |
-| Housing Benefit | Varies by LA | Varies by LA | Varies by LA | Recovered by the local authority, not DWP |
+| Housing Benefit | Varies by LA | Varies by LA | Varies by LA | Recovered by the local authority, not [DEPT-C] |
 | PIP / DLA | Cannot be recovered from PIP/DLA directly |  |  | Must use another benefit or direct recovery |
-| Child Benefit | Cannot be recovered from CB directly |  |  | Recovery via HMRC |
-| Tax Credits |  |  |  | HMRC responsibility — not DWP |
+| Child Benefit | Cannot be recovered from CB directly |  |  | Recovery via [DEPT-D] |
+| Tax Credits |  |  |  | [DEPT-D] responsibility — not [DEPT-C] |
 
 ## Worksheet: Escalation Thresholds
 
@@ -105,7 +106,7 @@ sensitivity:
 | £50,001 – £100,000 | Senior management review + potential fraud referral | G6 | Immediate review |
 | Over £100,000 | Director approval required for recovery strategy | SCS1 | Immediate |
 | Over £1m |  | Director General + referral to HMT | Immediate |
-| [NOTE: The threshold at £65 was set in 2009 and has never been uprated. In real terms this is approximately £45 in 2009 prices. A review was recommended by the NAO in 2019 but has not been actioned.] |  |  |  |
+| [NOTE: The threshold at £65 was set in 2009 and has never been uprated. In real terms this is approximately £45 in 2009 prices. A review was recommended by the [REG-B] in 2019 but has not been actioned.] |  |  |  |
 | [KNOWN ERROR: The £1m threshold row is missing the 'Action' column text. It should read: 'Full recovery strategy and ministerial briefing'. This has been reported but not yet fixed in the published version.] |  |  |  |
 
 ## Worksheet: Fraud vs Non-Fraud
@@ -115,9 +116,9 @@ sensitivity:
 | Fraud (civil) | Claimant knowingly provided false information | Maximum recovery rate + civil penalty (50% of overpayment, min £350, max £5,000) | 6 years from date of overpayment decision |
 | Fraud (criminal) | As above but referred for prosecution | Compensation order via courts + ongoing recovery | 6 years from date of conviction |
 | Claimant error | Claimant failed to report a change of circumstances but without fraudulent intent | Standard recovery rate | 6 years from overpayment decision |
-| Official error | DWP made a mistake in calculating the benefit | Recovery only where claimant could reasonably have been expected to know they were being overpaid | 6 years — but see note below |
+| Official error | [DEPT-C] made a mistake in calculating the benefit | Recovery only where claimant could reasonably have been expected to know they were being overpaid | 6 years — but see note below |
 | Technical | System error resulting in overpayment | Case-by-case assessment | No fixed policy — legal advice required |
-| [IMPORTANT: The limitation period for recovery of official error overpayments is contentious. DWP's legal position is that the 6-year limit applies, but Upper Tribunal decisions in 2022 and 2023 have cast doubt on this. Await outcome of Court of Appeal case expected Q2 2024 before relying on this table.] |  |  |  |
+| [IMPORTANT: The limitation period for recovery of official error overpayments is contentious. [DEPT-C]'s legal position is that the 6-year limit applies, but Upper Tribunal decisions in 2022 and 2023 have cast doubt on this. Await outcome of Court of Appeal case expected Q2 2024 before relying on this table.] |  |  |  |
 
 ## Worksheet: Payment Methods
 
@@ -128,7 +129,7 @@ sensitivity:
 | Standing Order | £1 per month |  |
 | Online payment (GOV.UK Pay) | £5 | go.to/repay-benefit-overpayment |
 | Telephone payment (card) | £5 | Via Debt Management helpline: 0800 XXX XXXX |
-| Cheque | £5 | Payable to 'DWP Debt Management' — note: cheques being phased out, target removal date December 2024 |
+| Cheque | £5 | Payable to '[DEPT-C] Debt Management' — note: cheques being phased out, target removal date December 2024 |
 | Direct Earnings Attachment | N/A | Employer deduction — no court order needed for benefit debts |
 | Court order (County Court Judgment) | N/A | Last resort — requires legal authorisation |
 
@@ -137,7 +138,7 @@ sensitivity:
 | Debt Management Helpline: 0800 XXX XXXX |
 | --- |
 | Monday to Friday, 08:00 – 18:00 |
-| Email: debt.management@dwp.gov.uk |
+| Email: debt.management@[department].gov.uk |
 | This document was last updated in November 2023. Recovery rates for UC are updated each April in line with the standard allowance. JSA/ESA/PC fixed rates are updated annually — the rates shown here are 2023-24 rates. |
 
 ## Raw Metadata
@@ -150,8 +151,8 @@ sensitivity:
 | exif_Application | Microsoft Excel Compatible / Openpyxl 3.1.5 |
 | exif_CreateDate | 2026:04:14 08:54:51Z |
 | exif_Creator | openpyxl |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Overpayment_Recovery_Procedures_v2.3.xlsx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 10 kB |

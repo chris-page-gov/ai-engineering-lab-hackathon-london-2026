@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-002"
 title: "Discretionary Housing Payments: Guidance for Local Authority Administration"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-002-discretionary-housing-payments.md"
 source_format: "md"
 document_type: "procedural-manual"
-department: "DLUHC"
+department: "[DEPT-A]"
 owner: null
 status: "current"
 version: "2.1"
@@ -48,6 +49,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-HB-002: Discretionary Housing Payments: Guidance for Local Authority Administration."
+timestamp: "2025-09-15"
 ---
 
 # Discretionary Housing Payments: Guidance for Local Authority Administration
@@ -66,7 +69,7 @@ sensitivity:
 | Raw source | [DOC-HB-002-discretionary-housing-payments.md](../../structured_files/DOC-HB-002-discretionary-housing-payments.md) |
 | Format | md |
 | Document type | procedural-manual |
-| Department | DLUHC |
+| Department | [DEPT-A] |
 | Owner |  |
 | Status | current |
 | Version | 2.1 |
@@ -77,7 +80,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 836e9499bfbc6e0700ffb2e83f01cd2b125270fddd4c75f03e15789bf2d46efa |
+| SHA-256 | 9c282d4c6bcc1c54ebaa35f19956e25d6c0ff43c1b8e5818628b1082195244b2 |
 
 ## Related Sources
 
@@ -91,7 +94,6 @@ sensitivity:
 - Topic: [Homelessness And Social Housing](../topics/homelessness-and-social-housing.md)
 - Topic: [Incident Risk And Assurance](../topics/incident-risk-and-assurance.md)
 - Topic: [Welsh Language Standards](../topics/welsh-language-standards.md)
-- Entity: [Department For Levelling Up Housing And Communities](../entities/dluhc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 
 ## Extracted Content
@@ -102,7 +104,7 @@ sensitivity:
 
 This manual provides local authority housing officers with the procedural framework for assessing, awarding, and administering Discretionary Housing Payments (DHPs). DHPs are made under Section 2 of the Discretionary Financial Assistance Regulations 2001 and are intended to provide short-term financial assistance to claimants who are entitled to Housing Benefit or the housing costs element of Universal Credit but who require further help to meet their housing costs.
 
-Local authorities have broad discretion in determining DHP awards. There is no statutory right to a DHP, and each application must be considered on its individual merits. This guidance sets out the minimum procedural standards expected by the Department for Levelling Up, Housing and Communities but does not remove the authority's discretion in individual cases.
+Local authorities have broad discretion in determining DHP awards. There is no statutory right to a DHP, and each application must be considered on its individual merits. This guidance sets out the minimum procedural standards expected by the [Government Department A] but does not remove the authority's discretion in individual cases.
 
 ### 1.1 Legal basis
 
@@ -160,7 +162,7 @@ DHPs may be paid to the claimant, the landlord, or a third party acting on behal
 
 ### 3.3 Recording and monitoring
 
-All DHP decisions must be recorded on the authority's housing benefit system with a clear audit trail showing the evidence considered, the reasoning for the decision, and the amount and duration of the award. Authorities must submit quarterly monitoring returns to DLUHC summarising DHP expenditure, the number of awards made, and the reasons for awards.
+All DHP decisions must be recorded on the authority's housing benefit system with a clear audit trail showing the evidence considered, the reasoning for the decision, and the amount and duration of the award. Authorities must submit quarterly monitoring returns to [DEPT-A] summarising DHP expenditure, the number of awards made, and the reasons for awards.
 
 ### 3.4 Notification and review
 
@@ -183,10 +185,10 @@ Where a DHP application is refused or where the DHP alone is insufficient, offic
 | Field | Value |
 | --- | --- |
 | audience | Local authority housing officers |
-| department | DLUHC |
+| department | [DEPT-A] |
 | document_id | DOC-HB-002 |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-002-discretionary-housing-payments.md |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 7.9 kB |
@@ -196,7 +198,7 @@ Where a DHP application is refused or where the DHP alone is insufficient, offic
 | exif_MIMEEncoding | us-ascii |
 | exif_MIMEType | text/plain |
 | exif_Newlines | Unix LF |
-| exif_WordCount | 1170 |
+| exif_WordCount | 1166 |
 | last_updated | 2025-09-15 |
 | publication_date | 2025-03-01 |
 | related_documents | ["DOC-HB-001", "DOC-HB-008"] |

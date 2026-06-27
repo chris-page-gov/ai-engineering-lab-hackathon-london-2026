@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "CONV-003"
 title: "Wiki Evaluation Harness, Workbench, and Demo Route"
 source_type: "redacted_conversation_summary"
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "conversation"
   - "codex-postmortem-public"
+description: "Source note for CONV-003: Wiki Evaluation Harness, Workbench, and Demo Route."
+timestamp: "2026-06-27"
 ---
 
 # Wiki Evaluation Harness, Workbench, and Demo Route

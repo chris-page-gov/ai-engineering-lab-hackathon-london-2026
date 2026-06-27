@@ -1,4 +1,5 @@
 ---
+type: "Reader"
 source_id: "CONV-004"
 title: "SeeLinks Question Box, PR Hygiene, and Baseline Cleanup Reader"
 reader_type: "redacted_start_to_finish_conversation"
@@ -8,6 +9,8 @@ tags:
   - "reader"
   - "conversation"
   - "codex-postmortem-public"
+description: "Start-to-finish reader for SeeLinks Question Box, PR Hygiene, and Baseline Cleanup Reader."
+timestamp: "2026-06-27"
 ---
 
 # CONV-004: SeeLinks Question Box, PR Hygiene, and Baseline Cleanup

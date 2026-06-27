@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0112"
 title: "Commit these changes, ensuring all the documentation is in lockstep"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0112: Commit these changes, ensuring all the documentation is in lockstep."
+timestamp: "2026-05-09T10:06:16.296Z"
 ---
 
 # 0112. Commit these changes, ensuring all the documentation is in lockstep

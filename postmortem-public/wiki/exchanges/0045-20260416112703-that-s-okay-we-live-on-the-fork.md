@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0045"
 title: "That's okay, we live on the fork"
 source_id: "CONV-003"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0045: That's okay, we live on the fork."
+timestamp: "2026-04-16T14:06:15.950Z"
 ---
 
 # 0045. That's okay, we live on the fork

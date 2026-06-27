@@ -1,4 +1,5 @@
 ---
+type: "Source"
 title: "Progress.md"
 source_type: "repository_artifact"
 tracked_at_baseline: true
@@ -7,6 +8,8 @@ tags:
   - "source"
   - "repository-artifact"
   - "codex-postmortem-public"
+description: "Progress.md"
+timestamp: "2026-06-27"
 ---
 
 # Progress.md

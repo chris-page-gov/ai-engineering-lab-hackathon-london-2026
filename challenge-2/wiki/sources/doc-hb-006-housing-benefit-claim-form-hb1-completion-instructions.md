@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "DOC-HB-006"
 title: "Housing Benefit Claim Form (HB1) — Completion Instructions"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../structured_files/DOC-HB-006-housing-benefit-claim-form-instructions.md"
 source_format: "md"
 document_type: "form-instructions"
-department: "DLUHC"
+department: "[DEPT-A]"
 owner: null
 status: "superseded"
 version: "2.3"
@@ -45,6 +46,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for DOC-HB-006: Housing Benefit Claim Form (HB1) — Completion Instructions."
+timestamp: "2024-01-15"
 ---
 
 # Housing Benefit Claim Form (HB1) — Completion Instructions
@@ -64,7 +67,7 @@ sensitivity:
 | Raw source | [DOC-HB-006-housing-benefit-claim-form-instructions.md](../../structured_files/DOC-HB-006-housing-benefit-claim-form-instructions.md) |
 | Format | md |
 | Document type | form-instructions |
-| Department | DLUHC |
+| Department | [DEPT-A] |
 | Owner |  |
 | Status | superseded |
 | Version | 2.3 |
@@ -75,7 +78,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 724336d5e55b0af2845c07c698b6e134f1377b1db1d819750114a55194097968 |
+| SHA-256 | 511e2c69895afc5be2d5ffb75cfa0a39e72cf00188821d294af09b2478a13469 |
 
 ## Related Sources
 
@@ -89,7 +92,6 @@ sensitivity:
 - Topic: [Homelessness And Social Housing](../topics/homelessness-and-social-housing.md)
 - Topic: [Small Business And Self-employment](../topics/small-business-and-self-employment.md)
 - Topic: [Employment Rights And Flexible Working](../topics/employment-rights-and-flexible-working.md)
-- Entity: [HM Revenue And Customs](../entities/hmrc.md)
 - Entity: [Local Authorities](../entities/local-authorities.md)
 - Entity: [HB1 Form](../entities/hb1-form.md)
 
@@ -148,7 +150,7 @@ Ensure you have all required supporting documents to hand before completing the 
 | Document Type | When Needed | Accepted Formats |
 |---|---|---|
 | Proof of identity | All claims | Passport, driving licence, or biometric residence permit |
-| Proof of National Insurance number | All claims | NI card, payslip, or HMRC letter |
+| Proof of National Insurance number | All claims | NI card, payslip, or [DEPT-D] letter |
 | Tenancy agreement | All claims | Original or certified copy |
 | Proof of rent payments | All claims | Bank statement, rent book, or landlord letter |
 | Proof of income | All employed or self-employed claimants | Payslips (last 5 weeks or 2 months), P60, or certified accounts |
@@ -166,11 +168,11 @@ For general guidance on Housing Benefit entitlement and payment schedules, see t
 
 | Field | Value |
 | --- | --- |
-| department | DLUHC |
+| department | [DEPT-A] |
 | document_id | DOC-HB-006 |
 | exif_ByteOrderMark | No |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | DOC-HB-006-housing-benefit-claim-form-instructions.md |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 4.5 kB |

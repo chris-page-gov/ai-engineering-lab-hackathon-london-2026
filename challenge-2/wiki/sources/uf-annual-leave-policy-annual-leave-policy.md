@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-ANNUAL-LEAVE-POLICY"
 title: "Annual Leave Policy"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Annual_Leave_Policy.docx"
 source_format: "docx"
 document_type: "policy"
-department: "DWP"
+department: null
 owner: null
 status: "unknown"
 version: null
@@ -34,6 +35,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-ANNUAL-LEAVE-POLICY: Annual Leave Policy."
+timestamp: "2026-06-27"
 ---
 
 # Annual Leave Policy
@@ -41,7 +44,7 @@ sensitivity:
 
 - Source: [Annual_Leave_Policy.docx](../../unstructured_files/Annual_Leave_Policy.docx)
 - Extraction: `pandoc-docx` with `high` quality.
-- Extract: Annual Leave Policy Department for Work and Pensions \ April 2024 1\. Entitlement Annual leave entitlement depends on length of service and grade: ---- ---- ---- ---- ---- ---- Grade Under 1 year 1-2 years 2-5 years 5-10 years 10+ years AA/AO 23 days 23 days 24 days 25 days 30 days EO 23 days 23 days 24 days 25 days 30 days HEO/SEO 25 days 25 days 25 days 27 days 30 days Grade 7/6 25 days 25 days 27 days 27 days 30 days SCS 30 days 30 days 30 days 30 days 30 days In addition, all staff receive 8 public holidays and 1 privilege day (the King’s Birthday). 2\. Carry over Up to 5 days of unused annual leave may be carried over to the following...
+- Extract: Annual Leave Policy \[Government Department C\] \ April 2024 1\. Entitlement Annual leave entitlement depends on length of service and grade: ---- ---- ---- ---- ---- ---- Grade Under 1 year 1-2 years 2-5 years 5-10 years 10+ years AA/AO 23 days 23 days 24 days 25 days 30 days EO 23 days 23 days 24 days 25 days 30 days HEO/SEO 25 days 25 days 25 days 27 days 30 days Grade 7/6 25 days 25 days 27 days 27 days 30 days SCS 30 days 30 days 30 days 30 days 30 days In addition, all staff receive 8 public holidays and 1 privilege day (the King’s Birthday). 2\. Carry over Up to 5 days of unused annual leave may be carried over to the following leave...
 
 ## Metadata
 
@@ -52,7 +55,7 @@ sensitivity:
 | Raw source | [Annual_Leave_Policy.docx](../../unstructured_files/Annual_Leave_Policy.docx) |
 | Format | docx |
 | Document type | policy |
-| Department | DWP |
+| Department |  |
 | Owner |  |
 | Status | unknown |
 | Version |  |
@@ -63,18 +66,17 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 401e78806c8828e5ad25ef09b1dd3e572eadd107f662ed1f0fd06e5453dd676b |
+| SHA-256 | b793ba9a1f977d384006c851dda790ea4699aa340a78edba72c28cd44ecfc325 |
 
 ## Navigation
 
 - Topic: [People Policies](../topics/people-policies.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 
 ## Extracted Content
 
 **Annual Leave Policy**
 
-Department for Work and Pensions \| April 2024
+\[Government Department C\] \| April 2024
 
 1\. Entitlement
 
@@ -117,9 +119,9 @@ The leave year runs from 1 April to 31 March.
 
 7\. Leaving the department
 
-When an employee leaves DWP, their leave entitlement is calculated pro rata. Any excess leave taken will be deducted from final salary. Any leave owed will be paid.
+When an employee leaves \[DEPT-C\], their leave entitlement is calculated pro rata. Any excess leave taken will be deducted from final salary. Any leave owed will be paid.
 
-Contact: hr.leave@dwp.gov.uk
+Contact: hr.leave@\[department\].gov.uk
 
 ## Raw Metadata
 
@@ -129,8 +131,8 @@ Contact: hr.leave@dwp.gov.uk
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.793Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Annual_Leave_Policy.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 10 kB |

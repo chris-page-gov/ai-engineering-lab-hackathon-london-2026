@@ -1,4 +1,5 @@
 ---
+type: "Source"
 source_id: "UF-RAISING-CONCERNS-WHISTLEBLOWING-GUIDANCE"
 title: "Raising Concerns at Work"
 aliases:
@@ -8,7 +9,7 @@ aliases:
 source_path: "../../unstructured_files/Raising Concerns (Whistleblowing) Guidance.docx"
 source_format: "docx"
 document_type: "guidance"
-department: "DWP"
+department: null
 owner: "Corporate Governance Directorate \\| Version: 3.0"
 status: "unknown"
 version: null
@@ -42,6 +43,8 @@ sensitivity:
   contains_real_personal_data: false
   contains_synthetic_identifiers: false
   classification: null
+description: "Source note for UF-RAISING-CONCERNS-WHISTLEBLOWING-GUIDANCE: Raising Concerns at Work."
+timestamp: "2026-06-27"
 ---
 
 # Raising Concerns at Work
@@ -49,7 +52,7 @@ sensitivity:
 
 - Source: [Raising Concerns (Whistleblowing) Guidance.docx](../../unstructured_files/Raising%20Concerns%20%28Whistleblowing%29%20Guidance.docx)
 - Extraction: `pandoc-docx` with `high` quality.
-- Extract: Raising Concerns at Work (Whistleblowing Guidance) Department for Work and Pensions \ July 2023 Owner: Corporate Governance Directorate \ Version: 3.0 1\. Introduction DWP is committed to the highest standards of conduct, openness, and accountability. This guidance sets out how employees and others working for or with the department can raise concerns about wrongdoing. This guidance applies to: - All DWP employees - Agency workers, contractors, and consultants - Secondees from other departments or organisations - Former employees (in respect of concerns arising during their employment) 2\. What counts as a qualifying disclosure? The Public...
+- Extract: Raising Concerns at Work (Whistleblowing Guidance) \[Government Department C\] \ July 2023 Owner: Corporate Governance Directorate \ Version: 3.0 1\. Introduction \[DEPT-C\] is committed to the highest standards of conduct, openness, and accountability. This guidance sets out how employees and others working for or with the department can raise concerns about wrongdoing. This guidance applies to: - All \[DEPT-C\] employees - Agency workers, contractors, and consultants - Secondees from other departments or organisations - Former employees (in respect of concerns arising during their employment) 2\. What counts as a qualifying disclosure? The...
 
 ## Metadata
 
@@ -60,7 +63,7 @@ sensitivity:
 | Raw source | [Raising Concerns (Whistleblowing) Guidance.docx](../../unstructured_files/Raising%20Concerns%20%28Whistleblowing%29%20Guidance.docx) |
 | Format | docx |
 | Document type | guidance |
-| Department | DWP |
+| Department |  |
 | Owner | Corporate Governance Directorate \\| Version: 3.0 |
 | Status | unknown |
 | Version |  |
@@ -71,7 +74,7 @@ sensitivity:
 | Data origin | Challenge 2 corpus data is synthetic hackathon fixture data. |
 | Contains real personal data | false |
 | Contains synthetic identifiers | false |
-| SHA-256 | 4780b27b109f60fe469c29616c49ab4f29c4f4adbb77865bd7aef3d42d35e491 |
+| SHA-256 | 0b163a0d5d0e9363de2e04ae64583f3171a5d03893c60f073c2800e15b78c5b3 |
 
 ## Navigation
 
@@ -80,7 +83,6 @@ sensitivity:
 - Topic: [People Policies](../topics/people-policies.md)
 - Topic: [Overpayment Recovery](../topics/overpayment-recovery.md)
 - Topic: [Welsh Language Standards](../topics/welsh-language-standards.md)
-- Entity: [Department For Work And Pensions](../entities/dwp.md)
 
 ## Extracted Content
 
@@ -88,17 +90,17 @@ sensitivity:
 
 **(Whistleblowing Guidance)**
 
-Department for Work and Pensions \| July 2023
+\[Government Department C\] \| July 2023
 
 Owner: Corporate Governance Directorate \| Version: 3.0
 
 1\. Introduction
 
-DWP is committed to the highest standards of conduct, openness, and accountability. This guidance sets out how employees and others working for or with the department can raise concerns about wrongdoing.
+\[DEPT-C\] is committed to the highest standards of conduct, openness, and accountability. This guidance sets out how employees and others working for or with the department can raise concerns about wrongdoing.
 
 This guidance applies to:
 
-- All DWP employees
+- All \[DEPT-C\] employees
 
 - Agency workers, contractors, and consultants
 
@@ -132,9 +134,9 @@ Employees should normally raise concerns with their line manager in the first in
 
 - Nominated Officer for the directorate
 
-- HR Casework Team: hrcase@dwp.gov.uk
+- HR Casework Team: hrcase@\[department\].gov.uk
 
-- Counter Fraud Team: counter.fraud@dwp.gov.uk
+- Counter Fraud Team: counter.fraud@\[department\].gov.uk
 
 - Departmental Raising Concerns helpline: 0800 XXX XXXX (confidential)
 
@@ -142,9 +144,9 @@ Employees should normally raise concerns with their line manager in the first in
 
 If an employee has raised a concern internally and believes it has not been addressed, or if they believe internal reporting is inappropriate, they may report to:
 
-- The National Audit Office (NAO)
+- The \[Regulatory Body B\] (\[REG-B\])
 
-- The relevant regulatory body (e.g., the Information Commissioner for data protection concerns)
+- The relevant regulatory body (e.g., the \[Regulatory Body A\] for data protection concerns)
 
 - A Member of Parliament
 
@@ -204,7 +206,7 @@ This guidance is reviewed every 2 years.
 
 Last reviewed: July 2023 \| Next review: July 2025
 
-Contact: raising.concerns@dwp.gov.uk
+Contact: raising.concerns@\[department\].gov.uk
 
 ## Raw Metadata
 
@@ -214,8 +216,8 @@ Contact: raising.concerns@dwp.gov.uk
 | creator | Un-named |
 | exif_CreateDate | 2026:04:14 09:02:53.894Z |
 | exif_Creator | Un-named |
-| exif_ExifToolVersion | 13.5 |
-| exif_FileModifyDate | 2026:04:16 03:32:22+01:00 |
+| exif_ExifToolVersion | 13.55 |
+| exif_FileModifyDate | 2026:04:16 16:01:34+01:00 |
 | exif_FileName | Raising Concerns (Whistleblowing) Guidance.docx |
 | exif_FilePermissions | -rw-r--r-- |
 | exif_FileSize | 11 kB |

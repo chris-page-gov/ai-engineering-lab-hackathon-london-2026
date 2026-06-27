@@ -1,4 +1,5 @@
 ---
+type: "Reader"
 source_id: "CONV-002"
 title: "Karpathy Wiki Planning and Challenge 2 Vault Build Reader"
 reader_type: "redacted_start_to_finish_conversation"
@@ -8,6 +9,8 @@ tags:
   - "reader"
   - "conversation"
   - "codex-postmortem-public"
+description: "Start-to-finish reader for Karpathy Wiki Planning and Challenge 2 Vault Build Reader."
+timestamp: "2026-06-27"
 ---
 
 # CONV-002: Karpathy Wiki Planning and Challenge 2 Vault Build

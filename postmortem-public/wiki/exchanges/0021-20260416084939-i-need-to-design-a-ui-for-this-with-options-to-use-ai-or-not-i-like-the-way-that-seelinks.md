@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0021"
 title: "I need to design a UI for this with options to use AI or not. I like the way that SeeLinks pulls"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0021: I need to design a UI for this with options to use AI or not. I like the way that SeeLinks pulls."
+timestamp: "2026-04-16T12:00:31.754Z"
 ---
 
 # 0021. I need to design a UI for this with options to use AI or not. I like the way that SeeLinks pulls

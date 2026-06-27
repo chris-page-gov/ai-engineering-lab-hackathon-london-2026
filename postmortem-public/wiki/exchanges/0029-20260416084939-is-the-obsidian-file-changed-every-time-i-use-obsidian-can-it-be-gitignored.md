@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0029"
 title: "Is the obsidian file changed every time I use Obsidian - can it be gitignored?"
 source_id: "CONV-002"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0029: Is the obsidian file changed every time I use Obsidian - can it be gitignored?."
+timestamp: "2026-04-16T14:02:29.377Z"
 ---
 
 # 0029. Is the obsidian file changed every time I use Obsidian - can it be gitignored?

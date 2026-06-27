@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0085"
 title: "The idea is to allow the AI to use the Wiki as a knowledge base - what is the best strategy for "
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0085: The idea is to allow the AI to use the Wiki as a knowledge base - what is the best strategy for ."
+timestamp: "2026-04-19T17:27:16.134Z"
 ---
 
 # 0085. The idea is to allow the AI to use the Wiki as a knowledge base - what is the best strategy for

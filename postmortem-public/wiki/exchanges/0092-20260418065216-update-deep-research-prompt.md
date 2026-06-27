@@ -1,4 +1,5 @@
 ---
+type: "Exchange"
 exchange_id: "EX-0092"
 title: "Update Deep Research Prompt"
 source_id: "CONV-005"
@@ -9,6 +10,8 @@ publication_status: "redacted-public-derivative"
 tags:
   - "exchange"
   - "codex-postmortem-public"
+description: "Prompt-response exchange EX-0092: Update Deep Research Prompt."
+timestamp: "2026-04-19T18:50:08.115Z"
 ---
 
 # 0092. Update Deep Research Prompt
