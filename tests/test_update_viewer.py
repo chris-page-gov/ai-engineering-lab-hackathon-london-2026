@@ -33,6 +33,14 @@ class UpdateViewerGraphTest(unittest.TestCase):
         self.assertIn("function labelSet(ids,pos)", template)
         self.assertIn("setInterval(()=>{if(currentView===", template)
 
+    def test_mobile_detail_panel_is_a_touch_scroll_surface(self) -> None:
+        template = update_viewer.VIEWER_TEMPLATE
+
+        self.assertIn("-webkit-overflow-scrolling:touch", template)
+        self.assertIn("touch-action:pan-y", template)
+        self.assertIn(".right #detail{height:100%;max-height:100%;overflow:auto}", template)
+        self.assertIn(".right{height:70vh;height:70dvh;min-height:360px;max-height:none}", template)
+
 
 if __name__ == "__main__":
     unittest.main()

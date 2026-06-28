@@ -15,6 +15,10 @@ No undated pending changes.
 - 2026-06-28: Expanded public external methodology source notes with reader-facing overviews and contents outlines while preserving citation-only publication boundaries.
 - 2026-06-28: Improved the generated wiki viewer focus graph so it shows directly linked pages only, labels sparse graphs, rotates non-overlapping labels in dense overview mode, and renders directional typed relationship edges with an edge inspection list.
 
+### Fixed
+
+- 2026-06-28: Fixed the generated wiki viewer mobile layout so the right-hand detail panel remains a touch-scrollable pane on Android-sized tablet and phone viewports.
+
 ### Validation
 
 - 2026-06-28: Added regression coverage for external source overview rendering and source-to-source `related source` relationship typing.

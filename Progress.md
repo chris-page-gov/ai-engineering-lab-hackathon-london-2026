@@ -58,6 +58,8 @@ The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-pub
 
 The current wiki viewer refinement pass improves the public external methodology source notes and the sparse graph experience. External citation pages now include a short overview and contents outline before citation metadata. Focus graphs now omit unrelated same-section filler nodes, label sparse direct-neighbour graphs, rotate non-overlapping labels in dense overview mode, and expose directional typed relationships through arrowed edges and an edge inspection list.
 
+The latest viewer mobile fix makes the right-hand detail panel a constrained touch-scroll surface on Android-sized tablet and phone breakpoints, instead of relying on whole-page scrolling after the panels stack.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
