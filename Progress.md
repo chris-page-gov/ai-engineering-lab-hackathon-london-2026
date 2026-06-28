@@ -60,6 +60,8 @@ The current wiki viewer refinement pass improves the public external methodology
 
 The latest viewer mobile fix makes the right-hand detail panel a constrained touch-scroll surface on Android-sized tablet and phone breakpoints, instead of relying on whole-page scrolling after the panels stack.
 
+The latest graph and publishing pass adds explicit graph zoom controls, keeps reciprocal edge labels readable by collapsing duplicate two-way labels or offsetting distinct labels toward their source nodes, and publishes the checked-in Challenge 2 structured/unstructured source trees into the Pages bundle so raw source links resolve outside the viewer.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -197,6 +199,13 @@ The latest viewer mobile fix makes the right-hand detail panel a constrained tou
   - ran `python3 -m json.tool postmortem-public/wiki/data/external-source-citations.json`;
   - ran `python3 scripts/update_viewer.py`, updating root `viewer.html` to `182` postmortem pages and `887` links;
   - ran `python3 scripts/check_okf_conformance.py` and `python3 scripts/check_wiki_viewer.py`.
+- Current graph/source publishing validation passed locally:
+  - ran `python3 -m py_compile tools/build_codex_postmortem.py scripts/update_viewer.py scripts/build_site.py`;
+  - ran `python3 -m unittest tests.test_build_codex_postmortem tests.test_update_viewer tests.test_build_site`;
+  - ran `python3 scripts/check_okf_conformance.py`, `python3 scripts/check_wiki_viewer.py`, `python3 scripts/update_viewer.py --check`, and `python3 scripts/build_site.py`;
+  - confirmed `_site/challenge-2/unstructured_files/travel-and-subsistence-policy-v2.0.docx` is present as a Word document;
+  - ran a Chromium smoke test confirming the Challenge 2 source graph has labelled edges without same-text coordinate overlap and the explicit zoom control shrinks the graph viewBox;
+  - ran `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`, `python3 tools/check_documentation_lockstep.py`, and `git diff --check`.
 - Current postmortem exchange-view validation passed locally:
   - ran a Chromium smoke test against local `viewer.html` at a `1920x1080` viewport;
   - confirmed `exchanges/0053-20260418065216-create-codex-postmortem-wiki.md` opens in Narrative view with one prompt card, one final-answer card, and `13` commentary event cards;

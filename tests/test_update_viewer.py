@@ -33,6 +33,25 @@ class UpdateViewerGraphTest(unittest.TestCase):
         self.assertIn("function labelSet(ids,pos)", template)
         self.assertIn("setInterval(()=>{if(currentView===", template)
 
+    def test_graph_template_collapses_reciprocal_duplicate_edge_labels(self) -> None:
+        template = update_viewer.VIEWER_TEMPLATE
+
+        self.assertIn("function edgePairKey(edge)", template)
+        self.assertIn("function edgeLabelPlan(items)", template)
+        self.assertIn("group.length>1&&labels.length===1", template)
+        self.assertIn("show:item.i===first.i", template)
+        self.assertIn("group.length>1 ? .34 : .5", template)
+
+    def test_graph_template_includes_explicit_zoom_controls(self) -> None:
+        template = update_viewer.VIEWER_TEMPLATE
+
+        self.assertIn('id="zoomOut"', template)
+        self.assertIn('id="zoomReset"', template)
+        self.assertIn('id="zoomIn"', template)
+        self.assertIn("function setGraphZoom(value)", template)
+        self.assertIn('graph.setAttribute("viewBox",graphViewBox(w,h))', template)
+        self.assertIn('graph.addEventListener("wheel"', template)
+
     def test_mobile_detail_panel_is_a_touch_scroll_surface(self) -> None:
         template = update_viewer.VIEWER_TEMPLATE
 
