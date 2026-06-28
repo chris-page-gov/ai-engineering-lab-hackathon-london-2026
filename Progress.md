@@ -54,13 +54,15 @@ The current workbench parity pass brings the visible SeeLinks/Micropedia web con
 
 The changelog now reserves `Unreleased` for pending work only; the accumulated HMRC/demo/workbench publication entries have been moved under the dated `2026-05-12` section before merging the SeeLinks/Micropedia parity PR.
 
-The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-public/wiki/` with the local OKF v0.1 profile used in recent wiki repos. The generated root `viewer.html` now opens on the public AI coding-assistant postmortem, supports switching to the Challenge 2 wiki, has scrollable side panels, a collapsible current-page navigation rail, rendered Mermaid flowcharts, Narrative/Timeline/Graph/Links stage views, reduced labels on dense exchange graphs, a reproducible `_site/` builder, and a GitHub Pages workflow matching the publication pattern used by recent OKF wiki repos.
+The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-public/wiki/` with the local OKF v0.1 profile used in recent wiki repos. The generated root `viewer.html` now opens on the public AI coding-assistant postmortem, supports switching to the Challenge 2 wiki, has scrollable side panels, a collapsible current-page navigation rail, rendered Mermaid flowcharts, Narrative/Timeline/Graph/Links stage views, cycling non-overlapping graph label layers, a reproducible `_site/` builder, and a GitHub Pages workflow matching the publication pattern used by recent OKF wiki repos.
 
-The current wiki viewer refinement pass improves the public external methodology source notes and the sparse graph experience. External citation pages now include a short overview and contents outline before citation metadata. Focus graphs now omit unrelated same-section filler nodes, label sparse direct-neighbour graphs, rotate non-overlapping labels in dense overview mode, and expose directional typed relationships through arrowed edges and an edge inspection list.
+The current wiki viewer refinement pass improves the public external methodology source notes and the graph reading experience. External citation pages now include a short overview and contents outline before citation metadata. Focus graphs now omit unrelated same-section filler nodes, label sparse direct-neighbour graphs, split conflicting node labels into non-overlapping layers that cycle every two seconds, and expose directional typed relationships through arrowed edges and an edge inspection list.
 
 The latest viewer mobile fix makes the right-hand detail panel a constrained touch-scroll surface on Android-sized tablet and phone breakpoints, instead of relying on whole-page scrolling after the panels stack.
 
 The latest graph and publishing pass adds explicit graph zoom controls, consistent drag-to-pan repositioning across the graph surface, keeps reciprocal edge labels readable by collapsing duplicate two-way labels or offsetting distinct labels toward their source nodes, and publishes the checked-in Challenge 2 structured/unstructured source trees into the Pages bundle so raw source links resolve outside the viewer.
+
+The latest graph label pass removes the focus-graph all-label shortcut and regenerates `viewer.html` from `scripts/update_viewer.py` so dense focus graphs now show a readable non-overlapping subset of node labels and rotate the conflicting label layer every two seconds.
 
 ## Completed
 
@@ -206,6 +208,15 @@ The latest graph and publishing pass adds explicit graph zoom controls, consiste
   - confirmed `_site/challenge-2/unstructured_files/travel-and-subsistence-policy-v2.0.docx` is present as a Word document;
   - ran Chromium smoke tests confirming the Challenge 2 source graph has labelled edges without same-text coordinate overlap, the explicit zoom control shrinks the graph viewBox, drag-to-pan changes the viewBox origin at both 100% and zoomed views without changing zoom, dragged nodes do not accidentally open pages, and reset returns the graph to the centered full view;
   - ran `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`, `python3 tools/check_documentation_lockstep.py`, and `git diff --check`.
+- Current graph-label layer validation passed locally:
+  - ran `python3 -m py_compile scripts/update_viewer.py`;
+  - ran `python3 -m unittest tests.test_update_viewer`;
+  - ran `python3 scripts/update_viewer.py`, updating root `viewer.html` with cycling label-layer behavior.
+  - ran a Chromium smoke test against local `viewer.html` for `?corpus=challenge2#topics/incident-risk-and-assurance.md`, confirming six label layers, a phase change after two seconds, a changed visible label set, and zero node-label bounding-box overlaps before and after the cycle.
+  - reran `python3 -m py_compile tools/build_codex_postmortem.py scripts/update_viewer.py scripts/build_site.py`;
+  - reran `python3 -m unittest tests.test_build_codex_postmortem tests.test_update_viewer tests.test_build_site` with `23` passing tests;
+  - reran `python3 scripts/check_okf_conformance.py`, `python3 scripts/check_wiki_viewer.py`, `python3 scripts/update_viewer.py --check`, and `python3 scripts/build_site.py`;
+  - reran `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`, `python3 tools/check_documentation_lockstep.py`, and `git diff --check`.
 - Current postmortem exchange-view validation passed locally:
   - ran a Chromium smoke test against local `viewer.html` at a `1920x1080` viewport;
   - confirmed `exchanges/0053-20260418065216-create-codex-postmortem-wiki.md` opens in Narrative view with one prompt card, one final-answer card, and `13` commentary event cards;

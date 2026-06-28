@@ -30,8 +30,13 @@ class UpdateViewerGraphTest(unittest.TestCase):
         self.assertIn('marker-end="url(#${active?"arrowheadActive":"arrowhead"})"', template)
         self.assertIn('class="edgeHit"', template)
         self.assertIn('graphMode==="overview"||incident', template)
+        self.assertIn("labelLayerCount=1", template)
+        self.assertIn("function labelLayers(ids,pos)", template)
         self.assertIn("function labelSet(ids,pos)", template)
-        self.assertIn("setInterval(()=>{if(currentView===", template)
+        self.assertIn("const active=layers.length?(layers[labelPhase%labelLayerCount]||[]):[]", template)
+        self.assertIn('setInterval(()=>{if(currentView==="graph"&&labelLayerCount>1)', template)
+        self.assertIn("labelPhase=(labelPhase+1)%labelLayerCount", template)
+        self.assertNotIn('if(graphMode==="focus"&&ids.length<=18)return new Set(ids)', template)
 
     def test_graph_template_collapses_reciprocal_duplicate_edge_labels(self) -> None:
         template = update_viewer.VIEWER_TEMPLATE

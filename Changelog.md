@@ -16,6 +16,7 @@ No undated pending changes.
 - 2026-06-28: Improved the generated wiki viewer focus graph so it shows directly linked pages only, labels sparse graphs, rotates non-overlapping labels in dense overview mode, and renders directional typed relationship edges with an edge inspection list.
 - 2026-06-28: Improved generated wiki viewer graph readability with explicit zoom controls and reciprocal edge-label placement that collapses duplicate two-way labels or offsets distinct labels toward their source nodes.
 - 2026-06-28: Added drag-to-pan support to the generated wiki viewer graph so zoomed graph views can be repositioned without losing node and relationship click behavior.
+- 2026-06-28: Changed generated wiki viewer node labels to build non-overlapping label layers and cycle the conflicting visible layer every two seconds in graph view.
 
 ### Fixed
 
@@ -29,6 +30,8 @@ No undated pending changes.
 - 2026-06-28: Added regression coverage for Challenge 2 raw source-tree publication, graph zoom controls, and reciprocal graph edge-label handling.
 - 2026-06-28: Added regression coverage for generated graph drag-pan controls.
 - 2026-06-28: Expanded graph drag-pan regression coverage for click suppression, 100% pan bounds, and native drag prevention.
+- 2026-06-28: Added regression coverage for cycling graph label layers and removal of the focus-graph all-label shortcut.
+- 2026-06-28: Verified the Challenge 2 `Incident Risk And Assurance` focus graph in Chromium with six cycling label layers and no node-label bounding-box overlaps across the first two phases.
 
 ## 2026-06-27
 
