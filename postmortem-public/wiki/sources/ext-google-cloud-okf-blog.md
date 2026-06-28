@@ -12,13 +12,25 @@ tags:
   - "methodology"
   - "okf"
   - "codex-postmortem-public"
-description: "Source note for EXT-GOOGLE-CLOUD-OKF-BLOG: Google Cloud's 2026-06-12 OKF announcement post."
+description: "The Google Cloud blog post explains why OKF was introduced: to make LLM-readable knowledge bundles portable, shareable, and easier to govern across teams and tools."
 timestamp: "2026-06-27T23:39:20+00:00"
 ---
 
 # Google Cloud Blog: How the Open Knowledge Format can improve data sharing
 
 This public source note records the Google Cloud OKF announcement as citation metadata only.
+
+## Overview
+
+The Google Cloud blog post explains why OKF was introduced: to make LLM-readable knowledge bundles portable, shareable, and easier to govern across teams and tools.
+
+## What It Contains
+
+- Introduces OKF as a response to fragmented knowledge sharing and context packaging.
+- Positions the format as a bridge from LLM-wiki practice to a reusable open standard.
+- Links the standards repository and the earlier Karpathy LLM-wiki work, making it the narrative connector between the two.
+
+## Citation Metadata
 
 - Canonical URL: [https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/)
 - Published time: `2026-06-12`

@@ -12,7 +12,7 @@ tags:
   - "methodology"
   - "okf"
   - "codex-postmortem-public"
-description: "Source note for EXT-GOOGLE-OKF-STANDARD-GITHUB: Google Cloud's Open Knowledge Format v0.1 repository."
+description: "The GoogleCloudPlatform OKF subtree publishes the Open Knowledge Format v0.1 draft: a portable bundle structure for knowledge bases built from Markdown, YAML frontmatter, manifests, and machine-readable provenance."
 timestamp: "2026-06-27T23:39:20+00:00"
 ---
 
@@ -20,9 +20,21 @@ timestamp: "2026-06-27T23:39:20+00:00"
 
 This public source note records the Google-hosted OKF repository as citation metadata only.
 
+## Overview
+
+The GoogleCloudPlatform OKF subtree publishes the Open Knowledge Format v0.1 draft: a portable bundle structure for knowledge bases built from Markdown, YAML frontmatter, manifests, and machine-readable provenance.
+
+## What It Contains
+
+- README and specification files define the OKF purpose, package layout, metadata expectations, and validation concepts.
+- Examples and tools show how a knowledge bundle can be moved between systems without losing source attribution or structure.
+- The Apache-2.0 repository context makes it the most appropriate standards reference for this wiki's OKF alignment checks.
+
+## Citation Metadata
+
 - Canonical URL: [https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf)
 - Specification URL: [https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)
-- Source kind: `github_repository_subtree`
+- Source kind: `github_okf_standard`
 - Verified status: `200`
 - Private archive SHA-256: `b9655e607346dbbdc6de21190e9a953313eda6a7eba68d4d272a65975940ad6e`
 - Repository license: `Apache-2.0`

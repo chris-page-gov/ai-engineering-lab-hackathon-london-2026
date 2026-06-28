@@ -4,6 +4,12 @@
     "title": "Karpathy X Post: LLM Knowledge Bases",
     "canonical_url": "https://x.com/karpathy/status/2039805659525644595",
     "kind": "x_post_readable_snapshot",
+    "public_summary": "Karpathy's post frames LLM knowledge bases as wiki-like, durable Markdown repositories that can be read, edited, and navigated by both people and AI systems.",
+    "public_outline": [
+      "Motivates the use of text files and links as a lightweight knowledge-base substrate.",
+      "Connects the idea to LLM workflows where source context, notes, and updates need to remain inspectable.",
+      "Serves as origin/context evidence for why this postmortem treats the generated Markdown wiki as the primary public reading layer."
+    ],
     "captured_at": "2026-06-27T18:01:44+00:00",
     "fetch_status": 451,
     "direct_status": 200,
@@ -17,6 +23,12 @@
     "title": "Karpathy X Post: LLM Wiki Idea File",
     "canonical_url": "https://x.com/karpathy/status/2040470801506541998",
     "kind": "x_post_readable_snapshot",
+    "public_summary": "Karpathy's follow-up idea-file post reinforces the practice of keeping project knowledge in plain files that an AI assistant can inspect and maintain.",
+    "public_outline": [
+      "Treats the file tree as an editable memory and coordination surface.",
+      "Emphasizes plain-text artifacts that remain useful outside a single chat session.",
+      "Provides supporting context for the repo's generated notes, logs, and indexes."
+    ],
     "captured_at": "2026-06-27T18:01:44+00:00",
     "fetch_status": 451,
     "direct_status": 200,
@@ -30,6 +42,12 @@
     "title": "Karpathy Gist: LLM Wiki",
     "canonical_url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
     "kind": "gist_raw_markdown",
+    "public_summary": "The gist describes an LLM-maintained wiki pattern: raw evidence remains separate, Markdown pages become the working knowledge layer, and index/log files keep navigation and maintenance explicit.",
+    "public_outline": [
+      "Defines the wiki as a directory of Markdown files rather than a proprietary database.",
+      "Uses index and log pages as the navigation and audit spine.",
+      "Encourages ongoing linting and maintenance so stale claims, broken links, and missing coverage are visible."
+    ],
     "captured_at": "2026-06-27T18:01:44+00:00",
     "fetch_status": 200,
     "direct_status": 200,
@@ -43,6 +61,12 @@
     "title": "Google OKF Standard (GitHub)",
     "canonical_url": "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf",
     "kind": "github_okf_standard",
+    "public_summary": "The GoogleCloudPlatform OKF subtree publishes the Open Knowledge Format v0.1 draft: a portable bundle structure for knowledge bases built from Markdown, YAML frontmatter, manifests, and machine-readable provenance.",
+    "public_outline": [
+      "README and specification files define the OKF purpose, package layout, metadata expectations, and validation concepts.",
+      "Examples and tools show how a knowledge bundle can be moved between systems without losing source attribution or structure.",
+      "The Apache-2.0 repository context makes it the most appropriate standards reference for this wiki's OKF alignment checks."
+    ],
     "captured_at": "2026-06-27T23:39:20+00:00",
     "fetch_status": 200,
     "direct_status": 200,
@@ -56,6 +80,12 @@
     "title": "Google Cloud Blog: How the Open Knowledge Format can improve data sharing",
     "canonical_url": "https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/",
     "kind": "google_cloud_blog_post",
+    "public_summary": "The Google Cloud blog post explains why OKF was introduced: to make LLM-readable knowledge bundles portable, shareable, and easier to govern across teams and tools.",
+    "public_outline": [
+      "Introduces OKF as a response to fragmented knowledge sharing and context packaging.",
+      "Positions the format as a bridge from LLM-wiki practice to a reusable open standard.",
+      "Links the standards repository and the earlier Karpathy LLM-wiki work, making it the narrative connector between the two."
+    ],
     "captured_at": "2026-06-27T23:39:20+00:00",
     "fetch_status": 200,
     "direct_status": 200,

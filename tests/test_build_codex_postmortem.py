@@ -15,8 +15,10 @@ from tools.build_codex_postmortem import (  # noqa: E402
     conversation_reader_path,
     exchange_anchor,
     external_license_status,
+    external_public_tags,
     infer_codex_contribution,
     infer_user_contribution,
+    public_external_overview_section,
     public_external_related_section,
     public_external_source_path,
     public_conversation_reader_path,
@@ -163,6 +165,23 @@ class BuildCodexPostmortemContributionInferenceTest(unittest.TestCase):
         self.assertEqual(external_license_status(google), "Apache-2.0")
         self.assertIn("Google OKF Standard (GitHub)", section)
         self.assertIn("ext-google-okf-standard-github.md", section)
+
+    def test_external_source_overview_and_okf_tag_are_preserved(self) -> None:
+        record = {
+            "source_id": "EXT-GOOGLE-OKF-STANDARD-GITHUB",
+            "title": "Google OKF Standard (GitHub)",
+            "kind": "github_okf_standard",
+            "public_summary": "Portable Markdown knowledge bundle.",
+            "public_outline": ["Defines metadata.", "Includes examples."],
+        }
+
+        section = public_external_overview_section(record)
+
+        self.assertIn("## Overview", section)
+        self.assertIn("Portable Markdown knowledge bundle.", section)
+        self.assertIn("## What It Contains", section)
+        self.assertIn("- Defines metadata.", section)
+        self.assertIn("okf", external_public_tags(record))
 
 
 if __name__ == "__main__":

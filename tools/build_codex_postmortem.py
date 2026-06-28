@@ -134,6 +134,12 @@ EXTERNAL_REFERENCES = [
         "filename": "karpathy-x-2039805659525644595-llm-knowledge-bases.md",
         "kind": "x_post_readable_snapshot",
         "citation_note": "Readable Markdown snapshot from Jina AI over the public X URL; direct X URL is verified separately.",
+        "public_summary": "Karpathy's post frames LLM knowledge bases as wiki-like, durable Markdown repositories that can be read, edited, and navigated by both people and AI systems.",
+        "public_outline": [
+            "Motivates the use of text files and links as a lightweight knowledge-base substrate.",
+            "Connects the idea to LLM workflows where source context, notes, and updates need to remain inspectable.",
+            "Serves as origin/context evidence for why this postmortem treats the generated Markdown wiki as the primary public reading layer.",
+        ],
         "related_public_sources": [
             {
                 "source_id": "EXT-GOOGLE-OKF-STANDARD-GITHUB",
@@ -154,6 +160,12 @@ EXTERNAL_REFERENCES = [
         "filename": "karpathy-x-2040470801506541998-idea-file.md",
         "kind": "x_post_readable_snapshot",
         "citation_note": "Readable Markdown snapshot from Jina AI over the public X URL; direct X URL is verified separately.",
+        "public_summary": "Karpathy's follow-up idea-file post reinforces the practice of keeping project knowledge in plain files that an AI assistant can inspect and maintain.",
+        "public_outline": [
+            "Treats the file tree as an editable memory and coordination surface.",
+            "Emphasizes plain-text artifacts that remain useful outside a single chat session.",
+            "Provides supporting context for the repo's generated notes, logs, and indexes.",
+        ],
     },
     {
         "source_id": "EXT-KARPATHY-GIST-LLM-WIKI",
@@ -164,6 +176,12 @@ EXTERNAL_REFERENCES = [
         "filename": "karpathy-llm-wiki-gist.raw.md",
         "kind": "gist_raw_markdown",
         "citation_note": "Raw GitHub gist content fetched directly from gist.githubusercontent.com.",
+        "public_summary": "The gist describes an LLM-maintained wiki pattern: raw evidence remains separate, Markdown pages become the working knowledge layer, and index/log files keep navigation and maintenance explicit.",
+        "public_outline": [
+            "Defines the wiki as a directory of Markdown files rather than a proprietary database.",
+            "Uses index and log pages as the navigation and audit spine.",
+            "Encourages ongoing linting and maintenance so stale claims, broken links, and missing coverage are visible.",
+        ],
     },
     {
         "source_id": "EXT-GOOGLE-OKF-STANDARD-GITHUB",
@@ -174,6 +192,12 @@ EXTERNAL_REFERENCES = [
         "filename": "googlecloudplatform-okf-spec.md",
         "kind": "github_okf_standard",
         "citation_note": "GoogleCloudPlatform repository subtree containing the OKF v0.1 README, specification, tools, and sample bundles.",
+        "public_summary": "The GoogleCloudPlatform OKF subtree publishes the Open Knowledge Format v0.1 draft: a portable bundle structure for knowledge bases built from Markdown, YAML frontmatter, manifests, and machine-readable provenance.",
+        "public_outline": [
+            "README and specification files define the OKF purpose, package layout, metadata expectations, and validation concepts.",
+            "Examples and tools show how a knowledge bundle can be moved between systems without losing source attribution or structure.",
+            "The Apache-2.0 repository context makes it the most appropriate standards reference for this wiki's OKF alignment checks.",
+        ],
         "related_public_sources": [
             {
                 "source_id": "EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES",
@@ -198,6 +222,12 @@ EXTERNAL_REFERENCES = [
         "filename": "google-cloud-okf-blog.md",
         "kind": "google_cloud_blog_post",
         "citation_note": "Google Cloud Data Cloud team blog announcement for Open Knowledge Format, published 2026-06-12.",
+        "public_summary": "The Google Cloud blog post explains why OKF was introduced: to make LLM-readable knowledge bundles portable, shareable, and easier to govern across teams and tools.",
+        "public_outline": [
+            "Introduces OKF as a response to fragmented knowledge sharing and context packaging.",
+            "Positions the format as a bridge from LLM-wiki practice to a reusable open standard.",
+            "Links the standards repository and the earlier Karpathy LLM-wiki work, making it the narrative connector between the two.",
+        ],
         "related_public_sources": [
             {
                 "source_id": "EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES",
@@ -1666,6 +1696,28 @@ def external_public_disposition(record: dict[str, Any]) -> str:
     return "Citation metadata only unless rights are cleared."
 
 
+def external_public_tags(record: dict[str, Any]) -> list[str]:
+    tags = ["source", "external", "methodology", "codex-postmortem-public"]
+    if record["kind"] in {"github_okf_standard", "google_cloud_blog_post"}:
+        tags.insert(3, "okf")
+    return tags
+
+
+def public_external_overview_section(record: dict[str, Any]) -> str:
+    summary = str(record.get("public_summary") or "").strip()
+    outline = [str(item).strip() for item in record.get("public_outline", []) if str(item).strip()]
+    if not summary and not outline:
+        return ""
+    lines = ["\n## Overview\n\n"]
+    if summary:
+        lines.append(f"{summary}\n")
+    if outline:
+        lines.append("\n## What It Contains\n\n")
+        for item in outline:
+            lines.append(f"- {item}\n")
+    return "".join(lines)
+
+
 def public_external_related_section(
     path: Path,
     record: dict[str, Any],
@@ -1929,11 +1981,14 @@ def write_public_sources(
                     "canonical_url": record["canonical_url"],
                     "license_status": external_license_status(record),
                     "publication_status": "citation-only",
-                    "tags": ["source", "external", "methodology", "codex-postmortem-public"],
+                    "tags": external_public_tags(record),
+                    "description": record.get("public_summary") or f"Source note for {record['source_id']}: {record['title']}.",
                 }
             ),
             f"# {record['title']}\n\n",
             "This public source note intentionally does not include the localized full-text copy.\n\n",
+            public_external_overview_section(record),
+            "\n## Citation Metadata\n\n",
             f"- Canonical URL: [{record['canonical_url']}]({record['canonical_url']})\n",
             f"- Source kind: `{record['kind']}`\n",
             f"- Captured at: `{record['captured_at']}`\n",
@@ -2017,6 +2072,8 @@ def write_public_data_registers(
             "title": record["title"],
             "canonical_url": record["canonical_url"],
             "kind": record["kind"],
+            "public_summary": record.get("public_summary", ""),
+            "public_outline": record.get("public_outline", []),
             "captured_at": record["captured_at"],
             "fetch_status": record["fetch_status"],
             "direct_status": record["direct_status"],

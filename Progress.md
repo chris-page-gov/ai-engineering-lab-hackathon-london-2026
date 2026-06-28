@@ -56,6 +56,8 @@ The changelog now reserves `Unreleased` for pending work only; the accumulated H
 
 The current wiki publication pass aligns `challenge-2/wiki/` and `postmortem-public/wiki/` with the local OKF v0.1 profile used in recent wiki repos. The generated root `viewer.html` now opens on the public AI coding-assistant postmortem, supports switching to the Challenge 2 wiki, has scrollable side panels, a collapsible current-page navigation rail, rendered Mermaid flowcharts, Narrative/Timeline/Graph/Links stage views, reduced labels on dense exchange graphs, a reproducible `_site/` builder, and a GitHub Pages workflow matching the publication pattern used by recent OKF wiki repos.
 
+The current wiki viewer refinement pass improves the public external methodology source notes and the sparse graph experience. External citation pages now include a short overview and contents outline before citation metadata. Focus graphs now omit unrelated same-section filler nodes, label sparse direct-neighbour graphs, rotate non-overlapping labels in dense overview mode, and expose directional typed relationships through arrowed edges and an edge inspection list.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.

@@ -11,13 +11,25 @@ tags:
   - "external"
   - "methodology"
   - "codex-postmortem-public"
-description: "Source note for EXT-KARPATHY-X-IDEA-FILE: Karpathy X Post: LLM Wiki Idea File."
+description: "Karpathy's follow-up idea-file post reinforces the practice of keeping project knowledge in plain files that an AI assistant can inspect and maintain."
 timestamp: "2026-06-27T18:01:54+00:00"
 ---
 
 # Karpathy X Post: LLM Wiki Idea File
 
 This public source note intentionally does not include the localized full-text copy.
+
+## Overview
+
+Karpathy's follow-up idea-file post reinforces the practice of keeping project knowledge in plain files that an AI assistant can inspect and maintain.
+
+## What It Contains
+
+- Treats the file tree as an editable memory and coordination surface.
+- Emphasizes plain-text artifacts that remain useful outside a single chat session.
+- Provides supporting context for the repo's generated notes, logs, and indexes.
+
+## Citation Metadata
 
 - Canonical URL: [https://x.com/karpathy/status/2040470801506541998](https://x.com/karpathy/status/2040470801506541998)
 - Source kind: `x_post_readable_snapshot`

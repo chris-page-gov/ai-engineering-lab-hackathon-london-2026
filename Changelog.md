@@ -8,6 +8,17 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 No undated pending changes.
 
+## 2026-06-28
+
+### Changed
+
+- 2026-06-28: Expanded public external methodology source notes with reader-facing overviews and contents outlines while preserving citation-only publication boundaries.
+- 2026-06-28: Improved the generated wiki viewer focus graph so it shows directly linked pages only, labels sparse graphs, rotates non-overlapping labels in dense overview mode, and renders directional typed relationship edges with an edge inspection list.
+
+### Validation
+
+- 2026-06-28: Added regression coverage for external source overview rendering and source-to-source `related source` relationship typing.
+
 ## 2026-06-27
 
 ### Added

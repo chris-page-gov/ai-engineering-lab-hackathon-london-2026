@@ -11,13 +11,25 @@ tags:
   - "external"
   - "methodology"
   - "codex-postmortem-public"
-description: "Source note for EXT-KARPATHY-X-LLM-KNOWLEDGE-BASES: Karpathy X Post: LLM Knowledge Bases."
+description: "Karpathy's post frames LLM knowledge bases as wiki-like, durable Markdown repositories that can be read, edited, and navigated by both people and AI systems."
 timestamp: "2026-06-27T18:01:54+00:00"
 ---
 
 # Karpathy X Post: LLM Knowledge Bases
 
 This public source note intentionally does not include the localized full-text copy.
+
+## Overview
+
+Karpathy's post frames LLM knowledge bases as wiki-like, durable Markdown repositories that can be read, edited, and navigated by both people and AI systems.
+
+## What It Contains
+
+- Motivates the use of text files and links as a lightweight knowledge-base substrate.
+- Connects the idea to LLM workflows where source context, notes, and updates need to remain inspectable.
+- Serves as origin/context evidence for why this postmortem treats the generated Markdown wiki as the primary public reading layer.
+
+## Citation Metadata
 
 - Canonical URL: [https://x.com/karpathy/status/2039805659525644595](https://x.com/karpathy/status/2039805659525644595)
 - Source kind: `x_post_readable_snapshot`

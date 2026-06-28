@@ -11,13 +11,25 @@ tags:
   - "external"
   - "methodology"
   - "codex-postmortem-public"
-description: "Source note for EXT-KARPATHY-GIST-LLM-WIKI: Karpathy Gist: LLM Wiki."
+description: "The gist describes an LLM-maintained wiki pattern: raw evidence remains separate, Markdown pages become the working knowledge layer, and index/log files keep navigation and maintenance explicit."
 timestamp: "2026-06-27T18:01:54+00:00"
 ---
 
 # Karpathy Gist: LLM Wiki
 
 This public source note intentionally does not include the localized full-text copy.
+
+## Overview
+
+The gist describes an LLM-maintained wiki pattern: raw evidence remains separate, Markdown pages become the working knowledge layer, and index/log files keep navigation and maintenance explicit.
+
+## What It Contains
+
+- Defines the wiki as a directory of Markdown files rather than a proprietary database.
+- Uses index and log pages as the navigation and audit spine.
+- Encourages ongoing linting and maintenance so stale claims, broken links, and missing coverage are visible.
+
+## Citation Metadata
 
 - Canonical URL: [https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 - Source kind: `gist_raw_markdown`
