@@ -55,12 +55,17 @@ class UpdateViewerGraphTest(unittest.TestCase):
     def test_graph_template_includes_drag_pan_controls(self) -> None:
         template = update_viewer.VIEWER_TEMPLATE
 
-        self.assertIn("graphPanX=0,graphPanY=0,graphDrag=null", template)
+        self.assertIn("-webkit-user-select:none", template)
+        self.assertIn("graphPanX=0,graphPanY=0,graphDrag=null,graphSuppressClick=false", template)
+        self.assertIn("padX=w*.35,padY=h*.35", template)
         self.assertIn("function beginGraphPan(e)", template)
-        self.assertIn('e.target.closest(".node,.edge,.edgeHit")', template)
         self.assertIn("function moveGraphPan(e)", template)
-        self.assertIn("graphPanX=graphDrag.panX-(e.clientX-graphDrag.x)/z", template)
+        self.assertIn("graphSuppressClick=true", template)
+        self.assertIn("function suppressGraphClick(e)", template)
+        self.assertIn("graphPanX=graphDrag.panX-dx/z", template)
         self.assertIn('graph.addEventListener("pointerdown",beginGraphPan)', template)
+        self.assertIn('graph.addEventListener("click",suppressGraphClick,true)', template)
+        self.assertIn('graph.addEventListener("dragstart",e=>e.preventDefault())', template)
         self.assertIn('zoomReset.onclick=resetGraphView', template)
 
     def test_mobile_detail_panel_is_a_touch_scroll_surface(self) -> None:

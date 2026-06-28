@@ -50,7 +50,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `tools/check_documentation_lockstep.py`: local and CI check that required tracking docs exist and move with meaningful changes.
 - `challenge-2/AGENTS.md`: Challenge 2 LLM Wiki operating schema.
 - `challenge-2/tools/build_wiki.py`: repeatable Challenge 2 wiki builder.
-- `viewer.html`: generated self-contained HTML viewer for publishing the public postmortem and Challenge 2 wiki on GitHub, including Narrative/Timeline/Graph/Links views, a collapsible current-page navigation rail, rendered Mermaid flowcharts, explicit graph zoom/pan controls, and reciprocal/dense-graph label control.
+- `viewer.html`: generated self-contained HTML viewer for publishing the public postmortem and Challenge 2 wiki on GitHub, including Narrative/Timeline/Graph/Links views, a collapsible current-page navigation rail, rendered Mermaid flowcharts, explicit graph zoom/pan controls with drag/click separation, and reciprocal/dense-graph label control.
 - `scripts/update_viewer.py`: regenerates `viewer.html` from `postmortem-public/wiki/**/*.md` and `challenge-2/wiki/**/*.md`.
 - `scripts/check_wiki_viewer.py`: verifies `viewer.html` is synchronized with both public wiki corpora.
 - `scripts/check_okf_conformance.py`: validates OKF frontmatter for `challenge-2/wiki/` and `postmortem-public/wiki/`.

@@ -60,7 +60,7 @@ The current wiki viewer refinement pass improves the public external methodology
 
 The latest viewer mobile fix makes the right-hand detail panel a constrained touch-scroll surface on Android-sized tablet and phone breakpoints, instead of relying on whole-page scrolling after the panels stack.
 
-The latest graph and publishing pass adds explicit graph zoom controls, drag-to-pan repositioning for zoomed graph views, keeps reciprocal edge labels readable by collapsing duplicate two-way labels or offsetting distinct labels toward their source nodes, and publishes the checked-in Challenge 2 structured/unstructured source trees into the Pages bundle so raw source links resolve outside the viewer.
+The latest graph and publishing pass adds explicit graph zoom controls, consistent drag-to-pan repositioning across the graph surface, keeps reciprocal edge labels readable by collapsing duplicate two-way labels or offsetting distinct labels toward their source nodes, and publishes the checked-in Challenge 2 structured/unstructured source trees into the Pages bundle so raw source links resolve outside the viewer.
 
 ## Completed
 
@@ -204,7 +204,7 @@ The latest graph and publishing pass adds explicit graph zoom controls, drag-to-
   - ran `python3 -m unittest tests.test_build_codex_postmortem tests.test_update_viewer tests.test_build_site`;
   - ran `python3 scripts/check_okf_conformance.py`, `python3 scripts/check_wiki_viewer.py`, `python3 scripts/update_viewer.py --check`, and `python3 scripts/build_site.py`;
   - confirmed `_site/challenge-2/unstructured_files/travel-and-subsistence-policy-v2.0.docx` is present as a Word document;
-  - ran Chromium smoke tests confirming the Challenge 2 source graph has labelled edges without same-text coordinate overlap, the explicit zoom control shrinks the graph viewBox, drag-to-pan changes the zoomed viewBox origin without changing zoom, and reset returns the graph to the centered full view;
+  - ran Chromium smoke tests confirming the Challenge 2 source graph has labelled edges without same-text coordinate overlap, the explicit zoom control shrinks the graph viewBox, drag-to-pan changes the viewBox origin at both 100% and zoomed views without changing zoom, dragged nodes do not accidentally open pages, and reset returns the graph to the centered full view;
   - ran `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`, `python3 tools/check_documentation_lockstep.py`, and `git diff --check`.
 - Current postmortem exchange-view validation passed locally:
   - ran a Chromium smoke test against local `viewer.html` at a `1920x1080` viewport;

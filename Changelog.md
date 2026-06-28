@@ -21,12 +21,14 @@ No undated pending changes.
 
 - 2026-06-28: Fixed the generated wiki viewer mobile layout so the right-hand detail panel remains a touch-scrollable pane on Android-sized tablet and phone viewports.
 - 2026-06-28: Fixed GitHub Pages source links for Challenge 2 raw DOCX/structured files by publishing the checked-in source-file trees into the generated `_site/` bundle.
+- 2026-06-28: Fixed graph drag-to-pan so panning starts consistently across the SVG surface, remains visible at 100% zoom, and prevents native browser drag ghosting.
 
 ### Validation
 
 - 2026-06-28: Added regression coverage for external source overview rendering and source-to-source `related source` relationship typing.
 - 2026-06-28: Added regression coverage for Challenge 2 raw source-tree publication, graph zoom controls, and reciprocal graph edge-label handling.
 - 2026-06-28: Added regression coverage for generated graph drag-pan controls.
+- 2026-06-28: Expanded graph drag-pan regression coverage for click suppression, 100% pan bounds, and native drag prevention.
 
 ## 2026-06-27
 
