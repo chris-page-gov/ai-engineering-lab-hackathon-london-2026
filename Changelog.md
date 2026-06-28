@@ -15,6 +15,7 @@ No undated pending changes.
 - 2026-06-28: Expanded public external methodology source notes with reader-facing overviews and contents outlines while preserving citation-only publication boundaries.
 - 2026-06-28: Improved the generated wiki viewer focus graph so it shows directly linked pages only, labels sparse graphs, rotates non-overlapping labels in dense overview mode, and renders directional typed relationship edges with an edge inspection list.
 - 2026-06-28: Improved generated wiki viewer graph readability with explicit zoom controls and reciprocal edge-label placement that collapses duplicate two-way labels or offsets distinct labels toward their source nodes.
+- 2026-06-28: Added drag-to-pan support to the generated wiki viewer graph so zoomed graph views can be repositioned without losing node and relationship click behavior.
 
 ### Fixed
 
@@ -25,6 +26,7 @@ No undated pending changes.
 
 - 2026-06-28: Added regression coverage for external source overview rendering and source-to-source `related source` relationship typing.
 - 2026-06-28: Added regression coverage for Challenge 2 raw source-tree publication, graph zoom controls, and reciprocal graph edge-label handling.
+- 2026-06-28: Added regression coverage for generated graph drag-pan controls.
 
 ## 2026-06-27
 

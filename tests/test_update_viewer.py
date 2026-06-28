@@ -52,6 +52,17 @@ class UpdateViewerGraphTest(unittest.TestCase):
         self.assertIn('graph.setAttribute("viewBox",graphViewBox(w,h))', template)
         self.assertIn('graph.addEventListener("wheel"', template)
 
+    def test_graph_template_includes_drag_pan_controls(self) -> None:
+        template = update_viewer.VIEWER_TEMPLATE
+
+        self.assertIn("graphPanX=0,graphPanY=0,graphDrag=null", template)
+        self.assertIn("function beginGraphPan(e)", template)
+        self.assertIn('e.target.closest(".node,.edge,.edgeHit")', template)
+        self.assertIn("function moveGraphPan(e)", template)
+        self.assertIn("graphPanX=graphDrag.panX-(e.clientX-graphDrag.x)/z", template)
+        self.assertIn('graph.addEventListener("pointerdown",beginGraphPan)', template)
+        self.assertIn('zoomReset.onclick=resetGraphView', template)
+
     def test_mobile_detail_panel_is_a_touch_scroll_surface(self) -> None:
         template = update_viewer.VIEWER_TEMPLATE
 
