@@ -64,6 +64,10 @@ The latest graph and publishing pass adds explicit graph zoom controls, consiste
 
 The latest graph label pass removes the focus-graph all-label shortcut and regenerates `viewer.html` from `scripts/update_viewer.py` so dense focus graphs now show a readable non-overlapping subset of node labels and rotate the conflicting label layer every two seconds.
 
+The current `gov-ckan` branch adds a metadata-first GOV.UK/data.gov.uk CKAN OKF bundle under `gov-ckan/`. The bundle uses the unauthenticated National Data Library CKAN API as its corpus spine, keeps normalized metadata rather than downloaded resource bodies, enriches exact GOV.UK content links only where deterministic, and ships a separate static large-corpus viewer with search, facets, graph/layout modes, spotlight-equivalent interactions, and pinned comparison cards.
+
+The concept-localisation boundary is explicit: future enrichment should analyse linked documents/resources to preserve derived concepts, evidence pointers, and relationships, but should not commit copies of the remote documents or downloaded resource bodies.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -164,6 +168,8 @@ The latest graph label pass removes the focus-graph all-label shortcut and regen
 - Added `scripts/update_viewer.py`, `scripts/check_wiki_viewer.py`, and `scripts/check_okf_conformance.py` plus root `viewer.html` generated from the public postmortem and Challenge 2 wiki.
 - Added `scripts/build_site.py`, `.github/workflows/pages.yml`, and `_site/` ignore coverage so the wiki can be published through GitHub Pages with root `viewer.html` as the site index.
 - Added `postmortem-public/wiki/walkthrough.md`, an illustrated reader route using the current reusable screenshot assets and recording the missing full UI screenshot set.
+- Added `scripts/build_gov_ckan_bundle.py`, `scripts/check_gov_ckan_bundle.py`, fixture tests, `gov-ckan/` publication wiring, and the initial generated GOV.UK CKAN OKF bundle/viewer path.
+- Added GitHub Pages workflow validation for the generated GOV.UK CKAN bundle so the public URL fails fast if bundle chunks, counts, routes, or viewer synchronization drift.
 - Updated the generated root `viewer.html` so its left navigation can collapse into a narrow current-page rail and its Markdown reader renders committed Mermaid flowcharts as inline SVG diagrams.
 - Updated the generated root `viewer.html` so postmortem exchanges have Narrative, Timeline, Graph, and Links stage views. Narrative view foregrounds the user prompt and final answer, then lists commentary responses below in timestamp order.
 - Updated the generated root `viewer.html` so Markdown pipe tables render as tables, internal links participate in browser-like back/forward history, exchange hashes such as `#ex-0003` resolve as route aliases, graph relationships expose derived relationship types on click, and commit hashes/repo-relative code references open GitHub permalinks where inferable.
@@ -176,6 +182,13 @@ The latest graph label pass removes the focus-graph all-label shortcut and regen
 - Addressed the latest PR review comment as a retrieval-performance class: Wiki MCP search now runs only the retrieval engine required by the selected mode, so lexical-only calls do not build/query the semantic index.
 
 ## Validation
+
+- Current GOV.UK CKAN bundle implementation validation passed locally:
+  - ran `python3 -m py_compile scripts/build_gov_ckan_bundle.py scripts/check_gov_ckan_bundle.py`;
+  - ran `python3 -m unittest tests.test_gov_ckan_bundle`, covering CKAN extras, GOV.UK URL classification, dataset/resource normalization, Content API status handling, viewer UI contract markers, and fixture bundle validation.
+  - ran `python3 scripts/build_gov_ckan_bundle.py --sample 200 --out gov-ckan`, building a live CKAN sample of `200` datasets, `16,271` resources, `9` publishers, `50,052` relationships, and `3` GOV.UK content enrichments from a reported CKAN count of `58,461`;
+  - ran `python3 scripts/check_gov_ckan_bundle.py`;
+  - captured Playwright screenshots for overview, selected dataset force graph, resource stack, pinned comparison spread, and mobile/touch layout under `gov-ckan/wiki/assets/ui-examples/`.
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;

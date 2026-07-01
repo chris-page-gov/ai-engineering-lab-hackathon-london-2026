@@ -16,6 +16,9 @@ class BuildSiteTest(unittest.TestCase):
         self.assertIn("challenge-2/structured_files", build_site.PUBLIC_TREES)
         self.assertIn("challenge-2/unstructured_files", build_site.PUBLIC_TREES)
 
+    def test_pages_bundle_includes_gov_ckan_bundle(self) -> None:
+        self.assertIn("gov-ckan", build_site.PUBLIC_TREES)
+
 
 if __name__ == "__main__":
     unittest.main()

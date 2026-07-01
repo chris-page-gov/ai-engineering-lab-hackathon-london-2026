@@ -31,6 +31,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - The Codex collaboration postmortem applies the same wiki pattern to the build conversations themselves so the human and Codex contributions can be traced from prompts, responses, repository artifacts, and external methodology sources.
 - The MCP research wiki applies the same separation principle to follow-on engineering work: MCP research, source/license registers, candidate implementation reviews, specifications, and future server implementation notes live under `challenge-2/MCP-Wiki/` rather than being folded into the Challenge 2 corpus wiki or postmortem wiki.
 - The publishable wiki bundles now follow the local OKF v0.1 profile used in recent wiki repos: Markdown files keep OKF frontmatter, root bundle indexes declare `okf_version`, root `viewer.html` is generated from `postmortem-public/wiki/**/*.md` and `challenge-2/wiki/**/*.md` rather than hand-maintained, and GitHub Pages publishes the generated viewer plus public wiki Markdown from an ignored `_site/` build. The viewer opens on the public AI coding-assistant postmortem first, with Challenge 2 available as a second corpus, Narrative/Timeline/Graph/Links stage views, collapsible navigation for better reading space, touch-scrollable mobile/tablet detail panels, self-contained Mermaid flowchart rendering for the Architecture pages, sparse focus graphs that label directly linked pages only, cycling non-overlapping graph label layers for conflicting labels, and directional typed relationship edges.
+- The `gov-ckan/` bundle extends the OKF pattern to the National Data Library data.gov.uk CKAN directory as a metadata-first large-corpus bundle. It has its own static viewer because the existing root `viewer.html` is Markdown-page oriented; the CKAN viewer is built around searchable structural facets, a non-hairball overview canvas, spotlight-equivalent pointer/keyboard/touch interactions, data cards, and pinned comparison cards.
 
 ## Data Assumptions
 
@@ -38,6 +39,7 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - Challenge 2 staff-directory names, emails, phone-like values, roles, and identifiers are synthetic fixture data and should not be redacted for the demo.
 - Real secrets, credentials, local filesystem paths, and provenance gaps remain review issues.
 - Raw files under Challenge 2 source folders should not be edited, renamed, moved, or normalised as part of wiki generation.
+- For the GOV.UK CKAN bundle, "localised" means CKAN dataset/resource/publisher metadata, derived facets, graph relationships, source links, exact GOV.UK Content API metadata where a CKAN URL deterministically points to GOV.UK content, and future derived concept indexes from linked resources. The bundle must not bulk-download remote resource bodies, commit source-document copies, or import the full GOV.UK Search API index.
 
 ## Important Paths
 
@@ -55,6 +57,9 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `scripts/check_wiki_viewer.py`: verifies `viewer.html` is synchronized with both public wiki corpora.
 - `scripts/check_okf_conformance.py`: validates OKF frontmatter for `challenge-2/wiki/` and `postmortem-public/wiki/`.
 - `scripts/build_site.py`: builds the GitHub Pages-ready `_site/` bundle from root documentation, `viewer.html`, `challenge-2/wiki/`, Challenge 2 checked-in source-file trees, and `postmortem-public/`.
+- `gov-ckan/`: generated GOV.UK/data.gov.uk CKAN OKF bundle with `wiki/` OKF notes, compact chunked metadata under `data/`, screenshot examples under `wiki/assets/ui-examples/`, and a dedicated static `viewer.html`.
+- `scripts/build_gov_ckan_bundle.py`: harvests paginated CKAN `package_search` metadata, normalises datasets/resources/publishers/facets/relationships, and writes the generated `gov-ckan/` bundle.
+- `scripts/check_gov_ckan_bundle.py`: validates manifest counts, chunk integrity, route IDs, local-path leakage, viewer/data synchronisation, and the metadata-only source boundary.
 - `.github/workflows/pages.yml`: validates the OKF bundles and viewer, builds `_site/`, and deploys it with GitHub Pages Actions.
 - `_site/`: ignored generated Pages output.
 - `challenge-2/evaluation/README.md`: Challenge 2 wiki evaluation harness runbook.

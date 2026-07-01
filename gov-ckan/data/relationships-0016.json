@@ -1,0 +1,5002 @@
+[
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/4a49508d-cc05-4fd1-b620-241ee9529bba"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/54326dec-e36d-44f5-ba3b-b033859f25f1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/74d496b4-27fa-40a2-b2a3-87789cee06fe"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/7930d613-0004-4c45-bfd8-7cb51de41719"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/7f869616-a8cf-4445-bf50-d5047df605b8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/8a54d324-9055-4b19-a9c1-7d66aa2044bf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/8b3d13f4-cfa7-44ad-b290-c7bff17b67ef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/90cab34c-16f9-457d-9a7e-ad5fc8e7aab5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/9a6414ec-ad87-499a-80ec-2d6237679d88"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/a14e5e5c-9ee0-442c-b086-3c7ed358b9c8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/a3e66c47-e33f-4e32-b6ab-11f140022a1a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/a65580b2-2575-4253-a652-636f7671d55b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/ad0ad5a5-8aed-41c9-b3b3-3288ec8aa2d8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/ad42f62b-4a4d-4bab-a28c-ae4f4c8c1797"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/b27a2147-316a-4bed-a005-38ba907fe2f6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/da983ab4-384e-4643-a4dd-1a4bd979365d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/e76df90b-edd8-4a10-b72d-d442b485634e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "resource/e8c6530a-5487-4298-9b5b-a1f7e15271ef"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-august-20222",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/0b2a9b4c-cc75-4b1b-93a2-3d1084104056"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/0e883601-c4a0-4496-a843-28354b503df6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/0fea3c06-d6ac-4cbc-98d3-29cb6a40e049"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/103e51d0-3912-4996-994e-1eb5b5b09fb3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/26053d2e-0ee9-4abc-9896-c3b0a7421864"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/2788e57a-6e8e-477f-ab50-f7a9c6e89a46"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/2892be9f-1348-428c-a417-270b5a6992dd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/31bf094c-14b7-4718-8b5e-05b56d4de590"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/38575ca5-6ce8-4bc0-b970-eff36a9999f5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/3877ac75-5941-4469-aba5-c28ad76d1405"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/3ae4adc4-2376-418d-8ca4-ddadc4465156"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/3ce97ba4-081d-4e8c-8e11-bac3e7c67122"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/3fe23209-926a-4200-bdd6-a3cfcf259af5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/4ca95918-639b-40cb-86dd-5355c5e9ad79"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/63fdab22-79a5-45ec-934f-9021fa303e80"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/6717f11e-9d05-49f7-92bb-1f1a37d4bbfc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/6e753180-4007-4eb5-8bca-6f5641c6d5eb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/7392af96-c283-46e5-91d4-12ea42b38d0f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/930ae7ac-6be5-4076-a157-3c38056ebf12"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/a341aca7-ec54-4d5b-8b49-255678cc84fa"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/a930e8bd-ed4c-4de9-8c18-fbcbe01d10d8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/b3e1c135-c8cb-48f7-bb85-6a861ff4ab66"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/b7f66883-9cec-48f5-a53c-4bf55283b863"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/cf6fb75f-4830-4ba2-899d-8d86321aff42"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/d5030ada-3c1a-4c05-aeb6-8dd309e06a46"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/df4cf0cc-44e4-4fbe-a6fa-2a0bcbda32fe"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/e6ec6b27-77e8-4d5f-9d57-410679e02b2f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/ec1e00cc-05a6-4232-93fd-4707993a2e47"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/ee833afa-abff-460f-9c4e-ed9ed91f64bd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/f95a342f-f1e6-46b6-8966-6f2b2fd7bafd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "resource/fefa36d1-4f5d-4b78-a90b-f96e19ae7f57"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-august-20232",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/0468aa00-c16a-4ecf-a8c8-6dc716f49534"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/0a901024-a681-460d-8154-dc70ca266454"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/0feb4ff5-17f9-4564-b436-b19970c7ebe3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/1791a803-9a3c-4264-903b-479e26c74995"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/1c345f3a-f0e8-466c-81a7-4f8c33676a53"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/471504f5-119e-4a0c-963a-1bd9623311c4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/4d813668-aaf2-4ea9-bc4e-58476bfb38ce"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/4fe95bd8-1d65-4ef8-b908-ade74f7b1e4c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/59cc3253-9cef-4662-9fe9-4eadc61456bb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/5d2e4b4f-f7f0-434d-b052-edabaa41697c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/5fa8db44-db3f-4253-b605-ab5cca45b8aa"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/76e8662f-f131-44ee-8316-ffb8c0a3f920"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/7e3de121-cfd5-4b94-a946-98bbec49562b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/8b1a00f6-018d-40cc-aa41-da41025ffb0d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/9419a1c2-a1e6-4ad5-b72e-9fd0379ee13d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/9a53c11a-1d73-401f-881d-86476674dc64"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/a9cbba27-5b06-4b80-a24a-3df9bac53634"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/aad3efa2-b536-48b2-8e25-0b661a93b323"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/af846813-bda5-40c1-901a-f388edf27de6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/c31c013c-9b2f-4e14-b7f7-08e6c60b0393"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/c716a70b-625d-4c2c-b0e8-03fda74fc376"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/c80a7e50-90ee-4bcd-b798-94e29280c60d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/cf385c2a-f66e-4876-a531-b72a1c698f4c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/d0577c42-502a-45e7-b35c-b42da12e3eae"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/d2b010ab-67a5-4e2d-88ec-e1f43f3ee77c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/da17d3f2-3a92-4548-8f40-15de14c771cb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/daa29a6a-0f68-468e-afaa-b15be94ad647"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/e5066ed3-8197-4e27-bba2-00883e67e1b5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/e8dfb721-ae93-47e1-b465-120259879c23"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/ea2deefe-c400-459d-b98e-c113f7e2f9dd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "resource/fcc81e91-6008-41c4-8273-797df3b4d06e"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-august-2024",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/020b92be-99b4-403a-9c96-30cb49e6e0fb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/0386eed3-9d69-466e-9fee-1c440f308c45"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/15a0867d-f6c5-4dfc-8bcf-1dcec850ae27"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/3926488e-80a0-46fb-8714-f59679245c7d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/3ab2bea4-8687-42a8-bae3-8ea6f757160c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/494af6ba-78c8-4c60-8c4e-16f34f513c66"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/4cf92fec-0836-44c7-9512-977a6826f683"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/63ba15fb-1b8b-4c25-b6b1-fe555771dd6a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/64e4d7be-6f9e-4192-9681-a2695535a66d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/6effd75c-57f9-4bd5-9020-77e2bf9bba0c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/79e201d6-46f0-445e-a612-ac5837cf7f65"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/7e58292e-091e-4ce9-9f8a-e04b58c2bed0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/7eb9700a-0a11-4381-8250-ba80361ed072"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/8343daaf-48eb-4aec-8dd9-98056e3e6b4a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/94626bd5-7b15-497a-b856-80dbb0f21bf9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/a696d1ba-9169-4b4e-b096-f94e861c23c0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/a9d8a5a0-b327-4f2c-b35d-1a17d1cd39ab"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/ace725b4-928e-4972-9f50-8d1a457cb3cf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/b1078995-cc21-4428-9b45-2514559bd60e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/bb57d2d9-5321-4700-9fdf-a25d7956d195"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/be885ccd-8828-41b4-ade1-9dec53933d88"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/bfd50bf8-f87a-4753-abfb-da9d24d3a2fa"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/c407d3fe-164b-4d11-bb5b-9b5247e5cca5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/dc0e9c69-e8db-4d23-bd3e-607c07575b85"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/e4d52e63-c380-4a9b-a4b9-1e1f7e43527d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/eeef171b-3de7-410a-af88-5faffbb6edd1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/f2405a8a-6c8c-46c1-b207-0ffa11ecc90d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/f3f058e6-828f-4a6d-8087-25e1ba8901cb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/fe7aab86-fc45-4923-a38c-9bb0a29b3260"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "resource/ffc1f264-71ff-45fa-92cc-d6179b38d528"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-august-2025",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/0cdb191e-3c3d-4516-a8a2-f9ece898a46f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/11cb573e-db3a-4f20-9529-c99a8e2ae5ff"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/16160e86-41b9-4788-a18d-5ac6e3928314"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/2349f0ff-ab23-48e8-8a2b-bb9aad4359ef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/30f6272f-3097-4641-a14c-c18d76f3fd69"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/336c6b19-9977-4407-8ac4-22267057c520"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/34dce598-cdf7-421e-8c62-1a5010131bfb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/37b8006e-f2fc-4dd2-8609-2e0a85435a57"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/3b401707-187a-4049-ba65-a3ada2d3c36c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/3ebf2470-f91d-452e-bf65-8625f93efd41"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/4cd873a9-f2d7-46db-8390-3d2968060bdb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/4f09d235-606a-484f-9586-c65f36e4a9b2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/533336d2-ce82-4572-b528-34b5419f0e07"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/5763e66f-5d10-45a4-a350-a65535f902db"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/632d6ffd-8e5c-4825-892f-a4f5fc1ccbf9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/65713c54-53b6-454e-afe2-7fd788ea6b78"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/77d76068-61f0-4e2f-a082-7c0725565c09"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/94104aba-2b56-4898-8f12-b7fc3c867f99"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/955b3439-494c-4901-ac0c-63e36e8e2b13"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/a0895ffc-3494-4a93-85b9-ef5db0291097"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/b75d0ea5-f071-4357-90ef-a55faa3a9300"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/cf5c67fd-ec20-4d88-b2f7-9b4bbd8247ff"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/d5226bbc-c029-4bc3-a173-476293b8214a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/d695948f-8d7d-41f1-bfee-a4b881d07cce"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/e18735be-11ba-41e2-8e16-7d23e2b5898e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/e6d45e81-a780-4f03-a47c-a955013e167e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/f0759c32-103d-4009-865a-aacaa3dd83e4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "resource/f3e44b43-f06d-4d6b-a56e-fcf47a7e38b4"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-december-20212",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/0205e34d-c871-43c7-a7c4-b6cc2296e8df"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/0c8c292e-a577-4291-a318-e4c1daf2f4e8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/0cac0867-f689-4433-b95d-6bc4782a10c3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/1e12ec78-f99e-4516-9f51-f99a69946a33"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/2216e829-c812-4b79-8ed7-3382b019c87d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/27199274-a7ab-42d9-b3f5-e1c2a4988088"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/314fe2ad-87df-4a9e-bb27-3470a9192ad9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/31aa1e06-f2ca-4cef-b31f-69d205b0a2c7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/38bf7ac9-20d6-4be2-98b0-4679dae0e5e5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/3ddfba85-493a-4d23-9cbe-64003329edb3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/45f71d51-1389-4a31-a842-001b0de33dcd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/59e14019-0c8a-4e99-b728-8814b805ec5a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/6539c189-9551-49a8-b64c-97a9af4c667f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/6c3d1ec6-83b9-4e3d-8696-c4e0177621e0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/700b3546-3f2c-4f81-8f53-999422d31122"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/74e2e4ac-bd5b-4929-a655-d51eaec9292e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/8334d525-d1f8-43ef-9bac-4cda0cf3e4df"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/88e2989a-0763-424b-ae1d-4b3a1a82cb00"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/96e0ec28-5988-42c5-9ad0-e1908c855f6c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/9a5d56e2-972c-442b-9a8a-0336eca1584d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/a6c705d1-d0c1-4d2f-950e-0c5d763ec4b6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/c670a3ad-8b58-434b-abc4-9b8d14d0e315"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/d640d957-2737-4785-b72e-d3ee9e39eb39"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/e4b26e9f-8c99-4dc0-bb9a-1ef8019b9d27"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/e9a93e94-981c-411e-a43e-1c798d1c0cf7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/fb28b661-5b54-4891-8796-e4dd654b7bb2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "resource/fc6cc1ff-b4f2-4d95-bef4-e6afa9d39638"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-december-20222",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/02478b19-d32a-4800-9575-10677ad0ce24"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/1582b601-045f-4a1d-bf55-2c5e1b266f0a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/213e4a1d-095f-4b85-bf26-039713bd9af4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/2837edc7-e134-4e4f-a570-8283463b32e9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/2b05cb39-e709-4929-a848-974a0ebce08a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/2ce69f7b-4adb-4669-8e83-43003c38a403"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/30bfaa0e-271e-40da-9d98-9c45b0c619d3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/3b8a1f72-e68a-44d1-98b3-91d7fc39aac8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/5123a976-6a47-4291-b2a8-80baf25e5324"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/582845f4-ac8b-442e-b88c-81df7f22bdfb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/5e67a493-eb38-4ecc-b732-e25e68627c2a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/67484f34-3090-4552-bab3-4b1fa302e9af"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/7997ae79-4e4f-4471-88e0-069ce2dc6f08"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/90a70549-3c1b-4290-b70f-3c4d02c8b60f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/9a675055-87ba-48eb-a753-a792d894bf37"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/a3c2b01e-3dcb-43c0-8b8c-44a443ffad2c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/a59cb726-0f04-4821-87d7-422d9e85a9c3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/a689efc6-054e-4ce1-bf3d-99b214005432"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/abf9f916-22ec-4094-b842-5ec6ab9f64ec"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/b590485b-14f3-4c17-af50-878942554779"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/bdef1b1e-8512-41bb-939e-6f137fb4c31c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/ccb3f07d-79bd-4d9a-ac2c-cb0ea0918296"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/d1730fea-ba6c-46c6-b87e-6fd21991e66e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/d289fdab-7143-4927-b595-f799c6102f4e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/e1283604-d5f4-4bd3-87ee-ac534906a100"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/e6fb1b2b-1ce5-4262-8cec-e999e6b782e2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/f7ae3d7d-9550-4d6b-b0d4-8bea8cb5fe01"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/fda71523-8a1d-4655-8e16-6f7b7d7a267b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "resource/fe9b172e-2a50-49e3-ad09-33e60db10c7c"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-december-2023",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/0263dca3-1213-4f00-a92b-44ee91877395"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/0f4c1d0e-daa6-46a7-8364-1f7e7a2778fe"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/165c3854-8ea2-4631-ae15-24e0b2c8cceb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/311bbdc7-d533-4b9a-b7de-6a8b8b83f7a8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/3223d2ed-1181-4cec-b96d-e8ca56ed6b7c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/3baa862b-c8c7-4cd9-bb7f-123198dc3723"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/43a79039-f7dd-45c3-b950-689f9104ea1d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/53e64fdb-abb5-4879-8e7f-8daea619676c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/58bf091e-90fc-45d0-a8f0-79c4945c47b9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/71b9e65c-d877-4710-95b4-fea180541115"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/8422d3c4-efb6-4bbe-80d8-3cafe3db5706"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/900e8c8e-ddc8-4236-8be9-4790d2ba9535"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/a1a27eac-e4ce-47c9-9aba-3397455a0e89"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/a4e7c82d-9208-4a82-9d71-08ad0b5db9e2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/a68904c0-b65f-4a86-b8a2-a8000fe4f398"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/ab1942f1-a997-483d-8a34-61a7cc9af130"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/b2877212-730a-448e-bc62-d31a52c9a188"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/b79b6fad-afc0-481c-8327-07c92355856c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/b7d538ed-5120-4aee-b444-d2a03fe1ec03"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/cb12f0c2-828a-45dd-95b1-c9a7eb4dcf66"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/d03cac31-e44c-4ca2-a4ea-f4068a4476da"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/d05961ea-b822-4ed3-9050-e277acf6c2a1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/d392c3a5-8ba5-4cfe-985a-1a444854d219"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/df279fb7-1575-445c-87ee-6d284b8a1964"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/e0efcab5-65fb-456d-8328-2a057c499616"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/f2e5740b-46e9-4b15-98bc-ae9f8bd0d1c1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/fc87253b-cec7-4873-b31b-2f2fac9a9c02"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "resource/fd756759-d65f-4f06-93a2-17c2963b7894"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-december-2024",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/06527c0a-d03d-45dd-ba87-e1a59079ebe7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/0c4dc882-16b4-4ecb-826e-1cd25c588ab8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/0dbce322-3c31-4bb8-8d98-54a5a06f91be"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/0e1a9206-0bc4-46a8-a4d8-d51f60aece5b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/0e390ef2-c47b-4c3b-a2d9-1500e4d2651f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/0f3e5a0f-13a3-46c8-908d-126b67993507"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/1a48ae90-c52c-4ef0-9d94-84ba2846fbac"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/2c07e609-c8a4-4285-81e9-0704e2160724"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/3c67db0b-ee0d-498b-aa95-761b3076195a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/46a46648-292c-4c1b-a74c-265c037b1bd9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/46c32bf1-8671-4adc-9a9d-b070fa8603d2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/4bfadd3d-763f-4793-be8b-2d74dab84afe"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/4d300999-5ac1-4c95-ae50-834c06f5f5ca"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/4f70c3cf-4bbc-4c54-9dc4-9b720824e516"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/52782a50-aeb5-4003-93b1-3b47237aa923"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/5953fec5-d49b-4370-90a9-a51ee2cee94b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/68cd425e-46fd-454d-aa73-c011ef682b7a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/78aa2ac4-b082-4617-ad9a-e8a0247305e1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/78c194ae-b4ff-4e80-880c-3544aeab01a7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/7a472f8d-4239-4f20-9787-ee3c1c11ff48"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/a89af0dd-52b1-446a-8223-762c7b72d7a0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/b00c5402-2fd7-42c5-8d35-6f2ecf14d1d9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/c001dac8-3015-4ff0-8d28-741091f5885a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/c27a1187-c8c9-49e9-b87f-b0baf102e8cc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/d81ae1d0-0dce-4c94-9fa7-b8b49afff9db"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/db643b79-4d8d-4533-9c6b-600cf1c64be4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/dce0b87d-4ade-4d9e-836c-ad8cadc73a82"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/dd5765b7-2e89-44ce-8a55-7ee5cb6ae2a3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "resource/f3de5b66-d293-43e9-8304-29e1972a7cbd"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-december-2025",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/033e864d-a82a-4915-a359-e7405c7d743d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/0d77e397-330c-4878-8214-6a4c153f9528"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/0d8048da-2b80-418e-a7b8-89a067e820c2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/105929d9-fe83-4634-a396-5e3ae3f7acef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/1dcc91f7-1bf6-4905-be83-c3eb35c29ee5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/28f45b7a-d81f-48f2-980c-7e655ad6fb92"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/3381e054-a4dd-41d6-a3be-aef7bba99aa5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/33b38b2a-f143-4ee6-a7be-fb92e079c4f3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/36bd5afc-6de5-40a4-aafb-454484a6909b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/380d9da6-6df9-431a-b336-af19b7bad849"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/3b1fee0b-42e2-4de8-bba3-051d007654a8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/497d58cb-467e-4dbe-a7e0-74e0208ec2ce"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/4a3c5f29-530a-4918-ad23-4a9703aea166"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/4ca94afd-68a2-4287-aa6f-21420565c649"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/558f62da-d541-4a0b-8b3c-8cde3685b6e5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/6b2fb063-77d0-4992-8ac6-f91712fb6f94"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/6b3560a3-c81e-4f23-a48b-1685fa2a53ef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/6dc6e92c-51a5-4f4f-a37e-13c1394e6884"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/703f0265-426e-4833-9754-d41ed1889c17"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/85c6059f-9925-4c27-bd5d-b5525ef25219"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/97b1a85c-f1c0-46b4-a639-da6dd27b7379"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/a1764eec-367b-4026-97f0-6e76c1b87b9a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/ac3583f6-0a90-40da-b5c9-4442ebf0e5aa"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/be545057-e350-4a4c-a06c-d160cb4da0d0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/d2503546-4407-4578-a137-081f57870748"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/e439385c-7c59-4252-9c87-f54a8169277f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "resource/f3b70be3-60a4-4a88-a56b-505eb60d5a24"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-february-20212",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/0691316c-0e73-452a-bb38-97b815c07d11"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/0768826c-c6f5-446c-af7d-ee19afca1c5a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/1193c7f8-dc4b-49e8-ad7e-47fc64d7ce1d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/125e2759-cdcc-4f3a-b53f-4b2d1dab69cf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/12b92646-eda8-4cd1-8dae-e22c4b541393"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/1e33bfb2-91bb-418b-8c70-c65646132aeb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/29dd3d21-f9c6-4f39-8d53-a27100f5a77d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/3a573d07-b373-4843-aa5c-ea8b6ce03d8d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/3d78a460-7c6a-4016-9f30-29220515c4dd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/501458ca-c5e8-4b47-a523-ca04f688173b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/706b30c6-e7cb-40e1-af74-f99fbdc16df8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/7e636d5b-0329-48cb-bab8-7ad7f9ef1609"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/870da77e-9aa7-4e6c-884e-cb087a8589b6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/8f54a773-79ab-426b-be7f-e5867107cfc3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/a1a8e5e8-b1ea-4354-96aa-9d3b180c3de9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/a6ca2290-d9e6-44c7-bad2-de7e14d96112"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/ad79a8c4-6430-44ce-b933-7d666bec9140"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/aed9e66f-8a5a-4e41-8ee4-647a3f26bba3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/b2f17008-3e2e-4267-bff2-504955abb01b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/c0bfaa1e-2666-4173-8220-58a8ab67a5f7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/c6bd0784-4243-4128-92d1-c55aa49761a0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/c9fb5759-eea4-4672-bdc9-453afb59120d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/d3dc76a0-e407-43d8-8927-873a35161172"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/dc998333-1b25-4906-a4e2-8f8dd354335d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/e2461b11-c6cd-4e28-9643-461a40a0995e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/e9a981f5-c444-41f6-ba8d-b8180251d0dd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "resource/ef12d27e-f90b-4026-a850-d6cea989d189"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-february-20222",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/1225be4e-8b6c-450c-be1c-b1daaa9eef33"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/1f229fd0-5976-4881-a0fd-f9e7b66f778c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/21f5665d-ba84-4532-9c37-65aa1b837cad"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/2421b015-a3a7-44ba-be6c-e299f3d04a4f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/261ac1e4-926f-4927-8d36-2f9718cc5d94"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/35136dfe-39c9-4d5d-82e9-ed0de9d6ee95"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/361c0ced-76f4-4bdc-bee7-3fa81db516d2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/37ad380c-95d2-439d-afd7-4fb03b179e70"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/579d2f92-5af9-4676-b6a7-11059f238d8c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/73bd0143-8665-4ee7-9855-8d7afb918be4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/7aaa59e4-d1e0-4bd8-b92e-759a4d9c9fc1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/8e2fd335-692b-4ef9-890a-6cf3b6c7f401"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/9ba9c291-6eb9-4f0e-b664-288192e49f67"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/9bd72ae7-b4c4-43d7-b37f-6bb2c4fac657"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/a88cb764-f65b-451b-b1a6-eea5cb0ce8d0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/a998ee66-87dc-46fb-87f5-00de5f4bcf03"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/aa53197c-d2df-4c4a-b342-8f4280ff6205"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/afa5c9d8-2245-4ca4-8417-5e975782374a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/c1ca2fa0-cfd4-4ba2-ab34-26a27fd7bc01"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/cd3dd5c3-447d-43f1-a41b-bfe7f45288af"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/d2ed52ac-d5f4-4374-b7ea-cfb994d72077"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/d7345159-5e26-4e9d-92b5-4c43c0a45325"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/d7714949-bcf4-48f0-97ff-168adc1e9d03"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/e8e86cfa-2036-4e0a-8057-7cdb29bcd92c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/ee0654bf-6ea7-4cd1-8d12-617f4fee94c2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/f0666807-43c2-4fef-bdb7-6ce09dc037cd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "resource/f140f9a4-e633-4706-a1a2-46d5cae4977e"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-february-20234",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/05733650-5509-4086-b324-bfbcde8c5b35"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/13c1801b-1414-4f68-8655-c3bdd36b6f53"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/23a9770f-05a2-4db2-b653-8a52a98d78a7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/24fb8ea0-52a5-4e66-a2ca-3ee3e844cade"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/49d2ff4c-3918-45a3-b20b-e2a668ae16b7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/4d6a52ed-38f7-4a99-a31f-91c488937985"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/4e321aea-d445-44e1-a815-de9bf344c1a0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/4e665130-fca7-4288-aa3e-64a12f75d35f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/4e6a881e-421f-4450-ae2c-0b63aa7d8725"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/4ec956a1-3acf-4e58-a2e6-9667362656c2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/5e5d18be-4379-42a1-977c-023c5103bd18"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/5fdc658c-51f2-446e-a603-f0e3f44257e3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/6f61a13f-72f8-4216-879e-ade8f85f505a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/733cc7b0-38ab-4554-9e48-d935e323f73c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/74aca627-af2b-4eac-8215-1175c801e2f2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/803bcc3d-481c-48a6-8fd3-ff7905f37328"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/84851acc-896b-4f9b-b63b-14d16cb45c7d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/9ba6206e-bf38-4a29-af04-ef1adfb10fea"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/9d8e63ca-e319-4b8c-ac3c-fac926097f1d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/a2315921-cec3-4a0f-8726-17189844aa86"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/a99ea135-e098-47c5-af33-9f0bfa438e4f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/bac06f1b-4e00-4ba1-9fd8-71c4ffc9462e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/be0c41dc-84fb-4ba3-9ce2-e23be4b81747"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/c44085ca-d7a1-4004-91b0-ece6033269c6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/d27add0d-b68b-4d40-b5f9-007f2a781cdf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/e169ea54-90dd-4fb4-9db7-4f55b4f50650"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/e3b897fe-e962-4f45-bb78-022f5dab3a80"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "resource/f4c6063f-1942-410b-bc3a-7ca71038b278"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-february-2024",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/0f275bda-4b38-4dab-a3aa-62b94b07f40f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/11f85910-26ac-483c-92ce-9ea8fd5a4f20"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/12a7625e-8571-43e7-a3e3-77830561feb7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/21e48eb6-12bc-4090-aa63-f319b1f97be5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/3558d331-d4b1-4c9e-89d1-3fabc0369f74"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/35f89079-b135-426c-8f50-933fb1b46bee"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/3d5bfd03-c007-4045-8e29-d6486c5feb43"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/4f8fd69f-a20d-4a06-8ed2-b07bc3f8297f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/629cd619-39b2-415f-9a40-8349ae0e92dc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/75f06d3a-d91d-451f-b52b-965892ac0b91"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/7cfdb8b6-e052-4c07-bc59-e94ac72775e7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/822ef561-da1f-4f74-82b0-f024893b36ac"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/8ba56772-ce5c-4c44-9b65-f485cb69e4a9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/8cad5be0-fa25-4805-a42b-bd454cb89a00"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/8ccd8bac-763d-4229-8e0f-44e2e5f68a54"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/8eb32a36-bb16-4e8e-b716-7ad0e62d274b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/96c6138f-35be-45f6-a8d9-7f6149262aec"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/9d42156c-bde8-4cc0-9b5d-8a36a9e4d292"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/a9dd7958-5ae6-4ada-aca0-38652fca7222"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/ace4c702-a25b-4b77-8cd1-3b4026838ba3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/ae631a52-3a9b-4ef3-9e7b-cff2fd029be1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/c3e904bc-9d2a-4104-8c99-bc2b1dbb57a0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/cf9a40a4-8bba-4f5d-a46b-18fedd880f7b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/e1244112-4d9b-48d8-8b50-2c6d472f8666"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/eec0ed71-cb95-4de5-9c57-7a894ab12018"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "resource/fe391dbb-8bbd-4a4b-b77e-88613375f4e8"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-february-2025",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/06c8f347-fbfa-4b92-bd78-dc75fd25692f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/0c459dcf-99e2-4815-aeda-533488e1d999"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/16527e1d-d3ce-43ae-81e1-720153ace6a7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/16928dee-c608-4ea0-971a-c6df8e52f0c9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/1c80553d-0a28-4996-b5db-0dee81dcae35"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/311a60b2-c171-4d12-bdb3-b6f158a6c595"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/373ff422-8dbc-4d3a-abd7-1fd5d74dd186"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/375f4b0d-4d9f-467e-867c-e23282f79fb4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/3b8e9543-2bea-4b2a-bd88-694e2ed91e89"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/44af5d99-729f-4bfb-a8cd-de47b0406e45"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/46b5852d-ae8c-4893-9e03-5184f0e95f77"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/4863501c-506e-423e-9af1-b15da8a19adc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/4efa9bc6-4dd5-42f6-8015-33971c55f866"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/60bb0745-dd31-4522-b738-7f4e1cbc41dc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/71000acf-1ce5-4ced-bfd4-92fb104f1888"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/77a4c079-bcbf-40af-abc2-80fbebb3486e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/7db31aa5-6883-4b14-91cc-20a3dfefd50e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/85f890b0-c1ee-4e4e-bed0-95302443129b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/8c3e2a1d-494c-4ff6-9ebf-6a3e9e8be852"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/9c282e4f-1c32-4072-a127-0a90c9cfa1e3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/9ddda744-1c61-4439-aa7d-0bd5e812ab4c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/9fc52798-0e5a-4efa-b5ba-0ec84aae338c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/ab0279d0-658b-403a-88a8-949736b6d598"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/b57e8490-9b95-453a-b0af-e031c2817042"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/c7e934b0-b659-4e90-b31d-0c5e2405395f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/ccc302ca-12f2-41c9-884f-7c4b45a7ac3d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/d971927a-7278-4b5e-9335-2544172be27d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "resource/d9dee10d-f1f1-46af-9b60-bcd298c4cd6b"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-february-2026",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/017a8c80-7f44-48fa-9a88-ccc726641fa6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/08269d41-3089-4ab4-a122-f84383bf7ac2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/0b853507-4541-414e-94b7-e80f0843d444"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/3dd4b33d-691c-4466-bcdf-fa6f0fb617e8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/3e1aad4e-e557-45e9-bbde-9aefb1e5649e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/45d816b4-3c99-4443-a0b7-48c5498c2095"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/45de98fb-3f85-42d1-8341-6261fddb3697"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/48f3ce79-5ace-49ab-a6a0-93423a72c36c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/519890f5-c208-4007-b20a-17556cbe0d98"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/5760677b-faf2-4255-ad1e-57745b5e187a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/6c7f985b-e88b-4c7b-84ff-3c8746ed6c9a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/6e27a4ef-8c8a-4536-8c08-477b94cf233d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/70f2d035-5958-4b95-b3a1-544ce958c14f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/79dfdffb-906e-49fe-a6e6-6e6fcc9fbea9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/81a4edb3-6bf0-44f6-b355-2787225d0cc9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/82ab8e68-a358-4644-b2e0-6aef6d449ff6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/862c94ad-b412-4c8e-95d8-79e99f44fc47"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/9c50b6cf-2d1f-44a5-9ade-9ab653d662fe"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/9e7c29a4-8ead-4923-a30d-9d84c7010f14"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/a2a1b38a-ad57-41de-a1e8-4c91fce5a2a0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/a8697bf3-da2b-4cb5-b64e-e136c2a9fd0d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/aa0e528b-cb78-4db5-95a2-6188d6ebd302"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/aeef40fb-f359-427a-8a73-593c5d72fb81"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/af7212f5-26bd-4ddd-8c5f-153840058777"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/e51f3144-9b0e-469f-a5ff-68ea5603300d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/ea64d402-d899-4c78-9f50-e6168475ba37"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/f0f0b59c-75b5-4cef-b78f-0cdb4fc59f4b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/f2f805e4-cbc0-4bac-9c8a-d2acaf3cc1da"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/f6fb34f1-1e60-4559-8b26-ea6b0166b8ef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "resource/faf18567-bd55-439a-9cd9-e8c24effd538"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-january-20213",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/019468b9-2cd4-42c6-bd38-97cd2a833c7c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/078beda5-d232-4c49-8c5c-a93f3a8bf5d9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/12cfada0-e0cc-484f-ab11-38b0578164be"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/148bd8f3-ee7f-413b-98bd-e7c799be67b0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/16428499-9546-49c4-83ea-10da57f7c035"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/2bed4420-0c5f-4ff1-9f7e-7a4ae352e748"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/3e596c9a-f387-4686-94e9-6fbf8e7df9e6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/454dc4ee-9e99-48c1-9998-3780689bd190"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/4589f6cf-f3cd-43f4-94a7-1a3ab535564c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/4ea6753f-eb3c-45f6-9422-cb3bce476223"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/5430663b-54ad-4241-be7a-938f6e913364"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/5e339448-ba93-4634-8585-6e4f9e64c4ba"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/676da49e-a741-4d78-bbce-ef1ce72c1ab1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/69bae0d8-e6a7-407f-9cd2-b88573b957fa"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/6ce6c167-3934-4c68-ad96-df82d471cf79"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/6f71d12a-f425-418b-b134-c2197fa87878"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/71d62009-c399-4711-a197-9090aabbb884"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/7a000086-f74e-49c8-9255-1854c35890b5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/80cc8cf6-5089-4a14-a864-0b51b0bca11b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/90e33013-520b-4456-99ea-0d432142491d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/9352799d-86ab-4cb6-b44d-b8a00c0f5bbf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/9419bfde-0e9f-4581-9df3-2d4b4a0c41d7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/99da0ac8-f036-43cc-a07e-5ee66d6d0d05"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/a727f63c-90d3-49ba-be83-d60843373a85"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/ad5b70cb-b201-45f9-a0e7-da8ee5c3b9ca"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/b8f74953-717f-49d0-b41b-83fd65f218c6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/b9f71aa8-77c1-45e6-a9e6-f1974b20e10c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/bb3b4181-1907-41a8-8298-e3ebb125bd2b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/dab85055-bba1-4c68-965c-98b1aaea29a9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/e25096d9-917c-46d3-9bda-ab675405af91"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "resource/fa1889ec-8300-4669-af35-29a0faab7938"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-january-20222",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/00f51f81-1c2b-411b-bfa0-fef7714e0563"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/0f732a5a-744b-4a13-bcd0-9e5f2677c667"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/19b92fa2-6b29-4f94-90d4-8ce2c903a626"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/1b462821-5886-441b-9b84-972f1d4a944f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/1bdc7824-54eb-4cd2-b4ab-bf8cb149af18"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/35ee95fa-c17a-4fdd-ba3f-5067c9e03fd2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/38682643-22c8-4de6-a8af-ce45d3ef3fda"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/3ac31a70-46a2-4b79-afda-5b1a84846599"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/45cd2085-35d9-4c80-b1d5-358be9027757"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/594dad7a-bbf7-4d92-a7b6-41b22c877d7d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/5f3efa0e-ffc9-4a39-8aa5-4ea7c75108a9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/65178717-6de4-4cca-a8fb-27be67f95262"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/69be12b1-d7f1-42fa-a989-6f115310572f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/83a15583-5275-407a-af58-e09e206726b1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/903a63ea-d0f7-446c-ae34-b8a501de8a1b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/94756666-a16b-4008-b41e-a4881f8a96cd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/a639a9eb-bb99-45bb-98d3-225fdffe5810"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/ad0409af-071e-4a40-9d04-7567d05ce41a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/af24e8ad-f9e4-4cc3-a07c-4deba643fc1f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/caec1e9d-6e90-441e-aaa6-8d11ac49ba3b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/d9c7ec03-6b6b-46b2-b1a7-e3b8ac21393a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/de432c6f-8ee3-401d-b618-e5d6d43dccee"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/e15d5bf9-6f52-4ef0-9cbb-20b737a30f53"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/ea7cb16c-1d1f-4e26-8f40-e59c5e4a2e98"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/f568c1f3-46d6-4adc-a0e9-b9decb556597"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "resource/f8a2c1a7-3425-427b-a579-ed1f9577f5ed"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-january-20232",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/0e5e5494-a2f4-4f79-b8d2-0a794094ae07"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/1449db14-2b85-4d8c-8cad-8e994955dacb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/183eabd2-17c6-40f0-a0e9-970a61e3c110"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/1a85df6a-214b-42ea-ab2e-c6858a1941b5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/20aa8c71-80a4-4353-af0d-bc953d679dfb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/3c667aa9-aecd-4ba3-9293-b168aa2941ff"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/3e73077f-2624-442d-8f1b-597400b76cc0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/44ebede5-5a74-4273-95a5-1f0303790036"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/45c3a407-c24c-4305-bd70-246d37aba4fe"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/5e6afdc7-0a4e-44ef-9938-e5422d516690"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/7a85a09e-ea7f-4a51-8877-0dea17f5c399"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/8855e7f5-12f9-4b3f-86e3-f564731e6c82"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/8d769c17-eb24-4b07-817d-c35e92b37084"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/8d79ee2e-4201-4290-b843-cd088177d3c3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/8f6dd2fa-6fd8-4422-a2d0-4cc10a42d11a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/8fb12a78-13de-4f1d-b089-14d8552dae99"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/a11cc90b-7525-4079-b2fb-aa1aab146e77"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/be435f06-51a7-43f5-bdf6-fb0e8503de87"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/bfc43ec3-db8e-4209-957d-64a3d36764b4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/c896fa80-4a0b-45b6-8743-67b08f21d2d5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/cb0f86cf-ee14-4e1f-8627-6ecefa60d1de"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/d0514036-3fc2-489f-aac5-d5cdf614f4fd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/d052d0b6-92a1-498e-9c8d-106d7c92c97f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/d47234e3-a209-4016-9e4b-b5f62a1fea7b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/d51f21f8-d7cf-4e15-999a-291c82b2f853"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/e2b82ae7-814b-4f15-abb5-9c3d24195ab8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/e3c47f6c-66e2-436a-8d54-fc9e2a82fa52"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/f5019d39-1753-4a9c-95ae-594bb96df1d0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/f6cd27b9-05f8-402c-97b9-42127dbcc4c8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "resource/f9227657-4dff-44ea-b98b-7c56ff5d0fa0"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-january-2024",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/008c401c-64b8-479a-8dc1-e63ed0c26f90"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/09c9f836-fb53-4035-a6de-6e7ffe367477"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/0cd6e3b9-9b93-47e5-913f-0d4afa28788d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/3846d342-ae66-47d9-9a41-b869398972d3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/3f737bc9-63e1-436e-a8f6-81e3beb743f9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/3f9ccc66-0d27-4bbe-b813-12a0ec49fc82"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/4cfcc721-da9a-4d8d-810a-331a68aee344"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/5377344b-e394-4248-9ef0-0fc6b8bdb4e1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/72df9dd2-8d3a-44d0-9501-bdb692d71ab9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/779c58cc-1499-42e4-936f-a474aeda3b2f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/8150373b-9bd3-44ac-900e-3e4cb0cdd1bb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/823cb969-bd15-4347-a89b-2f2ec5713587"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/82eb2b6e-6d14-4dbc-b734-7dbcdce01d86"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/9213b999-6215-435d-8eaf-6a39e3b73ceb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/9400b837-dd1e-4bd8-b07e-789a48e3aadf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/98706777-70dc-45ab-8f7f-811d4dc2c0e5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/9c9c3dae-055a-4efd-bac4-ad74d7340d08"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/ae42945c-4847-4ac7-8f00-81964fbc562e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/b22cc8a9-5144-4a2e-9ca5-daafbd4e1fda"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/b68eb9fa-191b-4167-8353-a77e55f7a339"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/bb03112a-900f-48f7-9c2d-f986bc28d552"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/bb6f203c-0d5d-4a21-a6e3-0641ba39b70c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/c5c59e75-8e06-4110-87af-30b02a9fc109"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/d26bf1cc-0297-4893-83a8-027b21271500"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/d6c65e60-492b-421c-a167-82a5a1a7e414"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/dbf0b827-f72b-4e5a-b167-cfdae96e8084"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/e5af6247-a3df-4de9-9491-74e4985ca162"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/f8d62812-9407-4ba3-9f68-a3a49f123491"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/f8eb8371-8757-4c89-85b5-8d015093a52b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "resource/fd36ff7b-62a0-4a76-8573-4d17b4ff1546"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-january-2025",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/0affc5c7-87a6-4a24-80ca-6210427cfe22"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/114d1ec4-e32a-4c30-8973-354cf38ef066"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/183d8f01-8893-4846-975c-9d401c041f44"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/2cea77ef-456a-479c-b24f-a8d105968771"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/309ee6c6-5ce5-4d4e-9d50-0ccecc4c0e38"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/34c5b5ae-d896-4fb1-88bc-5e7c021af4ca"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/37541832-6888-4bd2-bfbf-642cd365d94c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/38a239f9-3b9c-4515-a80c-e25352f98d17"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/413ee43f-a3cf-4489-8b6c-1180316b873b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/44593545-b2f0-46e4-8a43-4d8a65edb5df"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/5a363943-24b6-4ec1-8d82-dd8737111eba"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/5b11fda9-a475-47e8-8d05-cdbd133d0795"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/67108ab9-05f4-4cb2-a61a-389bd7e4da9e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/687eb37d-6018-4375-b3c0-9be9c276c02f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/69c1c815-3a63-4f92-8764-cd65ab492d15"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/72141b9d-f33d-4fc7-aa90-e927787f429f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/755c25b4-4fcc-4506-922a-15a4843c7c6a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/762e7e43-8284-44ef-b28a-3fcd86d91156"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/8208e76f-6fbb-4bc4-8f96-c8cb909754e4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/9276b471-a796-42c3-aeba-a0300d9a67f5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/9d492375-d4c6-462c-842a-1743b038fc72"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/b60fb78c-8608-452c-835c-08e0db726ad5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/b7a8db20-1d99-4e8c-aacd-112438cab38e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/cbf18565-d04b-45c4-b131-4c31c5ed151d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/e1e48089-eab2-414d-9f03-d08b8c7b5c7d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/e211f494-3fca-41d7-a586-c93bea5208d5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/e8d6595b-0c42-4355-8463-5ec310eb42b6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/ec28213c-6823-4367-bd5e-c6c3541c124d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/f1292168-2018-4d2d-90ae-db9f26371fd5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "resource/f4f0b9a4-fc5d-4df4-9a75-c23e714ee46e"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-january-2026",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/04c0ed61-282f-4224-8155-256aba51f0c7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/0b3586d8-cf06-4c2b-bdda-5968f737fd3b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/0fca31d9-6f05-4e25-8b0c-6e96b94e2702"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/173bf044-2cbf-42e8-9f49-f7869cbfb4f6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/19bee490-65b7-4be8-8928-082ec87c92bb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/362b1198-2963-484c-bf18-e7dcb50c1aea"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/3c19306a-6bde-419b-b822-090e9cfb38a8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/42404f88-4411-45c4-8941-9bf35baf4ce0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/5e1772fb-e121-41ab-baa6-d5ce3c45ddde"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/61f4191b-8128-4f61-8ff2-79a620fb3217"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/66ed0cd9-f333-44df-802c-ca3d0587247f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/6bc7783c-2b08-4fc5-b1f4-aa704c87a04d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/6da97bfe-58a3-4404-8a69-c2a73ccb5a40"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/70ef459a-44a9-4409-a331-7c76dbf53f17"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/7aacc552-462b-463a-9833-eb2bf878b82a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/8cab2cec-480f-4e03-a23b-af50ec8f2d78"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/91fbd0ff-0328-497a-b3a9-45d6c989d114"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/9b5b79e9-605e-4db1-ba3c-707667e73309"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/9c7a4e7d-d133-4574-9adb-d044bdb775ae"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/af34dada-009e-4cf0-b87e-5b9d3387ac59"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/b357168a-ce0d-4478-a711-de24354a4fd0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/b94066a0-d5ac-430d-bc91-575a75e0f0b9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/c0f2b0a5-d46c-4cdb-881c-23a9f8c528f6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/c32f00d3-7caf-4f41-a1b8-2929311d8520"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/d0d17ff3-1d51-4a96-984f-7e4febd25690"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/e89f5830-438e-4c4f-8bd2-8030f566ca43"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/e99dbe04-00f7-439c-a5f1-efdd93a912e9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/ed311972-8dab-4ab6-b91c-2e9580132f85"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/edfb8927-71f6-446c-bb57-d0667f7ad851"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/efc31446-c16b-46e4-b793-7e099ec1d5ce"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "resource/f7a4f239-577f-4f9b-b85d-70351d6fc1d7"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-july-20212",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/06ce4667-f6dc-4756-8df9-d46e20153fef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/072a70ca-b171-4181-a0af-88ee20401a80"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/1012849f-036a-40f1-8035-c644627a9d81"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/1746d1c1-301e-4c0a-8bbb-322cb97ec6bf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/3e48aaf9-4cd2-466e-8209-d7d322e97d1f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/4ca98405-4519-4cf7-becb-e51cf7a4a8e5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/6724613f-8b84-4039-9f90-e62c7cf9ec4f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/67291008-3a0a-4e36-8169-a3c3b49b1101"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/6e5e7eaf-6813-4827-b2d8-70c43ab69a26"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/6eb2662d-ca20-484c-b607-623bc102246e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/6fe42004-7c12-4fa3-8668-b61bc3f36f10"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/72bf05c7-dd0b-4bb0-9f4e-3b22111b076d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/8c6c4561-a53b-48a3-bb3e-e94fa2788172"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/8c8a783e-0519-4f44-8c00-65a0057f3c00"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/8ccc95b7-0ef2-4173-ac50-f219027a17eb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/91c6d9f9-5cb5-44df-a43c-91579072aa76"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/9420c6f2-85e2-496f-85c9-ebdd12ce94be"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/94d717b3-1760-4263-bf49-81da79aa12be"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/99dea975-19c5-4f02-a82e-3f740f07b20c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/9f6da754-fa3d-44aa-a099-f8ddc82ac00b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/a4682100-caad-494e-aa25-a48caf03f391"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/abc21cdb-fb21-47b9-9234-f3de30c95b61"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/b22e7b82-76e5-4f6a-aae8-aa37f82e008a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/b8a25f71-3c20-429f-8e8c-1645f8be8678"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/bbffa2d8-8526-4c63-a1e9-f93cd46f35dc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/bfb25a0a-32b0-42a4-a442-0da8df3c3365"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/c1277cac-b556-4caa-99a8-5a7e96553a85"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/ce9f79d8-c107-4202-91ef-c5da7b0b0008"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/e297bae4-4dfd-493a-b363-1963e6198ca7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "resource/fa40e94a-4831-479b-998d-7dda369600fa"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-july-20222",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/0d5c9ca8-36fa-4651-8e8f-0833c88b255a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/14e4aa02-9767-439a-bdaa-5ea208e019ac"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/283dfba1-6406-4f8f-8652-9a399db1d12f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/381c80ca-9d05-45e1-840c-8b8bed664847"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/434a8e51-e998-4141-8077-35e0cfc70584"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/4413a95d-5a9f-4263-9eb3-ee48ba69a7d4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/4fa20560-76f7-4209-80a2-af1d56574279"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/5911bc7d-6f1c-4eb4-b7f8-d1cd61c08186"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/5a674e4c-dcae-48f4-8c01-d99175bd5c62"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/5a949413-d790-4390-afbf-77fbef07f36c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/62ca9a9b-e9b8-4894-88c1-7e63405593aa"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/62d4c23b-1d8f-43cd-80fa-89ff3ce1f0a7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/6dc352c8-1601-4fc9-a59b-d0b9d4dc0699"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/6fb1cd57-5926-4671-82c8-66113ff5799f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/7421adf7-9663-40cd-8432-9a8518ef1559"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/8420d1ef-320a-4e0a-8e7d-87ea295132b3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/8bbc34ba-46a3-4e23-8f03-d4d07637ab8f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/8c9779c3-a1b8-4520-ba96-ca8d1b5106ad"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/9022e3e2-611a-4aa1-8c90-ecf72c7fd52a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/983eb97f-ad98-42d1-ac4c-84c765c28fbb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/ade39353-2352-4fcf-be9f-e3b7bd163ca8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/ae52ee12-efb2-4911-a3ca-bdc5114ad80a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/b08295fa-7e3c-4f84-bebe-03d4a65f5ea3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/c0ccbbf3-3832-4f7d-bcf9-8df918e4eeaa"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/c53a6acc-c6b1-4cfc-8821-8b12d58ee6c8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/c6fd13c3-67b7-4f53-a5a7-bcf168c9c4e3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/ca83bdb0-d591-4909-9639-3dfdff522cb2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/d06f2aad-8da1-40f2-8ee4-c077ad178f73"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/d59bd01b-1fd7-4de7-8dbf-dee978f6a2d1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/e69b444c-331f-466e-be51-8348df30560c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "resource/e6eb1ab1-0843-4c02-b1c9-17ce154449e2"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-july-20232",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/0ff28319-5b6c-4a33-a725-5a936dc80243"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/186bfc04-1025-419d-a7d0-c84ea464ef78"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/1aabd43a-478c-4cbc-ba22-3b0174909a72"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/35e28022-6924-4a76-bb11-d44560315438"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/372e47a5-1649-46d6-9112-134dcd556a07"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/412fbec8-39e5-451e-9633-0a5f81561fd8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/4335d1b5-e035-4eab-affc-b90dae09e0f7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/4a949fac-869e-4d2d-8764-572a9e2d5c91"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/52e206bb-91d4-4808-92da-07cf581da2bc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/55a35059-cd28-414e-9cdd-9e5fe703e5f3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/6a10f220-05fa-4bc0-a580-b465bcbd0da9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/6e43f130-f5da-45c1-bef4-962d82c249e1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/6f8b7e2a-dd62-4fe5-b28c-f3745d4e5108"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/714328e2-5ff7-40e7-bb5a-42243e880375"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/71e7d040-6784-4c19-b623-054618e2b0c5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/72147799-b8a5-4c01-b7ab-ecb563896d2f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/773fa244-4ec4-4bc4-947a-a3031f5d5bab"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/7aa93558-0aab-4c4e-830d-a00c129447bf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/7c6db195-5e4d-4705-9aa7-1d7558d48035"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/7e8f2a18-9bc9-4fe1-b4c5-60c74238f348"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/809e875d-528b-4a44-a0ed-8247251fb488"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/818af6dd-4e16-4981-891a-7a3ddc954dea"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/9f67c0af-a5cd-47ff-9114-17c4d353facb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/a3cfff39-d7c5-4bbb-85b9-d5e3ab427572"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/a9999151-ef32-40d4-bf3d-d510f9f71142"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/b82d01aa-6589-4af5-b49b-accba003f7e4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/cde71d2c-8f7a-4239-9806-beeb553e8b89"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/d1a9bbd4-7d1f-4f82-9bfb-67b35687e757"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/df9218bb-30c4-4695-a038-b18460174738"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/f59e72a8-1f25-4cff-8d57-912003ed92ae"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "resource/f9d1f6f8-b825-4426-ab2b-39068ef80c74"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-july-2024",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/004b82fc-e111-404d-beb3-311a720d1923"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/056a862e-744d-4de4-9096-7ffc950912c5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/06c7d008-2e9e-4d61-b720-c3fb0608924e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/07d572ed-75f6-45d9-894b-e93df8cf3cf2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/0efa777d-f339-46c7-a491-5c50f341f894"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/472a3ef8-cfee-402a-b03b-3e3d1ba2932f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/474efe3d-9d02-49d7-bb1e-fae0c894ced6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/498f18ac-77cb-4c9f-b2bd-003f6bbcbb09"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/4b3e5ae1-d8fb-4883-a8c0-b81fe85c88c5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/4e905d4a-c75b-453d-b167-acab19a28b8d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/62bd3f11-0d2f-4e2b-b728-32fbed16e9e6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/6db655f8-8c64-4705-a1c6-86ea51ba1d75"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/6ed6c78e-b40e-4963-96a2-af751dced85f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/77dad4f9-813e-493a-9bd6-fa115c64a550"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/8212b707-c3fa-4d51-a133-915db7fc9112"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/84c29707-70d8-49bd-aa82-3bfc32db57a9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/870e451c-7b25-4a46-aa7b-9d7cd9a59d94"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/8ad062a9-a53b-4ad5-ae47-d1077b7c313a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/91e54e7c-79a5-4664-aaa6-9e9b50f02902"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/a08565c8-5a68-4d9b-aa99-5945953e8c9a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/ac3632d9-28d1-4be3-bff7-7105230ecd25"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/b03425d9-a8b3-49c6-80e6-094f40d5c4fd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/b1c0ce48-4c0d-4e7a-841b-aee3094367c5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/bb9224f3-1548-4a17-877a-e06543bf9edb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/c4c7919e-b442-4f7b-80fa-274394937484"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/c9d43e7b-35b4-4f7b-8c58-70ac2f4e6250"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/cd6a0885-e3d3-4216-85ea-de0278310888"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/cfb24b3f-ba84-4c7a-8737-2150b9e510c3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "resource/ee50a3dc-8a0b-4e96-ab05-705b405fb70b"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-july-2025",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/09d7df96-4001-46c3-a604-8a61b6f38a2d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/1392db0f-103d-4761-bbb7-121aac987963"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/1c7b9f74-468a-4aff-b716-ed71e08a87ed"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/1ce2ef49-accc-4244-9eb4-333b5bd5c6b7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/259090cf-fc9e-4190-b4c2-b0f85170ad20"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/30c1271f-1ebc-4590-ae93-96705ae03f07"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/332c1f6e-0d16-47ff-95b3-3f6a49944a84"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/35df099b-a279-4f01-85f8-e19cd1e9a8fe"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/406e64ea-7cfd-4707-8621-84241ae939ef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/4fd7e77c-eb79-45e2-b482-36285dbb9b88"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/50b47fe7-91e4-43a0-b11f-8f51282cd888"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/5a06f3c2-30db-498e-935d-593d43474b9c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/5cc77b98-0824-4285-b409-027d13892075"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/5d5e255e-3fd4-4771-943e-b487f58cd4cc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/641cb624-42c7-477f-8ba5-32f3d481f05d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/648637fa-3803-455e-a8a9-32dd215a48ea"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/6e2b09ad-ca9e-418d-8afc-cc84647c8bc4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/8b6594fc-cd1c-4504-9d0c-251ba395c563"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/9dfe03aa-7581-48dc-a5d7-11136e493c71"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/b3d84ce6-5dda-48be-8c68-b8bfbc201f18"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/b5669fb2-984c-4605-9bbc-10d2af69ef9b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/ba250c58-3971-495a-8925-79f595084cea"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/be8269b5-d5e4-463f-8716-6ec3eae21866"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/c5dd5f89-764c-42fc-956a-10d3a500354b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/c6bf0eae-68bd-47af-a105-77aedd571924"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/e4567795-bda4-4d1f-a994-af154e255a4f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/e5d45b66-7eeb-4d0f-9dd1-693a5ed637e1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "resource/e6ae42d6-2d49-4cab-ae35-db3dc60adc71"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-june-20212",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/04d94232-96f8-415a-9937-c37c6eb43a2e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/0d51f6ee-79fd-4d42-8aa6-cad73516ed16"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/2934f02e-f439-4fbd-a306-302e38f5fc76"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/2c9745e5-87e1-4ee8-bc20-5641ff4a9eec"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/46cb5431-925e-4fca-9567-b8c9813d0986"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/4dfc68d9-e14d-4092-893e-81b08ddd8a93"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/64ef8304-ac7f-4916-8aba-646073513f61"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/65258974-d222-41dd-9021-724cee2738f5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/75c5ab3d-66c3-4ad8-abfe-7393ab30b687"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/80e70a31-6d72-40c3-a62c-6e7f278f37f3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/849513f1-d065-4271-96c9-bf5654683178"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/8a78e5ed-2743-4471-bba0-1a8a93eef02f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/8e84df23-504e-4e84-985c-ad77cb79de5a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/aa98ec2b-df06-4b7c-89c8-05181103bcd2"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/ab53afc8-03d0-4966-89db-5babfb2b1138"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/b25bcb31-8a03-4dfb-9036-5611863796e7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/b269d9cb-54ec-436c-86df-dccf48efe2ff"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/b3f383d8-949f-4fbf-b2d6-812141387f8f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/c2c22260-a2b3-4526-86c3-2fa3311aad65"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/c3475112-a18a-47c9-9226-e432f331a368"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/c4be98a3-b7e7-485f-9d41-325e231e1154"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/c5dae99d-85bf-4ef0-9cc4-dfdd28d6b6ef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/d1c3596a-60d8-4e6c-9e32-cc74b9c40d2d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/d9afbee2-c3a6-4330-9be6-dc00ebe794fc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/db36531e-4e29-4689-b7bf-e90bba2c4d70"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/eeb631e9-75ea-4fff-919f-fb9fa09894d3"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "resource/fc9f5078-86f0-4aab-b7d0-7346dcd26b39"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-june-20222",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/03e32864-1cae-4376-a887-f7e5f90095ce"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/0fb2ee0e-9670-4efd-adc1-882edc786be4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/1364b696-1d80-41fa-b4a1-3cfebb7b5940"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/1cf257c0-a102-4394-9236-c4d777950456"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/1eadb8cd-75ab-4d08-88ac-3394507ba6ef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/1fcbcfc5-e6ba-4cb8-8e30-2c73a2855311"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/2c4d719b-7a2f-43f9-8ba7-ac778a69fdaa"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/36a8e0e1-c55b-4712-94dc-c3e4811df428"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/41e6d0b3-aea4-483d-9da9-bea31e72bc09"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/45f05317-2d3b-4a8b-b7a2-65824665a46e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/4773fb39-7cc3-4441-99ac-87022c786cf7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/54781ab1-e8aa-4175-b2a4-21de48663712"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/55c2b3a2-bfd8-48f4-8d20-8b6e96443bfc"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/6292972a-33bd-4e42-8cc2-ea77cf690415"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/6bbfb258-74e8-44ec-9aae-b2c36bec60e8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/744e8ebd-fc2d-425d-83e0-c3dd16547b64"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/8b22b31a-ce3c-48d9-97d9-334f9f0331e9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/8b68b747-0d76-4847-a81c-1fbd6c8bbb09"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/8fbecc65-faee-4906-9e9e-00a430bec3b0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/a494ff2e-5ecf-479f-b235-34af8f6fe102"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/a9991fa8-ac5d-4c03-b15e-be216328ac99"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/ab8f1d22-e517-4d01-b6db-8ebbfc2767de"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/af0c853a-7b44-43e6-a1bf-c46bc06246a9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/cb001dd6-9b68-4ef5-92d8-7d67689d2307"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/ce57170d-4ce3-45c8-a3c3-ba179642cf7c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/de9634a0-9398-4bda-91b2-bd595eef5af7"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/e0b6f421-d0a9-4be9-afa2-b40567d54f1b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "resource/e1be3930-c496-49bf-b77d-d1eb39794c5f"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-june-20232",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/042740b6-d480-40d8-826e-2544478cc7da"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/0e04da72-28fc-450a-b56d-8baf69b2904b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/1817c05a-17e8-4516-8206-58aedcd8ce5f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/285e8176-5805-45b6-a155-844beff12811"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/2ab9e016-8347-4172-8652-db9583d6dc11"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/2cde1020-6f59-4cf3-80a2-87e3c379c6ab"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/7531634d-449a-42f6-84fa-0fa937494d83"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/782bb6e0-23be-4b0a-987e-922a397a588b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/78dc2e44-dd85-4ec7-abda-ebc56d779058"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/848ac2ef-f40e-42ab-ab29-abdb50be6ccb"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/883e8dff-1245-4a90-b0fe-257f5979d445"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/8b1da259-3924-4c1d-b186-b0f63b469123"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/8d82cded-8bce-4c6b-a26c-fb3842a224bf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/8db0e38c-bf96-440e-9662-36cf0f5fe6b1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/9b17db49-14a9-4e0e-80f6-6257bdf3b736"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/9efa1ee4-74ad-420f-8c5b-e4da4e9bfaef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/9f422551-bbab-4781-822c-645fc023033c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/a0e7304a-82d6-45a8-81f3-920570b70b48"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/a2b17bfe-090b-4e08-a8b9-5b9034b120bf"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/b24e339b-6cc0-4938-abda-548a53a74e71"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/b53c1f7b-9e7a-4df4-b1c2-154a098e46d1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/b56566ec-f739-4380-9fec-750c33cd219c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/b7e8caaf-caf3-40ea-ac05-ed60264fbc3b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/bad70698-22d4-4e32-a727-b4f9051d300c"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/c58b0d49-6c45-4bb9-9e24-c3e2a609108f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/d0228c2b-e9c4-4baa-8d60-8f4f1a34a03b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/da01568a-24e0-4a0b-8d07-d01c122df7c1"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/f855e302-92ea-48f8-ae68-56ebf55aa821"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "resource/fb771081-2768-452f-bce1-fde6e640bc69"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-june-2024",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/07e830cc-bf4e-4259-8c89-c510198997ab"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/16273d0a-e828-4b44-8847-d73554bfa123"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/16672402-249c-4c47-a52e-260e9db15a47"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/22baf06f-007f-48f4-9b31-1e09b2d36643"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/2671d37e-61ff-4490-9129-b05039c7e86f"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/2a92a66f-dee6-4d96-92fd-a660b09f02ec"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/2c57f09e-5827-4d00-b357-fdab8bedad8b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/2f404ec8-448b-4c88-980c-cac9be438581"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/30a711fe-2ae3-4a17-aad5-742f819e5332"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/3199edc1-77be-46f3-87df-6ca5d80ac0f4"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/37c96563-2ac2-4bfd-9b33-433cfb09c8de"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/3fc7467d-bcf7-4996-90ca-e93264d83ea0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/7f89832e-557d-46d9-8565-660801d47342"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/80742d86-1c48-4637-b7aa-b928069834ea"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/8553aa91-01ae-4ae8-b63d-f83fd60f5dce"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/92b65ccc-6a56-48cc-a2c3-661df53b6b13"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/95570ff5-d24c-427e-bba5-0beff6d8b536"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/9841b268-75db-49a9-9a5a-b7b95b895578"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/a2bfa373-3241-4b50-b917-cb0db3c19068"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/a859a7c2-53dc-43e5-b865-f50b4dee58d0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/b20ac7d0-c84e-4d5b-87d1-4f79e55920b6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/b3595488-1d8b-49a1-88a8-3c58ab5f1783"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/bc061879-d4c7-4d99-a1a3-aa8ca1a85159"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/c6c141ab-3cf1-48cc-b9e0-9a7eec7dc765"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/d0746ef2-fb14-4583-a667-3029fa227854"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/e2ee4df5-0d83-485b-8fa7-e823b7391899"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/e4c296d9-4f51-49df-a88a-bc519c9445e8"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/ef694f5a-6797-42a5-966e-608d50773c4d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/f3824d2e-41df-4d14-96e3-3be4dbf17931"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "resource/f434f67b-8a83-47b4-845d-5ba651773610"
+  },
+  {
+    "kind": "licensed as",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "license/not-specified"
+  },
+  {
+    "kind": "published by",
+    "source": "dataset/uk-public-procurement-notices-june-2025",
+    "target": "publisher/crown-commercial-service"
+  },
+  {
+    "kind": "has format",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/005e81f7-3bd5-47a1-98f8-ec2c7da0d7ce"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/05e2a9d0-c63d-4866-902b-feaf0c4a5e5a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/0fa4d327-d714-449d-8826-b77292daa76e"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/14940af0-a8e6-4751-97a3-20f0343f50d6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/17fbe7f5-24fb-40ce-9875-c47e4337845a"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/1e09985f-b857-44cf-bc6b-1d85be1fb80d"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/254ff81e-fe9a-4e6b-93e1-fa82186e24ef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/35522ad0-764e-4c48-a1a5-364bfb323501"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/3a3ed21e-c0d9-4ef3-9f17-cad8e44c3aef"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/3d92e776-f514-41c4-a5d1-28c3ef651271"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/3efeb112-8518-4b7c-a867-06c5fb904486"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/4bd1043e-c1af-4c71-aa12-95020078aef0"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/4deb3475-a26f-4cbc-bcf6-58c3fe0a45a5"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/56c4daea-9ab2-4842-8836-9b40eb8ac05b"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/67fed764-5cd4-4c97-b25c-ecd2791df2e6"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/6ab29323-116b-47c2-96da-085e02257fb9"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/8e9e0101-899e-4231-a74f-a65d93120539"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/911fb92a-14fd-4459-b822-661071a6ba63"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/9a351f8e-a5f2-4bcd-bdfc-d690fd043bbd"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/9d679dc0-c95d-43ba-98ef-fddbabe9c1ee"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/a9deb496-9ddb-4bc4-bfb7-bdc1b0516606"
+  },
+  {
+    "kind": "has resource",
+    "source": "dataset/uk-public-procurement-notices-june-2026",
+    "target": "resource/adfec37c-6d41-409a-80c8-3846391df148"
+  }
+]
