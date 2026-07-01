@@ -25,6 +25,8 @@ No undated pending changes.
 - 2026-07-01: Refined the GOV.UK CKAN viewer controls so history navigation is visually separate from canvas modes and structural facets use a SeeLinks-style single-open accordion with selected values still visible when folded.
 - 2026-07-01: Added GOV.UK CKAN Graph affordances for colour-key legend, visible relationship list, selected-edge labels, drag-to-pan, zoom controls, and clickable concept nodes that apply facet filters without leaving Graph.
 - 2026-07-01: Refined GOV.UK CKAN Graph labelling so stable non-conflicting labels remain visible while only conflicting labels rotate, relationship labels are grouped by edge type, and selected publisher graphs spread related datasets across a wider fan.
+- 2026-07-01: Split GOV.UK CKAN viewer interactions so single click inspects records or opens concept facets without changing the canvas, while double click recentres the graph or applies concept filters.
+- 2026-07-01: Added window-style fold controls for the GOV.UK CKAN viewer side panels, plus graph-background double-click to fold or show both panels for presentation space.
 
 ### Fixed
 
@@ -51,6 +53,7 @@ No undated pending changes.
 - 2026-07-01: Added GOV.UK CKAN viewer regression markers for stale-selection clearing, publisher-state filtering, graph colour/relationship controls, concept-node facet actions, and graph pan/zoom controls.
 - 2026-07-01: Added GOV.UK CKAN viewer regression markers for node-aware graph label placement, stable non-conflicting labels, and grouped relationship labels.
 - 2026-07-01: Browser-smoked the dense GOV.UK CKAN NCEA graph routes for zero label/icon overlaps, grouped edge labels, and stable labels across the two-second cycle.
+- 2026-07-01: Added GOV.UK CKAN viewer regression markers for inspect-versus-recentre clicks, concept facet preview, graph double-click navigation, and foldable side panels.
 
 ## 2026-06-28
 
