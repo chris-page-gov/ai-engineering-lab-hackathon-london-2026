@@ -28,7 +28,7 @@ For the Challenge 2 implementation:
 
 - [Challenge 2 brief](challenge-02-unlocking-the-dark-data.md): the original problem statement.
 - [Interactive public wiki viewer](viewer.html): self-contained HTML viewer for GitHub publication, opening first on the AI coding-assistant postmortem with Narrative, Timeline, Graph, Links, browser-style back/forward, rendered Markdown tables, typed graph relationship inspection, cycling non-overlapping graph labels, and hash-routed exchange links.
-- [GOV.UK CKAN OKF bundle](gov-ckan/wiki/index.md): metadata-first data.gov.uk CKAN bundle with a separate [large-corpus static viewer](gov-ckan/viewer.html#overview), designed to preserve derived concepts and provenance rather than copies of remote source documents.
+- [GOV.UK CKAN OKF bundle](gov-ckan/wiki/index.md): metadata-first data.gov.uk CKAN bundle with a separate [large-corpus static viewer](gov-ckan/viewer.html#overview), filtered overview metrics, browser-style breadcrumbs, selected-item Graph view, and readable metadata cards, designed to preserve derived concepts and provenance rather than copies of remote source documents.
 - [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem following the conversations with the AI coding assistant.
 - [Postmortem reader walkthrough](postmortem-public/wiki/walkthrough.md): first route through the postmortem, Challenge 2 wiki, and local SeeLinks-style workbench.
 - [Challenge 2 wiki index](challenge-2/wiki/index.md): generated Obsidian-friendly knowledge base.
