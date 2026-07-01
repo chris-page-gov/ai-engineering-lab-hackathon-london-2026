@@ -70,6 +70,8 @@ The concept-localisation boundary is explicit: future enrichment should analyse 
 
 The latest GOV.UK CKAN viewer pass makes the left facet rail behave more like SeeLinks: facets start folded, opening one facet folds the previous inactive facet, and selected values remain visible as chips while their facet is folded. The stage toolbar now separates history navigation from canvas modes, and Graph, Timeline, Publisher x Format, and Resource stack render the current reduction even before an item is selected.
 
+The latest GOV.UK CKAN graph refinement addresses the NCEA/host exploration route: if a facet or search reduction excludes the selected dataset/resource/publisher, the stale selected card is cleared so the graph shows the current reduction. Graph view now exposes a colour key, visible relationship list, selected-edge labels, drag-to-pan, +/- zoom controls, and concept-node facet actions so clicking nodes such as `PDF`, tags, hosts, formats, or licences filters the graph instead of returning to Overview.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -195,6 +197,8 @@ The latest GOV.UK CKAN viewer pass makes the left facet rail behave more like Se
   - addressed initial demo-validation feedback on the GOV.UK CKAN viewer: filtered overview totals now recalculate for datasets/resources/publishers/enrichments, single-click facets switch values while Ctrl/Command-click adds values, breadcrumbs/back-forward controls track route changes, CKAN HTML notes render as readable text, the `Force` view is now labelled `Graph`, and selected datasets/resources/publishers render as centred relationship graphs with card-shaped resource nodes and cycling non-overlapping labels.
   - addressed second demo-validation feedback on the GOV.UK CKAN viewer: history navigation is visually separated from mode buttons, facets now start folded and use a single-open accordion with selected chips retained while folded, and non-overview canvas modes render without requiring an item selection first.
   - browser-smoked the second demo-validation fixes locally against `http://127.0.0.1:8765/gov-ckan/viewer.html#overview`: all 10 facets loaded folded, opening `format` exposed its values, selecting `HTML` reduced the view to 28 datasets, opening `govuk linked` folded `format` while preserving the `HTML 28` chip, and Graph/Timeline/Publisher x Format/Resource stack all rendered filtered reductions without a selected item.
+  - investigated the NCEA graph route: selecting `host=icp-forests.org` correctly narrows the NCEA set to two ICP Forests datasets, but the previous selected `Young Trees Map England` card made the change look ineffective; the viewer now clears selections excluded by the current reduction and keeps Graph mode focused on the filtered set.
+  - browser-smoked the NCEA graph fixes locally: stale `Young Trees Map England` selection clears when `host=icp-forests.org` excludes it, the graph shows a colour key and relationship panel, clicking the `PDF` graph concept applies `format=PDF` without leaving Graph, the zoom button changes the SVG viewBox to 120%, and dragging the SVG changes the viewBox origin for pan.
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;
