@@ -68,6 +68,8 @@ The current `gov-ckan` branch adds a metadata-first GOV.UK/data.gov.uk CKAN OKF 
 
 The concept-localisation boundary is explicit: future enrichment should analyse linked documents/resources to preserve derived concepts, evidence pointers, and relationships, but should not commit copies of the remote documents or downloaded resource bodies.
 
+The latest GOV.UK CKAN viewer pass makes the left facet rail behave more like SeeLinks: facets start folded, opening one facet folds the previous inactive facet, and selected values remain visible as chips while their facet is folded. The stage toolbar now separates history navigation from canvas modes, and Graph, Timeline, Publisher x Format, and Resource stack render the current reduction even before an item is selected.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -191,6 +193,8 @@ The concept-localisation boundary is explicit: future enrichment should analyse 
   - captured Playwright screenshots for overview, selected dataset force graph, resource stack, pinned comparison spread, and mobile/touch layout under `gov-ckan/wiki/assets/ui-examples/`.
   - addressed PR review feedback by excluding ignored CKAN scratch folders from Pages output and escaping CKAN format metadata in viewer list rows, with regression tests added to `tests/test_build_site.py` and `tests/test_gov_ckan_bundle.py`.
   - addressed initial demo-validation feedback on the GOV.UK CKAN viewer: filtered overview totals now recalculate for datasets/resources/publishers/enrichments, single-click facets switch values while Ctrl/Command-click adds values, breadcrumbs/back-forward controls track route changes, CKAN HTML notes render as readable text, the `Force` view is now labelled `Graph`, and selected datasets/resources/publishers render as centred relationship graphs with card-shaped resource nodes and cycling non-overlapping labels.
+  - addressed second demo-validation feedback on the GOV.UK CKAN viewer: history navigation is visually separated from mode buttons, facets now start folded and use a single-open accordion with selected chips retained while folded, and non-overview canvas modes render without requiring an item selection first.
+  - browser-smoked the second demo-validation fixes locally against `http://127.0.0.1:8765/gov-ckan/viewer.html#overview`: all 10 facets loaded folded, opening `format` exposed its values, selecting `HTML` reduced the view to 28 datasets, opening `govuk linked` folded `format` while preserving the `HTML 28` chip, and Graph/Timeline/Publisher x Format/Resource stack all rendered filtered reductions without a selected item.
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;
