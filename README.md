@@ -28,7 +28,7 @@ For the Challenge 2 implementation:
 
 - [Challenge 2 brief](challenge-02-unlocking-the-dark-data.md): the original problem statement.
 - [Interactive public wiki viewer](viewer.html): self-contained HTML viewer for GitHub publication, opening first on the AI coding-assistant postmortem with Narrative, Timeline, Graph, Links, browser-style back/forward, rendered Markdown tables, typed graph relationship inspection, cycling non-overlapping graph labels, and hash-routed exchange links.
-- [GOV.UK CKAN OKF bundle](gov-ckan/wiki/index.md): metadata-first data.gov.uk CKAN bundle with a separate [large-corpus static viewer](gov-ckan/viewer.html#overview), folded SeeLinks-style facets, filtered overview metrics, separated history navigation, Graph/Timeline/Matrix/Stack reduction views, graph legend/relationship/pan/zoom controls, and readable metadata cards, designed to preserve derived concepts and provenance rather than copies of remote source documents.
+- [GOV.UK CKAN OKF bundle](gov-ckan/wiki/index.md): metadata-first data.gov.uk CKAN bundle with a separate [large-corpus static viewer](gov-ckan/viewer.html#overview), folded SeeLinks-style facets, filtered overview metrics, separated history navigation, Graph/Timeline/Matrix/Stack reduction views, graph legend/relationship/pan/zoom controls, node-aware labels, and readable metadata cards, designed to preserve derived concepts and provenance rather than copies of remote source documents.
 - [Codex postmortem](postmortem-public/wiki/index.md): GitHub-safe collaboration postmortem following the conversations with the AI coding assistant.
 - [Postmortem reader walkthrough](postmortem-public/wiki/walkthrough.md): first route through the postmortem, Challenge 2 wiki, and local SeeLinks-style workbench.
 - [Challenge 2 wiki index](challenge-2/wiki/index.md): generated Obsidian-friendly knowledge base.
@@ -137,7 +137,7 @@ Challenge 2 implementation:
 - `challenge-2/wiki/`: generated Obsidian-friendly knowledge base.
 - `viewer.html`: generated static postmortem-first wiki viewer for GitHub publication, with a corpus switcher for Challenge 2, Narrative/Timeline/Graph/Links views, collapsible navigation, and rendered Mermaid flowcharts.
 - `scripts/update_viewer.py`, `scripts/check_wiki_viewer.py`, `scripts/check_okf_conformance.py`, and `scripts/build_site.py`: OKF, static-viewer, and GitHub Pages publication workflow.
-- `gov-ckan/`: metadata-first GOV.UK/data.gov.uk CKAN OKF bundle, chunked JSON data, OKF Markdown notes, screenshot-backed UI design notes, and a separate no-backend viewer for large-corpus exploration with folded structural facets, selectable reduction views, graph concept filters, and graph pan/zoom inspection.
+- `gov-ckan/`: metadata-first GOV.UK/data.gov.uk CKAN OKF bundle, chunked JSON data, OKF Markdown notes, screenshot-backed UI design notes, and a separate no-backend viewer for large-corpus exploration with folded structural facets, selectable reduction views, graph concept filters, grouped relationship labels, node-aware label placement, and graph pan/zoom inspection.
 - `scripts/build_gov_ckan_bundle.py` and `scripts/check_gov_ckan_bundle.py`: CKAN harvest/normalisation and generated-bundle validation. Use `python3 scripts/build_gov_ckan_bundle.py --sample 200 --out gov-ckan` for a fast local build, or omit `--sample` for a full metadata harvest.
 - `.github/workflows/pages.yml`: GitHub Actions Pages deployment for the generated static wiki site.
 - `_site/`: ignored local GitHub Pages build output.

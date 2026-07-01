@@ -72,6 +72,8 @@ The latest GOV.UK CKAN viewer pass makes the left facet rail behave more like Se
 
 The latest GOV.UK CKAN graph refinement addresses the NCEA/host exploration route: if a facet or search reduction excludes the selected dataset/resource/publisher, the stale selected card is cleared so the graph shows the current reduction. Graph view now exposes a colour key, visible relationship list, selected-edge labels, drag-to-pan, +/- zoom controls, and concept-node facet actions so clicking nodes such as `PDF`, tags, hosts, formats, or licences filters the graph instead of returning to Overview.
 
+The latest GOV.UK CKAN label pass addresses dense NCEA graph routes where card-shaped dataset/resource icons could obscure labels and where conflict-free labels disappeared during label cycling. The viewer now treats node glyphs as label obstacles, chooses alternate label anchors around each node, keeps labels with no conflicts visible in every phase, rotates only labels that genuinely collide, groups repeated edge labels by relationship type, and spreads selected-publisher dataset nodes across a wider fan.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -199,6 +201,8 @@ The latest GOV.UK CKAN graph refinement addresses the NCEA/host exploration rout
   - browser-smoked the second demo-validation fixes locally against `http://127.0.0.1:8765/gov-ckan/viewer.html#overview`: all 10 facets loaded folded, opening `format` exposed its values, selecting `HTML` reduced the view to 28 datasets, opening `govuk linked` folded `format` while preserving the `HTML 28` chip, and Graph/Timeline/Publisher x Format/Resource stack all rendered filtered reductions without a selected item.
   - investigated the NCEA graph route: selecting `host=icp-forests.org` correctly narrows the NCEA set to two ICP Forests datasets, but the previous selected `Young Trees Map England` card made the change look ineffective; the viewer now clears selections excluded by the current reduction and keeps Graph mode focused on the filtered set.
   - browser-smoked the NCEA graph fixes locally: stale `Young Trees Map England` selection clears when `host=icp-forests.org` excludes it, the graph shows a colour key and relationship panel, clicking the `PDF` graph concept applies `format=PDF` without leaving Graph, the zoom button changes the SVG viewBox to 120%, and dragging the SVG changes the viewBox origin for pan.
+  - investigated the dense NCEA graph label routes: the generated label-layer algorithm only checked label-to-label collisions, so icons could cover labels and labels with no conflicts could still disappear when their assigned layer was not active; the viewer now uses node-aware label obstacles, conflict-only cycling, grouped edge labels, and a wider publisher-centred fan layout.
+  - browser-smoked the dense NCEA label fix locally against `#dataset/nfi-soil-chemistry`, `#publisher/forestry-commission`, and the unselected `tag=NCEA` Graph route: all three routes reported `0` label/icon overlaps, the NFI selected graph grouped edges as `tagged x7` and `has resource x5`, the Forestry Commission graph grouped `published by x12`, and the NFI graph kept the same stable node labels across a two-second cycle.
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;
