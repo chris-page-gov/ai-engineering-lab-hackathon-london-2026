@@ -3,7 +3,7 @@ okf_version: "0.1"
 type: index
 title: GOV.UK CKAN OKF Bundle
 description: Metadata-first OKF bundle over the National Data Library CKAN directory.
-timestamp: "2026-07-01T08:13:32Z"
+timestamp: "2026-07-01T14:55:30Z"
 ---
 
 # GOV.UK CKAN OKF Bundle
@@ -13,10 +13,10 @@ This bundle localises public metadata from the National Data Library directory i
 ## Current Build
 
 - CKAN API base: `https://data.gov.uk/api/action`
-- Datasets harvested into this bundle: `200`
-- Resources indexed: `16271`
-- Publishers indexed: `9`
-- Relationships indexed: `50052`
+- Datasets harvested into this bundle: `58461`
+- Resources indexed: `268241`
+- Publishers indexed: `1185`
+- Relationships indexed: `1178122`
 - Full CKAN dataset count reported by the API at harvest time: `58461`
 - Viewer: [Open the static viewer](../viewer.html#overview)
 

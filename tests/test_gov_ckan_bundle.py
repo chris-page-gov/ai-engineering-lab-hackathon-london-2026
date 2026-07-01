@@ -70,6 +70,33 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertIsNone(builder.govuk_content_path_for_url("https://assets.publishing.service.gov.uk/file.csv"))
         self.assertIsNone(builder.govuk_content_path_for_url("https://example.com/government/collections/planning-data"))
 
+    def test_malformed_ckan_resource_url_does_not_abort_normalisation(self) -> None:
+        malformed = "[wpdm_package id='15516']"
+        self.assertEqual(builder.host_for_url(malformed), "")
+        self.assertIsNone(builder.govuk_content_path_for_url(malformed))
+        resource = builder.normalize_resource({"id": "bad-url", "url": malformed}, "dataset-name")
+        self.assertEqual(resource["url"], malformed)
+        self.assertEqual(resource["host"], "")
+        self.assertEqual(resource["govuk_content_path"], "")
+
+    def test_local_file_uri_is_scrubbed_from_ckan_metadata(self) -> None:
+        text = 'See <a href="file:///C:/Users/name/AppData/Local/file.docx">draft</a>'
+        self.assertNotIn("/Users/", builder.compact_text(text))
+        self.assertIn("[local file path removed]", builder.compact_text(text))
+
+    def test_duplicate_dataset_names_get_unique_routes(self) -> None:
+        first = {"id": "id-1", "name": "duplicate-name", "source_api_url": "old"}
+        second = {"id": "id-2", "name": "duplicate-name", "source_api_url": "old"}
+        resources = [{"dataset": "duplicate-name"}]
+        used: set[str] = set()
+        builder.ensure_unique_dataset_route(first, [], used, "https://example.test/api/action")
+        builder.ensure_unique_dataset_route(second, resources, used, "https://example.test/api/action")
+        self.assertEqual(first["name"], "duplicate-name")
+        self.assertEqual(second["ckan_name"], "duplicate-name")
+        self.assertEqual(second["name"], "duplicate-name-id-2")
+        self.assertEqual(resources[0]["dataset"], "duplicate-name-id-2")
+        self.assertEqual(second["source_api_url"], "https://example.test/api/action/package_show?id=id-2")
+
     def test_normalize_dataset_keeps_metadata_and_routes(self) -> None:
         dataset, resources, publisher = builder.normalize_dataset(fixture_package(), "https://example.test/api/action")
         self.assertEqual(dataset["name"], "planning-applications-2026")
@@ -114,6 +141,11 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertIn('params.getAll("pin")', html)
         self.assertIn("function formatList", html)
         self.assertIn("function cleanText", html)
+        self.assertIn("function loadChunks", html)
+        self.assertIn("function requestRelationships", html)
+        self.assertIn("relationshipsLoaded=false", html)
+        self.assertIn("Loading graph relationships", html)
+        self.assertNotIn("relationships=await loadChunks(manifest.chunks.relationships)", html)
         self.assertIn("function applyFacet", html)
         self.assertIn("e.ctrlKey||e.metaKey", html)
         self.assertIn('"publisher_state"', html)
@@ -163,6 +195,18 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertNotIn('if(mode==="overview"||!selected)', html)
         self.assertNotIn('${(d.formats||[]).join(", ")}', html)
         self.assertIn("avoids opening on a full hairball", html)
+
+    def test_graph_index_is_compact_summary_not_edge_duplicate(self) -> None:
+        dataset, resources, publisher = builder.normalize_dataset(fixture_package(), "https://example.test/api/action")
+        publisher["dataset_count"] = 1
+        publisher["resource_count"] = len(resources)
+        relationships = builder.build_relationships([dataset], resources, {})
+        graph = builder.build_graph([dataset], resources, {publisher["name"]: publisher}, relationships)
+        self.assertEqual(graph["node_counts"]["datasets"], 1)
+        self.assertEqual(graph["node_counts"]["resources"], 1)
+        self.assertIn({"kind": "has resource", "count": 1}, graph["edge_counts"])
+        self.assertNotIn("edges", graph)
+        self.assertNotIn("nodes", graph)
 
     def test_fixture_build_and_checker_validate_bundle(self) -> None:
         original_iter_packages = builder.iter_packages
