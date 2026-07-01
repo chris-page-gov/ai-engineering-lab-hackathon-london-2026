@@ -78,6 +78,8 @@ The latest GOV.UK CKAN interaction pass separates inspection from navigation for
 
 The current GOV.UK CKAN expansion pass promotes `gov-ckan/` from the 200-record sample to the full data.gov.uk CKAN metadata corpus: `58,461` datasets, `268,241` resources, `1,185` publishers, and `1,178,122` relationships. The original 200-dataset sample is preserved under `gov-ckan-sample/` as a fallback bundle. To keep the full viewer practical, generated JSON is compact, `graph.json` is now a summary index rather than a duplicate edge payload, and relationship chunks lazy-load only when Graph is opened.
 
+The latest publication hardening pass responds to a transient GitHub Pages `503` while loading a full-corpus resource chunk. The affected chunk later served normally, but the viewer now retries `429`/`5xx` JSON chunk failures with cache-busting and loads chunks in smaller batches so a temporary CDN error is less likely to collapse the whole viewer during the demo.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -210,6 +212,7 @@ The current GOV.UK CKAN expansion pass promotes `gov-ckan/` from the 200-record 
   - implemented the GOV.UK CKAN inspect-first interaction pass so single clicks can inspect records or concept facets without changing the graph, double clicks can navigate or filter, and side panels can be folded or reopened during a live demonstration; browser-smoked the generated viewer with headless Chrome against the `Blue space access points in England` route and a graph resource/concept node.
   - built a full GOV.UK CKAN scratch bundle from the live data.gov.uk CKAN API; the first attempt exposed a transient read timeout and the second exposed a malformed CKAN resource URL, so the builder now retries public metadata reads and tolerates malformed URL fields without dropping resource metadata.
   - generated the committed full `gov-ckan/` bundle with `58,461` datasets and preserved the previous 200-dataset sample under `gov-ckan-sample/`; full-corpus viewer loading now defers relationship chunks until Graph is opened.
+  - hardened the GOV.UK CKAN viewer fetch path after a live GitHub Pages resource chunk briefly returned `503`; both the full bundle and preserved sample viewer now retry transient JSON chunk failures and reduce concurrent chunk requests.
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;

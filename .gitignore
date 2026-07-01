@@ -10,6 +10,9 @@ __pycache__/
 # Generated GitHub Pages output.
 _site/
 
+# Local browser automation state/logs.
+.playwright-mcp/
+
 # GOV.UK/data.gov.uk CKAN raw harvest scratch output. The committed bundle keeps
 # compact normalized metadata only.
 gov-ckan/raw/

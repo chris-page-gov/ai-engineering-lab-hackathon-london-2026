@@ -29,6 +29,7 @@ No undated pending changes.
 - 2026-07-01: Added window-style fold controls for the GOV.UK CKAN viewer side panels, plus graph-background double-click to fold or show both panels for presentation space.
 - 2026-07-01: Expanded `gov-ckan/` from the 200-dataset sample to the full data.gov.uk CKAN metadata corpus and preserved the original sample under `gov-ckan-sample/`.
 - 2026-07-01: Changed GOV.UK CKAN generated JSON to compact output, made `graph.json` a summary index, and lazy-load relationship chunks when Graph is opened so the full corpus remains practical in a static viewer.
+- 2026-07-01: Ignored local `.playwright-mcp/` browser automation logs so live viewer smoke checks do not dirty publication branches.
 
 ### Fixed
 
@@ -41,6 +42,7 @@ No undated pending changes.
 - 2026-07-01: Fixed GOV.UK CKAN Graph label placement so card-shaped node icons and circular node glyphs are treated as obstacles instead of being allowed to obscure nearby labels.
 - 2026-07-01: Hardened the GOV.UK CKAN builder for full-corpus harvests by retrying transient public API read failures and tolerating malformed CKAN URL fields without aborting normalization.
 - 2026-07-01: Tightened generated-bundle local-path checks so escaped CKAN prose such as `conditions:\n` is not misclassified as a Windows filesystem path.
+- 2026-07-01: Hardened the GOV.UK CKAN static viewer against transient GitHub Pages JSON chunk failures by retrying 429/5xx fetches with cache-busting and lowering chunk fetch concurrency.
 
 ### Documentation
 
@@ -59,6 +61,7 @@ No undated pending changes.
 - 2026-07-01: Browser-smoked the dense GOV.UK CKAN NCEA graph routes for zero label/icon overlaps, grouped edge labels, and stable labels across the two-second cycle.
 - 2026-07-01: Added GOV.UK CKAN viewer regression markers for inspect-versus-recentre clicks, concept facet preview, graph double-click navigation, and foldable side panels.
 - 2026-07-01: Added GOV.UK CKAN regression coverage for malformed resource URLs, compact graph summary indexes, lazy relationship loading, and sample-bundle Pages publication.
+- 2026-07-01: Verified the reported live `resources-0138.json` chunk recovered from a transient GitHub Pages `503` and shipped viewer fetch retries to reduce demo risk.
 
 ## 2026-06-28
 
