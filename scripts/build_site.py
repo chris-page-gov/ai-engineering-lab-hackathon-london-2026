@@ -27,12 +27,23 @@ PUBLIC_TREES = [
     "challenge-2/wiki",
     "challenge-2/structured_files",
     "challenge-2/unstructured_files",
+    "gov-ckan",
     "output/doc/assets",
     "postmortem-public",
 ]
 FORBIDDEN_NAMES = {".DS_Store"}
 FORBIDDEN_PREFIXES = ("._", "~$")
-FORBIDDEN_PARTS = {".git", ".obsidian", "__pycache__"}
+FORBIDDEN_PARTS = {
+    ".git",
+    ".obsidian",
+    "__pycache__",
+    "downloads",
+    "raw",
+    "raw-harvest",
+    "resource-bodies",
+    "resource-files",
+    "snapshots",
+}
 FORBIDDEN_SUFFIXES = {".pyc", ".pyo"}
 
 
@@ -67,6 +78,12 @@ def assert_no_forbidden_files() -> None:
         raise RuntimeError(f"forbidden files in site build:\n{joined}")
 
 
+def remove_transient_metadata() -> None:
+    for path in OUT.rglob("*"):
+        if path.is_file() and (path.name in FORBIDDEN_NAMES or path.name.startswith(FORBIDDEN_PREFIXES)):
+            path.unlink()
+
+
 def main() -> int:
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -90,6 +107,7 @@ def main() -> int:
         encoding="utf-8",
     )
 
+    remove_transient_metadata()
     assert_no_forbidden_files()
     file_count = sum(1 for path in OUT.rglob("*") if path.is_file())
     print(f"built {OUT.relative_to(ROOT)} with {file_count} files")

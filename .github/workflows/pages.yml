@@ -32,8 +32,11 @@ jobs:
       - name: Validate wiki viewer
         run: python3 scripts/check_wiki_viewer.py
 
+      - name: Validate GOV.UK CKAN bundle
+        run: python3 scripts/check_gov_ckan_bundle.py
+
       - name: Compile publication scripts
-        run: python3 -m py_compile scripts/build_site.py scripts/update_viewer.py scripts/check_wiki_viewer.py scripts/check_okf_conformance.py challenge-2/tools/build_wiki.py tools/build_codex_postmortem.py
+        run: python3 -m py_compile scripts/build_site.py scripts/update_viewer.py scripts/check_wiki_viewer.py scripts/check_okf_conformance.py scripts/build_gov_ckan_bundle.py scripts/check_gov_ckan_bundle.py challenge-2/tools/build_wiki.py tools/build_codex_postmortem.py
 
       - name: Build static site
         run: python3 scripts/build_site.py

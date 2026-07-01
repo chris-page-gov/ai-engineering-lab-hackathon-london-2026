@@ -10,6 +10,12 @@ __pycache__/
 # Generated GitHub Pages output.
 _site/
 
+# GOV.UK/data.gov.uk CKAN raw harvest scratch output. The committed bundle keeps
+# compact normalized metadata only.
+gov-ckan/raw/
+gov-ckan/downloads/
+output/gov-ckan/raw/
+
 # Private Codex postmortem evidence archive. The GitHub-safe derivative lives in
 # postmortem-public/.
 postmortem/

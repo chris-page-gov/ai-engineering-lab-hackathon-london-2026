@@ -8,6 +8,35 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 No undated pending changes.
 
+## 2026-07-01
+
+### Added
+
+- 2026-07-01: Added `scripts/build_gov_ckan_bundle.py` to harvest the unauthenticated data.gov.uk CKAN API, normalize datasets/resources/publishers/facets/relationships, and generate a metadata-first `gov-ckan/` OKF bundle without downloading remote resource bodies.
+- 2026-07-01: Added a dedicated `gov-ckan/viewer.html` large-corpus static viewer with search, folded facets, overview-first canvas, force/timeline/matrix/resource views, spotlight-equivalent hover/focus/touch behaviour, and pinned comparison cards.
+- 2026-07-01: Added `scripts/check_gov_ckan_bundle.py` and fixture tests for CKAN normalization, GOV.UK URL/content handling, bundle integrity, and viewer/data synchronization.
+
+### Changed
+
+- 2026-07-01: Updated OKF and Pages publication plumbing so `gov-ckan/wiki/` participates in frontmatter checks and `gov-ckan/` is copied into the generated `_site/` bundle.
+- 2026-07-01: Updated the Pages workflow to validate the generated GOV.UK CKAN bundle before deployment.
+
+### Fixed
+
+- 2026-07-01: Excluded ignored GOV.UK CKAN scratch folders such as `raw/`, `downloads/`, and `resource-bodies/` from static-site publication.
+- 2026-07-01: Removed transient OS metadata files from generated `_site/` before static-site publication validation.
+- 2026-07-01: Escaped CKAN format metadata before rendering resource-stack and timeline rows in the GOV.UK CKAN viewer.
+
+### Documentation
+
+- 2026-07-01: Documented the GOV.UK CKAN metadata-only source boundary, dedicated viewer, build/check commands, and UI design plan across README, Context, Progress, and generated OKF bundle notes.
+- 2026-07-01: Clarified that GOV.UK CKAN localisation means preserving derived concepts, evidence pointers, and relationships rather than committing copies of remote source documents.
+
+### Validation
+
+- 2026-07-01: Verified the GOV.UK CKAN builder/checker with Python compile checks, fixture-based unit tests, a live `--sample 200` CKAN bundle build, generated-bundle validation, and Playwright screenshot smoke coverage for desktop and mobile viewer states.
+- 2026-07-01: Added regression coverage for CKAN scratch-folder publication exclusions and escaped viewer format-list rendering.
+
 ## 2026-06-28
 
 ### Changed
