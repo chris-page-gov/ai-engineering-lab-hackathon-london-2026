@@ -15,6 +15,8 @@ The centre canvas never defaults to a hairball. `#overview` opens with a screen-
 
 The right panel is a scannable data card for the selected dataset, resource, or publisher. It exposes metadata, source links, related records, provenance, a copyable route, and pin controls.
 
+Single-click and double-click are deliberately separated. A single click inspects an item without rebuilding the current canvas: dataset/resource/publisher nodes update the right data card, while concept nodes open and highlight the relevant left facet. A double click navigates: records become the graph centre and concept nodes apply their facet reduction. Empty graph-background double click folds or shows both side panels, and each panel has its own window-style fold control.
+
 ## Hover, Touch, And Accessibility
 
 All hover behaviour is backed by one `spotlight` state. Pointer hover, keyboard focus, Enter, Space, and touch tap all activate the same state. Escape clears it. The viewer announces spotlight changes through an aria-live region, and every visual hover action has a button equivalent.

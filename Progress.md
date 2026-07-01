@@ -74,6 +74,8 @@ The latest GOV.UK CKAN graph refinement addresses the NCEA/host exploration rout
 
 The latest GOV.UK CKAN label pass addresses dense NCEA graph routes where card-shaped dataset/resource icons could obscure labels and where conflict-free labels disappeared during label cycling. The viewer now treats node glyphs as label obstacles, chooses alternate label anchors around each node, keeps labels with no conflicts visible in every phase, rotates only labels that genuinely collide, groups repeated edge labels by relationship type, and spreads selected-publisher dataset nodes across a wider fan.
 
+The latest GOV.UK CKAN interaction pass separates inspection from navigation for demonstration use. Single-clicking a record updates the right data card without rebuilding the current canvas, single-clicking a concept opens and highlights its facet on the left without filtering, double-clicking a record recentres it in Graph, double-clicking a concept applies its facet filter, and both side panels can be folded with window-style controls or toggled together by double-clicking empty graph background.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -203,6 +205,7 @@ The latest GOV.UK CKAN label pass addresses dense NCEA graph routes where card-s
   - browser-smoked the NCEA graph fixes locally: stale `Young Trees Map England` selection clears when `host=icp-forests.org` excludes it, the graph shows a colour key and relationship panel, clicking the `PDF` graph concept applies `format=PDF` without leaving Graph, the zoom button changes the SVG viewBox to 120%, and dragging the SVG changes the viewBox origin for pan.
   - investigated the dense NCEA graph label routes: the generated label-layer algorithm only checked label-to-label collisions, so icons could cover labels and labels with no conflicts could still disappear when their assigned layer was not active; the viewer now uses node-aware label obstacles, conflict-only cycling, grouped edge labels, and a wider publisher-centred fan layout.
   - browser-smoked the dense NCEA label fix locally against `#dataset/nfi-soil-chemistry`, `#publisher/forestry-commission`, and the unselected `tag=NCEA` Graph route: all three routes reported `0` label/icon overlaps, the NFI selected graph grouped edges as `tagged x7` and `has resource x5`, the Forestry Commission graph grouped `published by x12`, and the NFI graph kept the same stable node labels across a two-second cycle.
+  - implemented the GOV.UK CKAN inspect-first interaction pass so single clicks can inspect records or concept facets without changing the graph, double clicks can navigate or filter, and side panels can be folded or reopened during a live demonstration; browser-smoked the generated viewer with headless Chrome against the `Blue space access points in England` route and a graph resource/concept node.
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;
