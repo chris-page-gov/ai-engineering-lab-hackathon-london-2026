@@ -8,7 +8,12 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BUNDLES = [ROOT / "challenge-2" / "wiki", ROOT / "postmortem-public" / "wiki", ROOT / "gov-ckan" / "wiki"]
+BUNDLES = [
+    ROOT / "challenge-2" / "wiki",
+    ROOT / "postmortem-public" / "wiki",
+    ROOT / "gov-ckan" / "wiki",
+    ROOT / "gov-ckan-sample" / "wiki",
+]
 REQUIRED_FIELDS = ("type", "title", "description", "timestamp")
 KEY_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_-]*:\s*(.*)$")
 LIST_ITEM_RE = re.compile(r"^\s{2}-\s+.+$")

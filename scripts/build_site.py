@@ -28,6 +28,7 @@ PUBLIC_TREES = [
     "challenge-2/structured_files",
     "challenge-2/unstructured_files",
     "gov-ckan",
+    "gov-ckan-sample",
     "output/doc/assets",
     "postmortem-public",
 ]

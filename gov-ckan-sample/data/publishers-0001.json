@@ -1,0 +1,101 @@
+[
+  {
+    "approval_status": "pending",
+    "dataset_count": 114,
+    "description": "The Crown Commercial Service (CCS) brings together policy, advice and direct buying; providing commercial services to the public sector and saving money for the taxpayer. CCS is an executive agency, sponsored by the Cabinet Office",
+    "id": "0c855f89-6759-4c78-80df-f829e5d77aca",
+    "name": "crown-commercial-service",
+    "resource_count": 3354,
+    "state": "active",
+    "title": "Crown Commercial Service",
+    "type": "organization"
+  },
+  {
+    "approval_status": "pending",
+    "dataset_count": 1,
+    "description": "The Department for Education is responsible for education and children’s services in England. We work to achieve a highly educated society in which opportunity is equal for children and young people, no matter what their background or family circumstances. DfE is a ministerial department, supported by 9 agencies and public bodies. https://www.gov.uk/government/organisations/department-for-education",
+    "id": "17e00404-a853-49ca-9ea2-6db8cceaf1e2",
+    "name": "department-for-education",
+    "resource_count": 184,
+    "state": "active",
+    "title": "Department for Education",
+    "type": "organization"
+  },
+  {
+    "approval_status": "pending",
+    "dataset_count": 22,
+    "description": "We are the UK government department responsible for policy and regulations on environmental, food and rural issues. Our priorities are to grow the rural economy, improve the environment and safeguard animal and plant health. Defra is a ministerial department, supported by 38 agencies and public bodies. https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs",
+    "id": "a7059f6a-7fb4-4e0f-9c7a-8cd9079780d3",
+    "name": "department-for-environment-food-and-rural-affairs",
+    "resource_count": 182,
+    "state": "active",
+    "title": "Department for Environment, Food and Rural Affairs",
+    "type": "organization"
+  },
+  {
+    "approval_status": "pending",
+    "dataset_count": 1,
+    "description": "",
+    "id": "034e7e89-5550-4851-bf90-d2fb69af289e",
+    "name": "department-for-international-trade",
+    "resource_count": 11958,
+    "state": "active",
+    "title": "Department for International Trade",
+    "type": "organization"
+  },
+  {
+    "approval_status": "pending",
+    "dataset_count": 16,
+    "description": "The Forestry Commission is responsible for protecting and expanding Britain's woods and forests and for managing nearly 1 million hectares of public forest. Forestry is a non-ministerial department of the Department for Environment, Food & Rural Affairs https://www.gov.uk/government/organisations/forestry-commission",
+    "id": "3c36a994-e314-4530-8598-fead586e44cc",
+    "name": "forestry-commission",
+    "resource_count": 86,
+    "state": "active",
+    "title": "Forestry Commission",
+    "type": "organization"
+  },
+  {
+    "approval_status": "pending",
+    "dataset_count": 1,
+    "description": "What we do We are the UK’s tax authority. We are responsible for making sure that the money is available to fund the UK’s public services and for helping families and individuals with targeted financial support. HMRC is a non-ministerial department, supported by 2 agencies and public bodies. https://www.gov.uk/government/organisations/hm-revenue-customs",
+    "id": "83cbb68a-814b-4fb5-a7dd-c9ec6c5fe455",
+    "name": "hm-revenue-and-customs",
+    "resource_count": 180,
+    "state": "active",
+    "title": "HM Revenue and Customs",
+    "type": "organization"
+  },
+  {
+    "approval_status": "pending",
+    "dataset_count": 21,
+    "description": "",
+    "id": "679a9f85-9a24-4ed3-ae5b-be180fff321d",
+    "name": "london-borough-of-camden",
+    "resource_count": 84,
+    "state": "active",
+    "title": "London Borough of Camden",
+    "type": "organization"
+  },
+  {
+    "approval_status": "pending",
+    "dataset_count": 22,
+    "description": "We regulate and influence the oil and gas, offshore hydrogen, and carbon storage industries. We help drive North Sea energy transition, realising the significant potential of the UK Continental Shelf as a critical energy and carbon abatement resource. We hold industry to account on halving upstream emissions by 2030.",
+    "id": "34f903d4-91d8-4571-be4f-79362d39fba7",
+    "name": "north-sea-transition-authority",
+    "resource_count": 233,
+    "state": "active",
+    "title": "North Sea Transition Authority",
+    "type": "organization"
+  },
+  {
+    "approval_status": "pending",
+    "dataset_count": 2,
+    "description": "gis datasets harvested from Wigan Councils Open Data site http://opendata.wigan.gov.uk",
+    "id": "5327851e-43b8-408c-bf83-a00d39f58dea",
+    "name": "wigan-metropolitan-borough-council",
+    "resource_count": 10,
+    "state": "active",
+    "title": "Wigan Metropolitan Borough Council",
+    "type": "organization"
+  }
+]

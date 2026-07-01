@@ -1,0 +1,262 @@
+[
+  {
+    "kind": "resource format",
+    "source": "resource/ffa14cff-b36a-4bfb-9d89-640d52826da8",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffa14cff-b36a-4bfb-9d89-640d52826da8",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffa6f094-548d-4f8d-ba93-4e880e7881b4",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffa6f094-548d-4f8d-ba93-4e880e7881b4",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffad001e-ca5c-4967-a31c-ec83cb1db6c6",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffad001e-ca5c-4967-a31c-ec83cb1db6c6",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffaf13c7-1760-4b97-8927-1f15a723a45a",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffaf13c7-1760-4b97-8927-1f15a723a45a",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffb30f96-5330-4463-b66d-3e0dd0b7e124",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffb30f96-5330-4463-b66d-3e0dd0b7e124",
+    "target": "host/cdp-sirsi-production-fts-471112843276.s3.eu-west-2.amazonaws.com"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffb6d8db-8417-4667-96a7-68b8148a76c9",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffb6d8db-8417-4667-96a7-68b8148a76c9",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffb93406-1a09-4164-a092-0356d85495ed",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffb93406-1a09-4164-a092-0356d85495ed",
+    "target": "host/cdp-sirsi-production-cfs-471112843276.s3.eu-west-2.amazonaws.com"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffba4282-2559-4c24-bd5e-6eedae8ab4b1",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffba4282-2559-4c24-bd5e-6eedae8ab4b1",
+    "target": "host/cdp-sirsi-production-cfs-471112843276.s3.eu-west-2.amazonaws.com"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffc0d563-99af-4903-b651-623b3b6fd78b",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffc0d563-99af-4903-b651-623b3b6fd78b",
+    "target": "host/cdp-sirsi-production-fts-471112843276.s3.eu-west-2.amazonaws.com"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffc1f264-71ff-45fa-92cc-d6179b38d528",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffc1f264-71ff-45fa-92cc-d6179b38d528",
+    "target": "host/cdp-sirsi-production-fts-471112843276.s3.eu-west-2.amazonaws.com"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffc798e5-974c-422c-abac-0d3d0bfe2795",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffc798e5-974c-422c-abac-0d3d0bfe2795",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffc82193-f2ff-4e1f-a14a-ecabf95f3189",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffc82193-f2ff-4e1f-a14a-ecabf95f3189",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffc849d3-5f68-4ee1-a2a2-09df57bb61a9",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffc849d3-5f68-4ee1-a2a2-09df57bb61a9",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffcce5a3-6204-46a7-855c-29c5d6e7b0ef",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffcce5a3-6204-46a7-855c-29c5d6e7b0ef",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffda8b4d-e0a4-4a99-9b80-476a0e2da5e4",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffda8b4d-e0a4-4a99-9b80-476a0e2da5e4",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffddde91-922b-4aa2-a742-4c39f5c33e0d",
+    "target": "format/.csv"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffddde91-922b-4aa2-a742-4c39f5c33e0d",
+    "target": "host/assets.publishing.service.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffddf01f-3ac0-4089-bb44-d8f5be1167de",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffddf01f-3ac0-4089-bb44-d8f5be1167de",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffde4f52-6baa-44a7-971b-12e08189d6fc",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffde4f52-6baa-44a7-971b-12e08189d6fc",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffde88ae-cfb5-4a70-9339-44fc584021c2",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffde88ae-cfb5-4a70-9339-44fc584021c2",
+    "target": "host/cdp-sirsi-production-cfs-471112843276.s3.eu-west-2.amazonaws.com"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/ffe365d6-69ce-4959-ae95-fb8b835d2189",
+    "target": "format/application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/ffe365d6-69ce-4959-ae95-fb8b835d2189",
+    "target": "host/cdp-sirsi-production-fts-471112843276.s3.eu-west-2.amazonaws.com"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/fff474c0-f428-4842-9499-4b6df7399772",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/fff474c0-f428-4842-9499-4b6df7399772",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/fff62dff-ffbb-4320-a6c0-c14a90ac565a",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/fff62dff-ffbb-4320-a6c0-c14a90ac565a",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/fffa935d-8921-4d32-8570-c115650b86b8",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/fffa935d-8921-4d32-8570-c115650b86b8",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/fffc4b52-5244-46d7-b6f6-0994e673f6bf",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/fffc4b52-5244-46d7-b6f6-0994e673f6bf",
+    "target": "host/assets.publishing.service.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/fffdac2f-1d95-4630-ade7-8814dfc1e437",
+    "target": "format/CSV"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/fffdac2f-1d95-4630-ade7-8814dfc1e437",
+    "target": "host/data.api.trade.gov.uk"
+  },
+  {
+    "kind": "resource format",
+    "source": "resource/fffdf557-84b5-4dc3-b1ec-5b069cfb9d12",
+    "target": "format/HTML"
+  },
+  {
+    "kind": "resource host",
+    "source": "resource/fffdf557-84b5-4dc3-b1ec-5b069cfb9d12",
+    "target": "host/data.api.trade.gov.uk"
+  }
+]

@@ -19,6 +19,7 @@ class BuildSiteTest(unittest.TestCase):
 
     def test_pages_bundle_includes_gov_ckan_bundle(self) -> None:
         self.assertIn("gov-ckan", build_site.PUBLIC_TREES)
+        self.assertIn("gov-ckan-sample", build_site.PUBLIC_TREES)
 
     def test_pages_bundle_excludes_gov_ckan_scratch_outputs(self) -> None:
         self.assertTrue(build_site.is_forbidden(Path("gov-ckan/raw/package-search.json")))

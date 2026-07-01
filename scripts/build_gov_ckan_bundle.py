@@ -11,6 +11,7 @@ from html import escape
 import json
 import re
 import sys
+from time import sleep
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -25,7 +26,11 @@ BUILDER_VERSION = "gov-ckan-builder-v1"
 DEFAULT_ROWS = 1000
 DEFAULT_CHUNK_SIZE = 1000
 DEFAULT_ENRICH_LIMIT = 200
-LOCAL_PATH_RE = re.compile(r"(/Users/|/private/|/tmp/|[A-Za-z]:\\\\)")
+DEFAULT_FETCH_RETRIES = 4
+DEFAULT_FETCH_TIMEOUT = 60
+LOCAL_PATH_RE = re.compile(r"(?<![A-Za-z0-9._-])/(?:Users|private|tmp)/|(?<![A-Za-z0-9])[A-Za-z]:\\")
+LOCAL_FILE_URI_RE = re.compile(r"file:/+[^\\s\"'<>]+", re.IGNORECASE)
+WINDOWS_LOCAL_PATH_RE = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:\\[^\"'<>]*")
 
 
 @dataclass(frozen=True)
@@ -47,8 +52,16 @@ def now_iso() -> str:
     return datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
+def scrub_local_paths(value: Any) -> str:
+    text = str(value or "")
+    text = LOCAL_FILE_URI_RE.sub("[local file path removed]", text)
+    text = WINDOWS_LOCAL_PATH_RE.sub("[local path removed]", text)
+    return LOCAL_PATH_RE.sub("[local path removed]/", text)
+
+
 def compact_text(value: Any, limit: int = 900) -> str:
     text = re.sub(r"\s+", " ", str(value or "")).strip()
+    text = scrub_local_paths(text)
     if len(text) <= limit:
         return text
     return f"{text[: limit - 3].rstrip()}..."
@@ -78,13 +91,24 @@ def extras_to_dict(extras: Any) -> dict[str, str]:
     return result
 
 
+def safe_urlparse(url: str) -> Any | None:
+    try:
+        return urlparse(str(url or "").strip())
+    except ValueError:
+        return None
+
+
 def host_for_url(url: str) -> str:
-    parsed = urlparse(str(url or "").strip())
+    parsed = safe_urlparse(url)
+    if parsed is None:
+        return ""
     return parsed.netloc.lower().removeprefix("www.")
 
 
 def govuk_content_path_for_url(url: str) -> str | None:
-    parsed = urlparse(str(url or "").strip())
+    parsed = safe_urlparse(url)
+    if parsed is None:
+        return None
     host = parsed.netloc.lower()
     if host not in {"www.gov.uk", "gov.uk"}:
         return None
@@ -103,7 +127,7 @@ def stable_timestamp(package: dict[str, Any], extras: dict[str, str]) -> str:
 
 
 def normalize_resource(resource: dict[str, Any], dataset_name: str) -> dict[str, Any]:
-    url = str(resource.get("url") or "").strip()
+    url = scrub_local_paths(str(resource.get("url") or "").strip())
     resource_id = str(resource.get("id") or slug(f"{dataset_name}-{resource.get('position', 0)}", "resource"))
     govuk_path = govuk_content_path_for_url(url)
     return {
@@ -150,6 +174,7 @@ def normalize_dataset(
     name = str(package.get("name") or package.get("id") or "").strip()
     if not name:
         name = slug(package.get("title") or package.get("id") or "dataset")
+    package_url = scrub_local_paths(str(package.get("url") or ""))
     extras = extras_to_dict(package.get("extras"))
     org = package.get("organization") if isinstance(package.get("organization"), dict) else {}
     publisher = normalize_publisher(org)
@@ -173,8 +198,8 @@ def normalize_dataset(
         "name": name,
         "title": compact_text(package.get("title") or name.replace("-", " ").title(), 240),
         "notes": compact_text(package.get("notes"), 900),
-        "url": str(package.get("url") or ""),
-        "host": host_for_url(str(package.get("url") or "")),
+        "url": package_url,
+        "host": host_for_url(package_url),
         "isopen": bool(package.get("isopen")),
         "license_id": compact_text(package.get("license_id") or "not-specified", 120),
         "license_title": compact_text(package.get("license_title") or package.get("license_id") or "Not specified", 180),
@@ -193,7 +218,7 @@ def normalize_dataset(
         "formats": sorted({resource["format"] for resource in resources if resource["format"]}),
         "resource_hosts": sorted({resource["host"] for resource in resources if resource["host"]}),
         "govuk_content_paths": sorted(
-            {path for path in [govuk_content_path_for_url(str(package.get("url") or ""))] if path}
+            {path for path in [govuk_content_path_for_url(package_url)] if path}
             | {resource["govuk_content_path"] for resource in resources if resource["govuk_content_path"]}
         ),
         "extras": extras,
@@ -202,10 +227,48 @@ def normalize_dataset(
     return dataset, resources, publisher
 
 
+def ensure_unique_dataset_route(
+    dataset: dict[str, Any],
+    resources: list[dict[str, Any]],
+    used_names: set[str],
+    api_base: str,
+) -> None:
+    name = dataset["name"]
+    if name not in used_names:
+        used_names.add(name)
+        return
+    original_name = name
+    suffix = slug(dataset.get("id") or original_name, "dataset")[:12]
+    candidate = f"{original_name}-{suffix}"
+    counter = 2
+    while candidate in used_names:
+        candidate = f"{original_name}-{suffix}-{counter}"
+        counter += 1
+    dataset["ckan_name"] = original_name
+    dataset["name"] = candidate
+    dataset["source_api_url"] = f"{api_base.rstrip('/')}/package_show?id={quote(str(dataset.get('id') or original_name))}"
+    for resource in resources:
+        resource["dataset"] = candidate
+    used_names.add(candidate)
+
+
 def fetch_json(url: str) -> dict[str, Any]:
     request = Request(url, headers={"User-Agent": "ai-engineering-lab-gov-ckan-builder/1.0"})
-    with urlopen(request, timeout=60) as response:  # noqa: S310 - controlled public metadata URL
-        return json.loads(response.read().decode("utf-8"))
+    last_error: Exception | None = None
+    for attempt in range(DEFAULT_FETCH_RETRIES):
+        try:
+            with urlopen(request, timeout=DEFAULT_FETCH_TIMEOUT) as response:  # noqa: S310 - controlled public metadata URL
+                return json.loads(response.read().decode("utf-8"))
+        except HTTPError as exc:
+            last_error = exc
+            if exc.code not in {429, 500, 502, 503, 504}:
+                raise
+        except (TimeoutError, URLError) as exc:
+            last_error = exc
+        if attempt < DEFAULT_FETCH_RETRIES - 1:
+            sleep(2**attempt)
+    assert last_error is not None
+    raise last_error
 
 
 def ckan_get(api_base: str, action: str, params: dict[str, Any]) -> dict[str, Any]:
@@ -336,7 +399,7 @@ def chunked(values: list[dict[str, Any]], chunk_size: int) -> list[list[dict[str
 
 def write_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
 
 
 def write_chunks(data_dir: Path, prefix: str, records: list[dict[str, Any]], chunk_size: int) -> list[str]:
@@ -411,29 +474,26 @@ def build_graph(
     publishers: dict[str, dict[str, Any]],
     relationships: list[dict[str, str]],
 ) -> dict[str, Any]:
-    nodes: dict[str, dict[str, Any]] = {}
-    for dataset in datasets:
-        nodes[f"dataset/{dataset['name']}"] = {
-            "id": f"dataset/{dataset['name']}",
-            "kind": "dataset",
-            "label": dataset["title"],
-            "count": dataset["resource_count"],
-        }
-    for resource in resources:
-        nodes[f"resource/{resource['id']}"] = {
-            "id": f"resource/{resource['id']}",
-            "kind": "resource",
-            "label": resource["name"],
-            "format": resource["format"],
-        }
-    for publisher in publishers.values():
-        nodes[f"publisher/{publisher['name']}"] = {
-            "id": f"publisher/{publisher['name']}",
-            "kind": "publisher",
-            "label": publisher["title"],
-            "count": publisher["dataset_count"],
-        }
-    return {"nodes": sorted(nodes.values(), key=lambda item: item["id"]), "edges": relationships}
+    edge_counts = Counter(relationship["kind"] for relationship in relationships)
+    top_publishers = sorted(publishers.values(), key=lambda item: (-item["dataset_count"], item["title"]))[:40]
+    return {
+        "node_counts": {
+            "datasets": len(datasets),
+            "resources": len(resources),
+            "publishers": len(publishers),
+        },
+        "edge_counts": [{"kind": kind, "count": count} for kind, count in edge_counts.most_common()],
+        "top_publishers": [
+            {
+                "id": f"publisher/{publisher['name']}",
+                "label": publisher["title"],
+                "dataset_count": publisher["dataset_count"],
+                "resource_count": publisher["resource_count"],
+            }
+            for publisher in top_publishers
+        ],
+        "relationship_index": "manifest.chunks.relationships",
+    }
 
 
 def render_wiki(out_dir: Path, manifest: dict[str, Any], official_sources: list[dict[str, str]]) -> None:
@@ -501,7 +561,7 @@ Remote resource bodies are not downloaded. URLs are retained as source links. Ra
 - The CKAN directory contains records of mixed quality, age, and link health.
 - Publisher and format names are normalised only lightly so the bundle remains faithful to source metadata.
 - GOV.UK Content API enrichment is metadata-only and stores no rendered GOV.UK body HTML.
-- The current sample is metadata-first. Document-content concept extraction is a follow-on enrichment layer and should keep the no-copied-documents boundary.
+- The current bundle is metadata-first. Document-content concept extraction is a follow-on enrichment layer and should keep the no-copied-documents boundary.
 """
     ui = f"""---
 type: interface
@@ -516,7 +576,7 @@ timestamp: "{timestamp}"
 
 The left panel reduces the corpus through search and folded facets. Facets are derived from source structure: publisher, publisher family, format, licence, tag, update year, URL host, GOV.UK-linked status, and resource type. Facets start folded; opening one facet folds the previous inactive facet while selected values remain visible as compact chips.
 
-The centre canvas never defaults to a hairball. `#overview` opens with a screen-sized bundle info-card. Dataset, publisher, resource-stack, timeline, matrix, and Graph views are available after selection or filtering. Graph view includes a colour key, visible relationship list, grouped edge labels for selected-item graphs, drag-to-pan, zoom controls, clickable concept nodes for facets such as format, tag, host, and licence, and node-aware label placement so labels do not sit under card icons.
+The centre canvas never defaults to a hairball. `#overview` opens with a screen-sized bundle info-card. Dataset, publisher, resource-stack, timeline, matrix, and Graph views are available after selection or filtering. Graph relationships lazy-load in batches when Graph is opened so the full corpus can still open on the overview quickly. Graph view includes a colour key, visible relationship list, grouped edge labels for selected-item graphs, drag-to-pan, zoom controls, clickable concept nodes for facets such as format, tag, host, and licence, and node-aware label placement so labels do not sit under card icons.
 
 The right panel is a scannable data card for the selected dataset, resource, or publisher. It exposes metadata, source links, related records, provenance, a copyable route, and pin controls.
 
@@ -532,7 +592,7 @@ Pinned cards are stored locally and can be spread from a compact stack into a co
 
 ## Screenshot Examples
 
-The sample bundle has deterministic screenshot examples for the viewer states that matter most:
+The checked-in screenshot examples cover the viewer states that matter most:
 
 ![Overview info-card](assets/ui-examples/overview.png)
 
@@ -570,9 +630,11 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
     datasets: list[dict[str, Any]] = []
     resources: list[dict[str, Any]] = []
     publishers: dict[str, dict[str, Any]] = {}
+    used_dataset_names: set[str] = set()
 
     for package in packages:
         dataset, package_resources, publisher = normalize_dataset(package, config.api_base)
+        ensure_unique_dataset_route(dataset, package_resources, used_dataset_names, config.api_base)
         datasets.append(dataset)
         resources.extend(package_resources)
         current = publishers.get(publisher["name"], publisher)
@@ -692,7 +754,7 @@ VIEWER_TEMPLATE = """<!doctype html>
 </div>
 <script>
 const VIEWER_VERSION="__VIEWER_VERSION__";
-let manifest,datasets=[],resources=[],publishers=[],relationships=[],facets={},graph={},govukContent={};
+let manifest,datasets=[],resources=[],publishers=[],relationships=[],facets={},graph={},govukContent={},relationshipsLoaded=false,relationshipsLoading=null;
 let byDataset=new Map(),byResource=new Map(),byPublisher=new Map(),filters={},query="",mode="overview",selected=null,inspected=null,inspectedFacet=null,spotlight=null,pins=JSON.parse(localStorage.getItem("govCkanPins")||"[]"),spread=false,labelPhase=0,labelLayerCount=1,openFacet="",leftFolded=false,rightFolded=false,graphKey="",graphZoom=1,graphBox={x:0,y:0,w:720,h:560,baseW:720,baseH:560},graphDrag=null,graphSuppressClick=false;
 const $=id=>document.getElementById(id),canvas=$("canvas"),detail=$("detail"),live=$("live"),shell=document.querySelector(".shell");
 const FILTER_KEYS=["publisher","format","license","tag","update_year","host","govuk_linked","resource_type","publisher_family","publisher_state"];
@@ -701,7 +763,9 @@ function attr(v){return esc(v).replace(/"/g,"&quot;");}
 function formatList(values){return(values||[]).map(v=>esc(v)).join(", ");}
 function cleanText(v){const raw=String(v??"").replace(/<\\/?(p|div|li|br|ul|ol|h[1-6])\\b[^>]*>/gi," $& ");const t=document.createElement("template");t.innerHTML=raw;return(t.content.textContent||raw).replace(/\\s+/g," ").trim();}
 async function loadJson(path){const res=await fetch(path);if(!res.ok)throw new Error(`${path}: ${res.status}`);return res.json();}
-async function load(){manifest=await loadJson("data/manifest.json");if(manifest.viewer_version!==VIEWER_VERSION)throw new Error("viewer/data version mismatch");const loadChunks=async names=>(await Promise.all(names.map(loadJson))).flat();datasets=await loadChunks(manifest.chunks.datasets);resources=await loadChunks(manifest.chunks.resources);publishers=await loadChunks(manifest.chunks.publishers);relationships=await loadChunks(manifest.chunks.relationships);facets=await loadJson(manifest.indexes.facets);graph=await loadJson(manifest.indexes.graph);govukContent=await loadJson(manifest.indexes.govuk_content);datasets.forEach(d=>byDataset.set(d.name,d));resources.forEach(r=>byResource.set(r.id,r));publishers.forEach(p=>byPublisher.set(p.name,p));$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, ${manifest.counts.publishers.toLocaleString()} publishers`;applyUrl();render();}
+async function loadChunks(names){const out=[];for(let i=0;i<names.length;i+=16){const group=await Promise.all(names.slice(i,i+16).map(loadJson));group.forEach(rows=>out.push(...rows));}return out;}
+function requestRelationships(){if(relationshipsLoaded)return true;if(!relationshipsLoading){relationshipsLoading=loadChunks(manifest.chunks.relationships).then(rows=>{relationships=rows;relationshipsLoaded=true;relationshipsLoading=null;render();}).catch(err=>{relationshipsLoading=null;canvas.innerHTML=`<section class="hero"><h2>Could not load graph relationships</h2><p>${esc(err.message)}</p></section>`;});}$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, loading graph relationships`;canvas.innerHTML=`<section class="hero"><h2>Loading graph relationships</h2><p>Loading ${manifest.counts.relationships.toLocaleString()} relationship records in batches. Overview and facets are already available.</p></section>`;return false;}
+async function load(){manifest=await loadJson("data/manifest.json");if(manifest.viewer_version!==VIEWER_VERSION)throw new Error("viewer/data version mismatch");datasets=await loadChunks(manifest.chunks.datasets);resources=await loadChunks(manifest.chunks.resources);publishers=await loadChunks(manifest.chunks.publishers);facets=await loadJson(manifest.indexes.facets);graph=await loadJson(manifest.indexes.graph);govukContent=await loadJson(manifest.indexes.govuk_content);datasets.forEach(d=>byDataset.set(d.name,d));resources.forEach(r=>byResource.set(r.id,r));publishers.forEach(p=>byPublisher.set(p.name,p));$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, ${manifest.counts.publishers.toLocaleString()} publishers`;applyUrl();render();}
 function routeFor(item){if(!item)return"#overview";if(item.kind==="resource")return`#resource/${encodeURIComponent(item.id)}`;if(item.kind==="publisher")return`#publisher/${encodeURIComponent(item.name)}`;return`#dataset/${encodeURIComponent(item.name)}`;}
 function applyUrl(){const params=new URLSearchParams(location.search);query=params.get("q")||"";$("query").value=query;filters={};FILTER_KEYS.forEach(k=>{if(params.get(k))filters[k]=new Set(params.getAll(k));});mode=["overview","force","timeline","matrix","resources"].includes(params.get("mode"))?params.get("mode"):"overview";if(params.getAll("pin").length){pins=params.getAll("pin");localStorage.setItem("govCkanPins",JSON.stringify(pins));}spread=params.get("spread")==="1";selected=null;const hash=decodeURIComponent(location.hash||"#overview");if(hash.startsWith("#resource/"))selected={kind:"resource",...byResource.get(hash.slice(10))};else if(hash.startsWith("#publisher/"))selected={kind:"publisher",...byPublisher.get(hash.slice(11))};else if(hash.startsWith("#dataset/"))selected={kind:"dataset",...byDataset.get(hash.slice(9))};}
 function pushUrl(replace=false){const params=new URLSearchParams();if(query)params.set("q",query);if(mode&&mode!=="overview")params.set("mode",mode);Object.entries(filters).forEach(([k,set])=>[...set].sort().forEach(v=>params.append(k,v)));const next=`${params.toString()?`?${params}`:""}${routeFor(selected)}`;if(next===`${location.search}${location.hash}`)return;(replace?history.replaceState:history.pushState).call(history,null,"",next);}
@@ -761,7 +825,7 @@ function endGraphPan(e){if(!graphDrag)return;const moved=graphDrag.moved;e.curre
 function graphNodeAction(e){const target=e.target.closest("[data-graph-facet],[data-open]");if(!target)return;if(graphSuppressClick){graphSuppressClick=false;return;}if(target.dataset.graphFacet){inspectConcept(target.dataset.graphFacet,target.dataset.value);return;}if(target.dataset.open)inspectId(target.dataset.open);}
 function graphNodeDblAction(e){const target=e.target.closest("[data-graph-facet],[data-open]");if(target){e.preventDefault();if(target.dataset.graphFacet)applyFacet(target.dataset.graphFacet,target.dataset.value,e.ctrlKey||e.metaKey);else if(target.dataset.open)openId(target.dataset.open,true);return;}if(e.target?.classList?.contains("graph"))toggleBothPanels();}
 function bindGraphControls(){const svg=document.querySelector("svg.graph");if(svg){svg.addEventListener("pointerdown",beginGraphPan);svg.addEventListener("pointermove",moveGraphPan);svg.addEventListener("pointerup",endGraphPan);svg.addEventListener("pointercancel",endGraphPan);svg.addEventListener("dragstart",e=>e.preventDefault());svg.addEventListener("click",graphNodeAction);svg.addEventListener("dblclick",graphNodeDblAction);svg.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();if(e.ctrlKey||e.metaKey)graphNodeDblAction(e);else graphNodeAction(e);}});svg.addEventListener("wheel",e=>{e.preventDefault();setGraphZoom(graphZoom*(e.deltaY<0?1.12:.89));},{passive:false});}const zi=$("graphZoomIn"),zo=$("graphZoomOut"),zr=$("graphZoomReset");if(zi)zi.onclick=()=>setGraphZoom(graphZoom*1.2);if(zo)zo.onclick=()=>setGraphZoom(graphZoom/1.2);if(zr)zr.onclick=resetGraphView;document.querySelectorAll("[data-edge-source]").forEach(el=>{el.onclick=()=>setSpotlight(el.dataset.edgeSource);});updateGraphViewBox();}
-function renderForce(visible){const model=graphNodesAndEdges(visible),w=720,h=560,pos=graphPositions(model,w,h),map=new Map(model.nodes.map(n=>[n.id,n])),labels=labelLayers(model.nodes,pos,model.centre),sig=graphSignature(model);if(sig!==graphKey){graphKey=sig;resetGraphViewState(w,h);}const edgeSvg=model.edges.map(e=>{const a=pos[e.source],b=pos[e.target],active=model.centre&&(e.source===model.centre||e.target===model.centre);return a&&b?`<line class="edge ${active?"active":""}" data-spot-id="${attr(e.source)}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"><title>${esc(relationshipText(e,map))}</title></line>`:"";}).join("");const nodeSvg=model.nodes.map(n=>renderNode(n,pos[n.id]||{x:w/2,y:h/2},n.id===model.centre,labels)).join("");canvas.innerHTML=`<div class="graphShell"><div class="graphControls"><div class="graphButtons" aria-label="Graph controls"><button class="action" id="graphZoomOut" title="Zoom out" aria-label="Zoom out">-</button><button class="action" id="graphZoomReset" title="Reset zoom" aria-label="Reset zoom"><span id="graphZoomLevel">${Math.round(graphZoom*100)}%</span></button><button class="action" id="graphZoomIn" title="Zoom in" aria-label="Zoom in">+</button></div>${graphLegend()}</div><svg class="graph" viewBox="${graphViewBox()}" role="img" aria-label="${model.centre?"Selected item relationship graph":"Reduced dataset publisher graph"}">${edgeSvg}${edgeKindLabels(model,pos)}${nodeSvg}</svg>${graphRelationshipPanel(model,map)}<p class="graphCaption">${model.centre?`Showing ${model.nodes.length} graph nodes directly related to ${esc(shortLabel((map.get(model.centre)||{}).label||model.centre,70))}.`:`Showing ${visible.slice(0,60).length} datasets plus their publishers. Select a dataset, resource, or publisher for a relationship graph.`} Drag the graph to pan, use +/- to zoom, and click concept nodes such as formats, tags, hosts, or licences to filter. Labels without conflicts remain visible while only conflicting labels rotate.</p></div>`;bindRows(canvas);bindGraphControls();}
+function renderForce(visible){if(!requestRelationships())return;const model=graphNodesAndEdges(visible),w=720,h=560,pos=graphPositions(model,w,h),map=new Map(model.nodes.map(n=>[n.id,n])),labels=labelLayers(model.nodes,pos,model.centre),sig=graphSignature(model);if(sig!==graphKey){graphKey=sig;resetGraphViewState(w,h);}const edgeSvg=model.edges.map(e=>{const a=pos[e.source],b=pos[e.target],active=model.centre&&(e.source===model.centre||e.target===model.centre);return a&&b?`<line class="edge ${active?"active":""}" data-spot-id="${attr(e.source)}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"><title>${esc(relationshipText(e,map))}</title></line>`:"";}).join("");const nodeSvg=model.nodes.map(n=>renderNode(n,pos[n.id]||{x:w/2,y:h/2},n.id===model.centre,labels)).join("");canvas.innerHTML=`<div class="graphShell"><div class="graphControls"><div class="graphButtons" aria-label="Graph controls"><button class="action" id="graphZoomOut" title="Zoom out" aria-label="Zoom out">-</button><button class="action" id="graphZoomReset" title="Reset zoom" aria-label="Reset zoom"><span id="graphZoomLevel">${Math.round(graphZoom*100)}%</span></button><button class="action" id="graphZoomIn" title="Zoom in" aria-label="Zoom in">+</button></div>${graphLegend()}</div><svg class="graph" viewBox="${graphViewBox()}" role="img" aria-label="${model.centre?"Selected item relationship graph":"Reduced dataset publisher graph"}">${edgeSvg}${edgeKindLabels(model,pos)}${nodeSvg}</svg>${graphRelationshipPanel(model,map)}<p class="graphCaption">${model.centre?`Showing ${model.nodes.length} graph nodes directly related to ${esc(shortLabel((map.get(model.centre)||{}).label||model.centre,70))}.`:`Showing ${visible.slice(0,60).length} datasets plus their publishers. Select a dataset, resource, or publisher for a relationship graph.`} Drag the graph to pan, use +/- to zoom, and click concept nodes such as formats, tags, hosts, or licences to filter. Labels without conflicts remain visible while only conflicting labels rotate.</p></div>`;bindRows(canvas);bindGraphControls();}
 function detailItem(){return inspected||selected;}
 function renderDetail(){const item=detailItem();if(!item){detail.innerHTML=`<h2>Bundle overview</h2><p>${esc(manifest.title)}</p><dl class="kv"><dt>Generated</dt><dd>${esc(manifest.generated_at)}</dd><dt>Mode</dt><dd>${esc(manifest.source.mode)}</dd><dt>CKAN count</dt><dd>${manifest.source.ckan_reported_count.toLocaleString()}</dd></dl>`;return;}if(item.kind==="resource"){detail.innerHTML=resourceDetail(item);return;}if(item.kind==="publisher"){detail.innerHTML=publisherDetail(item);return;}detail.innerHTML=datasetDetail(item);bindRows(detail);}
 function datasetDetail(d){const res=d.resource_ids.map(id=>byResource.get(id)).filter(Boolean);return`<h2>${esc(d.title)}</h2><p>${esc(cleanText(d.notes))}</p><div class="chips">${(d.tags||[]).slice(0,10).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div><p><button class="action primary" onclick='pinCurrent()'>Pin</button> <button class="action" onclick='copyRoute()'>Copy route</button></p><dl class="kv"><dt>Publisher</dt><dd><button class="pill" data-open="publisher/${attr(d.publisher)}">${esc(d.publisher_title)}</button></dd><dt>Licence</dt><dd>${esc(d.license_title)}</dd><dt>Modified</dt><dd>${esc(d.metadata_modified)}</dd><dt>Landing URL</dt><dd>${d.url?`<a href="${attr(d.url)}">${esc(d.url)}</a>`:""}</dd><dt>API</dt><dd><a href="${attr(d.source_api_url)}">${esc(d.source_api_url)}</a></dd></dl><h3>Resources</h3><div class="resourceList">${res.map(r=>`<button class="row" data-open="resource/${attr(r.id)}" data-spot-id="resource/${attr(r.id)}"><strong>${esc(r.name)}</strong><div class="meta">${esc(r.format)} - ${esc(r.host)}</div></button>`).join("")}</div>`;}

@@ -13,7 +13,7 @@ import build_gov_ckan_bundle
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_BUNDLE = ROOT / "gov-ckan"
-LOCAL_PATH_RE = re.compile(r"(/Users/|/private/|/tmp/|[A-Za-z]:\\\\)")
+LOCAL_PATH_RE = re.compile(r"(?<![A-Za-z0-9._-])/(?:Users|private|tmp)/|(?<![A-Za-z0-9])[A-Za-z]:\\")
 FORBIDDEN_REMOTE_BODY_DIRS = {
     "download",
     "downloads",
@@ -43,7 +43,10 @@ ALLOWED_SUFFIXES = {".html", ".json", ".md", ".png", ".jpg", ".jpeg", ".webp", "
 
 
 def rel(path: Path) -> str:
-    return path.relative_to(ROOT).as_posix()
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
 
 
 def read_json(path: Path) -> Any:

@@ -2,7 +2,7 @@
 type: data-readme
 title: GOV.UK CKAN data source report
 description: Source, coverage, and extraction boundary report for the GOV.UK CKAN bundle.
-timestamp: "2026-07-01T08:13:32Z"
+timestamp: "2026-07-01T14:55:30Z"
 ---
 
 # GOV.UK CKAN Data Source Report
@@ -15,11 +15,11 @@ Remote resource bodies are not downloaded. URLs are retained as source links. Ra
 
 ## Coverage
 
-- Bundle mode: `sample`
-- Harvested datasets: `200`
-- Harvested resources: `16271`
-- Publishers: `9`
-- GOV.UK content records enriched: `3`
+- Bundle mode: `full`
+- Harvested datasets: `58461`
+- Harvested resources: `268241`
+- Publishers: `1185`
+- GOV.UK content records enriched: `200`
 - Enrichment limit: `200`
 
 ## Caveats
@@ -27,4 +27,4 @@ Remote resource bodies are not downloaded. URLs are retained as source links. Ra
 - The CKAN directory contains records of mixed quality, age, and link health.
 - Publisher and format names are normalised only lightly so the bundle remains faithful to source metadata.
 - GOV.UK Content API enrichment is metadata-only and stores no rendered GOV.UK body HTML.
-- The current sample is metadata-first. Document-content concept extraction is a follow-on enrichment layer and should keep the no-copied-documents boundary.
+- The current bundle is metadata-first. Document-content concept extraction is a follow-on enrichment layer and should keep the no-copied-documents boundary.

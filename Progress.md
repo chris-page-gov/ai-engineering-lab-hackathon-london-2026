@@ -76,6 +76,8 @@ The latest GOV.UK CKAN label pass addresses dense NCEA graph routes where card-s
 
 The latest GOV.UK CKAN interaction pass separates inspection from navigation for demonstration use. Single-clicking a record updates the right data card without rebuilding the current canvas, single-clicking a concept opens and highlights its facet on the left without filtering, double-clicking a record recentres it in Graph, double-clicking a concept applies its facet filter, and both side panels can be folded with window-style controls or toggled together by double-clicking empty graph background.
 
+The current GOV.UK CKAN expansion pass promotes `gov-ckan/` from the 200-record sample to the full data.gov.uk CKAN metadata corpus: `58,461` datasets, `268,241` resources, `1,185` publishers, and `1,178,122` relationships. The original 200-dataset sample is preserved under `gov-ckan-sample/` as a fallback bundle. To keep the full viewer practical, generated JSON is compact, `graph.json` is now a summary index rather than a duplicate edge payload, and relationship chunks lazy-load only when Graph is opened.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -206,6 +208,8 @@ The latest GOV.UK CKAN interaction pass separates inspection from navigation for
   - investigated the dense NCEA graph label routes: the generated label-layer algorithm only checked label-to-label collisions, so icons could cover labels and labels with no conflicts could still disappear when their assigned layer was not active; the viewer now uses node-aware label obstacles, conflict-only cycling, grouped edge labels, and a wider publisher-centred fan layout.
   - browser-smoked the dense NCEA label fix locally against `#dataset/nfi-soil-chemistry`, `#publisher/forestry-commission`, and the unselected `tag=NCEA` Graph route: all three routes reported `0` label/icon overlaps, the NFI selected graph grouped edges as `tagged x7` and `has resource x5`, the Forestry Commission graph grouped `published by x12`, and the NFI graph kept the same stable node labels across a two-second cycle.
   - implemented the GOV.UK CKAN inspect-first interaction pass so single clicks can inspect records or concept facets without changing the graph, double clicks can navigate or filter, and side panels can be folded or reopened during a live demonstration; browser-smoked the generated viewer with headless Chrome against the `Blue space access points in England` route and a graph resource/concept node.
+  - built a full GOV.UK CKAN scratch bundle from the live data.gov.uk CKAN API; the first attempt exposed a transient read timeout and the second exposed a malformed CKAN resource URL, so the builder now retries public metadata reads and tolerates malformed URL fields without dropping resource metadata.
+  - generated the committed full `gov-ckan/` bundle with `58,461` datasets and preserved the previous 200-dataset sample under `gov-ckan-sample/`; full-corpus viewer loading now defers relationship chunks until Graph is opened.
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;
