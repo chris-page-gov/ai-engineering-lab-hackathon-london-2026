@@ -11,7 +11,7 @@ timestamp: "2026-07-01T08:13:32Z"
 
 The left panel reduces the corpus through search and folded facets. Facets are derived from source structure: publisher, publisher family, format, licence, tag, update year, URL host, GOV.UK-linked status, and resource type. Facets start folded; opening one facet folds the previous inactive facet while selected values remain visible as compact chips.
 
-The centre canvas never defaults to a hairball. `#overview` opens with a screen-sized bundle info-card. Dataset, publisher, resource-stack, timeline, matrix, and Graph views are available after selection or filtering. Graph view includes a colour key, visible relationship list, edge labels for selected-item graphs, drag-to-pan, zoom controls, and clickable concept nodes for facets such as format, tag, host, and licence.
+The centre canvas never defaults to a hairball. `#overview` opens with a screen-sized bundle info-card. Dataset, publisher, resource-stack, timeline, matrix, and Graph views are available after selection or filtering. Graph view includes a colour key, visible relationship list, grouped edge labels for selected-item graphs, drag-to-pan, zoom controls, clickable concept nodes for facets such as format, tag, host, and licence, and node-aware label placement so labels do not sit under card icons.
 
 The right panel is a scannable data card for the selected dataset, resource, or publisher. It exposes metadata, source links, related records, provenance, a copyable route, and pin controls.
 

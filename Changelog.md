@@ -24,6 +24,7 @@ No undated pending changes.
 - 2026-07-01: Renamed the GOV.UK CKAN `Force` stage control to `Graph` and changed selected-item graph rendering to centre the selected dataset/resource/publisher, draw direct relationships, use card-shaped resource nodes, and cycle non-overlapping label layers every two seconds.
 - 2026-07-01: Refined the GOV.UK CKAN viewer controls so history navigation is visually separate from canvas modes and structural facets use a SeeLinks-style single-open accordion with selected values still visible when folded.
 - 2026-07-01: Added GOV.UK CKAN Graph affordances for colour-key legend, visible relationship list, selected-edge labels, drag-to-pan, zoom controls, and clickable concept nodes that apply facet filters without leaving Graph.
+- 2026-07-01: Refined GOV.UK CKAN Graph labelling so stable non-conflicting labels remain visible while only conflicting labels rotate, relationship labels are grouped by edge type, and selected publisher graphs spread related datasets across a wider fan.
 
 ### Fixed
 
@@ -33,6 +34,7 @@ No undated pending changes.
 - 2026-07-01: Rendered CKAN notes and resource descriptions as readable text in the GOV.UK CKAN viewer when source metadata contains HTML markup.
 - 2026-07-01: Fixed GOV.UK CKAN Graph, Timeline, Publisher x Format, and Resource stack mode buttons so they render their current reduction even before a dataset/resource/publisher has been selected.
 - 2026-07-01: Fixed stale GOV.UK CKAN selected cards/graphs after facet or search changes by clearing selections excluded by the current reduction, and enabled the `publisher_state` facet key.
+- 2026-07-01: Fixed GOV.UK CKAN Graph label placement so card-shaped node icons and circular node glyphs are treated as obstacles instead of being allowed to obscure nearby labels.
 
 ### Documentation
 
@@ -47,6 +49,8 @@ No undated pending changes.
 - 2026-07-01: Added GOV.UK CKAN viewer regression markers for separated history navigation, folded facet accordion state, selected folded-facet chips, and non-overview mode rendering without a selected item.
 - 2026-07-01: Browser-smoked the GOV.UK CKAN viewer locally for folded facet startup, selected folded-facet chip retention, filtered Graph rendering, Timeline rendering, Publisher x Format rendering, and Resource stack rendering.
 - 2026-07-01: Added GOV.UK CKAN viewer regression markers for stale-selection clearing, publisher-state filtering, graph colour/relationship controls, concept-node facet actions, and graph pan/zoom controls.
+- 2026-07-01: Added GOV.UK CKAN viewer regression markers for node-aware graph label placement, stable non-conflicting labels, and grouped relationship labels.
+- 2026-07-01: Browser-smoked the dense GOV.UK CKAN NCEA graph routes for zero label/icon overlaps, grouped edge labels, and stable labels across the two-second cycle.
 
 ## 2026-06-28
 
