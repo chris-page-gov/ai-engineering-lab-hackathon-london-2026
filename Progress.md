@@ -190,6 +190,7 @@ The concept-localisation boundary is explicit: future enrichment should analyse 
   - ran `python3 scripts/check_gov_ckan_bundle.py`;
   - captured Playwright screenshots for overview, selected dataset force graph, resource stack, pinned comparison spread, and mobile/touch layout under `gov-ckan/wiki/assets/ui-examples/`.
   - addressed PR review feedback by excluding ignored CKAN scratch folders from Pages output and escaping CKAN format metadata in viewer list rows, with regression tests added to `tests/test_build_site.py` and `tests/test_gov_ckan_bundle.py`.
+  - addressed initial demo-validation feedback on the GOV.UK CKAN viewer: filtered overview totals now recalculate for datasets/resources/publishers/enrichments, single-click facets switch values while Ctrl/Command-click adds values, breadcrumbs/back-forward controls track route changes, CKAN HTML notes render as readable text, the `Force` view is now labelled `Graph`, and selected datasets/resources/publishers render as centred relationship graphs with card-shaped resource nodes and cycling non-overlapping labels.
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;
