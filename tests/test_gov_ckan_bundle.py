@@ -112,6 +112,8 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertIn("localStorage", html)
         self.assertIn('params.get("mode")', html)
         self.assertIn('params.getAll("pin")', html)
+        self.assertIn("function formatList", html)
+        self.assertNotIn('${(d.formats||[]).join(", ")}', html)
         self.assertIn("avoids opening on a full hairball", html)
 
     def test_fixture_build_and_checker_validate_bundle(self) -> None:

@@ -56,9 +56,9 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - `scripts/update_viewer.py`: regenerates `viewer.html` from `postmortem-public/wiki/**/*.md` and `challenge-2/wiki/**/*.md`.
 - `scripts/check_wiki_viewer.py`: verifies `viewer.html` is synchronized with both public wiki corpora.
 - `scripts/check_okf_conformance.py`: validates OKF frontmatter for `challenge-2/wiki/` and `postmortem-public/wiki/`.
-- `scripts/build_site.py`: builds the GitHub Pages-ready `_site/` bundle from root documentation, `viewer.html`, `challenge-2/wiki/`, Challenge 2 checked-in source-file trees, and `postmortem-public/`.
-- `gov-ckan/`: generated GOV.UK/data.gov.uk CKAN OKF bundle with `wiki/` OKF notes, compact chunked metadata under `data/`, screenshot examples under `wiki/assets/ui-examples/`, and a dedicated static `viewer.html`.
-- `scripts/build_gov_ckan_bundle.py`: harvests paginated CKAN `package_search` metadata, normalises datasets/resources/publishers/facets/relationships, and writes the generated `gov-ckan/` bundle.
+- `scripts/build_site.py`: builds the GitHub Pages-ready `_site/` bundle from root documentation, `viewer.html`, `challenge-2/wiki/`, Challenge 2 checked-in source-file trees, `postmortem-public/`, and the generated `gov-ckan/` bundle while excluding ignored CKAN scratch folders such as `raw/`, `downloads/`, `resource-bodies/`, and transient OS metadata.
+- `gov-ckan/`: generated GOV.UK/data.gov.uk CKAN OKF bundle with `wiki/` OKF notes, compact chunked metadata under `data/`, screenshot examples under `wiki/assets/ui-examples/`, and a dedicated static `viewer.html`; published content is metadata and derived indexes, not raw harvest snapshots or downloaded resource bodies.
+- `scripts/build_gov_ckan_bundle.py`: harvests paginated CKAN `package_search` metadata, normalises datasets/resources/publishers/facets/relationships, escapes CKAN-controlled metadata in the generated viewer, and writes the generated `gov-ckan/` bundle.
 - `scripts/check_gov_ckan_bundle.py`: validates manifest counts, chunk integrity, route IDs, local-path leakage, viewer/data synchronisation, and the metadata-only source boundary.
 - `.github/workflows/pages.yml`: validates the OKF bundles and viewer, builds `_site/`, and deploys it with GitHub Pages Actions.
 - `_site/`: ignored generated Pages output.
