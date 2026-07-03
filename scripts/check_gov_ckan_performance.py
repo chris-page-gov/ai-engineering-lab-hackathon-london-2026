@@ -81,6 +81,14 @@ def main(argv: list[str] | None = None) -> int:
         errors.append("viewer.html no longer has an explicit full-index hydration path")
     if "function requestRelationships()" not in viewer_text or "manifest.chunks.relationships" not in viewer_text:
         errors.append("viewer.html no longer lazy-loads relationship chunks")
+    for marker, message in {
+        "function renderResourceStack": "viewer.html no longer exposes resource review rows",
+        "function markdownToHtml": "viewer.html no longer renders Markdown notes in-app",
+        "function setTheme": "viewer.html no longer exposes the light/dark theme toggle",
+        "function loadApiJson": "viewer.html no longer supports on-demand API JSON rendering",
+    }.items():
+        if marker not in viewer_text:
+            errors.append(message)
 
     deferred_datasets = group_size(bundle, manifest.get("chunks", {}).get("datasets", []))
     deferred_resources = group_size(bundle, manifest.get("chunks", {}).get("resources", []))

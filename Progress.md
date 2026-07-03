@@ -82,6 +82,8 @@ The latest publication hardening pass responds to a transient GitHub Pages `503`
 
 The current GOV.UK CKAN performance pass adds the missing large-corpus OKF Explorer structure and tightens startup behaviour. `gov-ckan/index.html` is now the browser entry point, `gov-ckan/okf-explorer.json` describes the large-corpus bundle for consumers, and `gov-ckan/data/overview.json` lets the default `#overview` route render without loading the full dataset/resource index. The full index now hydrates only when search, filters, deep links, or non-overview views need it; the relationship chunks remain deferred until Graph mode. `scripts/check_gov_ckan_performance.py` validates that this overview-first path does not regress.
 
+The latest GOV.UK CKAN usability pass addresses local test feedback on the largest source. Overview format cards now select an individual format instead of sharing a common spotlight target. Resource review is direct: Resource stack renders resource rows, dataset cards inspect resources without route navigation, the in-app back button clears the inspection first, and double-click remains the explicit graph route. Dataset/resource/publisher cards now bind relation buttons consistently, show richer local CKAN metadata and extras, expose local normalized JSON, and can optionally render live `package_show` API JSON. The OKF bundle notes render inside the app, a light/dark toggle is available, Timeline is chronological, and dense graph labels are bounded so publisher graphs stay readable.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.

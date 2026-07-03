@@ -14,10 +14,20 @@ No undated pending changes.
 
 - 2026-07-03: Added a generated `gov-ckan/index.html` entry point and `gov-ckan/okf-explorer.json` large-corpus descriptor so the full GOV.UK CKAN bundle can be opened as an OKF Explorer surface without pretending it is a monolithic `okf-bundle.json`.
 - 2026-07-03: Added `data/overview.json` for the GOV.UK CKAN bundle and `scripts/check_gov_ckan_performance.py` to enforce the overview-first startup budget.
+- 2026-07-03: Added a GOV.UK CKAN light/dark mode toggle stored in browser local state.
 
 ### Changed
 
 - 2026-07-03: Changed the GOV.UK CKAN viewer load path so `#overview` renders from the lightweight overview payload first; search, filters, deep record routes, and non-overview views hydrate the full dataset/resource/publisher indexes on demand, while relationship chunks remain deferred until Graph mode.
+- 2026-07-03: Changed GOV.UK CKAN resource browsing so Resource stack renders resource rows directly, single-click inspection highlights resources without navigating, the in-app back button clears inspections first, and double-click remains the explicit graph-route action.
+- 2026-07-03: Changed GOV.UK CKAN data cards to expose richer local CKAN metadata, extras, normalized JSON, and opt-in live `package_show` JSON rendering while preserving the metadata-first static bundle boundary.
+- 2026-07-03: Changed the GOV.UK CKAN Timeline view from a generic list into a chronological dated-dataset view and reduced dense graph label budgets for large publisher-centred graphs.
+
+### Fixed
+
+- 2026-07-03: Fixed GOV.UK CKAN overview format cards so each format can be selected independently instead of every format row sharing the same `overview` spotlight target.
+- 2026-07-03: Fixed GOV.UK CKAN detail-card relation buttons so dataset/resource/publisher pills and rows bind consistently and can highlight or open their graph targets.
+- 2026-07-03: Fixed the GOV.UK CKAN `OKF bundle notes` entry so generated Markdown renders inside the viewer instead of opening raw Markdown in the browser.
 
 ### Documentation
 
