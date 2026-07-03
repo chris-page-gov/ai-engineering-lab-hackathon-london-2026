@@ -28,6 +28,7 @@ No undated pending changes.
 - 2026-07-03: Fixed GOV.UK CKAN overview format cards so each format can be selected independently instead of every format row sharing the same `overview` spotlight target.
 - 2026-07-03: Fixed GOV.UK CKAN detail-card relation buttons so dataset/resource/publisher pills and rows bind consistently and can highlight or open their graph targets.
 - 2026-07-03: Fixed the GOV.UK CKAN `OKF bundle notes` entry so generated Markdown renders inside the viewer instead of opening raw Markdown in the browser.
+- 2026-07-03: Fixed GOV.UK CKAN JSON review so `Show JSON` always renders static bundle package JSON in the app and treats live `package_show` API fetches as an optional enhancement when browser CORS allows them.
 
 ### Documentation
 

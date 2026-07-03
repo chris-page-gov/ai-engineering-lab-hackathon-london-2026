@@ -86,6 +86,7 @@ def main(argv: list[str] | None = None) -> int:
         "function markdownToHtml": "viewer.html no longer renders Markdown notes in-app",
         "function setTheme": "viewer.html no longer exposes the light/dark theme toggle",
         "function loadApiJson": "viewer.html no longer supports on-demand API JSON rendering",
+        "function localPackageJson": "viewer.html no longer falls back to static package JSON when live API fetches fail",
     }.items():
         if marker not in viewer_text:
             errors.append(message)
