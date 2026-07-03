@@ -28,6 +28,8 @@ DEFAULT_CHUNK_SIZE = 1000
 DEFAULT_ENRICH_LIMIT = 200
 DEFAULT_FETCH_RETRIES = 4
 DEFAULT_FETCH_TIMEOUT = 60
+MAX_OVERVIEW_PAYLOAD_BYTES = 512 * 1024
+MAX_INITIAL_REQUESTS = 8
 LOCAL_PATH_RE = re.compile(r"(?<![A-Za-z0-9._-])/(?:Users|private|tmp)/|(?<![A-Za-z0-9])[A-Za-z]:\\")
 LOCAL_FILE_URI_RE = re.compile(r"file:/+[^\\s\"'<>]+", re.IGNORECASE)
 WINDOWS_LOCAL_PATH_RE = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:\\[^\"'<>]*")
@@ -421,9 +423,12 @@ def clean_generated_outputs(out_dir: Path) -> None:
         for path in data_dir.glob("*.json"):
             path.unlink()
     for path in [
+        out_dir / "index.html",
+        out_dir / "okf-explorer.json",
         out_dir / "viewer.html",
         out_dir / "wiki" / "index.md",
         out_dir / "wiki" / "data-source-report.md",
+        out_dir / "wiki" / "performance.md",
         out_dir / "wiki" / "ui-design.md",
     ]:
         path.unlink(missing_ok=True)
@@ -496,6 +501,105 @@ def build_graph(
     }
 
 
+def dataset_summary(dataset: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "name": dataset["name"],
+        "title": dataset["title"],
+        "publisher": dataset["publisher"],
+        "publisher_title": dataset["publisher_title"],
+        "resource_count": dataset["resource_count"],
+        "formats": dataset.get("formats", [])[:8],
+        "timestamp": dataset.get("timestamp", ""),
+        "open": f"dataset/{dataset['name']}",
+    }
+
+
+def performance_model(manifest: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "model": "overview-first chunked static viewer",
+        "budgets": {
+            "max_overview_payload_bytes": MAX_OVERVIEW_PAYLOAD_BYTES,
+            "max_initial_requests": MAX_INITIAL_REQUESTS,
+        },
+        "initial_load": [
+            "viewer.html",
+            "data/manifest.json",
+            "data/overview.json",
+        ],
+        "deferred_loads": {
+            "dataset_index": "loaded only after search, filters, detail routes, or non-overview views",
+            "resources": "loaded with the full index because resource details and resource-type filters need it",
+            "relationships": "loaded only when Graph mode is opened",
+        },
+        "counts": manifest["counts"],
+    }
+
+
+def build_overview(manifest: dict[str, Any], datasets: list[dict[str, Any]], facets: dict[str, Any], graph: dict[str, Any]) -> dict[str, Any]:
+    recent = sorted(datasets, key=lambda item: str(item.get("timestamp") or item.get("metadata_modified") or ""), reverse=True)
+    facet_previews = {key: values[:12] for key, values in facets.items()}
+    return {
+        "schema": "gov-ckan-overview.v1",
+        "title": manifest["title"],
+        "generated_at": manifest["generated_at"],
+        "source": manifest["source"],
+        "counts": manifest["counts"],
+        "performance": manifest["performance"],
+        "top_publishers": graph.get("top_publishers", [])[:12],
+        "recent_datasets": [dataset_summary(dataset) for dataset in recent[:12]],
+        "format_counts": facets.get("format", [])[:12],
+        "facet_previews": facet_previews,
+        "notices": [
+            "The viewer opens from this small overview payload before loading the full dataset/resource indexes.",
+            "Use search or filters to intentionally hydrate the full index; Graph mode separately lazy-loads relationship chunks.",
+        ],
+    }
+
+
+def render_index() -> str:
+    return """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="0; url=viewer.html#overview">
+<title>GOV.UK CKAN OKF Explorer</title>
+</head>
+<body>
+<p>Open the <a href="viewer.html#overview">GOV.UK CKAN OKF Explorer</a>.</p>
+<p>Large-corpus metadata is available at <a href="okf-explorer.json">okf-explorer.json</a>.</p>
+</body>
+</html>
+"""
+
+
+def build_explorer_descriptor(manifest: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "schema": "okf-explorer-large-corpus.v0",
+        "kind": "okf-large-corpus",
+        "title": manifest["title"],
+        "generated_at": manifest["generated_at"],
+        "description": "Chunked, metadata-first GOV.UK CKAN corpus for the OKF Explorer large-corpus path.",
+        "entrypoints": {
+            "overview": "viewer.html#overview",
+            "viewer": "viewer.html",
+            "data_manifest": "data/manifest.json",
+            "overview_index": manifest["indexes"]["overview"],
+            "notes": "wiki/index.md",
+            "performance": "wiki/performance.md",
+        },
+        "routing": {
+            "overview": "#overview",
+            "dataset": "#dataset/<package-name>",
+            "resource": "#resource/<resource-id>",
+            "publisher": "#publisher/<organization-name>",
+        },
+        "performance": manifest["performance"],
+        "counts": manifest["counts"],
+        "source": manifest["source"],
+    }
+
+
 def render_wiki(out_dir: Path, manifest: dict[str, Any], official_sources: list[dict[str, str]]) -> None:
     wiki = out_dir / "wiki"
     timestamp = manifest["generated_at"]
@@ -520,7 +624,9 @@ This bundle localises public metadata from the National Data Library directory i
 - Publishers indexed: `{manifest['counts']['publishers']}`
 - Relationships indexed: `{manifest['counts']['relationships']}`
 - Full CKAN dataset count reported by the API at harvest time: `{manifest['source']['ckan_reported_count']}`
+- Large-corpus entry point: [Open the OKF Explorer](../index.html)
 - Viewer: [Open the static viewer](../viewer.html#overview)
+- Performance guidance: [Large-corpus performance model](performance.md)
 
 ## Source Boundaries
 
@@ -562,6 +668,61 @@ Remote resource bodies are not downloaded. URLs are retained as source links. Ra
 - Publisher and format names are normalised only lightly so the bundle remains faithful to source metadata.
 - GOV.UK Content API enrichment is metadata-only and stores no rendered GOV.UK body HTML.
 - The current bundle is metadata-first. Document-content concept extraction is a follow-on enrichment layer and should keep the no-copied-documents boundary.
+"""
+    performance = f"""---
+type: performance-guidance
+title: GOV.UK CKAN large-corpus performance model
+description: Startup, hydration, graph, and publication guidance for the large GOV.UK CKAN OKF bundle.
+timestamp: "{timestamp}"
+---
+
+# GOV.UK CKAN Large-Corpus Performance Model
+
+This is the largest OKF-style data source in the repository, so it deliberately uses the large-corpus path rather than the smaller single-bundle viewer pattern.
+
+## Current Scale
+
+- Datasets: `{manifest['counts']['datasets']}`
+- Resources: `{manifest['counts']['resources']}`
+- Publishers: `{manifest['counts']['publishers']}`
+- Relationships: `{manifest['counts']['relationships']}`
+- Chunked data manifest: [`../data/manifest.json`](../data/manifest.json)
+- Lightweight overview index: [`../data/overview.json`](../data/overview.json)
+- Large-corpus descriptor: [`../okf-explorer.json`](../okf-explorer.json)
+
+## Startup Budget
+
+The default `#overview` route must be overview-first. It should load only:
+
+- `viewer.html`
+- `data/manifest.json`
+- `data/overview.json`
+
+The full dataset/resource/publisher indexes are intentionally deferred until a user searches, filters, opens a detail route, or enters a non-overview view. Relationship chunks are deferred again until Graph mode is opened.
+
+The generated overview payload budget is `{manifest['performance']['budgets']['max_overview_payload_bytes']}` bytes. Keep `data/overview.json` small enough to be cache-friendly and safe for slow public networks.
+
+## Design Rules
+
+- Do not publish the full GOV.UK CKAN corpus as a single `okf-bundle.json`.
+- Keep the root `gov-ckan/index.html` as the browser entry point and `okf-explorer.json` as the machine-readable large-corpus descriptor.
+- Keep routes hash-addressable: `#overview`, `#dataset/<package-name>`, `#resource/<resource-id>`, and `#publisher/<organization-name>`.
+- Keep heavy views opt-in. Graph mode may load relationship chunks; overview must not.
+- Keep list views reduced. Render bounded slices of the visible corpus rather than thousands of DOM nodes.
+- Store derived metadata, relationships, facets, and source links. Do not commit downloaded resource bodies.
+
+## Validation
+
+Run these checks after CKAN bundle or viewer changes:
+
+```sh
+python3 scripts/check_gov_ckan_bundle.py
+python3 scripts/check_gov_ckan_performance.py
+python3 scripts/check_okf_conformance.py
+python3 scripts/build_site.py
+```
+
+For browser validation, serve the repo over HTTP and open `gov-ckan/index.html`; direct `file://` opens can block `fetch`.
 """
     ui = f"""---
 type: interface
@@ -617,6 +778,7 @@ The mobile route stacks the panels and preserves touch access to the same spotli
     (wiki / "assets" / "ui-examples").mkdir(parents=True, exist_ok=True)
     (wiki / "index.md").write_text(index, encoding="utf-8")
     (wiki / "data-source-report.md").write_text(report, encoding="utf-8")
+    (wiki / "performance.md").write_text(performance, encoding="utf-8")
     (wiki / "ui-design.md").write_text(ui, encoding="utf-8")
 
 
@@ -712,6 +874,7 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
         },
         "chunks": chunks,
         "indexes": {
+            "overview": "data/overview.json",
             "facets": "data/facets.json",
             "graph": "data/graph.json",
             "govuk_content": "data/govuk-content.json",
@@ -720,8 +883,13 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
         "routes": ["#overview", "#dataset/<package-name>", "#resource/<resource-id>", "#publisher/<organization-name>"],
         "commit_policy": "metadata-first; remote resource bodies are not downloaded",
     }
+    manifest["performance"] = performance_model(manifest)
+    overview = build_overview(manifest, datasets, facets, graph)
+    write_json(data_dir / "overview.json", overview)
     write_json(data_dir / "manifest.json", manifest)
+    write_json(out_dir / "okf-explorer.json", build_explorer_descriptor(manifest))
     render_wiki(out_dir, manifest, official_sources)
+    (out_dir / "index.html").write_text(render_index(), encoding="utf-8")
     (out_dir / "viewer.html").write_text(render_viewer(), encoding="utf-8")
     remove_local_metadata(out_dir)
     return manifest
@@ -754,7 +922,7 @@ VIEWER_TEMPLATE = """<!doctype html>
 </div>
 <script>
 const VIEWER_VERSION="__VIEWER_VERSION__";
-let manifest,datasets=[],resources=[],publishers=[],relationships=[],facets={},graph={},govukContent={},relationshipsLoaded=false,relationshipsLoading=null;
+let manifest,overviewData={},datasets=[],resources=[],publishers=[],relationships=[],facets={},graph={},govukContent={},fullIndexLoaded=false,fullIndexLoading=null,relationshipsLoaded=false,relationshipsLoading=null;
 let byDataset=new Map(),byResource=new Map(),byPublisher=new Map(),filters={},query="",mode="overview",selected=null,inspected=null,inspectedFacet=null,spotlight=null,pins=JSON.parse(localStorage.getItem("govCkanPins")||"[]"),spread=false,labelPhase=0,labelLayerCount=1,openFacet="",leftFolded=false,rightFolded=false,graphKey="",graphZoom=1,graphBox={x:0,y:0,w:720,h:560,baseW:720,baseH:560},graphDrag=null,graphSuppressClick=false;
 const $=id=>document.getElementById(id),canvas=$("canvas"),detail=$("detail"),live=$("live"),shell=document.querySelector(".shell");
 const FILTER_KEYS=["publisher","format","license","tag","update_year","host","govuk_linked","resource_type","publisher_family","publisher_state"];
@@ -767,8 +935,10 @@ function sleepMs(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
 function isRetryableLoadError(message){return/(: 429|: 500|: 502|: 503|: 504|Failed to fetch|NetworkError|Load failed)/.test(message);}
 async function loadJson(path){let last="";for(let attempt=0;attempt<=JSON_RETRIES;attempt++){const retryPath=attempt?`${path}${path.includes("?")?"&":"?"}retry=${Date.now()}-${attempt}`:path;try{const res=await fetch(retryPath,{cache:attempt?"no-store":"default"});if(res.ok)return res.json();last=`${path}: ${res.status}`;if(![429,500,502,503,504].includes(res.status))throw new Error(last);}catch(err){last=err?.message||String(err);if(attempt===JSON_RETRIES||!isRetryableLoadError(last))throw new Error(last);}await sleepMs(400*Math.pow(2,attempt));}throw new Error(last||`${path}: failed to load`);}
 async function loadChunks(names){const out=[];for(let i=0;i<names.length;i+=CHUNK_BATCH_SIZE){const group=await Promise.all(names.slice(i,i+CHUNK_BATCH_SIZE).map(loadJson));group.forEach(rows=>out.push(...rows));}return out;}
-function requestRelationships(){if(relationshipsLoaded)return true;if(!relationshipsLoading){relationshipsLoading=loadChunks(manifest.chunks.relationships).then(rows=>{relationships=rows;relationshipsLoaded=true;relationshipsLoading=null;render();}).catch(err=>{relationshipsLoading=null;canvas.innerHTML=`<section class="hero"><h2>Could not load graph relationships</h2><p>${esc(err.message)}</p></section>`;});}$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, loading graph relationships`;canvas.innerHTML=`<section class="hero"><h2>Loading graph relationships</h2><p>Loading ${manifest.counts.relationships.toLocaleString()} relationship records in batches. Overview and facets are already available.</p></section>`;return false;}
-async function load(){manifest=await loadJson("data/manifest.json");if(manifest.viewer_version!==VIEWER_VERSION)throw new Error("viewer/data version mismatch");datasets=await loadChunks(manifest.chunks.datasets);resources=await loadChunks(manifest.chunks.resources);publishers=await loadChunks(manifest.chunks.publishers);facets=await loadJson(manifest.indexes.facets);graph=await loadJson(manifest.indexes.graph);govukContent=await loadJson(manifest.indexes.govuk_content);datasets.forEach(d=>byDataset.set(d.name,d));resources.forEach(r=>byResource.set(r.id,r));publishers.forEach(p=>byPublisher.set(p.name,p));$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, ${manifest.counts.publishers.toLocaleString()} publishers`;applyUrl();render();}
+function needsFullIndexFromLocation(){const params=new URLSearchParams(location.search),hash=decodeURIComponent(location.hash||"#overview");if(params.get("q")||params.get("mode"))return true;for(const key of FILTER_KEYS){if(params.get(key))return true;}return hash.startsWith("#dataset/")||hash.startsWith("#resource/")||hash.startsWith("#publisher/");}
+async function loadFullIndex(reason="full index"){if(fullIndexLoaded)return;if(fullIndexLoading)return fullIndexLoading;$("subtitle").textContent=`Loading full index for ${reason}`;fullIndexLoading=(async()=>{datasets=await loadChunks(manifest.chunks.datasets);resources=await loadChunks(manifest.chunks.resources);publishers=await loadChunks(manifest.chunks.publishers);facets=await loadJson(manifest.indexes.facets);graph=await loadJson(manifest.indexes.graph);govukContent=await loadJson(manifest.indexes.govuk_content);byDataset=new Map();byResource=new Map();byPublisher=new Map();datasets.forEach(d=>byDataset.set(d.name,d));resources.forEach(r=>byResource.set(r.id,r));publishers.forEach(p=>byPublisher.set(p.name,p));fullIndexLoaded=true;$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, ${manifest.counts.publishers.toLocaleString()} publishers`;})();try{await fullIndexLoading;}finally{fullIndexLoading=null;}}
+function requestRelationships(){if(!fullIndexLoaded){loadFullIndex("Graph mode").then(()=>render()).catch(err=>{canvas.innerHTML=`<section class="hero"><h2>Could not load full index</h2><p>${esc(err.message)}</p></section>`;});canvas.innerHTML=`<section class="hero"><h2>Loading full index</h2><p>Graph mode needs the dataset, resource, and publisher indexes before it can lazy-load relationships.</p></section>`;return false;}if(relationshipsLoaded)return true;if(!relationshipsLoading){relationshipsLoading=loadChunks(manifest.chunks.relationships).then(rows=>{relationships=rows;relationshipsLoaded=true;relationshipsLoading=null;render();}).catch(err=>{relationshipsLoading=null;canvas.innerHTML=`<section class="hero"><h2>Could not load graph relationships</h2><p>${esc(err.message)}</p></section>`;});}$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, loading graph relationships`;canvas.innerHTML=`<section class="hero"><h2>Loading graph relationships</h2><p>Loading ${manifest.counts.relationships.toLocaleString()} relationship records in batches. Overview and facets are already available.</p></section>`;return false;}
+async function load(){manifest=await loadJson("data/manifest.json");if(manifest.viewer_version!==VIEWER_VERSION)throw new Error("viewer/data version mismatch");overviewData=await loadJson(manifest.indexes.overview||"data/overview.json");$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, overview-first`;if(needsFullIndexFromLocation())await loadFullIndex("deep route");applyUrl();render();}
 function routeFor(item){if(!item)return"#overview";if(item.kind==="resource")return`#resource/${encodeURIComponent(item.id)}`;if(item.kind==="publisher")return`#publisher/${encodeURIComponent(item.name)}`;return`#dataset/${encodeURIComponent(item.name)}`;}
 function applyUrl(){const params=new URLSearchParams(location.search);query=params.get("q")||"";$("query").value=query;filters={};FILTER_KEYS.forEach(k=>{if(params.get(k))filters[k]=new Set(params.getAll(k));});mode=["overview","force","timeline","matrix","resources"].includes(params.get("mode"))?params.get("mode"):"overview";if(params.getAll("pin").length){pins=params.getAll("pin");localStorage.setItem("govCkanPins",JSON.stringify(pins));}spread=params.get("spread")==="1";selected=null;const hash=decodeURIComponent(location.hash||"#overview");if(hash.startsWith("#resource/"))selected={kind:"resource",...byResource.get(hash.slice(10))};else if(hash.startsWith("#publisher/"))selected={kind:"publisher",...byPublisher.get(hash.slice(11))};else if(hash.startsWith("#dataset/"))selected={kind:"dataset",...byDataset.get(hash.slice(9))};}
 function pushUrl(replace=false){const params=new URLSearchParams();if(query)params.set("q",query);if(mode&&mode!=="overview")params.set("mode",mode);Object.entries(filters).forEach(([k,set])=>[...set].sort().forEach(v=>params.append(k,v)));const next=`${params.toString()?`?${params}`:""}${routeFor(selected)}`;if(next===`${location.search}${location.hash}`)return;(replace?history.replaceState:history.pushState).call(history,null,"",next);}
@@ -784,15 +954,16 @@ function togglePanel(side,forceOpen=null){if(side==="left")leftFolded=forceOpen=
 function toggleBothPanels(){const open=leftFolded&&rightFolded;leftFolded=!open;rightFolded=!open;updatePanelChrome();}
 function facetButtons(key,items,counts,activeOnly=false){return items.filter(item=>!activeOnly||filters[key]?.has(item.value)).slice(0,24).map(item=>{const active=filters[key]?.has(item.value),preview=inspectedFacet&&inspectedFacet.key===key&&String(inspectedFacet.value)===String(item.value),count=counts.get(item.value)||0,classes=[active?"active":"",preview?"preview":""].filter(Boolean).join(" ");return`<button class="${classes}" data-facet="${attr(key)}" data-value="${attr(item.value)}" title="Click to switch this facet; Ctrl or Command click to add/remove">${esc(item.value)} <small>${count}</small></button>`;}).join("");}
 function renderFacets(visible){$("facets").innerHTML=Object.entries(facets).map(([key,items])=>{const base=filteredDatasets(key),counts=new Map();base.forEach(d=>valuesFor(d,key).forEach(v=>counts.set(v,(counts.get(v)||0)+1)));const isOpen=openFacet===key,selectedCount=(filters[key]?.size)||0,label=key.replaceAll("_"," "),activeHtml=selectedCount?`<div class="facetActive">${facetButtons(key,items,counts,true)}</div>`:"";return`<section class="facet ${isOpen?"open":"collapsed"}"><h2><button class="facetHeader" data-facet-toggle="${attr(key)}" aria-expanded="${isOpen?"true":"false"}"><span><span class="facetToggleIcon">${isOpen?"-":"+"}</span>${esc(label)}</span><span class="facetCount">${selectedCount}</span></button></h2>${activeHtml}<div class="facetBody">${facetButtons(key,items,counts,false)}</div></section>`;}).join("");document.querySelectorAll("[data-facet-toggle]").forEach(b=>b.onclick=()=>toggleFacet(b.dataset.facetToggle));document.querySelectorAll("[data-facet]").forEach(b=>b.onclick=e=>applyFacet(b.dataset.facet,b.dataset.value,e.ctrlKey||e.metaKey));}
+function renderFacetPreviews(){const previews=overviewData.facet_previews||{};$("facets").innerHTML=Object.entries(previews).map(([key,items])=>`<section class="facet collapsed"><h2><button class="facetHeader" data-load-index="${attr(key)}" aria-expanded="false"><span><span class="facetToggleIcon">+</span>${esc(key.replaceAll("_"," "))}</span><span class="facetCount">load</span></button></h2><div class="facetActive">${(items||[]).slice(0,6).map(item=>`<button data-load-index="${attr(key)}">${esc(item.value)} <small>${item.count}</small></button>`).join("")}</div></section>`).join("")||`<section class="facet"><button class="action" data-load-index="">Load full index</button></section>`;document.querySelectorAll("[data-load-index]").forEach(b=>b.onclick=async()=>{await loadFullIndex("facet filters");openFacet=b.dataset.loadIndex||"";render();});}
 function setSpotlight(id){spotlight=id;live.textContent=id?`Highlighted ${id}`:"Highlight cleared";document.querySelectorAll("[data-spot-id]").forEach(el=>el.classList.toggle("spotlight",el.dataset.spotId===id));}
 function itemForId(id){if(id==="overview")return null;if(id.startsWith("dataset/")){const d=byDataset.get(id.slice(8));return d&&{kind:"dataset",...d};}if(id.startsWith("resource/")){const r=byResource.get(id.slice(9));return r&&{kind:"resource",...r};}if(id.startsWith("publisher/")){const p=byPublisher.get(id.slice(10));return p&&{kind:"publisher",...p};}return null;}
-function inspectId(id){const item=itemForId(id);if(!item)return;inspected=item;inspectedFacet=null;rightFolded=false;renderDetail();updatePanelChrome();setSpotlight(id);}
+async function inspectId(id){if(!fullIndexLoaded&&id!=="overview")await loadFullIndex("record detail");const item=itemForId(id);if(!item)return;inspected=item;inspectedFacet=null;rightFolded=false;renderDetail();updatePanelChrome();setSpotlight(id);}
 function inspectConcept(facet,value){inspectedFacet={key:facet,value};openFacet=facet;leftFolded=false;renderFacets(filteredDatasets());updatePanelChrome();live.textContent=`Showing ${facet.replaceAll("_"," ")} facet for ${value}`;}
-function bindRows(root=document){root.querySelectorAll("[data-open]").forEach(el=>{el.onclick=()=>{if(graphSuppressClick){graphSuppressClick=false;return;}inspectId(el.dataset.open);};el.ondblclick=e=>{e.preventDefault();openId(el.dataset.open,true);};el.onmouseenter=()=>setSpotlight(el.dataset.open);el.onfocus=()=>setSpotlight(el.dataset.open);el.ontouchstart=()=>setSpotlight(el.dataset.open);el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();if(e.ctrlKey||e.metaKey)openId(el.dataset.open,true);else inspectId(el.dataset.open);}};});}
-function openId(id,switchGraph=false){if(id==="overview"){selected=null;inspected=null;mode="overview";}else selected=itemForId(id);if(selected)inspected=null;if(switchGraph&&selected)mode="force";labelPhase=0;labelLayerCount=1;graphKey="";rightFolded=false;pushUrl();render();}
+function bindRows(root=document){root.querySelectorAll("[data-open]").forEach(el=>{el.onclick=async()=>{if(graphSuppressClick){graphSuppressClick=false;return;}await inspectId(el.dataset.open);};el.ondblclick=async e=>{e.preventDefault();await openId(el.dataset.open,true);};el.onmouseenter=()=>setSpotlight(el.dataset.open);el.onfocus=()=>setSpotlight(el.dataset.open);el.ontouchstart=()=>setSpotlight(el.dataset.open);el.onkeydown=async e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();if(e.ctrlKey||e.metaKey)await openId(el.dataset.open,true);else await inspectId(el.dataset.open);}};});}
+async function openId(id,switchGraph=false){if(!fullIndexLoaded&&id!=="overview")await loadFullIndex("record route");if(id==="overview"){selected=null;inspected=null;mode="overview";}else selected=itemForId(id);if(selected)inspected=null;if(switchGraph&&selected)mode="force";labelPhase=0;labelLayerCount=1;graphKey="";rightFolded=false;pushUrl();render();}
 function topList(title,items){return`<section class="card"><h3>${esc(title)}</h3><div class="list">${items.map(item=>`<button class="row" data-open="${attr(item.open)}" data-spot-id="${attr(item.open)}"><strong>${esc(item.label)}</strong><div class="meta">${esc(item.meta||"")}</div></button>`).join("")}</div></section>`;}
 function summaryFor(visible){const resourcesShown=new Set(),publishersShown=new Set(),govukShown=new Set();visible.forEach(d=>{(d.resource_ids||[]).forEach(id=>resourcesShown.add(id));if(d.publisher)publishersShown.add(d.publisher);(d.govuk_content_paths||[]).forEach(path=>{if(govukContent[path]?.status===200)govukShown.add(path);});});return{resources:resourcesShown.size,publishers:publishersShown.size,govuk:govukShown.size};}
-function renderOverview(visible){const summary=summaryFor(visible);const topPub=[...new Map(visible.map(d=>[d.publisher,d])).values()].slice(0,8).map(d=>({label:d.publisher_title,meta:d.publisher,open:`publisher/${d.publisher}`}));const topDatasets=visible.slice(0,10).map(d=>({label:d.title,meta:`${d.publisher_title} - ${d.resource_count} resources`,open:`dataset/${d.name}`}));const formatCounts=new Map();visible.forEach(d=>(d.formats||[]).forEach(f=>formatCounts.set(f,(formatCounts.get(f)||0)+1)));canvas.innerHTML=`<div class="overview"><section class="hero"><h2>Metadata-first map of UK public data</h2><p>This static OKF bundle indexes CKAN datasets, resources, publishers, formats, licences, tags, hosts, and exact GOV.UK content links without downloading remote resource bodies.</p></section><div class="metrics"><div class="metric"><strong>${visible.length.toLocaleString()}</strong>shown datasets</div><div class="metric"><strong>${summary.resources.toLocaleString()}</strong>shown resources</div><div class="metric"><strong>${summary.publishers.toLocaleString()}</strong>shown publishers</div><div class="metric"><strong>${summary.govuk.toLocaleString()}</strong>shown GOV.UK enrichments</div></div><div class="grid">${topList("Top visible publishers",topPub)}${topList("Recently modified datasets",topDatasets)}${topList("Dominant formats",[...formatCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,10).map(([k,v])=>({label:k,meta:`${v} visible datasets`,open:"overview"})))}</div><p class="notice">Use filters and search to reduce the corpus before entering graph views. The viewer intentionally avoids opening on a full hairball.</p></div>`;bindRows(canvas);}
+function renderOverview(visible){if(!fullIndexLoaded){const counts=overviewData.counts||manifest.counts,topPub=(overviewData.top_publishers||[]).slice(0,8).map(item=>({label:item.label,meta:`${item.dataset_count.toLocaleString()} datasets, ${item.resource_count.toLocaleString()} resources`,open:item.id})),topDatasets=(overviewData.recent_datasets||[]).slice(0,10).map(d=>({label:d.title,meta:`${d.publisher_title} - ${d.resource_count} resources`,open:d.open})),formatItems=(overviewData.format_counts||[]).slice(0,10).map(item=>({label:item.value,meta:`${item.count.toLocaleString()} resources`,open:"overview"}));canvas.innerHTML=`<div class="overview"><section class="hero"><h2>Metadata-first map of UK public data</h2><p>This static OKF bundle indexes CKAN datasets, resources, publishers, formats, licences, tags, hosts, and exact GOV.UK content links without downloading remote resource bodies.</p></section><div class="metrics"><div class="metric"><strong>${counts.datasets.toLocaleString()}</strong>datasets indexed</div><div class="metric"><strong>${counts.resources.toLocaleString()}</strong>resources indexed</div><div class="metric"><strong>${counts.publishers.toLocaleString()}</strong>publishers indexed</div><div class="metric"><strong>${counts.relationships.toLocaleString()}</strong>relationships deferred</div></div><div class="grid">${topList("Top publishers",topPub)}${topList("Recently modified datasets",topDatasets)}${topList("Dominant formats",formatItems)}</div><p class="notice">This overview is served from a small startup payload. Search, filters, record routes, and non-overview views load the full dataset/resource index on demand; Graph mode separately loads relationship chunks.</p></div>`;bindRows(canvas);return;}const summary=summaryFor(visible);const topPub=[...new Map(visible.map(d=>[d.publisher,d])).values()].slice(0,8).map(d=>({label:d.publisher_title,meta:d.publisher,open:`publisher/${d.publisher}`}));const topDatasets=visible.slice(0,10).map(d=>({label:d.title,meta:`${d.publisher_title} - ${d.resource_count} resources`,open:`dataset/${d.name}`}));const formatCounts=new Map();visible.forEach(d=>(d.formats||[]).forEach(f=>formatCounts.set(f,(formatCounts.get(f)||0)+1)));canvas.innerHTML=`<div class="overview"><section class="hero"><h2>Metadata-first map of UK public data</h2><p>This static OKF bundle indexes CKAN datasets, resources, publishers, formats, licences, tags, hosts, and exact GOV.UK content links without downloading remote resource bodies.</p></section><div class="metrics"><div class="metric"><strong>${visible.length.toLocaleString()}</strong>shown datasets</div><div class="metric"><strong>${summary.resources.toLocaleString()}</strong>shown resources</div><div class="metric"><strong>${summary.publishers.toLocaleString()}</strong>shown publishers</div><div class="metric"><strong>${summary.govuk.toLocaleString()}</strong>shown GOV.UK enrichments</div></div><div class="grid">${topList("Top visible publishers",topPub)}${topList("Recently modified datasets",topDatasets)}${topList("Dominant formats",[...formatCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,10).map(([k,v])=>({label:k,meta:`${v} visible datasets`,open:"overview"})))}</div><p class="notice">Use filters and search to reduce the corpus before entering graph views. The viewer intentionally avoids opening on a full hairball.</p></div>`;bindRows(canvas);}
 function renderListView(visible,title){canvas.innerHTML=`<div class="overview"><h2>${esc(title)}</h2><div class="list">${visible.slice(0,180).map(d=>`<button class="row" data-open="dataset/${attr(d.name)}" data-spot-id="dataset/${attr(d.name)}"><h3>${esc(d.title)}</h3><div class="meta">${esc(d.publisher_title)} - ${formatList(d.formats)} - ${d.resource_count} resources</div><p>${esc(cleanText(d.notes))}</p></button>`).join("")}</div></div>`;bindRows(canvas);}
 function renderMatrix(visible){const pubs=[...new Set(visible.map(d=>d.publisher_title))].slice(0,18);const fmts=[...new Set(visible.flatMap(d=>d.formats||[]))].slice(0,12);const counts=new Map();visible.forEach(d=>d.formats.forEach(f=>counts.set(`${d.publisher_title}|${f}`,(counts.get(`${d.publisher_title}|${f}`)||0)+1)));canvas.innerHTML=`<div class="overview"><h2>Publisher x Format Matrix</h2><div class="card" style="overflow:auto"><table><thead><tr><th>Publisher</th>${fmts.map(f=>`<th>${esc(f)}</th>`).join("")}</tr></thead><tbody>${pubs.map(p=>`<tr><th>${esc(p)}</th>${fmts.map(f=>`<td>${counts.get(`${p}|${f}`)||""}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>`;}
 function nodeForId(id){if(id.startsWith("dataset/")){const d=byDataset.get(id.slice(8));return d&&{id,label:d.title,kind:"dataset",open:id};}if(id.startsWith("resource/")){const r=byResource.get(id.slice(9));return r&&{id,label:r.name||r.id,kind:"resource",open:id};}if(id.startsWith("publisher/")){const p=byPublisher.get(id.slice(10));return{id,label:(p&&p.title)||id.slice(10),kind:"publisher",open:id};}const [kind,...rest]=id.split("/");const value=decodeURIComponent(rest.join("/")||kind);return{id,label:value,value,kind,open:null};}
@@ -825,12 +996,12 @@ function resetGraphView(){resetGraphViewState(graphBox.baseW,graphBox.baseH);upd
 function beginGraphPan(e){if(e.button!==undefined&&e.button!==0)return;graphDrag={x:e.clientX,y:e.clientY,box:{...graphBox},moved:false,captured:false};e.currentTarget.classList.add("dragging");}
 function moveGraphPan(e){if(!graphDrag)return;const svg=e.currentTarget,dx=e.clientX-graphDrag.x,dy=e.clientY-graphDrag.y;if(Math.hypot(dx,dy)>3){graphDrag.moved=true;graphSuppressClick=true;if(!graphDrag.captured&&svg.setPointerCapture){svg.setPointerCapture(e.pointerId);graphDrag.captured=true;}}if(!graphDrag.moved)return;e.preventDefault();graphBox.x=graphDrag.box.x-dx*(graphBox.w/(svg.clientWidth||graphBox.baseW));graphBox.y=graphDrag.box.y-dy*(graphBox.h/(svg.clientHeight||graphBox.baseH));updateGraphViewBox();}
 function endGraphPan(e){if(!graphDrag)return;const moved=graphDrag.moved;e.currentTarget.classList.remove("dragging");graphDrag=null;if(moved)setTimeout(()=>{graphSuppressClick=false;},80);}
-function graphNodeAction(e){const target=e.target.closest("[data-graph-facet],[data-open]");if(!target)return;if(graphSuppressClick){graphSuppressClick=false;return;}if(target.dataset.graphFacet){inspectConcept(target.dataset.graphFacet,target.dataset.value);return;}if(target.dataset.open)inspectId(target.dataset.open);}
-function graphNodeDblAction(e){const target=e.target.closest("[data-graph-facet],[data-open]");if(target){e.preventDefault();if(target.dataset.graphFacet)applyFacet(target.dataset.graphFacet,target.dataset.value,e.ctrlKey||e.metaKey);else if(target.dataset.open)openId(target.dataset.open,true);return;}if(e.target?.classList?.contains("graph"))toggleBothPanels();}
+async function graphNodeAction(e){const target=e.target.closest("[data-graph-facet],[data-open]");if(!target)return;if(graphSuppressClick){graphSuppressClick=false;return;}if(target.dataset.graphFacet){inspectConcept(target.dataset.graphFacet,target.dataset.value);return;}if(target.dataset.open)await inspectId(target.dataset.open);}
+async function graphNodeDblAction(e){const target=e.target.closest("[data-graph-facet],[data-open]");if(target){e.preventDefault();if(target.dataset.graphFacet)applyFacet(target.dataset.graphFacet,target.dataset.value,e.ctrlKey||e.metaKey);else if(target.dataset.open)await openId(target.dataset.open,true);return;}if(e.target?.classList?.contains("graph"))toggleBothPanels();}
 function bindGraphControls(){const svg=document.querySelector("svg.graph");if(svg){svg.addEventListener("pointerdown",beginGraphPan);svg.addEventListener("pointermove",moveGraphPan);svg.addEventListener("pointerup",endGraphPan);svg.addEventListener("pointercancel",endGraphPan);svg.addEventListener("dragstart",e=>e.preventDefault());svg.addEventListener("click",graphNodeAction);svg.addEventListener("dblclick",graphNodeDblAction);svg.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();if(e.ctrlKey||e.metaKey)graphNodeDblAction(e);else graphNodeAction(e);}});svg.addEventListener("wheel",e=>{e.preventDefault();setGraphZoom(graphZoom*(e.deltaY<0?1.12:.89));},{passive:false});}const zi=$("graphZoomIn"),zo=$("graphZoomOut"),zr=$("graphZoomReset");if(zi)zi.onclick=()=>setGraphZoom(graphZoom*1.2);if(zo)zo.onclick=()=>setGraphZoom(graphZoom/1.2);if(zr)zr.onclick=resetGraphView;document.querySelectorAll("[data-edge-source]").forEach(el=>{el.onclick=()=>setSpotlight(el.dataset.edgeSource);});updateGraphViewBox();}
 function renderForce(visible){if(!requestRelationships())return;const model=graphNodesAndEdges(visible),w=720,h=560,pos=graphPositions(model,w,h),map=new Map(model.nodes.map(n=>[n.id,n])),labels=labelLayers(model.nodes,pos,model.centre),sig=graphSignature(model);if(sig!==graphKey){graphKey=sig;resetGraphViewState(w,h);}const edgeSvg=model.edges.map(e=>{const a=pos[e.source],b=pos[e.target],active=model.centre&&(e.source===model.centre||e.target===model.centre);return a&&b?`<line class="edge ${active?"active":""}" data-spot-id="${attr(e.source)}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"><title>${esc(relationshipText(e,map))}</title></line>`:"";}).join("");const nodeSvg=model.nodes.map(n=>renderNode(n,pos[n.id]||{x:w/2,y:h/2},n.id===model.centre,labels)).join("");canvas.innerHTML=`<div class="graphShell"><div class="graphControls"><div class="graphButtons" aria-label="Graph controls"><button class="action" id="graphZoomOut" title="Zoom out" aria-label="Zoom out">-</button><button class="action" id="graphZoomReset" title="Reset zoom" aria-label="Reset zoom"><span id="graphZoomLevel">${Math.round(graphZoom*100)}%</span></button><button class="action" id="graphZoomIn" title="Zoom in" aria-label="Zoom in">+</button></div>${graphLegend()}</div><svg class="graph" viewBox="${graphViewBox()}" role="img" aria-label="${model.centre?"Selected item relationship graph":"Reduced dataset publisher graph"}">${edgeSvg}${edgeKindLabels(model,pos)}${nodeSvg}</svg>${graphRelationshipPanel(model,map)}<p class="graphCaption">${model.centre?`Showing ${model.nodes.length} graph nodes directly related to ${esc(shortLabel((map.get(model.centre)||{}).label||model.centre,70))}.`:`Showing ${visible.slice(0,60).length} datasets plus their publishers. Select a dataset, resource, or publisher for a relationship graph.`} Drag the graph to pan, use +/- to zoom, and click concept nodes such as formats, tags, hosts, or licences to filter. Labels without conflicts remain visible while only conflicting labels rotate.</p></div>`;bindRows(canvas);bindGraphControls();}
 function detailItem(){return inspected||selected;}
-function renderDetail(){const item=detailItem();if(!item){detail.innerHTML=`<h2>Bundle overview</h2><p>${esc(manifest.title)}</p><dl class="kv"><dt>Generated</dt><dd>${esc(manifest.generated_at)}</dd><dt>Mode</dt><dd>${esc(manifest.source.mode)}</dd><dt>CKAN count</dt><dd>${manifest.source.ckan_reported_count.toLocaleString()}</dd></dl>`;return;}if(item.kind==="resource"){detail.innerHTML=resourceDetail(item);return;}if(item.kind==="publisher"){detail.innerHTML=publisherDetail(item);return;}detail.innerHTML=datasetDetail(item);bindRows(detail);}
+function renderDetail(){const item=detailItem();if(!item){const perf=manifest.performance||{};detail.innerHTML=`<h2>Bundle overview</h2><p>${esc(manifest.title)}</p><dl class="kv"><dt>Generated</dt><dd>${esc(manifest.generated_at)}</dd><dt>Mode</dt><dd>${esc(manifest.source.mode)}</dd><dt>CKAN count</dt><dd>${manifest.source.ckan_reported_count.toLocaleString()}</dd><dt>Startup</dt><dd>${fullIndexLoaded?"Full index loaded":"Overview payload only"}</dd><dt>Model</dt><dd>${esc(perf.model||"large-corpus static viewer")}</dd></dl>${fullIndexLoaded?"":`<p><button class="action primary" id="loadFullIndexButton">Load full index</button></p>`}`;const button=$("loadFullIndexButton");if(button)button.onclick=async()=>{await loadFullIndex("manual request");render();};return;}if(item.kind==="resource"){detail.innerHTML=resourceDetail(item);return;}if(item.kind==="publisher"){detail.innerHTML=publisherDetail(item);return;}detail.innerHTML=datasetDetail(item);bindRows(detail);}
 function datasetDetail(d){const res=d.resource_ids.map(id=>byResource.get(id)).filter(Boolean);return`<h2>${esc(d.title)}</h2><p>${esc(cleanText(d.notes))}</p><div class="chips">${(d.tags||[]).slice(0,10).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div><p><button class="action primary" onclick='pinCurrent()'>Pin</button> <button class="action" onclick='copyRoute()'>Copy route</button></p><dl class="kv"><dt>Publisher</dt><dd><button class="pill" data-open="publisher/${attr(d.publisher)}">${esc(d.publisher_title)}</button></dd><dt>Licence</dt><dd>${esc(d.license_title)}</dd><dt>Modified</dt><dd>${esc(d.metadata_modified)}</dd><dt>Landing URL</dt><dd>${d.url?`<a href="${attr(d.url)}">${esc(d.url)}</a>`:""}</dd><dt>API</dt><dd><a href="${attr(d.source_api_url)}">${esc(d.source_api_url)}</a></dd></dl><h3>Resources</h3><div class="resourceList">${res.map(r=>`<button class="row" data-open="resource/${attr(r.id)}" data-spot-id="resource/${attr(r.id)}"><strong>${esc(r.name)}</strong><div class="meta">${esc(r.format)} - ${esc(r.host)}</div></button>`).join("")}</div>`;}
 function resourceDetail(r){return`<h2>${esc(r.name)}</h2><p>${esc(cleanText(r.description))}</p><p><button class="action primary" onclick='pinCurrent()'>Pin</button> <button class="action" onclick='copyRoute()'>Copy route</button></p><dl class="kv"><dt>Dataset</dt><dd><button class="pill" data-open="dataset/${attr(r.dataset)}">${esc((byDataset.get(r.dataset)||{}).title||r.dataset)}</button></dd><dt>Format</dt><dd>${esc(r.format)}</dd><dt>Type</dt><dd>${esc(r.resource_type)}</dd><dt>Host</dt><dd>${esc(r.host)}</dd><dt>URL</dt><dd><a href="${attr(r.url)}">${esc(r.url)}</a></dd><dt>GOV.UK path</dt><dd>${r.govuk_content_path?esc(r.govuk_content_path):"None"}</dd></dl>`;}
 function publisherDetail(p){const ds=datasets.filter(d=>d.publisher===p.name).slice(0,40);return`<h2>${esc(p.title)}</h2><p>${esc(cleanText(p.description))}</p><p><button class="action primary" onclick='pinCurrent()'>Pin</button> <button class="action" onclick='copyRoute()'>Copy route</button></p><dl class="kv"><dt>Name</dt><dd>${esc(p.name)}</dd><dt>State</dt><dd>${esc(p.state)}</dd><dt>Datasets</dt><dd>${p.dataset_count}</dd><dt>Resources</dt><dd>${p.resource_count}</dd></dl><h3>Datasets</h3><div class="resourceList">${ds.map(d=>`<button class="row" data-open="dataset/${attr(d.name)}" data-spot-id="dataset/${attr(d.name)}">${esc(d.title)}<div class="meta">${d.resource_count} resources</div></button>`).join("")}</div>`;}
@@ -843,9 +1014,10 @@ function selectedLabel(){if(!selected)return"";return selected.kind==="resource"
 function filterLabel(){const parts=[];if(query)parts.push(`Search: ${query}`);Object.entries(filters).forEach(([k,set])=>[...set].forEach(v=>parts.push(`${k.replaceAll("_"," ")}: ${v}`)));return parts;}
 function breadcrumbText(){const parts=["GOV.UK CKAN",modeLabel(),...filterLabel().slice(0,3)];if(selected)parts.push(shortLabel(selectedLabel(),54));return parts.join(" / ");}
 function updateChrome(visible){$("count").textContent=`${visible.length.toLocaleString()} of ${datasets.length.toLocaleString()} datasets`;$("crumbs").textContent=breadcrumbText();document.title=`${selected?shortLabel(selectedLabel(),58):modeLabel()} - GOV.UK CKAN OKF Viewer`;}
-function render(){let visible=filteredDatasets();if(selected&&!selectionMatchesVisible(visible)){selected=null;graphKey="";pushUrl(true);}if(inspected&&!itemMatchesVisible(inspected,visible))inspected=null;updateChrome(visible);renderFacets(visible);document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));if(mode==="overview")renderOverview(visible);else if(mode==="matrix")renderMatrix(visible);else if(mode==="force")renderForce(visible);else renderListView(visible,mode==="timeline"?"Timeline reduction":"Resource stack");renderDetail();renderPins();updatePanelChrome();}
-document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;labelPhase=0;labelLayerCount=1;graphKey="";pushUrl();render();});
-$("query").oninput=e=>{query=e.target.value;graphKey="";const visible=filteredDatasets();if(!selectionMatchesVisible(visible))selected=null;if(!itemMatchesVisible(inspected,visible))inspected=null;pushUrl(true);render();};
+function updateChromeOverview(){$("count").textContent=`${manifest.counts.datasets.toLocaleString()} indexed datasets`;$("crumbs").textContent="GOV.UK CKAN / Overview";document.title="Overview - GOV.UK CKAN OKF Viewer";}
+function render(){if(!fullIndexLoaded){mode=mode||"overview";updateChromeOverview();renderFacetPreviews();document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));renderOverview([]);renderDetail();renderPins();updatePanelChrome();return;}let visible=filteredDatasets();if(selected&&!selectionMatchesVisible(visible)){selected=null;graphKey="";pushUrl(true);}if(inspected&&!itemMatchesVisible(inspected,visible))inspected=null;updateChrome(visible);renderFacets(visible);document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));if(mode==="overview")renderOverview(visible);else if(mode==="matrix")renderMatrix(visible);else if(mode==="force")renderForce(visible);else renderListView(visible,mode==="timeline"?"Timeline reduction":"Resource stack");renderDetail();renderPins();updatePanelChrome();}
+document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.onclick=async()=>{mode=b.dataset.mode;if(mode!=="overview")await loadFullIndex(`${mode} view`);labelPhase=0;labelLayerCount=1;graphKey="";pushUrl();render();});
+$("query").oninput=async e=>{query=e.target.value;if(!fullIndexLoaded)await loadFullIndex("search");graphKey="";const visible=filteredDatasets();if(!selectionMatchesVisible(visible))selected=null;if(!itemMatchesVisible(inspected,visible))inspected=null;pushUrl(true);render();};
 $("clearFilters").onclick=()=>{filters={};query="";openFacet="";inspectedFacet=null;graphKey="";$("query").value="";pushUrl();render();};
 $("backBtn").onclick=()=>history.back();
 $("forwardBtn").onclick=()=>history.forward();
@@ -854,7 +1026,7 @@ $("rightPanelToggle").onclick=()=>togglePanel("right");
 $("spreadPins").onclick=()=>{spread=!spread;renderPins();};
 $("exportPins").onclick=()=>{navigator.clipboard?.writeText(JSON.stringify({exported_at:new Date().toISOString(),pins},null,2));};
 document.addEventListener("keydown",e=>{if(e.key==="Escape")setSpotlight(null);});
-window.addEventListener("popstate",()=>{applyUrl();render();});
+window.addEventListener("popstate",async()=>{if(needsFullIndexFromLocation())await loadFullIndex("history route");applyUrl();render();});
 setInterval(()=>{if(mode==="force"&&labelLayerCount>1){labelPhase=(labelPhase+1)%labelLayerCount;renderForce(filteredDatasets());}},2000);
 load().catch(error=>{canvas.innerHTML=`<div class="overview"><section class="hero"><h2>Could not load bundle data</h2><p>${esc(error.message)}</p></section></div>`;});
 </script>

@@ -8,6 +8,25 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 No undated pending changes.
 
+## 2026-07-03
+
+### Added
+
+- 2026-07-03: Added a generated `gov-ckan/index.html` entry point and `gov-ckan/okf-explorer.json` large-corpus descriptor so the full GOV.UK CKAN bundle can be opened as an OKF Explorer surface without pretending it is a monolithic `okf-bundle.json`.
+- 2026-07-03: Added `data/overview.json` for the GOV.UK CKAN bundle and `scripts/check_gov_ckan_performance.py` to enforce the overview-first startup budget.
+
+### Changed
+
+- 2026-07-03: Changed the GOV.UK CKAN viewer load path so `#overview` renders from the lightweight overview payload first; search, filters, deep record routes, and non-overview views hydrate the full dataset/resource/publisher indexes on demand, while relationship chunks remain deferred until Graph mode.
+
+### Documentation
+
+- 2026-07-03: Documented the large-corpus performance model in generated `gov-ckan/wiki/performance.md` and updated README, Context, and Progress with the new entry point and validation guidance.
+
+### Validation
+
+- 2026-07-03: Added performance-budget validation for the GOV.UK CKAN viewer startup path so future bundle changes can detect accidental full-corpus startup regressions.
+
 ## 2026-07-01
 
 ### Added

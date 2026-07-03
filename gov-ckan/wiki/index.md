@@ -18,7 +18,9 @@ This bundle localises public metadata from the National Data Library directory i
 - Publishers indexed: `1185`
 - Relationships indexed: `1178122`
 - Full CKAN dataset count reported by the API at harvest time: `58461`
+- Large-corpus entry point: [Open the OKF Explorer](../index.html)
 - Viewer: [Open the static viewer](../viewer.html#overview)
+- Performance guidance: [Large-corpus performance model](performance.md)
 
 ## Source Boundaries
 

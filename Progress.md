@@ -80,6 +80,8 @@ The current GOV.UK CKAN expansion pass promotes `gov-ckan/` from the 200-record 
 
 The latest publication hardening pass responds to a transient GitHub Pages `503` while loading a full-corpus resource chunk. The affected chunk later served normally, but the viewer now retries `429`/`5xx` JSON chunk failures with cache-busting and loads chunks in smaller batches so a temporary CDN error is less likely to collapse the whole viewer during the demo.
 
+The current GOV.UK CKAN performance pass adds the missing large-corpus OKF Explorer structure and tightens startup behaviour. `gov-ckan/index.html` is now the browser entry point, `gov-ckan/okf-explorer.json` describes the large-corpus bundle for consumers, and `gov-ckan/data/overview.json` lets the default `#overview` route render without loading the full dataset/resource index. The full index now hydrates only when search, filters, deep links, or non-overview views need it; the relationship chunks remain deferred until Graph mode. `scripts/check_gov_ckan_performance.py` validates that this overview-first path does not regress.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -181,6 +183,7 @@ The latest publication hardening pass responds to a transient GitHub Pages `503`
 - Added `scripts/build_site.py`, `.github/workflows/pages.yml`, and `_site/` ignore coverage so the wiki can be published through GitHub Pages with root `viewer.html` as the site index.
 - Added `postmortem-public/wiki/walkthrough.md`, an illustrated reader route using the current reusable screenshot assets and recording the missing full UI screenshot set.
 - Added `scripts/build_gov_ckan_bundle.py`, `scripts/check_gov_ckan_bundle.py`, fixture tests, `gov-ckan/` publication wiring, and the initial generated GOV.UK CKAN OKF bundle/viewer path.
+- Added the GOV.UK CKAN large-corpus OKF Explorer entry structure, including generated `gov-ckan/index.html`, `gov-ckan/okf-explorer.json`, `gov-ckan/data/overview.json`, `gov-ckan/wiki/performance.md`, and the `scripts/check_gov_ckan_performance.py` startup-budget check.
 - Added GitHub Pages workflow validation for the generated GOV.UK CKAN bundle so the public URL fails fast if bundle chunks, counts, routes, or viewer synchronization drift.
 - Updated the generated root `viewer.html` so its left navigation can collapse into a narrow current-page rail and its Markdown reader renders committed Mermaid flowcharts as inline SVG diagrams.
 - Updated the generated root `viewer.html` so postmortem exchanges have Narrative, Timeline, Graph, and Links stage views. Narrative view foregrounds the user prompt and final answer, then lists commentary responses below in timestamp order.
@@ -213,6 +216,7 @@ The latest publication hardening pass responds to a transient GitHub Pages `503`
   - built a full GOV.UK CKAN scratch bundle from the live data.gov.uk CKAN API; the first attempt exposed a transient read timeout and the second exposed a malformed CKAN resource URL, so the builder now retries public metadata reads and tolerates malformed URL fields without dropping resource metadata.
   - generated the committed full `gov-ckan/` bundle with `58,461` datasets and preserved the previous 200-dataset sample under `gov-ckan-sample/`; full-corpus viewer loading now defers relationship chunks until Graph is opened.
   - hardened the GOV.UK CKAN viewer fetch path after a live GitHub Pages resource chunk briefly returned `503`; both the full bundle and preserved sample viewer now retry transient JSON chunk failures and reduce concurrent chunk requests.
+  - added an overview-first GOV.UK CKAN performance budget check so the default route can be validated separately from deliberate full-index and Graph hydration.
 
 - Current OKF/wiki publication validation passed locally:
   - ran `uv run --with openpyxl python challenge-2/tools/build_wiki.py --strict`, which rebuilt `84` Challenge 2 wiki notes from `43` sources with `0` lint issues;
