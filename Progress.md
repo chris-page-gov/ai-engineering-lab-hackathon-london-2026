@@ -86,6 +86,8 @@ The latest GOV.UK CKAN usability pass addresses local test feedback on the large
 
 The latest GOV.UK CKAN PR-review fix validates date fields before building the lightweight overview's `Recently modified datasets` list. Placeholder strings such as `{{modified:toISO}}` and `TBC` no longer outrank real ISO timestamps; the builder falls back through `metadata_modified` and `metadata_created`, the committed full-corpus `overview.json` has been regenerated, and unit coverage now pins the placeholder-date regression.
 
+The latest PR readiness review found and fixed a GOV.UK CKAN viewer hardening issue: URL-supplied pin IDs and CKAN resource identifiers are no longer interpolated into inline JavaScript handlers. Pin removal, resource previous/next navigation, and detail-card actions now bind through data attributes and event listeners, with regression coverage to keep that boundary in place.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.

@@ -14,9 +14,14 @@ No undated pending changes.
 
 - 2026-07-04: Fixed the GOV.UK CKAN overview's `Recently modified datasets` preview so placeholder CKAN timestamp strings such as `{{modified:toISO}}` and `TBC` are ignored for ranking and valid `metadata_modified` dates are used as fallbacks.
 
+### Security
+
+- 2026-07-04: Hardened the GOV.UK CKAN viewer so pinned IDs from URL state and CKAN resource identifiers are no longer interpolated into inline JavaScript event handlers.
+
 ### Validation
 
 - 2026-07-04: Added regression coverage for GOV.UK CKAN overview recent-dataset sorting with placeholder timestamps and regenerated the committed full-corpus `data/overview.json` preview.
+- 2026-07-04: Added regression markers that keep GOV.UK CKAN pin removal, detail-card actions, and resource navigation on data-bound event listeners rather than inline JavaScript handlers.
 
 ## 2026-07-03
 
