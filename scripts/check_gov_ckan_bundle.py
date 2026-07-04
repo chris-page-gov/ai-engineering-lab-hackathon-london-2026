@@ -146,10 +146,12 @@ def check_manifest(bundle: Path, errors: list[str]) -> dict[str, Any] | None:
         errors.append(f"{rel(descriptor_path)}: missing large-corpus descriptor")
     else:
         descriptor = read_json(descriptor_path)
-        if descriptor.get("schema") != "okf-explorer-large-corpus.v0":
+        if descriptor.get("schema") != build_gov_ckan_bundle.LARGE_CORPUS_SCHEMA:
             errors.append(f"{rel(descriptor_path)}: unexpected descriptor schema")
         if descriptor.get("entrypoints", {}).get("overview") != "viewer.html#overview":
             errors.append(f"{rel(descriptor_path)}: overview entrypoint should target viewer.html#overview")
+        if descriptor.get("entrypoints", {}).get("search_manifest") != "data/search/manifest.json":
+            errors.append(f"{rel(descriptor_path)}: search_manifest should target data/search/manifest.json")
     viewer_path = bundle / "viewer.html"
     if not viewer_path.exists():
         errors.append(f"{rel(viewer_path)}: missing static viewer")
@@ -209,6 +211,90 @@ def check_records(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> 
             errors.append(f"relationship leaked local path: {relationship}")
 
 
+def check_search_index(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> None:
+    search_path_name = manifest.get("indexes", {}).get("search")
+    if search_path_name != "data/search/manifest.json":
+        errors.append("manifest indexes.search must point to data/search/manifest.json")
+        return
+    search_path = bundle / search_path_name
+    if not search_path.exists():
+        errors.append(f"{rel(search_path)}: missing search manifest")
+        return
+    search = read_json(search_path)
+    if search.get("schema") != build_gov_ckan_bundle.SEARCH_SCHEMA:
+        errors.append(f"{rel(search_path)}: unexpected search schema")
+    if search.get("counts", {}).get("documents") != manifest.get("counts", {}).get("datasets"):
+        errors.append("search counts.documents must match manifest counts.datasets")
+    entrypoints = search.get("entrypoints", {})
+    for key in ("postings", "result_docs"):
+        values = entrypoints.get(key)
+        if not isinstance(values, list) or not values:
+            errors.append(f"search entrypoints.{key} must list at least one chunk")
+            continue
+        for name in values:
+            path = bundle / name
+            if not path.exists():
+                errors.append(f"{rel(path)}: missing search {key} chunk")
+    for key in ("lexicon", "prefixes"):
+        values = entrypoints.get(key)
+        if not isinstance(values, dict) or not values:
+            errors.append(f"search entrypoints.{key} must map shards to chunks")
+            continue
+        for name in values.values():
+            path = bundle / name
+            if not path.exists():
+                errors.append(f"{rel(path)}: missing search {key} chunk")
+    for key in ("facets", "doc_map"):
+        name = entrypoints.get(key)
+        path = bundle / str(name or "")
+        if not name or not path.exists():
+            errors.append(f"search entrypoints.{key} is missing or points to a missing file")
+
+    doc_map_path = bundle / str(entrypoints.get("doc_map") or "")
+    if doc_map_path.exists():
+        doc_map = read_json(doc_map_path)
+        if not isinstance(doc_map, dict):
+            errors.append(f"{rel(doc_map_path)}: doc map must be an object")
+        elif len(doc_map) != manifest.get("counts", {}).get("datasets"):
+            errors.append(f"{rel(doc_map_path)}: doc map count must match dataset count")
+
+    result_docs = entrypoints.get("result_docs") or []
+    if result_docs:
+        first_docs_path = bundle / result_docs[0]
+        if first_docs_path.exists():
+            docs = read_json(first_docs_path)
+            if not isinstance(docs, list):
+                errors.append(f"{rel(first_docs_path)}: result docs chunk must be a list")
+            for doc in docs[:5]:
+                if not isinstance(doc, dict) or not {"ordinal", "name", "title", "open"} <= set(doc):
+                    errors.append(f"{rel(first_docs_path)}: result doc is missing required keys")
+
+    lexicon_chunks = list((entrypoints.get("lexicon") or {}).values())
+    postings_by_path = set(entrypoints.get("postings") or [])
+    if lexicon_chunks:
+        lexicon_path = bundle / lexicon_chunks[0]
+        if lexicon_path.exists():
+            lexicon = read_json(lexicon_path)
+            if not isinstance(lexicon, list):
+                errors.append(f"{rel(lexicon_path)}: lexicon chunk must be a list")
+            for entry in lexicon[:25]:
+                if not isinstance(entry, dict) or not {"token", "df", "postings"} <= set(entry):
+                    errors.append(f"{rel(lexicon_path)}: lexicon entry is missing required keys")
+                    continue
+                if entry.get("postings") not in postings_by_path:
+                    errors.append(f"{rel(lexicon_path)}: lexicon entry points at missing postings chunk")
+
+    postings_chunks = entrypoints.get("postings") or []
+    if postings_chunks:
+        postings_path = bundle / postings_chunks[0]
+        if postings_path.exists():
+            postings = read_json(postings_path)
+            if postings.get("schema") != "gov-ckan-search-postings.v1":
+                errors.append(f"{rel(postings_path)}: unexpected postings schema")
+            if not isinstance(postings.get("tokens"), dict):
+                errors.append(f"{rel(postings_path)}: postings tokens must be an object")
+
+
 def check_wiki(bundle: Path, errors: list[str]) -> None:
     for name in ("index.md", "data-source-report.md", "performance.md", "ui-design.md"):
         path = bundle / "wiki" / name
@@ -234,6 +320,7 @@ def main(argv: list[str] | None = None) -> int:
         if manifest is not None:
             try:
                 check_records(bundle, manifest, errors)
+                check_search_index(bundle, manifest, errors)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
                 errors.append(str(exc))
         check_wiki(bundle, errors)

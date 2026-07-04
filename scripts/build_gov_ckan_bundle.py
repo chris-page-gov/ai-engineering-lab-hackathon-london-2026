@@ -10,10 +10,12 @@ from datetime import UTC, datetime
 from html import escape
 import json
 import re
+import shutil
 import sys
 from time import sleep
 from pathlib import Path
 from typing import Any
+import unicodedata
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote, urlencode, urlparse
 from urllib.request import Request, urlopen
@@ -23,16 +25,64 @@ DEFAULT_OUT = ROOT / "gov-ckan"
 DEFAULT_API_BASE = "https://data.gov.uk/api/action"
 VIEWER_VERSION = "gov-ckan-viewer-v1"
 BUILDER_VERSION = "gov-ckan-builder-v1"
+LARGE_CORPUS_SCHEMA = "okf-explorer-large-corpus.v1"
+SEARCH_SCHEMA = "gov-ckan-static-search.v1"
 DEFAULT_ROWS = 1000
 DEFAULT_CHUNK_SIZE = 1000
+DEFAULT_SEARCH_CHUNK_SIZE = 1000
 DEFAULT_ENRICH_LIMIT = 200
 DEFAULT_FETCH_RETRIES = 4
 DEFAULT_FETCH_TIMEOUT = 60
 MAX_OVERVIEW_PAYLOAD_BYTES = 512 * 1024
 MAX_INITIAL_REQUESTS = 8
+SEARCH_RESULT_LIMIT = 200
+SEARCH_TOKEN_MIN_LENGTH = 2
+SEARCH_PREFIX_MIN_LENGTH = 3
+SEARCH_LEXICON_SHARD_LENGTH = 2
 LOCAL_PATH_RE = re.compile(r"(?<![A-Za-z0-9._-])/(?:Users|private|tmp)/|(?<![A-Za-z0-9])[A-Za-z]:\\")
 LOCAL_FILE_URI_RE = re.compile(r"file:/+[^\\s\"'<>]+", re.IGNORECASE)
 WINDOWS_LOCAL_PATH_RE = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:\\[^\"'<>]*")
+TOKEN_RE = re.compile(r"[a-z0-9][a-z0-9._-]*")
+STOP_WORDS = {
+    "a",
+    "an",
+    "and",
+    "are",
+    "as",
+    "at",
+    "be",
+    "by",
+    "for",
+    "from",
+    "in",
+    "into",
+    "is",
+    "it",
+    "of",
+    "on",
+    "or",
+    "the",
+    "to",
+    "with",
+}
+SEARCH_FIELD_WEIGHTS = {
+    "title": 8,
+    "name": 6,
+    "tags": 5,
+    "publisher": 4,
+    "formats": 3,
+    "notes": 1,
+    "resources": 2,
+}
+SEARCH_FIELD_MASKS = {
+    "title": 1,
+    "name": 2,
+    "tags": 4,
+    "publisher": 8,
+    "formats": 16,
+    "notes": 32,
+    "resources": 64,
+}
 
 
 @dataclass(frozen=True)
@@ -41,6 +91,7 @@ class HarvestConfig:
     sample: int | None = None
     rows: int = DEFAULT_ROWS
     chunk_size: int = DEFAULT_CHUNK_SIZE
+    search_chunk_size: int = DEFAULT_SEARCH_CHUNK_SIZE
     enrich_govuk_limit: int = DEFAULT_ENRICH_LIMIT
     generated_at: str = ""
 
@@ -67,6 +118,25 @@ def compact_text(value: Any, limit: int = 900) -> str:
     if len(text) <= limit:
         return text
     return f"{text[: limit - 3].rstrip()}..."
+
+
+def normalise_search_text(value: Any) -> str:
+    text = unicodedata.normalize("NFKD", str(value or ""))
+    ascii_text = text.encode("ascii", "ignore").decode("ascii")
+    return ascii_text.lower()
+
+
+def search_tokens(value: Any) -> list[str]:
+    tokens: list[str] = []
+    seen: set[str] = set()
+    for token in TOKEN_RE.findall(normalise_search_text(value)):
+        cleaned = token.strip("._-")
+        if len(cleaned) < SEARCH_TOKEN_MIN_LENGTH or cleaned in STOP_WORDS:
+            continue
+        if cleaned not in seen:
+            tokens.append(cleaned)
+            seen.add(cleaned)
+    return tokens
 
 
 def clean_value(value: Any) -> Any:
@@ -438,11 +508,233 @@ def write_chunks(data_dir: Path, prefix: str, records: list[dict[str, Any]], chu
     return paths
 
 
+def write_search_chunks(search_dir: Path, prefix: str, records: list[Any], chunk_size: int) -> list[str]:
+    paths: list[str] = []
+    for index, group in enumerate([records[i : i + chunk_size] for i in range(0, len(records), chunk_size)], start=1):
+        name = f"{prefix}-{index:04d}.json"
+        write_json(search_dir / name, group)
+        paths.append(f"data/search/{name}")
+    if not paths:
+        name = f"{prefix}-0001.json"
+        write_json(search_dir / name, [])
+        paths.append(f"data/search/{name}")
+    return paths
+
+
+def delta_encode(values: list[int]) -> list[int]:
+    encoded: list[int] = []
+    previous = 0
+    for index, value in enumerate(sorted(set(values))):
+        encoded.append(value if index == 0 else value - previous)
+        previous = value
+    return encoded
+
+
+def add_search_field(
+    postings: dict[str, dict[int, list[int]]],
+    ordinal: int,
+    field: str,
+    value: Any,
+) -> None:
+    weight = SEARCH_FIELD_WEIGHTS[field]
+    mask = SEARCH_FIELD_MASKS[field]
+    for token in search_tokens(value):
+        record = postings[token].setdefault(ordinal, [0, 0])
+        record[0] += weight
+        record[1] |= mask
+
+
+def result_doc(dataset: dict[str, Any], ordinal: int) -> dict[str, Any]:
+    return {
+        "ordinal": ordinal,
+        "name": dataset["name"],
+        "title": dataset["title"],
+        "publisher": dataset["publisher"],
+        "publisher_title": dataset["publisher_title"],
+        "resource_count": dataset["resource_count"],
+        "formats": dataset.get("formats", [])[:10],
+        "tags": dataset.get("tags", [])[:12],
+        "timestamp": dataset.get("timestamp", ""),
+        "notes": compact_text(dataset.get("notes"), 240),
+        "open": f"dataset/{dataset['name']}",
+    }
+
+
+def build_prefix_index(postings: dict[str, dict[int, list[int]]]) -> dict[str, list[dict[str, Any]]]:
+    prefixes: dict[str, list[tuple[str, int]]] = defaultdict(list)
+    for token, docs in postings.items():
+        if len(token) < SEARCH_PREFIX_MIN_LENGTH:
+            continue
+        for length in range(SEARCH_PREFIX_MIN_LENGTH, min(len(token), 8) + 1):
+            prefixes[token[:length]].append((token, len(docs)))
+    return {
+        prefix: [
+            {"token": token, "df": df}
+            for token, df in sorted(values, key=lambda item: (-item[1], item[0]))[:24]
+        ]
+        for prefix, values in sorted(prefixes.items())
+    }
+
+
+def search_shard(value: str) -> str:
+    token = normalise_search_text(value).strip()
+    shard = token[:SEARCH_LEXICON_SHARD_LENGTH]
+    return shard if shard and re.fullmatch(r"[a-z0-9]+", shard) else "_"
+
+
+def write_search_mapping_chunks(search_dir: Path, prefix: str, records_by_shard: dict[str, Any]) -> dict[str, str]:
+    paths: dict[str, str] = {}
+    for shard, records in sorted(records_by_shard.items()):
+        name = f"{prefix}-{shard}.json"
+        write_json(search_dir / name, records)
+        paths[shard] = f"data/search/{name}"
+    if not paths:
+        name = f"{prefix}-_.json"
+        write_json(search_dir / name, [] if prefix == "lexicon" else {})
+        paths["_"] = f"data/search/{name}"
+    return paths
+
+
+def build_search_facets(datasets: list[dict[str, Any]]) -> dict[str, dict[str, list[int]]]:
+    values: dict[str, dict[str, list[int]]] = {
+        "publisher": defaultdict(list),
+        "publisher_family": defaultdict(list),
+        "format": defaultdict(list),
+        "license": defaultdict(list),
+        "tag": defaultdict(list),
+        "update_year": defaultdict(list),
+        "host": defaultdict(list),
+        "govuk_linked": defaultdict(list),
+    }
+    for ordinal, dataset in enumerate(datasets):
+        values["publisher"][str(dataset["publisher"])].append(ordinal)
+        values["publisher_family"][publisher_family(str(dataset["publisher"]))].append(ordinal)
+        values["license"][str(dataset["license_id"])].append(ordinal)
+        values["govuk_linked"]["yes" if dataset.get("govuk_content_paths") else "no"].append(ordinal)
+        year = str(dataset.get("timestamp", ""))[:4]
+        if year.isdigit():
+            values["update_year"][year].append(ordinal)
+        for item in dataset.get("formats", []):
+            values["format"][str(item)].append(ordinal)
+        for item in dataset.get("tags", []):
+            values["tag"][str(item)].append(ordinal)
+        for item in dataset.get("resource_hosts", []):
+            values["host"][str(item)].append(ordinal)
+    return {
+        key: {value: delta_encode(ordinals) for value, ordinals in sorted(bucket.items())}
+        for key, bucket in values.items()
+    }
+
+
+def build_search_index(
+    out_dir: Path,
+    datasets: list[dict[str, Any]],
+    resources: list[dict[str, Any]],
+    chunk_size: int,
+) -> dict[str, Any]:
+    search_dir = out_dir / "data" / "search"
+    search_dir.mkdir(parents=True, exist_ok=True)
+    postings: dict[str, dict[int, list[int]]] = defaultdict(dict)
+    dataset_ordinals = {dataset["name"]: ordinal for ordinal, dataset in enumerate(datasets)}
+    docs = [result_doc(dataset, ordinal) for ordinal, dataset in enumerate(datasets)]
+
+    for ordinal, dataset in enumerate(datasets):
+        add_search_field(postings, ordinal, "title", dataset.get("title"))
+        add_search_field(postings, ordinal, "name", dataset.get("name"))
+        add_search_field(postings, ordinal, "tags", " ".join(dataset.get("tags", [])))
+        add_search_field(postings, ordinal, "publisher", f"{dataset.get('publisher')} {dataset.get('publisher_title')}")
+        add_search_field(postings, ordinal, "formats", " ".join(dataset.get("formats", [])))
+        add_search_field(postings, ordinal, "notes", dataset.get("notes"))
+
+    for resource in resources:
+        ordinal = dataset_ordinals.get(str(resource.get("dataset")))
+        if ordinal is None:
+            continue
+        add_search_field(
+            postings,
+            ordinal,
+            "resources",
+            " ".join(
+                str(resource.get(key) or "")
+                for key in ("name", "description", "format", "resource_type", "host")
+            ),
+        )
+
+    doc_paths = write_search_chunks(search_dir, "docs", docs, chunk_size)
+    postings_paths: list[str] = []
+    lexicon_by_shard: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    token_items = sorted(postings.items())
+    for index, group in enumerate([token_items[i : i + chunk_size] for i in range(0, len(token_items), chunk_size)], start=1):
+        name = f"postings-{index:04d}.json"
+        path = f"data/search/{name}"
+        chunk_payload = {
+            "schema": "gov-ckan-search-postings.v1",
+            "tokens": {
+                token: [[ordinal, score_mask[0], score_mask[1]] for ordinal, score_mask in sorted(docs.items())]
+                for token, docs in group
+            },
+        }
+        write_json(search_dir / name, chunk_payload)
+        postings_paths.append(path)
+        for token, docs_for_token in group:
+            lexicon_by_shard[search_shard(token)].append({"token": token, "df": len(docs_for_token), "postings": path})
+    lexicon_paths = write_search_mapping_chunks(search_dir, "lexicon", lexicon_by_shard)
+
+    prefix_index = build_prefix_index(postings)
+    prefixes_by_shard: dict[str, dict[str, list[dict[str, Any]]]] = defaultdict(dict)
+    for prefix, values in prefix_index.items():
+        prefixes_by_shard[search_shard(prefix)][prefix] = values
+    prefix_paths = write_search_mapping_chunks(search_dir, "prefix", prefixes_by_shard)
+    facet_index = build_search_facets(datasets)
+    doc_map = {
+        dataset["name"]: {
+            "ordinal": ordinal,
+            "doc_chunk": doc_paths[ordinal // chunk_size],
+        }
+        for ordinal, dataset in enumerate(datasets)
+    }
+    write_json(search_dir / "facets.json", facet_index)
+    write_json(search_dir / "doc-map.json", doc_map)
+    manifest = {
+        "schema": SEARCH_SCHEMA,
+        "token_min_length": SEARCH_TOKEN_MIN_LENGTH,
+        "prefix_min_length": SEARCH_PREFIX_MIN_LENGTH,
+        "lexicon_shard_length": SEARCH_LEXICON_SHARD_LENGTH,
+        "result_limit": SEARCH_RESULT_LIMIT,
+        "result_doc_chunk_size": chunk_size,
+        "weights": SEARCH_FIELD_WEIGHTS,
+        "field_masks": SEARCH_FIELD_MASKS,
+        "counts": {
+            "documents": len(docs),
+            "tokens": len(postings),
+            "lexicon_chunks": len(lexicon_paths),
+            "prefix_chunks": len(prefix_paths),
+            "postings_chunks": len(postings_paths),
+            "result_doc_chunks": len(doc_paths),
+        },
+        "entrypoints": {
+            "lexicon": lexicon_paths,
+            "postings": postings_paths,
+            "prefixes": prefix_paths,
+            "result_docs": doc_paths,
+            "facets": "data/search/facets.json",
+            "doc_map": "data/search/doc-map.json",
+        },
+        "notes": [
+            "Search uses a generated static inverted index.",
+            "Query execution should load postings/result-doc chunks, not the full dataset or resource chunks.",
+        ],
+    }
+    write_json(search_dir / "manifest.json", manifest)
+    return manifest
+
+
 def clean_generated_outputs(out_dir: Path) -> None:
     data_dir = out_dir / "data"
     if data_dir.exists():
         for path in data_dir.glob("*.json"):
             path.unlink()
+        shutil.rmtree(data_dir / "search", ignore_errors=True)
     for path in [
         out_dir / "index.html",
         out_dir / "okf-explorer.json",
@@ -548,7 +840,8 @@ def performance_model(manifest: dict[str, Any]) -> dict[str, Any]:
             "data/overview.json",
         ],
         "deferred_loads": {
-            "dataset_index": "loaded only after search, filters, detail routes, or non-overview views",
+            "search": "loads data/search/manifest.json plus only the lexicon, postings, and result-doc chunks needed by the query",
+            "dataset_index": "loaded only after filters, detail routes, or non-overview views that need full records",
             "resources": "loaded with the full index because resource details and resource-type filters need it",
             "relationships": "loaded only when Graph mode is opened",
         },
@@ -572,7 +865,7 @@ def build_overview(manifest: dict[str, Any], datasets: list[dict[str, Any]], fac
         "facet_previews": facet_previews,
         "notices": [
             "The viewer opens from this small overview payload before loading the full dataset/resource indexes.",
-            "Use search or filters to intentionally hydrate the full index; Graph mode separately lazy-loads relationship chunks.",
+            "Use search to load the static search index; use filters, detail routes, or non-overview views to intentionally hydrate the full index. Graph mode separately lazy-loads relationship chunks.",
         ],
     }
 
@@ -596,7 +889,7 @@ def render_index() -> str:
 
 def build_explorer_descriptor(manifest: dict[str, Any]) -> dict[str, Any]:
     return {
-        "schema": "okf-explorer-large-corpus.v0",
+        "schema": LARGE_CORPUS_SCHEMA,
         "kind": "okf-large-corpus",
         "title": manifest["title"],
         "generated_at": manifest["generated_at"],
@@ -606,6 +899,7 @@ def build_explorer_descriptor(manifest: dict[str, Any]) -> dict[str, Any]:
             "viewer": "viewer.html",
             "data_manifest": "data/manifest.json",
             "overview_index": manifest["indexes"]["overview"],
+            "search_manifest": manifest["indexes"]["search"],
             "notes": "wiki/index.md",
             "performance": "wiki/performance.md",
         },
@@ -709,6 +1003,7 @@ This is the largest OKF-style data source in the repository, so it deliberately 
 - Relationships: `{manifest['counts']['relationships']}`
 - Chunked data manifest: [`../data/manifest.json`](../data/manifest.json)
 - Lightweight overview index: [`../data/overview.json`](../data/overview.json)
+- Static search manifest: [`../data/search/manifest.json`](../data/search/manifest.json)
 - Large-corpus descriptor: [`../okf-explorer.json`](../okf-explorer.json)
 
 ## Startup Budget
@@ -719,7 +1014,7 @@ The default `#overview` route must be overview-first. It should load only:
 - `data/manifest.json`
 - `data/overview.json`
 
-The full dataset/resource/publisher indexes are intentionally deferred until a user searches, filters, opens a detail route, or enters a non-overview view. Relationship chunks are deferred again until Graph mode is opened.
+Search loads the static search manifest plus lexicon, postings, and result-doc chunks. It must not hydrate the full dataset/resource/publisher indexes. Those full indexes are intentionally deferred until a user applies full-record filters, opens a detail route, or enters a non-overview view that needs full records. Relationship chunks are deferred again until Graph mode is opened.
 
 The generated overview payload budget is `{manifest['performance']['budgets']['max_overview_payload_bytes']}` bytes. Keep `data/overview.json` small enough to be cache-friendly and safe for slow public networks.
 
@@ -727,6 +1022,7 @@ The generated overview payload budget is `{manifest['performance']['budgets']['m
 
 - Do not publish the full GOV.UK CKAN corpus as a single `okf-bundle.json`.
 - Keep the root `gov-ckan/index.html` as the browser entry point and `okf-explorer.json` as the machine-readable large-corpus descriptor.
+- Keep `data/search/manifest.json` as the first search entrypoint; search implementations should resolve postings and compact result docs from there.
 - Keep routes hash-addressable: `#overview`, `#dataset/<package-name>`, `#resource/<resource-id>`, and `#publisher/<organization-name>`.
 - Keep heavy views opt-in. Graph mode may load relationship chunks; overview must not.
 - Keep list views reduced. Render bounded slices of the visible corpus rather than thousands of DOM nodes.
@@ -851,6 +1147,7 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
         "publishers": write_chunks(data_dir, "publishers", publisher_records, config.chunk_size),
         "relationships": write_chunks(data_dir, "relationships", relationships, config.chunk_size),
     }
+    search = build_search_index(out_dir, datasets, resources, config.search_chunk_size)
     write_json(data_dir / "facets.json", facets)
     write_json(data_dir / "graph.json", graph)
     write_json(data_dir / "govuk-content.json", govuk_content)
@@ -900,9 +1197,16 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
         "chunks": chunks,
         "indexes": {
             "overview": "data/overview.json",
+            "search": "data/search/manifest.json",
             "facets": "data/facets.json",
             "graph": "data/graph.json",
             "govuk_content": "data/govuk-content.json",
+        },
+        "search": {
+            "schema": search["schema"],
+            "documents": search["counts"]["documents"],
+            "tokens": search["counts"]["tokens"],
+            "result_limit": search["result_limit"],
         },
         "official_sources": official_sources,
         "routes": ["#overview", "#dataset/<package-name>", "#resource/<resource-id>", "#publisher/<organization-name>"],
@@ -951,10 +1255,12 @@ VIEWER_TEMPLATE = """<!doctype html>
 <script>
 const VIEWER_VERSION="__VIEWER_VERSION__";
 let manifest,overviewData={},datasets=[],resources=[],publishers=[],relationships=[],facets={},graph={},govukContent={},fullIndexLoaded=false,fullIndexLoading=null,relationshipsLoaded=false,relationshipsLoading=null,apiJsonCache=new Map();
+let searchManifest=null,searchLexicon=null,searchPrefixCache=new Map(),searchPostingsCache=new Map(),searchDocCache=new Map(),searchResults=[],searchLoading=null,searchRequestId=0,activeSearchQuery="",activeSearchDatasetNames=null,searchBusy=false;
 let byDataset=new Map(),byResource=new Map(),byPublisher=new Map(),filters={},query="",mode="overview",selected=null,inspected=null,inspectedFacet=null,spotlight=null,pins=JSON.parse(localStorage.getItem("govCkanPins")||"[]"),spread=false,labelPhase=0,labelLayerCount=1,openFacet="",leftFolded=false,rightFolded=false,graphKey="",graphZoom=1,graphBox={x:0,y:0,w:720,h:560,baseW:720,baseH:560},graphDrag=null,graphSuppressClick=false;
 const $=id=>document.getElementById(id),canvas=$("canvas"),detail=$("detail"),live=$("live"),shell=document.querySelector(".shell");
 const FILTER_KEYS=["publisher","format","license","tag","update_year","host","govuk_linked","resource_type","publisher_family","publisher_state"];
 const CHUNK_BATCH_SIZE=4,JSON_RETRIES=4;
+const SEARCH_STOP_WORDS=new Set(["a","an","and","are","as","at","be","by","for","from","in","into","is","it","of","on","or","the","to","with"]);
 function esc(v){return String(v??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\\"":"&quot;"}[c]));}
 function attr(v){return esc(v).replace(/"/g,"&quot;");}
 function formatList(values){return(values||[]).map(v=>esc(v)).join(", ");}
@@ -980,16 +1286,28 @@ function sleepMs(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
 function isRetryableLoadError(message){return/(: 429|: 500|: 502|: 503|: 504|Failed to fetch|NetworkError|Load failed)/.test(message);}
 async function loadJson(path){let last="";for(let attempt=0;attempt<=JSON_RETRIES;attempt++){const retryPath=attempt?`${path}${path.includes("?")?"&":"?"}retry=${Date.now()}-${attempt}`:path;try{const res=await fetch(retryPath,{cache:attempt?"no-store":"default"});if(res.ok)return res.json();last=`${path}: ${res.status}`;if(![429,500,502,503,504].includes(res.status))throw new Error(last);}catch(err){last=err?.message||String(err);if(attempt===JSON_RETRIES||!isRetryableLoadError(last))throw new Error(last);}await sleepMs(400*Math.pow(2,attempt));}throw new Error(last||`${path}: failed to load`);}
 async function loadChunks(names){const out=[];for(let i=0;i<names.length;i+=CHUNK_BATCH_SIZE){const group=await Promise.all(names.slice(i,i+CHUNK_BATCH_SIZE).map(loadJson));group.forEach(rows=>out.push(...rows));}return out;}
-function needsFullIndexFromLocation(){const params=new URLSearchParams(location.search),hash=decodeURIComponent(location.hash||"#overview");if(params.get("q")||params.get("mode"))return true;for(const key of FILTER_KEYS){if(params.get(key))return true;}return hash.startsWith("#dataset/")||hash.startsWith("#resource/")||hash.startsWith("#publisher/");}
+function searchTokenize(value){const text=String(value||"").normalize("NFKD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase();const tokens=[],seen=new Set();for(const match of text.matchAll(/[a-z0-9][a-z0-9._-]*/g)){const token=match[0].replace(/^[._-]+|[._-]+$/g,"");if(token.length<2||SEARCH_STOP_WORDS.has(token)||seen.has(token))continue;tokens.push(token);seen.add(token);}return tokens;}
+function searchShard(value){const clean=String(value||"").toLowerCase().replace(/[^a-z0-9]/g,"");return clean.slice(0,searchManifest?.lexicon_shard_length||2)||"_";}
+async function loadSearchIndex(){if(searchManifest)return;if(searchLoading)return searchLoading;const path=manifest.indexes.search||"data/search/manifest.json";$("subtitle").textContent=`Loading static search manifest`;searchLoading=(async()=>{searchManifest=await loadJson(path);searchLexicon=new Map();$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, static search ready`;})();try{await searchLoading;}finally{searchLoading=null;}}
+async function searchLexiconEntry(token){await loadSearchIndex();const shard=searchShard(token),path=(searchManifest.entrypoints.lexicon||{})[shard]||(searchManifest.entrypoints.lexicon||{})._ ;if(!path)return null;if(!searchLexicon.has(shard)){searchLexicon.set(shard,loadJson(path).then(rows=>new Map(rows.map(entry=>[entry.token,entry]))));}return(await searchLexicon.get(shard)).get(token)||null;}
+async function searchPrefixSuggestions(prefix){await loadSearchIndex();const tokens=searchTokenize(prefix),clean=tokens[tokens.length-1]||String(prefix||"").toLowerCase().replace(/[^a-z0-9]/g,""),min=searchManifest.prefix_min_length||3,max=8;if(clean.length<min)return[];const shard=searchShard(clean),path=(searchManifest.entrypoints.prefixes||{})[shard]||(searchManifest.entrypoints.prefixes||{})._ ;if(!path)return[];if(!searchPrefixCache.has(shard))searchPrefixCache.set(shard,loadJson(path));const payload=await searchPrefixCache.get(shard);for(let length=Math.min(clean.length,max);length>=min;length--){const rows=payload[clean.slice(0,length)]||[];if(!rows.length)continue;const exactPrefix=rows.filter(item=>item.token.startsWith(clean));return(exactPrefix.length?exactPrefix:rows).slice(0,16);}return[];}
+async function searchEntriesForToken(token){const exact=await searchLexiconEntry(token);if(exact)return[exact];const suggestions=await searchPrefixSuggestions(token);const entries=(await Promise.all(suggestions.map(item=>searchLexiconEntry(item.token)))).filter(Boolean);return entries;}
+async function loadSearchPostings(path){if(!searchPostingsCache.has(path))searchPostingsCache.set(path,loadJson(path));return searchPostingsCache.get(path);}
+async function loadSearchDocChunk(path){if(!searchDocCache.has(path))searchDocCache.set(path,loadJson(path));return searchDocCache.get(path);}
+function intersectSearchSets(left,right){const out=new Set();for(const value of left){if(right.has(value))out.add(value);}return out;}
+async function searchStaticIndex(text){const tokens=searchTokenize(text);if(!tokens.length)return[];await loadSearchIndex();const entryGroups=(await Promise.all(tokens.map(searchEntriesForToken))).map(group=>group.filter(Boolean)).filter(group=>group.length);if(!entryGroups.length)return[];entryGroups.sort((a,b)=>Math.min(...a.map(entry=>entry.df))-Math.min(...b.map(entry=>entry.df)));const score=new Map(),sets=[];for(const entries of entryGroups){const set=new Set();for(const entry of entries){const payload=await loadSearchPostings(entry.postings);const postings=payload.tokens?.[entry.token]||[];for(const [ordinal,base,mask] of postings){set.add(ordinal);score.set(ordinal,(score.get(ordinal)||0)+base+(mask&1?4:0));}}sets.push(set);}let matches=sets[0]||new Set();for(const set of sets.slice(1))matches=intersectSearchSets(matches,set);if(!matches.size&&sets.length>1){matches=new Set();sets.forEach(set=>set.forEach(value=>matches.add(value)));}const ordinals=[...matches].sort((a,b)=>(score.get(b)||0)-(score.get(a)||0)||a-b).slice(0,searchManifest.result_limit||200);const docsByOrdinal=new Map();const docChunks=new Map();for(const ordinal of ordinals){const index=Math.floor(ordinal/(searchManifest.result_doc_chunk_size||1000));const path=searchManifest.entrypoints.result_docs[index];if(path&&!docChunks.has(path))docChunks.set(path,loadSearchDocChunk(path));}for(const promise of docChunks.values()){(await promise).forEach(doc=>docsByOrdinal.set(doc.ordinal,doc));}return ordinals.map(ordinal=>({...docsByOrdinal.get(ordinal),score:score.get(ordinal)||0})).filter(doc=>doc.name);}
+function clearSearchReduction(){activeSearchQuery="";activeSearchDatasetNames=null;searchResults=[];searchBusy=false;}
+async function refreshSearchReduction(nextQuery,{debounce=true}={}){const requestId=++searchRequestId;query=nextQuery;if(debounce)await sleepMs(160);if(requestId!==searchRequestId)return false;if(!query.trim()){clearSearchReduction();return true;}searchBusy=true;try{const next=await searchStaticIndex(query);if(requestId!==searchRequestId)return false;searchResults=next;activeSearchQuery=query.toLowerCase().trim();activeSearchDatasetNames=new Set(next.map(d=>d.name));return true;}finally{if(requestId===searchRequestId)searchBusy=false;}}
+function needsFullIndexFromLocation(){const params=new URLSearchParams(location.search),hash=decodeURIComponent(location.hash||"#overview");if(params.get("mode"))return true;for(const key of FILTER_KEYS){if(params.get(key))return true;}return hash.startsWith("#dataset/")||hash.startsWith("#resource/")||hash.startsWith("#publisher/");}
 async function loadFullIndex(reason="full index"){if(fullIndexLoaded)return;if(fullIndexLoading)return fullIndexLoading;$("subtitle").textContent=`Loading full index for ${reason}`;fullIndexLoading=(async()=>{datasets=await loadChunks(manifest.chunks.datasets);resources=await loadChunks(manifest.chunks.resources);publishers=await loadChunks(manifest.chunks.publishers);facets=await loadJson(manifest.indexes.facets);graph=await loadJson(manifest.indexes.graph);govukContent=await loadJson(manifest.indexes.govuk_content);byDataset=new Map();byResource=new Map();byPublisher=new Map();datasets.forEach(d=>byDataset.set(d.name,d));resources.forEach(r=>byResource.set(r.id,r));publishers.forEach(p=>byPublisher.set(p.name,p));fullIndexLoaded=true;$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, ${manifest.counts.publishers.toLocaleString()} publishers`;})();try{await fullIndexLoading;}finally{fullIndexLoading=null;}}
 function requestRelationships(){if(!fullIndexLoaded){loadFullIndex("Graph mode").then(()=>render()).catch(err=>{canvas.innerHTML=`<section class="hero"><h2>Could not load full index</h2><p>${esc(err.message)}</p></section>`;});canvas.innerHTML=`<section class="hero"><h2>Loading full index</h2><p>Graph mode needs the dataset, resource, and publisher indexes before it can lazy-load relationships.</p></section>`;return false;}if(relationshipsLoaded)return true;if(!relationshipsLoading){relationshipsLoading=loadChunks(manifest.chunks.relationships).then(rows=>{relationships=rows;relationshipsLoaded=true;relationshipsLoading=null;render();}).catch(err=>{relationshipsLoading=null;canvas.innerHTML=`<section class="hero"><h2>Could not load graph relationships</h2><p>${esc(err.message)}</p></section>`;});}$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, loading graph relationships`;canvas.innerHTML=`<section class="hero"><h2>Loading graph relationships</h2><p>Loading ${manifest.counts.relationships.toLocaleString()} relationship records in batches. Overview and facets are already available.</p></section>`;return false;}
-async function load(){manifest=await loadJson("data/manifest.json");if(manifest.viewer_version!==VIEWER_VERSION)throw new Error("viewer/data version mismatch");overviewData=await loadJson(manifest.indexes.overview||"data/overview.json");$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, overview-first`;if(needsFullIndexFromLocation())await loadFullIndex("deep route");applyUrl();render();}
+async function load(){manifest=await loadJson("data/manifest.json");if(manifest.viewer_version!==VIEWER_VERSION)throw new Error("viewer/data version mismatch");overviewData=await loadJson(manifest.indexes.overview||"data/overview.json");$("subtitle").textContent=`${manifest.counts.datasets.toLocaleString()} datasets, ${manifest.counts.resources.toLocaleString()} resources, overview-first`;if(needsFullIndexFromLocation())await loadFullIndex("deep route");applyUrl();if(query)await refreshSearchReduction(query,{debounce:false});else clearSearchReduction();render();}
 function routeFor(item){if(!item)return"#overview";if(item.kind==="resource")return`#resource/${encodeURIComponent(item.id)}`;if(item.kind==="publisher")return`#publisher/${encodeURIComponent(item.name)}`;return`#dataset/${encodeURIComponent(item.name)}`;}
 function applyUrl(){const params=new URLSearchParams(location.search);query=params.get("q")||"";$("query").value=query;filters={};FILTER_KEYS.forEach(k=>{if(params.get(k))filters[k]=new Set(params.getAll(k));});mode=["overview","force","timeline","matrix","resources"].includes(params.get("mode"))?params.get("mode"):"overview";if(params.getAll("pin").length){pins=params.getAll("pin");localStorage.setItem("govCkanPins",JSON.stringify(pins));}spread=params.get("spread")==="1";selected=null;const hash=decodeURIComponent(location.hash||"#overview");if(hash.startsWith("#resource/"))selected={kind:"resource",...byResource.get(hash.slice(10))};else if(hash.startsWith("#publisher/"))selected={kind:"publisher",...byPublisher.get(hash.slice(11))};else if(hash.startsWith("#dataset/"))selected={kind:"dataset",...byDataset.get(hash.slice(9))};}
 function pushUrl(replace=false){const params=new URLSearchParams();if(query)params.set("q",query);if(mode&&mode!=="overview")params.set("mode",mode);Object.entries(filters).forEach(([k,set])=>[...set].sort().forEach(v=>params.append(k,v)));const next=`${params.toString()?`?${params}`:""}${routeFor(selected)}`;if(next===`${location.search}${location.hash}`)return;(replace?history.replaceState:history.pushState).call(history,null,"",next);}
 function valuesFor(dataset,key){if(key==="publisher")return[dataset.publisher];if(key==="publisher_family")return[publisherFamily(dataset.publisher)];if(key==="publisher_state")return[(byPublisher.get(dataset.publisher)||{}).state||"unknown"];if(key==="format")return dataset.formats||[];if(key==="license")return[dataset.license_id];if(key==="tag")return dataset.tags||[];if(key==="update_year")return dataset.timestamp?[String(dataset.timestamp).slice(0,4)]:[];if(key==="host")return dataset.resource_hosts||[];if(key==="govuk_linked")return[dataset.govuk_content_paths?.length?"yes":"no"];if(key==="resource_type")return dataset.resource_ids.flatMap(id=>[(byResource.get(id)||{}).resource_type||"unknown"]);return[];}
 function publisherFamily(name){if(name.endsWith("-council")||name.includes("borough-council")||name.includes("county-council"))return"local government";if(name.includes("nhs")||name.includes("health"))return"health";if(name.startsWith("department-")||["cabinet-office","home-office","hm-treasury"].includes(name))return"central government";if(name.includes("environment")||name.includes("natural")||name.includes("geological"))return"environment and science";return"other public body";}
-function filteredDatasets(skipKey=null){const q=query.toLowerCase().trim();return datasets.filter(d=>{if(q&&!`${d.name} ${d.title} ${cleanText(d.notes)} ${d.publisher_title} ${(d.tags||[]).join(" ")} ${(d.formats||[]).join(" ")}`.toLowerCase().includes(q))return false;for(const[k,set]of Object.entries(filters)){if(k===skipKey)continue;if(set.size&&!valuesFor(d,k).some(v=>set.has(String(v))))return false;}return true;});}
+function filteredDatasets(skipKey=null){const q=query.toLowerCase().trim();return datasets.filter(d=>{if(q){if(activeSearchQuery===q&&activeSearchDatasetNames){if(!activeSearchDatasetNames.has(d.name))return false;}else if(!`${d.name} ${d.title} ${cleanText(d.notes)} ${d.publisher_title} ${(d.tags||[]).join(" ")} ${(d.formats||[]).join(" ")}`.toLowerCase().includes(q))return false;}for(const[k,set]of Object.entries(filters)){if(k===skipKey)continue;if(set.size&&!valuesFor(d,k).some(v=>set.has(String(v))))return false;}return true;});}
 function itemMatchesVisible(item,visible){if(!item)return true;if(item.kind==="dataset")return visible.some(d=>d.name===item.name);if(item.kind==="resource")return visible.some(d=>(d.resource_ids||[]).includes(item.id));if(item.kind==="publisher")return visible.some(d=>d.publisher===item.name);return true;}
 function selectionMatchesVisible(visible){return itemMatchesVisible(selected,visible);}
 function applyFacet(k,v,additive=false){const current=filters[k]||new Set();if(additive){current.has(v)?current.delete(v):current.add(v);filters[k]=current;}else if(current.size===1&&current.has(v)){filters[k]=new Set();}else{filters[k]=new Set([v]);}if(!filters[k].size)delete filters[k];openFacet=k;inspectedFacet=null;graphKey="";const visible=filteredDatasets();if(!selectionMatchesVisible(visible))selected=null;if(!itemMatchesVisible(inspected,visible))inspected=null;pushUrl();render();}
@@ -1011,8 +1329,9 @@ async function openDetailGraph(){const item=detailItem();if(!item)return;await o
 async function inspectAdjacentResource(datasetName,resourceId,delta){const d=byDataset.get(datasetName);if(!d)return;const ids=d.resource_ids||[],index=ids.indexOf(resourceId);if(index<0)return;const next=ids[(index+delta+ids.length)%ids.length];await inspectId(`resource/${next}`);}
 function topList(title,items){return`<section class="card"><h3>${esc(title)}</h3><div class="list">${items.map(item=>{const attrs=item.facet?`data-overview-facet="${attr(item.facet)}" data-value="${attr(item.value)}" data-spot-id="facet/${attr(item.facet)}/${attr(item.value)}"`:`data-open="${attr(item.open)}" data-spot-id="${attr(item.open)}"`;return`<button class="row" ${attrs}><strong>${esc(item.label)}</strong><div class="meta">${esc(item.meta||"")}</div></button>`;}).join("")}</div></section>`;}
 function summaryFor(visible){const resourcesShown=new Set(),publishersShown=new Set(),govukShown=new Set();visible.forEach(d=>{(d.resource_ids||[]).forEach(id=>resourcesShown.add(id));if(d.publisher)publishersShown.add(d.publisher);(d.govuk_content_paths||[]).forEach(path=>{if(govukContent[path]?.status===200)govukShown.add(path);});});return{resources:resourcesShown.size,publishers:publishersShown.size,govuk:govukShown.size};}
-function renderOverview(visible){if(!fullIndexLoaded){const counts=overviewData.counts||manifest.counts,topPub=(overviewData.top_publishers||[]).slice(0,8).map(item=>({label:item.label,meta:`${item.dataset_count.toLocaleString()} datasets, ${item.resource_count.toLocaleString()} resources`,open:item.id})),topDatasets=(overviewData.recent_datasets||[]).slice(0,10).map(d=>({label:d.title,meta:`${d.publisher_title} - ${d.resource_count} resources`,open:d.open})),formatItems=(overviewData.format_counts||[]).slice(0,10).map(item=>({label:item.value,meta:`${item.count.toLocaleString()} resources`,facet:"format",value:item.value}));canvas.innerHTML=`<div class="overview"><section class="hero"><h2>Metadata-first map of UK public data</h2><p>This static OKF bundle indexes CKAN datasets, resources, publishers, formats, licences, tags, hosts, and exact GOV.UK content links without downloading remote resource bodies.</p></section><div class="metrics"><div class="metric"><strong>${counts.datasets.toLocaleString()}</strong>datasets indexed</div><div class="metric"><strong>${counts.resources.toLocaleString()}</strong>resources indexed</div><div class="metric"><strong>${counts.publishers.toLocaleString()}</strong>publishers indexed</div><div class="metric"><strong>${counts.relationships.toLocaleString()}</strong>relationships deferred</div></div><div class="grid">${topList("Top publishers",topPub)}${topList("Recently modified datasets",topDatasets)}${topList("Dominant formats",formatItems)}</div><p class="notice">This overview is served from a small startup payload. Search, filters, record routes, and non-overview views load the full dataset/resource index on demand; Graph mode separately loads relationship chunks.</p></div>`;bindRows(canvas);return;}const summary=summaryFor(visible);const topPub=[...new Map(visible.map(d=>[d.publisher,d])).values()].slice(0,8).map(d=>({label:d.publisher_title,meta:d.publisher,open:`publisher/${d.publisher}`}));const topDatasets=visible.slice(0,10).map(d=>({label:d.title,meta:`${d.publisher_title} - ${d.resource_count} resources`,open:`dataset/${d.name}`}));const formatCounts=new Map();visible.forEach(d=>(d.formats||[]).forEach(f=>formatCounts.set(f,(formatCounts.get(f)||0)+1)));canvas.innerHTML=`<div class="overview"><section class="hero"><h2>Metadata-first map of UK public data</h2><p>This static OKF bundle indexes CKAN datasets, resources, publishers, formats, licences, tags, hosts, and exact GOV.UK content links without downloading remote resource bodies.</p></section><div class="metrics"><div class="metric"><strong>${visible.length.toLocaleString()}</strong>shown datasets</div><div class="metric"><strong>${summary.resources.toLocaleString()}</strong>shown resources</div><div class="metric"><strong>${summary.publishers.toLocaleString()}</strong>shown publishers</div><div class="metric"><strong>${summary.govuk.toLocaleString()}</strong>shown GOV.UK enrichments</div></div><div class="grid">${topList("Top visible publishers",topPub)}${topList("Recently modified datasets",topDatasets)}${topList("Dominant formats",[...formatCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,10).map(([k,v])=>({label:k,meta:`${v} visible datasets`,facet:"format",value:k})))}</div><p class="notice">Use filters and search to reduce the corpus before entering graph views. The viewer intentionally avoids opening on a full hairball.</p></div>`;bindRows(canvas);}
+function renderOverview(visible){if(!fullIndexLoaded){const counts=overviewData.counts||manifest.counts,topPub=(overviewData.top_publishers||[]).slice(0,8).map(item=>({label:item.label,meta:`${item.dataset_count.toLocaleString()} datasets, ${item.resource_count.toLocaleString()} resources`,open:item.id})),topDatasets=(overviewData.recent_datasets||[]).slice(0,10).map(d=>({label:d.title,meta:`${d.publisher_title} - ${d.resource_count} resources`,open:d.open})),formatItems=(overviewData.format_counts||[]).slice(0,10).map(item=>({label:item.value,meta:`${item.count.toLocaleString()} resources`,facet:"format",value:item.value}));canvas.innerHTML=`<div class="overview"><section class="hero"><h2>Metadata-first map of UK public data</h2><p>This static OKF bundle indexes CKAN datasets, resources, publishers, formats, licences, tags, hosts, and exact GOV.UK content links without downloading remote resource bodies.</p></section><div class="metrics"><div class="metric"><strong>${counts.datasets.toLocaleString()}</strong>datasets indexed</div><div class="metric"><strong>${counts.resources.toLocaleString()}</strong>resources indexed</div><div class="metric"><strong>${counts.publishers.toLocaleString()}</strong>publishers indexed</div><div class="metric"><strong>${counts.relationships.toLocaleString()}</strong>relationships deferred</div></div><div class="grid">${topList("Top publishers",topPub)}${topList("Recently modified datasets",topDatasets)}${topList("Dominant formats",formatItems)}</div><p class="notice">This overview is served from a small startup payload. Search loads the generated static search index; filters, record routes, and non-overview views load the full dataset/resource index only when needed. Graph mode separately loads relationship chunks.</p></div>`;bindRows(canvas);return;}const summary=summaryFor(visible);const topPub=[...new Map(visible.map(d=>[d.publisher,d])).values()].slice(0,8).map(d=>({label:d.publisher_title,meta:d.publisher,open:`publisher/${d.publisher}`}));const topDatasets=visible.slice(0,10).map(d=>({label:d.title,meta:`${d.publisher_title} - ${d.resource_count} resources`,open:`dataset/${d.name}`}));const formatCounts=new Map();visible.forEach(d=>(d.formats||[]).forEach(f=>formatCounts.set(f,(formatCounts.get(f)||0)+1)));canvas.innerHTML=`<div class="overview"><section class="hero"><h2>Metadata-first map of UK public data</h2><p>This static OKF bundle indexes CKAN datasets, resources, publishers, formats, licences, tags, hosts, and exact GOV.UK content links without downloading remote resource bodies.</p></section><div class="metrics"><div class="metric"><strong>${visible.length.toLocaleString()}</strong>shown datasets</div><div class="metric"><strong>${summary.resources.toLocaleString()}</strong>shown resources</div><div class="metric"><strong>${summary.publishers.toLocaleString()}</strong>shown publishers</div><div class="metric"><strong>${summary.govuk.toLocaleString()}</strong>shown GOV.UK enrichments</div></div><div class="grid">${topList("Top visible publishers",topPub)}${topList("Recently modified datasets",topDatasets)}${topList("Dominant formats",[...formatCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,10).map(([k,v])=>({label:k,meta:`${v} visible datasets`,facet:"format",value:k})))}</div><p class="notice">Use filters and search to reduce the corpus before entering graph views. The viewer intentionally avoids opening on a full hairball.</p></div>`;bindRows(canvas);}
 function renderListView(visible,title){canvas.innerHTML=`<div class="overview"><h2>${esc(title)}</h2><div class="list">${visible.slice(0,180).map(d=>`<button class="row" data-open="dataset/${attr(d.name)}" data-spot-id="dataset/${attr(d.name)}"><h3>${esc(d.title)}</h3><div class="meta">${esc(d.publisher_title)} - ${formatList(d.formats)} - ${d.resource_count} resources</div><p>${esc(cleanText(d.notes))}</p></button>`).join("")}</div></div>`;bindRows(canvas);}
+function renderStaticSearchResults(){document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.classList.toggle("active",false));$("count").textContent=`${searchResults.length.toLocaleString()} search results`;$("crumbs").textContent=`GOV.UK CKAN / Search / ${query}`;document.title=`Search: ${query} - GOV.UK CKAN OKF Viewer`;canvas.innerHTML=`<div class="overview"><h2>Search results</h2><p class="meta">Showing up to ${(searchManifest?.result_limit||200).toLocaleString()} matches from the static search index. Opening a result loads the full record only then.</p><div class="list">${searchResults.map(d=>`<button class="row" data-open="${attr(d.open)}" data-spot-id="${attr(d.open)}"><h3>${esc(d.title)}</h3><div class="meta">${esc(d.publisher_title)} - ${formatList(d.formats)} - ${d.resource_count} resources - score ${d.score}</div><p>${esc(cleanText(d.notes))}</p><div class="chips">${(d.tags||[]).slice(0,8).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div></button>`).join("")||`<p class="emptyState">No matches for ${esc(query)}.</p>`}</div></div>`;bindRows(canvas);}
 function timelineDate(d){return d.timestamp||d.metadata_modified||d.metadata_created||"";}
 function renderTimeline(visible){const items=visible.filter(d=>timelineDate(d)).sort((a,b)=>timelineDate(b).localeCompare(timelineDate(a))).slice(0,240);canvas.innerHTML=`<div class="timelineView"><h2>Timeline</h2><p class="meta">${items.length.toLocaleString()} most recent dated datasets in the current reduction.</p><div class="timeline">${items.map(d=>`<article class="timelineItem"><div class="timelineDate">${esc(timelineDate(d).slice(0,10))}</div><button class="row" data-open="dataset/${attr(d.name)}" data-spot-id="dataset/${attr(d.name)}"><h3>${esc(d.title)}</h3><div class="meta">${esc(d.publisher_title)} - ${formatList(d.formats)} - ${d.resource_count} resources</div><p>${esc(cleanText(d.notes))}</p></button></article>`).join("")||"<p class=\\"emptyState\\">No dated datasets in the current reduction.</p>"}</div></div>`;bindRows(canvas);}
 function renderResourceStack(visible){const visibleNames=new Set(visible.map(d=>d.name)),items=resources.filter(r=>visibleNames.has(r.dataset)).slice(0,320);canvas.innerHTML=`<div class="overview"><h2>Resource stack</h2><p class="meta">${items.length.toLocaleString()} resources from the current reduction. Single click inspects and highlights a resource; double click opens its graph route.</p><div class="list">${items.map(r=>{const d=byDataset.get(r.dataset)||{};return`<button class="row" data-open="resource/${attr(r.id)}" data-spot-id="resource/${attr(r.id)}"><h3>${esc(r.name)}</h3><div class="meta">${esc(r.format)} - ${esc(r.host||"no host")} - ${esc(d.title||r.dataset)}</div><p>${esc(cleanText(r.description||d.notes||""))}</p></button>`;}).join("")||"<p class=\\"emptyState\\">No resources in the current reduction.</p>"}</div></div>`;bindRows(canvas);}
@@ -1069,10 +1388,10 @@ function filterLabel(){const parts=[];if(query)parts.push(`Search: ${query}`);Ob
 function breadcrumbText(){const parts=["GOV.UK CKAN",modeLabel(),...filterLabel().slice(0,3)];if(selected)parts.push(shortLabel(selectedLabel(),54));return parts.join(" / ");}
 function updateChrome(visible){$("count").textContent=`${visible.length.toLocaleString()} of ${datasets.length.toLocaleString()} datasets`;$("crumbs").textContent=breadcrumbText();document.title=`${selected?shortLabel(selectedLabel(),58):modeLabel()} - GOV.UK CKAN OKF Viewer`;}
 function updateChromeOverview(){$("count").textContent=`${manifest.counts.datasets.toLocaleString()} indexed datasets`;$("crumbs").textContent="GOV.UK CKAN / Overview";document.title="Overview - GOV.UK CKAN OKF Viewer";}
-function render(){if(!fullIndexLoaded){mode=mode||"overview";updateChromeOverview();renderFacetPreviews();document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));renderOverview([]);renderDetail();renderPins();updatePanelChrome();return;}let visible=filteredDatasets();if(selected&&!selectionMatchesVisible(visible)){selected=null;graphKey="";pushUrl(true);}if(inspected&&!itemMatchesVisible(inspected,visible))inspected=null;updateChrome(visible);renderFacets(visible);document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));if(mode==="overview")renderOverview(visible);else if(mode==="matrix")renderMatrix(visible);else if(mode==="force")renderForce(visible);else if(mode==="timeline")renderTimeline(visible);else if(mode==="resources")renderResourceStack(visible);else renderListView(visible,"Dataset list");renderDetail();renderPins();updatePanelChrome();}
-document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.onclick=async()=>{mode=b.dataset.mode;if(mode!=="overview")await loadFullIndex(`${mode} view`);labelPhase=0;labelLayerCount=1;graphKey="";pushUrl();render();});
-$("query").oninput=async e=>{query=e.target.value;if(!fullIndexLoaded)await loadFullIndex("search");graphKey="";const visible=filteredDatasets();if(!selectionMatchesVisible(visible))selected=null;if(!itemMatchesVisible(inspected,visible))inspected=null;pushUrl(true);render();};
-$("clearFilters").onclick=()=>{filters={};query="";openFacet="";inspectedFacet=null;graphKey="";$("query").value="";pushUrl();render();};
+function render(){if(!fullIndexLoaded){mode=mode||"overview";renderFacetPreviews();if(searchBusy){$("count").textContent="Searching";$("crumbs").textContent=`GOV.UK CKAN / Search / ${query}`;canvas.innerHTML=`<div class="overview"><h2>Searching</h2><p class="meta">Resolving ${esc(query)} through the static search index.</p></div>`;}else if(query.trim())renderStaticSearchResults();else{updateChromeOverview();document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));renderOverview([]);}renderDetail();renderPins();updatePanelChrome();return;}if(searchBusy){$("count").textContent="Searching";$("crumbs").textContent=`GOV.UK CKAN / Search / ${query}`;canvas.innerHTML=`<div class="overview"><h2>Searching</h2><p class="meta">Resolving ${esc(query)} through the static search index.</p></div>`;renderDetail();renderPins();updatePanelChrome();return;}let visible=filteredDatasets();if(selected&&!selectionMatchesVisible(visible)){selected=null;graphKey="";pushUrl(true);}if(inspected&&!itemMatchesVisible(inspected,visible))inspected=null;updateChrome(visible);renderFacets(visible);document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));if(mode==="overview")renderOverview(visible);else if(mode==="matrix")renderMatrix(visible);else if(mode==="force")renderForce(visible);else if(mode==="timeline")renderTimeline(visible);else if(mode==="resources")renderResourceStack(visible);else renderListView(visible,"Dataset list");renderDetail();renderPins();updatePanelChrome();}
+document.querySelectorAll(".mode button[data-mode]").forEach(b=>b.onclick=async()=>{mode=b.dataset.mode;if(mode!=="overview")await loadFullIndex(`${mode} view`);if(query&&activeSearchQuery!==query.toLowerCase().trim())await refreshSearchReduction(query,{debounce:false});labelPhase=0;labelLayerCount=1;graphKey="";pushUrl();render();});
+$("query").oninput=async e=>{graphKey="";const ok=await refreshSearchReduction(e.target.value);if(!ok)return;selected=null;inspected=null;if(fullIndexLoaded){const visible=filteredDatasets();if(!selectionMatchesVisible(visible))selected=null;if(!itemMatchesVisible(inspected,visible))inspected=null;}pushUrl(true);render();};
+$("clearFilters").onclick=()=>{searchRequestId++;filters={};query="";clearSearchReduction();openFacet="";inspectedFacet=null;graphKey="";$("query").value="";pushUrl();render();};
 $("backBtn").onclick=()=>{if(inspected){clearInspection();return;}history.back();};
 $("forwardBtn").onclick=()=>history.forward();
 $("leftPanelToggle").onclick=()=>togglePanel("left");
@@ -1082,7 +1401,7 @@ $("exportPins").onclick=()=>{navigator.clipboard?.writeText(JSON.stringify({expo
 $("notesButton").onclick=()=>openMarkdownDoc("wiki/index.md").catch(err=>{canvas.innerHTML=`<section class="hero"><h2>Could not load Markdown</h2><p>${esc(err.message)}</p></section>`;});
 $("themeToggle").onclick=()=>setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
 document.addEventListener("keydown",e=>{if(e.key==="Escape")setSpotlight(null);});
-window.addEventListener("popstate",async()=>{if(needsFullIndexFromLocation())await loadFullIndex("history route");applyUrl();render();});
+window.addEventListener("popstate",async()=>{if(needsFullIndexFromLocation())await loadFullIndex("history route");applyUrl();if(query)await refreshSearchReduction(query,{debounce:false});else clearSearchReduction();render();});
 setInterval(()=>{if(mode==="force"&&labelLayerCount>1){labelPhase=(labelPhase+1)%labelLayerCount;renderForce(filteredDatasets());}},2000);
 setTheme(localStorage.getItem("govCkanTheme")||"light");
 load().catch(error=>{canvas.innerHTML=`<div class="overview"><section class="hero"><h2>Could not load bundle data</h2><p>${esc(error.message)}</p></section></div>`;});
@@ -1099,6 +1418,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--api-base", default=DEFAULT_API_BASE, help="CKAN action API base URL.")
     parser.add_argument("--rows", type=int, default=DEFAULT_ROWS, help="CKAN package_search page size.")
     parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE, help="Records per JSON chunk.")
+    parser.add_argument("--search-chunk-size", type=int, default=DEFAULT_SEARCH_CHUNK_SIZE, help="Records or tokens per generated search chunk.")
     parser.add_argument("--enrich-govuk-limit", type=int, default=DEFAULT_ENRICH_LIMIT, help="Max exact GOV.UK paths to enrich.")
     parser.add_argument("--generated-at", default="", help="Override generated timestamp for reproducible tests.")
     args = parser.parse_args(argv)
@@ -1111,6 +1431,7 @@ def main(argv: list[str] | None = None) -> int:
         sample=args.sample,
         rows=args.rows,
         chunk_size=args.chunk_size,
+        search_chunk_size=args.search_chunk_size,
         enrich_govuk_limit=max(0, args.enrich_govuk_limit),
         generated_at=args.generated_at,
     )
