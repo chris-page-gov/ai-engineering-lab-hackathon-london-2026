@@ -13,6 +13,7 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 import build_gov_ckan_bundle as builder  # noqa: E402
 import check_gov_ckan_bundle as checker  # noqa: E402
+import check_gov_ckan_performance as performance_checker  # noqa: E402
 
 
 def fixture_package() -> dict[str, Any]:
@@ -142,6 +143,11 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertIn("function formatList", html)
         self.assertIn("function cleanText", html)
         self.assertIn("function loadChunks", html)
+        self.assertIn("overviewData=await loadJson(manifest.indexes.overview", html)
+        self.assertIn("function needsFullIndexFromLocation", html)
+        self.assertIn("async function loadFullIndex", html)
+        self.assertIn("Overview payload only", html)
+        self.assertIn("renderFacetPreviews", html)
         self.assertIn("const CHUNK_BATCH_SIZE=4,JSON_RETRIES=4", html)
         self.assertIn("function isRetryableLoadError", html)
         self.assertIn("retry=${Date.now()}-${attempt}", html)
@@ -157,6 +163,28 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertIn("function inspectId", html)
         self.assertIn("function inspectConcept", html)
         self.assertIn("function graphNodeDblAction", html)
+        self.assertIn("function bindDetailActions", html)
+        self.assertIn("data-detail-action", html)
+        self.assertIn("data-resource-nav", html)
+        self.assertIn("data-remove-pin", html)
+        self.assertNotIn("onclick=\"removePin", html)
+        self.assertNotIn("inspectAdjacentResource('${attr", html)
+        self.assertNotIn("onclick='pinCurrent", html)
+        self.assertIn("function clearInspection", html)
+        self.assertIn("Back to selected card", html)
+        self.assertIn("function renderTimeline", html)
+        self.assertIn("function renderResourceStack", html)
+        self.assertIn("data-overview-facet", html)
+        self.assertIn("function loadApiJson", html)
+        self.assertIn("function localPackageJson", html)
+        self.assertIn("Showing static bundle JSON", html)
+        self.assertIn("Live package_show JSON could not be fetched", html)
+        self.assertIn("Local normalized dataset JSON", html)
+        self.assertIn("function markdownToHtml", html)
+        self.assertIn("function openMarkdownDoc", html)
+        self.assertIn("notesButton", html)
+        self.assertIn("function setTheme", html)
+        self.assertIn("themeToggle", html)
         self.assertIn("function toggleBothPanels", html)
         self.assertIn("leftPanelToggle", html)
         self.assertIn("rightPanelToggle", html)
@@ -211,6 +239,42 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertNotIn("edges", graph)
         self.assertNotIn("nodes", graph)
 
+    def test_overview_recent_datasets_ignore_placeholder_dates(self) -> None:
+        def dataset(name: str, timestamp: str, metadata_modified: str) -> dict[str, Any]:
+            return {
+                "name": name,
+                "title": name.replace("-", " ").title(),
+                "publisher": "publisher",
+                "publisher_title": "Publisher",
+                "resource_count": 1,
+                "formats": ["CSV"],
+                "timestamp": timestamp,
+                "metadata_modified": metadata_modified,
+                "metadata_created": "2025-01-01T00:00:00",
+            }
+
+        manifest = {
+            "title": "Test bundle",
+            "generated_at": "2026-07-01T00:00:00Z",
+            "source": {},
+            "counts": {},
+            "performance": {},
+        }
+        overview = builder.build_overview(
+            manifest,
+            [
+                dataset("placeholder-template", "{{modified:toISO}}", "2026-06-01T00:00:00"),
+                dataset("new-real-date", "2026-07-02T00:00:00", "2026-07-02T00:00:00"),
+                dataset("tbc-fallback", "TBC", "2026-07-01T00:00:00"),
+            ],
+            {},
+            {},
+        )
+        self.assertEqual(
+            [item["name"] for item in overview["recent_datasets"]],
+            ["new-real-date", "tbc-fallback", "placeholder-template"],
+        )
+
     def test_fixture_build_and_checker_validate_bundle(self) -> None:
         original_iter_packages = builder.iter_packages
         original_fetch_govuk_content = builder.fetch_govuk_content
@@ -236,7 +300,13 @@ class GovCkanBundleTest(unittest.TestCase):
                 )
                 self.assertEqual(manifest["counts"]["datasets"], 1)
                 self.assertEqual(manifest["source"]["ckan_reported_count"], 58461)
+                self.assertEqual(manifest["indexes"]["overview"], "data/overview.json")
+                self.assertTrue((out_dir / "index.html").exists())
+                self.assertTrue((out_dir / "okf-explorer.json").exists())
+                self.assertTrue((out_dir / "data" / "overview.json").exists())
+                self.assertTrue((out_dir / "wiki" / "performance.md").exists())
                 self.assertEqual(checker.main([str(out_dir)]), 0)
+                self.assertEqual(performance_checker.main([str(out_dir)]), 0)
         finally:
             builder.iter_packages = original_iter_packages  # type: ignore[assignment]
             builder.fetch_govuk_content = original_fetch_govuk_content  # type: ignore[assignment]

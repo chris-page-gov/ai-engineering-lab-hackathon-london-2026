@@ -132,10 +132,24 @@ def check_manifest(bundle: Path, errors: list[str]) -> dict[str, Any] | None:
         errors.append("manifest viewer_version does not match builder viewer version")
     if manifest.get("builder_version") != build_gov_ckan_bundle.BUILDER_VERSION:
         errors.append("manifest builder_version does not match builder version")
-    for key in ("facets", "graph", "govuk_content"):
+    for key in ("overview", "facets", "graph", "govuk_content"):
         index_path = manifest.get("indexes", {}).get(key)
         if not index_path or not (bundle / index_path).exists():
             errors.append(f"manifest indexes.{key} is missing or points to a missing file")
+    index_path = bundle / "index.html"
+    if not index_path.exists():
+        errors.append(f"{rel(index_path)}: missing large-corpus entry point")
+    elif index_path.read_text(encoding="utf-8") != build_gov_ckan_bundle.render_index():
+        errors.append(f"{rel(index_path)}: index is not synchronized with scripts/build_gov_ckan_bundle.py")
+    descriptor_path = bundle / "okf-explorer.json"
+    if not descriptor_path.exists():
+        errors.append(f"{rel(descriptor_path)}: missing large-corpus descriptor")
+    else:
+        descriptor = read_json(descriptor_path)
+        if descriptor.get("schema") != "okf-explorer-large-corpus.v0":
+            errors.append(f"{rel(descriptor_path)}: unexpected descriptor schema")
+        if descriptor.get("entrypoints", {}).get("overview") != "viewer.html#overview":
+            errors.append(f"{rel(descriptor_path)}: overview entrypoint should target viewer.html#overview")
     viewer_path = bundle / "viewer.html"
     if not viewer_path.exists():
         errors.append(f"{rel(viewer_path)}: missing static viewer")
@@ -196,7 +210,7 @@ def check_records(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> 
 
 
 def check_wiki(bundle: Path, errors: list[str]) -> None:
-    for name in ("index.md", "data-source-report.md", "ui-design.md"):
+    for name in ("index.md", "data-source-report.md", "performance.md", "ui-design.md"):
         path = bundle / "wiki" / name
         if not path.exists():
             errors.append(f"{rel(path)}: missing wiki page")

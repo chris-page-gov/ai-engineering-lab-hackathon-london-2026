@@ -8,6 +8,51 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 No undated pending changes.
 
+## 2026-07-04
+
+### Fixed
+
+- 2026-07-04: Fixed the GOV.UK CKAN overview's `Recently modified datasets` preview so placeholder CKAN timestamp strings such as `{{modified:toISO}}` and `TBC` are ignored for ranking and valid `metadata_modified` dates are used as fallbacks.
+
+### Security
+
+- 2026-07-04: Hardened the GOV.UK CKAN viewer so pinned IDs from URL state and CKAN resource identifiers are no longer interpolated into inline JavaScript event handlers.
+
+### Validation
+
+- 2026-07-04: Added regression coverage for GOV.UK CKAN overview recent-dataset sorting with placeholder timestamps and regenerated the committed full-corpus `data/overview.json` preview.
+- 2026-07-04: Added regression markers that keep GOV.UK CKAN pin removal, detail-card actions, and resource navigation on data-bound event listeners rather than inline JavaScript handlers.
+
+## 2026-07-03
+
+### Added
+
+- 2026-07-03: Added a generated `gov-ckan/index.html` entry point and `gov-ckan/okf-explorer.json` large-corpus descriptor so the full GOV.UK CKAN bundle can be opened as an OKF Explorer surface without pretending it is a monolithic `okf-bundle.json`.
+- 2026-07-03: Added `data/overview.json` for the GOV.UK CKAN bundle and `scripts/check_gov_ckan_performance.py` to enforce the overview-first startup budget.
+- 2026-07-03: Added a GOV.UK CKAN light/dark mode toggle stored in browser local state.
+
+### Changed
+
+- 2026-07-03: Changed the GOV.UK CKAN viewer load path so `#overview` renders from the lightweight overview payload first; search, filters, deep record routes, and non-overview views hydrate the full dataset/resource/publisher indexes on demand, while relationship chunks remain deferred until Graph mode.
+- 2026-07-03: Changed GOV.UK CKAN resource browsing so Resource stack renders resource rows directly, single-click inspection highlights resources without navigating, the in-app back button clears inspections first, and double-click remains the explicit graph-route action.
+- 2026-07-03: Changed GOV.UK CKAN data cards to expose richer local CKAN metadata, extras, normalized JSON, and opt-in live `package_show` JSON rendering while preserving the metadata-first static bundle boundary.
+- 2026-07-03: Changed the GOV.UK CKAN Timeline view from a generic list into a chronological dated-dataset view and reduced dense graph label budgets for large publisher-centred graphs.
+
+### Fixed
+
+- 2026-07-03: Fixed GOV.UK CKAN overview format cards so each format can be selected independently instead of every format row sharing the same `overview` spotlight target.
+- 2026-07-03: Fixed GOV.UK CKAN detail-card relation buttons so dataset/resource/publisher pills and rows bind consistently and can highlight or open their graph targets.
+- 2026-07-03: Fixed the GOV.UK CKAN `OKF bundle notes` entry so generated Markdown renders inside the viewer instead of opening raw Markdown in the browser.
+- 2026-07-03: Fixed GOV.UK CKAN JSON review so `Show JSON` always renders static bundle package JSON in the app and treats live `package_show` API fetches as an optional enhancement when browser CORS allows them.
+
+### Documentation
+
+- 2026-07-03: Documented the large-corpus performance model in generated `gov-ckan/wiki/performance.md` and updated README, Context, and Progress with the new entry point and validation guidance.
+
+### Validation
+
+- 2026-07-03: Added performance-budget validation for the GOV.UK CKAN viewer startup path so future bundle changes can detect accidental full-corpus startup regressions.
+
 ## 2026-07-01
 
 ### Added
