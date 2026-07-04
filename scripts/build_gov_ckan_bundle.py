@@ -128,6 +128,27 @@ def stable_timestamp(package: dict[str, Any], extras: dict[str, str]) -> str:
     return ""
 
 
+def parse_ckan_datetime(value: Any) -> datetime | None:
+    text = str(value or "").strip()
+    if not text:
+        return None
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        return parsed.replace(tzinfo=UTC)
+    return parsed.astimezone(UTC)
+
+
+def recent_dataset_sort_key(dataset: dict[str, Any]) -> tuple[datetime, str]:
+    for key in ("timestamp", "metadata_modified", "metadata_created"):
+        parsed = parse_ckan_datetime(dataset.get(key))
+        if parsed is not None:
+            return (parsed, str(dataset.get("name") or ""))
+    return (datetime.min.replace(tzinfo=UTC), str(dataset.get("name") or ""))
+
+
 def normalize_resource(resource: dict[str, Any], dataset_name: str) -> dict[str, Any]:
     url = scrub_local_paths(str(resource.get("url") or "").strip())
     resource_id = str(resource.get("id") or slug(f"{dataset_name}-{resource.get('position', 0)}", "resource"))
@@ -536,7 +557,7 @@ def performance_model(manifest: dict[str, Any]) -> dict[str, Any]:
 
 
 def build_overview(manifest: dict[str, Any], datasets: list[dict[str, Any]], facets: dict[str, Any], graph: dict[str, Any]) -> dict[str, Any]:
-    recent = sorted(datasets, key=lambda item: str(item.get("timestamp") or item.get("metadata_modified") or ""), reverse=True)
+    recent = sorted(datasets, key=recent_dataset_sort_key, reverse=True)
     facet_previews = {key: values[:12] for key, values in facets.items()}
     return {
         "schema": "gov-ckan-overview.v1",

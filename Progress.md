@@ -84,6 +84,8 @@ The current GOV.UK CKAN performance pass adds the missing large-corpus OKF Explo
 
 The latest GOV.UK CKAN usability pass addresses local test feedback on the largest source. Overview format cards now select an individual format instead of sharing a common spotlight target. Resource review is direct: Resource stack renders resource rows, dataset cards inspect resources without route navigation, the in-app back button clears the inspection first, and double-click remains the explicit graph route. Dataset/resource/publisher cards now bind relation buttons consistently, show richer local CKAN metadata and extras, expose local normalized JSON, and `Show JSON` now renders package-shaped static bundle JSON even when the browser cannot fetch live `package_show` API JSON because of CORS. The OKF bundle notes render inside the app, a light/dark toggle is available, Timeline is chronological, and dense graph labels are bounded so publisher graphs stay readable.
 
+The latest GOV.UK CKAN PR-review fix validates date fields before building the lightweight overview's `Recently modified datasets` list. Placeholder strings such as `{{modified:toISO}}` and `TBC` no longer outrank real ISO timestamps; the builder falls back through `metadata_modified` and `metadata_created`, the committed full-corpus `overview.json` has been regenerated, and unit coverage now pins the placeholder-date regression.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.

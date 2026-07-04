@@ -8,6 +8,16 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 No undated pending changes.
 
+## 2026-07-04
+
+### Fixed
+
+- 2026-07-04: Fixed the GOV.UK CKAN overview's `Recently modified datasets` preview so placeholder CKAN timestamp strings such as `{{modified:toISO}}` and `TBC` are ignored for ranking and valid `metadata_modified` dates are used as fallbacks.
+
+### Validation
+
+- 2026-07-04: Added regression coverage for GOV.UK CKAN overview recent-dataset sorting with placeholder timestamps and regenerated the committed full-corpus `data/overview.json` preview.
+
 ## 2026-07-03
 
 ### Added

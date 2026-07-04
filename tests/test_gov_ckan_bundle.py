@@ -233,6 +233,42 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertNotIn("edges", graph)
         self.assertNotIn("nodes", graph)
 
+    def test_overview_recent_datasets_ignore_placeholder_dates(self) -> None:
+        def dataset(name: str, timestamp: str, metadata_modified: str) -> dict[str, Any]:
+            return {
+                "name": name,
+                "title": name.replace("-", " ").title(),
+                "publisher": "publisher",
+                "publisher_title": "Publisher",
+                "resource_count": 1,
+                "formats": ["CSV"],
+                "timestamp": timestamp,
+                "metadata_modified": metadata_modified,
+                "metadata_created": "2025-01-01T00:00:00",
+            }
+
+        manifest = {
+            "title": "Test bundle",
+            "generated_at": "2026-07-01T00:00:00Z",
+            "source": {},
+            "counts": {},
+            "performance": {},
+        }
+        overview = builder.build_overview(
+            manifest,
+            [
+                dataset("placeholder-template", "{{modified:toISO}}", "2026-06-01T00:00:00"),
+                dataset("new-real-date", "2026-07-02T00:00:00", "2026-07-02T00:00:00"),
+                dataset("tbc-fallback", "TBC", "2026-07-01T00:00:00"),
+            ],
+            {},
+            {},
+        )
+        self.assertEqual(
+            [item["name"] for item in overview["recent_datasets"]],
+            ["new-real-date", "tbc-fallback", "placeholder-template"],
+        )
+
     def test_fixture_build_and_checker_validate_bundle(self) -> None:
         original_iter_packages = builder.iter_packages
         original_fetch_govuk_content = builder.fetch_govuk_content
