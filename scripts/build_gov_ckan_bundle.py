@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from html import escape
 import json
+import math
 import re
 import shutil
 import sys
@@ -26,6 +27,7 @@ DEFAULT_API_BASE = "https://data.gov.uk/api/action"
 VIEWER_VERSION = "gov-ckan-viewer-v1"
 BUILDER_VERSION = "gov-ckan-builder-v1"
 LARGE_CORPUS_SCHEMA = "okf-explorer-large-corpus.v1"
+ANALYSIS_SCHEMA = "okf-explorer-analysis.v1"
 SEARCH_SCHEMA = "gov-ckan-static-search.v1"
 DEFAULT_ROWS = 1000
 DEFAULT_CHUNK_SIZE = 1000
@@ -734,6 +736,7 @@ def clean_generated_outputs(out_dir: Path) -> None:
     if data_dir.exists():
         for path in data_dir.glob("*.json"):
             path.unlink()
+        shutil.rmtree(data_dir / "analysis", ignore_errors=True)
         shutil.rmtree(data_dir / "search", ignore_errors=True)
     for path in [
         out_dir / "index.html",
@@ -784,6 +787,429 @@ def publisher_family(publisher: str) -> str:
     if "environment" in publisher or "natural" in publisher or "geological" in publisher:
         return "environment and science"
     return "other public body"
+
+
+def analysis_route(key: str, value: str) -> str:
+    return f"facet/{key}/{value}"
+
+
+def analysis_node(key: str, value: str, count: int, node_type: str | None = None) -> dict[str, Any]:
+    return {
+        "id": analysis_route(key, value),
+        "label": value,
+        "type": node_type or key,
+        "count": count,
+        "context": {"facet": key, "value": value},
+    }
+
+
+def route_label(route: str, datasets: dict[str, dict[str, Any]], resources: dict[str, dict[str, Any]], publishers: dict[str, dict[str, Any]]) -> str:
+    kind, _, value = route.partition("/")
+    if kind == "dataset":
+        return str(datasets.get(value, {}).get("title") or value)
+    if kind == "resource":
+        return str(resources.get(value, {}).get("name") or value)
+    if kind == "publisher":
+        return str(publishers.get(value, {}).get("title") or value)
+    return value or route
+
+
+def format_family(value: str) -> str:
+    text = value.lower()
+    if any(token in text for token in ("csv", "xls", "spreadsheet", "excel")):
+        return "tabular"
+    if any(token in text for token in ("geojson", "shp", "kml", "wms", "wfs", "arcgis", "map")):
+        return "geospatial"
+    if any(token in text for token in ("api", "json", "xml", "rdf")):
+        return "structured web"
+    if any(token in text for token in ("html", "pdf", "doc", "text")):
+        return "document"
+    if any(token in text for token in ("zip", "archive", "gzip", "compressed")):
+        return "archive"
+    if not text or text == "unknown":
+        return "unknown"
+    return "other"
+
+
+def licence_family(value: str) -> str:
+    text = value.lower()
+    if "ogl" in text or "open-government" in text or "uk-ogl" in text:
+        return "open government licence"
+    if "cc-by" in text or "creative-commons-attribution" in text:
+        return "creative commons attribution"
+    if "not" in text and "specified" in text:
+        return "not specified"
+    if any(token in text for token in ("closed", "restricted", "non-commercial", "other-nc")):
+        return "restricted or non-commercial"
+    if not text:
+        return "unknown"
+    return "other"
+
+
+def host_family(value: str) -> str:
+    host = value.lower().strip()
+    if not host:
+        return "unknown"
+    if host == "gov.uk" or host.endswith(".gov.uk"):
+        return "gov.uk"
+    if host == "nhs.uk" or host.endswith(".nhs.uk"):
+        return "nhs.uk"
+    if host == "gov.scot" or host.endswith(".gov.scot"):
+        return "gov.scot"
+    if host.endswith(".ac.uk"):
+        return "academic"
+    parts = [part for part in host.split(".") if part]
+    return ".".join(parts[-2:]) if len(parts) >= 2 else host
+
+
+def tag_cluster(value: str) -> str:
+    text = value.lower()
+    if any(token in text for token in ("environment", "land", "soil", "water", "flood", "climate", "nature", "agriculture")):
+        return "environment and land"
+    if any(token in text for token in ("health", "nhs", "care", "hospital", "mental")):
+        return "health and care"
+    if any(token in text for token in ("transport", "road", "rail", "traffic", "bus")):
+        return "transport"
+    if any(token in text for token in ("geography", "boundary", "map", "location", "postcode")):
+        return "geography"
+    if any(token in text for token in ("business", "economy", "finance", "tax", "spend", "trade")):
+        return "economy and finance"
+    if any(token in text for token in ("education", "school", "crime", "population", "housing", "society")):
+        return "society"
+    return "other topics"
+
+
+def entropy_score(counts: list[int]) -> float:
+    total = sum(counts)
+    if total <= 0 or len(counts) <= 1:
+        return 0.0
+    entropy = 0.0
+    for count in counts:
+        if count <= 0:
+            continue
+        share = count / total
+        entropy -= share * math.log(share)
+    return round(entropy / math.log(len(counts)), 4)
+
+
+def expected_reduction_score(counts: list[int]) -> float:
+    total = sum(counts)
+    if total <= 0:
+        return 0.0
+    concentration = sum((count / total) ** 2 for count in counts)
+    return round(max(0.0, min(1.0, 1.0 - concentration)), 4)
+
+
+def facet_population(key: str, manifest: dict[str, Any]) -> int:
+    counts = manifest.get("counts", {})
+    if key in {"format", "host", "resource_type"}:
+        return int(counts.get("resources") or 0)
+    if key == "publisher_state":
+        return int(counts.get("publishers") or 0)
+    return int(counts.get("datasets") or 0)
+
+
+def facet_control(key: str, cardinality: int) -> str:
+    if key == "update_year":
+        return "histogram"
+    if cardinality > 80 or key in {"publisher", "host", "tag"}:
+        return "searchable-list"
+    if cardinality <= 12:
+        return "chips"
+    return "folded-list"
+
+
+def facet_tier(key: str, coverage: float, cardinality: int, top_share: float) -> str:
+    if cardinality <= 1 or coverage <= 0.01:
+        return "suppressed"
+    if key in {"publisher", "publisher_family", "format", "tag", "license", "update_year", "host"}:
+        return "primary"
+    if key in {"resource_type", "govuk_linked"}:
+        return "secondary"
+    if top_share > 0.98 and key != "govuk_linked":
+        return "suppressed"
+    return "advanced"
+
+
+def build_facet_analysis(facets: dict[str, Any], manifest: dict[str, Any]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    hierarchy_facets = {"publisher_family", "format", "license", "update_year", "host", "tag"}
+    labels = {
+        "publisher": "Publisher",
+        "publisher_family": "Publisher family",
+        "format": "Format",
+        "license": "Licence",
+        "tag": "Topic/tag",
+        "update_year": "Update year",
+        "host": "Resource host",
+        "govuk_linked": "GOV.UK linked",
+        "resource_type": "Resource type",
+        "publisher_state": "Publisher state",
+    }
+    for key, values in facets.items():
+        counts = [int(row.get("count") or 0) for row in values]
+        total = sum(counts)
+        population = facet_population(key, manifest)
+        coverage = round(min(total / population, 1.0), 4) if population else 0.0
+        top_share = round((counts[0] / total), 4) if counts and total else 0.0
+        rows.append(
+            {
+                "key": key,
+                "label": labels.get(key, key.replace("_", " ").title()),
+                "coverage": coverage,
+                "cardinality": len(values),
+                "top_share": top_share,
+                "entropy": entropy_score(counts),
+                "expected_reduction": expected_reduction_score(counts),
+                "recommended_control": facet_control(key, len(values)),
+                "recommendation": facet_tier(key, coverage, len(values), top_share),
+                "hierarchy_available": key in hierarchy_facets,
+                "values": values[:18],
+            }
+        )
+    tier_order = {"primary": 0, "secondary": 1, "advanced": 2, "suppressed": 3}
+    return sorted(rows, key=lambda row: (tier_order.get(str(row["recommendation"]), 2), -float(row["expected_reduction"]), str(row["label"])))
+
+
+def hierarchy_from_groups(
+    hierarchy_id: str,
+    label: str,
+    facet: str,
+    groups: dict[str, list[dict[str, Any]]],
+) -> dict[str, Any]:
+    values = []
+    for group, children in sorted(groups.items(), key=lambda item: (-sum(int(child.get("count") or 0) for child in item[1]), item[0])):
+        child_rows = sorted(children, key=lambda child: (-int(child.get("count") or 0), str(child.get("label") or child.get("value"))))[:18]
+        total = sum(int(child.get("count") or 0) for child in children)
+        values.append(
+            {
+                "id": f"{hierarchy_id}/{slug(group)}",
+                "label": group,
+                "count": total,
+                "route": analysis_route(facet, group) if facet in {"publisher_family", "update_year"} else None,
+                "children": [
+                    {
+                        "id": str(child.get("id") or child.get("value") or child.get("label")),
+                        "label": str(child.get("label") or child.get("value") or child.get("id")),
+                        "count": int(child.get("count") or 0),
+                        "route": str(child.get("route") or ""),
+                    }
+                    for child in child_rows
+                ],
+            }
+        )
+    return {
+        "id": hierarchy_id,
+        "label": label,
+        "facet": facet,
+        "levels": ["family", "value"],
+        "values": values[:30],
+    }
+
+
+def build_hierarchies(
+    datasets: list[dict[str, Any]],
+    resources: list[dict[str, Any]],
+    publishers: dict[str, dict[str, Any]],
+    facets: dict[str, Any],
+) -> list[dict[str, Any]]:
+    publisher_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for publisher in publishers.values():
+        family = publisher_family(str(publisher.get("name") or ""))
+        publisher_groups[family].append(
+            {
+                "id": f"publisher/{publisher['name']}",
+                "label": publisher["title"],
+                "count": publisher["dataset_count"],
+                "route": f"publisher/{publisher['name']}",
+            }
+        )
+
+    format_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in facets.get("format", []):
+        format_groups[format_family(str(row["value"]))].append({**row, "route": analysis_route("format", str(row["value"]))})
+
+    licence_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in facets.get("license", []):
+        licence_groups[licence_family(str(row["value"]))].append({**row, "route": analysis_route("license", str(row["value"]))})
+
+    year_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in facets.get("update_year", []):
+        decade = f"{str(row['value'])[:3]}0s" if str(row["value"])[:4].isdigit() else "unknown"
+        year_groups[decade].append({**row, "route": analysis_route("update_year", str(row["value"]))})
+
+    host_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in facets.get("host", []):
+        host_groups[host_family(str(row["value"]))].append({**row, "route": analysis_route("host", str(row["value"]))})
+
+    tag_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in facets.get("tag", []):
+        tag_groups[tag_cluster(str(row["value"]))].append({**row, "route": analysis_route("tag", str(row["value"]))})
+
+    return [
+        hierarchy_from_groups("publisher-family", "Publisher family", "publisher_family", publisher_groups),
+        hierarchy_from_groups("format-family", "Format family", "format", format_groups),
+        hierarchy_from_groups("licence-family", "Licence family", "license", licence_groups),
+        hierarchy_from_groups("update-year", "Update year", "update_year", year_groups),
+        hierarchy_from_groups("host-domain", "Host domain", "host", host_groups),
+        hierarchy_from_groups("topic-cluster", "Topic/tag cluster", "tag", tag_groups),
+    ]
+
+
+def build_analysis_overview(
+    manifest: dict[str, Any],
+    datasets: list[dict[str, Any]],
+    resources: list[dict[str, Any]],
+    publishers: dict[str, dict[str, Any]],
+    facets: dict[str, Any],
+    relationships: list[dict[str, str]],
+) -> dict[str, Any]:
+    dataset_by_name = {dataset["name"]: dataset for dataset in datasets}
+    resource_by_id = {resource["id"]: resource for resource in resources}
+    recent_by_year: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for dataset in sorted(datasets, key=recent_dataset_sort_key, reverse=True):
+        year = str(dataset.get("timestamp") or dataset.get("metadata_modified") or "")[:4]
+        if year.isdigit() and len(recent_by_year[year]) < 4:
+            recent_by_year[year].append(dataset)
+
+    nodes = [{"id": "corpus/overview", "label": manifest["title"], "type": "root", "count": manifest["counts"]["datasets"]}]
+    edges: list[dict[str, Any]] = []
+    graph_specs = [
+        ("publisher_family", "publisher", 6),
+        ("format", "format", 10),
+        ("tag", "tag", 10),
+        ("license", "license", 6),
+        ("update_year", "dataset", 8),
+        ("host", "host", 8),
+    ]
+    for key, node_type, limit in graph_specs:
+        for row in facets.get(key, [])[:limit]:
+            value = str(row["value"])
+            count = int(row["count"])
+            node = analysis_node(key, value, count, node_type)
+            nodes.append(node)
+            edges.append({"source": "corpus/overview", "target": node["id"], "label": f"has {key.replace('_', ' ')}", "count": count})
+
+    buckets = []
+    for row in facets.get("update_year", []):
+        year = str(row["value"])
+        samples = [dataset_summary(dataset) for dataset in recent_by_year.get(year, [])]
+        buckets.append(
+            {
+                "id": f"year:{year}",
+                "label": year,
+                "count": int(row["count"]),
+                "route": analysis_route("update_year", year),
+                "samples": samples,
+            }
+        )
+    buckets.sort(key=lambda row: row["label"], reverse=True)
+
+    rel_counts = Counter(relationship["kind"] for relationship in relationships)
+    rel_samples: dict[str, list[dict[str, str]]] = defaultdict(list)
+    connected = Counter()
+    for relationship in relationships:
+        kind = relationship["kind"]
+        source = relationship["source"]
+        target = relationship["target"]
+        connected[source] += 1
+        connected[target] += 1
+        if len(rel_samples[kind]) < 4:
+            rel_samples[kind].append(
+                {
+                    "source": source,
+                    "target": target,
+                    "label": f"{route_label(source, dataset_by_name, resource_by_id, publishers)} {kind} {route_label(target, dataset_by_name, resource_by_id, publishers)}",
+                }
+            )
+    relationship_types = [
+        {"kind": kind, "count": count, "samples": rel_samples.get(kind, [])}
+        for kind, count in rel_counts.most_common()
+    ]
+    top_connected = [
+        {
+            "id": route,
+            "label": route_label(route, dataset_by_name, resource_by_id, publishers),
+            "type": route.partition("/")[0] or "route",
+            "count": count,
+        }
+        for route, count in connected.most_common(24)
+        if not route.startswith("resource/")
+    ][:18]
+
+    resources_by_dataset: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for resource in resources:
+        resources_by_dataset[resource["dataset"]].append(resource)
+    high_resource_datasets = []
+    for dataset in sorted(datasets, key=lambda item: (-int(item.get("resource_count") or 0), item["title"]))[:24]:
+        dataset_resources = resources_by_dataset.get(dataset["name"], [])
+        high_resource_datasets.append(
+            {
+                "route": f"dataset/{dataset['name']}",
+                "label": dataset["title"],
+                "count": len(dataset_resources),
+                "publisher": dataset["publisher_title"],
+                "samples": [
+                    {
+                        "id": resource["id"],
+                        "label": resource.get("name") or resource["id"],
+                        "format": resource.get("format"),
+                        "host": resource.get("host"),
+                    }
+                    for resource in dataset_resources[:6]
+                ],
+            }
+        )
+
+    return {
+        "schema": ANALYSIS_SCHEMA,
+        "generated_at": manifest["generated_at"],
+        "source_bundle": "gov-ckan/okf-explorer.json",
+        "summary": {
+            "title": manifest["title"],
+            "description": "Generated overview context for exploring the GOV.UK CKAN corpus before hydrating full records or relationship chunks.",
+            "record_count": manifest["counts"]["datasets"],
+            "resource_count": manifest["counts"]["resources"],
+            "relationship_count": manifest["counts"]["relationships"],
+            "notices": [
+                "Overview graph, relationship summaries, timeline buckets, resource stack summaries, and facet quality are generated from metadata.",
+                "The static Explorer should render this file before loading full dataset, resource, publisher, or relationship chunks.",
+            ],
+        },
+        "graph_overview": {"nodes": nodes, "edges": edges},
+        "timeline_overview": {"buckets": buckets},
+        "relationship_overview": {"types": relationship_types, "top_connected": top_connected},
+        "resource_overview": {
+            "total_resources": manifest["counts"]["resources"],
+            "high_resource_datasets": high_resource_datasets,
+            "distributions": {
+                "format": facets.get("format", [])[:24],
+                "host": facets.get("host", [])[:24],
+                "resource_type": facets.get("resource_type", [])[:18],
+                "license": facets.get("license", [])[:18],
+            },
+        },
+        "facet_analysis": build_facet_analysis(facets, manifest),
+        "hierarchies": build_hierarchies(datasets, resources, publishers, facets),
+        "ontology_candidates": [
+            {
+                "id": "schema.org",
+                "label": "schema.org Dataset/DataCatalog fit",
+                "confidence": 0.68,
+                "coverage": 1.0,
+                "classes": ["DataCatalog", "Dataset", "DataDownload", "Organization", "CreativeWork"],
+                "properties": ["name", "description", "publisher", "license", "distribution", "keywords", "dateModified"],
+                "notes": [
+                    "Deterministic placeholder based on CKAN dataset/resource/publisher fields.",
+                    "No external ontology classifier is run in this pass.",
+                ],
+            }
+        ],
+        "narrative": {
+            "title": "Metadata-first public data landscape",
+            "body": "The corpus is best entered through generated overview contexts: publisher families, dominant formats, topic clusters, update-year distribution, high-resource stacks, and relationship summaries. Record-level graph, link, and resource exploration remain available after the user selects a reduction.",
+        },
+    }
 
 
 def build_graph(
@@ -840,6 +1266,7 @@ def performance_model(manifest: dict[str, Any]) -> dict[str, Any]:
             "data/overview.json",
         ],
         "deferred_loads": {
+            "analysis_overview": "loaded by the generic OKF Explorer for overview graph, links, timeline, facets, and resources before full hydration",
             "search": "loads data/search/manifest.json plus only the lexicon, postings, and result-doc chunks needed by the query",
             "dataset_index": "loaded only after filters, detail routes, or non-overview views that need full records",
             "resources": "loaded with the full index because resource details and resource-type filters need it",
@@ -899,6 +1326,7 @@ def build_explorer_descriptor(manifest: dict[str, Any]) -> dict[str, Any]:
             "viewer": "viewer.html",
             "data_manifest": "data/manifest.json",
             "overview_index": manifest["indexes"]["overview"],
+            "analysis_overview": manifest["indexes"]["analysis"],
             "search_manifest": manifest["indexes"]["search"],
             "notes": "wiki/index.md",
             "performance": "wiki/performance.md",
@@ -930,6 +1358,8 @@ timestamp: "{timestamp}"
 # GOV.UK CKAN OKF Bundle
 
 This bundle localises public metadata from the National Data Library directory into a static OKF-style corpus. It keeps dataset and resource metadata, source links, publisher information, facets, and graph relationships, but it does not download remote data files.
+
+This repository preserves the historical development path from the original dark-data challenge into the GOV.UK CKAN large-corpus fixture. The generic OKF Explorer product, bundle conventions, and reusable Svelte viewer now live in [`ai-infrastructure-wiki`](https://github.com/chris-page-gov/ai-infrastructure-wiki). This CKAN bundle remains the largest fixture used to prove that generic Explorer at scale.
 
 ## Current Build
 
@@ -1004,6 +1434,7 @@ This is the largest OKF-style data source in the repository, so it deliberately 
 - Chunked data manifest: [`../data/manifest.json`](../data/manifest.json)
 - Lightweight overview index: [`../data/overview.json`](../data/overview.json)
 - Static search manifest: [`../data/search/manifest.json`](../data/search/manifest.json)
+- Generated overview analysis: [`../data/analysis/overview.json`](../data/analysis/overview.json)
 - Large-corpus descriptor: [`../okf-explorer.json`](../okf-explorer.json)
 
 ## Startup Budget
@@ -1016,6 +1447,8 @@ The default `#overview` route must be overview-first. It should load only:
 
 Search loads the static search manifest plus lexicon, postings, and result-doc chunks. It must not hydrate the full dataset/resource/publisher indexes. Those full indexes are intentionally deferred until a user applies full-record filters, opens a detail route, or enters a non-overview view that needs full records. Relationship chunks are deferred again until Graph mode is opened.
 
+The generic OKF Explorer may also load `data/analysis/overview.json` before full hydration. That file contains generated aggregate context for overview Graph, Links, Timeline, Facets/Dimensions, Resources, and Narrative views. It is additive to the startup `data/overview.json`; the legacy static viewer keeps the minimal startup path.
+
 The generated overview payload budget is `{manifest['performance']['budgets']['max_overview_payload_bytes']}` bytes. Keep `data/overview.json` small enough to be cache-friendly and safe for slow public networks.
 
 ## Design Rules
@@ -1023,6 +1456,7 @@ The generated overview payload budget is `{manifest['performance']['budgets']['m
 - Do not publish the full GOV.UK CKAN corpus as a single `okf-bundle.json`.
 - Keep the root `gov-ckan/index.html` as the browser entry point and `okf-explorer.json` as the machine-readable large-corpus descriptor.
 - Keep `data/search/manifest.json` as the first search entrypoint; search implementations should resolve postings and compact result docs from there.
+- Keep `data/analysis/overview.json` as the generated overview-context entrypoint for the generic OKF Explorer.
 - Keep routes hash-addressable: `#overview`, `#dataset/<package-name>`, `#resource/<resource-id>`, and `#publisher/<organization-name>`.
 - Keep heavy views opt-in. Graph mode may load relationship chunks; overview must not.
 - Keep list views reduced. Render bounded slices of the visible corpus rather than thousands of DOM nodes.
@@ -1197,6 +1631,7 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
         "chunks": chunks,
         "indexes": {
             "overview": "data/overview.json",
+            "analysis": "data/analysis/overview.json",
             "search": "data/search/manifest.json",
             "facets": "data/facets.json",
             "graph": "data/graph.json",
@@ -1214,7 +1649,10 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
     }
     manifest["performance"] = performance_model(manifest)
     overview = build_overview(manifest, datasets, facets, graph)
+    analysis = build_analysis_overview(manifest, datasets, resources, publishers, facets, relationships)
+    (data_dir / "analysis").mkdir(parents=True, exist_ok=True)
     write_json(data_dir / "overview.json", overview)
+    write_json(data_dir / "analysis" / "overview.json", analysis)
     write_json(data_dir / "manifest.json", manifest)
     write_json(out_dir / "okf-explorer.json", build_explorer_descriptor(manifest))
     render_wiki(out_dir, manifest, official_sources)

@@ -41,12 +41,13 @@ def main(argv: list[str] | None = None) -> int:
 
     manifest_path = bundle / "data" / "manifest.json"
     overview_path = bundle / "data" / "overview.json"
+    analysis_path = bundle / "data" / "analysis" / "overview.json"
     viewer_path = bundle / "viewer.html"
     descriptor_path = bundle / "okf-explorer.json"
     entry_path = bundle / "index.html"
     search_manifest_path = bundle / "data" / "search" / "manifest.json"
 
-    for path in (manifest_path, overview_path, viewer_path, descriptor_path, entry_path, search_manifest_path):
+    for path in (manifest_path, overview_path, analysis_path, viewer_path, descriptor_path, entry_path, search_manifest_path):
         if not path.exists():
             errors.append(f"{rel(path)} is missing")
 
@@ -66,6 +67,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if manifest.get("indexes", {}).get("overview") != "data/overview.json":
         errors.append("manifest indexes.overview must point to data/overview.json")
+    if manifest.get("indexes", {}).get("analysis") != "data/analysis/overview.json":
+        errors.append("manifest indexes.analysis must point to data/analysis/overview.json")
     search_manifest = read_json(search_manifest_path)
     if descriptor.get("schema") != build_gov_ckan_bundle.LARGE_CORPUS_SCHEMA:
         errors.append(f"okf-explorer.json must use schema {build_gov_ckan_bundle.LARGE_CORPUS_SCHEMA}")
@@ -73,6 +76,8 @@ def main(argv: list[str] | None = None) -> int:
         errors.append("okf-explorer.json must expose data/manifest.json")
     if descriptor.get("entrypoints", {}).get("search_manifest") != "data/search/manifest.json":
         errors.append("okf-explorer.json must expose data/search/manifest.json")
+    if descriptor.get("entrypoints", {}).get("analysis_overview") != "data/analysis/overview.json":
+        errors.append("okf-explorer.json must expose data/analysis/overview.json")
     if manifest.get("indexes", {}).get("search") != "data/search/manifest.json":
         errors.append("manifest indexes.search must point to data/search/manifest.json")
     if search_manifest.get("schema") != build_gov_ckan_bundle.SEARCH_SCHEMA:

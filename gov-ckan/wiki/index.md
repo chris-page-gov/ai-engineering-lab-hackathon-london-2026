@@ -10,6 +10,8 @@ timestamp: "2026-07-01T14:55:30Z"
 
 This bundle localises public metadata from the National Data Library directory into a static OKF-style corpus. It keeps dataset and resource metadata, source links, publisher information, facets, and graph relationships, but it does not download remote data files.
 
+This repository preserves the historical development path from the original dark-data challenge into the GOV.UK CKAN large-corpus fixture. The generic OKF Explorer product, bundle conventions, and reusable Svelte viewer now live in [`ai-infrastructure-wiki`](https://github.com/chris-page-gov/ai-infrastructure-wiki). This CKAN bundle remains the largest fixture used to prove that generic Explorer at scale.
+
 ## Current Build
 
 - CKAN API base: `https://data.gov.uk/api/action`
