@@ -8,6 +8,24 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 No undated pending changes.
 
+## 2026-07-06
+
+### Added
+
+- 2026-07-06: Added generated `gov-ckan/data/analysis/overview.json` using `okf-explorer-analysis.v1` so the generic OKF Explorer can render bundle-level graph, timeline, relationship, facet, and resource overviews before full-corpus hydration.
+
+### Changed
+
+- 2026-07-06: Updated the GOV.UK CKAN large-corpus descriptor and manifest to advertise the optional analysis overview while keeping `data/overview.json` as the minimal startup payload.
+
+### Documentation
+
+- 2026-07-06: Documented the repository relationship: this repo preserves the GOV.UK CKAN dark-data development history and largest fixture, while `ai-infrastructure-wiki` owns the reusable OKF Explorer and bundle contract.
+
+### Validation
+
+- 2026-07-06: Extended CKAN bundle and performance checks so the analysis overview artifact, descriptor entrypoint, manifest index, and overview-first startup budget are validated together.
+
 ## 2026-07-04
 
 ### Fixed

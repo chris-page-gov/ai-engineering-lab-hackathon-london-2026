@@ -18,6 +18,7 @@ This is the largest OKF-style data source in the repository, so it deliberately 
 - Chunked data manifest: [`../data/manifest.json`](../data/manifest.json)
 - Lightweight overview index: [`../data/overview.json`](../data/overview.json)
 - Static search manifest: [`../data/search/manifest.json`](../data/search/manifest.json)
+- Generated overview analysis: [`../data/analysis/overview.json`](../data/analysis/overview.json)
 - Large-corpus descriptor: [`../okf-explorer.json`](../okf-explorer.json)
 
 ## Startup Budget
@@ -30,6 +31,8 @@ The default `#overview` route must be overview-first. It should load only:
 
 Search loads the static search manifest plus lexicon, postings, and result-doc chunks. It must not hydrate the full dataset/resource/publisher indexes. Those full indexes are intentionally deferred until a user applies full-record filters, opens a detail route, or enters a non-overview view that needs full records. Relationship chunks are deferred again until Graph mode is opened.
 
+The generic OKF Explorer may also load `data/analysis/overview.json` before full hydration. That file contains generated aggregate context for overview Graph, Links, Timeline, Facets/Dimensions, Resources, and Narrative views. It is additive to the startup `data/overview.json`; the legacy static viewer keeps the minimal startup path.
+
 The generated overview payload budget is `524288` bytes. Keep `data/overview.json` small enough to be cache-friendly and safe for slow public networks.
 
 ## Design Rules
@@ -37,6 +40,7 @@ The generated overview payload budget is `524288` bytes. Keep `data/overview.jso
 - Do not publish the full GOV.UK CKAN corpus as a single `okf-bundle.json`.
 - Keep the root `gov-ckan/index.html` as the browser entry point and `okf-explorer.json` as the machine-readable large-corpus descriptor.
 - Keep `data/search/manifest.json` as the first search entrypoint; search implementations should resolve postings and compact result docs from there.
+- Keep `data/analysis/overview.json` as the generated overview-context entrypoint for the generic OKF Explorer.
 - Keep routes hash-addressable: `#overview`, `#dataset/<package-name>`, `#resource/<resource-id>`, and `#publisher/<organization-name>`.
 - Keep heavy views opt-in. Graph mode may load relationship chunks; overview must not.
 - Keep list views reduced. Render bounded slices of the visible corpus rather than thousands of DOM nodes.

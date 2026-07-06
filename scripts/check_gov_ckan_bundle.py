@@ -132,7 +132,7 @@ def check_manifest(bundle: Path, errors: list[str]) -> dict[str, Any] | None:
         errors.append("manifest viewer_version does not match builder viewer version")
     if manifest.get("builder_version") != build_gov_ckan_bundle.BUILDER_VERSION:
         errors.append("manifest builder_version does not match builder version")
-    for key in ("overview", "facets", "graph", "govuk_content"):
+    for key in ("overview", "analysis", "facets", "graph", "govuk_content"):
         index_path = manifest.get("indexes", {}).get(key)
         if not index_path or not (bundle / index_path).exists():
             errors.append(f"manifest indexes.{key} is missing or points to a missing file")
@@ -150,6 +150,8 @@ def check_manifest(bundle: Path, errors: list[str]) -> dict[str, Any] | None:
             errors.append(f"{rel(descriptor_path)}: unexpected descriptor schema")
         if descriptor.get("entrypoints", {}).get("overview") != "viewer.html#overview":
             errors.append(f"{rel(descriptor_path)}: overview entrypoint should target viewer.html#overview")
+        if descriptor.get("entrypoints", {}).get("analysis_overview") != "data/analysis/overview.json":
+            errors.append(f"{rel(descriptor_path)}: analysis_overview should target data/analysis/overview.json")
         if descriptor.get("entrypoints", {}).get("search_manifest") != "data/search/manifest.json":
             errors.append(f"{rel(descriptor_path)}: search_manifest should target data/search/manifest.json")
     viewer_path = bundle / "viewer.html"
@@ -295,6 +297,38 @@ def check_search_index(bundle: Path, manifest: dict[str, Any], errors: list[str]
                 errors.append(f"{rel(postings_path)}: postings tokens must be an object")
 
 
+def check_analysis_overview(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> None:
+    analysis_path_name = manifest.get("indexes", {}).get("analysis")
+    if analysis_path_name != "data/analysis/overview.json":
+        errors.append("manifest indexes.analysis must point to data/analysis/overview.json")
+        return
+    analysis_path = bundle / analysis_path_name
+    if not analysis_path.exists():
+        errors.append(f"{rel(analysis_path)} is missing")
+        return
+    analysis = read_json(analysis_path)
+    if analysis.get("schema") != build_gov_ckan_bundle.ANALYSIS_SCHEMA:
+        errors.append(f"{rel(analysis_path)}: unexpected analysis schema")
+    for key in (
+        "summary",
+        "graph_overview",
+        "timeline_overview",
+        "relationship_overview",
+        "resource_overview",
+        "facet_analysis",
+        "hierarchies",
+        "ontology_candidates",
+    ):
+        if key not in analysis:
+            errors.append(f"{rel(analysis_path)}: missing {key}")
+    if not analysis.get("graph_overview", {}).get("nodes"):
+        errors.append(f"{rel(analysis_path)}: graph_overview.nodes must not be empty")
+    if not analysis.get("timeline_overview", {}).get("buckets"):
+        errors.append(f"{rel(analysis_path)}: timeline_overview.buckets must not be empty")
+    if not analysis.get("facet_analysis"):
+        errors.append(f"{rel(analysis_path)}: facet_analysis must not be empty")
+
+
 def check_wiki(bundle: Path, errors: list[str]) -> None:
     for name in ("index.md", "data-source-report.md", "performance.md", "ui-design.md"):
         path = bundle / "wiki" / name
@@ -321,6 +355,7 @@ def main(argv: list[str] | None = None) -> int:
             try:
                 check_records(bundle, manifest, errors)
                 check_search_index(bundle, manifest, errors)
+                check_analysis_overview(bundle, manifest, errors)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
                 errors.append(str(exc))
         check_wiki(bundle, errors)
