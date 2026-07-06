@@ -56,6 +56,7 @@ This contract is metadata-derived. It is intended to make the large static bundl
 - `Progress.md`: current status, validation, blockers, and next steps.
 - `AGENTS.md`: repo-wide operating rules and documentation lockstep policy.
 - `tools/check_documentation_lockstep.py`: local and CI check that required tracking docs exist and move with meaningful changes.
+- `.github/workflows/documentation-lockstep.yml`: pull-request workflow that enforces tracking-doc updates for human-authored meaningful changes; Dependabot dependency PRs skip this docs gate and are held by the required CKAN fixture/workbench CI instead.
 - `challenge-2/AGENTS.md`: Challenge 2 LLM Wiki operating schema.
 - `challenge-2/tools/build_wiki.py`: repeatable Challenge 2 wiki builder.
 - `viewer.html`: generated self-contained HTML viewer for publishing the public postmortem and Challenge 2 wiki on GitHub, including Narrative/Timeline/Graph/Links views, a collapsible current-page navigation rail, rendered Mermaid flowcharts, explicit graph zoom/pan controls with drag/click separation, reciprocal edge-label control, and cycling non-overlapping node-label layers.
