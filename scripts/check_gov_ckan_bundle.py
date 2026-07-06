@@ -187,6 +187,19 @@ def check_records(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> 
     for dataset in datasets:
         if "/" in str(dataset.get("name", "")):
             errors.append(f"dataset/{dataset.get('name')}: route ids must not contain slashes")
+        if not str(dataset.get("concept_id", "")).startswith("datasets/"):
+            errors.append(f"dataset/{dataset.get('name')}: missing stable dataset concept_id")
+        if dataset.get("route") != f"dataset/{dataset.get('name')}":
+            errors.append(f"dataset/{dataset.get('name')}: route should match dataset/<name>")
+        if not dataset.get("topics"):
+            errors.append(f"dataset/{dataset.get('name')}: controlled topics must not be empty")
+        if not isinstance(dataset.get("quality"), dict) or "overall" not in dataset.get("quality", {}):
+            errors.append(f"dataset/{dataset.get('name')}: missing quality score")
+        provenance = dataset.get("provenance")
+        if not isinstance(provenance, dict) or not provenance.get("ckan_package_id") or not provenance.get("transformation_pipeline_version"):
+            errors.append(f"dataset/{dataset.get('name')}: missing provenance")
+        if str(dataset.get("license_id", "")).lower() in {"not specified", "notspecified", "ogl", "ogl-uk-3.0"}:
+            errors.append(f"dataset/{dataset.get('name')}: licence was not canonicalised")
         if contains_local_path(dataset):
             errors.append(f"dataset/{dataset.get('name')}: local path leaked into record")
         for resource_id in dataset.get("resource_ids", []):
@@ -197,6 +210,18 @@ def check_records(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> 
     for resource in resources:
         if "/" in str(resource.get("id", "")):
             errors.append(f"resource/{resource.get('id')}: route ids must not contain slashes")
+        if not str(resource.get("concept_id", "")).startswith("resources/"):
+            errors.append(f"resource/{resource.get('id')}: missing stable resource concept_id")
+        if resource.get("route") != f"resource/{resource.get('id')}":
+            errors.append(f"resource/{resource.get('id')}: route should match resource/<id>")
+        if "source_format" not in resource or "format_confidence" not in resource:
+            errors.append(f"resource/{resource.get('id')}: missing source/canonical format metadata")
+        resource_format = str(resource.get("format", "")).strip().lower()
+        if resource_format.startswith(".") or resource_format.startswith(("http://", "https://")):
+            errors.append(f"resource/{resource.get('id')}: format was not canonicalised")
+        provenance = resource.get("provenance")
+        if not isinstance(provenance, dict) or not provenance.get("transformation_pipeline_version"):
+            errors.append(f"resource/{resource.get('id')}: missing provenance")
         if resource.get("dataset") not in dataset_names:
             errors.append(f"resource/{resource.get('id')}: missing dataset {resource.get('dataset')}")
         if contains_local_path(resource):
@@ -204,6 +229,12 @@ def check_records(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> 
     for publisher in publishers:
         if "/" in str(publisher.get("name", "")):
             errors.append(f"publisher/{publisher.get('name')}: route ids must not contain slashes")
+        if publisher.get("concept_id") != f"publishers/{publisher.get('name')}.md":
+            errors.append(f"publisher/{publisher.get('name')}: missing publisher authority concept_id")
+        if publisher.get("route") != f"publisher/{publisher.get('name')}":
+            errors.append(f"publisher/{publisher.get('name')}: route should match publisher/<name>")
+        if not isinstance(publisher.get("provenance"), dict):
+            errors.append(f"publisher/{publisher.get('name')}: missing provenance")
         if contains_local_path(publisher):
             errors.append(f"publisher/{publisher.get('name')}: local path leaked into record")
     for relationship in relationships:
@@ -211,6 +242,10 @@ def check_records(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> 
             errors.append(f"relationship is missing required fields: {relationship}")
         if contains_local_path(relationship):
             errors.append(f"relationship leaked local path: {relationship}")
+    relationship_kinds = {str(relationship.get("kind")) for relationship in relationships}
+    for required_kind in ("published by", "publisher authority", "licence", "download resource", "classified as", "temporal coverage"):
+        if required_kind not in relationship_kinds:
+            errors.append(f"relationships: missing required enriched relationship kind {required_kind!r}")
 
 
 def check_search_index(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> None:
@@ -315,6 +350,7 @@ def check_analysis_overview(bundle: Path, manifest: dict[str, Any], errors: list
         "timeline_overview",
         "relationship_overview",
         "resource_overview",
+        "quality_overview",
         "facet_analysis",
         "hierarchies",
         "ontology_candidates",
