@@ -90,6 +90,8 @@ The latest GOV.UK CKAN PR-review fix validates date fields before building the l
 
 The latest PR readiness review found and fixed a GOV.UK CKAN viewer hardening issue: URL-supplied pin IDs and CKAN resource identifiers are no longer interpolated into inline JavaScript handlers. Pin removal, resource previous/next navigation, and detail-card actions now bind through data attributes and event listeners, with regression coverage to keep that boundary in place.
 
+The current PR #28 documentation lockstep pass makes the GOV.UK CKAN enrichment contract explicit across the generated CKAN notes, top-level repository docs, and validation guidance. The documented contract covers stable logical concept IDs, canonical licence and format values, publisher authority records, controlled topics, explicit relationship kinds, quality metrics, provenance fields, and the requirement to update builder templates, generated notes, checkers, tests, and generic Explorer documentation together when those fields change.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.

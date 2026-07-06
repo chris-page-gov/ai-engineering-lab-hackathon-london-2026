@@ -24,10 +24,12 @@ def fixture_package() -> dict[str, Any]:
         "notes": "Metadata about planning applications.",
         "url": "https://www.gov.uk/government/collections/planning-data",
         "isopen": True,
-        "license_id": "uk-ogl",
-        "license_title": "UK Open Government Licence",
+        "license_id": "OGL-UK-3.0",
+        "license_title": "Open Government Licence",
         "metadata_created": "2026-01-01T00:00:00",
         "metadata_modified": "2026-06-30T12:00:00",
+        "maintainer": "Planning Data Team",
+        "maintainer_email": "planning@example.gov.uk",
         "organization": {
             "id": "org-1",
             "name": "department-for-levelling-up-housing-and-communities",
@@ -43,7 +45,7 @@ def fixture_package() -> dict[str, Any]:
                 "id": "res-1",
                 "name": "CSV extract",
                 "url": "https://www.gov.uk/government/statistical-data-sets/planning-applications",
-                "format": "CSV",
+                "format": ".csv",
                 "resource_type": "data",
                 "position": 0,
                 "last_modified": "2026-06-30",
@@ -103,9 +105,47 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertEqual(dataset["name"], "planning-applications-2026")
         self.assertEqual(dataset["publisher"], "department-for-levelling-up-housing-and-communities")
         self.assertEqual(dataset["formats"], ["CSV"])
+        self.assertEqual(dataset["license_id"], "uk-ogl")
+        self.assertEqual(dataset["license_source_id"], "OGL-UK-3.0")
+        self.assertEqual(dataset["maintainer"], "Planning Data Team")
+        self.assertEqual(dataset["maintainer_contact_domain"], "example.gov.uk")
+        self.assertEqual(resources[0]["format"], "CSV")
+        self.assertEqual(resources[0]["source_format"], ".csv")
         self.assertEqual(dataset["source_api_url"], "https://example.test/api/action/package_show?id=planning-applications-2026")
         self.assertEqual(resources[0]["govuk_content_path"], "government/statistical-data-sets/planning-applications")
+        self.assertEqual(publisher["concept_id"], "publishers/department-for-levelling-up-housing-and-communities.md")
         self.assertEqual(publisher["dataset_count"], 0)
+
+    def test_dataset_concepts_topics_quality_and_provenance_are_deterministic(self) -> None:
+        dataset, resources, publisher = builder.normalize_dataset(fixture_package(), "https://example.test/api/action")
+        builder.assign_dataset_concepts(dataset, resources, publisher, "2026-07-01T00:00:00Z", "https://example.test/api/action")
+        self.assertEqual(
+            dataset["concept_id"],
+            "datasets/department-for-levelling-up-housing-and-communities/planning-applications-2026.md",
+        )
+        self.assertEqual(resources[0]["concept_id"], "resources/planning-applications-2026/000-csv-extract.md")
+        self.assertIn("Planning", dataset["topics"])
+        self.assertIn("Housing", dataset["topics"])
+        self.assertGreater(dataset["quality"]["overall"], 0.5)
+        self.assertIsNone(dataset["quality"]["metrics"]["download_success"])
+        self.assertEqual(dataset["provenance"]["ckan_package_id"], "pkg-1")
+        self.assertEqual(dataset["provenance"]["harvest_timestamp"], "2026-07-01T00:00:00Z")
+        self.assertEqual(dataset["provenance"]["enrichment_version"], builder.ENRICHMENT_VERSION)
+
+    def test_canonical_value_helpers_collapse_common_variants(self) -> None:
+        self.assertEqual(builder.normalize_licence_value("not specified")["id"], "not-specified")
+        self.assertEqual(builder.normalize_licence_value("notspecified")["id"], "not-specified")
+        self.assertEqual(builder.normalize_licence_value("ogl")["id"], "uk-ogl")
+        self.assertEqual(builder.normalize_licence_value("OGL-UK-3.0")["id"], "uk-ogl")
+        self.assertEqual(builder.normalize_format_value("csv")["value"], "CSV")
+        self.assertEqual(builder.normalize_format_value(".csv")["value"], "CSV")
+        self.assertEqual(builder.normalize_format_value("application/pdf")["value"], "PDF")
+        self.assertEqual(builder.normalize_format_value("https://www.iana.org/assignments/media-types/application/zip")["value"], "ZIP")
+        self.assertEqual(builder.normalize_format_value("CSV / Zip")["value"], "CSV / ZIP")
+        self.assertEqual(builder.normalize_format_value(".xlxs")["value"], "XLSX")
+        self.assertEqual(builder.normalize_format_value(".xslx")["value"], "XLSX")
+        self.assertEqual(builder.normalize_format_value(".xlsm")["value"], "XLSM")
+        self.assertEqual(builder.normalize_format_value(".tab, .kml, .shp, .json")["value"], "TAB / KML / SHP / JSON")
 
     def test_content_api_status_classification(self) -> None:
         ok_body = json.dumps(
@@ -229,6 +269,7 @@ class GovCkanBundleTest(unittest.TestCase):
 
     def test_graph_index_is_compact_summary_not_edge_duplicate(self) -> None:
         dataset, resources, publisher = builder.normalize_dataset(fixture_package(), "https://example.test/api/action")
+        builder.assign_dataset_concepts(dataset, resources, publisher, "2026-07-01T00:00:00Z", "https://example.test/api/action")
         publisher["dataset_count"] = 1
         publisher["resource_count"] = len(resources)
         relationships = builder.build_relationships([dataset], resources, {})
@@ -236,6 +277,8 @@ class GovCkanBundleTest(unittest.TestCase):
         self.assertEqual(graph["node_counts"]["datasets"], 1)
         self.assertEqual(graph["node_counts"]["resources"], 1)
         self.assertIn({"kind": "has resource", "count": 1}, graph["edge_counts"])
+        self.assertIn({"kind": "download resource", "count": 1}, graph["edge_counts"])
+        self.assertIn({"kind": "classified as", "count": len(dataset.get("topics", []))}, graph["edge_counts"])
         self.assertNotIn("edges", graph)
         self.assertNotIn("nodes", graph)
 

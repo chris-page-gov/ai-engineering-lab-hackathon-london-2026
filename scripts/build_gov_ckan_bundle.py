@@ -25,10 +25,12 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "gov-ckan"
 DEFAULT_API_BASE = "https://data.gov.uk/api/action"
 VIEWER_VERSION = "gov-ckan-viewer-v1"
-BUILDER_VERSION = "gov-ckan-builder-v1"
+BUILDER_VERSION = "gov-ckan-builder-v2"
 LARGE_CORPUS_SCHEMA = "okf-explorer-large-corpus.v1"
 ANALYSIS_SCHEMA = "okf-explorer-analysis.v1"
 SEARCH_SCHEMA = "gov-ckan-static-search.v1"
+ENRICHMENT_VERSION = "gov-ckan-enrichment-v1"
+TRANSFORMATION_PIPELINE_VERSION = "gov-ckan-pipeline-v2"
 DEFAULT_ROWS = 1000
 DEFAULT_CHUNK_SIZE = 1000
 DEFAULT_SEARCH_CHUNK_SIZE = 1000
@@ -86,6 +88,147 @@ SEARCH_FIELD_MASKS = {
     "resources": 64,
 }
 
+LICENCE_ALIASES = {
+    "": ("not-specified", "Not specified", 0.25),
+    "not specified": ("not-specified", "Not specified", 0.95),
+    "not-specified": ("not-specified", "Not specified", 0.95),
+    "notspecified": ("not-specified", "Not specified", 0.95),
+    "none": ("not-specified", "Not specified", 0.5),
+    "unknown": ("not-specified", "Not specified", 0.5),
+    "uk-ogl": ("uk-ogl", "UK Open Government Licence", 0.98),
+    "ogl": ("uk-ogl", "UK Open Government Licence", 0.95),
+    "ogl-uk-3.0": ("uk-ogl", "UK Open Government Licence", 0.98),
+    "open-government-licence": ("uk-ogl", "UK Open Government Licence", 0.98),
+    "open government licence": ("uk-ogl", "UK Open Government Licence", 0.98),
+    "uk open government licence": ("uk-ogl", "UK Open Government Licence", 0.98),
+    "cc-by": ("cc-by", "Creative Commons Attribution", 0.95),
+    "cc-by-4.0": ("cc-by", "Creative Commons Attribution", 0.98),
+    "cc by": ("cc-by", "Creative Commons Attribution", 0.95),
+    "creative commons attribution": ("cc-by", "Creative Commons Attribution", 0.95),
+}
+
+FORMAT_ALIASES = {
+    "": ("unknown", 0.25),
+    "unknown": ("unknown", 0.25),
+    ".csv": ("CSV", 1.0),
+    "csv": ("CSV", 1.0),
+    "text/csv": ("CSV", 1.0),
+    "https://www.iana.org/assignments/media-types/text/csv": ("CSV", 1.0),
+    ".pdf": ("PDF", 1.0),
+    "pdf": ("PDF", 1.0),
+    "application/pdf": ("PDF", 1.0),
+    ".xlsx": ("XLSX", 1.0),
+    ".xlxs": ("XLSX", 0.9),
+    "xlsx": ("XLSX", 1.0),
+    "xlxs": ("XLSX", 0.9),
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": ("XLSX", 1.0),
+    "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": ("XLSX", 1.0),
+    ".xls": ("XLS", 1.0),
+    "xls": ("XLS", 1.0),
+    "application/vnd.ms-excel": ("XLS", 1.0),
+    ".xlsm": ("XLSM", 1.0),
+    "xlsm": ("XLSM", 1.0),
+    ".xslx": ("XLSX", 0.8),
+    "xslx": ("XLSX", 0.8),
+    ".xsl": ("XSL", 0.8),
+    "xsl": ("XSL", 0.8),
+    ".json": ("JSON", 1.0),
+    "json": ("JSON", 1.0),
+    "application/json": ("JSON", 1.0),
+    "https://www.iana.org/assignments/media-types/application/json": ("JSON", 1.0),
+    "application/ld+json": ("JSON-LD", 1.0),
+    "https://www.iana.org/assignments/media-types/application/ld+json": ("JSON-LD", 1.0),
+    ".geojson": ("GeoJSON", 1.0),
+    "geojson": ("GeoJSON", 1.0),
+    "application/geo+json": ("GeoJSON", 1.0),
+    "application/vnd.geo+json": ("GeoJSON", 1.0),
+    ".kml": ("KML", 1.0),
+    "kml": ("KML", 1.0),
+    "application/vnd.google-earth.kml+xml": ("KML", 1.0),
+    "https://www.iana.org/assignments/media-types/application/vnd.google-earth.kml+xml": ("KML", 1.0),
+    ".kmz": ("KMZ", 1.0),
+    "kmz": ("KMZ", 1.0),
+    ".zip": ("ZIP", 1.0),
+    "zip": ("ZIP", 1.0),
+    "application/zip": ("ZIP", 1.0),
+    "https://www.iana.org/assignments/media-types/application/zip": ("ZIP", 1.0),
+    "application/octet-stream": ("Binary", 0.65),
+    "https://www.iana.org/assignments/media-types/application/octet-stream": ("Binary", 0.65),
+    "application/x-zip-compressed": ("ZIP", 1.0),
+    "application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip": ("ZIP", 0.95),
+    "html": ("HTML", 1.0),
+    ".html": ("HTML", 1.0),
+    "text/html": ("HTML", 1.0),
+    "text/html; charset=utf-8": ("HTML", 0.98),
+    "application/xhtml+xml": ("HTML", 0.95),
+    "webpage": ("HTML", 0.85),
+    "xml": ("XML", 1.0),
+    ".xml": ("XML", 1.0),
+    "application/xml": ("XML", 1.0),
+    "application/gml+xml": ("GML", 1.0),
+    "https://www.iana.org/assignments/media-types/application/gml+xml": ("GML", 1.0),
+    "application/gpx+xml": ("GPX", 1.0),
+    "https://www.iana.org/assignments/media-types/application/gpx+xml": ("GPX", 1.0),
+    "rdf+xml": ("RDF", 0.95),
+    "application/rdf+xml": ("RDF", 1.0),
+    "https://www.iana.org/assignments/media-types/application/rdf+xml": ("RDF", 1.0),
+    "turtle": ("Turtle", 1.0),
+    "text/turtle": ("Turtle", 1.0),
+    "https://www.iana.org/assignments/media-types/text/turtle": ("Turtle", 1.0),
+    "text/n3": ("N3", 1.0),
+    "https://www.iana.org/assignments/media-types/text/n3": ("N3", 1.0),
+    "shp": ("SHP", 1.0),
+    ".shp": ("SHP", 1.0),
+    "shapefile": ("SHP", 1.0),
+    "gpkg": ("GPKG", 1.0),
+    ".gpkg": ("GPKG", 1.0),
+    "application/geopackage+sqlite3": ("GPKG", 1.0),
+    "gdb": ("GDB", 1.0),
+    "parquet": ("Parquet", 1.0),
+    ".parquet": ("Parquet", 1.0),
+    "application/parquet": ("Parquet", 1.0),
+    "https://www.iana.org/assignments/media-types/application/parquet": ("Parquet", 1.0),
+    "wms": ("WMS", 1.0),
+    "wfs": ("WFS", 1.0),
+    "ods": ("ODS", 1.0),
+    "txt": ("TXT", 1.0),
+    ".txt": ("TXT", 1.0),
+    "text/plain": ("TXT", 1.0),
+    "https://www.iana.org/assignments/media-types/text/plain": ("TXT", 1.0),
+    "txt/plain": ("TXT", 0.9),
+    "text/rtf": ("RTF", 1.0),
+    ".rtf": ("RTF", 1.0),
+    "rtf": ("RTF", 1.0),
+    ".ppt": ("PPT", 1.0),
+    "ppt": ("PPT", 1.0),
+    ".pptx": ("PPTX", 1.0),
+    "pptx": ("PPTX", 1.0),
+    ".doc": ("DOC", 1.0),
+    "doc": ("DOC", 1.0),
+    ".docx": ("DOCX", 1.0),
+    "docx": ("DOCX", 1.0),
+    ".tab": ("TAB", 1.0),
+    "tab": ("TAB", 1.0),
+    ".cvs": ("CSV", 0.8),
+    "cvs": ("CSV", 0.8),
+    "sqlite": ("SQLite", 1.0),
+    "arcgis geoservices rest api": ("ArcGIS GeoServices REST API", 0.95),
+    "esri rest": ("ArcGIS GeoServices REST API", 0.9),
+}
+
+CONTROLLED_TOPICS = {
+    "Transport": ("transport", "road", "rail", "traffic", "bus", "parking", "cycle", "highway", "journey", "freight"),
+    "Planning": ("planning", "brownfield", "development", "land use", "land-use", "building control", "application"),
+    "Environment": ("environment", "land", "soil", "water", "flood", "climate", "nature", "agriculture", "waste", "air quality", "biodiversity"),
+    "Public Health": ("health", "nhs", "care", "hospital", "mental", "mortality", "wellbeing", "disease", "patient"),
+    "Education": ("education", "school", "pupil", "student", "qualification", "learning", "apprenticeship"),
+    "Consultation": ("consultation", "engagement", "survey", "feedback", "planning application", "petition"),
+    "Finance": ("finance", "spend", "payment", "procurement", "contract", "budget", "tax", "business rates", "grant"),
+    "Housing": ("housing", "house", "dwelling", "homeless", "rent", "tenancy", "residential"),
+    "Geospatial": ("geography", "boundary", "map", "location", "postcode", "uprn", "coordinate", "gis", "spatial"),
+    "Business And Economy": ("business", "economy", "trade", "employment", "labour", "workforce", "company"),
+}
+
 
 @dataclass(frozen=True)
 class HarvestConfig:
@@ -120,6 +263,242 @@ def compact_text(value: Any, limit: int = 900) -> str:
     if len(text) <= limit:
         return text
     return f"{text[: limit - 3].rstrip()}..."
+
+
+def canonical_lookup_key(value: Any) -> str:
+    text = unicodedata.normalize("NFKC", str(value or "")).strip().lower()
+    text = text.replace("_", "-")
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+
+def normalize_format_value(value: Any) -> dict[str, Any]:
+    raw = compact_text(value or "unknown", 120)
+    key = canonical_lookup_key(raw)
+    if "iana.org/assignments/media-types/" in key:
+        key = key.rsplit("/assignments/media-types/", 1)[-1]
+    canonical = FORMAT_ALIASES.get(key)
+    if canonical:
+        return {"value": canonical[0], "source_value": raw, "confidence": canonical[1]}
+    raw_parts = [
+        part
+        for part in re.split(r"\s*/\s*|\s*,\s*", raw)
+        if part.strip() and not re.fullmatch(r"\d{1,4}", part.strip())
+    ]
+    if len(raw_parts) > 1:
+        parts = [normalize_format_value(part) for part in raw_parts]
+        values: list[str] = []
+        confidence = 0.95
+        for part in parts:
+            value = str(part["value"])
+            if value and value.lower() != "unknown" and value not in values:
+                values.append(value)
+            confidence = min(confidence, float(part.get("confidence", 0.55)))
+        if values:
+            return {"value": " / ".join(values), "source_value": raw, "confidence": min(confidence, 0.9)}
+    if key.startswith("."):
+        key = key[1:]
+    upper = key.upper()
+    if upper in {
+        "CSV",
+        "PDF",
+        "XLS",
+        "XLSX",
+        "JSON",
+        "XML",
+        "ZIP",
+        "KML",
+        "KMZ",
+        "WMS",
+        "WFS",
+        "ODS",
+        "TXT",
+        "SHP",
+        "GML",
+        "GPX",
+        "RTF",
+        "PPT",
+        "PPTX",
+        "DOC",
+        "DOCX",
+        "XLSM",
+        "XSL",
+        "TAB",
+    }:
+        return {"value": upper, "source_value": raw, "confidence": 0.95}
+    return {"value": raw or "unknown", "source_value": raw, "confidence": 0.55}
+
+
+def normalize_licence_value(license_id: Any, license_title: Any = "") -> dict[str, Any]:
+    raw_id = compact_text(license_id or "not-specified", 120)
+    raw_title = compact_text(license_title or raw_id or "Not specified", 180)
+    candidates = [canonical_lookup_key(raw_id), canonical_lookup_key(raw_title)]
+    for candidate in candidates:
+        if candidate in LICENCE_ALIASES:
+            value, label, confidence = LICENCE_ALIASES[candidate]
+            return {
+                "id": value,
+                "label": label,
+                "source_id": raw_id,
+                "source_title": raw_title,
+                "confidence": confidence,
+            }
+    combined = " ".join(candidates)
+    if "ogl" in combined or "open government licence" in combined or "open-government-licence" in combined:
+        value, label, confidence = LICENCE_ALIASES["uk-ogl"]
+    elif "cc-by" in combined or "creative commons attribution" in combined:
+        value, label, confidence = LICENCE_ALIASES["cc-by"]
+    elif "not" in combined and "specified" in combined:
+        value, label, confidence = LICENCE_ALIASES["not-specified"]
+    else:
+        value, label, confidence = slug(raw_id or raw_title, "other"), raw_title or raw_id, 0.55
+    return {
+        "id": value,
+        "label": label,
+        "source_id": raw_id,
+        "source_title": raw_title,
+        "confidence": confidence,
+    }
+
+
+def email_domain(value: Any) -> str:
+    text = str(value or "").strip()
+    match = re.search(r"@([A-Za-z0-9.-]+\.[A-Za-z]{2,})", text)
+    return match.group(1).lower() if match else ""
+
+
+def package_source_url(api_base: str, package_id_or_name: str) -> str:
+    return f"{api_base.rstrip('/')}/package_show?id={quote(str(package_id_or_name))}"
+
+
+def provenance_record(
+    *,
+    ckan_id: Any,
+    ckan_name: Any = "",
+    source_url: str = "",
+    generated_at: str = "",
+    api_base: str = DEFAULT_API_BASE,
+) -> dict[str, Any]:
+    return {
+        "ckan_package_id": compact_text(ckan_id, 160),
+        "ckan_name": compact_text(ckan_name, 220),
+        "harvest_timestamp": generated_at,
+        "source_url": source_url,
+        "generation_timestamp": generated_at,
+        "enrichment_version": ENRICHMENT_VERSION,
+        "transformation_pipeline_version": TRANSFORMATION_PIPELINE_VERSION,
+        "api_base": api_base,
+    }
+
+
+def classify_topics(dataset: dict[str, Any]) -> list[str]:
+    haystack = normalise_search_text(
+        " ".join(
+            [
+                str(dataset.get("title") or ""),
+                str(dataset.get("notes") or ""),
+                " ".join(str(tag) for tag in dataset.get("tags", [])),
+                " ".join(str(group) for group in dataset.get("groups", [])),
+                str(dataset.get("publisher_title") or dataset.get("publisher") or ""),
+            ]
+        )
+    )
+    topics = []
+    for topic, keywords in CONTROLLED_TOPICS.items():
+        if any(keyword in haystack for keyword in keywords):
+            topics.append(topic)
+    return topics or ["Unclassified"]
+
+
+def recency_score(dataset: dict[str, Any]) -> float:
+    stamp = parse_ckan_datetime(dataset.get("metadata_modified")) or parse_ckan_datetime(dataset.get("timestamp"))
+    if not stamp:
+        return 0.2
+    age_days = max(0, (datetime.now(UTC) - stamp).days)
+    if age_days <= 365:
+        return 1.0
+    if age_days <= 365 * 3:
+        return 0.75
+    if age_days <= 365 * 6:
+        return 0.45
+    return 0.2
+
+
+def resource_quality_metrics(resources: list[dict[str, Any]]) -> dict[str, float]:
+    if not resources:
+        return {"availability": 0.0, "api": 0.0, "format": 0.0}
+    url_count = sum(1 for resource in resources if resource.get("url"))
+    active_count = sum(1 for resource in resources if str(resource.get("state") or "").lower() in {"active", ""})
+    api_count = sum(
+        1
+        for resource in resources
+        if any(token in normalise_search_text(f"{resource.get('format')} {resource.get('url')} {resource.get('resource_type')}") for token in ("api", "json", "wms", "wfs", "arcgis"))
+    )
+    format_scores = [float(resource.get("format_confidence") or 0.0) for resource in resources]
+    return {
+        "availability": round(((url_count / len(resources)) * 0.7) + ((active_count / len(resources)) * 0.3), 4),
+        "api": round(api_count / len(resources), 4),
+        "format": round(sum(format_scores) / len(format_scores), 4) if format_scores else 0.0,
+    }
+
+
+def dataset_quality(dataset: dict[str, Any], resources: list[dict[str, Any]]) -> dict[str, Any]:
+    completeness_fields = ["title", "notes", "publisher", "license_id", "metadata_modified", "url"]
+    completeness = sum(1 for field in completeness_fields if dataset.get(field)) / len(completeness_fields)
+    resource_scores = resource_quality_metrics(resources)
+    metrics = {
+        "metadata_completeness": round(completeness, 4),
+        "licence_confidence": round(float(dataset.get("license_confidence") or 0.0), 4),
+        "update_recency": round(recency_score(dataset), 4),
+        "resource_availability": resource_scores["availability"],
+        "download_success": None,
+        "api_availability": resource_scores["api"],
+        "format_confidence": resource_scores["format"],
+    }
+    scored_values = [value for value in metrics.values() if isinstance(value, (int, float))]
+    overall = round(sum(float(value) for value in scored_values) / len(scored_values), 4) if scored_values else 0.0
+    return {
+        "overall": overall,
+        "metrics": metrics,
+        "notes": [
+            "download_success is not checked during static bundle generation; resource_availability records URL/state presence without downloading remote resource bodies.",
+        ],
+    }
+
+
+def assign_dataset_concepts(
+    dataset: dict[str, Any],
+    resources: list[dict[str, Any]],
+    publisher: dict[str, Any],
+    generated_at: str,
+    api_base: str,
+) -> None:
+    dataset_slug = slug(str(dataset.get("name") or dataset.get("id") or dataset.get("title")), "dataset")
+    publisher_slug = slug(str(publisher.get("name") or dataset.get("publisher") or "unknown"), "publisher")
+    dataset["concept_id"] = f"datasets/{publisher_slug}/{dataset_slug}.md"
+    dataset["route"] = f"dataset/{dataset['name']}"
+    dataset["publisher_concept_id"] = f"publishers/{publisher_slug}.md"
+    dataset["topics"] = classify_topics(dataset)
+    dataset["quality"] = dataset_quality(dataset, resources)
+    dataset["provenance"] = provenance_record(
+        ckan_id=dataset.get("id"),
+        ckan_name=dataset.get("ckan_name") or dataset.get("name"),
+        source_url=dataset.get("source_api_url", ""),
+        generated_at=generated_at,
+        api_base=api_base,
+    )
+    for resource in resources:
+        resource_slug = slug(str(resource.get("name") or resource.get("id") or resource.get("position")), "resource")
+        resource["concept_id"] = f"resources/{dataset_slug}/{int(resource.get('position') or 0):03d}-{resource_slug}.md"
+        resource["route"] = f"resource/{resource['id']}"
+        resource["dataset_concept_id"] = dataset["concept_id"]
+        resource["provenance"] = provenance_record(
+            ckan_id=dataset.get("id"),
+            ckan_name=dataset.get("ckan_name") or dataset.get("name"),
+            source_url=dataset.get("source_api_url", ""),
+            generated_at=generated_at,
+            api_base=api_base,
+        )
 
 
 def normalise_search_text(value: Any) -> str:
@@ -225,6 +604,7 @@ def normalize_resource(resource: dict[str, Any], dataset_name: str) -> dict[str,
     url = scrub_local_paths(str(resource.get("url") or "").strip())
     resource_id = str(resource.get("id") or slug(f"{dataset_name}-{resource.get('position', 0)}", "resource"))
     govuk_path = govuk_content_path_for_url(url)
+    normalized_format = normalize_format_value(resource.get("format") or resource.get("mimetype") or "unknown")
     return {
         "id": resource_id,
         "dataset": dataset_name,
@@ -232,7 +612,9 @@ def normalize_resource(resource: dict[str, Any], dataset_name: str) -> dict[str,
         "description": compact_text(resource.get("description"), 500),
         "url": url,
         "host": host_for_url(url),
-        "format": compact_text(resource.get("format") or resource.get("mimetype") or "unknown", 120),
+        "format": normalized_format["value"],
+        "source_format": normalized_format["source_value"],
+        "format_confidence": normalized_format["confidence"],
         "resource_type": compact_text(resource.get("resource_type") or "unknown", 80),
         "schema_url": compact_text(resource.get("schema_url"), 360),
         "schema_type": compact_text(resource.get("schema_type"), 120),
@@ -248,10 +630,12 @@ def normalize_resource(resource: dict[str, Any], dataset_name: str) -> dict[str,
 
 
 def normalize_publisher(org: dict[str, Any]) -> dict[str, Any]:
-    name = str(org.get("name") or org.get("id") or "unknown").strip()
+    name = slug(str(org.get("name") or org.get("id") or org.get("title") or "unknown").strip(), "unknown")
     return {
         "id": str(org.get("id") or name),
         "name": name,
+        "concept_id": f"publishers/{name}.md",
+        "route": f"publisher/{name}",
         "title": compact_text(org.get("title") or name.replace("-", " ").title(), 220),
         "type": compact_text(org.get("type") or "organization", 80),
         "description": compact_text(org.get("description"), 700),
@@ -266,7 +650,7 @@ def normalize_dataset(
     package: dict[str, Any],
     api_base: str = DEFAULT_API_BASE,
 ) -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, Any]]:
-    name = str(package.get("name") or package.get("id") or "").strip()
+    name = slug(str(package.get("name") or package.get("id") or "").strip(), "dataset")
     if not name:
         name = slug(package.get("title") or package.get("id") or "dataset")
     package_url = scrub_local_paths(str(package.get("url") or ""))
@@ -274,6 +658,7 @@ def normalize_dataset(
     org = package.get("organization") if isinstance(package.get("organization"), dict) else {}
     publisher = normalize_publisher(org)
     resources = [normalize_resource(r, name) for r in package.get("resources", []) if isinstance(r, dict)]
+    licence = normalize_licence_value(package.get("license_id"), package.get("license_title"))
     tags = sorted(
         {
             compact_text(tag.get("name") or tag.get("display_name"), 120)
@@ -296,8 +681,11 @@ def normalize_dataset(
         "url": package_url,
         "host": host_for_url(package_url),
         "isopen": bool(package.get("isopen")),
-        "license_id": compact_text(package.get("license_id") or "not-specified", 120),
-        "license_title": compact_text(package.get("license_title") or package.get("license_id") or "Not specified", 180),
+        "license_id": licence["id"],
+        "license_title": licence["label"],
+        "license_source_id": licence["source_id"],
+        "license_source_title": licence["source_title"],
+        "license_confidence": licence["confidence"],
         "state": compact_text(package.get("state") or "unknown", 80),
         "type": compact_text(package.get("type") or "dataset", 80),
         "private": bool(package.get("private")),
@@ -308,6 +696,8 @@ def normalize_dataset(
         "publisher_title": publisher["title"],
         "tags": tags,
         "groups": groups,
+        "maintainer": compact_text(package.get("maintainer") or package.get("author"), 180),
+        "maintainer_contact_domain": email_domain(package.get("maintainer_email") or package.get("author_email")),
         "resource_ids": [resource["id"] for resource in resources],
         "resource_count": len(resources),
         "formats": sorted({resource["format"] for resource in resources if resource["format"]}),
@@ -460,9 +850,32 @@ def build_relationships(
     for dataset in datasets:
         did = f"dataset/{dataset['name']}"
         add(did, f"publisher/{dataset['publisher']}", "published by")
+        add(did, f"publisher/{dataset['publisher']}", "publisher authority")
         add(did, f"license/{dataset['license_id']}", "licensed as")
+        add(did, f"license/{dataset['license_id']}", "licence")
         if dataset.get("host"):
             add(did, f"host/{dataset['host']}", "landing host")
+        if dataset.get("maintainer"):
+            add(did, f"maintainer/{slug(dataset['maintainer'], 'maintainer')}", "maintainer")
+        year = str(dataset.get("timestamp") or dataset.get("metadata_modified") or "")[:4]
+        if year.isdigit():
+            add(did, f"temporal/{year}", "temporal coverage")
+        for key in ("spatial", "spatial_uri", "geographic_coverage", "geographical_coverage", "geography", "bbox"):
+            value = compact_text(dataset.get("extras", {}).get(key), 220)
+            if value:
+                add(did, f"spatial/{slug(value, 'coverage')}", "spatial coverage")
+        for key, kind in {
+            "source": "derived from",
+            "derived_from": "derived from",
+            "replaces": "supersedes",
+            "supersedes": "supersedes",
+            "version": "version",
+        }.items():
+            value = compact_text(dataset.get("extras", {}).get(key), 220)
+            if value:
+                add(did, f"source/{slug(value, key)}", kind)
+        for topic in dataset.get("topics", []):
+            add(did, f"topic/{topic}", "classified as")
         for tag in dataset.get("tags", []):
             add(did, f"tag/{tag}", "tagged")
         for group in dataset.get("groups", []):
@@ -474,7 +887,13 @@ def build_relationships(
     for resource in resources:
         rid = f"resource/{resource['id']}"
         add(f"dataset/{resource['dataset']}", rid, "has resource")
+        add(f"dataset/{resource['dataset']}", rid, "download resource")
         add(rid, f"format/{resource['format']}", "resource format")
+        resource_text = normalise_search_text(f"{resource.get('name')} {resource.get('description')} {resource.get('url')} {resource.get('format')} {resource.get('resource_type')}")
+        if any(token in resource_text for token in ("api", "json", "wms", "wfs", "arcgis")):
+            add(f"dataset/{resource['dataset']}", rid, "API endpoint")
+        if any(token in resource_text for token in ("documentation", "document", "metadata", "guidance", "html", "pdf", "doc")):
+            add(f"dataset/{resource['dataset']}", rid, "documentation")
         if resource.get("host"):
             add(rid, f"host/{resource['host']}", "resource host")
         path = resource.get("govuk_content_path")
@@ -556,6 +975,8 @@ def result_doc(dataset: dict[str, Any], ordinal: int) -> dict[str, Any]:
         "resource_count": dataset["resource_count"],
         "formats": dataset.get("formats", [])[:10],
         "tags": dataset.get("tags", [])[:12],
+        "topics": dataset.get("topics", [])[:8],
+        "quality_score": dataset.get("quality", {}).get("overall"),
         "timestamp": dataset.get("timestamp", ""),
         "notes": compact_text(dataset.get("notes"), 240),
         "open": f"dataset/{dataset['name']}",
@@ -604,6 +1025,7 @@ def build_search_facets(datasets: list[dict[str, Any]]) -> dict[str, dict[str, l
         "format": defaultdict(list),
         "license": defaultdict(list),
         "tag": defaultdict(list),
+        "topic": defaultdict(list),
         "update_year": defaultdict(list),
         "host": defaultdict(list),
         "govuk_linked": defaultdict(list),
@@ -620,6 +1042,8 @@ def build_search_facets(datasets: list[dict[str, Any]]) -> dict[str, dict[str, l
             values["format"][str(item)].append(ordinal)
         for item in dataset.get("tags", []):
             values["tag"][str(item)].append(ordinal)
+        for item in dataset.get("topics", []):
+            values["topic"][str(item)].append(ordinal)
         for item in dataset.get("resource_hosts", []):
             values["host"][str(item)].append(ordinal)
     return {
@@ -643,7 +1067,7 @@ def build_search_index(
     for ordinal, dataset in enumerate(datasets):
         add_search_field(postings, ordinal, "title", dataset.get("title"))
         add_search_field(postings, ordinal, "name", dataset.get("name"))
-        add_search_field(postings, ordinal, "tags", " ".join(dataset.get("tags", [])))
+        add_search_field(postings, ordinal, "tags", " ".join([*dataset.get("tags", []), *dataset.get("topics", [])]))
         add_search_field(postings, ordinal, "publisher", f"{dataset.get('publisher')} {dataset.get('publisher_title')}")
         add_search_field(postings, ordinal, "formats", " ".join(dataset.get("formats", [])))
         add_search_field(postings, ordinal, "notes", dataset.get("notes"))
@@ -769,6 +1193,7 @@ def build_facets(datasets: list[dict[str, Any]], resources: list[dict[str, Any]]
         "format": count_by([resource["format"] for resource in resources], 150),
         "license": count_by([dataset["license_id"] for dataset in datasets], 80),
         "tag": count_by([tag for dataset in datasets for tag in dataset.get("tags", [])], 250),
+        "topic": count_by([topic for dataset in datasets for topic in dataset.get("topics", [])], 80),
         "update_year": count_by(years, 80),
         "host": count_by([resource["host"] for resource in resources if resource.get("host")], 250),
         "govuk_linked": count_by(["yes" if dataset.get("govuk_content_paths") else "no" for dataset in datasets], 2),
@@ -879,6 +1304,14 @@ def tag_cluster(value: str) -> str:
     return "other topics"
 
 
+def topic_cluster(value: str) -> str:
+    if value in {"Transport", "Planning", "Environment", "Public Health", "Education", "Consultation", "Finance", "Housing"}:
+        return "primary public-service topic"
+    if value in {"Geospatial", "Business And Economy"}:
+        return "cross-cutting topic"
+    return "unclassified"
+
+
 def entropy_score(counts: list[int]) -> float:
     total = sum(counts)
     if total <= 0 or len(counts) <= 1:
@@ -933,13 +1366,14 @@ def facet_tier(key: str, coverage: float, cardinality: int, top_share: float) ->
 
 def build_facet_analysis(facets: dict[str, Any], manifest: dict[str, Any]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
-    hierarchy_facets = {"publisher_family", "format", "license", "update_year", "host", "tag"}
+    hierarchy_facets = {"publisher_family", "format", "license", "update_year", "host", "tag", "topic"}
     labels = {
         "publisher": "Publisher",
         "publisher_family": "Publisher family",
         "format": "Format",
         "license": "Licence",
         "tag": "Topic/tag",
+        "topic": "Controlled topic",
         "update_year": "Update year",
         "host": "Resource host",
         "govuk_linked": "GOV.UK linked",
@@ -1046,6 +1480,10 @@ def build_hierarchies(
     for row in facets.get("tag", []):
         tag_groups[tag_cluster(str(row["value"]))].append({**row, "route": analysis_route("tag", str(row["value"]))})
 
+    topic_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in facets.get("topic", []):
+        topic_groups[topic_cluster(str(row["value"]))].append({**row, "route": analysis_route("topic", str(row["value"]))})
+
     return [
         hierarchy_from_groups("publisher-family", "Publisher family", "publisher_family", publisher_groups),
         hierarchy_from_groups("format-family", "Format family", "format", format_groups),
@@ -1053,6 +1491,7 @@ def build_hierarchies(
         hierarchy_from_groups("update-year", "Update year", "update_year", year_groups),
         hierarchy_from_groups("host-domain", "Host domain", "host", host_groups),
         hierarchy_from_groups("topic-cluster", "Topic/tag cluster", "tag", tag_groups),
+        hierarchy_from_groups("controlled-topic", "Controlled topic", "topic", topic_groups),
     ]
 
 
@@ -1077,7 +1516,8 @@ def build_analysis_overview(
     graph_specs = [
         ("publisher_family", "publisher", 6),
         ("format", "format", 10),
-        ("tag", "tag", 10),
+        ("topic", "topic", 10),
+        ("tag", "tag", 6),
         ("license", "license", 6),
         ("update_year", "dataset", 8),
         ("host", "host", 8),
@@ -1161,6 +1601,29 @@ def build_analysis_overview(
             }
         )
 
+    quality_scores = [float(dataset.get("quality", {}).get("overall") or 0.0) for dataset in datasets]
+    quality_buckets = Counter(
+        "high" if score >= 0.8 else "medium" if score >= 0.55 else "low"
+        for score in quality_scores
+    )
+    quality_metrics: dict[str, list[float]] = defaultdict(list)
+    for dataset in datasets:
+        for key, value in dataset.get("quality", {}).get("metrics", {}).items():
+            if isinstance(value, (int, float)):
+                quality_metrics[key].append(float(value))
+    quality_summary = {
+        "average_score": round(sum(quality_scores) / len(quality_scores), 4) if quality_scores else 0.0,
+        "buckets": [{"value": key, "count": count} for key, count in quality_buckets.most_common()],
+        "metrics": {
+            key: round(sum(values) / len(values), 4)
+            for key, values in sorted(quality_metrics.items())
+            if values
+        },
+        "notes": [
+            "Scores are deterministic metadata heuristics. Remote resource download success is intentionally not checked by the static generator.",
+        ],
+    }
+
     return {
         "schema": ANALYSIS_SCHEMA,
         "generated_at": manifest["generated_at"],
@@ -1187,8 +1650,10 @@ def build_analysis_overview(
                 "host": facets.get("host", [])[:24],
                 "resource_type": facets.get("resource_type", [])[:18],
                 "license": facets.get("license", [])[:18],
+                "topic": facets.get("topic", [])[:18],
             },
         },
+        "quality_overview": quality_summary,
         "facet_analysis": build_facet_analysis(facets, manifest),
         "hierarchies": build_hierarchies(datasets, resources, publishers, facets),
         "ontology_candidates": [
@@ -1198,7 +1663,7 @@ def build_analysis_overview(
                 "confidence": 0.68,
                 "coverage": 1.0,
                 "classes": ["DataCatalog", "Dataset", "DataDownload", "Organization", "CreativeWork"],
-                "properties": ["name", "description", "publisher", "license", "distribution", "keywords", "dateModified"],
+            "properties": ["name", "description", "publisher", "license", "distribution", "keywords", "dateModified"],
                 "notes": [
                     "Deterministic placeholder based on CKAN dataset/resource/publisher fields.",
                     "No external ontology classifier is run in this pass.",
@@ -1207,7 +1672,7 @@ def build_analysis_overview(
         ],
         "narrative": {
             "title": "Metadata-first public data landscape",
-            "body": "The corpus is best entered through generated overview contexts: publisher families, dominant formats, topic clusters, update-year distribution, high-resource stacks, and relationship summaries. Record-level graph, link, and resource exploration remain available after the user selects a reduction.",
+            "body": "The corpus is best entered through generated overview contexts: publisher families, controlled topics, dominant formats, topic clusters, update-year distribution, high-resource stacks, quality signals, provenance, and relationship summaries. Record-level graph, link, and resource exploration remain available after the user selects a reduction.",
         },
     }
 
@@ -1357,7 +1822,7 @@ timestamp: "{timestamp}"
 
 # GOV.UK CKAN OKF Bundle
 
-This bundle localises public metadata from the National Data Library directory into a static OKF-style corpus. It keeps dataset and resource metadata, source links, publisher information, facets, and graph relationships, but it does not download remote data files.
+This bundle localises public metadata from the National Data Library directory into a static OKF-style corpus. It keeps dataset and resource metadata, source links, canonical publisher concepts, facets, quality/provenance signals, and graph relationships, but it does not download remote data files.
 
 This repository preserves the historical development path from the original dark-data challenge into the GOV.UK CKAN large-corpus fixture. The generic OKF Explorer product, bundle conventions, and reusable Svelte viewer now live in [`ai-infrastructure-wiki`](https://github.com/chris-page-gov/ai-infrastructure-wiki). This CKAN bundle remains the largest fixture used to prove that generic Explorer at scale.
 
@@ -1368,16 +1833,41 @@ This repository preserves the historical development path from the original dark
 - Resources indexed: `{manifest['counts']['resources']}`
 - Publishers indexed: `{manifest['counts']['publishers']}`
 - Relationships indexed: `{manifest['counts']['relationships']}`
+- Builder version: `{manifest['builder_version']}`
+- Enrichment version: `{manifest['enrichment_version']}`
+- Transformation pipeline version: `{manifest['transformation_pipeline_version']}`
 - Full CKAN dataset count reported by the API at harvest time: `{manifest['source']['ckan_reported_count']}`
 - Large-corpus entry point: [Open the OKF Explorer](../index.html)
 - Viewer: [Open the static viewer](../viewer.html#overview)
 - Performance guidance: [Large-corpus performance model](performance.md)
 
+## Generated Enrichment Contract
+
+The generated JSON records carry an additive enrichment contract for generic OKF Explorer consumers. The contract is generated from CKAN metadata and checked by `scripts/check_gov_ckan_bundle.py`.
+
+| Area | Generated fields | Notes |
+| --- | --- | --- |
+| Stable concepts | `concept_id`, `route`, `publisher_concept_id`, `dataset_concept_id` | Datasets use `datasets/<publisher>/<package>.md`, publishers use `publishers/<publisher>.md`, and resources use `resources/<package>/<position>-<resource>.md` as logical OKF concept paths. |
+| Canonical values | `license_id`, `license_source_id`, `format`, `source_format`, confidence fields | Common licence and format spelling variants collapse to controlled values while preserving source values for audit. |
+| Publisher authority | publisher chunk records, `publisher authority` relationships | Each CKAN organization becomes one publisher concept; datasets reference the authority concept instead of duplicating publisher metadata. |
+| Controlled topics | `controlled_topics`, `topic_confidence` | Topics are deterministic metadata classifications used for overview and facet discovery, not asserted semantic truth. |
+| Explicit relationships | `published by`, `publisher authority`, `licence`, `download resource`, `classified as`, `temporal coverage`, plus format/tag/host/resource links | Relationship chunks keep graph exploration lazy while making the relationship type explicit for agents and viewers. |
+| Quality signals | `quality.overall`, `quality.metrics` | Scores cover metadata completeness, licence confidence, update recency, resource availability, API/resource signals, and format confidence. Download success remains `null` because resource bodies are not fetched. |
+| Provenance | `provenance.ckan_package_id`, `harvest_timestamp`, `source_url`, `generation_timestamp`, `enrichment_version`, `transformation_pipeline_version` | Every dataset/resource/publisher carries enough source and pipeline metadata to make regenerated bundles comparable. |
+
+Changing any of these fields is a bundle-contract change. Update this generated note, the top-level tracking docs, the checker, and the generic Explorer documentation together.
+
 ## Source Boundaries
 
 The CKAN directory is the spine. GOV.UK content metadata is included only when a dataset or resource URL points exactly to `www.gov.uk` content and the public Content API returns metadata.
 
-Localising means preserving the conceptual framework that can be derived from the corpus: datasets, resources, publishers, tags, formats, licences, hosts, source links, exact GOV.UK content metadata, and graph relationships. It does not mean committing copies of remote documents or downloaded resource bodies. Future concept extraction should store derived concepts, provenance, and links back to the source resources rather than source-document copies.
+Localising means preserving the conceptual framework that can be derived from the corpus: datasets, resources, publisher authority records, controlled topics, canonical formats/licences, tags, hosts, source links, exact GOV.UK content metadata, quality metrics, provenance, and graph relationships. Dataset records include stable logical concept identifiers such as `datasets/<publisher>/<package>.md`; publisher authority records use `publishers/<publisher>.md`; resources use `resources/<package>/<position>-<resource>.md`. These identifiers are logical OKF concept paths inside the large-corpus JSON model rather than thousands of generated Markdown stub files.
+
+The normalisation layer collapses common licence variants such as `not specified`, `not-specified`, and `notspecified`, and maps OGL variants such as `uk-ogl`, `OGL-UK-3.0`, and `ogl` to the `uk-ogl` canonical value. Resource formats are similarly canonicalised so variants such as `CSV`, `.csv`, and `text/csv` resolve to `CSV`.
+
+The enrichment layer adds controlled topics, richer relationship types, and deterministic quality metrics. Quality scores are metadata heuristics covering completeness, licence confidence, update recency, resource URL/state presence, API/resource-format signals, and format confidence. The static generator intentionally does not download resource bodies, so download success is recorded as not checked rather than inferred.
+
+It does not mean committing copies of remote documents or downloaded resource bodies. Future concept extraction should store derived concepts, provenance, and links back to the source resources rather than source-document copies.
 
 ## Official Source Anchors
 
@@ -1407,10 +1897,20 @@ Remote resource bodies are not downloaded. URLs are retained as source links. Ra
 - GOV.UK content records enriched: `{manifest['counts']['govuk_content']}`
 - Enrichment limit: `{manifest['source']['govuk_enrichment_limit']}`
 
+## Derived Record Model
+
+The committed bundle is a derived metadata model, not a mirror of CKAN JSON. The builder preserves CKAN identifiers and source URLs, then adds stable OKF concept paths, publisher authority references, canonical licence and format values, controlled topics, explicit relationship types, quality scores, and provenance. Source values remain available where normalisation occurs, for example `license_source_id`, `license_source_title`, and `source_format`.
+
+The generated relationship model is intentionally richer than `published by`. It includes publisher authority, licence, download resource, classified-as topic/tag, temporal coverage, resource host, format, and GOV.UK content relationships where the metadata supports them. These are metadata-derived relationship assertions; they should not be treated as proof that remote resource contents were downloaded or inspected.
+
+Regeneration lockstep is part of the source boundary. If the enrichment vocabulary, quality metrics, provenance shape, or relationship kinds change, update the builder, generated wiki notes, checker assertions, tests, and top-level repository documentation in the same pull request.
+
 ## Caveats
 
 - The CKAN directory contains records of mixed quality, age, and link health.
-- Publisher and format names are normalised only lightly so the bundle remains faithful to source metadata.
+- Publisher records are canonical authority concepts keyed by CKAN organization name.
+- Licence and format values are canonicalised while source values are preserved as `license_source_*` and `source_format`.
+- Quality scores are deterministic metadata heuristics, not a substitute for checking resource contents.
 - GOV.UK Content API enrichment is metadata-only and stores no rendered GOV.UK body HTML.
 - The current bundle is metadata-first. Document-content concept extraction is a follow-on enrichment layer and should keep the no-copied-documents boundary.
 """
@@ -1436,6 +1936,7 @@ This is the largest OKF-style data source in the repository, so it deliberately 
 - Static search manifest: [`../data/search/manifest.json`](../data/search/manifest.json)
 - Generated overview analysis: [`../data/analysis/overview.json`](../data/analysis/overview.json)
 - Large-corpus descriptor: [`../okf-explorer.json`](../okf-explorer.json)
+- Canonical topics: `{", ".join(manifest['normalisation']['topic_taxonomy'])}`
 
 ## Startup Budget
 
@@ -1447,7 +1948,7 @@ The default `#overview` route must be overview-first. It should load only:
 
 Search loads the static search manifest plus lexicon, postings, and result-doc chunks. It must not hydrate the full dataset/resource/publisher indexes. Those full indexes are intentionally deferred until a user applies full-record filters, opens a detail route, or enters a non-overview view that needs full records. Relationship chunks are deferred again until Graph mode is opened.
 
-The generic OKF Explorer may also load `data/analysis/overview.json` before full hydration. That file contains generated aggregate context for overview Graph, Links, Timeline, Facets/Dimensions, Resources, and Narrative views. It is additive to the startup `data/overview.json`; the legacy static viewer keeps the minimal startup path.
+The generic OKF Explorer may also load `data/analysis/overview.json` before full hydration. That file contains generated aggregate context for overview Graph, Links, Timeline, Facets/Dimensions, Resources, Narrative views, controlled topics, quality overview, and provenance-aware hierarchy definitions. It is additive to the startup `data/overview.json`; the legacy static viewer keeps the minimal startup path.
 
 The generated overview payload budget is `{manifest['performance']['budgets']['max_overview_payload_bytes']}` bytes. Keep `data/overview.json` small enough to be cache-friendly and safe for slow public networks.
 
@@ -1460,13 +1961,15 @@ The generated overview payload budget is `{manifest['performance']['budgets']['m
 - Keep routes hash-addressable: `#overview`, `#dataset/<package-name>`, `#resource/<resource-id>`, and `#publisher/<organization-name>`.
 - Keep heavy views opt-in. Graph mode may load relationship chunks; overview must not.
 - Keep list views reduced. Render bounded slices of the visible corpus rather than thousands of DOM nodes.
-- Store derived metadata, relationships, facets, and source links. Do not commit downloaded resource bodies.
+- Store derived metadata, canonical concept identifiers, relationships, facets, quality/provenance signals, and source links. Do not commit downloaded resource bodies.
+- Treat enrichment fields as a viewer contract. If `concept_id`, canonical licence/format fields, controlled topics, quality metrics, provenance, publisher authority records, or explicit relationship kinds change, update `wiki/index.md`, `wiki/data-source-report.md`, this performance note, top-level tracking docs, checker coverage, and Explorer-facing documentation together.
 
 ## Validation
 
 Run these checks after CKAN bundle or viewer changes:
 
 ```sh
+python3 -m unittest tests.test_gov_ckan_bundle
 python3 scripts/check_gov_ckan_bundle.py
 python3 scripts/check_gov_ckan_performance.py
 python3 scripts/check_okf_conformance.py
@@ -1544,6 +2047,7 @@ def render_viewer() -> str:
 def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
     clean_generated_outputs(out_dir)
     packages, total_count = iter_packages(config)
+    generated_at = config.generated_at or now_iso()
     datasets: list[dict[str, Any]] = []
     resources: list[dict[str, Any]] = []
     publishers: dict[str, dict[str, Any]] = {}
@@ -1552,11 +2056,22 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
     for package in packages:
         dataset, package_resources, publisher = normalize_dataset(package, config.api_base)
         ensure_unique_dataset_route(dataset, package_resources, used_dataset_names, config.api_base)
+        assign_dataset_concepts(dataset, package_resources, publisher, generated_at, config.api_base)
         datasets.append(dataset)
         resources.extend(package_resources)
         current = publishers.get(publisher["name"], publisher)
         current["dataset_count"] += 1
         current["resource_count"] += len(package_resources)
+        current["concept_id"] = f"publishers/{publisher['name']}.md"
+        current["route"] = f"publisher/{publisher['name']}"
+        current["provenance"] = {
+            "source": "ckan.organization",
+            "harvest_timestamp": generated_at,
+            "generation_timestamp": generated_at,
+            "enrichment_version": ENRICHMENT_VERSION,
+            "transformation_pipeline_version": TRANSFORMATION_PIPELINE_VERSION,
+            "api_base": config.api_base,
+        }
         publishers[publisher["name"]] = current
 
     datasets.sort(key=lambda item: item["name"])
@@ -1571,7 +2086,6 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
     relationships = build_relationships(datasets, resources, govuk_content)
     facets = build_facets(datasets, resources, publishers)
     graph = build_graph(datasets, resources, publishers, relationships)
-    generated_at = config.generated_at or now_iso()
 
     data_dir = out_dir / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
@@ -1613,6 +2127,8 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
         "generated_at": generated_at,
         "generated_by": "scripts/build_gov_ckan_bundle.py",
         "builder_version": BUILDER_VERSION,
+        "enrichment_version": ENRICHMENT_VERSION,
+        "transformation_pipeline_version": TRANSFORMATION_PIPELINE_VERSION,
         "viewer_version": VIEWER_VERSION,
         "source": {
             "api_base": config.api_base,
@@ -1620,6 +2136,7 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
             "sample": config.sample,
             "ckan_reported_count": total_count,
             "govuk_enrichment_limit": config.enrich_govuk_limit,
+            "harvest_timestamp": generated_at,
         },
         "counts": {
             "datasets": len(datasets),
@@ -1644,6 +2161,12 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
             "result_limit": search["result_limit"],
         },
         "official_sources": official_sources,
+        "normalisation": {
+            "licence_values": sorted({value[0] for value in LICENCE_ALIASES.values()}),
+            "format_alias_count": len(FORMAT_ALIASES),
+            "topic_taxonomy": sorted(CONTROLLED_TOPICS.keys()) + ["Unclassified"],
+            "publisher_authority": "publisher records are canonical concepts keyed by publisher.name and concept_id",
+        },
         "routes": ["#overview", "#dataset/<package-name>", "#resource/<resource-id>", "#publisher/<organization-name>"],
         "commit_policy": "metadata-first; remote resource bodies are not downloaded",
     }
