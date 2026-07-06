@@ -27,6 +27,22 @@ This repository preserves the historical development path from the original dark
 - Viewer: [Open the static viewer](../viewer.html#overview)
 - Performance guidance: [Large-corpus performance model](performance.md)
 
+## Generated Enrichment Contract
+
+The generated JSON records carry an additive enrichment contract for generic OKF Explorer consumers. The contract is generated from CKAN metadata and checked by `scripts/check_gov_ckan_bundle.py`.
+
+| Area | Generated fields | Notes |
+| --- | --- | --- |
+| Stable concepts | `concept_id`, `route`, `publisher_concept_id`, `dataset_concept_id` | Datasets use `datasets/<publisher>/<package>.md`, publishers use `publishers/<publisher>.md`, and resources use `resources/<package>/<position>-<resource>.md` as logical OKF concept paths. |
+| Canonical values | `license_id`, `license_source_id`, `format`, `source_format`, confidence fields | Common licence and format spelling variants collapse to controlled values while preserving source values for audit. |
+| Publisher authority | publisher chunk records, `publisher authority` relationships | Each CKAN organization becomes one publisher concept; datasets reference the authority concept instead of duplicating publisher metadata. |
+| Controlled topics | `controlled_topics`, `topic_confidence` | Topics are deterministic metadata classifications used for overview and facet discovery, not asserted semantic truth. |
+| Explicit relationships | `published by`, `publisher authority`, `licence`, `download resource`, `classified as`, `temporal coverage`, plus format/tag/host/resource links | Relationship chunks keep graph exploration lazy while making the relationship type explicit for agents and viewers. |
+| Quality signals | `quality.overall`, `quality.metrics` | Scores cover metadata completeness, licence confidence, update recency, resource availability, API/resource signals, and format confidence. Download success remains `null` because resource bodies are not fetched. |
+| Provenance | `provenance.ckan_package_id`, `harvest_timestamp`, `source_url`, `generation_timestamp`, `enrichment_version`, `transformation_pipeline_version` | Every dataset/resource/publisher carries enough source and pipeline metadata to make regenerated bundles comparable. |
+
+Changing any of these fields is a bundle-contract change. Update this generated note, the top-level tracking docs, the checker, and the generic Explorer documentation together.
+
 ## Source Boundaries
 
 The CKAN directory is the spine. GOV.UK content metadata is included only when a dataset or resource URL points exactly to `www.gov.uk` content and the public Content API returns metadata.

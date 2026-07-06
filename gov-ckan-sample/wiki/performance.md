@@ -46,12 +46,14 @@ The generated overview payload budget is `524288` bytes. Keep `data/overview.jso
 - Keep heavy views opt-in. Graph mode may load relationship chunks; overview must not.
 - Keep list views reduced. Render bounded slices of the visible corpus rather than thousands of DOM nodes.
 - Store derived metadata, canonical concept identifiers, relationships, facets, quality/provenance signals, and source links. Do not commit downloaded resource bodies.
+- Treat enrichment fields as a viewer contract. If `concept_id`, canonical licence/format fields, controlled topics, quality metrics, provenance, publisher authority records, or explicit relationship kinds change, update `wiki/index.md`, `wiki/data-source-report.md`, this performance note, top-level tracking docs, checker coverage, and Explorer-facing documentation together.
 
 ## Validation
 
 Run these checks after CKAN bundle or viewer changes:
 
 ```sh
+python3 -m unittest tests.test_gov_ckan_bundle
 python3 scripts/check_gov_ckan_bundle.py
 python3 scripts/check_gov_ckan_performance.py
 python3 scripts/check_okf_conformance.py

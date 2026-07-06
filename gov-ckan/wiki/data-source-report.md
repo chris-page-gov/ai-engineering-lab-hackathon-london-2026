@@ -22,6 +22,14 @@ Remote resource bodies are not downloaded. URLs are retained as source links. Ra
 - GOV.UK content records enriched: `200`
 - Enrichment limit: `200`
 
+## Derived Record Model
+
+The committed bundle is a derived metadata model, not a mirror of CKAN JSON. The builder preserves CKAN identifiers and source URLs, then adds stable OKF concept paths, publisher authority references, canonical licence and format values, controlled topics, explicit relationship types, quality scores, and provenance. Source values remain available where normalisation occurs, for example `license_source_id`, `license_source_title`, and `source_format`.
+
+The generated relationship model is intentionally richer than `published by`. It includes publisher authority, licence, download resource, classified-as topic/tag, temporal coverage, resource host, format, and GOV.UK content relationships where the metadata supports them. These are metadata-derived relationship assertions; they should not be treated as proof that remote resource contents were downloaded or inspected.
+
+Regeneration lockstep is part of the source boundary. If the enrichment vocabulary, quality metrics, provenance shape, or relationship kinds change, update the builder, generated wiki notes, checker assertions, tests, and top-level repository documentation in the same pull request.
+
 ## Caveats
 
 - The CKAN directory contains records of mixed quality, age, and link health.

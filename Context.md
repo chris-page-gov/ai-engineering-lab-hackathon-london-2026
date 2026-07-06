@@ -41,6 +41,12 @@ Challenge 2 asks teams to turn messy government guidance, policy, procedural doc
 - Raw files under Challenge 2 source folders should not be edited, renamed, moved, or normalised as part of wiki generation.
 - For the GOV.UK CKAN bundle, "localised" means CKAN dataset/resource/publisher metadata, derived facets, graph relationships, source links, exact GOV.UK Content API metadata where a CKAN URL deterministically points to GOV.UK content, and future derived concept indexes from linked resources. The bundle must not bulk-download remote resource bodies, commit source-document copies, or import the full GOV.UK Search API index.
 
+## GOV.UK CKAN Enrichment Contract
+
+The CKAN builder now emits a documented, checker-enforced enrichment contract in addition to the raw CKAN-derived metadata. Each dataset, resource, and publisher gets a deterministic logical OKF concept path and route; datasets reference canonical publisher authority records; licence and format variants are collapsed to controlled values while source values are preserved; CKAN tags are supplemented with deterministic controlled topics; relationship chunks include explicit kinds such as publisher authority, licence, download resource, classified as, temporal coverage, host, format, tag, and GOV.UK content; quality metrics score metadata completeness, licence confidence, update recency, resource availability, API/resource signals, and format confidence; provenance records carry CKAN package IDs, source URLs, harvest/generation timestamps, enrichment version, and transformation-pipeline version.
+
+This contract is metadata-derived. It is intended to make the large static bundle more useful to the generic OKF Explorer and AI agents without crossing the source boundary into downloaded resource bodies. Any future change to the enrichment vocabulary, quality model, provenance shape, relationship taxonomy, or logical concept path scheme must update `scripts/build_gov_ckan_bundle.py`, generated CKAN wiki notes, checker coverage, unit tests, and the top-level tracking docs together.
+
 ## Important Paths
 
 - `README.md`: fork overview, Challenge 2 value proposition, start points, repository map, validation summary, and original hackathon context.

@@ -21,10 +21,12 @@ No undated pending changes.
 ### Documentation
 
 - 2026-07-06: Documented the repository relationship: this repo preserves the GOV.UK CKAN dark-data development history and largest fixture, while `ai-infrastructure-wiki` owns the reusable OKF Explorer and bundle contract.
+- 2026-07-06: Documented the GOV.UK CKAN generated enrichment contract across the generated CKAN notes and top-level tracking docs, including stable logical concept IDs, canonical licence/format values, publisher authority records, controlled topics, explicit relationship kinds, quality metrics, provenance, and regeneration lockstep expectations.
 
 ### Validation
 
 - 2026-07-06: Extended CKAN bundle and performance checks so the analysis overview artifact, descriptor entrypoint, manifest index, and overview-first startup budget are validated together.
+- 2026-07-06: Added the enrichment contract documentation to the validation runbook so `tests.test_gov_ckan_bundle`, bundle checks, performance checks, OKF conformance, and site build validation remain the expected review path for CKAN contract changes.
 
 ## 2026-07-04
 
