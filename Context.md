@@ -69,6 +69,8 @@ This contract is metadata-derived. It is intended to make the large static bundl
 - `scripts/check_gov_ckan_bundle.py`: validates manifest counts, chunk integrity, route IDs, local-path leakage, viewer/data synchronisation, large-corpus entry files, and the metadata-only source boundary.
 - `scripts/check_gov_ckan_performance.py`: validates that the GOV.UK CKAN default overview route stays overview-first and within the generated startup payload budget.
 - `.github/workflows/pages.yml`: validates the OKF bundles and viewer, builds `_site/`, and deploys it with GitHub Pages Actions.
+- `.github/workflows/ckan-fixture-ci.yml`: always-on pull-request validation for the GOV.UK CKAN fixture, OKF conformance, wiki viewer synchronization, performance budget, publication script compilation, and static-site build.
+- `.github/dependabot.yml`: repository dependency-update policy for the first-party Dark Data Workbench package surface and GitHub Actions. Copied upstream reference projects under `challenge-2/MCP-Wiki/references/external/` are intentionally not Dependabot-managed from this repo.
 - `_site/`: ignored generated Pages output.
 - `challenge-2/evaluation/README.md`: Challenge 2 wiki evaluation harness runbook.
 - `challenge-2/tools/run_wiki_eval.py`: CLI harness for sending benchmark questions to Codex, Gemini CLI, and Claude Code.

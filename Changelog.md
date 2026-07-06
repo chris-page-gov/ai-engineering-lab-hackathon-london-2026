@@ -13,6 +13,7 @@ No undated pending changes.
 ### Added
 
 - 2026-07-06: Added generated `gov-ckan/data/analysis/overview.json` using `okf-explorer-analysis.v1` so the generic OKF Explorer can render bundle-level graph, timeline, relationship, facet, and resource overviews before full-corpus hydration.
+- 2026-07-06: Added first-party Dependabot coverage for the Dark Data Workbench package surface and GitHub Actions updates, plus an always-on `CKAN Fixture CI` pull-request workflow for large-corpus fixture validation.
 
 ### Changed
 
@@ -27,6 +28,7 @@ No undated pending changes.
 
 - 2026-07-06: Extended CKAN bundle and performance checks so the analysis overview artifact, descriptor entrypoint, manifest index, and overview-first startup budget are validated together.
 - 2026-07-06: Added the enrichment contract documentation to the validation runbook so `tests.test_gov_ckan_bundle`, bundle checks, performance checks, OKF conformance, and site build validation remain the expected review path for CKAN contract changes.
+- 2026-07-06: Added repository requirement automation so future PRs can require documentation lockstep plus a stable CKAN fixture CI check before merge.
 
 ## 2026-07-04
 
