@@ -92,6 +92,8 @@ The latest PR readiness review found and fixed a GOV.UK CKAN viewer hardening is
 
 The current PR #28 documentation lockstep pass makes the GOV.UK CKAN enrichment contract explicit across the generated CKAN notes, top-level repository docs, and validation guidance. The documented contract covers stable logical concept IDs, canonical licence and format values, publisher authority records, controlled topics, explicit relationship kinds, quality metrics, provenance fields, and the requirement to update builder templates, generated notes, checkers, tests, and generic Explorer documentation together when those fields change.
 
+The current repository requirements pass adds first-party Dependabot coverage for `challenge-2/workbench` and GitHub Actions, plus an always-on CKAN fixture pull-request workflow. This gives branch protection a stable check target without requiring path-filtered workbench jobs for unrelated changes. Vendored or copied upstream reference projects under `challenge-2/MCP-Wiki/references/external/` remain evidence material rather than Dependabot-managed package surfaces.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -260,6 +262,15 @@ The current PR #28 documentation lockstep pass makes the GOV.UK CKAN enrichment 
   - confirmed `_site/challenge-2/unstructured_files/travel-and-subsistence-policy-v2.0.docx` is present as a Word document;
   - ran Chromium smoke tests confirming the Challenge 2 source graph has labelled edges without same-text coordinate overlap, the explicit zoom control shrinks the graph viewBox, drag-to-pan changes the viewBox origin at both 100% and zoomed views without changing zoom, dragged nodes do not accidentally open pages, and reset returns the graph to the centered full view;
   - ran `uv run --with openpyxl python -m py_compile challenge-2/tools/build_wiki.py`, `python3 tools/check_documentation_lockstep.py`, and `git diff --check`.
+- Current repository requirements validation passed locally:
+  - parsed `.github/dependabot.yml` and `.github/workflows/ckan-fixture-ci.yml` as YAML;
+  - ran `python3 scripts/check_okf_conformance.py`;
+  - ran `python3 scripts/check_wiki_viewer.py`;
+  - ran `python3 scripts/check_gov_ckan_bundle.py`;
+  - ran `python3 scripts/check_gov_ckan_performance.py`;
+  - ran `python3 -m py_compile` for the publication scripts covered by CI;
+  - ran `python3 scripts/build_site.py`;
+  - ran `pnpm check`, `pnpm test`, and `pnpm build` in `challenge-2/workbench`.
 - Current graph-label layer validation passed locally:
   - ran `python3 -m py_compile scripts/update_viewer.py`;
   - ran `python3 -m unittest tests.test_update_viewer`;
