@@ -6,7 +6,22 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 
 ## Unreleased
 
-No undated pending changes.
+### Added
+
+- 2026-07-13: Added optional `okf-operational-metadata.v1` sidecars and a provenance-bearing HM Land Registry operational record without rewriting the full CKAN dataset/search chunks.
+- 2026-07-13: Added a deterministic 300-dataset CKAN evaluation builder covering rare and high-volume government publishers, ambiguous lexical decoys, benchmark queries, formats, and metadata gaps.
+
+### Changed
+
+- 2026-07-13: Replaced the accidental latest-200 fallback sample with a 300-record stratified evaluation corpus derived from the committed full corpus, reducing the sample from approximately 39 MB to approximately 6 MB while increasing publisher and search/filter diversity.
+
+### Documentation
+
+- 2026-07-13: Documented the operational-metadata source boundary and the distinct purposes of the full-corpus and stratified evaluation paths.
+
+### Validation
+
+- 2026-07-13: Extended CKAN validation and CI to verify operational-metadata provenance, the stratified bundle, its performance budget, and reproducible regeneration.
 
 ## 2026-07-06
 

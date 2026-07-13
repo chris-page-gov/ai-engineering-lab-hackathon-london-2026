@@ -2,7 +2,7 @@
 type: performance-guidance
 title: GOV.UK CKAN large-corpus performance model
 description: Startup, hydration, graph, and publication guidance for the large GOV.UK CKAN OKF bundle.
-timestamp: "2026-07-01T08:13:32Z"
+timestamp: "2026-07-13T11:30:00Z"
 ---
 
 # GOV.UK CKAN Large-Corpus Performance Model
@@ -11,10 +11,10 @@ This is the largest OKF-style data source in the repository, so it deliberately 
 
 ## Current Scale
 
-- Datasets: `200`
-- Resources: `16271`
-- Publishers: `9`
-- Relationships: `81730`
+- Datasets: `300`
+- Resources: `747`
+- Publishers: `86`
+- Relationships: `6079`
 - Chunked data manifest: [`../data/manifest.json`](../data/manifest.json)
 - Lightweight overview index: [`../data/overview.json`](../data/overview.json)
 - Static search manifest: [`../data/search/manifest.json`](../data/search/manifest.json)

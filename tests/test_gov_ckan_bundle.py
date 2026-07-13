@@ -12,6 +12,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 import build_gov_ckan_bundle as builder  # noqa: E402
+import build_gov_ckan_evaluation_sample as evaluation_builder  # noqa: E402
 import check_gov_ckan_bundle as checker  # noqa: E402
 import check_gov_ckan_performance as performance_checker  # noqa: E402
 
@@ -337,8 +338,33 @@ class GovCkanBundleTest(unittest.TestCase):
             }
             with tempfile.TemporaryDirectory() as tmp:
                 out_dir = Path(tmp) / "gov-ckan"
+                operational_path = Path(tmp) / "operational.json"
+                operational_path.write_text(
+                    json.dumps(
+                        {
+                            "schema": builder.OPERATIONAL_METADATA_SCHEMA,
+                            "generated_at": "2026-07-01T00:00:00Z",
+                            "records": {
+                                "dataset/planning-applications-2026": {
+                                    "update_frequency": "Monthly",
+                                    "provenance": {
+                                        "source_url": "https://www.gov.uk/government/collections/planning-data",
+                                        "observed_at": "2026-07-01",
+                                        "method": "test fixture",
+                                    },
+                                }
+                            },
+                        }
+                    ),
+                    encoding="utf-8",
+                )
                 manifest = builder.build_bundle(
-                    builder.HarvestConfig(sample=1, chunk_size=1, generated_at="2026-07-01T00:00:00Z"),
+                    builder.HarvestConfig(
+                        sample=1,
+                        chunk_size=1,
+                        generated_at="2026-07-01T00:00:00Z",
+                        operational_metadata=operational_path,
+                    ),
                     out_dir,
                 )
                 self.assertEqual(manifest["counts"]["datasets"], 1)
@@ -347,12 +373,58 @@ class GovCkanBundleTest(unittest.TestCase):
                 self.assertTrue((out_dir / "index.html").exists())
                 self.assertTrue((out_dir / "okf-explorer.json").exists())
                 self.assertTrue((out_dir / "data" / "overview.json").exists())
+                self.assertEqual(manifest["indexes"]["operational_metadata"], "data/operational-metadata.json")
+                self.assertEqual(
+                    json.loads((out_dir / "data" / "operational-metadata.json").read_text(encoding="utf-8"))["records"]
+                    ["dataset/planning-applications-2026"]["update_frequency"],
+                    "Monthly",
+                )
                 self.assertTrue((out_dir / "wiki" / "performance.md").exists())
                 self.assertEqual(checker.main([str(out_dir)]), 0)
                 self.assertEqual(performance_checker.main([str(out_dir)]), 0)
         finally:
             builder.iter_packages = original_iter_packages  # type: ignore[assignment]
             builder.fetch_govuk_content = original_fetch_govuk_content  # type: ignore[assignment]
+
+    def test_stratified_selection_keeps_rare_publishers_and_lexical_decoys(self) -> None:
+        def dataset(name: str, publisher: str, title: str, formats: list[str]) -> dict[str, Any]:
+            return {
+                "name": name,
+                "route": f"dataset/{name}",
+                "title": title,
+                "publisher": publisher,
+                "publisher_title": publisher.replace("-", " ").title(),
+                "resource_count": 1,
+                "formats": formats,
+                "license_id": "uk-ogl",
+            }
+
+        rows = [
+            dataset("land-one", "land-registry", "Land Registry ownership", ["CSV"]),
+            dataset("science-one", "department-for-science-innovation-and-technology", "Research grants", ["JSON"]),
+            dataset("home-office-one", "home-office", "Immigration statistics", ["CSV"]),
+            dataset("home-working", "local-council", "Home working office locations", ["HTML"]),
+            dataset("other-json", "other", "Technology register", ["JSON"]),
+            dataset("other-wms", "other", "Land map", ["WMS"]),
+        ]
+        config = {
+            "schema": evaluation_builder.SELECTION_SCHEMA,
+            "target_count": 6,
+            "max_resource_count": 5,
+            "publisher_cohorts": {
+                "land-registry": "all",
+                "department-for-science-innovation-and-technology": "all",
+                "home-office": 1,
+            },
+            "lexical_cohorts": {"home": 1},
+            "query_cohorts": ["technology register"],
+            "format_cohorts": {"WMS": 1},
+        }
+        selected, reasons, counts = evaluation_builder.select_datasets(rows, config)
+        names = {item["name"] for item in selected}
+        self.assertEqual(names, {item["name"] for item in rows})
+        self.assertIn("lexical-decoy:home", reasons["dataset/home-working"])
+        self.assertEqual(counts["publisher:land-registry"], 1)
 
 
 if __name__ == "__main__":

@@ -154,6 +154,9 @@ def check_manifest(bundle: Path, errors: list[str]) -> dict[str, Any] | None:
             errors.append(f"{rel(descriptor_path)}: analysis_overview should target data/analysis/overview.json")
         if descriptor.get("entrypoints", {}).get("search_manifest") != "data/search/manifest.json":
             errors.append(f"{rel(descriptor_path)}: search_manifest should target data/search/manifest.json")
+        operational_path = manifest.get("indexes", {}).get("operational_metadata")
+        if operational_path and descriptor.get("entrypoints", {}).get("operational_metadata") != operational_path:
+            errors.append(f"{rel(descriptor_path)}: operational_metadata should match the data manifest")
     viewer_path = bundle / "viewer.html"
     if not viewer_path.exists():
         errors.append(f"{rel(viewer_path)}: missing static viewer")
@@ -332,6 +335,36 @@ def check_search_index(bundle: Path, manifest: dict[str, Any], errors: list[str]
                 errors.append(f"{rel(postings_path)}: postings tokens must be an object")
 
 
+def check_operational_metadata(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> None:
+    relative = manifest.get("indexes", {}).get("operational_metadata")
+    if not relative:
+        return
+    path = bundle / relative
+    if not path.exists():
+        errors.append(f"{rel(path)}: declared operational metadata index is missing")
+        return
+    payload = read_json(path)
+    if payload.get("schema") != build_gov_ckan_bundle.OPERATIONAL_METADATA_SCHEMA:
+        errors.append(f"{rel(path)}: unexpected operational metadata schema")
+    records = payload.get("records")
+    if not isinstance(records, dict) or not records:
+        errors.append(f"{rel(path)}: records must be a non-empty route map")
+        return
+    dataset_routes = {
+        dataset.get("route") or f"dataset/{dataset.get('name')}"
+        for dataset in load_chunk_records(bundle, manifest, "datasets")
+    }
+    for route, metadata in records.items():
+        if route not in dataset_routes:
+            errors.append(f"{rel(path)}: unknown dataset route {route}")
+        if not isinstance(metadata, dict):
+            errors.append(f"{rel(path)}: {route} metadata must be an object")
+            continue
+        provenance = metadata.get("provenance")
+        if not isinstance(provenance, dict) or not all(provenance.get(key) for key in ("source_url", "observed_at", "method")):
+            errors.append(f"{rel(path)}: {route} requires source_url, observed_at and method provenance")
+
+
 def check_analysis_overview(bundle: Path, manifest: dict[str, Any], errors: list[str]) -> None:
     analysis_path_name = manifest.get("indexes", {}).get("analysis")
     if analysis_path_name != "data/analysis/overview.json":
@@ -391,6 +424,7 @@ def main(argv: list[str] | None = None) -> int:
             try:
                 check_records(bundle, manifest, errors)
                 check_search_index(bundle, manifest, errors)
+                check_operational_metadata(bundle, manifest, errors)
                 check_analysis_overview(bundle, manifest, errors)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
                 errors.append(str(exc))

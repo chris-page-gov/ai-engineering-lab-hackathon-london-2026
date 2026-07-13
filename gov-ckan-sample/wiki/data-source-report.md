@@ -2,23 +2,23 @@
 type: data-readme
 title: GOV.UK CKAN data source report
 description: Source, coverage, and extraction boundary report for the GOV.UK CKAN bundle.
-timestamp: "2026-07-01T08:13:32Z"
+timestamp: "2026-07-13T11:30:00Z"
 ---
 
-# GOV.UK CKAN Data Source Report
+# GOV.UK CKAN stratified evaluation bundle Data Source Report
 
 ## Extraction Boundary
 
-The builder calls the unauthenticated CKAN API under `https://data.gov.uk/api/action`. It harvests `package_search` pages, normalises dataset and resource metadata, derives facets and graph relationships, and stores compact JSON chunks under `gov-ckan/data/`.
+The evaluation builder selects normalized records deterministically from the committed full CKAN bundle, then rebuilds facets, search indexes, analysis, and relationships for the selected reduction. It does not make network requests or download remote resource bodies. The selection rationale is published in `data/evaluation-selection.json`.
 
 Remote resource bodies are not downloaded. URLs are retained as source links. Raw full API responses are intentionally not committed. The intended concept-localisation path is to analyse linked resources efficiently and persist derived concepts, evidence pointers, and relationship summaries, not copies of the original documents.
 
 ## Coverage
 
-- Bundle mode: `sample`
-- Harvested datasets: `200`
-- Harvested resources: `16271`
-- Publishers: `9`
+- Bundle mode: `stratified-evaluation`
+- Harvested datasets: `300`
+- Harvested resources: `747`
+- Publishers: `86`
 - GOV.UK content records enriched: `3`
 - Enrichment limit: `200`
 
