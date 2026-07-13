@@ -31,6 +31,7 @@ ANALYSIS_SCHEMA = "okf-explorer-analysis.v1"
 SEARCH_SCHEMA = "gov-ckan-static-search.v1"
 ENRICHMENT_VERSION = "gov-ckan-enrichment-v1"
 TRANSFORMATION_PIPELINE_VERSION = "gov-ckan-pipeline-v2"
+OPERATIONAL_METADATA_SCHEMA = "okf-operational-metadata.v1"
 DEFAULT_ROWS = 1000
 DEFAULT_CHUNK_SIZE = 1000
 DEFAULT_SEARCH_CHUNK_SIZE = 1000
@@ -239,6 +240,7 @@ class HarvestConfig:
     search_chunk_size: int = DEFAULT_SEARCH_CHUNK_SIZE
     enrich_govuk_limit: int = DEFAULT_ENRICH_LIMIT
     generated_at: str = ""
+    operational_metadata: Path | None = None
 
 
 def slug(value: str, fallback: str = "item") -> str:
@@ -914,6 +916,28 @@ def chunked(values: list[dict[str, Any]], chunk_size: int) -> list[list[dict[str
 def write_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
+
+
+def load_operational_metadata(path: Path | None) -> dict[str, Any]:
+    if path is None:
+        return {"schema": OPERATIONAL_METADATA_SCHEMA, "records": {}}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schema") != OPERATIONAL_METADATA_SCHEMA:
+        raise ValueError(f"{path}: expected schema {OPERATIONAL_METADATA_SCHEMA}")
+    records = payload.get("records")
+    if not isinstance(records, dict):
+        raise ValueError(f"{path}: records must be an object keyed by dataset route")
+    return payload
+
+
+def operational_metadata_for_datasets(payload: dict[str, Any], datasets: list[dict[str, Any]]) -> dict[str, Any]:
+    routes = {dataset.get("route") or f"dataset/{dataset['name']}" for dataset in datasets}
+    records = payload.get("records") or {}
+    return {
+        "schema": OPERATIONAL_METADATA_SCHEMA,
+        "generated_at": payload.get("generated_at") or payload.get("verified_at") or "",
+        "records": {route: records[route] for route in sorted(routes & set(records))},
+    }
 
 
 def write_chunks(data_dir: Path, prefix: str, records: list[dict[str, Any]], chunk_size: int) -> list[str]:
@@ -1780,7 +1804,7 @@ def render_index() -> str:
 
 
 def build_explorer_descriptor(manifest: dict[str, Any]) -> dict[str, Any]:
-    return {
+    descriptor = {
         "schema": LARGE_CORPUS_SCHEMA,
         "kind": "okf-large-corpus",
         "title": manifest["title"],
@@ -1806,21 +1830,38 @@ def build_explorer_descriptor(manifest: dict[str, Any]) -> dict[str, Any]:
         "counts": manifest["counts"],
         "source": manifest["source"],
     }
+    operational_path = manifest.get("indexes", {}).get("operational_metadata")
+    if operational_path:
+        descriptor["entrypoints"]["operational_metadata"] = operational_path
+    return descriptor
 
 
 def render_wiki(out_dir: Path, manifest: dict[str, Any], official_sources: list[dict[str, str]]) -> None:
     wiki = out_dir / "wiki"
     timestamp = manifest["generated_at"]
     source_rows = "\n".join(f"- [{item['title']}]({item['url']})" for item in official_sources)
+    if manifest.get("source", {}).get("mode") == "stratified-evaluation":
+        extraction_boundary = (
+            "The evaluation builder selects normalized records deterministically from the committed full CKAN bundle, "
+            "then rebuilds facets, search indexes, analysis, and relationships for the selected reduction. It does not "
+            "make network requests or download remote resource bodies. The selection rationale is published in "
+            "`data/evaluation-selection.json`."
+        )
+    else:
+        extraction_boundary = (
+            f"The builder calls the unauthenticated CKAN API under `{manifest['source']['api_base']}`. It harvests "
+            "`package_search` pages, normalises dataset and resource metadata, derives facets and graph relationships, "
+            "and stores compact JSON chunks under `gov-ckan/data/`."
+        )
     index = f"""---
 okf_version: "0.1"
 type: index
-title: GOV.UK CKAN OKF Bundle
+title: {manifest["title"]}
 description: Metadata-first OKF bundle over the National Data Library CKAN directory.
 timestamp: "{timestamp}"
 ---
 
-# GOV.UK CKAN OKF Bundle
+# {manifest["title"]}
 
 This bundle localises public metadata from the National Data Library directory into a static OKF-style corpus. It keeps dataset and resource metadata, source links, canonical publisher concepts, facets, quality/provenance signals, and graph relationships, but it does not download remote data files.
 
@@ -1880,11 +1921,11 @@ description: Source, coverage, and extraction boundary report for the GOV.UK CKA
 timestamp: "{timestamp}"
 ---
 
-# GOV.UK CKAN Data Source Report
+# {manifest["title"]} Data Source Report
 
 ## Extraction Boundary
 
-The builder calls the unauthenticated CKAN API under `{manifest['source']['api_base']}`. It harvests `package_search` pages, normalises dataset and resource metadata, derives facets and graph relationships, and stores compact JSON chunks under `gov-ckan/data/`.
+{extraction_boundary}
 
 Remote resource bodies are not downloaded. URLs are retained as source links. Raw full API responses are intentionally not committed. The intended concept-localisation path is to analyse linked resources efficiently and persist derived concepts, evidence pointers, and relationship summaries, not copies of the original documents.
 
@@ -2099,6 +2140,9 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
     write_json(data_dir / "facets.json", facets)
     write_json(data_dir / "graph.json", graph)
     write_json(data_dir / "govuk-content.json", govuk_content)
+    operational_metadata = operational_metadata_for_datasets(load_operational_metadata(config.operational_metadata), datasets)
+    if operational_metadata["records"]:
+        write_json(data_dir / "operational-metadata.json", operational_metadata)
 
     official_sources = [
         {
@@ -2170,6 +2214,8 @@ def build_bundle(config: HarvestConfig, out_dir: Path) -> dict[str, Any]:
         "routes": ["#overview", "#dataset/<package-name>", "#resource/<resource-id>", "#publisher/<organization-name>"],
         "commit_policy": "metadata-first; remote resource bodies are not downloaded",
     }
+    if operational_metadata["records"]:
+        manifest["indexes"]["operational_metadata"] = "data/operational-metadata.json"
     manifest["performance"] = performance_model(manifest)
     overview = build_overview(manifest, datasets, facets, graph)
     analysis = build_analysis_overview(manifest, datasets, resources, publishers, facets, relationships)
@@ -2382,6 +2428,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--search-chunk-size", type=int, default=DEFAULT_SEARCH_CHUNK_SIZE, help="Records or tokens per generated search chunk.")
     parser.add_argument("--enrich-govuk-limit", type=int, default=DEFAULT_ENRICH_LIMIT, help="Max exact GOV.UK paths to enrich.")
     parser.add_argument("--generated-at", default="", help="Override generated timestamp for reproducible tests.")
+    parser.add_argument(
+        "--operational-metadata",
+        type=Path,
+        help="Optional okf-operational-metadata.v1 sidecar source keyed by dataset route.",
+    )
     args = parser.parse_args(argv)
 
     out_dir = Path(args.out)
@@ -2395,10 +2446,11 @@ def main(argv: list[str] | None = None) -> int:
         search_chunk_size=args.search_chunk_size,
         enrich_govuk_limit=max(0, args.enrich_govuk_limit),
         generated_at=args.generated_at,
+        operational_metadata=args.operational_metadata,
     )
     try:
         manifest = build_bundle(config, out_dir)
-    except (RuntimeError, HTTPError, URLError, TimeoutError, json.JSONDecodeError) as exc:
+    except (RuntimeError, ValueError, HTTPError, URLError, TimeoutError, json.JSONDecodeError) as exc:
         print(f"gov-ckan bundle build failed: {exc}", file=sys.stderr)
         return 1
     print(

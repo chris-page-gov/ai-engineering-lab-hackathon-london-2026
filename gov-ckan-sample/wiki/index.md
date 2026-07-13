@@ -1,12 +1,12 @@
 ---
 okf_version: "0.1"
 type: index
-title: GOV.UK CKAN OKF Bundle
+title: GOV.UK CKAN stratified evaluation bundle
 description: Metadata-first OKF bundle over the National Data Library CKAN directory.
-timestamp: "2026-07-01T08:13:32Z"
+timestamp: "2026-07-13T11:30:00Z"
 ---
 
-# GOV.UK CKAN OKF Bundle
+# GOV.UK CKAN stratified evaluation bundle
 
 This bundle localises public metadata from the National Data Library directory into a static OKF-style corpus. It keeps dataset and resource metadata, source links, canonical publisher concepts, facets, quality/provenance signals, and graph relationships, but it does not download remote data files.
 
@@ -15,10 +15,10 @@ This repository preserves the historical development path from the original dark
 ## Current Build
 
 - CKAN API base: `https://data.gov.uk/api/action`
-- Datasets harvested into this bundle: `200`
-- Resources indexed: `16271`
-- Publishers indexed: `9`
-- Relationships indexed: `81730`
+- Datasets harvested into this bundle: `300`
+- Resources indexed: `747`
+- Publishers indexed: `86`
+- Relationships indexed: `6079`
 - Builder version: `gov-ckan-builder-v2`
 - Enrichment version: `gov-ckan-enrichment-v1`
 - Transformation pipeline version: `gov-ckan-pipeline-v2`

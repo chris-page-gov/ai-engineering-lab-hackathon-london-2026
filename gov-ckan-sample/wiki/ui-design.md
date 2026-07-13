@@ -2,7 +2,7 @@
 type: interface
 title: GOV.UK CKAN viewer UI design
 description: Three-panel interaction design, accessibility standard, and screenshot checklist for the GOV.UK CKAN viewer.
-timestamp: "2026-07-01T08:13:32Z"
+timestamp: "2026-07-13T11:30:00Z"
 ---
 
 # GOV.UK CKAN Viewer UI Design

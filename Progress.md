@@ -2,6 +2,8 @@
 
 ## Current Status
 
+The current CKAN evaluation pass adds source-backed operational metadata to the full 58,461-record corpus through a small optional sidecar and replaces the latest-200 fallback with a deterministic 300-record evaluation reduction. The new reduction contains all 21 HM Land Registry and 9 DSIT records, bounded 40-record Home Office and ONS cohorts, common-word decoys, 30 benchmark-query seeds, eight format cohorts, explicit metadata gaps, and deterministic diversity fill. It contains 747 resources across 86 publishers and is regenerated without network or model calls from the committed full corpus.
+
 The Challenge 2 Obsidian knowledge-base prototype is implemented and merged into the fork's `main` branch via fork-local PR #1.
 
 The current local working branch also contains the Challenge 2 wiki evaluation benchmark, CLI harness, MCP-compatible audit layer, and scoring-sheet/leaderboard tooling for comparing Codex, Gemini CLI, and Claude Code against the generated wiki.
