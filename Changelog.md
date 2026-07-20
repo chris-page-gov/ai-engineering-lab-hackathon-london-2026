@@ -33,6 +33,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 ### Changed
 
 - 2026-07-06: Updated the GOV.UK CKAN large-corpus descriptor and manifest to advertise the optional analysis overview while keeping `data/overview.json` as the minimal startup payload.
+- 2026-07-06: Updated documentation lockstep CI so automated Dependabot dependency PRs are not blocked on manual tracking-doc edits while human-authored meaningful changes remain subject to lockstep.
 
 ### Documentation
 
@@ -44,6 +45,7 @@ This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en
 - 2026-07-06: Extended CKAN bundle and performance checks so the analysis overview artifact, descriptor entrypoint, manifest index, and overview-first startup budget are validated together.
 - 2026-07-06: Added the enrichment contract documentation to the validation runbook so `tests.test_gov_ckan_bundle`, bundle checks, performance checks, OKF conformance, and site build validation remain the expected review path for CKAN contract changes.
 - 2026-07-06: Added repository requirement automation so future PRs can require documentation lockstep plus a stable CKAN fixture CI check before merge.
+- 2026-07-06: Verified the Dependabot lockstep policy change with the local documentation lockstep checker.
 
 ## 2026-07-04
 

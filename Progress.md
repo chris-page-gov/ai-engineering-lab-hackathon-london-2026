@@ -96,6 +96,8 @@ The current PR #28 documentation lockstep pass makes the GOV.UK CKAN enrichment 
 
 The current repository requirements pass adds first-party Dependabot coverage for `challenge-2/workbench` and GitHub Actions, plus an always-on CKAN fixture pull-request workflow. This gives branch protection a stable check target without requiring path-filtered workbench jobs for unrelated changes. Vendored or copied upstream reference projects under `challenge-2/MCP-Wiki/references/external/` remain evidence material rather than Dependabot-managed package surfaces.
 
+The current Dependabot lockstep follow-up adjusts the documentation lockstep workflow so automated Dependabot dependency PRs skip the manual tracking-doc gate. Human-authored meaningful changes still require `Changelog.md`, `Context.md`, and `Progress.md`; Dependabot updates are instead governed by the required CKAN fixture CI and any relevant workbench checks.
+
 ## Completed
 
 - Built a repeatable Challenge 2 wiki generator.
@@ -273,6 +275,8 @@ The current repository requirements pass adds first-party Dependabot coverage fo
   - ran `python3 -m py_compile` for the publication scripts covered by CI;
   - ran `python3 scripts/build_site.py`;
   - ran `pnpm check`, `pnpm test`, and `pnpm build` in `challenge-2/workbench`.
+- Current Dependabot lockstep follow-up validation passed locally:
+  - ran `python3 tools/check_documentation_lockstep.py --base origin/main...HEAD`.
 - Current graph-label layer validation passed locally:
   - ran `python3 -m py_compile scripts/update_viewer.py`;
   - ran `python3 -m unittest tests.test_update_viewer`;
