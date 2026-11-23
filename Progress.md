@@ -549,3 +549,7 @@ The current repository requirements pass adds first-party Dependabot coverage fo
 4. Run the embedding shortlist benchmark and lock the v1 semantic retrieval model.
 5. Validate the server through Copilot Studio direct MCP connection.
 6. Add source-backed demo answers for the five Challenge 2 demo questions.
+
+## OKF standards references, 23 November 2026
+
+The repository now links the central current and historical standards register and the public bundle catalogue maintained in OKF Explorer. Version-specific source pins remain the basis for implementation and validation claims.
