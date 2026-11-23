@@ -37,3 +37,11 @@ Keep repository documentation in lockstep with implementation changes.
 - For OKF/publication changes, run `python3 scripts/check_okf_conformance.py` and `python3 scripts/check_wiki_viewer.py`.
 - For GitHub Pages publication changes, run `python3 scripts/build_site.py` and leave `_site/` ignored.
 - Run `python3 tools/check_documentation_lockstep.py` to verify that `Changelog.md`, `Context.md`, and `Progress.md` were updated with meaningful repo changes.
+
+<!-- okf-standards:start -->
+## OKF standards references
+
+Read [the central standards and bundle catalogue reference](https://github.com/chris-page-gov/okf-explorer/blob/main/docs/okf-standards.md)
+before changing specification links or an OKF version declaration. Resolve the
+implemented version through the shared register and preserve historical pins.
+<!-- okf-standards:end -->

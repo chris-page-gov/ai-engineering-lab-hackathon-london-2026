@@ -224,3 +224,7 @@ Documentation is part of the product. Any meaningful change should update the re
 The changelog keeps `Unreleased` for genuinely pending work only. Merged, tagged, or demo-published work should move into dated sections so repository readers are not left with a permanent backlog of already-published changes.
 
 This rule is enforced through `AGENTS.md`, `.github/pull_request_template.md`, `tools/check_documentation_lockstep.py`, and the Documentation Lockstep GitHub Actions workflow. The check fails if required tracking files are missing or if meaningful changes omit a tracking-file update.
+
+## OKF standards references, 23 November 2026
+
+The repository now links the central current and historical standards register and the public bundle catalogue maintained in OKF Explorer. Version-specific source pins remain the basis for implementation and validation claims.

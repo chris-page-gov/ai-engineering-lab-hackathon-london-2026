@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — standards references
+
+- Link the central current and historical OKF standards register and public bundle catalogue.
+
+
 All notable changes to this repository are tracked here.
 
 This file follows the spirit of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/): dated entries, human-readable summaries, and clear categories for additions, changes, fixes, removals, security notes, and documentation updates.
